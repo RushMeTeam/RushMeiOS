@@ -1,0 +1,129 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MySQLThreadSafeConnection"
+provides-nominal:
+- "15SwiftKueryMySQL0C23SQLThreadSafeConnectionC"
+provides-member:
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "Bool"
+- "MySQLConnection"
+- "MySQLThreadSafeConnection"
+- "NSRecursiveLock"
+- "PreparedStatement"
+- "Query"
+- "QueryError"
+- "QueryResult"
+- "String"
+depends-member:
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "lock"]
+- !private ["s7CVarArgP", "unlock"]
+- ["10SwiftKuery10ConnectionP", "NSRecursiveLock"]
+- !private ["10SwiftKuery10ConnectionP", "closeConnection"]
+- !private ["10SwiftKuery10ConnectionP", "connect"]
+- !private ["10SwiftKuery10ConnectionP", "execute"]
+- !private ["10SwiftKuery10ConnectionP", "executeTransaction"]
+- !private ["10SwiftKuery10ConnectionP", "init"]
+- !private ["10SwiftKuery10ConnectionP", "lock"]
+- !private ["10SwiftKuery10ConnectionP", "prepareStatement"]
+- !private ["10SwiftKuery10ConnectionP", "release"]
+- !private ["10SwiftKuery10ConnectionP", "threadSafe"]
+- ["10SwiftKuery10ConnectionP", ""]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "lock"]
+- !private ["s28CustomDebugStringConvertibleP", "unlock"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "lock"]
+- !private ["s23CustomStringConvertibleP", "unlock"]
+- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "lock"]
+- !private ["s9EquatableP", "unlock"]
+- ["s8HashableP", "init"]
+- !private ["s8HashableP", "lock"]
+- !private ["s8HashableP", "unlock"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "Bool"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "NSRecursiveLock"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "PreparedStatement"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "Query"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "QueryError"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "QueryResult"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "String"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "closeConnection"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "connect"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "deinit"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "execute"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "executeTransaction"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "init"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "lock"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "prepareStatement"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "release"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "threadSafe"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", ""]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "Bool"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "NSRecursiveLock"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "PreparedStatement"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "Query"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "QueryError"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "QueryResult"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "String"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "closeConnection"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "connect"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "deinit"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "execute"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "executeTransaction"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "init"]
+- !private ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "lock"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "prepareStatement"]
+- ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "release"]
+- !private ["15SwiftKueryMySQL0C23SQLThreadSafeConnectionC", "threadSafe"]
+- ["So9NSLockingP", "init"]
+- !private ["So9NSLockingP", "lock"]
+- !private ["So9NSLockingP", "unlock"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "lock"]
+- !private ["So8NSObjectC", "unlock"]
+- ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "lock"]
+- !private ["So16NSObjectProtocolP", "unlock"]
+- ["So15NSRecursiveLockC", "init"]
+- !private ["So15NSRecursiveLockC", "lock"]
+- !private ["So15NSRecursiveLockC", "unlock"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "lock"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "unlock"]
+depends-nominal:
+- "s7CVarArgP"
+- "10SwiftKuery10ConnectionP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "s9EquatableP"
+- "s8HashableP"
+- "15SwiftKueryMySQL0C13SQLConnectionC"
+- "15SwiftKueryMySQL0C23SQLThreadSafeConnectionC"
+- "So9NSLockingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So15NSRecursiveLockC"
+- "10Foundation27_KeyValueCodingAndObservingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/.build/checkouts/CMySQL.git-3001417495195486492/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "a04d3dc0d7d322d598cfe3fb3e23cbe8"

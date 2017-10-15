@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:RushMe.xcodeproj">
+      location = "group:/Users/adamthk/Google Drive/RushMe/RushMe/SwiftKuery">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

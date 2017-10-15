@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		237BB6A859DC606A23B079E2 /* Pods_RushMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19E4EA013D03317439918E6 /* Pods_RushMeUITests.framework */; };
+		286F2F71281F2A12A30D5C44 /* Pods_RushMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8F6CBC97321D3548C3B87E1 /* Pods_RushMeTests.framework */; };
+		44916520D9190BB2916E4036 /* Pods_RushMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB67F99870E2A0FD0B014C9 /* Pods_RushMe.framework */; };
 		DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
 		DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
 		DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
@@ -15,6 +18,20 @@
 		DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */; };
 		DB05F7601F894A910090DEC3 /* RushMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75F1F894A910090DEC3 /* RushMeTests.swift */; };
 		DB05F76B1F894A910090DEC3 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
+		DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
+		DB05F77B1F89A6A40090DEC3 /* chiPhiImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */; };
+		DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */; };
+		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
+		DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
+		DB1956E51F8B024E00E2803F /* TopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E41F8B024E00E2803F /* TopMenuCell.swift */; };
+		DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FA3D91F8A8EB7006480BE /* FratCell.swift */; };
+		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
+		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
+		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
+		DBD140451F927EE900945D9B /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140441F927EE900945D9B /* RoundedImageView.swift */; };
+		DBD140521F92934700945D9B /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140511F92934700945D9B /* DatabaseConnection.swift */; };
+		DBF07A221F8AA576001645D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
+		DBF07A241F8AA638001645D5 /* Elipses.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF07A231F8AA638001645D5 /* Elipses.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +51,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DB61D21A1F92B6CE009872DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		442F46F770AA900EE58EA5FE /* Pods-RushMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMeUITests/Pods-RushMeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		721F41F070E0F29641A6CF3A /* Pods-RushMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RushMe/Pods-RushMe.debug.xcconfig"; sourceTree = "<group>"; };
+		AE492C82B689A19CE23F45C4 /* Pods-RushMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RushMeUITests/Pods-RushMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C8F6CBC97321D3548C3B87E1 /* Pods_RushMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RushMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA1545654F3424CBF44F0D6D /* Pods-RushMeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RushMeTests/Pods-RushMeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CBB67F99870E2A0FD0B014C9 /* Pods_RushMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RushMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D19E4EA013D03317439918E6 /* Pods_RushMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RushMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB05F7451F894A910090DEC3 /* RushMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RushMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB05F7481F894A910090DEC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB05F74A1F894A910090DEC3 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +86,25 @@
 		DB05F7661F894A910090DEC3 /* RushMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RushMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RushMeUITests.swift; sourceTree = "<group>"; };
 		DB05F76C1F894A910090DEC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB05F7781F894AFB0090DEC3 /* Fraternity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fraternity.swift; sourceTree = "<group>"; };
+		DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chiPhiImage.png; sourceTree = "<group>"; };
+		DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rushCalendar.jpg; sourceTree = "<group>"; };
+		DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
+		DB1956E41F8B024E00E2803F /* TopMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuCell.swift; sourceTree = "<group>"; };
+		DB2FA3D91F8A8EB7006480BE /* FratCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FratCell.swift; sourceTree = "<group>"; };
+		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
+		DB9E4E841F90302D002CA218 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		DBD140441F927EE900945D9B /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		DBD140511F92934700945D9B /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
+		DBF07A211F8AA576001645D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DBF07A231F8AA638001645D5 /* Elipses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elipses.png; sourceTree = "<group>"; };
+		E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMe/Pods-RushMe.release.xcconfig"; sourceTree = "<group>"; };
+		F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMeTests/Pods-RushMeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44916520D9190BB2916E4036 /* Pods_RushMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				286F2F71281F2A12A30D5C44 /* Pods_RushMeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +128,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237BB6A859DC606A23B079E2 /* Pods_RushMeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550BC174F7588FF9C2B7A61C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				721F41F070E0F29641A6CF3A /* Pods-RushMe.debug.xcconfig */,
+				E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */,
+				CA1545654F3424CBF44F0D6D /* Pods-RushMeTests.debug.xcconfig */,
+				F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */,
+				AE492C82B689A19CE23F45C4 /* Pods-RushMeUITests.debug.xcconfig */,
+				442F46F770AA900EE58EA5FE /* Pods-RushMeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B809A85A7E38A107FA1BA0C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBB67F99870E2A0FD0B014C9 /* Pods_RushMe.framework */,
+				C8F6CBC97321D3548C3B87E1 /* Pods_RushMeTests.framework */,
+				D19E4EA013D03317439918E6 /* Pods_RushMeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DB05F73C1F894A910090DEC3 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +165,8 @@
 				DB05F75E1F894A910090DEC3 /* RushMeTests */,
 				DB05F7691F894A910090DEC3 /* RushMeUITests */,
 				DB05F7461F894A910090DEC3 /* Products */,
+				550BC174F7588FF9C2B7A61C /* Pods */,
+				B809A85A7E38A107FA1BA0C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +184,24 @@
 			isa = PBXGroup;
 			children = (
 				DB05F7481F894A910090DEC3 /* AppDelegate.swift */,
-				DB05F74A1F894A910090DEC3 /* MasterViewController.swift */,
-				DB05F74C1F894A910090DEC3 /* DetailViewController.swift */,
+				DBF07A211F8AA576001645D5 /* Constants.swift */,
+				DBD140441F927EE900945D9B /* RoundedImageView.swift */,
+				DBD140491F92845100945D9B /* DrawerMenu */,
+				DBD140481F92842100945D9B /* Model */,
+				DBD140471F92840700945D9B /* TableViewCells */,
+				DBD140461F9283BD00945D9B /* AuxilliaryViewControllers */,
+				DBD1404B1F92848700945D9B /* MasterDetailVCs */,
+				DBD1404A1F92846E00945D9B /* SWRevealVC */,
+				DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */,
 				DB05F74E1F894A910090DEC3 /* Main.storyboard */,
-				DB05F7511F894A910090DEC3 /* Assets.xcassets */,
 				DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */,
+				DB9E4E841F90302D002CA218 /* appIcon.png */,
+				DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */,
+				DBF07A231F8AA638001645D5 /* Elipses.png */,
+				DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */,
+				DB05F7511F894A910090DEC3 /* Assets.xcassets */,
 				DB05F7561F894A910090DEC3 /* Info.plist */,
+				DBD140511F92934700945D9B /* DatabaseConnection.swift */,
 			);
 			path = RushMe;
 			sourceTree = "<group>";
@@ -128,6 +224,59 @@
 			path = RushMeUITests;
 			sourceTree = "<group>";
 		};
+		DBD140461F9283BD00945D9B /* AuxilliaryViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBD140401F90FCE800945D9B /* AboutViewController.swift */,
+				DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */,
+			);
+			path = AuxilliaryViewControllers;
+			sourceTree = "<group>";
+		};
+		DBD140471F92840700945D9B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DB1956E41F8B024E00E2803F /* TopMenuCell.swift */,
+				DB2FA3D91F8A8EB7006480BE /* FratCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		DBD140481F92842100945D9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */,
+				DB05F7781F894AFB0090DEC3 /* Fraternity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBD140491F92845100945D9B /* DrawerMenu */ = {
+			isa = PBXGroup;
+			children = (
+				DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */,
+			);
+			path = DrawerMenu;
+			sourceTree = "<group>";
+		};
+		DBD1404A1F92846E00945D9B /* SWRevealVC */ = {
+			isa = PBXGroup;
+			children = (
+				DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */,
+				DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */,
+			);
+			path = SWRevealVC;
+			sourceTree = "<group>";
+		};
+		DBD1404B1F92848700945D9B /* MasterDetailVCs */ = {
+			isa = PBXGroup;
+			children = (
+				DB05F74A1F894A910090DEC3 /* MasterViewController.swift */,
+				DB05F74C1F894A910090DEC3 /* DetailViewController.swift */,
+			);
+			path = MasterDetailVCs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +284,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB05F76F1F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMe" */;
 			buildPhases = (
+				ED53647CD5E32AA240329478 /* [CP] Check Pods Manifest.lock */,
 				DB05F7411F894A910090DEC3 /* Sources */,
 				DB05F7421F894A910090DEC3 /* Frameworks */,
 				DB05F7431F894A910090DEC3 /* Resources */,
+				DB61D21A1F92B6CE009872DC /* Embed Frameworks */,
+				3DCFBEC0E8DA7B976094F45D /* [CP] Embed Pods Frameworks */,
+				4B1C7CD6E00A062AB790EEBC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +305,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB05F7721F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMeTests" */;
 			buildPhases = (
+				7FC15B42A0F38B0126C3C54D /* [CP] Check Pods Manifest.lock */,
 				DB05F7571F894A910090DEC3 /* Sources */,
 				DB05F7581F894A910090DEC3 /* Frameworks */,
 				DB05F7591F894A910090DEC3 /* Resources */,
+				E603C5464F0F2D6679DB2867 /* [CP] Embed Pods Frameworks */,
+				28378D571E57B70C7543EF0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +326,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB05F7751F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMeUITests" */;
 			buildPhases = (
+				DCFACC079306A5EDC64A0425 /* [CP] Check Pods Manifest.lock */,
 				DB05F7621F894A910090DEC3 /* Sources */,
 				DB05F7631F894A910090DEC3 /* Frameworks */,
 				DB05F7641F894A910090DEC3 /* Resources */,
+				650E13B5102963C6C62D2D07 /* [CP] Embed Pods Frameworks */,
+				DC92ADC1283088284FEAF0BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,21 +349,25 @@
 		DB05F73D1F894A910090DEC3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "4 1/2 Frat Boys";
 				TargetAttributes = {
 					DB05F7441F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7KE765B32L;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					DB05F75A1F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DB05F7441F894A910090DEC3;
 					};
 					DB05F7651F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DB05F7441F894A910090DEC3;
 					};
@@ -236,7 +399,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */,
+				DBF07A241F8AA638001645D5 /* Elipses.png in Resources */,
+				DB05F77B1F89A6A40090DEC3 /* chiPhiImage.png in Resources */,
 				DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */,
+				DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */,
 				DB05F7501F894A910090DEC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,14 +423,163 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28378D571E57B70C7543EF0B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMeTests/Pods-RushMeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DCFBEC0E8DA7B976094F45D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMe/Pods-RushMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B1C7CD6E00A062AB790EEBC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMe/Pods-RushMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		650E13B5102963C6C62D2D07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMeUITests/Pods-RushMeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FC15B42A0F38B0126C3C54D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DC92ADC1283088284FEAF0BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMeUITests/Pods-RushMeUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCFACC079306A5EDC64A0425 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E603C5464F0F2D6679DB2867 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMeTests/Pods-RushMeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED53647CD5E32AA240329478 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DB05F7411F894A910090DEC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */,
 				DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */,
+				DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */,
 				DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */,
+				DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
+				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
+				DBD140521F92934700945D9B /* DatabaseConnection.swift in Sources */,
+				DB1956E51F8B024E00E2803F /* TopMenuCell.swift in Sources */,
+				DBF07A221F8AA576001645D5 /* Constants.swift in Sources */,
+				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
+				DBD140451F927EE900945D9B /* RoundedImageView.swift in Sources */,
+				DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */,
+				DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +644,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -337,7 +654,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -380,7 +701,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -388,7 +711,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -416,30 +743,44 @@
 		};
 		DB05F7701F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 721F41F070E0F29641A6CF3A /* Pods-RushMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "RushMe/RushMe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		DB05F7711F894A910090DEC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "RushMe/RushMe-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		DB05F7731F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA1545654F3424CBF44F0D6D /* Pods-RushMeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -447,13 +788,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RushMe.app/RushMe";
 			};
 			name = Debug;
 		};
 		DB05F7741F894A910090DEC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -461,33 +804,38 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RushMe.app/RushMe";
 			};
 			name = Release;
 		};
 		DB05F7761F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE492C82B689A19CE23F45C4 /* Pods-RushMeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = RushMe;
 			};
 			name = Debug;
 		};
 		DB05F7771F894A910090DEC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 442F46F770AA900EE58EA5FE /* Pods-RushMeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = RushMe;
 			};
 			name = Release;
@@ -511,6 +859,7 @@
 				DB05F7711F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB05F7721F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMeTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +868,7 @@
 				DB05F7741F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB05F7751F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +877,7 @@
 				DB05F7771F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,474 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MySQLConnection"
+provides-nominal:
+- "15SwiftKueryMySQL0C13SQLConnectionC"
+provides-member:
+- ["15SwiftKueryMySQL0C13SQLConnectionC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "!="
+- !private "&&"
+- !private "+"
+- !private "=="
+- !private "??"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "CR_ALREADY_CONNECTED"
+- "CastingPrecedence"
+- "Connection"
+- "ConnectionPool"
+- "ConnectionPoolOptions"
+- !private "DateFormatter"
+- "Dictionary"
+- "Int"
+- !private "Int8"
+- "MYSQL"
+- !private "MYSQL_OPT_RECONNECT"
+- "MYSQL_STMT"
+- "MySQLConnection"
+- "MySQLPreparedStatement"
+- "PreparedStatement"
+- "Query"
+- "QueryBuilder"
+- "QueryError"
+- "QueryResult"
+- "String"
+- "StringLiteralType"
+- "TernaryPrecedence"
+- "UInt"
+- "UInt32"
+- "URL"
+- "UnicodeScalarType"
+- "UnsafeMutablePointer"
+- !private "mysql_character_set_name"
+- !private "mysql_close"
+- !private "mysql_errno"
+- !private "mysql_error"
+- !private "mysql_init"
+- !private "mysql_options"
+- !private "mysql_ping"
+- !private "mysql_query"
+- !private "mysql_real_connect"
+- "mysql_server_init"
+- !private "mysql_set_character_set"
+- !private "mysql_stmt_errno"
+- !private "mysql_stmt_error"
+- !private "mysql_thread_end"
+- !private "print"
+- !private "withUnsafePointer"
+- !private "||"
+depends-member:
+- ["s23BidirectionalCollectionP", "init"]
+- !private ["s13BinaryIntegerP", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["10SwiftKuery9BuildableP", "build"]
+- ["10SwiftKuery9BuildableP", "init"]
+- !private ["s7CVarArgP", "dateFormat"]
+- ["s7CVarArgP", "init"]
+- ["s10CollectionP", "init"]
+- ["s10ComparableP", "init"]
+- !private ["10SwiftKuery10ConnectionP", "CR_ALREADY_CONNECTED"]
+- !private ["10SwiftKuery10ConnectionP", "ConnectionPool"]
+- !private ["10SwiftKuery10ConnectionP", "DateFormatter"]
+- !private ["10SwiftKuery10ConnectionP", "MYSQL_OPT_RECONNECT"]
+- ["10SwiftKuery10ConnectionP", "MySQLConnection"]
+- !private ["10SwiftKuery10ConnectionP", "MySQLPreparedStatement"]
+- ["10SwiftKuery10ConnectionP", "QueryBuilder"]
+- !private ["10SwiftKuery10ConnectionP", "QueryError"]
+- !private ["10SwiftKuery10ConnectionP", "String"]
+- !private ["10SwiftKuery10ConnectionP", "UInt32"]
+- !private ["10SwiftKuery10ConnectionP", "characterSet"]
+- !private ["10SwiftKuery10ConnectionP", "clientFlag"]
+- ["10SwiftKuery10ConnectionP", "closeConnection"]
+- ["10SwiftKuery10ConnectionP", "commit"]
+- ["10SwiftKuery10ConnectionP", "connect"]
+- ["10SwiftKuery10ConnectionP", "create"]
+- !private ["10SwiftKuery10ConnectionP", "createPool"]
+- !private ["10SwiftKuery10ConnectionP", "database"]
+- ["10SwiftKuery10ConnectionP", "descriptionOf"]
+- ["10SwiftKuery10ConnectionP", "execute"]
+- !private ["10SwiftKuery10ConnectionP", "executeTransaction"]
+- ["10SwiftKuery10ConnectionP", "getDateFormatter"]
+- !private ["10SwiftKuery10ConnectionP", "getError"]
+- !private ["10SwiftKuery10ConnectionP", "host"]
+- !private ["10SwiftKuery10ConnectionP", "inTransaction"]
+- !private ["10SwiftKuery10ConnectionP", "init"]
+- !private ["10SwiftKuery10ConnectionP", "initOnce"]
+- ["10SwiftKuery10ConnectionP", "isConnected"]
+- !private ["10SwiftKuery10ConnectionP", "mysql"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_character_set_name"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_close"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_errno"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_error"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_init"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_options"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_ping"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_query"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_real_connect"]
+- ["10SwiftKuery10ConnectionP", "mysql_server_init"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_set_character_set"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_stmt_errno"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_stmt_error"]
+- !private ["10SwiftKuery10ConnectionP", "mysql_thread_end"]
+- !private ["10SwiftKuery10ConnectionP", "password"]
+- !private ["10SwiftKuery10ConnectionP", "port"]
+- ["10SwiftKuery10ConnectionP", "prepareStatement"]
+- !private ["10SwiftKuery10ConnectionP", "print"]
+- ["10SwiftKuery10ConnectionP", "queryBuilder"]
+- ["10SwiftKuery10ConnectionP", "queryBuilderDateFormatter"]
+- !private ["10SwiftKuery10ConnectionP", "reconnect"]
+- ["10SwiftKuery10ConnectionP", "release"]
+- ["10SwiftKuery10ConnectionP", "rollback"]
+- ["10SwiftKuery10ConnectionP", "startTransaction"]
+- !private ["10SwiftKuery10ConnectionP", "unixSocket"]
+- !private ["10SwiftKuery10ConnectionP", "user"]
+- !private ["10SwiftKuery10ConnectionP", "withUnsafePointer"]
+- ["10SwiftKuery10ConnectionP", ""]
+- !private ["10SwiftKuery14ConnectionPoolC", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "dateFormat"]
+- !private ["s28CustomDebugStringConvertibleP", "host"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "lastPathComponent"]
+- !private ["s28CustomDebugStringConvertibleP", "password"]
+- !private ["s28CustomDebugStringConvertibleP", "port"]
+- !private ["s28CustomDebugStringConvertibleP", "user"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "host"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "lastPathComponent"]
+- !private ["s29CustomPlaygroundQuickLookableP", "password"]
+- !private ["s29CustomPlaygroundQuickLookableP", "port"]
+- !private ["s29CustomPlaygroundQuickLookableP", "user"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "connection"]
+- !private ["s23CustomStringConvertibleP", "databaseError"]
+- !private ["s23CustomStringConvertibleP", "dateFormat"]
+- !private ["s23CustomStringConvertibleP", "host"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "lastPathComponent"]
+- !private ["s23CustomStringConvertibleP", "password"]
+- !private ["s23CustomStringConvertibleP", "port"]
+- !private ["s23CustomStringConvertibleP", "transactionError"]
+- !private ["s23CustomStringConvertibleP", "unsupported"]
+- !private ["s23CustomStringConvertibleP", "user"]
+- !private ["So13DateFormatterC", "dateFormat"]
+- !private ["So13DateFormatterC", "init"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "host"]
+- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "lastPathComponent"]
+- !private ["s9DecodableP", "password"]
+- !private ["s9DecodableP", "port"]
+- !private ["s9DecodableP", "user"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "host"]
+- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "lastPathComponent"]
+- !private ["s9EncodableP", "password"]
+- !private ["s9EncodableP", "port"]
+- !private ["s9EncodableP", "user"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "dateFormat"]
+- ["s9EquatableP", "float"]
+- !private ["s9EquatableP", "host"]
+- ["s9EquatableP", "identifierQuoteCharacter"]
+- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "lastPathComponent"]
+- ["s9EquatableP", "len"]
+- ["s9EquatableP", "namedParameter"]
+- !private ["s9EquatableP", "password"]
+- !private ["s9EquatableP", "port"]
+- !private ["s9EquatableP", "user"]
+- !private ["s5ErrorP", "connection"]
+- !private ["s5ErrorP", "databaseError"]
+- !private ["s5ErrorP", "transactionError"]
+- !private ["s5ErrorP", "unsupported"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s17FixedWidthIntegerP", "init"]
+- !private ["So9FormatterC", "dateFormat"]
+- !private ["So9FormatterC", "init"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "dateFormat"]
+- ["s8HashableP", "float"]
+- !private ["s8HashableP", "host"]
+- ["s8HashableP", "identifierQuoteCharacter"]
+- ["s8HashableP", "init"]
+- !private ["s8HashableP", "lastPathComponent"]
+- ["s8HashableP", "len"]
+- ["s8HashableP", "namedParameter"]
+- !private ["s8HashableP", "password"]
+- !private ["s8HashableP", "port"]
+- !private ["s8HashableP", "user"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "Bool"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "CR_ALREADY_CONNECTED"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "Connection"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "ConnectionPool"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "ConnectionPoolOptions"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "DateFormatter"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "Int"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "Int8"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "MYSQL"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "MYSQL_OPT_RECONNECT"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "MYSQL_STMT"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "MySQLConnection"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "MySQLPreparedStatement"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "PreparedStatement"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "Query"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "QueryBuilder"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "QueryError"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "QueryResult"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "String"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "UInt"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "UInt32"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "URL"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "UnsafeMutablePointer"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "characterSet"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "clientFlag"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "closeConnection"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "commit"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "connect"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "create"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "createPool"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "database"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "dateFormatter"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "dateTimeFormatter"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "deinit"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "descriptionOf"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "execute"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "executeTransaction"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "getDateFormatter"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "getError"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "host"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "inTransaction"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "init"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "initOnce"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "isConnected"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_character_set_name"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_close"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_errno"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_error"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_init"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_options"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_ping"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_query"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_real_connect"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_server_init"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_set_character_set"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_stmt_errno"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_stmt_error"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "mysql_thread_end"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "password"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "port"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "prepareStatement"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "print"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "queryBuilder"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "queryBuilderDateFormatter"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "reconnect"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "release"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "rollback"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "startTransaction"]
+- ["15SwiftKueryMySQL0C13SQLConnectionC", "timeFormatter"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "unixSocket"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "user"]
+- !private ["15SwiftKueryMySQL0C13SQLConnectionC", "withUnsafePointer"]
+- !private ["15SwiftKueryMySQL0C20SQLPreparedStatementC", "execute"]
+- ["15SwiftKueryMySQL0C20SQLPreparedStatementC", "init"]
+- !private ["15SwiftKueryMySQL0C20SQLPreparedStatementC", "release"]
+- !private ["So8NSCodingP", "dateFormat"]
+- ["So8NSCodingP", "init"]
+- !private ["So9NSCopyingP", "dateFormat"]
+- ["So9NSCopyingP", "init"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderWritingP", "init"]
+- ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSObjectC", "dateFormat"]
+- !private ["So8NSObjectC", "init"]
+- !private ["So16NSObjectProtocolP", "dateFormat"]
+- ["So16NSObjectProtocolP", "init"]
+- ["So14NSSecureCodingP", "init"]
+- ["So8NSStringC", "init"]
+- !private ["s7NumericP", "init"]
+- !private ["10SwiftKuery5QueryP", "build"]
+- !private ["10SwiftKuery12QueryBuilderC", "QuerySubstitutionNames"]
+- ["10SwiftKuery12QueryBuilderC", "init"]
+- ["10SwiftKuery12QueryBuilderC", "updateSubstitutions"]
+- !private ["10SwiftKuery10QueryErrorO", "connection"]
+- !private ["10SwiftKuery10QueryErrorO", "databaseError"]
+- !private ["10SwiftKuery10QueryErrorO", "transactionError"]
+- !private ["10SwiftKuery10QueryErrorO", "unsupported"]
+- ["10SwiftKuery19QueryFilterProtocolP", "init"]
+- ["10SwiftKuery19QueryHavingProtocolP", "init"]
+- !private ["10SwiftKuery11QueryResultO", "error"]
+- !private ["10SwiftKuery11QueryResultO", "successNoData"]
+- ["10SwiftKuery12QueryBuilderC0C17SubstitutionNamesO", "float"]
+- ["10SwiftKuery12QueryBuilderC0C17SubstitutionNamesO", "identifierQuoteCharacter"]
+- ["10SwiftKuery12QueryBuilderC0C17SubstitutionNamesO", "len"]
+- ["10SwiftKuery12QueryBuilderC0C17SubstitutionNamesO", "namedParameter"]
+- ["10SwiftKuery19QuerySuffixProtocolP", "init"]
+- ["s26RangeReplaceableCollectionP", "init"]
+- ["s16RawRepresentableP", "float"]
+- ["s16RawRepresentableP", "identifierQuoteCharacter"]
+- ["s16RawRepresentableP", "len"]
+- ["s16RawRepresentableP", "namedParameter"]
+- !private ["10Foundation20ReferenceConvertibleP", "host"]
+- !private ["10Foundation20ReferenceConvertibleP", "lastPathComponent"]
+- !private ["10Foundation20ReferenceConvertibleP", "password"]
+- !private ["10Foundation20ReferenceConvertibleP", "port"]
+- !private ["10Foundation20ReferenceConvertibleP", "user"]
+- !private ["10SwiftKuery11SQLDataTypeP", "_getBuiltinLogicValue"]
+- ["10SwiftKuery11SQLDataTypeP", "init"]
+- ["s8SequenceP", "init"]
+- !private ["s10StrideableP", "init"]
+- ["SS", "init"]
+- ["s14StringProtocolP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- !private ["s6UInt32V", "init"]
+- !private ["10Foundation3URLV", "host"]
+- !private ["10Foundation3URLV", "lastPathComponent"]
+- !private ["10Foundation3URLV", "password"]
+- !private ["10Foundation3URLV", "port"]
+- !private ["10Foundation3URLV", "user"]
+- !private ["s15UnsignedIntegerP", "init"]
+- ["s23_BidirectionalIndexableP", "init"]
+- !private ["s18_BitwiseOperationsP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "host"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "lastPathComponent"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "password"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "port"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "user"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s10_IndexableP", "init"]
+- ["s14_IndexableBaseP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dateFormat"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "host"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "lastPathComponent"]
+- !private ["s21_ObjectiveCBridgeableP", "password"]
+- !private ["s21_ObjectiveCBridgeableP", "port"]
+- !private ["s21_ObjectiveCBridgeableP", "user"]
+- ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s11_StrideableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "s23BidirectionalCollectionP"
+- !private "s13BinaryIntegerP"
+- !private "Sb"
+- "10SwiftKuery9BuildableP"
+- "s7CVarArgP"
+- "s10CollectionP"
+- "s10ComparableP"
+- "10SwiftKuery10ConnectionP"
+- !private "10SwiftKuery14ConnectionPoolC"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "So13DateFormatterC"
+- "s9DecodableP"
+- "s9EncodableP"
+- "s9EquatableP"
+- !private "s5ErrorP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
+- !private "So9FormatterC"
+- "s8HashableP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "15SwiftKueryMySQL0C13SQLConnectionC"
+- "15SwiftKueryMySQL0C20SQLPreparedStatementC"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So14NSSecureCodingP"
+- "So8NSStringC"
+- !private "s7NumericP"
+- !private "10SwiftKuery5QueryP"
+- "10SwiftKuery12QueryBuilderC"
+- !private "10SwiftKuery10QueryErrorO"
+- "10SwiftKuery19QueryFilterProtocolP"
+- "10SwiftKuery19QueryHavingProtocolP"
+- !private "10SwiftKuery11QueryResultO"
+- "10SwiftKuery12QueryBuilderC0C17SubstitutionNamesO"
+- "10SwiftKuery19QuerySuffixProtocolP"
+- "s26RangeReplaceableCollectionP"
+- "s16RawRepresentableP"
+- !private "10Foundation20ReferenceConvertibleP"
+- "10SwiftKuery11SQLDataTypeP"
+- "s8SequenceP"
+- !private "s10StrideableP"
+- "SS"
+- "s14StringProtocolP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- !private "s6UInt32V"
+- !private "10Foundation3URLV"
+- !private "s15UnsignedIntegerP"
+- "s23_BidirectionalIndexableP"
+- !private "s18_BitwiseOperationsP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s34_ExpressibleByFileReferenceLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s26_RangeReplaceableIndexableP"
+- !private "s11_StrideableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/.build/checkouts/CMySQL.git-3001417495195486492/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "0d6ebf2b1d428948330533a3daeb0d02"

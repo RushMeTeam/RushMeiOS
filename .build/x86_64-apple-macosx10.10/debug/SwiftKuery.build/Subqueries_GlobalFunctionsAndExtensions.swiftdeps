@@ -1,0 +1,562 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+provides-nominal:
+provides-member:
+- ["10SwiftKuery22ScalarColumnExpressionV", ""]
+- ["SS", ""]
+- ["10SwiftKuery6ColumnC", ""]
+- ["Si", ""]
+- ["Sf", ""]
+- ["Sd", ""]
+- ["10SwiftKuery9ParameterV", ""]
+- ["Sb", ""]
+- ["10Foundation4DateV", ""]
+- ["10SwiftKuery25AggregateColumnExpressionV", ""]
+- ["10SwiftKuery22ScalarColumnExpressionV", "in"]
+- ["10SwiftKuery22ScalarColumnExpressionV", "notIn"]
+- ["SS", "in"]
+- ["SS", "notIn"]
+- ["10SwiftKuery6ColumnC", "in"]
+- ["10SwiftKuery6ColumnC", "notIn"]
+- ["Si", "in"]
+- ["Si", "notIn"]
+- ["Sf", "in"]
+- ["Sf", "notIn"]
+- ["Sd", "in"]
+- ["Sd", "notIn"]
+- ["10SwiftKuery9ParameterV", "in"]
+- ["10SwiftKuery9ParameterV", "notIn"]
+- ["Sb", "in"]
+- ["Sb", "notIn"]
+- ["10Foundation4DateV", "in"]
+- ["10Foundation4DateV", "notIn"]
+- ["10SwiftKuery25AggregateColumnExpressionV", "in"]
+- ["10SwiftKuery25AggregateColumnExpressionV", "notIn"]
+- ["SS", "in"]
+- ["SS", "notIn"]
+- ["10SwiftKuery6ColumnC", "in"]
+- ["10SwiftKuery6ColumnC", "notIn"]
+- ["Si", "in"]
+- ["Si", "notIn"]
+- ["Sf", "in"]
+- ["Sf", "notIn"]
+- ["Sd", "in"]
+- ["Sd", "notIn"]
+- ["10SwiftKuery9ParameterV", "in"]
+- ["10SwiftKuery9ParameterV", "notIn"]
+- ["Sb", "in"]
+- ["Sb", "notIn"]
+- ["10Foundation4DateV", "in"]
+- ["10Foundation4DateV", "notIn"]
+provides-dynamic-lookup:
+depends-top-level:
+- "!="
+- "<"
+- "<="
+- "=="
+- ">"
+- ">="
+- "AggregateColumnExpression"
+- "Bool"
+- "Column"
+- "Date"
+- "Double"
+- "Filter"
+- "Float"
+- "Having"
+- "Int"
+- "Parameter"
+- "Predicate"
+- "ScalarColumnExpression"
+- "Select"
+- "String"
+depends-member:
+- ["10SwiftKuery25AggregateColumnExpressionV", "Having"]
+- ["10SwiftKuery25AggregateColumnExpressionV", "Select"]
+- ["10SwiftKuery25AggregateColumnExpressionV", "deinit"]
+- ["10SwiftKuery25AggregateColumnExpressionV", "in"]
+- ["10SwiftKuery25AggregateColumnExpressionV", "notIn"]
+- !private ["s23BidirectionalCollectionP", "Filter"]
+- !private ["s23BidirectionalCollectionP", "Having"]
+- !private ["s19BinaryFloatingPointP", "Filter"]
+- !private ["s19BinaryFloatingPointP", "Having"]
+- !private ["s13BinaryIntegerP", "Filter"]
+- !private ["s13BinaryIntegerP", "Having"]
+- ["Sb", "Filter"]
+- ["Sb", "Having"]
+- ["Sb", "Select"]
+- ["Sb", "in"]
+- ["Sb", "notIn"]
+- !private ["10SwiftKuery9BuildableP", "Filter"]
+- !private ["10SwiftKuery9BuildableP", "Having"]
+- !private ["10SwiftKuery9BuildableP", "bool"]
+- !private ["10SwiftKuery9BuildableP", "column"]
+- !private ["10SwiftKuery9BuildableP", "columnExpression"]
+- !private ["10SwiftKuery9BuildableP", "date"]
+- !private ["10SwiftKuery9BuildableP", "double"]
+- !private ["10SwiftKuery9BuildableP", "equal"]
+- !private ["10SwiftKuery9BuildableP", "float"]
+- !private ["10SwiftKuery9BuildableP", "greaterThan"]
+- !private ["10SwiftKuery9BuildableP", "greaterThanOrEqual"]
+- !private ["10SwiftKuery9BuildableP", "in"]
+- !private ["10SwiftKuery9BuildableP", "init"]
+- !private ["10SwiftKuery9BuildableP", "int"]
+- !private ["10SwiftKuery9BuildableP", "lessThan"]
+- !private ["10SwiftKuery9BuildableP", "lessThanOrEqual"]
+- !private ["10SwiftKuery9BuildableP", "notEqual"]
+- !private ["10SwiftKuery9BuildableP", "notIn"]
+- !private ["10SwiftKuery9BuildableP", "parameter"]
+- !private ["10SwiftKuery9BuildableP", "select"]
+- !private ["10SwiftKuery9BuildableP", "string"]
+- !private ["s7CVarArgP", "Filter"]
+- !private ["s7CVarArgP", "Having"]
+- !private ["s10CollectionP", "Filter"]
+- !private ["s10CollectionP", "Having"]
+- ["10SwiftKuery6ColumnC", "Filter"]
+- ["10SwiftKuery6ColumnC", "Having"]
+- ["10SwiftKuery6ColumnC", "Select"]
+- ["10SwiftKuery6ColumnC", "in"]
+- ["10SwiftKuery6ColumnC", "notIn"]
+- !private ["s10ComparableP", "Filter"]
+- !private ["s10ComparableP", "Having"]
+- !private ["10SwiftKuery9ConditionO", "equal"]
+- !private ["10SwiftKuery9ConditionO", "greaterThan"]
+- !private ["10SwiftKuery9ConditionO", "greaterThanOrEqual"]
+- !private ["10SwiftKuery9ConditionO", "in"]
+- !private ["10SwiftKuery9ConditionO", "lessThan"]
+- !private ["10SwiftKuery9ConditionO", "lessThanOrEqual"]
+- !private ["10SwiftKuery9ConditionO", "notEqual"]
+- !private ["10SwiftKuery9ConditionO", "notIn"]
+- !private ["10SwiftKuery17ConditionalClauseP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Filter"]
+- !private ["s28CustomDebugStringConvertibleP", "Having"]
+- !private ["s28CustomDebugStringConvertibleP", "bool"]
+- !private ["s28CustomDebugStringConvertibleP", "column"]
+- !private ["s28CustomDebugStringConvertibleP", "columnExpression"]
+- !private ["s28CustomDebugStringConvertibleP", "date"]
+- !private ["s28CustomDebugStringConvertibleP", "double"]
+- !private ["s28CustomDebugStringConvertibleP", "float"]
+- !private ["s28CustomDebugStringConvertibleP", "int"]
+- !private ["s28CustomDebugStringConvertibleP", "parameter"]
+- !private ["s28CustomDebugStringConvertibleP", "select"]
+- !private ["s28CustomDebugStringConvertibleP", "string"]
+- !private ["s29CustomPlaygroundQuickLookableP", "Filter"]
+- !private ["s29CustomPlaygroundQuickLookableP", "Having"]
+- !private ["s17CustomReflectableP", "Filter"]
+- !private ["s17CustomReflectableP", "Having"]
+- !private ["s17CustomReflectableP", "bool"]
+- !private ["s17CustomReflectableP", "column"]
+- !private ["s17CustomReflectableP", "columnExpression"]
+- !private ["s17CustomReflectableP", "date"]
+- !private ["s17CustomReflectableP", "double"]
+- !private ["s17CustomReflectableP", "float"]
+- !private ["s17CustomReflectableP", "int"]
+- !private ["s17CustomReflectableP", "parameter"]
+- !private ["s17CustomReflectableP", "select"]
+- !private ["s17CustomReflectableP", "string"]
+- !private ["s23CustomStringConvertibleP", "Filter"]
+- !private ["s23CustomStringConvertibleP", "Having"]
+- ["10Foundation4DateV", "Filter"]
+- ["10Foundation4DateV", "Having"]
+- ["10Foundation4DateV", "Select"]
+- ["10Foundation4DateV", "in"]
+- ["10Foundation4DateV", "notIn"]
+- !private ["s9DecodableP", "Filter"]
+- !private ["s9DecodableP", "Having"]
+- !private ["s9DecodableP", "bool"]
+- !private ["s9DecodableP", "column"]
+- !private ["s9DecodableP", "columnExpression"]
+- !private ["s9DecodableP", "date"]
+- !private ["s9DecodableP", "double"]
+- !private ["s9DecodableP", "float"]
+- !private ["s9DecodableP", "int"]
+- !private ["s9DecodableP", "parameter"]
+- !private ["s9DecodableP", "select"]
+- !private ["s9DecodableP", "string"]
+- ["Sd", "Filter"]
+- ["Sd", "Having"]
+- ["Sd", "Select"]
+- ["Sd", "in"]
+- ["Sd", "notIn"]
+- !private ["s9EncodableP", "Filter"]
+- !private ["s9EncodableP", "Having"]
+- !private ["s9EncodableP", "bool"]
+- !private ["s9EncodableP", "column"]
+- !private ["s9EncodableP", "columnExpression"]
+- !private ["s9EncodableP", "date"]
+- !private ["s9EncodableP", "double"]
+- !private ["s9EncodableP", "float"]
+- !private ["s9EncodableP", "int"]
+- !private ["s9EncodableP", "parameter"]
+- !private ["s9EncodableP", "select"]
+- !private ["s9EncodableP", "string"]
+- !private ["s9EquatableP", "Filter"]
+- !private ["s9EquatableP", "Having"]
+- !private ["s9EquatableP", "equal"]
+- !private ["s9EquatableP", "greaterThan"]
+- !private ["s9EquatableP", "greaterThanOrEqual"]
+- !private ["s9EquatableP", "in"]
+- !private ["s9EquatableP", "lessThan"]
+- !private ["s9EquatableP", "lessThanOrEqual"]
+- !private ["s9EquatableP", "notEqual"]
+- !private ["s9EquatableP", "notIn"]
+- !private ["s27ExpressibleByBooleanLiteralP", "Filter"]
+- !private ["s27ExpressibleByBooleanLiteralP", "Having"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "Filter"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "Having"]
+- !private ["s25ExpressibleByFloatLiteralP", "Filter"]
+- !private ["s25ExpressibleByFloatLiteralP", "Having"]
+- !private ["s27ExpressibleByIntegerLiteralP", "Filter"]
+- !private ["s27ExpressibleByIntegerLiteralP", "Having"]
+- !private ["s23ExpressibleByNilLiteralP", "bool"]
+- !private ["s23ExpressibleByNilLiteralP", "column"]
+- !private ["s23ExpressibleByNilLiteralP", "columnExpression"]
+- !private ["s23ExpressibleByNilLiteralP", "date"]
+- !private ["s23ExpressibleByNilLiteralP", "double"]
+- !private ["s23ExpressibleByNilLiteralP", "float"]
+- !private ["s23ExpressibleByNilLiteralP", "int"]
+- !private ["s23ExpressibleByNilLiteralP", "parameter"]
+- !private ["s23ExpressibleByNilLiteralP", "select"]
+- !private ["s23ExpressibleByNilLiteralP", "string"]
+- !private ["s26ExpressibleByStringLiteralP", "Filter"]
+- !private ["s26ExpressibleByStringLiteralP", "Having"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "Filter"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "Having"]
+- !private ["10SwiftKuery5FieldP", "Filter"]
+- !private ["10SwiftKuery5FieldP", "Having"]
+- ["10SwiftKuery6FilterV", "deinit"]
+- !private ["10SwiftKuery6FilterV", "init"]
+- !private ["s17FixedWidthIntegerP", "Filter"]
+- !private ["s17FixedWidthIntegerP", "Having"]
+- ["Sf", "Filter"]
+- ["Sf", "Having"]
+- ["Sf", "Select"]
+- ["Sf", "in"]
+- ["Sf", "notIn"]
+- !private ["s13FloatingPointP", "Filter"]
+- !private ["s13FloatingPointP", "Having"]
+- !private ["s8HashableP", "Filter"]
+- !private ["s8HashableP", "Having"]
+- !private ["s8HashableP", "equal"]
+- !private ["s8HashableP", "greaterThan"]
+- !private ["s8HashableP", "greaterThanOrEqual"]
+- !private ["s8HashableP", "in"]
+- !private ["s8HashableP", "lessThan"]
+- !private ["s8HashableP", "lessThanOrEqual"]
+- !private ["s8HashableP", "notEqual"]
+- !private ["s8HashableP", "notIn"]
+- ["10SwiftKuery6HavingV", "deinit"]
+- !private ["10SwiftKuery6HavingV", "init"]
+- !private ["10SwiftKuery11IndexColumnP", "Filter"]
+- !private ["10SwiftKuery11IndexColumnP", "Having"]
+- ["Si", "Filter"]
+- ["Si", "Having"]
+- ["Si", "Select"]
+- ["Si", "in"]
+- ["Si", "notIn"]
+- !private ["s25LosslessStringConvertibleP", "Filter"]
+- !private ["s25LosslessStringConvertibleP", "Having"]
+- !private ["s10MirrorPathP", "Filter"]
+- !private ["s10MirrorPathP", "Having"]
+- !private ["s7NumericP", "Filter"]
+- !private ["s7NumericP", "Having"]
+- !private ["Sq", "bool"]
+- !private ["Sq", "column"]
+- !private ["Sq", "columnExpression"]
+- !private ["Sq", "date"]
+- !private ["Sq", "double"]
+- !private ["Sq", "float"]
+- !private ["Sq", "int"]
+- !private ["Sq", "parameter"]
+- !private ["Sq", "select"]
+- !private ["Sq", "string"]
+- ["10SwiftKuery9ParameterV", "Filter"]
+- ["10SwiftKuery9ParameterV", "Having"]
+- ["10SwiftKuery9ParameterV", "Select"]
+- ["10SwiftKuery9ParameterV", "in"]
+- ["10SwiftKuery9ParameterV", "notIn"]
+- !private ["10SwiftKuery9PredicateO", "bool"]
+- !private ["10SwiftKuery9PredicateO", "column"]
+- !private ["10SwiftKuery9PredicateO", "columnExpression"]
+- !private ["10SwiftKuery9PredicateO", "date"]
+- !private ["10SwiftKuery9PredicateO", "double"]
+- !private ["10SwiftKuery9PredicateO", "float"]
+- !private ["10SwiftKuery9PredicateO", "int"]
+- !private ["10SwiftKuery9PredicateO", "parameter"]
+- !private ["10SwiftKuery9PredicateO", "select"]
+- !private ["10SwiftKuery9PredicateO", "string"]
+- !private ["10SwiftKuery19QueryFilterProtocolP", "Filter"]
+- !private ["10SwiftKuery19QueryFilterProtocolP", "Having"]
+- !private ["10SwiftKuery19QueryFilterProtocolP", "init"]
+- !private ["10SwiftKuery19QueryHavingProtocolP", "Filter"]
+- !private ["10SwiftKuery19QueryHavingProtocolP", "Having"]
+- !private ["10SwiftKuery19QueryHavingProtocolP", "init"]
+- !private ["10SwiftKuery19QuerySuffixProtocolP", "Filter"]
+- !private ["10SwiftKuery19QuerySuffixProtocolP", "Having"]
+- !private ["s26RangeReplaceableCollectionP", "Filter"]
+- !private ["s26RangeReplaceableCollectionP", "Having"]
+- !private ["10Foundation20ReferenceConvertibleP", "Filter"]
+- !private ["10Foundation20ReferenceConvertibleP", "Having"]
+- !private ["10SwiftKuery11SQLDataTypeP", "Filter"]
+- !private ["10SwiftKuery11SQLDataTypeP", "Having"]
+- ["10SwiftKuery22ScalarColumnExpressionV", "Filter"]
+- ["10SwiftKuery22ScalarColumnExpressionV", "Select"]
+- ["10SwiftKuery22ScalarColumnExpressionV", "deinit"]
+- ["10SwiftKuery22ScalarColumnExpressionV", "in"]
+- ["10SwiftKuery22ScalarColumnExpressionV", "notIn"]
+- !private ["s8SequenceP", "Filter"]
+- !private ["s8SequenceP", "Having"]
+- !private ["s13SignedIntegerP", "Filter"]
+- !private ["s13SignedIntegerP", "Having"]
+- !private ["s13SignedNumericP", "Filter"]
+- !private ["s13SignedNumericP", "Having"]
+- !private ["s10StrideableP", "Filter"]
+- !private ["s10StrideableP", "Having"]
+- ["SS", "Filter"]
+- ["SS", "Having"]
+- ["SS", "Select"]
+- ["SS", "in"]
+- ["SS", "notIn"]
+- !private ["s14StringProtocolP", "Filter"]
+- !private ["s14StringProtocolP", "Having"]
+- !private ["s16TextOutputStreamP", "Filter"]
+- !private ["s16TextOutputStreamP", "Having"]
+- !private ["s20TextOutputStreamableP", "Filter"]
+- !private ["s20TextOutputStreamableP", "Having"]
+- !private ["s23_BidirectionalIndexableP", "Filter"]
+- !private ["s23_BidirectionalIndexableP", "Having"]
+- !private ["s18_BitwiseOperationsP", "Filter"]
+- !private ["s18_BitwiseOperationsP", "Having"]
+- !private ["s15_CVarArgAlignedP", "Filter"]
+- !private ["s15_CVarArgAlignedP", "Having"]
+- !private ["s22_CVarArgPassedAsDoubleP", "Filter"]
+- !private ["s22_CVarArgPassedAsDoubleP", "Having"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "Filter"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "Having"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "Filter"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "Having"]
+- !private ["s33_ExpressibleByBuiltinFloatLiteralP", "Filter"]
+- !private ["s33_ExpressibleByBuiltinFloatLiteralP", "Having"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "Filter"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "Having"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "Filter"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "Having"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "Filter"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "Having"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "Filter"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "Having"]
+- !private ["s33_ExpressibleByStringInterpolationP", "Filter"]
+- !private ["s33_ExpressibleByStringInterpolationP", "Having"]
+- !private ["s10_IndexableP", "Filter"]
+- !private ["s10_IndexableP", "Having"]
+- !private ["s14_IndexableBaseP", "Filter"]
+- !private ["s14_IndexableBaseP", "Having"]
+- !private ["s21_ObjectiveCBridgeableP", "Filter"]
+- !private ["s21_ObjectiveCBridgeableP", "Having"]
+- !private ["s21_ObjectiveCBridgeableP", "bool"]
+- !private ["s21_ObjectiveCBridgeableP", "column"]
+- !private ["s21_ObjectiveCBridgeableP", "columnExpression"]
+- !private ["s21_ObjectiveCBridgeableP", "date"]
+- !private ["s21_ObjectiveCBridgeableP", "double"]
+- !private ["s21_ObjectiveCBridgeableP", "float"]
+- !private ["s21_ObjectiveCBridgeableP", "int"]
+- !private ["s21_ObjectiveCBridgeableP", "parameter"]
+- !private ["s21_ObjectiveCBridgeableP", "select"]
+- !private ["s21_ObjectiveCBridgeableP", "string"]
+- !private ["s26_RangeReplaceableIndexableP", "Filter"]
+- !private ["s26_RangeReplaceableIndexableP", "Having"]
+- !private ["s11_StrideableP", "Filter"]
+- !private ["s11_StrideableP", "Having"]
+- !private ["s16_SwiftStringViewP", "Filter"]
+- !private ["s16_SwiftStringViewP", "Having"]
+depends-nominal:
+- "10SwiftKuery25AggregateColumnExpressionV"
+- !private "s23BidirectionalCollectionP"
+- !private "s19BinaryFloatingPointP"
+- !private "s13BinaryIntegerP"
+- "Sb"
+- !private "10SwiftKuery9BuildableP"
+- !private "s7CVarArgP"
+- !private "s10CollectionP"
+- "10SwiftKuery6ColumnC"
+- !private "s10ComparableP"
+- !private "10SwiftKuery9ConditionO"
+- !private "10SwiftKuery17ConditionalClauseP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- "10Foundation4DateV"
+- !private "s9DecodableP"
+- "Sd"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "10SwiftKuery5FieldP"
+- "10SwiftKuery6FilterV"
+- !private "s17FixedWidthIntegerP"
+- "Sf"
+- !private "s13FloatingPointP"
+- !private "s8HashableP"
+- "10SwiftKuery6HavingV"
+- !private "10SwiftKuery11IndexColumnP"
+- "Si"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "s7NumericP"
+- !private "Sq"
+- "10SwiftKuery9ParameterV"
+- !private "10SwiftKuery9PredicateO"
+- !private "10SwiftKuery19QueryFilterProtocolP"
+- !private "10SwiftKuery19QueryHavingProtocolP"
+- !private "10SwiftKuery19QuerySuffixProtocolP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "10Foundation20ReferenceConvertibleP"
+- !private "10SwiftKuery11SQLDataTypeP"
+- "10SwiftKuery22ScalarColumnExpressionV"
+- !private "s8SequenceP"
+- !private "s13SignedIntegerP"
+- !private "s13SignedNumericP"
+- !private "s10StrideableP"
+- "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s18_BitwiseOperationsP"
+- !private "s15_CVarArgAlignedP"
+- !private "s22_CVarArgPassedAsDoubleP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s33_ExpressibleByBuiltinFloatLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s11_StrideableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "ffbb52efd6d6f683f80937a6ccf051df"

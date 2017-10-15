@@ -8,26 +8,19 @@
 
 import Foundation
 import UIKit
-
-
-
-
-
-class Fraternity {
+class Fraternity : NSObject {
   var memberCount : Int? = nil
   var name : String? = nil
   var chapter : String? = nil
-  var description : String? = nil
+  var desc : String? = nil
   var coverPhoto : UIImage? = nil
   var profilePhoto : UIImage? = nil
   var previewPhoto : UIImage? = nil
-  
-  
   init(name : String?, chapter : String?, description : String?,
        imageNames : Dictionary<String, String>?) {
     self.name = name
     self.chapter = chapter
-    self.description = description
+    self.desc = description
     if let dict = imageNames {
       if let profileName = dict["profile"] {
         profilePhoto = UIImage(named: profileName)
@@ -43,20 +36,8 @@ class Fraternity {
         previewPhoto = profilePhoto
       }
     }
-    convertToGreek(aString: "chi phi")
-    
-    
-    
   }
-  
 }
-
 func convertToGreek(aString : String) -> String {
-  return ""
-  let split = aString.characters.split(separator: " ")
-  for i in 0...(split.endIndex) {
-    //print(split[i])
-  }
-  
   return ""
 }

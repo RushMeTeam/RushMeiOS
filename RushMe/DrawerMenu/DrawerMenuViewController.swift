@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 
 class DrawerMenuViewController: UITableViewController {
-  
-  
-  let menuItemTitles = ["About", "Favorites","Settings"]
-  
-  
-  
   override func viewDidLoad() {
     tableView.isScrollEnabled = false
     tableView.backgroundColor = COLOR_CONST.MENU_COLOR

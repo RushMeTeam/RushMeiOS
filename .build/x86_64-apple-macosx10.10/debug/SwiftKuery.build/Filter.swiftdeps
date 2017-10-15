@@ -1,0 +1,144 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Filter"
+- "QueryFilterProtocol"
+- "||"
+- "&&"
+- "exists"
+- "notExists"
+- "any"
+- "all"
+provides-nominal:
+- "10SwiftKuery6FilterV"
+- "10SwiftKuery19QueryFilterProtocolP"
+provides-member:
+- ["10SwiftKuery6FilterV", ""]
+- ["10SwiftKuery19QueryFilterProtocolP", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "&&"
+- "AssignmentPrecedence"
+- "Buildable"
+- "Condition"
+- "ConditionalClause"
+- "Filter"
+- "Predicate"
+- "QueryFilterProtocol"
+- "ScalarColumnExpression"
+- "Select"
+- "all"
+- "any"
+- "exists"
+- "notExists"
+- "||"
+depends-member:
+- ["10SwiftKuery9BuildableP", "ClauseType"]
+- ["10SwiftKuery9BuildableP", "ColumnExpressionType"]
+- !private ["10SwiftKuery9BuildableP", "allSubquery"]
+- !private ["10SwiftKuery9BuildableP", "and"]
+- !private ["10SwiftKuery9BuildableP", "anySubquery"]
+- ["10SwiftKuery9BuildableP", "build"]
+- !private ["10SwiftKuery9BuildableP", "clause"]
+- ["10SwiftKuery9BuildableP", "condition"]
+- !private ["10SwiftKuery9BuildableP", "exists"]
+- !private ["10SwiftKuery9BuildableP", "init"]
+- ["10SwiftKuery9BuildableP", "lhs"]
+- !private ["10SwiftKuery9BuildableP", "notExists"]
+- !private ["10SwiftKuery9BuildableP", "or"]
+- ["10SwiftKuery9BuildableP", "rhs"]
+- !private ["10SwiftKuery9BuildableP", "select"]
+- ["10SwiftKuery9BuildableP", ""]
+- !private ["10SwiftKuery9ConditionO", "and"]
+- !private ["10SwiftKuery9ConditionO", "exists"]
+- !private ["10SwiftKuery9ConditionO", "notExists"]
+- !private ["10SwiftKuery9ConditionO", "or"]
+- ["10SwiftKuery17ConditionalClauseP", "ClauseType"]
+- ["10SwiftKuery17ConditionalClauseP", "ColumnExpressionType"]
+- ["10SwiftKuery17ConditionalClauseP", "build"]
+- ["10SwiftKuery17ConditionalClauseP", "condition"]
+- !private ["10SwiftKuery17ConditionalClauseP", "init"]
+- ["10SwiftKuery17ConditionalClauseP", "lhs"]
+- ["10SwiftKuery17ConditionalClauseP", "rhs"]
+- ["10SwiftKuery17ConditionalClauseP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "clause"]
+- !private ["s28CustomDebugStringConvertibleP", "select"]
+- !private ["s17CustomReflectableP", "clause"]
+- !private ["s17CustomReflectableP", "select"]
+- !private ["s9DecodableP", "clause"]
+- !private ["s9DecodableP", "select"]
+- !private ["s9EncodableP", "clause"]
+- !private ["s9EncodableP", "select"]
+- !private ["s9EquatableP", "and"]
+- !private ["s9EquatableP", "exists"]
+- !private ["s9EquatableP", "notExists"]
+- !private ["s9EquatableP", "or"]
+- !private ["s23ExpressibleByNilLiteralP", "clause"]
+- !private ["s23ExpressibleByNilLiteralP", "select"]
+- ["10SwiftKuery6FilterV", "ClauseType"]
+- ["10SwiftKuery6FilterV", "ColumnExpressionType"]
+- ["10SwiftKuery6FilterV", "Condition"]
+- ["10SwiftKuery6FilterV", "Filter"]
+- ["10SwiftKuery6FilterV", "Predicate"]
+- ["10SwiftKuery6FilterV", "ScalarColumnExpression"]
+- ["10SwiftKuery6FilterV", "build"]
+- ["10SwiftKuery6FilterV", "condition"]
+- ["10SwiftKuery6FilterV", "deinit"]
+- ["10SwiftKuery6FilterV", "init"]
+- ["10SwiftKuery6FilterV", "lhs"]
+- ["10SwiftKuery6FilterV", "rhs"]
+- !private ["s8HashableP", "and"]
+- !private ["s8HashableP", "exists"]
+- !private ["s8HashableP", "notExists"]
+- !private ["s8HashableP", "or"]
+- !private ["Sq", "clause"]
+- !private ["Sq", "select"]
+- !private ["10SwiftKuery9PredicateO", "allSubquery"]
+- !private ["10SwiftKuery9PredicateO", "anySubquery"]
+- !private ["10SwiftKuery9PredicateO", "clause"]
+- !private ["10SwiftKuery9PredicateO", "select"]
+- ["10SwiftKuery19QueryFilterProtocolP", "ClauseType"]
+- ["10SwiftKuery19QueryFilterProtocolP", "ColumnExpressionType"]
+- ["10SwiftKuery19QueryFilterProtocolP", "build"]
+- ["10SwiftKuery19QueryFilterProtocolP", "condition"]
+- !private ["10SwiftKuery19QueryFilterProtocolP", "init"]
+- ["10SwiftKuery19QueryFilterProtocolP", "lhs"]
+- ["10SwiftKuery19QueryFilterProtocolP", "rhs"]
+- ["10SwiftKuery19QueryFilterProtocolP", ""]
+- ["10SwiftKuery22ScalarColumnExpressionV", "deinit"]
+- !private ["s21_ObjectiveCBridgeableP", "clause"]
+- !private ["s21_ObjectiveCBridgeableP", "select"]
+depends-nominal:
+- "10SwiftKuery9BuildableP"
+- !private "10SwiftKuery9ConditionO"
+- "10SwiftKuery17ConditionalClauseP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s23ExpressibleByNilLiteralP"
+- "10SwiftKuery6FilterV"
+- !private "s8HashableP"
+- !private "Sq"
+- !private "10SwiftKuery9PredicateO"
+- "10SwiftKuery19QueryFilterProtocolP"
+- "10SwiftKuery22ScalarColumnExpressionV"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "75e22bc6a3fbea240d382d1374b71c25"

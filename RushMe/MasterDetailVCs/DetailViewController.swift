@@ -10,10 +10,7 @@
 import UIKit
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
-  
-  
   @IBOutlet var scrollView: UIScrollView!
-
   @IBOutlet var underlyingView: UIView!
   @IBOutlet var coverImageView: UIImageView!
   @IBOutlet var profileImageView: UIImageView!

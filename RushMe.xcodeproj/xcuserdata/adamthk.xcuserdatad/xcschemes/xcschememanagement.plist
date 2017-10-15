@@ -6,6 +6,8 @@
 	<dict>
 		<key>RushMe.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -23,6 +25,16 @@
 			<true/>
 		</dict>
 		<key>DB05F7651F894A910090DEC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB61D1FF1F92B6CE009872DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB61D2221F92B6F4009872DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

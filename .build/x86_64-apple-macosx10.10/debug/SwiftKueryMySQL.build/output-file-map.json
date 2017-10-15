@@ -1,0 +1,29 @@
+{
+  "": {
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/master.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLConnection.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLConnection.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLConnection.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLConnection~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLConnection.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLPreparedStatement.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLPreparedStatement.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLPreparedStatement.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLPreparedStatement~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLPreparedStatement.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLResultFetcher.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLResultFetcher.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLResultFetcher.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLResultFetcher~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLResultFetcher.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLThreadSafeConnection.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLThreadSafeConnection.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLThreadSafeConnection.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLThreadSafeConnection~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKueryMySQL.build/MySQLThreadSafeConnection.swiftdeps"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CMySQL",
+        "repositoryURL": "https://github.com/IBM-Swift/CMySQL.git",
+        "state": {
+          "branch": null,
+          "revision": "a9e4da59475b5db72434a0eaa9d1fb53858ad447",
+          "version": "0.1.2"
+        }
+      },
+      {
+        "package": "SwiftKuery",
+        "repositoryURL": "https://github.com/IBM-Swift/Swift-Kuery.git",
+        "state": {
+          "branch": null,
+          "revision": "909f75f4417609fe11934be1eabf0eb9244d08f4",
+          "version": "0.13.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

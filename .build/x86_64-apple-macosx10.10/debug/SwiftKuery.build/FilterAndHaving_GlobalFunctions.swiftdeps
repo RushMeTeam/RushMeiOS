@@ -1,0 +1,624 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">="
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- ">"
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<="
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "<"
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "=="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+- "!="
+provides-nominal:
+provides-member:
+provides-dynamic-lookup:
+depends-top-level:
+- "!="
+- "<"
+- "<="
+- "=="
+- ">"
+- ">="
+- "AggregateColumnExpression"
+- "Bool"
+- "Column"
+- "Date"
+- "Double"
+- "Filter"
+- "Float"
+- "Having"
+- "Int"
+- "Parameter"
+- "ScalarColumnExpression"
+- "Select"
+- "String"
+depends-member:
+- !private ["10SwiftKuery25AggregateColumnExpressionV", "deinit"]
+- !private ["10SwiftKuery9BuildableP", "bool"]
+- !private ["10SwiftKuery9BuildableP", "column"]
+- !private ["10SwiftKuery9BuildableP", "columnExpression"]
+- !private ["10SwiftKuery9BuildableP", "date"]
+- !private ["10SwiftKuery9BuildableP", "double"]
+- !private ["10SwiftKuery9BuildableP", "equal"]
+- !private ["10SwiftKuery9BuildableP", "float"]
+- !private ["10SwiftKuery9BuildableP", "greaterThan"]
+- !private ["10SwiftKuery9BuildableP", "greaterThanOrEqual"]
+- !private ["10SwiftKuery9BuildableP", "init"]
+- !private ["10SwiftKuery9BuildableP", "int"]
+- !private ["10SwiftKuery9BuildableP", "lessThan"]
+- !private ["10SwiftKuery9BuildableP", "lessThanOrEqual"]
+- !private ["10SwiftKuery9BuildableP", "notEqual"]
+- !private ["10SwiftKuery9BuildableP", "parameter"]
+- !private ["10SwiftKuery9BuildableP", "select"]
+- !private ["10SwiftKuery9BuildableP", "string"]
+- !private ["10SwiftKuery9ConditionO", "equal"]
+- !private ["10SwiftKuery9ConditionO", "greaterThan"]
+- !private ["10SwiftKuery9ConditionO", "greaterThanOrEqual"]
+- !private ["10SwiftKuery9ConditionO", "lessThan"]
+- !private ["10SwiftKuery9ConditionO", "lessThanOrEqual"]
+- !private ["10SwiftKuery9ConditionO", "notEqual"]
+- !private ["10SwiftKuery17ConditionalClauseP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "bool"]
+- !private ["s28CustomDebugStringConvertibleP", "column"]
+- !private ["s28CustomDebugStringConvertibleP", "columnExpression"]
+- !private ["s28CustomDebugStringConvertibleP", "date"]
+- !private ["s28CustomDebugStringConvertibleP", "double"]
+- !private ["s28CustomDebugStringConvertibleP", "float"]
+- !private ["s28CustomDebugStringConvertibleP", "int"]
+- !private ["s28CustomDebugStringConvertibleP", "parameter"]
+- !private ["s28CustomDebugStringConvertibleP", "select"]
+- !private ["s28CustomDebugStringConvertibleP", "string"]
+- !private ["s17CustomReflectableP", "bool"]
+- !private ["s17CustomReflectableP", "column"]
+- !private ["s17CustomReflectableP", "columnExpression"]
+- !private ["s17CustomReflectableP", "date"]
+- !private ["s17CustomReflectableP", "double"]
+- !private ["s17CustomReflectableP", "float"]
+- !private ["s17CustomReflectableP", "int"]
+- !private ["s17CustomReflectableP", "parameter"]
+- !private ["s17CustomReflectableP", "select"]
+- !private ["s17CustomReflectableP", "string"]
+- !private ["s9DecodableP", "bool"]
+- !private ["s9DecodableP", "column"]
+- !private ["s9DecodableP", "columnExpression"]
+- !private ["s9DecodableP", "date"]
+- !private ["s9DecodableP", "double"]
+- !private ["s9DecodableP", "float"]
+- !private ["s9DecodableP", "int"]
+- !private ["s9DecodableP", "parameter"]
+- !private ["s9DecodableP", "select"]
+- !private ["s9DecodableP", "string"]
+- !private ["s9EncodableP", "bool"]
+- !private ["s9EncodableP", "column"]
+- !private ["s9EncodableP", "columnExpression"]
+- !private ["s9EncodableP", "date"]
+- !private ["s9EncodableP", "double"]
+- !private ["s9EncodableP", "float"]
+- !private ["s9EncodableP", "int"]
+- !private ["s9EncodableP", "parameter"]
+- !private ["s9EncodableP", "select"]
+- !private ["s9EncodableP", "string"]
+- !private ["s9EquatableP", "equal"]
+- !private ["s9EquatableP", "greaterThan"]
+- !private ["s9EquatableP", "greaterThanOrEqual"]
+- !private ["s9EquatableP", "lessThan"]
+- !private ["s9EquatableP", "lessThanOrEqual"]
+- !private ["s9EquatableP", "notEqual"]
+- !private ["s23ExpressibleByNilLiteralP", "bool"]
+- !private ["s23ExpressibleByNilLiteralP", "column"]
+- !private ["s23ExpressibleByNilLiteralP", "columnExpression"]
+- !private ["s23ExpressibleByNilLiteralP", "date"]
+- !private ["s23ExpressibleByNilLiteralP", "double"]
+- !private ["s23ExpressibleByNilLiteralP", "float"]
+- !private ["s23ExpressibleByNilLiteralP", "int"]
+- !private ["s23ExpressibleByNilLiteralP", "parameter"]
+- !private ["s23ExpressibleByNilLiteralP", "select"]
+- !private ["s23ExpressibleByNilLiteralP", "string"]
+- !private ["10SwiftKuery6FilterV", "deinit"]
+- !private ["10SwiftKuery6FilterV", "init"]
+- !private ["s8HashableP", "equal"]
+- !private ["s8HashableP", "greaterThan"]
+- !private ["s8HashableP", "greaterThanOrEqual"]
+- !private ["s8HashableP", "lessThan"]
+- !private ["s8HashableP", "lessThanOrEqual"]
+- !private ["s8HashableP", "notEqual"]
+- !private ["10SwiftKuery6HavingV", "deinit"]
+- !private ["10SwiftKuery6HavingV", "init"]
+- !private ["Sq", "bool"]
+- !private ["Sq", "column"]
+- !private ["Sq", "columnExpression"]
+- !private ["Sq", "date"]
+- !private ["Sq", "double"]
+- !private ["Sq", "float"]
+- !private ["Sq", "int"]
+- !private ["Sq", "parameter"]
+- !private ["Sq", "select"]
+- !private ["Sq", "string"]
+- !private ["10SwiftKuery9PredicateO", "bool"]
+- !private ["10SwiftKuery9PredicateO", "column"]
+- !private ["10SwiftKuery9PredicateO", "columnExpression"]
+- !private ["10SwiftKuery9PredicateO", "date"]
+- !private ["10SwiftKuery9PredicateO", "double"]
+- !private ["10SwiftKuery9PredicateO", "float"]
+- !private ["10SwiftKuery9PredicateO", "int"]
+- !private ["10SwiftKuery9PredicateO", "parameter"]
+- !private ["10SwiftKuery9PredicateO", "select"]
+- !private ["10SwiftKuery9PredicateO", "string"]
+- !private ["10SwiftKuery19QueryFilterProtocolP", "init"]
+- !private ["10SwiftKuery19QueryHavingProtocolP", "init"]
+- !private ["10SwiftKuery22ScalarColumnExpressionV", "deinit"]
+- !private ["s21_ObjectiveCBridgeableP", "bool"]
+- !private ["s21_ObjectiveCBridgeableP", "column"]
+- !private ["s21_ObjectiveCBridgeableP", "columnExpression"]
+- !private ["s21_ObjectiveCBridgeableP", "date"]
+- !private ["s21_ObjectiveCBridgeableP", "double"]
+- !private ["s21_ObjectiveCBridgeableP", "float"]
+- !private ["s21_ObjectiveCBridgeableP", "int"]
+- !private ["s21_ObjectiveCBridgeableP", "parameter"]
+- !private ["s21_ObjectiveCBridgeableP", "select"]
+- !private ["s21_ObjectiveCBridgeableP", "string"]
+depends-nominal:
+- !private "10SwiftKuery25AggregateColumnExpressionV"
+- !private "10SwiftKuery9BuildableP"
+- !private "10SwiftKuery9ConditionO"
+- !private "10SwiftKuery17ConditionalClauseP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "10SwiftKuery6FilterV"
+- !private "s8HashableP"
+- !private "10SwiftKuery6HavingV"
+- !private "Sq"
+- !private "10SwiftKuery9PredicateO"
+- !private "10SwiftKuery19QueryFilterProtocolP"
+- !private "10SwiftKuery19QueryHavingProtocolP"
+- !private "10SwiftKuery22ScalarColumnExpressionV"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "fee1f48d60955605968b4043d941cc32"

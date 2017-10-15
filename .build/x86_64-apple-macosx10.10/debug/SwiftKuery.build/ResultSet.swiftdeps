@@ -1,0 +1,52 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ResultSet"
+provides-nominal:
+- "10SwiftKuery9ResultSetV"
+provides-member:
+- ["10SwiftKuery9ResultSetV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "ResultFetcher"
+- "ResultSet"
+- "RowSequence"
+- "String"
+depends-member:
+- !private ["s16IteratorProtocolP", "init"]
+- !private ["10SwiftKuery13ResultFetcherP", "fetchNext"]
+- !private ["10SwiftKuery13ResultFetcherP", "fetchTitles"]
+- ["10SwiftKuery9ResultSetV", "ResultFetcher"]
+- ["10SwiftKuery9ResultSetV", "RowSequence"]
+- ["10SwiftKuery9ResultSetV", "String"]
+- ["10SwiftKuery9ResultSetV", "init"]
+- ["10SwiftKuery9ResultSetV", "nextRow"]
+- !private ["10SwiftKuery9ResultSetV", "resultFetcher"]
+- ["10SwiftKuery9ResultSetV", "rows"]
+- ["10SwiftKuery9ResultSetV", "titles"]
+- !private ["10SwiftKuery11RowSequenceV", "init"]
+- !private ["s8SequenceP", "init"]
+depends-nominal:
+- !private "s16IteratorProtocolP"
+- !private "10SwiftKuery13ResultFetcherP"
+- "10SwiftKuery9ResultSetV"
+- !private "10SwiftKuery11RowSequenceV"
+- !private "s8SequenceP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/IOKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "4a292f25a5c3fc171270bbb64b851c53"

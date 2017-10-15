@@ -1,0 +1,293 @@
+{
+  "": {
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/master.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/AggregateColumnExpression.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AggregateColumnExpression.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AggregateColumnExpression.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AggregateColumnExpression~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AggregateColumnExpression.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/AuxiliaryTable.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AuxiliaryTable.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AuxiliaryTable.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AuxiliaryTable~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/AuxiliaryTable.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Buildable.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Buildable.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Buildable.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Buildable~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Buildable.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Column.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Column.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Column.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Column~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Column.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ColumnAndExpressions_Extensions.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ColumnAndExpressions_Extensions.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ColumnAndExpressions_Extensions.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ColumnAndExpressions_Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ColumnAndExpressions_Extensions.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Condition.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Condition.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Condition.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Condition~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Condition.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ConditionalClause.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConditionalClause.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConditionalClause.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConditionalClause~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConditionalClause.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Connection.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Connection.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Connection.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Connection~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Connection.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ConnectionPool.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPool.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPool.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPool~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPool.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ConnectionPoolConnection.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolConnection.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolConnection.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolConnection~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolConnection.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ConnectionPoolOptions.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolOptions.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolOptions.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolOptions~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ConnectionPoolOptions.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Delete.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Delete.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Delete.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Delete~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Delete.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Field.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Field.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Field.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Field~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Field.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Filter.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Filter.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Filter.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Filter~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Filter.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/FilterAndHaving_Extensions.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_Extensions.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_Extensions.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_Extensions.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/FilterAndHaving_GlobalFunctions.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_GlobalFunctions.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_GlobalFunctions.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_GlobalFunctions~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/FilterAndHaving_GlobalFunctions.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Having.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Having.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Having.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Having~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Having.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Index.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Index.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Index.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Index~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Index.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/IndexColumn.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumn.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumn.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumn~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumn.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/IndexColumnOrdered.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumnOrdered.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumnOrdered.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumnOrdered~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/IndexColumnOrdered.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Insert.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Insert.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Insert.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Insert~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Insert.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Join.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Join.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Join.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Join~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Join.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Migration.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Migration.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Migration.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Migration~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Migration.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/OrderBy.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/OrderBy.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/OrderBy.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/OrderBy~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/OrderBy.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Parameter.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Parameter.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Parameter.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Parameter~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Parameter.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Predicate.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Predicate.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Predicate.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Predicate~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Predicate.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/PreparedStatement.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/PreparedStatement.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/PreparedStatement.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/PreparedStatement~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/PreparedStatement.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Query.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Query.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Query.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Query~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Query.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/QueryBuilder.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryBuilder.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryBuilder.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryBuilder~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryBuilder.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/QueryError.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryError.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryError.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryError~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryError.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/QueryResult.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryResult.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryResult.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryResult~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QueryResult.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/QuerySuffixProtocol.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QuerySuffixProtocol.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QuerySuffixProtocol.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QuerySuffixProtocol~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/QuerySuffixProtocol.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Raw.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Raw.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Raw.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Raw~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Raw.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/RawField.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RawField.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RawField.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RawField~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RawField.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ResultFetcher.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultFetcher.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultFetcher.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultFetcher~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultFetcher.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ResultSet.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultSet.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultSet.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultSet~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ResultSet.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/RowSequence.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RowSequence.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RowSequence.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RowSequence~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/RowSequence.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/SQLDataType.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SQLDataType.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SQLDataType.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SQLDataType~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SQLDataType.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/ScalarColumnExpression.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ScalarColumnExpression.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ScalarColumnExpression.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ScalarColumnExpression~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/ScalarColumnExpression.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Select.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Select.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Select.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Select~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Select.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/SpecialOperators_Extensions.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SpecialOperators_Extensions.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SpecialOperators_Extensions.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SpecialOperators_Extensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/SpecialOperators_Extensions.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/String+Buildable.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/String+Buildable.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/String+Buildable.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/String+Buildable~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/String+Buildable.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Subqueries_GlobalFunctionsAndExtensions.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Subqueries_GlobalFunctionsAndExtensions.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Subqueries_GlobalFunctionsAndExtensions.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Subqueries_GlobalFunctionsAndExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Subqueries_GlobalFunctionsAndExtensions.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Table.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Table.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Table.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Table~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Table.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Union.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Union.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Union.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Union~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Union.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Update.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Update.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Update.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Update~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Update.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/Utils.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Utils.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Utils.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Utils~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/Utils.swiftdeps"
+  },
+  "/Users/adamthk/Google Drive/RushMe/.build/checkouts/Swift-Kuery.git-1645988340584907058/Sources/SwiftKuery/With.swift": {
+    "dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/With.d",
+    "object": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/With.swift.o",
+    "swiftmodule": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/With~partial.swiftmodule",
+    "swift-dependencies": "/Users/adamthk/Google Drive/RushMe/.build/x86_64-apple-macosx10.10/debug/SwiftKuery.build/With.swiftdeps"
+  }
+}

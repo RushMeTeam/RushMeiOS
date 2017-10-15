@@ -1,0 +1,8 @@
+version: "Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)"
+options: "3f6e1260406772b3e57a5eb2d0cc8dd1"
+build_time: [1508013381, 67758000]
+inputs:
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLConnection.swift": !dirty [1508012865, 0]
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLPreparedStatement.swift": !dirty [1508012790, 0]
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLResultFetcher.swift": !dirty [1508012859, 0]
+  "/Users/adamthk/Google Drive/RushMe/Sources/SwiftKueryMySQL/MySQLThreadSafeConnection.swift": !dirty [1508012861, 0]

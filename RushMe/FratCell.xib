@@ -1,16 +1,62 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="17A405" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MasterViewController" customModule="RushMe" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FratCell" rowHeight="96" id="jgT-xZ-1c3" customClass="FratCell" customModule="RushMe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgT-xZ-1c3" id="dre-2O-LM9">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3k-KJ-2z6">
+                        <rect key="frame" x="12" y="15" width="64" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="RsT-Te-sW0"/>
+                            <constraint firstAttribute="width" secondItem="N3k-KJ-2z6" secondAttribute="height" multiplier="1:1" id="w1p-pf-8Ae"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The XYZ Fraternity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyo-2l-SSV">
+                        <rect key="frame" x="84" y="15" width="283" height="34"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theta Chapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1R-Pc-Kwn">
+                        <rect key="frame" x="84" y="61" width="283" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="hyo-2l-SSV" secondAttribute="trailing" id="0pe-Lb-VD3"/>
+                    <constraint firstItem="N3k-KJ-2z6" firstAttribute="centerY" secondItem="dre-2O-LM9" secondAttribute="centerY" id="Cue-Zj-ZOY"/>
+                    <constraint firstItem="hyo-2l-SSV" firstAttribute="leading" secondItem="N3k-KJ-2z6" secondAttribute="trailing" constant="8" id="Cux-Va-beS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="p1R-Pc-Kwn" secondAttribute="trailing" id="Jv9-l6-OIb"/>
+                    <constraint firstItem="hyo-2l-SSV" firstAttribute="top" secondItem="N3k-KJ-2z6" secondAttribute="top" id="KTZ-HD-m7V"/>
+                    <constraint firstItem="N3k-KJ-2z6" firstAttribute="leading" secondItem="dre-2O-LM9" secondAttribute="leadingMargin" constant="4" id="LfI-QQ-YiA"/>
+                    <constraint firstItem="p1R-Pc-Kwn" firstAttribute="bottom" secondItem="N3k-KJ-2z6" secondAttribute="bottom" id="UE2-ts-24R"/>
+                    <constraint firstItem="p1R-Pc-Kwn" firstAttribute="leading" secondItem="N3k-KJ-2z6" secondAttribute="trailing" constant="8" id="nc3-iz-gUi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="previewImageView" destination="N3k-KJ-2z6" id="aSk-Dt-F58"/>
+                <outlet property="subheadingLabel" destination="p1R-Pc-Kwn" id="q5q-fy-ydc"/>
+                <outlet property="titleLabel" destination="hyo-2l-SSV" id="M8T-VJ-Cra"/>
+            </connections>
+            <point key="canvasLocation" x="-2500" y="-180"/>
+        </tableViewCell>
     </objects>
 </document>

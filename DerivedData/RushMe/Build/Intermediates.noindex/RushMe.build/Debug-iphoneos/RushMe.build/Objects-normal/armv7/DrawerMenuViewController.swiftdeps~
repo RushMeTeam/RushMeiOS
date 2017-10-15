@@ -1,0 +1,225 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DrawerMenuViewController"
+provides-nominal:
+- "6RushMe24DrawerMenuViewControllerC"
+provides-member:
+- ["6RushMe24DrawerMenuViewControllerC", ""]
+provides-dynamic-lookup:
+- "viewDidLoad"
+depends-top-level:
+- "AssignmentPrecedence"
+- !private "BooleanLiteralType"
+- !private "COLOR_CONST"
+- "DrawerMenuViewController"
+- "UITableViewController"
+depends-member:
+- !private ["So15CALayerDelegateP", "backgroundColor"]
+- !private ["So15CALayerDelegateP", "isScrollEnabled"]
+- !private ["6RushMe11COLOR_CONSTV", "MENU_COLOR"]
+- !private ["s7CVarArgP", "COLOR_CONST"]
+- !private ["s7CVarArgP", "backgroundColor"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isScrollEnabled"]
+- !private ["s7CVarArgP", "tableView"]
+- ["s7CVarArgP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "COLOR_CONST"]
+- !private ["s28CustomDebugStringConvertibleP", "backgroundColor"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isScrollEnabled"]
+- !private ["s28CustomDebugStringConvertibleP", "tableView"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "COLOR_CONST"]
+- !private ["s23CustomStringConvertibleP", "backgroundColor"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isScrollEnabled"]
+- !private ["s23CustomStringConvertibleP", "tableView"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["6RushMe24DrawerMenuViewControllerC", "COLOR_CONST"]
+- ["6RushMe24DrawerMenuViewControllerC", "deinit"]
+- ["6RushMe24DrawerMenuViewControllerC", "init"]
+- !private ["6RushMe24DrawerMenuViewControllerC", "tableView"]
+- ["6RushMe24DrawerMenuViewControllerC", "viewDidLoad"]
+- !private ["s9EquatableP", "COLOR_CONST"]
+- !private ["s9EquatableP", "backgroundColor"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "isScrollEnabled"]
+- !private ["s9EquatableP", "tableView"]
+- ["s9EquatableP", ""]
+- !private ["s8HashableP", "COLOR_CONST"]
+- !private ["s8HashableP", "backgroundColor"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "isScrollEnabled"]
+- !private ["s8HashableP", "tableView"]
+- ["s8HashableP", ""]
+- !private ["So8NSCodingP", "COLOR_CONST"]
+- !private ["So8NSCodingP", "backgroundColor"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "isScrollEnabled"]
+- !private ["So8NSCodingP", "tableView"]
+- ["So8NSCodingP", ""]
+- !private ["So26NSExtensionRequestHandlingP", "COLOR_CONST"]
+- !private ["So26NSExtensionRequestHandlingP", "init"]
+- !private ["So26NSExtensionRequestHandlingP", "tableView"]
+- ["So26NSExtensionRequestHandlingP", ""]
+- !private ["So8NSObjectC", "COLOR_CONST"]
+- !private ["So8NSObjectC", "backgroundColor"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "isScrollEnabled"]
+- !private ["So8NSObjectC", "tableView"]
+- ["So8NSObjectC", "viewDidLoad"]
+- !private ["So16NSObjectProtocolP", "COLOR_CONST"]
+- !private ["So16NSObjectProtocolP", "backgroundColor"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "isScrollEnabled"]
+- !private ["So16NSObjectProtocolP", "tableView"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So29UIAccessibilityIdentificationP", "backgroundColor"]
+- !private ["So29UIAccessibilityIdentificationP", "isScrollEnabled"]
+- !private ["So12UIAppearanceP", "backgroundColor"]
+- !private ["So12UIAppearanceP", "isScrollEnabled"]
+- !private ["So21UIAppearanceContainerP", "COLOR_CONST"]
+- !private ["So21UIAppearanceContainerP", "backgroundColor"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- !private ["So21UIAppearanceContainerP", "isScrollEnabled"]
+- !private ["So21UIAppearanceContainerP", "tableView"]
+- ["So21UIAppearanceContainerP", ""]
+- !private ["So18UIContentContainerP", "COLOR_CONST"]
+- !private ["So18UIContentContainerP", "init"]
+- !private ["So18UIContentContainerP", "tableView"]
+- ["So18UIContentContainerP", ""]
+- !private ["So17UICoordinateSpaceP", "backgroundColor"]
+- !private ["So17UICoordinateSpaceP", "isScrollEnabled"]
+- !private ["So23UIDataSourceTranslatingP", "backgroundColor"]
+- !private ["So23UIDataSourceTranslatingP", "isScrollEnabled"]
+- !private ["So13UIDynamicItemP", "backgroundColor"]
+- !private ["So13UIDynamicItemP", "isScrollEnabled"]
+- !private ["So18UIFocusEnvironmentP", "COLOR_CONST"]
+- !private ["So18UIFocusEnvironmentP", "backgroundColor"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "isScrollEnabled"]
+- !private ["So18UIFocusEnvironmentP", "tableView"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So11UIFocusItemP", "backgroundColor"]
+- !private ["So11UIFocusItemP", "isScrollEnabled"]
+- !private ["So30UIPasteConfigurationSupportingP", "COLOR_CONST"]
+- !private ["So30UIPasteConfigurationSupportingP", "backgroundColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "isScrollEnabled"]
+- !private ["So30UIPasteConfigurationSupportingP", "tableView"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So11UIResponderC", "COLOR_CONST"]
+- !private ["So11UIResponderC", "backgroundColor"]
+- ["So11UIResponderC", "init"]
+- !private ["So11UIResponderC", "isScrollEnabled"]
+- !private ["So11UIResponderC", "tableView"]
+- ["So11UIResponderC", "viewDidLoad"]
+- !private ["So30UIResponderStandardEditActionsP", "COLOR_CONST"]
+- !private ["So30UIResponderStandardEditActionsP", "backgroundColor"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "isScrollEnabled"]
+- !private ["So30UIResponderStandardEditActionsP", "tableView"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So12UIScrollViewC", "backgroundColor"]
+- !private ["So12UIScrollViewC", "isScrollEnabled"]
+- !private ["So20UIScrollViewDelegateP", "COLOR_CONST"]
+- !private ["So20UIScrollViewDelegateP", "init"]
+- !private ["So20UIScrollViewDelegateP", "tableView"]
+- ["So20UIScrollViewDelegateP", ""]
+- !private ["So35UISpringLoadedInteractionSupportingP", "backgroundColor"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "isScrollEnabled"]
+- !private ["So16UIStateRestoringP", "COLOR_CONST"]
+- !private ["So16UIStateRestoringP", "init"]
+- !private ["So16UIStateRestoringP", "tableView"]
+- ["So16UIStateRestoringP", ""]
+- !private ["So11UITableViewC", "backgroundColor"]
+- !private ["So11UITableViewC", "isScrollEnabled"]
+- !private ["So21UITableViewControllerC", "COLOR_CONST"]
+- ["So21UITableViewControllerC", "init"]
+- !private ["So21UITableViewControllerC", "tableView"]
+- ["So21UITableViewControllerC", "viewDidLoad"]
+- ["So21UITableViewControllerC", ""]
+- !private ["So21UITableViewDataSourceP", "COLOR_CONST"]
+- !private ["So21UITableViewDataSourceP", "init"]
+- !private ["So21UITableViewDataSourceP", "tableView"]
+- ["So21UITableViewDataSourceP", ""]
+- !private ["So19UITableViewDelegateP", "COLOR_CONST"]
+- !private ["So19UITableViewDelegateP", "init"]
+- !private ["So19UITableViewDelegateP", "tableView"]
+- ["So19UITableViewDelegateP", ""]
+- !private ["So18UITraitEnvironmentP", "COLOR_CONST"]
+- !private ["So18UITraitEnvironmentP", "backgroundColor"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "isScrollEnabled"]
+- !private ["So18UITraitEnvironmentP", "tableView"]
+- ["So18UITraitEnvironmentP", ""]
+- !private ["So6UIViewC", "backgroundColor"]
+- !private ["So6UIViewC", "isScrollEnabled"]
+- !private ["So16UIViewControllerC", "COLOR_CONST"]
+- ["So16UIViewControllerC", "init"]
+- !private ["So16UIViewControllerC", "tableView"]
+- ["So16UIViewControllerC", "viewDidLoad"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "backgroundColor"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isScrollEnabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "COLOR_CONST"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "backgroundColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isScrollEnabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tableView"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+depends-nominal:
+- !private "So15CALayerDelegateP"
+- !private "6RushMe11COLOR_CONSTV"
+- "s7CVarArgP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "6RushMe24DrawerMenuViewControllerC"
+- "s9EquatableP"
+- "s8HashableP"
+- "So8NSCodingP"
+- "So26NSExtensionRequestHandlingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So29UIAccessibilityIdentificationP"
+- !private "So12UIAppearanceP"
+- "So21UIAppearanceContainerP"
+- "So18UIContentContainerP"
+- !private "So17UICoordinateSpaceP"
+- !private "So23UIDataSourceTranslatingP"
+- !private "So13UIDynamicItemP"
+- "So18UIFocusEnvironmentP"
+- !private "So11UIFocusItemP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- !private "So12UIScrollViewC"
+- "So20UIScrollViewDelegateP"
+- !private "So35UISpringLoadedInteractionSupportingP"
+- "So16UIStateRestoringP"
+- !private "So11UITableViewC"
+- "So21UITableViewControllerC"
+- "So21UITableViewDataSourceP"
+- "So19UITableViewDelegateP"
+- "So18UITraitEnvironmentP"
+- !private "So6UIViewC"
+- "So16UIViewControllerC"
+- !private "s37_DefaultCustomPlaygroundQuickLookableP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Google Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h"
+interface-hash: "b00fdecfcb43221d1f922145b1e58624"
