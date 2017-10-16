@@ -5,7 +5,7 @@
 //  Created by Adam Kuniholm on 10/7/17.
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
-
+// Pushed Mon at 1:02 PM at Chi Phi
 import UIKit
 // Commit test comment
 // Master view controller, a subclass of UITableViewController,
@@ -126,7 +126,7 @@ class MasterViewController: UITableViewController {
     if let frat = fraternities[fratNames[indexPath.row]] {
       cell.titleLabel!.text = frat.name
       cell.subheadingLabel!.text = frat.chapter
-      cell.previewImageView!.image = frat.previewImage as? UIImage
+      cell.previewImageView!.image = frat.previewImage
     }
     return cell
   }

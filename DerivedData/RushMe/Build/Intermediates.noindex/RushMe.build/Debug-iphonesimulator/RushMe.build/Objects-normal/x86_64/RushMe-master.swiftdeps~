@@ -1,8 +1,8 @@
 version: "Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)"
 options: "2f77096ced77d54a898f42e01814fec7"
-build_time: [1508101300, 77847000]
+build_time: [1508101335, 404663000]
 inputs:
-  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1508101164, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1508101334, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/DrawerMenu/DrawerMenuViewController.swift": [1508003678, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1508101298, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/TableViewCells/FratCell.swift": [1508002861, 0]
