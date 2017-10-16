@@ -265,13 +265,12 @@ SWIFT_CLASS("_TtC6RushMe8FratCell")
 
 SWIFT_CLASS("_TtC6RushMe10Fraternity")
 @interface Fraternity : NSObject
-@property (nonatomic, copy) NSString * _Nullable name SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.name' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable chapter SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.chapter' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable desc SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.desc' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) UIImage * _Nullable coverPhoto SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.coverPhoto' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) UIImage * _Nullable profilePhoto SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.profilePhoto' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) UIImage * _Nullable previewPhoto SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.previewPhoto' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithName:(NSString * _Nullable)name chapter:(NSString * _Nullable)chapter description:(NSString * _Nullable)description imageNames:(NSDictionary<NSString *, NSString *> * _Nullable)imageNames OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'Fraternity.init(name:chapter:description:imageNames:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull name SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.name' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull chapter SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.chapter' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) UIImage * _Nonnull previewImage SWIFT_DEPRECATED_OBJC("Swift property 'Fraternity.previewImage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name chapter:(NSString * _Nonnull)chapter previewImage:(UIImage * _Nullable)previewImage properties:(NSDictionary<NSString *, id> * _Nullable)properties OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'Fraternity.init(name:chapter:previewImage:properties:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (id _Nullable)getPropertyWithNamed:(NSString * _Nonnull)named SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'Fraternity.getProperty(named:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)setPropertyWithNamed:(NSString * _Nonnull)named to:(id _Nonnull)to SWIFT_DEPRECATED_OBJC("Swift method 'Fraternity.setProperty(named:to:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -319,8 +318,7 @@ SWIFT_CLASS("_TtC6RushMe10SQLHandler")
 @property (nonatomic, readonly, strong) OHMySQLStoreCoordinator * _Nullable coordinator SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.coordinator' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) OHMySQLQueryContext * _Nullable context SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.context' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)selectWithAField:(NSString * _Nonnull)aField fromTable:(NSString * _Nonnull)fromTable SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.select(aField:fromTable:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)selectWithAField:(NSString * _Nonnull)aField SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.select(aField:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)selectWithAField:(NSString * _Nonnull)aField fromTable:(NSString * _Nullable)fromTable SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.select(aField:fromTable:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 

@@ -23,19 +23,24 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   
   func configureView() {
   
-    // Update the user interface for the detail item.
-    self.title = selectedFraternity?.name
-    self.underProfileLabel?.text = selectedFraternity?.chapter
-    self.blockTextView?.text = selectedFraternity?.description
-    self.coverImageView?.image = selectedFraternity?.coverPhoto
-    self.profileImageView?.image = selectedFraternity?.profilePhoto
-    if (self.profileImageView?.image == nil){
-      self.profileImageView?.image = IMAGE_CONST.NO_IMAGE
+    if let frat = selectedFraternity {
+      
+      
+      // Update the user interface for the detail item.
+      self.title = frat.name
+      self.underProfileLabel?.text = frat.chapter
+      if let desc = frat.getProperty(named: "description") as? String {
+        self.blockTextView?.text = desc
+      }
+      if let coverImage = frat.getProperty(named: "coverImage") as? UIImage {
+        self.coverImageView?.image = coverImage
+        self.coverImageView?.layer.shadowOpacity = 0.5
+      }
+      if let profileImage = frat.getProperty(named: "profileImage") as? UIImage {
+        self.profileImageView?.image = profileImage
+        self.profileImageView?.layer.shadowOpacity = 0.5
+      }
     }
-    if (self.coverImageView?.image == nil) {
-      self.coverImageView?.image = IMAGE_CONST.NO_IMAGE
-    }
-    
   }
   
   
@@ -46,17 +51,19 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     super.viewDidLoad()
     self.view.bringSubview(toFront: coverImageView)
     self.view.bringSubview(toFront: profileImageView)
+    coverImageView.image = IMAGE_CONST.NO_IMAGE
     coverImageView.layer.masksToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.shadowRadius = 20
-    coverImageView.layer.shadowOpacity = 1
+    coverImageView.layer.shadowOpacity = 0
     coverImageView.layer.shadowColor = UIColor.black.cgColor
     coverImageView.setNeedsDisplay()
     
+    profileImageView.image = IMAGE_CONST.NO_IMAGE
     profileImageView.layer.masksToBounds = false
     profileImageView.contentMode = UIViewContentMode.scaleAspectFill
     profileImageView.layer.shadowRadius = 10
-    profileImageView.layer.shadowOpacity = 0.5
+    profileImageView.layer.shadowOpacity = 0
     profileImageView.layer.shadowColor = UIColor.black.cgColor
     profileImageView.setNeedsDisplay()
     

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct IMAGE_CONST {
-  static let NO_IMAGE = UIImage(named: "Elipses.png")
-  static let ICON_IMAGE = UIImage(named: "appIcon.png")
+  static let NO_IMAGE = UIImage(named: "Elipses.png")!
+  static let ICON_IMAGE = UIImage(named: "appIcon.png")!
   static let CORNER_RADIUS : CGFloat = 8
 }
 

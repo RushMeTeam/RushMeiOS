@@ -53,11 +53,12 @@ class MasterViewController: UITableViewController {
         
         let name = dict["name"] as! String
         let chapter = dict["chapter"] as! String
-        let frat = Fraternity(name: name, chapter: chapter, description: nil, imageNames: nil)
+        let frat = Fraternity(name: name, chapter: chapter, previewImage: nil)
         fraternities[name] = frat
         fratNames.append(name)
       }
     }
+    fraternities["Chi Phi"]?.setProperty(named: "profileImage", to: UIImage(named: "chiPhiImage.png")!)
   
   
   
@@ -82,24 +83,27 @@ class MasterViewController: UITableViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
-  
     if segue.identifier == "showDetail" {
         if let indexPath = tableView.indexPathForSelectedRow {
-            let object = fraternities[fratNames[indexPath.row]] as! Fraternity
-            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+          if let object = fraternities[fratNames[indexPath.row]] {
+            let controller = (segue.destination as! UINavigationController).topViewController
+                                                                          as! DetailViewController
             // Send the detail controller the fraternity we're about to display
             controller.selectedFraternity = object
             // Ensure a back button is given
             controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
+          }
         }
-          // 3D Touch preview!
+        // 3D Touch preview!
         else if let cell = sender as? FratCell {
           // Determine which object user selected
           if let indexPath = tableView.indexPath(for: cell) {
-            let object = fraternities[fratNames[indexPath.row]] as! Fraternity
-            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            controller.selectedFraternity = object
+            if let object = fraternities[fratNames[indexPath.row]] {
+              let controller = (segue.destination as! UINavigationController).topViewController
+                                                                          as! DetailViewController
+              controller.selectedFraternity = object
+            }
           }
         }
     }
@@ -119,12 +123,11 @@ class MasterViewController: UITableViewController {
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "FratCell") as! FratCell
-    let fraternity = fraternities[fratNames[indexPath.row]] as! Fraternity
-    
-    cell.titleLabel?.text = fraternity.name
-    cell.subheadingLabel?.text = fraternity.chapter
-    cell.previewImageView?.image = fraternity.previewPhoto
-    
+    if let frat = fraternities[fratNames[indexPath.row]] {
+      cell.titleLabel!.text = frat.name
+      cell.subheadingLabel!.text = frat.chapter
+      cell.previewImageView!.image = frat.previewImage as? UIImage
+    }
     return cell
   }
 }

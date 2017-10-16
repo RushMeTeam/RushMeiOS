@@ -9,35 +9,43 @@
 import Foundation
 import UIKit
 class Fraternity : NSObject {
-  var memberCount : Int? = nil
-  var name : String? = nil
-  var chapter : String? = nil
-  var desc : String? = nil
-  var coverPhoto : UIImage? = nil
-  var profilePhoto : UIImage? = nil
-  var previewPhoto : UIImage? = nil
-  init(name : String?, chapter : String?, description : String?,
-       imageNames : Dictionary<String, String>?) {
+  let name : String
+  let chapter : String
+  let previewImage : UIImage
+//  var memberCount : Int? = nil
+//  var desc : String? = nil
+//  var coverPhoto : UIImage? = nil
+//  var profilePhoto : UIImage? = nil
+//  var previewPhoto : UIImage? = nil
+  
+  private var properties : Dictionary<String, Any>
+  // NOTE: PreviewImage will NOT be NULL in future iterations of this app
+  init(name : String, chapter : String, previewImage: UIImage?, properties : Dictionary<String, Any>? = nil) {
     self.name = name
     self.chapter = chapter
-    self.desc = description
-    if let dict = imageNames {
-      if let profileName = dict["profile"] {
-        profilePhoto = UIImage(named: profileName)
-      }
-      if let coverName = dict["cover"] {
-        coverPhoto = UIImage(named: coverName)
-      }
-      
-      if let previewName = dict["preview"] {
-        previewPhoto = UIImage(named: previewName)
-      }
-      else {
-        previewPhoto = profilePhoto
-      }
+    if let previewImg = previewImage {
+      self.previewImage = previewImg
     }
+    else {
+      self.previewImage = IMAGE_CONST.NO_IMAGE
+    }
+    if let prop = properties {
+      self.properties = prop
+    }
+    else {
+      self.properties = Dictionary<String, Any>()
+    }
+    
+  }
+  
+  func getProperty(named : String) -> Any? {
+    if (named == "name"){ return self.name }
+    if (named == "chapter"){ return self.chapter }
+    if (named == "previewImage"){ return self.previewImage }
+    return properties[named]
+  }
+  func setProperty(named : String, to : Any){
+    properties[named] = to
   }
 }
-func convertToGreek(aString : String) -> String {
-  return ""
-}
+

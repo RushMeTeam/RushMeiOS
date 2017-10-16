@@ -12,6 +12,7 @@ provides-dynamic-lookup:
 - "user"
 depends-top-level:
 - !private "+"
+- !private "+="
 - "AssignmentPrecedence"
 - "Dictionary"
 - "NSObject"
@@ -22,7 +23,6 @@ depends-top-level:
 - "SQLHandler"
 - "String"
 - !private "StringLiteralType"
-- !private "UnicodeScalarType"
 - !private "print"
 depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
@@ -301,4 +301,4 @@ depends-external:
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "9f81621b6570bf748ab28114dd13f7a0"
+interface-hash: "9b0c79a1d9caa3816160ff3820bed05a"

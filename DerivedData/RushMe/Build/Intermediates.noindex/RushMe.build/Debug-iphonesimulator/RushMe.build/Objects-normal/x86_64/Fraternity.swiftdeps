@@ -1,106 +1,110 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "Fraternity"
-- "convertToGreek"
 provides-nominal:
 - "6RushMe10FraternityC"
 provides-member:
 - ["6RushMe10FraternityC", ""]
 provides-dynamic-lookup:
 - "chapter"
-- "coverPhoto"
-- "desc"
+- "getProperty"
 - "name"
-- "previewPhoto"
-- "profilePhoto"
+- "previewImage"
+- "setProperty"
 depends-top-level:
+- !private "=="
 - "AssignmentPrecedence"
 - "Dictionary"
 - "Fraternity"
-- "Int"
+- !private "IMAGE_CONST"
 - "NSObject"
 - "String"
-- !private "StringLiteralType"
 - "UIImage"
-- "convertToGreek"
 depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
-- !private ["s7CVarArgP", "UIImage"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Dictionary"]
+- !private ["s7CVarArgP", "IMAGE_CONST"]
 - !private ["s7CVarArgP", "chapter"]
-- !private ["s7CVarArgP", "coverPhoto"]
-- !private ["s7CVarArgP", "desc"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "name"]
-- !private ["s7CVarArgP", "previewPhoto"]
-- !private ["s7CVarArgP", "profilePhoto"]
+- !private ["s7CVarArgP", "previewImage"]
+- !private ["s7CVarArgP", "properties"]
 - !private ["s7CVarArgP", "subscript"]
 - ["s7CVarArgP", ""]
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "UIImage"]
+- !private ["s28CustomDebugStringConvertibleP", "Dictionary"]
+- !private ["s28CustomDebugStringConvertibleP", "IMAGE_CONST"]
 - !private ["s28CustomDebugStringConvertibleP", "chapter"]
-- !private ["s28CustomDebugStringConvertibleP", "coverPhoto"]
-- !private ["s28CustomDebugStringConvertibleP", "desc"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
-- !private ["s28CustomDebugStringConvertibleP", "previewPhoto"]
-- !private ["s28CustomDebugStringConvertibleP", "profilePhoto"]
+- !private ["s28CustomDebugStringConvertibleP", "previewImage"]
+- !private ["s28CustomDebugStringConvertibleP", "properties"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
-- !private ["s23CustomStringConvertibleP", "UIImage"]
+- !private ["s23CustomStringConvertibleP", "Dictionary"]
+- !private ["s23CustomStringConvertibleP", "IMAGE_CONST"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "chapter"]
-- !private ["s23CustomStringConvertibleP", "coverPhoto"]
-- !private ["s23CustomStringConvertibleP", "desc"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "name"]
-- !private ["s23CustomStringConvertibleP", "previewPhoto"]
-- !private ["s23CustomStringConvertibleP", "profilePhoto"]
+- !private ["s23CustomStringConvertibleP", "previewImage"]
+- !private ["s23CustomStringConvertibleP", "properties"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "subscript"]
+- !private ["s10DictionaryV", "init"]
 - !private ["s10DictionaryV", "subscript"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "subscript"]
-- !private ["s9EquatableP", "UIImage"]
+- !private ["s9EquatableP", "Dictionary"]
+- !private ["s9EquatableP", "IMAGE_CONST"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "chapter"]
-- !private ["s9EquatableP", "coverPhoto"]
-- !private ["s9EquatableP", "desc"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "name"]
-- !private ["s9EquatableP", "previewPhoto"]
-- !private ["s9EquatableP", "profilePhoto"]
+- !private ["s9EquatableP", "previewImage"]
+- !private ["s9EquatableP", "properties"]
 - ["s9EquatableP", ""]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "init"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - ["6RushMe10FraternityC", "Dictionary"]
-- ["6RushMe10FraternityC", "Int"]
+- !private ["6RushMe10FraternityC", "IMAGE_CONST"]
 - ["6RushMe10FraternityC", "String"]
 - ["6RushMe10FraternityC", "UIImage"]
 - ["6RushMe10FraternityC", "chapter"]
-- ["6RushMe10FraternityC", "coverPhoto"]
 - ["6RushMe10FraternityC", "deinit"]
-- ["6RushMe10FraternityC", "desc"]
+- ["6RushMe10FraternityC", "getProperty"]
 - ["6RushMe10FraternityC", "init"]
-- ["6RushMe10FraternityC", "memberCount"]
 - ["6RushMe10FraternityC", "name"]
-- ["6RushMe10FraternityC", "previewPhoto"]
-- ["6RushMe10FraternityC", "profilePhoto"]
-- !private ["s8HashableP", "UIImage"]
+- ["6RushMe10FraternityC", "previewImage"]
+- !private ["6RushMe10FraternityC", "properties"]
+- ["6RushMe10FraternityC", "setProperty"]
+- !private ["s8HashableP", "Dictionary"]
+- !private ["s8HashableP", "IMAGE_CONST"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "chapter"]
-- !private ["s8HashableP", "coverPhoto"]
-- !private ["s8HashableP", "desc"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "name"]
-- !private ["s8HashableP", "previewPhoto"]
-- !private ["s8HashableP", "profilePhoto"]
+- !private ["s8HashableP", "previewImage"]
+- !private ["s8HashableP", "properties"]
 - ["s8HashableP", ""]
+- !private ["6RushMe11IMAGE_CONSTV", "NO_IMAGE"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "init"]
 - !private ["So8NSCodingP", "init"]
@@ -109,26 +113,24 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Dictionary"]
-- ["So8NSObjectC", "Int"]
+- !private ["So8NSObjectC", "IMAGE_CONST"]
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "chapter"]
-- ["So8NSObjectC", "coverPhoto"]
-- ["So8NSObjectC", "desc"]
+- ["So8NSObjectC", "getProperty"]
 - ["So8NSObjectC", "init"]
-- ["So8NSObjectC", "memberCount"]
 - ["So8NSObjectC", "name"]
-- ["So8NSObjectC", "previewPhoto"]
-- ["So8NSObjectC", "profilePhoto"]
+- ["So8NSObjectC", "previewImage"]
+- ["So8NSObjectC", "properties"]
+- ["So8NSObjectC", "setProperty"]
 - ["So8NSObjectC", ""]
-- !private ["So16NSObjectProtocolP", "UIImage"]
+- !private ["So16NSObjectProtocolP", "Dictionary"]
+- !private ["So16NSObjectProtocolP", "IMAGE_CONST"]
 - !private ["So16NSObjectProtocolP", "chapter"]
-- !private ["So16NSObjectProtocolP", "coverPhoto"]
-- !private ["So16NSObjectProtocolP", "desc"]
 - !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "name"]
-- !private ["So16NSObjectProtocolP", "previewPhoto"]
-- !private ["So16NSObjectProtocolP", "profilePhoto"]
+- !private ["So16NSObjectProtocolP", "previewImage"]
+- !private ["So16NSObjectProtocolP", "properties"]
 - ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "init"]
 - !private ["So8NSStringC", "init"]
@@ -141,36 +143,34 @@ depends-member:
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
-- !private ["So29UIAccessibilityIdentificationP", "init"]
-- !private ["So7UIImageC", "init"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s26_ExpressibleByImageLiteralP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s10_IndexableP", "init"]
 - !private ["s10_IndexableP", "subscript"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Dictionary"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "IMAGE_CONST"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "chapter"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "coverPhoto"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "desc"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "previewPhoto"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "profilePhoto"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "previewImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "properties"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "s23BidirectionalCollectionP"
+- !private "Sb"
 - "s7CVarArgP"
 - !private "s10CollectionP"
 - !private "s10ComparableP"
@@ -182,12 +182,14 @@ depends-nominal:
 - !private "s10DictionaryV"
 - !private "s9EncodableP"
 - "s9EquatableP"
+- !private "s27ExpressibleByBooleanLiteralP"
 - !private "s30ExpressibleByDictionaryLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
 - "6RushMe10FraternityC"
 - "s8HashableP"
+- !private "6RushMe11IMAGE_CONSTV"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "So8NSCodingP"
@@ -207,15 +209,12 @@ depends-nominal:
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
-- !private "So29UIAccessibilityIdentificationP"
-- !private "So7UIImageC"
-- !private "So39UIItemProviderPresentationSizeProvidingP"
 - !private "s23_BidirectionalIndexableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- !private "s26_ExpressibleByImageLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - !private "s10_IndexableP"
@@ -268,4 +267,4 @@ depends-external:
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "4ebdb2a096c6f4959ee49758bcae8c98"
+interface-hash: "57a8cbb053f9b2c788e45bb10c62a233"
