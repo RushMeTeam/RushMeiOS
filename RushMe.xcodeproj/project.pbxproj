@@ -23,13 +23,11 @@
 		DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */; };
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
 		DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
-		DB1956E51F8B024E00E2803F /* TopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E41F8B024E00E2803F /* TopMenuCell.swift */; };
 		DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FA3D91F8A8EB7006480BE /* FratCell.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
 		DBD140451F927EE900945D9B /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140441F927EE900945D9B /* RoundedImageView.swift */; };
-		DBD140521F92934700945D9B /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140511F92934700945D9B /* DatabaseConnection.swift */; };
 		DBF07A221F8AA576001645D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
 		DBF07A241F8AA638001645D5 /* Elipses.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF07A231F8AA638001645D5 /* Elipses.png */; };
 /* End PBXBuildFile section */
@@ -92,7 +90,6 @@
 		DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
-		DB1956E41F8B024E00E2803F /* TopMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopMenuCell.swift; sourceTree = "<group>"; };
 		DB2FA3D91F8A8EB7006480BE /* FratCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FratCell.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB9E4E841F90302D002CA218 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
@@ -100,7 +97,6 @@
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DBD140441F927EE900945D9B /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
-		DBD140511F92934700945D9B /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
 		DBF07A211F8AA576001645D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBF07A231F8AA638001645D5 /* Elipses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elipses.png; sourceTree = "<group>"; };
 		E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMe/Pods-RushMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,7 +197,6 @@
 				DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */,
 				DB05F7511F894A910090DEC3 /* Assets.xcassets */,
 				DB05F7561F894A910090DEC3 /* Info.plist */,
-				DBD140511F92934700945D9B /* DatabaseConnection.swift */,
 			);
 			path = RushMe;
 			sourceTree = "<group>";
@@ -236,7 +231,6 @@
 		DBD140471F92840700945D9B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				DB1956E41F8B024E00E2803F /* TopMenuCell.swift */,
 				DB2FA3D91F8A8EB7006480BE /* FratCell.swift */,
 			);
 			path = TableViewCells;
@@ -573,8 +567,6 @@
 				DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
-				DBD140521F92934700945D9B /* DatabaseConnection.swift in Sources */,
-				DB1956E51F8B024E00E2803F /* TopMenuCell.swift in Sources */,
 				DBF07A221F8AA576001645D5 /* Constants.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
 				DBD140451F927EE900945D9B /* RoundedImageView.swift in Sources */,
@@ -746,6 +738,7 @@
 			baseConfigurationReference = 721F41F070E0F29641A6CF3A /* Pods-RushMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7KE765B32L;
@@ -765,6 +758,7 @@
 			baseConfigurationReference = E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7KE765B32L;

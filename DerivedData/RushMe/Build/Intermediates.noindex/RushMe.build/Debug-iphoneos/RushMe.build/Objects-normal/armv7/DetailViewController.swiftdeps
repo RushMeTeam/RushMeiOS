@@ -13,17 +13,21 @@ provides-dynamic-lookup:
 - "didReceiveMemoryWarning"
 - "profileImageView"
 - "scrollView"
+- "selectedFraternity"
 - "underProfileLabel"
 - "underlyingView"
 - "viewDidLoad"
 depends-top-level:
-- !private "=="
 - "AssignmentPrecedence"
 - !private "BooleanLiteralType"
+- "CastingPrecedence"
 - "DetailViewController"
 - "Fraternity"
 - !private "IMAGE_CONST"
+- !private "String"
+- !private "StringLiteralType"
 - !private "UIColor"
+- !private "UIImage"
 - "UIImageView"
 - "UILabel"
 - "UIScrollView"
@@ -33,7 +37,7 @@ depends-top-level:
 - !private "UIViewContentMode"
 - "UIViewController"
 depends-member:
-- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s23BidirectionalCollectionP", "init"]
 - !private ["So7CALayerC", "masksToBounds"]
 - !private ["So7CALayerC", "shadowColor"]
 - !private ["So7CALayerC", "shadowOpacity"]
@@ -64,11 +68,13 @@ depends-member:
 - !private ["s7CVarArgP", "blockTextView"]
 - !private ["s7CVarArgP", "bringSubview"]
 - !private ["s7CVarArgP", "cgColor"]
+- !private ["s7CVarArgP", "chapter"]
 - !private ["s7CVarArgP", "configureView"]
 - !private ["s7CVarArgP", "contentMode"]
 - !private ["s7CVarArgP", "coverImageView"]
 - !private ["s7CVarArgP", "didReceiveMemoryWarning"]
 - !private ["s7CVarArgP", "frame"]
+- !private ["s7CVarArgP", "getProperty"]
 - !private ["s7CVarArgP", "image"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "intrinsicContentSize"]
@@ -77,6 +83,7 @@ depends-member:
 - !private ["s7CVarArgP", "layer"]
 - !private ["s7CVarArgP", "layoutIfNeeded"]
 - !private ["s7CVarArgP", "masksToBounds"]
+- !private ["s7CVarArgP", "name"]
 - !private ["s7CVarArgP", "profileImageView"]
 - !private ["s7CVarArgP", "scrollView"]
 - ["s7CVarArgP", "scrollViewDidChangeAdjustedContentInset"]
@@ -106,6 +113,8 @@ depends-member:
 - ["s7CVarArgP", "viewForZooming"]
 - ["s7CVarArgP", "viewForZoomingInScrollView"]
 - ["s7CVarArgP", ""]
+- !private ["s10CollectionP", "init"]
+- !private ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "IMAGE_CONST"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UIViewContentMode"]
@@ -113,11 +122,13 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "blockTextView"]
 - !private ["s28CustomDebugStringConvertibleP", "bringSubview"]
 - !private ["s28CustomDebugStringConvertibleP", "cgColor"]
+- !private ["s28CustomDebugStringConvertibleP", "chapter"]
 - !private ["s28CustomDebugStringConvertibleP", "configureView"]
 - !private ["s28CustomDebugStringConvertibleP", "contentMode"]
 - !private ["s28CustomDebugStringConvertibleP", "coverImageView"]
 - !private ["s28CustomDebugStringConvertibleP", "didReceiveMemoryWarning"]
 - !private ["s28CustomDebugStringConvertibleP", "frame"]
+- !private ["s28CustomDebugStringConvertibleP", "getProperty"]
 - !private ["s28CustomDebugStringConvertibleP", "image"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "intrinsicContentSize"]
@@ -126,6 +137,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "layer"]
 - !private ["s28CustomDebugStringConvertibleP", "layoutIfNeeded"]
 - !private ["s28CustomDebugStringConvertibleP", "masksToBounds"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "profileImageView"]
 - !private ["s28CustomDebugStringConvertibleP", "scrollView"]
 - ["s28CustomDebugStringConvertibleP", "scrollViewDidChangeAdjustedContentInset"]
@@ -157,25 +169,26 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "viewForZoomingInScrollView"]
 - !private ["s28CustomDebugStringConvertibleP", "width"]
 - ["s28CustomDebugStringConvertibleP", ""]
-- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "size"]
 - !private ["s29CustomPlaygroundQuickLookableP", "width"]
-- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "size"]
 - !private ["s17CustomReflectableP", "width"]
 - !private ["s23CustomStringConvertibleP", "IMAGE_CONST"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UIViewContentMode"]
-- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "black"]
 - !private ["s23CustomStringConvertibleP", "blockTextView"]
 - !private ["s23CustomStringConvertibleP", "bringSubview"]
 - !private ["s23CustomStringConvertibleP", "cgColor"]
+- !private ["s23CustomStringConvertibleP", "chapter"]
 - !private ["s23CustomStringConvertibleP", "configureView"]
 - !private ["s23CustomStringConvertibleP", "contentMode"]
 - !private ["s23CustomStringConvertibleP", "coverImageView"]
 - !private ["s23CustomStringConvertibleP", "didReceiveMemoryWarning"]
 - !private ["s23CustomStringConvertibleP", "frame"]
+- !private ["s23CustomStringConvertibleP", "getProperty"]
 - !private ["s23CustomStringConvertibleP", "image"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "intrinsicContentSize"]
@@ -184,6 +197,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "layer"]
 - !private ["s23CustomStringConvertibleP", "layoutIfNeeded"]
 - !private ["s23CustomStringConvertibleP", "masksToBounds"]
+- !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "profileImageView"]
 - !private ["s23CustomStringConvertibleP", "scrollView"]
 - ["s23CustomStringConvertibleP", "scrollViewDidChangeAdjustedContentInset"]
@@ -213,12 +227,14 @@ depends-member:
 - ["s23CustomStringConvertibleP", "viewForZooming"]
 - ["s23CustomStringConvertibleP", "viewForZoomingInScrollView"]
 - ["s23CustomStringConvertibleP", ""]
-- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "size"]
 - !private ["s9DecodableP", "width"]
 - ["6RushMe20DetailViewControllerC", "Fraternity"]
 - !private ["6RushMe20DetailViewControllerC", "IMAGE_CONST"]
+- !private ["6RushMe20DetailViewControllerC", "String"]
 - !private ["6RushMe20DetailViewControllerC", "UIColor"]
+- !private ["6RushMe20DetailViewControllerC", "UIImage"]
 - ["6RushMe20DetailViewControllerC", "UIImageView"]
 - ["6RushMe20DetailViewControllerC", "UILabel"]
 - ["6RushMe20DetailViewControllerC", "UIScrollView"]
@@ -255,22 +271,23 @@ depends-member:
 - ["6RushMe20DetailViewControllerC", "viewDidLoad"]
 - ["6RushMe20DetailViewControllerC", "viewForZooming"]
 - ["6RushMe20DetailViewControllerC", "viewForZoomingInScrollView"]
-- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "size"]
 - !private ["s9EncodableP", "width"]
 - !private ["s9EquatableP", "IMAGE_CONST"]
 - !private ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UIViewContentMode"]
-- !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "black"]
 - !private ["s9EquatableP", "blockTextView"]
 - !private ["s9EquatableP", "bringSubview"]
 - !private ["s9EquatableP", "cgColor"]
+- !private ["s9EquatableP", "chapter"]
 - !private ["s9EquatableP", "configureView"]
 - !private ["s9EquatableP", "contentMode"]
 - !private ["s9EquatableP", "coverImageView"]
 - !private ["s9EquatableP", "didReceiveMemoryWarning"]
 - !private ["s9EquatableP", "frame"]
+- !private ["s9EquatableP", "getProperty"]
 - !private ["s9EquatableP", "image"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "intrinsicContentSize"]
@@ -279,6 +296,7 @@ depends-member:
 - !private ["s9EquatableP", "layer"]
 - !private ["s9EquatableP", "layoutIfNeeded"]
 - !private ["s9EquatableP", "masksToBounds"]
+- !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "profileImageView"]
 - !private ["s9EquatableP", "scaleAspectFill"]
 - !private ["s9EquatableP", "scrollView"]
@@ -311,25 +329,26 @@ depends-member:
 - ["s9EquatableP", "viewForZoomingInScrollView"]
 - !private ["s9EquatableP", "width"]
 - ["s9EquatableP", ""]
-- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["6RushMe10FraternityC", "chapter"]
-- !private ["6RushMe10FraternityC", "coverPhoto"]
-- !private ["6RushMe10FraternityC", "description"]
+- !private ["6RushMe10FraternityC", "getProperty"]
 - !private ["6RushMe10FraternityC", "name"]
-- !private ["6RushMe10FraternityC", "profilePhoto"]
 - !private ["s8HashableP", "IMAGE_CONST"]
 - !private ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UIViewContentMode"]
-- !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "black"]
 - !private ["s8HashableP", "blockTextView"]
 - !private ["s8HashableP", "bringSubview"]
 - !private ["s8HashableP", "cgColor"]
+- !private ["s8HashableP", "chapter"]
 - !private ["s8HashableP", "configureView"]
 - !private ["s8HashableP", "contentMode"]
 - !private ["s8HashableP", "coverImageView"]
 - !private ["s8HashableP", "didReceiveMemoryWarning"]
 - !private ["s8HashableP", "frame"]
+- !private ["s8HashableP", "getProperty"]
 - !private ["s8HashableP", "image"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "intrinsicContentSize"]
@@ -338,6 +357,7 @@ depends-member:
 - !private ["s8HashableP", "layer"]
 - !private ["s8HashableP", "layoutIfNeeded"]
 - !private ["s8HashableP", "masksToBounds"]
+- !private ["s8HashableP", "name"]
 - !private ["s8HashableP", "profileImageView"]
 - !private ["s8HashableP", "scaleAspectFill"]
 - !private ["s8HashableP", "scrollView"]
@@ -369,7 +389,8 @@ depends-member:
 - ["s8HashableP", "viewForZoomingInScrollView"]
 - ["s8HashableP", ""]
 - !private ["6RushMe11IMAGE_CONSTV", "NO_IMAGE"]
-- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
 - !private ["So8NSCodingP", "IMAGE_CONST"]
 - !private ["So8NSCodingP", "UIColor"]
 - !private ["So8NSCodingP", "UIViewContentMode"]
@@ -421,6 +442,7 @@ depends-member:
 - ["So8NSCodingP", ""]
 - !private ["So9NSCopyingP", "black"]
 - !private ["So9NSCopyingP", "cgColor"]
+- !private ["So9NSCopyingP", "init"]
 - !private ["So26NSExtensionRequestHandlingP", "IMAGE_CONST"]
 - !private ["So26NSExtensionRequestHandlingP", "UIColor"]
 - !private ["So26NSExtensionRequestHandlingP", "UIViewContentMode"]
@@ -454,11 +476,16 @@ depends-member:
 - ["So26NSExtensionRequestHandlingP", ""]
 - !private ["So21NSItemProviderReadingP", "black"]
 - !private ["So21NSItemProviderReadingP", "cgColor"]
+- !private ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderWritingP", "black"]
 - !private ["So21NSItemProviderWritingP", "cgColor"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Fraternity"]
 - !private ["So8NSObjectC", "IMAGE_CONST"]
+- !private ["So8NSObjectC", "String"]
 - !private ["So8NSObjectC", "UIColor"]
+- !private ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
 - ["So8NSObjectC", "UIScrollView"]
@@ -470,11 +497,13 @@ depends-member:
 - ["So8NSObjectC", "blockTextView"]
 - !private ["So8NSObjectC", "bringSubview"]
 - !private ["So8NSObjectC", "cgColor"]
+- !private ["So8NSObjectC", "chapter"]
 - ["So8NSObjectC", "configureView"]
 - !private ["So8NSObjectC", "contentMode"]
 - ["So8NSObjectC", "coverImageView"]
 - ["So8NSObjectC", "didReceiveMemoryWarning"]
 - !private ["So8NSObjectC", "frame"]
+- !private ["So8NSObjectC", "getProperty"]
 - !private ["So8NSObjectC", "image"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "intrinsicContentSize"]
@@ -483,6 +512,7 @@ depends-member:
 - !private ["So8NSObjectC", "layer"]
 - !private ["So8NSObjectC", "layoutIfNeeded"]
 - !private ["So8NSObjectC", "masksToBounds"]
+- !private ["So8NSObjectC", "name"]
 - ["So8NSObjectC", "profileImageView"]
 - ["So8NSObjectC", "scrollView"]
 - ["So8NSObjectC", "scrollViewDidChangeAdjustedContentInset"]
@@ -519,11 +549,13 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "blockTextView"]
 - !private ["So16NSObjectProtocolP", "bringSubview"]
 - !private ["So16NSObjectProtocolP", "cgColor"]
+- !private ["So16NSObjectProtocolP", "chapter"]
 - !private ["So16NSObjectProtocolP", "configureView"]
 - !private ["So16NSObjectProtocolP", "contentMode"]
 - !private ["So16NSObjectProtocolP", "coverImageView"]
 - !private ["So16NSObjectProtocolP", "didReceiveMemoryWarning"]
 - !private ["So16NSObjectProtocolP", "frame"]
+- !private ["So16NSObjectProtocolP", "getProperty"]
 - !private ["So16NSObjectProtocolP", "image"]
 - !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "intrinsicContentSize"]
@@ -532,6 +564,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "layer"]
 - !private ["So16NSObjectProtocolP", "layoutIfNeeded"]
 - !private ["So16NSObjectProtocolP", "masksToBounds"]
+- !private ["So16NSObjectProtocolP", "name"]
 - !private ["So16NSObjectProtocolP", "profileImageView"]
 - !private ["So16NSObjectProtocolP", "scrollView"]
 - ["So16NSObjectProtocolP", "scrollViewDidChangeAdjustedContentInset"]
@@ -563,11 +596,20 @@ depends-member:
 - ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "black"]
 - !private ["So14NSSecureCodingP", "cgColor"]
+- !private ["So14NSSecureCodingP", "init"]
 - !private ["So14NSSecureCodingP", "masksToBounds"]
 - !private ["So14NSSecureCodingP", "shadowColor"]
 - !private ["So14NSSecureCodingP", "shadowOpacity"]
 - !private ["So14NSSecureCodingP", "shadowRadius"]
+- !private ["So8NSStringC", "init"]
+- !private ["So15OHSerializationP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s16RawRepresentableP", "scaleAspectFill"]
+- !private ["s8SequenceP", "init"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "contentMode"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "layer"]
@@ -813,7 +855,9 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Fraternity"]
 - !private ["So11UIResponderC", "IMAGE_CONST"]
+- !private ["So11UIResponderC", "String"]
 - !private ["So11UIResponderC", "UIColor"]
+- !private ["So11UIResponderC", "UIImage"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
 - ["So11UIResponderC", "UIScrollView"]
@@ -1064,7 +1108,9 @@ depends-member:
 - !private ["SC17UIViewContentModeO", "scaleAspectFill"]
 - ["So16UIViewControllerC", "Fraternity"]
 - !private ["So16UIViewControllerC", "IMAGE_CONST"]
+- !private ["So16UIViewControllerC", "String"]
 - !private ["So16UIViewControllerC", "UIColor"]
+- !private ["So16UIViewControllerC", "UIImage"]
 - ["So16UIViewControllerC", "UIImageView"]
 - ["So16UIViewControllerC", "UILabel"]
 - ["So16UIViewControllerC", "UIScrollView"]
@@ -1101,6 +1147,7 @@ depends-member:
 - ["So16UIViewControllerC", "viewForZooming"]
 - ["So16UIViewControllerC", "viewForZoomingInScrollView"]
 - ["So16UIViewControllerC", ""]
+- !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "bringSubview"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "contentMode"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "frame"]
@@ -1113,9 +1160,16 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "setNeedsDisplay"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "sizeToFit"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
-- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s26_ExpressibleByColorLiteralP", "black"]
 - !private ["s26_ExpressibleByColorLiteralP", "cgColor"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s10_IndexableP", "init"]
+- !private ["s14_IndexableBaseP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "IMAGE_CONST"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIViewContentMode"]
@@ -1123,11 +1177,13 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "blockTextView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "bringSubview"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cgColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "chapter"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "configureView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "contentMode"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "coverImageView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "didReceiveMemoryWarning"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "frame"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "getProperty"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "image"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "intrinsicContentSize"]
@@ -1136,6 +1192,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layoutIfNeeded"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "masksToBounds"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "profileImageView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "scrollView"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "scrollViewDidChangeAdjustedContentInset"]
@@ -1165,17 +1222,21 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "viewForZooming"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "viewForZoomingInScrollView"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
-- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "size"]
 - !private ["s21_ObjectiveCBridgeableP", "width"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
-- !private "Sb"
+- !private "s23BidirectionalCollectionP"
 - !private "So7CALayerC"
 - !private "So15CALayerDelegateP"
 - !private "So13CAMediaTimingP"
 - !private "SC6CGRectV"
 - !private "SC6CGSizeV"
 - "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
 - "s28CustomDebugStringConvertibleP"
 - !private "s29CustomPlaygroundQuickLookableP"
 - !private "s17CustomReflectableP"
@@ -1184,20 +1245,32 @@ depends-nominal:
 - "6RushMe20DetailViewControllerC"
 - !private "s9EncodableP"
 - "s9EquatableP"
-- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "6RushMe10FraternityC"
 - "s8HashableP"
 - !private "6RushMe11IMAGE_CONSTV"
 - !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
 - "So8NSCodingP"
 - !private "So9NSCopyingP"
 - "So26NSExtensionRequestHandlingP"
 - !private "So21NSItemProviderReadingP"
 - !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "So15OHSerializationP"
+- !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
+- !private "s8SequenceP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
 - !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
 - !private "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
@@ -1228,11 +1301,21 @@ depends-nominal:
 - !private "So6UIViewC"
 - !private "SC17UIViewContentModeO"
 - "So16UIViewControllerC"
+- !private "s23_BidirectionalIndexableP"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
-- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s26_ExpressibleByColorLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
@@ -1248,6 +1331,33 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
 - "/Users/adamthk/Google Drive/RushMe/RushMe/RushMe-Bridging-Header.h"
 - "/Users/adamthk/Google Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 interface-hash: "69abb83c3f45ebfd88c305d527ad440f"

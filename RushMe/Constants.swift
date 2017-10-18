@@ -16,6 +16,7 @@ struct IMAGE_CONST {
 }
 
 struct COLOR_CONST {
-  static let MENU_COLOR = UIColor.white
-  static let NAVIGATION_BAR_COLOR = UIColor.clear
+  static let MENU_COLOR = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
+  static let NAVIGATION_BAR_COLOR = MENU_COLOR
+  static let SLIDEOUT_MENU_SHADOW_ENABLED = false
 }

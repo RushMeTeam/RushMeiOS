@@ -1,17 +1,15 @@
-version: "Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)"
-options: "1b299b686922268b01a065b88a4ded5b"
-build_time: [1508017218, 452050000]
+version: "Apple Swift version 4.0 (swiftlang-900.0.65.2 clang-900.0.37)"
+options: "0ab54628b40bcf45290197f88d373245"
+build_time: [1508293885, 635930000]
 inputs:
-  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1508003698, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/DrawerMenu/DrawerMenuViewController.swift": [1508003678, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1508002836, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/Model/RushEvent.swift": [1507765998, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1508108092, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/DrawerMenu/DrawerMenuViewController.swift": [1508273193, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1508273255, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/TableViewCells/FratCell.swift": [1508002861, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/AppDelegate.swift": [1507670467, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/Model/Fraternity.swift": [1508004177, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/DatabaseConnection.swift": [1508017218, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/TableViewCells/TopMenuCell.swift": [1508002911, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/Constants.swift": [1508001049, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/RoundedImageView.swift": [1508003681, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/AppDelegate.swift": [1508190078, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/Model/Fraternity.swift": [1508100581, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/Constants.swift": [1508189754, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/Model/SQLHandler.swift": [1508099419, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/RoundedImageView.swift": [1508184507, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/AuxilliaryViewControllers/AboutViewController.swift": [1508002739, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/AuxilliaryViewControllers/SettingsViewController.swift": [1508001236, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/AuxilliaryViewControllers/SettingsViewController.swift": [1508273193, 0]

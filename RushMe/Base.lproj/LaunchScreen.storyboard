@@ -23,13 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RushMe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0y-Wk-qFp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RushMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0y-Wk-qFp">
                                 <rect key="frame" x="141" y="350.5" width="92.5" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-7Q-iQm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RushMeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-7Q-iQm">
                                 <rect key="frame" x="91" y="148" width="192" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="192" id="9pg-8H-AsV"/>
@@ -37,7 +37,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16078431372549018" green="0.6705882352941176" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="90f-TO-7vH"/>
                             <constraint firstItem="E0y-Wk-qFp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="A86-Dx-mdk"/>
@@ -53,6 +53,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appIcon" width="1024" height="1024"/>
+        <image name="RushMeLogo" width="798" height="912"/>
     </resources>
 </document>

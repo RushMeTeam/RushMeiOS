@@ -15,7 +15,7 @@ import UIKit
 //    -- Allows 3DTouch
 //    -- Is the SWRevealViewController's .front view controller
 //          -- Set in AppDelegate
-class MasterViewController: UITableViewController {
+class MasterViewController : UITableViewController {
   
   // The hard data used in the table
   var objects = [Any]()
@@ -29,9 +29,15 @@ class MasterViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    if (!COLOR_CONST.SLIDEOUT_MENU_SHADOW_ENABLED) {
+      self.revealViewController().frontViewShadowOpacity = 0
+    }
+    openBarButtonItem.tintColor = COLOR_CONST.MENU_COLOR
     // Ensure the menu button toggles the menu
     openBarButtonItem.target = self
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSAttributedStringKey.foregroundColor: COLOR_CONST.NAVIGATION_BAR_COLOR]
     // Allows for drag to open and tap out to close
     view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     view.addGestureRecognizer(revealViewController().tapGestureRecognizer())

@@ -22,6 +22,7 @@ depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
 - !private "BooleanLiteralType"
+- !private "COLOR_CONST"
 - "CastingPrecedence"
 - !private "DetailViewController"
 - !private "MasterViewController"
@@ -31,6 +32,7 @@ depends-top-level:
 - "UIApplicationDelegate"
 - "UIApplicationLaunchOptionsKey"
 - !private "UIColor"
+- !private "UINavigationBar"
 - !private "UINavigationController"
 - "UIResponder"
 - !private "UIScreen"
@@ -41,12 +43,14 @@ depends-top-level:
 - "UIWindow"
 depends-member:
 - ["6RushMe11AppDelegateC", "Bool"]
+- !private ["6RushMe11AppDelegateC", "COLOR_CONST"]
 - !private ["6RushMe11AppDelegateC", "DetailViewController"]
 - !private ["6RushMe11AppDelegateC", "MasterViewController"]
 - !private ["6RushMe11AppDelegateC", "SWRevealViewController"]
 - ["6RushMe11AppDelegateC", "UIApplication"]
 - ["6RushMe11AppDelegateC", "UIApplicationLaunchOptionsKey"]
 - !private ["6RushMe11AppDelegateC", "UIColor"]
+- !private ["6RushMe11AppDelegateC", "UINavigationBar"]
 - !private ["6RushMe11AppDelegateC", "UINavigationController"]
 - !private ["6RushMe11AppDelegateC", "UIScreen"]
 - ["6RushMe11AppDelegateC", "UISplitViewController"]
@@ -82,15 +86,23 @@ depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "subscript"]
 - !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So15CALayerDelegateP", "alpha"]
+- !private ["So15CALayerDelegateP", "appearance"]
 - !private ["So15CALayerDelegateP", "backgroundColor"]
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "makeKeyAndVisible"]
 - !private ["So15CALayerDelegateP", "rootViewController"]
+- !private ["So15CALayerDelegateP", "tintColor"]
+- !private ["6RushMe11COLOR_CONSTV", "MENU_COLOR"]
+- !private ["s7CVarArgP", "COLOR_CONST"]
 - !private ["s7CVarArgP", "UIColor"]
+- !private ["s7CVarArgP", "UINavigationBar"]
 - !private ["s7CVarArgP", "UINavigationController"]
 - !private ["s7CVarArgP", "UIScreen"]
 - !private ["s7CVarArgP", "UIStoryboard"]
 - !private ["s7CVarArgP", "UIWindow"]
+- !private ["s7CVarArgP", "alpha"]
+- !private ["s7CVarArgP", "appearance"]
 - ["s7CVarArgP", "application"]
 - ["s7CVarArgP", "applicationDidBecomeActive"]
 - ["s7CVarArgP", "applicationDidEnterBackground"]
@@ -127,6 +139,7 @@ depends-member:
 - !private ["s7CVarArgP", "subscript"]
 - ["s7CVarArgP", "targetDisplayModeForAction"]
 - ["s7CVarArgP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["s7CVarArgP", "tintColor"]
 - !private ["s7CVarArgP", "topViewController"]
 - !private ["s7CVarArgP", "viewControllers"]
 - !private ["s7CVarArgP", "white"]
@@ -136,11 +149,15 @@ depends-member:
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "COLOR_CONST"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
+- !private ["s28CustomDebugStringConvertibleP", "UINavigationBar"]
 - !private ["s28CustomDebugStringConvertibleP", "UINavigationController"]
 - !private ["s28CustomDebugStringConvertibleP", "UIScreen"]
 - !private ["s28CustomDebugStringConvertibleP", "UIStoryboard"]
 - !private ["s28CustomDebugStringConvertibleP", "UIWindow"]
+- !private ["s28CustomDebugStringConvertibleP", "alpha"]
+- !private ["s28CustomDebugStringConvertibleP", "appearance"]
 - ["s28CustomDebugStringConvertibleP", "application"]
 - ["s28CustomDebugStringConvertibleP", "applicationDidBecomeActive"]
 - ["s28CustomDebugStringConvertibleP", "applicationDidEnterBackground"]
@@ -177,6 +194,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - ["s28CustomDebugStringConvertibleP", "targetDisplayModeForAction"]
 - ["s28CustomDebugStringConvertibleP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "tintColor"]
 - !private ["s28CustomDebugStringConvertibleP", "topViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "viewControllers"]
 - !private ["s28CustomDebugStringConvertibleP", "white"]
@@ -188,12 +206,16 @@ depends-member:
 - !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "COLOR_CONST"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
+- !private ["s23CustomStringConvertibleP", "UINavigationBar"]
 - !private ["s23CustomStringConvertibleP", "UINavigationController"]
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
 - !private ["s23CustomStringConvertibleP", "UIStoryboard"]
 - !private ["s23CustomStringConvertibleP", "UIWindow"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "alpha"]
+- !private ["s23CustomStringConvertibleP", "appearance"]
 - ["s23CustomStringConvertibleP", "application"]
 - ["s23CustomStringConvertibleP", "applicationDidBecomeActive"]
 - ["s23CustomStringConvertibleP", "applicationDidEnterBackground"]
@@ -230,6 +252,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - ["s23CustomStringConvertibleP", "targetDisplayModeForAction"]
 - ["s23CustomStringConvertibleP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["s23CustomStringConvertibleP", "tintColor"]
 - !private ["s23CustomStringConvertibleP", "topViewController"]
 - !private ["s23CustomStringConvertibleP", "viewControllers"]
 - !private ["s23CustomStringConvertibleP", "white"]
@@ -244,12 +267,16 @@ depends-member:
 - !private ["s9EncodableP", "count"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "COLOR_CONST"]
 - !private ["s9EquatableP", "UIColor"]
+- !private ["s9EquatableP", "UINavigationBar"]
 - !private ["s9EquatableP", "UINavigationController"]
 - !private ["s9EquatableP", "UIScreen"]
 - !private ["s9EquatableP", "UIStoryboard"]
 - !private ["s9EquatableP", "UIWindow"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "alpha"]
+- !private ["s9EquatableP", "appearance"]
 - ["s9EquatableP", "application"]
 - ["s9EquatableP", "applicationDidBecomeActive"]
 - ["s9EquatableP", "applicationDidEnterBackground"]
@@ -284,6 +311,7 @@ depends-member:
 - ["s9EquatableP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["s9EquatableP", "targetDisplayModeForAction"]
 - ["s9EquatableP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["s9EquatableP", "tintColor"]
 - !private ["s9EquatableP", "topViewController"]
 - !private ["s9EquatableP", "viewControllers"]
 - !private ["s9EquatableP", "white"]
@@ -295,12 +323,17 @@ depends-member:
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["6RushMe10FraternityC", "deinit"]
+- !private ["s8HashableP", "COLOR_CONST"]
 - !private ["s8HashableP", "UIColor"]
+- !private ["s8HashableP", "UINavigationBar"]
 - !private ["s8HashableP", "UINavigationController"]
 - !private ["s8HashableP", "UIScreen"]
 - !private ["s8HashableP", "UIStoryboard"]
 - !private ["s8HashableP", "UIWindow"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "alpha"]
+- !private ["s8HashableP", "appearance"]
 - ["s8HashableP", "application"]
 - ["s8HashableP", "applicationDidBecomeActive"]
 - ["s8HashableP", "applicationDidEnterBackground"]
@@ -335,6 +368,7 @@ depends-member:
 - ["s8HashableP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["s8HashableP", "targetDisplayModeForAction"]
 - ["s8HashableP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["s8HashableP", "tintColor"]
 - !private ["s8HashableP", "topViewController"]
 - !private ["s8HashableP", "viewControllers"]
 - !private ["s8HashableP", "white"]
@@ -345,6 +379,8 @@ depends-member:
 - !private ["s10MirrorPathP", "init"]
 - !private ["s17MutableCollectionP", "count"]
 - !private ["s17MutableCollectionP", "subscript"]
+- !private ["So8NSCodingP", "alpha"]
+- !private ["So8NSCodingP", "appearance"]
 - !private ["So8NSCodingP", "backgroundColor"]
 - !private ["So8NSCodingP", "delegate"]
 - !private ["So8NSCodingP", "displayModeButtonItem"]
@@ -356,6 +392,7 @@ depends-member:
 - !private ["So8NSCodingP", "selectedFraternity"]
 - !private ["So8NSCodingP", "setFront"]
 - !private ["So8NSCodingP", "setRear"]
+- !private ["So8NSCodingP", "tintColor"]
 - !private ["So8NSCodingP", "topViewController"]
 - !private ["So8NSCodingP", "viewControllers"]
 - !private ["So8NSCodingP", "white"]
@@ -376,18 +413,22 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "white"]
 - !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "COLOR_CONST"]
 - !private ["So8NSObjectC", "DetailViewController"]
 - !private ["So8NSObjectC", "MasterViewController"]
 - !private ["So8NSObjectC", "SWRevealViewController"]
 - ["So8NSObjectC", "UIApplication"]
 - ["So8NSObjectC", "UIApplicationLaunchOptionsKey"]
 - !private ["So8NSObjectC", "UIColor"]
+- !private ["So8NSObjectC", "UINavigationBar"]
 - !private ["So8NSObjectC", "UINavigationController"]
 - !private ["So8NSObjectC", "UIScreen"]
 - ["So8NSObjectC", "UISplitViewController"]
 - !private ["So8NSObjectC", "UIStoryboard"]
 - ["So8NSObjectC", "UIViewController"]
 - ["So8NSObjectC", "UIWindow"]
+- !private ["So8NSObjectC", "alpha"]
+- !private ["So8NSObjectC", "appearance"]
 - ["So8NSObjectC", "application"]
 - ["So8NSObjectC", "applicationDidBecomeActive"]
 - ["So8NSObjectC", "applicationDidEnterBackground"]
@@ -422,15 +463,20 @@ depends-member:
 - ["So8NSObjectC", "splitViewControllerSupportedInterfaceOrientations"]
 - ["So8NSObjectC", "targetDisplayModeForAction"]
 - ["So8NSObjectC", "targetDisplayModeForActionInSplitViewController"]
+- !private ["So8NSObjectC", "tintColor"]
 - !private ["So8NSObjectC", "topViewController"]
 - !private ["So8NSObjectC", "viewControllers"]
 - !private ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "window"]
+- !private ["So16NSObjectProtocolP", "COLOR_CONST"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
+- !private ["So16NSObjectProtocolP", "UINavigationBar"]
 - !private ["So16NSObjectProtocolP", "UINavigationController"]
 - !private ["So16NSObjectProtocolP", "UIScreen"]
 - !private ["So16NSObjectProtocolP", "UIStoryboard"]
 - !private ["So16NSObjectProtocolP", "UIWindow"]
+- !private ["So16NSObjectProtocolP", "alpha"]
+- !private ["So16NSObjectProtocolP", "appearance"]
 - ["So16NSObjectProtocolP", "application"]
 - ["So16NSObjectProtocolP", "applicationDidBecomeActive"]
 - ["So16NSObjectProtocolP", "applicationDidEnterBackground"]
@@ -465,6 +511,7 @@ depends-member:
 - ["So16NSObjectProtocolP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["So16NSObjectProtocolP", "targetDisplayModeForAction"]
 - ["So16NSObjectProtocolP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["So16NSObjectProtocolP", "tintColor"]
 - !private ["So16NSObjectProtocolP", "topViewController"]
 - !private ["So16NSObjectProtocolP", "viewControllers"]
 - !private ["So16NSObjectProtocolP", "white"]
@@ -473,6 +520,7 @@ depends-member:
 - !private ["So14NSSecureCodingP", "init"]
 - !private ["So14NSSecureCodingP", "white"]
 - !private ["So8NSStringC", "init"]
+- !private ["So15OHSerializationP", "init"]
 - !private ["s22RandomAccessCollectionP", "count"]
 - !private ["s22RandomAccessCollectionP", "subscript"]
 - !private ["s26RangeReplaceableCollectionP", "count"]
@@ -487,14 +535,22 @@ depends-member:
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
+- !private ["So29UIAccessibilityIdentificationP", "alpha"]
+- !private ["So29UIAccessibilityIdentificationP", "appearance"]
 - !private ["So29UIAccessibilityIdentificationP", "backgroundColor"]
 - !private ["So29UIAccessibilityIdentificationP", "init"]
 - !private ["So29UIAccessibilityIdentificationP", "makeKeyAndVisible"]
 - !private ["So29UIAccessibilityIdentificationP", "rootViewController"]
+- !private ["So29UIAccessibilityIdentificationP", "tintColor"]
+- !private ["So12UIAppearanceP", "alpha"]
+- !private ["So12UIAppearanceP", "appearance"]
 - !private ["So12UIAppearanceP", "backgroundColor"]
 - !private ["So12UIAppearanceP", "init"]
 - !private ["So12UIAppearanceP", "makeKeyAndVisible"]
 - !private ["So12UIAppearanceP", "rootViewController"]
+- !private ["So12UIAppearanceP", "tintColor"]
+- !private ["So21UIAppearanceContainerP", "alpha"]
+- !private ["So21UIAppearanceContainerP", "appearance"]
 - !private ["So21UIAppearanceContainerP", "backgroundColor"]
 - !private ["So21UIAppearanceContainerP", "delegate"]
 - !private ["So21UIAppearanceContainerP", "displayModeButtonItem"]
@@ -505,9 +561,12 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "selectedFraternity"]
 - !private ["So21UIAppearanceContainerP", "setFront"]
 - !private ["So21UIAppearanceContainerP", "setRear"]
+- !private ["So21UIAppearanceContainerP", "tintColor"]
 - !private ["So21UIAppearanceContainerP", "topViewController"]
 - !private ["So21UIAppearanceContainerP", "viewControllers"]
+- !private ["So21UIApplicationDelegateP", "COLOR_CONST"]
 - !private ["So21UIApplicationDelegateP", "UIColor"]
+- !private ["So21UIApplicationDelegateP", "UINavigationBar"]
 - !private ["So21UIApplicationDelegateP", "UINavigationController"]
 - !private ["So21UIApplicationDelegateP", "UIScreen"]
 - !private ["So21UIApplicationDelegateP", "UIStoryboard"]
@@ -534,6 +593,10 @@ depends-member:
 - ["So21UIApplicationDelegateP", "targetDisplayModeForActionInSplitViewController"]
 - ["So21UIApplicationDelegateP", "window"]
 - ["So21UIApplicationDelegateP", ""]
+- !private ["So16UIBarPositioningP", "alpha"]
+- !private ["So16UIBarPositioningP", "appearance"]
+- !private ["So16UIBarPositioningP", "backgroundColor"]
+- !private ["So16UIBarPositioningP", "tintColor"]
 - !private ["So7UIColorC", "white"]
 - !private ["So18UIContentContainerP", "delegate"]
 - !private ["So18UIContentContainerP", "displayModeButtonItem"]
@@ -544,14 +607,22 @@ depends-member:
 - !private ["So18UIContentContainerP", "setRear"]
 - !private ["So18UIContentContainerP", "topViewController"]
 - !private ["So18UIContentContainerP", "viewControllers"]
+- !private ["So17UICoordinateSpaceP", "alpha"]
+- !private ["So17UICoordinateSpaceP", "appearance"]
 - !private ["So17UICoordinateSpaceP", "backgroundColor"]
 - !private ["So17UICoordinateSpaceP", "init"]
 - !private ["So17UICoordinateSpaceP", "makeKeyAndVisible"]
 - !private ["So17UICoordinateSpaceP", "rootViewController"]
+- !private ["So17UICoordinateSpaceP", "tintColor"]
+- !private ["So13UIDynamicItemP", "alpha"]
+- !private ["So13UIDynamicItemP", "appearance"]
 - !private ["So13UIDynamicItemP", "backgroundColor"]
 - !private ["So13UIDynamicItemP", "init"]
 - !private ["So13UIDynamicItemP", "makeKeyAndVisible"]
 - !private ["So13UIDynamicItemP", "rootViewController"]
+- !private ["So13UIDynamicItemP", "tintColor"]
+- !private ["So18UIFocusEnvironmentP", "alpha"]
+- !private ["So18UIFocusEnvironmentP", "appearance"]
 - !private ["So18UIFocusEnvironmentP", "backgroundColor"]
 - !private ["So18UIFocusEnvironmentP", "delegate"]
 - !private ["So18UIFocusEnvironmentP", "displayModeButtonItem"]
@@ -562,20 +633,32 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "selectedFraternity"]
 - !private ["So18UIFocusEnvironmentP", "setFront"]
 - !private ["So18UIFocusEnvironmentP", "setRear"]
+- !private ["So18UIFocusEnvironmentP", "tintColor"]
 - !private ["So18UIFocusEnvironmentP", "topViewController"]
 - !private ["So18UIFocusEnvironmentP", "viewControllers"]
+- !private ["So11UIFocusItemP", "alpha"]
+- !private ["So11UIFocusItemP", "appearance"]
 - !private ["So11UIFocusItemP", "backgroundColor"]
 - !private ["So11UIFocusItemP", "init"]
 - !private ["So11UIFocusItemP", "makeKeyAndVisible"]
 - !private ["So11UIFocusItemP", "rootViewController"]
+- !private ["So11UIFocusItemP", "tintColor"]
+- !private ["So15UINavigationBarC", "alpha"]
+- !private ["So15UINavigationBarC", "appearance"]
+- !private ["So15UINavigationBarC", "backgroundColor"]
+- !private ["So15UINavigationBarC", "tintColor"]
 - !private ["So22UINavigationControllerC", "init"]
 - !private ["So22UINavigationControllerC", "topViewController"]
 - !private ["So16UINavigationItemC", "leftBarButtonItem"]
+- !private ["So30UIPasteConfigurationSupportingP", "COLOR_CONST"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "UINavigationBar"]
 - !private ["So30UIPasteConfigurationSupportingP", "UINavigationController"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIScreen"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIStoryboard"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIWindow"]
+- !private ["So30UIPasteConfigurationSupportingP", "alpha"]
+- !private ["So30UIPasteConfigurationSupportingP", "appearance"]
 - ["So30UIPasteConfigurationSupportingP", "application"]
 - ["So30UIPasteConfigurationSupportingP", "applicationDidBecomeActive"]
 - ["So30UIPasteConfigurationSupportingP", "applicationDidEnterBackground"]
@@ -606,23 +689,28 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["So30UIPasteConfigurationSupportingP", "targetDisplayModeForAction"]
 - ["So30UIPasteConfigurationSupportingP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["So30UIPasteConfigurationSupportingP", "tintColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "topViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "viewControllers"]
 - ["So30UIPasteConfigurationSupportingP", "window"]
 - ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Bool"]
+- !private ["So11UIResponderC", "COLOR_CONST"]
 - !private ["So11UIResponderC", "DetailViewController"]
 - !private ["So11UIResponderC", "MasterViewController"]
 - !private ["So11UIResponderC", "SWRevealViewController"]
 - ["So11UIResponderC", "UIApplication"]
 - ["So11UIResponderC", "UIApplicationLaunchOptionsKey"]
 - !private ["So11UIResponderC", "UIColor"]
+- !private ["So11UIResponderC", "UINavigationBar"]
 - !private ["So11UIResponderC", "UINavigationController"]
 - !private ["So11UIResponderC", "UIScreen"]
 - ["So11UIResponderC", "UISplitViewController"]
 - !private ["So11UIResponderC", "UIStoryboard"]
 - ["So11UIResponderC", "UIViewController"]
 - ["So11UIResponderC", "UIWindow"]
+- !private ["So11UIResponderC", "alpha"]
+- !private ["So11UIResponderC", "appearance"]
 - ["So11UIResponderC", "application"]
 - ["So11UIResponderC", "applicationDidBecomeActive"]
 - ["So11UIResponderC", "applicationDidEnterBackground"]
@@ -653,15 +741,20 @@ depends-member:
 - ["So11UIResponderC", "splitViewControllerSupportedInterfaceOrientations"]
 - ["So11UIResponderC", "targetDisplayModeForAction"]
 - ["So11UIResponderC", "targetDisplayModeForActionInSplitViewController"]
+- !private ["So11UIResponderC", "tintColor"]
 - !private ["So11UIResponderC", "topViewController"]
 - !private ["So11UIResponderC", "viewControllers"]
 - ["So11UIResponderC", "window"]
 - ["So11UIResponderC", ""]
+- !private ["So30UIResponderStandardEditActionsP", "COLOR_CONST"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
+- !private ["So30UIResponderStandardEditActionsP", "UINavigationBar"]
 - !private ["So30UIResponderStandardEditActionsP", "UINavigationController"]
 - !private ["So30UIResponderStandardEditActionsP", "UIScreen"]
 - !private ["So30UIResponderStandardEditActionsP", "UIStoryboard"]
 - !private ["So30UIResponderStandardEditActionsP", "UIWindow"]
+- !private ["So30UIResponderStandardEditActionsP", "alpha"]
+- !private ["So30UIResponderStandardEditActionsP", "appearance"]
 - ["So30UIResponderStandardEditActionsP", "application"]
 - ["So30UIResponderStandardEditActionsP", "applicationDidBecomeActive"]
 - ["So30UIResponderStandardEditActionsP", "applicationDidEnterBackground"]
@@ -692,6 +785,7 @@ depends-member:
 - ["So30UIResponderStandardEditActionsP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["So30UIResponderStandardEditActionsP", "targetDisplayModeForAction"]
 - ["So30UIResponderStandardEditActionsP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["So30UIResponderStandardEditActionsP", "tintColor"]
 - !private ["So30UIResponderStandardEditActionsP", "topViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "viewControllers"]
 - ["So30UIResponderStandardEditActionsP", "window"]
@@ -702,7 +796,9 @@ depends-member:
 - !private ["So21UISplitViewControllerC", "delegate"]
 - !private ["So21UISplitViewControllerC", "displayModeButtonItem"]
 - !private ["So21UISplitViewControllerC", "viewControllers"]
+- !private ["So29UISplitViewControllerDelegateP", "COLOR_CONST"]
 - !private ["So29UISplitViewControllerDelegateP", "UIColor"]
+- !private ["So29UISplitViewControllerDelegateP", "UINavigationBar"]
 - !private ["So29UISplitViewControllerDelegateP", "UINavigationController"]
 - !private ["So29UISplitViewControllerDelegateP", "UIScreen"]
 - !private ["So29UISplitViewControllerDelegateP", "UIStoryboard"]
@@ -740,6 +836,8 @@ depends-member:
 - !private ["So16UIStateRestoringP", "viewControllers"]
 - !private ["So12UIStoryboardC", "init"]
 - !private ["So12UIStoryboardC", "instantiateViewController"]
+- !private ["So18UITraitEnvironmentP", "alpha"]
+- !private ["So18UITraitEnvironmentP", "appearance"]
 - !private ["So18UITraitEnvironmentP", "backgroundColor"]
 - !private ["So18UITraitEnvironmentP", "bounds"]
 - !private ["So18UITraitEnvironmentP", "delegate"]
@@ -752,12 +850,16 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "selectedFraternity"]
 - !private ["So18UITraitEnvironmentP", "setFront"]
 - !private ["So18UITraitEnvironmentP", "setRear"]
+- !private ["So18UITraitEnvironmentP", "tintColor"]
 - !private ["So18UITraitEnvironmentP", "topViewController"]
 - !private ["So18UITraitEnvironmentP", "viewControllers"]
+- !private ["So6UIViewC", "alpha"]
+- !private ["So6UIViewC", "appearance"]
 - !private ["So6UIViewC", "backgroundColor"]
 - !private ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "makeKeyAndVisible"]
 - !private ["So6UIViewC", "rootViewController"]
+- !private ["So6UIViewC", "tintColor"]
 - !private ["So16UIViewControllerC", "delegate"]
 - !private ["So16UIViewControllerC", "displayModeButtonItem"]
 - !private ["So16UIViewControllerC", "init"]
@@ -776,10 +878,13 @@ depends-member:
 - !private ["s23_BidirectionalIndexableP", "count"]
 - !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s23_BidirectionalIndexableP", "subscript"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "alpha"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "appearance"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "backgroundColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "makeKeyAndVisible"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "rootViewController"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "tintColor"]
 - !private ["s24_DestructorSafeContainerP", "count"]
 - !private ["s24_DestructorSafeContainerP", "subscript"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
@@ -796,11 +901,15 @@ depends-member:
 - !private ["s14_IndexableBaseP", "count"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "COLOR_CONST"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UINavigationBar"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UINavigationController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIScreen"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIStoryboard"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIWindow"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "alpha"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "appearance"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "application"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "applicationDidBecomeActive"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "applicationDidEnterBackground"]
@@ -835,6 +944,7 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "targetDisplayModeForAction"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "targetDisplayModeForActionInSplitViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "tintColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "topViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewControllers"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "white"]
@@ -858,6 +968,7 @@ depends-nominal:
 - !private "s23BidirectionalCollectionP"
 - !private "Sb"
 - !private "So15CALayerDelegateP"
+- !private "6RushMe11COLOR_CONSTV"
 - "s7CVarArgP"
 - !private "s10CollectionP"
 - !private "s10ComparableP"
@@ -874,6 +985,7 @@ depends-nominal:
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "6RushMe10FraternityC"
 - "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
@@ -888,6 +1000,7 @@ depends-nominal:
 - "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
 - !private "So8NSStringC"
+- !private "So15OHSerializationP"
 - !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
 - !private "So22SWRevealViewControllerC"
@@ -900,12 +1013,14 @@ depends-nominal:
 - !private "So12UIAppearanceP"
 - !private "So21UIAppearanceContainerP"
 - "So21UIApplicationDelegateP"
+- !private "So16UIBarPositioningP"
 - !private "So7UIColorC"
 - !private "So18UIContentContainerP"
 - !private "So17UICoordinateSpaceP"
 - !private "So13UIDynamicItemP"
 - !private "So18UIFocusEnvironmentP"
 - !private "So11UIFocusItemP"
+- !private "So15UINavigationBarC"
 - !private "So22UINavigationControllerC"
 - !private "So16UINavigationItemC"
 - "So30UIPasteConfigurationSupportingP"
@@ -956,6 +1071,33 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
 - "/Users/adamthk/Google Drive/RushMe/RushMe/RushMe-Bridging-Header.h"
 - "/Users/adamthk/Google Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h"
-interface-hash: "9934c17ee5a500272e05775ef20e5ff7"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+interface-hash: "77b2ff3e457aa754526d21ad83a0e58c"

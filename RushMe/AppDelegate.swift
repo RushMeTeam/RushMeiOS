@@ -45,17 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     self.window!.rootViewController = swRevealView
     self.window!.makeKeyAndVisible()
     
-    
-    
+    //UINavigationBar.appearance().tintColor = COLOR_CONST.MENU_COLOR
+    UINavigationBar.appearance().backgroundColor = COLOR_CONST.MENU_COLOR
+    UINavigationBar.appearance().alpha = 1
     
     
     
     
     return true
-    
-    
-    
-    
     //let splitViewController = window!.rootViewController as! UISplitViewController
     //let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
     //navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem

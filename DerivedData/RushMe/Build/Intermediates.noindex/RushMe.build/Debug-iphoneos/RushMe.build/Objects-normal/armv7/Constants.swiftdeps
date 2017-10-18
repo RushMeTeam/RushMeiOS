@@ -10,6 +10,7 @@ provides-member:
 - ["6RushMe11COLOR_CONSTV", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "/"
 - "CGFloat"
 - "COLOR_CONST"
 - "IMAGE_CONST"
@@ -22,30 +23,20 @@ depends-member:
 - ["6RushMe11COLOR_CONSTV", "NAVIGATION_BAR_COLOR"]
 - ["6RushMe11COLOR_CONSTV", "UIColor"]
 - ["6RushMe11COLOR_CONSTV", "init"]
-- ["s7CVarArgP", "clear"]
 - ["s7CVarArgP", "init"]
-- ["s7CVarArgP", "white"]
 - ["s10CollectionP", "init"]
 - ["s10ComparableP", "init"]
-- ["s28CustomDebugStringConvertibleP", "clear"]
 - ["s28CustomDebugStringConvertibleP", "init"]
-- ["s28CustomDebugStringConvertibleP", "white"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
 - ["s17CustomReflectableP", "init"]
-- ["s23CustomStringConvertibleP", "clear"]
 - ["s23CustomStringConvertibleP", "init"]
-- ["s23CustomStringConvertibleP", "white"]
 - ["s9DecodableP", "init"]
 - ["s9EncodableP", "init"]
-- ["s9EquatableP", "clear"]
 - ["s9EquatableP", "init"]
-- ["s9EquatableP", "white"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - ["s26ExpressibleByStringLiteralP", "init"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- ["s8HashableP", "clear"]
 - ["s8HashableP", "init"]
-- ["s8HashableP", "white"]
 - ["6RushMe11IMAGE_CONSTV", "CGFloat"]
 - ["6RushMe11IMAGE_CONSTV", "CORNER_RADIUS"]
 - ["6RushMe11IMAGE_CONSTV", "ICON_IMAGE"]
@@ -54,28 +45,15 @@ depends-member:
 - ["6RushMe11IMAGE_CONSTV", "init"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
-- ["So8NSCodingP", "clear"]
 - ["So8NSCodingP", "init"]
-- ["So8NSCodingP", "white"]
-- ["So9NSCopyingP", "clear"]
 - ["So9NSCopyingP", "init"]
-- ["So9NSCopyingP", "white"]
-- ["So21NSItemProviderReadingP", "clear"]
 - ["So21NSItemProviderReadingP", "init"]
-- ["So21NSItemProviderReadingP", "white"]
-- ["So21NSItemProviderWritingP", "clear"]
 - ["So21NSItemProviderWritingP", "init"]
-- ["So21NSItemProviderWritingP", "white"]
 - ["So16NSMutableCopyingP", "init"]
-- ["So8NSObjectC", "clear"]
-- ["So8NSObjectC", "white"]
-- ["So16NSObjectProtocolP", "clear"]
 - ["So16NSObjectProtocolP", "init"]
-- ["So16NSObjectProtocolP", "white"]
-- ["So14NSSecureCodingP", "clear"]
 - ["So14NSSecureCodingP", "init"]
-- ["So14NSSecureCodingP", "white"]
 - ["So8NSStringC", "init"]
+- ["So15OHSerializationP", "init"]
 - ["s26RangeReplaceableCollectionP", "init"]
 - ["s8SequenceP", "init"]
 - ["SS", "init"]
@@ -83,8 +61,7 @@ depends-member:
 - ["s16TextOutputStreamP", "init"]
 - ["s20TextOutputStreamableP", "init"]
 - ["So29UIAccessibilityIdentificationP", "init"]
-- ["So7UIColorC", "clear"]
-- ["So7UIColorC", "white"]
+- ["So7UIColorC", "init"]
 - ["So7UIImageC", "init"]
 - ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - ["s23_BidirectionalIndexableP", "init"]
@@ -92,16 +69,13 @@ depends-member:
 - ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s26_ExpressibleByColorLiteralP", "clear"]
-- ["s26_ExpressibleByColorLiteralP", "white"]
+- ["s26_ExpressibleByColorLiteralP", "init"]
 - ["s26_ExpressibleByImageLiteralP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - ["s10_IndexableP", "init"]
 - ["s14_IndexableBaseP", "init"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "clear"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "white"]
 - ["s21_ObjectiveCBridgeableP", "init"]
 - ["s26_RangeReplaceableIndexableP", "init"]
 - ["s16_SwiftStringViewP", "init"]
@@ -130,10 +104,10 @@ depends-nominal:
 - "So21NSItemProviderReadingP"
 - "So21NSItemProviderWritingP"
 - "So16NSMutableCopyingP"
-- "So8NSObjectC"
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
 - "So8NSStringC"
+- "So15OHSerializationP"
 - "s26RangeReplaceableCollectionP"
 - "s8SequenceP"
 - "SS"
@@ -174,6 +148,33 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
 - "/Users/adamthk/Google Drive/RushMe/RushMe/RushMe-Bridging-Header.h"
 - "/Users/adamthk/Google Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h"
-interface-hash: "6984205515109630daa1d2c52e74ea2e"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+interface-hash: "6c934c6e82327f208982868e82d33add"
