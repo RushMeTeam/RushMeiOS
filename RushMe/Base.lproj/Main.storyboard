@@ -71,9 +71,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y95-aD-p74" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1834" y="2943"/>
+            <point key="canvasLocation" x="-3030" y="1461"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--Calendar-->
         <scene sceneID="DBw-89-BTV">
             <objects>
                 <viewController storyboardIdentifier="calendarVC" id="i1R-Cl-IaI" customClass="CalendarViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -86,11 +86,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZDi-va-PMo"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="ZDi-va-PMo">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="eKO-yp-k3f">
+                            <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="drawerButton" destination="eKO-yp-k3f" id="BGf-C6-ho6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sB-Fp-jfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-874" y="2940"/>
+            <point key="canvasLocation" x="-3031" y="2203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R66-tt-Pbb">
@@ -314,31 +321,47 @@
                                                 <constraint firstAttribute="trailing" secondItem="RuT-DY-t4m" secondAttribute="trailing" constant="8" id="zqf-zH-PyL"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="H1p-Uh-vWS" kind="custom" identifier="Fraternities" customClass="SWRevealViewControllerSeguePushController" id="Dij-dg-qA0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Calendar Button" id="9ZR-i8-L8S">
-                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Calendar Button" rowHeight="48" id="9ZR-i8-L8S">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ZR-i8-L8S" id="ZjT-V8-GuB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-kY-RD1">
-                                                    <rect key="frame" x="48" y="12" width="319" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ED6-9Y-t9S">
+                                                    <rect key="frame" x="8" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="03q-hb-tY1"/>
+                                                        <constraint firstAttribute="height" constant="32" id="skF-9E-Eip"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-kY-RD1">
+                                                    <rect key="frame" x="48" y="13.5" width="319" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ED6-9Y-t9S" firstAttribute="leading" secondItem="ZjT-V8-GuB" secondAttribute="leading" constant="8" id="G5E-uO-AGt"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fm6-kY-RD1" secondAttribute="trailing" constant="8" id="GyC-3J-L0s"/>
+                                                <constraint firstItem="Fm6-kY-RD1" firstAttribute="centerY" secondItem="ZjT-V8-GuB" secondAttribute="centerY" id="LVL-fV-gd1"/>
+                                                <constraint firstItem="ED6-9Y-t9S" firstAttribute="centerY" secondItem="ZjT-V8-GuB" secondAttribute="centerY" id="ZhD-kN-WCV"/>
+                                                <constraint firstItem="Fm6-kY-RD1" firstAttribute="leading" secondItem="ED6-9Y-t9S" secondAttribute="trailing" constant="8" id="fYf-kx-U2b"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="6yl-Zk-avM" kind="custom" identifier="Calendar" customClass="SWRevealViewControllerSeguePushController" id="kAl-nZ-qPk"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Favorites Button" rowHeight="48" id="zdP-n5-oNE">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="352" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zdP-n5-oNE" id="vUK-rG-tvV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -367,10 +390,10 @@
                                                 <constraint firstItem="QpX-ra-LRW" firstAttribute="leading" secondItem="px3-c1-iJE" secondAttribute="trailing" constant="8" id="qmb-V4-UfY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Settings Button" rowHeight="48" id="zTz-gX-4yz">
-                                        <rect key="frame" x="0.0" y="396" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="400" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zTz-gX-4yz" id="YTz-F2-9dv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -398,7 +421,7 @@
                                                 <constraint firstItem="h2V-mV-5Mi" firstAttribute="leading" secondItem="AJT-nB-FGT" secondAttribute="trailing" constant="8" id="Uo0-Po-waN"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="tLQ-02-rvz" kind="custom" identifier="Settings" customClass="SWRevealViewControllerSeguePushController" id="VqP-nW-3bm"/>
                                         </connections>
@@ -620,6 +643,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="EventsIcon" width="24" height="24"/>
         <image name="FavoritesIcon" width="24" height="24"/>
         <image name="FraternitiesIcon" width="24" height="24"/>
         <image name="RushMeLogo" width="1597" height="1824"/>

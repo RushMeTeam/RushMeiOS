@@ -9,13 +9,19 @@
 import UIKit
 
 class CalendarViewController: UIViewController {
-
+    @IBOutlet weak var drawerButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let revealVC = self.revealViewController(){
+            drawerButton.target = revealVC
+            drawerButton.action = #selector(revealVC.revealToggle(_:))
+        }
+    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
