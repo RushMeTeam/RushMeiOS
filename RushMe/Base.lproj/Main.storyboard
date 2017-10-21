@@ -58,6 +58,41 @@
             <point key="canvasLocation" x="-858" y="2203"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="6DZ-O5-N5y">
+            <objects>
+                <navigationController id="6yl-Zk-avM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QEu-Op-CUX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="i1R-Cl-IaI" kind="relationship" relationship="rootViewController" id="MaG-Rx-QKi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y95-aD-p74" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1834" y="2943"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="DBw-89-BTV">
+            <objects>
+                <viewController storyboardIdentifier="calendarVC" id="i1R-Cl-IaI" customClass="CalendarViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vCd-3x-VVj"/>
+                        <viewControllerLayoutGuide type="bottom" id="CJP-En-UzI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AI3-Ln-Frq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZDi-va-PMo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sB-Fp-jfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-874" y="2940"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="R66-tt-Pbb">
             <objects>
                 <navigationController id="tLQ-02-rvz" sceneMemberID="viewController">
@@ -279,13 +314,31 @@
                                                 <constraint firstAttribute="trailing" secondItem="RuT-DY-t4m" secondAttribute="trailing" constant="8" id="zqf-zH-PyL"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="H1p-Uh-vWS" kind="custom" identifier="Fraternities" customClass="SWRevealViewControllerSeguePushController" id="Dij-dg-qA0"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Calendar Button" id="9ZR-i8-L8S">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ZR-i8-L8S" id="ZjT-V8-GuB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-kY-RD1">
+                                                    <rect key="frame" x="48" y="12" width="319" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Favorites Button" rowHeight="48" id="zdP-n5-oNE">
-                                        <rect key="frame" x="0.0" y="304" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="348" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zdP-n5-oNE" id="vUK-rG-tvV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -314,10 +367,10 @@
                                                 <constraint firstItem="QpX-ra-LRW" firstAttribute="leading" secondItem="px3-c1-iJE" secondAttribute="trailing" constant="8" id="qmb-V4-UfY"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Settings Button" rowHeight="48" id="zTz-gX-4yz">
-                                        <rect key="frame" x="0.0" y="352" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="396" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zTz-gX-4yz" id="YTz-F2-9dv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -345,7 +398,7 @@
                                                 <constraint firstItem="h2V-mV-5Mi" firstAttribute="leading" secondItem="AJT-nB-FGT" secondAttribute="trailing" constant="8" id="Uo0-Po-waN"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="tLQ-02-rvz" kind="custom" identifier="Settings" customClass="SWRevealViewControllerSeguePushController" id="VqP-nW-3bm"/>
                                         </connections>
@@ -573,7 +626,7 @@
         <image name="SettingsIcon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aDW-dg-ajo"/>
+        <segue reference="Tll-UG-LXB"/>
         <segue reference="Dij-dg-qA0"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
