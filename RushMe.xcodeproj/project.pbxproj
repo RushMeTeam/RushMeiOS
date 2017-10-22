@@ -21,7 +21,7 @@
 		DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
 		DB05F77B1F89A6A40090DEC3 /* chiPhiImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */; };
 		DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */; };
-		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
+		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
 		DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FA3D91F8A8EB7006480BE /* FratCell.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };

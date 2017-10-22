@@ -231,6 +231,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified coverImageView;
 @property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified profileImageView;
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified underProfileLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified aboveTextLabel;
 @property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified blockTextView;
 @property (nonatomic, strong) Fraternity * _Nullable selectedFraternity SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.selectedFraternity' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");

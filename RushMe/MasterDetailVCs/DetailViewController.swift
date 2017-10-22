@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   @IBOutlet var coverImageView: UIImageView!
   @IBOutlet var profileImageView: UIImageView!
   @IBOutlet var underProfileLabel: UILabel!
+  @IBOutlet var titleLabel: UILabel!
   
   //@IBOutlet var favoriteButton: UIButton!
   @IBOutlet var aboveTextLabel: UILabel!
@@ -34,7 +35,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
       
       
       // Update the user interface for the detail item.
-      self.title = frat.name
+      self.title = "RushMe"
+      self.titleLabel?.text = frat.name
       self.underProfileLabel?.text = frat.chapter
       if let desc = frat.getProperty(named: "description") as? String {
         self.blockTextView?.text = desc

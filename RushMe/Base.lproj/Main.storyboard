@@ -45,7 +45,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="9jJ-YK-57I">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="wdU-Qd-lLb">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="BurgerIcon" id="wdU-Qd-lLb">
                             <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -121,7 +121,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vX-2H-ghf">
-                                                <rect key="frame" x="8" y="357" width="359" height="256"/>
+                                                <rect key="frame" x="8" y="352" width="359" height="256"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="256" id="mjK-0E-fVM"/>
@@ -137,37 +137,46 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theta ChapterChapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egE-Bz-f5U">
-                                                <rect key="frame" x="8" y="328" width="128" height="21"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha Alpha Alpha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ea-JF-DmV">
+                                                <rect key="frame" x="144" y="192" width="223" height="32"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="5ea-JF-DmV" secondAttribute="trailing" constant="8" id="0EY-Ok-pXM"/>
+                                            <constraint firstItem="5ea-JF-DmV" firstAttribute="top" secondItem="NcC-F8-fic" secondAttribute="top" id="1Vr-3b-zl5"/>
                                             <constraint firstItem="NcC-F8-fic" firstAttribute="leading" secondItem="hV5-ZE-WZP" secondAttribute="leading" constant="8" id="5Lg-bJ-NNM"/>
                                             <constraint firstItem="uNG-oH-356" firstAttribute="centerX" secondItem="hV5-ZE-WZP" secondAttribute="centerX" id="7ob-Ri-B2M"/>
                                             <constraint firstAttribute="trailing" secondItem="8vX-2H-ghf" secondAttribute="trailing" constant="8" id="8E9-r5-0Ms"/>
-                                            <constraint firstItem="egE-Bz-f5U" firstAttribute="top" secondItem="NcC-F8-fic" secondAttribute="bottom" constant="8" id="Pp7-9y-DO0"/>
+                                            <constraint firstItem="8vX-2H-ghf" firstAttribute="top" secondItem="NcC-F8-fic" secondAttribute="bottom" constant="32" id="X6d-76-VZn"/>
+                                            <constraint firstItem="5ea-JF-DmV" firstAttribute="leading" secondItem="NcC-F8-fic" secondAttribute="trailing" constant="8" id="Y3g-xk-JgO"/>
                                             <constraint firstItem="8vX-2H-ghf" firstAttribute="leading" secondItem="hV5-ZE-WZP" secondAttribute="leading" constant="8" id="YbA-qs-La2"/>
-                                            <constraint firstItem="8vX-2H-ghf" firstAttribute="top" secondItem="egE-Bz-f5U" secondAttribute="bottom" constant="8" id="YoA-nL-Doz"/>
                                             <constraint firstItem="uNG-oH-356" firstAttribute="width" secondItem="hV5-ZE-WZP" secondAttribute="width" id="YyV-PX-bhl"/>
-                                            <constraint firstItem="egE-Bz-f5U" firstAttribute="centerX" secondItem="NcC-F8-fic" secondAttribute="centerX" id="c2G-99-YBH"/>
                                             <constraint firstItem="8vX-2H-ghf" firstAttribute="centerX" secondItem="hV5-ZE-WZP" secondAttribute="centerX" id="eur-gj-UeM"/>
                                             <constraint firstItem="NcC-F8-fic" firstAttribute="top" secondItem="hV5-ZE-WZP" secondAttribute="top" constant="192" id="k6b-7m-BRd"/>
-                                            <constraint firstItem="egE-Bz-f5U" firstAttribute="width" secondItem="NcC-F8-fic" secondAttribute="width" id="mA9-xZ-7VM"/>
                                             <constraint firstAttribute="trailing" secondItem="uNG-oH-356" secondAttribute="trailing" id="ny8-Gy-U8v"/>
                                             <constraint firstItem="uNG-oH-356" firstAttribute="top" secondItem="hV5-ZE-WZP" secondAttribute="top" id="pb2-Ax-pGB"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theta Chapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egE-Bz-f5U">
+                                        <rect key="frame" x="147" y="232" width="220" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="hV5-ZE-WZP" firstAttribute="width" secondItem="jgl-UO-Qmw" secondAttribute="width" id="340-rZ-wWk"/>
+                                    <constraint firstAttribute="trailing" secondItem="egE-Bz-f5U" secondAttribute="trailing" constant="8" id="7Kd-PW-i94"/>
                                     <constraint firstItem="hV5-ZE-WZP" firstAttribute="height" secondItem="jgl-UO-Qmw" secondAttribute="height" id="HRL-26-WSl"/>
+                                    <constraint firstItem="egE-Bz-f5U" firstAttribute="top" secondItem="5ea-JF-DmV" secondAttribute="bottom" constant="8" id="Qvs-bK-aiy"/>
                                     <constraint firstItem="hV5-ZE-WZP" firstAttribute="centerY" secondItem="jgl-UO-Qmw" secondAttribute="centerY" id="RXF-rm-fpp"/>
                                     <constraint firstAttribute="trailing" secondItem="hV5-ZE-WZP" secondAttribute="trailing" id="Z2A-Vs-uNk"/>
                                     <constraint firstItem="hV5-ZE-WZP" firstAttribute="centerX" secondItem="jgl-UO-Qmw" secondAttribute="centerX" id="cpJ-AG-07U"/>
+                                    <constraint firstItem="egE-Bz-f5U" firstAttribute="leading" secondItem="NcC-F8-fic" secondAttribute="trailing" constant="11" id="oyD-d8-Cb6"/>
                                     <constraint firstAttribute="bottom" secondItem="hV5-ZE-WZP" secondAttribute="bottom" constant="200" id="wWY-Zv-ZOm"/>
                                 </constraints>
                                 <connections>
@@ -197,13 +206,14 @@
                         <outlet property="coverImageView" destination="uNG-oH-356" id="3RH-RH-Nhb"/>
                         <outlet property="profileImageView" destination="NcC-F8-fic" id="D7s-Fn-jda"/>
                         <outlet property="scrollView" destination="jgl-UO-Qmw" id="01u-bz-YKd"/>
+                        <outlet property="titleLabel" destination="5ea-JF-DmV" id="r2J-eX-2YR"/>
                         <outlet property="underProfileLabel" destination="egE-Bz-f5U" id="Hnn-Ea-WCT"/>
                         <outlet property="underlyingView" destination="hV5-ZE-WZP" id="n1U-7e-V8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="278"/>
+            <point key="canvasLocation" x="708" y="277.9610194902549"/>
         </scene>
         <!--Drawer Menu View Controller-->
         <scene sceneID="w5P-H8-j1y">
@@ -423,7 +433,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="n0k-ON-5TV">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="UGP-2e-Phc">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="BurgerIcon" id="UGP-2e-Phc">
                             <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -435,10 +445,10 @@
             </objects>
             <point key="canvasLocation" x="-1783" y="2203"/>
         </scene>
-        <!--SWRevealVC-->
+        <!--Reveal View Controller-->
         <scene sceneID="asi-5D-uB4">
             <objects>
-                <viewController storyboardIdentifier="SWRevealVC" title="SWRevealVC" id="Y08-EZ-HTU" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWRevealVC" id="Y08-EZ-HTU" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jdf-Xj-q0R"/>
                         <viewControllerLayoutGuide type="bottom" id="54I-82-Vf8"/>
@@ -537,7 +547,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RushMe" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" style="plain" id="hN2-4n-0qh"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="BurgerIcon" id="hN2-4n-0qh"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
@@ -567,6 +577,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BurgerIcon" width="24" height="24"/>
         <image name="FavoritesIcon" width="24" height="24"/>
         <image name="FraternitiesIcon" width="24" height="24"/>
         <image name="RushMeLogo" width="1597" height="1824"/>
@@ -574,7 +585,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aDW-dg-ajo"/>
-        <segue reference="Dij-dg-qA0"/>
+        <segue reference="iM8-ha-hTl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
