@@ -233,10 +233,10 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified underProfileLabel;
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified aboveTextLabel;
 @property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified blockTextView;
+@property (nonatomic, strong) Fraternity * _Nullable selectedFraternity SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.selectedFraternity' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)configureView SWIFT_DEPRECATED_OBJC("Swift method 'DetailViewController.configureView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
-@property (nonatomic, strong) Fraternity * _Nullable selectedFraternity SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.selectedFraternity' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

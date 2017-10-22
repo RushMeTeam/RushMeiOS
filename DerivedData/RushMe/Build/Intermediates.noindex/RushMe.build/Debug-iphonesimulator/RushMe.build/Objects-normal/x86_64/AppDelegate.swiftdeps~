@@ -22,6 +22,7 @@ depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
 - !private "BooleanLiteralType"
+- !private "COLOR_CONST"
 - "CastingPrecedence"
 - !private "DetailViewController"
 - !private "MasterViewController"
@@ -42,6 +43,7 @@ depends-top-level:
 - "UIWindow"
 depends-member:
 - ["6RushMe11AppDelegateC", "Bool"]
+- !private ["6RushMe11AppDelegateC", "COLOR_CONST"]
 - !private ["6RushMe11AppDelegateC", "DetailViewController"]
 - !private ["6RushMe11AppDelegateC", "MasterViewController"]
 - !private ["6RushMe11AppDelegateC", "SWRevealViewController"]
@@ -90,6 +92,8 @@ depends-member:
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "makeKeyAndVisible"]
 - !private ["So15CALayerDelegateP", "rootViewController"]
+- !private ["6RushMe11COLOR_CONSTV", "MENU_COLOR"]
+- !private ["s7CVarArgP", "COLOR_CONST"]
 - !private ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UINavigationBar"]
 - !private ["s7CVarArgP", "UINavigationController"]
@@ -143,6 +147,7 @@ depends-member:
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "COLOR_CONST"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UINavigationBar"]
 - !private ["s28CustomDebugStringConvertibleP", "UINavigationController"]
@@ -198,6 +203,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "COLOR_CONST"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UINavigationBar"]
 - !private ["s23CustomStringConvertibleP", "UINavigationController"]
@@ -257,6 +263,7 @@ depends-member:
 - !private ["s9EncodableP", "count"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "COLOR_CONST"]
 - !private ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UINavigationBar"]
 - !private ["s9EquatableP", "UINavigationController"]
@@ -312,6 +319,7 @@ depends-member:
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["6RushMe10FraternityC", "deinit"]
+- !private ["s8HashableP", "COLOR_CONST"]
 - !private ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UINavigationBar"]
 - !private ["s8HashableP", "UINavigationController"]
@@ -398,6 +406,7 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "white"]
 - !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "COLOR_CONST"]
 - !private ["So8NSObjectC", "DetailViewController"]
 - !private ["So8NSObjectC", "MasterViewController"]
 - !private ["So8NSObjectC", "SWRevealViewController"]
@@ -451,6 +460,7 @@ depends-member:
 - !private ["So8NSObjectC", "viewControllers"]
 - !private ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "window"]
+- !private ["So16NSObjectProtocolP", "COLOR_CONST"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UINavigationBar"]
 - !private ["So16NSObjectProtocolP", "UINavigationController"]
@@ -542,6 +552,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "setRear"]
 - !private ["So21UIAppearanceContainerP", "topViewController"]
 - !private ["So21UIAppearanceContainerP", "viewControllers"]
+- !private ["So21UIApplicationDelegateP", "COLOR_CONST"]
 - !private ["So21UIApplicationDelegateP", "UIColor"]
 - !private ["So21UIApplicationDelegateP", "UINavigationBar"]
 - !private ["So21UIApplicationDelegateP", "UINavigationController"]
@@ -572,6 +583,7 @@ depends-member:
 - ["So21UIApplicationDelegateP", ""]
 - !private ["So16UIBarPositioningP", "alpha"]
 - !private ["So16UIBarPositioningP", "appearance"]
+- !private ["So16UIBarPositioningP", "backgroundColor"]
 - !private ["So7UIColorC", "white"]
 - !private ["So18UIContentContainerP", "delegate"]
 - !private ["So18UIContentContainerP", "displayModeButtonItem"]
@@ -616,9 +628,11 @@ depends-member:
 - !private ["So11UIFocusItemP", "rootViewController"]
 - !private ["So15UINavigationBarC", "alpha"]
 - !private ["So15UINavigationBarC", "appearance"]
+- !private ["So15UINavigationBarC", "backgroundColor"]
 - !private ["So22UINavigationControllerC", "init"]
 - !private ["So22UINavigationControllerC", "topViewController"]
 - !private ["So16UINavigationItemC", "leftBarButtonItem"]
+- !private ["So30UIPasteConfigurationSupportingP", "COLOR_CONST"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UINavigationBar"]
 - !private ["So30UIPasteConfigurationSupportingP", "UINavigationController"]
@@ -662,6 +676,7 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "window"]
 - ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Bool"]
+- !private ["So11UIResponderC", "COLOR_CONST"]
 - !private ["So11UIResponderC", "DetailViewController"]
 - !private ["So11UIResponderC", "MasterViewController"]
 - !private ["So11UIResponderC", "SWRevealViewController"]
@@ -711,6 +726,7 @@ depends-member:
 - !private ["So11UIResponderC", "viewControllers"]
 - ["So11UIResponderC", "window"]
 - ["So11UIResponderC", ""]
+- !private ["So30UIResponderStandardEditActionsP", "COLOR_CONST"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UINavigationBar"]
 - !private ["So30UIResponderStandardEditActionsP", "UINavigationController"]
@@ -759,6 +775,7 @@ depends-member:
 - !private ["So21UISplitViewControllerC", "delegate"]
 - !private ["So21UISplitViewControllerC", "displayModeButtonItem"]
 - !private ["So21UISplitViewControllerC", "viewControllers"]
+- !private ["So29UISplitViewControllerDelegateP", "COLOR_CONST"]
 - !private ["So29UISplitViewControllerDelegateP", "UIColor"]
 - !private ["So29UISplitViewControllerDelegateP", "UINavigationBar"]
 - !private ["So29UISplitViewControllerDelegateP", "UINavigationController"]
@@ -860,6 +877,7 @@ depends-member:
 - !private ["s14_IndexableBaseP", "count"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "COLOR_CONST"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UINavigationBar"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UINavigationController"]
@@ -925,6 +943,7 @@ depends-nominal:
 - !private "s23BidirectionalCollectionP"
 - !private "Sb"
 - !private "So15CALayerDelegateP"
+- !private "6RushMe11COLOR_CONSTV"
 - "s7CVarArgP"
 - !private "s10CollectionP"
 - !private "s10ComparableP"

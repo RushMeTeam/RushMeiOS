@@ -21,6 +21,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   
   @IBOutlet var blockTextView: UITextView!
   
+  var selectedFraternity: Fraternity? {
+    didSet {
+      // Update the view.
+      configureView()
+    }
+  }
+  
   func configureView() {
   
     if let frat = selectedFraternity {
@@ -84,12 +91,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     // Dispose of any resources that can be recreated.
   }
   
-  var selectedFraternity: Fraternity? {
-    didSet {
-      // Update the view.
-      configureView()
-    }
-  }
+  
 
   
   
