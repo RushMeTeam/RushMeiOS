@@ -251,6 +251,7 @@ SWIFT_CLASS("_TtC6RushMe24DrawerMenuViewController")
 @property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified fraternitiesButton;
 @property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified favoritesButton;
 @property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified settingsButton;
+@property (nonatomic, strong) UIViewController * _Nullable lastSelected SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.lastSelected' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;

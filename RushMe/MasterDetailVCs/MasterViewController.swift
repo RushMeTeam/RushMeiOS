@@ -51,6 +51,7 @@ class MasterViewController : UITableViewController {
     refreshControl?.tintAdjustmentMode = .normal
     self.refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl?.beginRefreshing()
+    
   }
   func dataUpdate() {
     DispatchQueue.global(qos: .userInitiated).async {

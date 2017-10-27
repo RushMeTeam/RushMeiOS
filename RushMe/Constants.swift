@@ -19,4 +19,9 @@ struct COLOR_CONST {
   static let MENU_COLOR = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
   static let NAVIGATION_BAR_COLOR = MENU_COLOR
   static let SLIDEOUT_MENU_SHADOW_ENABLED = false
+  static let MENU_BUTTON_SELECTED_COLOR = UIColor.white.withAlphaComponent(0.5)
+}
+
+struct ANIM_CONST {
+  static let COLORING_TIME = 0.5
 }
