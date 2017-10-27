@@ -20,7 +20,7 @@ class MasterViewController : UITableViewController {
   // The hard data used in the table
   var objects = [Any]()
   var fratNames = [String]()
-  var fraternities = Dictionary<String, Fraternity>()
+  var fraternities = Dictionary<String, Fraternity>() // save this
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   // MARK: SQL
