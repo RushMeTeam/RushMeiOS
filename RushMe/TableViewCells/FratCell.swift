@@ -31,6 +31,7 @@ class FratCell : UITableViewCell {
     if let iView = previewImageView {
       iView.layer.masksToBounds = true
       iView.layer.cornerRadius = IMAGE_CONST.CORNER_RADIUS
+      iView.contentMode = UIViewContentMode.scaleAspectFill
       // If there is no preview image
       if (iView.image == nil){
         iView.image = IMAGE_CONST.NO_IMAGE

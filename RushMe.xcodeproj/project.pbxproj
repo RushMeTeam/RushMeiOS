@@ -28,6 +28,7 @@
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
 		DBD140451F927EE900945D9B /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140441F927EE900945D9B /* RoundedImageView.swift */; };
+		DBDEE4D21F9E97D40089D6B4 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDEE4D11F9E97D40089D6B4 /* defaultImage.png */; };
 		DBF07A221F8AA576001645D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
 		DBF07A241F8AA638001645D5 /* Elipses.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF07A231F8AA638001645D5 /* Elipses.png */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DBD140441F927EE900945D9B /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		DBDEE4D11F9E97D40089D6B4 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultImage.png; path = RushMe/defaultImage.png; sourceTree = SOURCE_ROOT; };
 		DBF07A211F8AA576001645D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBF07A231F8AA638001645D5 /* Elipses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elipses.png; sourceTree = "<group>"; };
 		E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMe/Pods-RushMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				DBF07A231F8AA638001645D5 /* Elipses.png */,
 				DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */,
 				DB05F7511F894A910090DEC3 /* Assets.xcassets */,
+				DBDEE4D11F9E97D40089D6B4 /* defaultImage.png */,
 				DB05F7561F894A910090DEC3 /* Info.plist */,
 			);
 			path = RushMe;
@@ -397,6 +400,7 @@
 				DB05F77B1F89A6A40090DEC3 /* chiPhiImage.png in Resources */,
 				DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */,
 				DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */,
+				DBDEE4D21F9E97D40089D6B4 /* defaultImage.png in Resources */,
 				DB05F7501F894A910090DEC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

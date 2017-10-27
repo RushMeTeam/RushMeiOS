@@ -26,12 +26,16 @@ class MasterViewController : UITableViewController {
   // MARK: SQL
   let sqlHandler = SQLHandler()
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     if (!COLOR_CONST.SLIDEOUT_MENU_SHADOW_ENABLED) {
       self.revealViewController().frontViewShadowOpacity = 0
     }
+    navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.alpha = 1
+    //navigationController?.navigationBar.backgroundColor = COLOR_CONST.MENU_COLOR
+    navigationController?.navigationBar.tintColor = COLOR_CONST.MENU_COLOR
+    
     openBarButtonItem.tintColor = COLOR_CONST.MENU_COLOR
     // Ensure the menu button toggles the menu
     openBarButtonItem.target = self
@@ -42,36 +46,64 @@ class MasterViewController : UITableViewController {
     view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     
-    // Sample/dummy data
-//    var imageNames = Dictionary<String, String>();
-//    imageNames["profile"] = "chiPhiImage.png"
-//    imageNames["cover"] = "rushCalendar.jpg"
-//    objects.append(Fraternity(name: "Chi Phi", chapter: "Theta", description:
-//      "The Theta Chapter of the Chi Phi Fraternity was founded on May 25, 1878. Chi Phi is the oldest social fraternity in America and the Theta Chapter boasts notable alumnus such as George Ferris and Frank and Kenneth Osborn. Their house is located across from Quad, on the corner of 15th St. and Sage Avenue." +
-//      "The brothers of Chi Phi utilize a strong network of alumni who visit and provide aid in academic and professional careers. The brothers of the Theta Chapter of Chi Phi are very diverse in both interests and cultural backgrounds." +
-//      "The Theta Chapter is heavily involved in Chi Phi’s national philanthropy, the Boys and Girls Club of America. Theta assist the Boys and Girls Club by tutoring and putting on holiday events for the local youth. Every spring, the brothers of the Theta Chapter partner with the St. Baldrick’s Foundation, an organization that raises money to support the research of childhood cancers. Last spring, 26 of the 41 brothers volunteered to shave their heads to raise money for St. Baldrick’s. In total, the chapter raised in excess of $4,300 becoming the largest donor at the local St. Baldrick’s fundraiser." +
-//      "Chi Phi is a vibrant and diverse fraternity that strives to build True Gentleman though Truth, Honor, and Personal Integrity. The brothers of the Theta Chapter of Chi Phi participate in a variety of activities from varsity and intramural sport, clubs, and leadership positions. Chi Phi is a welcoming environment that that anyone can find a home in.",
-//                              imageNames : imageNames))
-//    objects.append(Fraternity(name: "Pi Kappa Alpha", chapter: "Iota Delta Kappa", description: nil, imageNames: nil))
-//
-    if let dictArray = sqlHandler.select(aField: "*", fromTable: "house_info") {
-      for dict in dictArray {
-        
-        let name = dict["name"] as! String
-        let chapter = dict["chapter"] as! String
-        let frat = Fraternity(name: name, chapter: chapter, previewImage: nil)
-        fraternities[name] = frat
-        fratNames.append(name)
+    refreshControl = UIRefreshControl()
+    refreshControl?.tintColor = COLOR_CONST.MENU_COLOR
+    refreshControl?.tintAdjustmentMode = .normal
+    self.refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    refreshControl?.beginRefreshing()
+  }
+  func dataUpdate() {
+    DispatchQueue.global(qos: .userInitiated).async {
+      self.pullFromSQLDatabase(types: ["all"])
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
       }
     }
-    fraternities["Chi Phi"]?.setProperty(named: "profileImage", to: UIImage(named: "chiPhiImage.png")!)
+  }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    self.handleRefresh(refreshControl: refreshControl!)
+  }
   
-  
-  
+  @objc func pullFromSQLDatabase(types : [String]) {
+    sleep(2) // Simulate loading time
+    var dictArray = [Dictionary<String, Any>()]
+    if types.endIndex == 1 && types[0] == "all" {
+      if let arr = sqlHandler.select(aField: "*", fromTable: "house_info") {
+        dictArray = arr
+      }
+    }
+    else {
+      var querystring = ""
+      for type in types {
+        querystring += type + ", "
+      }
+      querystring = String(querystring.dropLast(2))
+      if let arr = sqlHandler.select(aField: querystring, fromTable: "house_info") {
+        dictArray = arr
+      }
+    }
+    for dict in dictArray {
+      if let name = dict["name"] as? String {
+        if let chapter = dict["chapter"] as? String {
+          var image : UIImage? = dict["previewImage"] as? UIImage
+          if (dict["name"] as! String == "Chi Phi") {
+            image = UIImage(named: "chiPhiImage.png")
+          }
+          let frat = Fraternity(name: name, chapter: chapter, previewImage: image, properties: dict)
+          if let _ = image {
+            frat.setProperty(named: "coverImage", to: UIImage(named: "rushCalendar.jpg")!)
+          }
+          fraternities[name] = frat
+          fratNames.append(name)
+        }
+      }
+    }
   }
   @objc func toggleViewControllers(_:Any?) {
     self.revealViewController().revealToggle(self)
-    
   }
   // Not a very interesting function, makes sure selection from last time
   // is cleared
@@ -93,11 +125,13 @@ class MasterViewController : UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
           if let object = fraternities[fratNames[indexPath.row]] {
             let controller = (segue.destination as! UINavigationController).topViewController
-                                                                          as! DetailViewController
+                                                                      as! DetailViewController
             // Send the detail controller the fraternity we're about to display
             controller.selectedFraternity = object
             // Ensure a back button is given
             controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftBarButtonItem?.tintColor = COLOR_CONST.NAVIGATION_BAR_COLOR
+            
             controller.navigationItem.leftItemsSupplementBackButton = true
           }
         }
@@ -123,11 +157,18 @@ class MasterViewController : UITableViewController {
   // Should always be the number of objects to display
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    return fratNames.count
+    return max(fratNames.count, 1)
   }
 
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if fratNames.count == 0 {
+        let cell = UITableViewCell()
+        cell.textLabel?.textAlignment = NSTextAlignment.center
+        cell.textLabel?.text = "Pull to Refresh!"
+        cell.textLabel?.textColor = COLOR_CONST.MENU_COLOR
+        return cell
+    }
     let cell = tableView.dequeueReusableCell(withIdentifier: "FratCell") as! FratCell
     if let frat = fraternities[fratNames[indexPath.row]] {
       cell.titleLabel!.text = frat.name
@@ -135,6 +176,10 @@ class MasterViewController : UITableViewController {
       cell.previewImageView!.image = frat.previewImage
     }
     return cell
+  }
+  
+  @objc func handleRefresh(refreshControl : UIRefreshControl) {
+      dataUpdate()
   }
 }
 

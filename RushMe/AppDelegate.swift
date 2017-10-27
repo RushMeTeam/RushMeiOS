@@ -47,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     //UINavigationBar.appearance().tintColor = COLOR_CONST.MENU_COLOR
     UINavigationBar.appearance().backgroundColor = COLOR_CONST.MENU_COLOR
-    UINavigationBar.appearance().alpha = 1
+    UINavigationBar.appearance().tintColor = COLOR_CONST.MENU_COLOR
+    UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     
     
     

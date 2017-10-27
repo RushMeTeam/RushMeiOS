@@ -179,4 +179,4 @@ depends-external:
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "316253af14f50d71d41ce584347a2ff9"
+interface-hash: "ab9578be96ada8ba4774d433f0b36139"

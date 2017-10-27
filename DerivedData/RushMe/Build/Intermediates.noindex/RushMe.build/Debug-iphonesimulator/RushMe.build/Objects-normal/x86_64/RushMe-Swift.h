@@ -234,6 +234,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified aboveTextLabel;
 @property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified blockTextView;
+@property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified addressBox;
 @property (nonatomic, strong) Fraternity * _Nullable selectedFraternity SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.selectedFraternity' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)configureView SWIFT_DEPRECATED_OBJC("Swift method 'DetailViewController.configureView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
@@ -283,6 +284,7 @@ SWIFT_CLASS("_TtC6RushMe10Fraternity")
 
 @class SQLHandler;
 @class UITableView;
+@class UIRefreshControl;
 
 SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 @interface MasterViewController : UITableViewController
@@ -292,6 +294,9 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified openBarButtonItem;
 @property (nonatomic, readonly, strong) SQLHandler * _Nonnull sqlHandler SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.sqlHandler' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
+- (void)dataUpdate SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.dataUpdate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)viewDidAppear:(BOOL)animated;
+- (void)pullFromSQLDatabaseWithTypes:(NSArray<NSString *> * _Nonnull)types;
 - (void)toggleViewControllers:(id _Nullable)_;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
@@ -299,6 +304,7 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)handleRefreshWithRefreshControl:(UIRefreshControl * _Nonnull)refreshControl;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

@@ -35,7 +35,7 @@ class Fraternity : NSObject {
     else {
       self.properties = Dictionary<String, Any>()
     }
-    
+    self.properties["profileImage"] = previewImage
   }
   
   func getProperty(named : String) -> Any? {
@@ -47,5 +47,33 @@ class Fraternity : NSObject {
   func setProperty(named : String, to : Any){
     properties[named] = to
   }
+}
+// A not-so-genius way to create greek representations of frat names
+func greekLetters(inString : String) -> String {
+  var result = inString.replacingOccurrences(of: "Alpha", with: "Α")
+  result = result.replacingOccurrences(of: "Beta", with: "Β")
+  result = result.replacingOccurrences(of: "Gamma", with: "Γ")
+  result = result.replacingOccurrences(of: "Delta", with: "Δ")
+  result = result.replacingOccurrences(of: "Epsilon", with: "Ε")
+  result = result.replacingOccurrences(of: "Zeta", with: "Ζ")
+  result = result.replacingOccurrences(of: "Eta", with: "Η")
+  result = result.replacingOccurrences(of: "Theta", with: "Θ")
+  result = result.replacingOccurrences(of: "Iota", with: "Ι")
+  result = result.replacingOccurrences(of: "Kappa", with: "Κ")
+  result = result.replacingOccurrences(of: "Lambda", with: "Λ")
+  result = result.replacingOccurrences(of: "Mu", with: "Μ")
+  result = result.replacingOccurrences(of: "Nu", with: "Ν")
+  result = result.replacingOccurrences(of: "Xi", with: "Ξ")
+  result = result.replacingOccurrences(of: "Omicron", with: "Ο")
+  result = result.replacingOccurrences(of: "Pi", with: "Π")
+  result = result.replacingOccurrences(of: "Rho", with: "Ρ")
+  result = result.replacingOccurrences(of: "Sigma", with: "Σ")
+  result = result.replacingOccurrences(of: "Tau", with: "Τ")
+  result = result.replacingOccurrences(of: "Upsilon", with: "Υ")
+  result = result.replacingOccurrences(of: "Phi", with: "Φ")
+  result = result.replacingOccurrences(of: "Chi", with: "Χ")
+  result = result.replacingOccurrences(of: "Psi", with: "Ψ")
+  result = result.replacingOccurrences(of: "Omega", with: "Ω")
+  return result
 }
 

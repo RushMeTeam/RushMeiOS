@@ -11,6 +11,7 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "/"
+- "BooleanLiteralType"
 - "CGFloat"
 - "COLOR_CONST"
 - "IMAGE_CONST"
@@ -21,6 +22,7 @@ depends-member:
 - ["s23BidirectionalCollectionP", "init"]
 - ["6RushMe11COLOR_CONSTV", "MENU_COLOR"]
 - ["6RushMe11COLOR_CONSTV", "NAVIGATION_BAR_COLOR"]
+- ["6RushMe11COLOR_CONSTV", "SLIDEOUT_MENU_SHADOW_ENABLED"]
 - ["6RushMe11COLOR_CONSTV", "UIColor"]
 - ["6RushMe11COLOR_CONSTV", "init"]
 - ["s7CVarArgP", "init"]
@@ -177,4 +179,4 @@ depends-external:
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "6c934c6e82327f208982868e82d33add"
+interface-hash: "ab9578be96ada8ba4774d433f0b36139"

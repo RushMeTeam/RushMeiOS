@@ -1,14 +1,14 @@
 version: "Apple Swift version 4.0 (swiftlang-900.0.65.2 clang-900.0.37)"
 options: "2f77096ced77d54a898f42e01814fec7"
-build_time: [1508682220, 191392000]
+build_time: [1509053630, 83917000]
 inputs:
-  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1508682219, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1509053419, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/DrawerMenu/DrawerMenuViewController.swift": [1508273193, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1508343840, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/TableViewCells/FratCell.swift": [1508002861, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/AppDelegate.swift": [1508343554, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/Model/Fraternity.swift": [1508100581, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/Constants.swift": [1508342635, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1509053602, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/TableViewCells/FratCell.swift": [1508794894, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/AppDelegate.swift": [1508892810, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/Model/Fraternity.swift": [1509053582, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/Constants.swift": [1508794493, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/Model/SQLHandler.swift": [1508099419, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/RoundedImageView.swift": [1508184507, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/AuxilliaryViewControllers/AboutViewController.swift": [1508002739, 0]
