@@ -558,6 +558,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="RushMe" largeTitleDisplayMode="always" id="Zdf-7t-Un8">
                         <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="hN2-4n-0qh"/>
+                        <barButtonItem key="rightBarButtonItem" image="FavoritesIcon" id="tdK-W6-DVB">
+                            <connections>
+                                <action selector="favoritesToggled:" destination="7bK-jq-Zjz" id="LIk-Lo-fOY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
