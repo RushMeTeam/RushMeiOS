@@ -19,7 +19,8 @@ class MasterViewController : UITableViewController {
   
   // The hard data used in the table
   var objects = [Any]()
-  var fratNames = [String]()
+  var fratNames = [String]
+
   var fraternities = Dictionary<String, Fraternity>()
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
@@ -165,6 +166,7 @@ class MasterViewController : UITableViewController {
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if fratNames.count == 0 {
         let cell = UITableViewCell()
+        cell.selectionStyle = .none
         cell.textLabel?.textAlignment = NSTextAlignment.center
         cell.textLabel?.text = "Pull to Refresh!"
         cell.textLabel?.textColor = COLOR_CONST.MENU_COLOR
