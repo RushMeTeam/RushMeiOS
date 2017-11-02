@@ -8,7 +8,38 @@
 
 import Foundation
 import UIKit
-class Fraternity : NSObject {
+import os.log
+class Fraternity : NSObject, NSCoding {
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: FRAT_KEYS.NAME)
+        aCoder.encode(chapter, forKey: FRAT_KEYS.CHAPTER)
+        aCoder.encode(previewImage, forKey: FRAT_KEYS.PREVIEW_IMAGE)
+        aCoder.encode(NSDictionary(dictionary: properties), forKey: FRAT_KEYS.PROPERTIES)
+      
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: FRAT_KEYS.NAME) as? String else {
+            os_log("Unable to decode the name for the frat object", log: OSLog.default, type: .debug)
+            return nil
+        }
+        guard let chapter = aDecoder.decodeObject(forKey: FRAT_KEYS.CHAPTER) as? String else {
+            os_log("Unable to decode the chapter for the frat object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        guard let previewImage = aDecoder.decodeObject(forKey: FRAT_KEYS.PREVIEW_IMAGE) as? UIImage else {
+            os_log("Unable to decode the preview image for the frat object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        guard let properties = aDecoder.decodeObject(forKey: FRAT_KEYS.PROPERTIES) as? NSDictionary else {
+            os_log("Unable to decode the properties for the frat object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        let realProperties = properties as! Dictionary<String, Any>
+        self.init(name: name, chapter: chapter, previewImage: previewImage, properties: realProperties)
+    }
+  static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+  static let ArchiveURL = DocumentsDirectory.appendingPathComponent("fraternities")
   let name : String
   let chapter : String
   let previewImage : UIImage

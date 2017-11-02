@@ -25,3 +25,11 @@ struct COLOR_CONST {
 struct ANIM_CONST {
   static let COLORING_TIME = 0.5
 }
+
+struct FRAT_KEYS {
+    static let NAME = "NAME"
+    static let CHAPTER = "CHAPTER"
+    static let PREVIEW_IMAGE = "PREVIEW_IMAGE"
+    static let PROPERTIES = "PROPERTIES"
+    
+}

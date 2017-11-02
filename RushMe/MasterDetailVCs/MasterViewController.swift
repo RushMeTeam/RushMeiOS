@@ -21,6 +21,28 @@ class MasterViewController : UITableViewController {
   var objects = [Any]()
   var fratNames = [String]()
   var fraternities = Dictionary<String, Fraternity>()
+  
+  private func saveFratData() {
+    var frats = [Fraternity]()
+    for frat in fraternities {
+      frats.append(frat.value)
+      
+    }
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(frats, toFile: Fraternity.ArchiveURL.path)
+    if !isSuccessfulSave {
+      print("Save Fraternity data failed!")
+    }
+ }
+  private func loadFratData() -> Bool {
+    if let frats = NSKeyedUnarchiver.unarchiveObject(withFile: Fraternity.ArchiveURL.path) as? [Fraternity]{
+      for frat in frats {
+        fratNames.append(frat.name)
+        fraternities[frat.name] = frat
+      }
+      return true
+    }
+    return false
+  }
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   // MARK: SQL
@@ -57,7 +79,10 @@ class MasterViewController : UITableViewController {
     refreshControl?.tintColor = COLOR_CONST.MENU_COLOR
     refreshControl?.tintAdjustmentMode = .normal
     self.refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-    refreshControl?.beginRefreshing()
+    //refreshControl?.beginRefreshing()
+    if (!loadFratData()){
+      refreshControl?.beginRefreshing()
+    }
     
   }
   func dataUpdate() {
@@ -65,6 +90,7 @@ class MasterViewController : UITableViewController {
       self.pullFromSQLDatabase(types: ["all"])
       DispatchQueue.main.async {
         self.tableView.reloadData()
+        self.saveFratData()
         self.refreshControl?.endRefreshing()
       }
     }
