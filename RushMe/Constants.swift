@@ -25,3 +25,8 @@ struct COLOR_CONST {
 struct ANIM_CONST {
   static let COLORING_TIME = 0.5
 }
+
+struct NETWORK {
+  static let IP = "34.225.179.240"
+  static let HTTP = "http://34.224.179.240/"
+}

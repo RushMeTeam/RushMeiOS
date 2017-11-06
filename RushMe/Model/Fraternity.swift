@@ -12,6 +12,8 @@ class Fraternity : NSObject {
   let name : String
   let chapter : String
   let previewImage : UIImage
+  var events = [Date : FratEvent]()
+  
 //  var memberCount : Int? = nil
 //  var desc : String? = nil
 //  var coverPhoto : UIImage? = nil
@@ -45,8 +47,33 @@ class Fraternity : NSObject {
     return properties[named]
   }
   func setProperty(named : String, to : Any){
+    
     properties[named] = to
   }
+  func add(eventDescribedBy dict : Dictionary<String, Any>, ownedBy : Fraternity) -> FratEvent? {
+    //house, event_name, start_time, end_time, event_date, location
+    // start_time, end_time, location possibly nil
+    let houseName = dict["house"] as! String
+    if (self.name != houseName){
+      return nil
+    }
+    let eventName = dict["event_name"] as! String
+    let eventDate = dict["event_date"] as! String
+    let location = dict["location"] as? String
+    let startTime = dict["start_time"] as? String
+    let endTime = dict["end_time"] as? String
+    if let event = FratEvent(withName: eventName,
+                             onDate: eventDate,
+                             ownedByFraternity: ownedBy,
+                             startingAt: startTime,
+                             endingAt: endTime,
+                             atLocation: location) {
+      self.events[event.getStartDate()] = event
+      return event
+    }
+    return nil
+  }
+  
 }
 // A not-so-genius way to create greek representations of frat names
 func greekLetters(inString : String) -> String {

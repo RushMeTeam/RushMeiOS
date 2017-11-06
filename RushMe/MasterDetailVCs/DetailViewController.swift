@@ -48,11 +48,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
           
         }
       }
-      if let coverImage = frat.getProperty(named: "coverImage") as? UIImage {
+      if let coverImage = frat.getProperty(named: "cover_image") as? UIImage {
         self.coverImageView?.image = coverImage
         self.coverImageView?.layer.shadowOpacity = 0.5
       }
-      if let profileImage = frat.getProperty(named: "profileImage") as? UIImage {
+      else if let coverImage = frat.getProperty(named: "calendar_image") as? UIImage {
+        self.coverImageView?.image = coverImage
+        self.coverImageView?.layer.shadowOpacity = 0.5
+      }
+      
+      
+      if let profileImage = frat.getProperty(named: "profile_image") as? UIImage {
         self.profileImageView?.image = profileImage
         self.profileImageView?.layer.shadowOpacity = 0.5
       }

@@ -13,11 +13,9 @@ class DrawerMenuViewController: UITableViewController {
   
   @IBOutlet var fraternitiesButton: UITableViewCell!
   
-  @IBOutlet var favoritesButton: UITableViewCell!
-  
   @IBOutlet var settingsButton: UITableViewCell!
   
-  var lastSelected : UIViewController?
+  @IBOutlet weak var calendarButton: UITableViewCell!
   
   override func viewDidLoad() {
     tableView.isScrollEnabled = false
@@ -30,10 +28,10 @@ class DrawerMenuViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     fraternitiesButton.isUserInteractionEnabled = true
     settingsButton.isUserInteractionEnabled = true
-    //favoritesButton.isUserInteractionEnabled = true
+    calendarButton.isUserInteractionEnabled = true
     fraternitiesButton.backgroundColor = UIColor.clear
     settingsButton.backgroundColor = UIColor.clear
-    favoritesButton.backgroundColor = UIColor.clear
+    calendarButton.backgroundColor = UIColor.clear
     if let id = segue.identifier {
       let selectedButton : UITableViewCell
       if (id == "Fraternities"){
@@ -43,8 +41,8 @@ class DrawerMenuViewController: UITableViewController {
       else if (id == "Settings"){
         selectedButton = settingsButton
       }
-      else if (id == "Favorites"){
-        selectedButton = favoritesButton
+      else if (id == "Calendar"){
+        selectedButton = calendarButton
       }
       else {
        return
