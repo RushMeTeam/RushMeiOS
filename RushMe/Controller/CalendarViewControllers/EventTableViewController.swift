@@ -8,8 +8,12 @@
 
 import UIKit
 
+fileprivate let emptyCellIdentifier = "emptyCell"
+fileprivate let tableViewCellIdentifier = "eventTBCell"
+
 class EventTableViewController: UITableViewController {
 
+  
   var selectedEvents : [FratEvent]? = nil {
     didSet {
       self.tableView.isScrollEnabled = selectedEvents != nil
@@ -50,26 +54,26 @@ class EventTableViewController: UITableViewController {
     if let events = selectedEvents {
       if events.count != 0 {
           if let event = selectedEvents?[indexPath.row] {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "eventTBCell") as! EventTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! EventTableViewCell
             cell.timeLabel.isHidden = false
             cell.fraternityNameLabel.isHidden = false
             cell.eventNameLabel.isHidden = false
             cell.textLabel?.isHidden = true
-            let end = event.getEndHours()
-            let start = event.getStartHour()
+            let end = event.endDate.formatToHour()
+            let start = event.startDate.formatToHour()
             if start != end {
               let time = start + "-" + end
               cell.timeLabel?.text = time
             }
-            cell.eventNameLabel?.text = event.getName()
+            cell.eventNameLabel?.text = event.name
             
-            cell.fraternityNameLabel?.text = event.getOwningFrat().name
+            cell.fraternityNameLabel?.text = event.frat.name
             return cell
         }
       }
     }
-    let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell")!
-    cell.textLabel?.text = "No events today!"
+    let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellIdentifier)!
+    cell.textLabel?.text = "No Events!"
     cell.textLabel?.textAlignment = .center
     return cell
     

@@ -1,0 +1,6 @@
+framework module iCalKit {
+  umbrella header "iCalKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

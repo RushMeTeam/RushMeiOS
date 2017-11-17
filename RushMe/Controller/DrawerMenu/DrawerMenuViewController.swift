@@ -17,12 +17,13 @@ class DrawerMenuViewController: UITableViewController {
   
   @IBOutlet weak var calendarButton: UITableViewCell!
   
+  var masterVC : UIViewController?
+  
   override func viewDidLoad() {
     tableView.isScrollEnabled = false
     tableView.backgroundColor = COLOR_CONST.MENU_COLOR
     self.view.backgroundColor = COLOR_CONST.MENU_COLOR
     fraternitiesButton?.backgroundColor = COLOR_CONST.MENU_BUTTON_SELECTED_COLOR
-    
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,10 +37,12 @@ class DrawerMenuViewController: UITableViewController {
       let selectedButton : UITableViewCell
       if (id == "Fraternities"){
         selectedButton = fraternitiesButton
-        
+        //self.revealViewController().rightRevealToggle(animated: true)
+        self.revealViewController().pushFrontViewController(masterVC, animated: true)
       }
       else if (id == "Settings"){
         selectedButton = settingsButton
+        
       }
       else if (id == "Calendar"){
         selectedButton = calendarButton

@@ -7,29 +7,47 @@
 //
 
 import UIKit
+import EventKit
 
 private let reuseIdentifier = "CalendarCell"
 
+
 class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-  
-  @IBOutlet weak var childView: UIView!
+  public static let eventStore = EKEventStore()
   
   @IBOutlet weak var collectionView: UICollectionView!
   //@IBOutlet weak var tableViewController: UITableView!
   var eventViewController : EventTableViewController? = nil
   let eventCountThreshold = 3
-  let sqlHandler = sharedSQLHandler
-//  var events : Set<FratEvent> = campusSharedInstance.events
-//  var favoriteFrats : [String] = campusSharedInstance.favorites
   var firstEvent : FratEvent? =  campusSharedInstance.events.min(by: {
-    (thisEvent, thatEvent) in return thisEvent.getStartDate().compare(thatEvent.getStartDate()) == ComparisonResult.orderedAscending
+    (thisEvent, thatEvent) in
+    return
+      thisEvent.startDate.compare(
+                thatEvent.startDate) == ComparisonResult.orderedAscending
   })
   var lastEvent : FratEvent? = campusSharedInstance.events.min(by: {
-    (thisEvent, thatEvent) in return thisEvent.getStartDate().compare(thatEvent.getStartDate()) != ComparisonResult.orderedAscending
+    (thisEvent, thatEvent) in
+    return
+      thisEvent.startDate.compare(
+                thatEvent.startDate) != ComparisonResult.orderedAscending
   })
-  var selectedEvents : [FratEvent]? = nil
-  
   @IBOutlet weak var drawerButton: UIBarButtonItem!
+  @IBOutlet weak var shareButton: UIBarButtonItem!
+  
+  
+  @IBAction func exportEvents(_ sender: UIBarButtonItem) {
+
+    if let url = CalendarManager.exportAsICS(events: Array(campusSharedInstance.events)) {
+    
+      let activityVC = UIActivityViewController(activityItems: ["Here are all the events I'll be going to this rush!", url], applicationActivities: nil)
+      
+      activityVC.popoverPresentationController?.sourceView = sender.customView
+      self.present(activityVC, animated: true, completion: {
+       sender.isEnabled = true
+      })
+    }
+    
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,9 +62,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.alpha = 1
     //navigationController?.navigationBar.backgroundColor = COLOR_CONST.MENU_COLOR
-    navigationController?.navigationBar.tintColor = COLOR_CONST.MENU_COLOR
-    self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: COLOR_CONST.NAVIGATION_BAR_COLOR]
+    
+    
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
     
@@ -57,12 +75,22 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     if let tbView = self.childViewControllers.first as? EventTableViewController {
       eventViewController = tbView
     }
-    self.collectionView.selectItem(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition: UICollectionViewScrollPosition.top)
-    
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     campusSharedInstance.filterEventsForFavorites()
+    shareButton.isEnabled = campusSharedInstance.events.count != 0
+    if (campusSharedInstance.events.count != 0) {
+      self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedStringKey.foregroundColor: COLOR_CONST.NAVIGATION_BAR_COLOR]
+      navigationController?.navigationBar.tintColor = COLOR_CONST.MENU_COLOR
+    } else {
+      self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
+      navigationController?.navigationBar.tintColor = UIColor.lightGray
+      drawerButton.tintColor = COLOR_CONST.MENU_COLOR
+    }
+    
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -84,12 +112,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
-
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    if (firstEvent == nil || lastEvent == nil) {
-//      return 0
-//    }
     return 31+7
   }
   
@@ -104,22 +128,22 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.dayLabel?.text = weekDays[indexPath.row]
       }
       else {
-        cell.dayLabel?.text = String(indexPath.row-7)
+        cell.dayLabel?.text = String(indexPath.row-6)
       }
       return cell
     }
     if (indexPath.row < 7) {
-      let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (self.firstEvent!.getStartDate()))!
+      let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (self.firstEvent!.startDate))!
       let dateAsString = DateFormatter.localizedString(from: currentDay, dateStyle: DateFormatter.Style.full, timeStyle: DateFormatter.Style.full)
       cell.dayLabel?.text = String(describing: dateAsString.prefix(3))
       cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 10, weight: UIFont.Weight.ultraLight)
       cell.eventsLabel?.isHidden = true
       return cell
     }
-    let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (self.firstEvent!.getStartDate()))!
+    let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (self.firstEvent!.startDate))!
     cell.eventsToday = campusSharedInstance.events.filter ({
      (event) in
-      return Calendar.current.compare(currentDay, to: event.getStartDate(), toGranularity: .day) == ComparisonResult.orderedSame
+      return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
     })
     if (cell.eventsToday!.count == 0){
       cell.eventsToday = nil
@@ -140,6 +164,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     return cell
     
   }
+  
+  // MARK: - UICollectionViewDelegate
+  
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
     if (indexPath.row < 7) {
      return
@@ -152,38 +179,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
   }
   
-  // MARK: UICollectionViewDelegate
-  
-  /*
-   // Uncomment this method to specify if the specified item should be highlighted during tracking
-   override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-   return true
-   }
-   */
-  
-  /*
-   // Uncomment this method to specify if the specified item should be selected
-   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-   return true
-   }
-   */
-  
-  /*
-   // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-   override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-   return false
-   }
-   
-   override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-   return false
-   }
-   
-   override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-   
-   }
-   */
-  
-  // MARK : UITableViewDataSource
+ 
   
 }
 

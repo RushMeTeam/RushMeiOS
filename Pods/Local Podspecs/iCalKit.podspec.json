@@ -1,0 +1,27 @@
+{
+  "name": "iCalKit",
+  "version": "0.1.0",
+  "summary": "Parse and generate iCalendar (.ics) files in Swift",
+  "description": "A library to help with parsing and generating iCalender (.ics) files with a pretty API.",
+  "homepage": "https://github.com/kiliankoe/iCalKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kilian Koeltzsch": "me@kilian.io"
+  },
+  "social_media_url": "https://twitter.com/kiliankoe",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.9",
+    "watchos": "2.0",
+    "tvos": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/kiliankoe/iCalKit.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "Sources/**/*",
+  "frameworks": "Foundation"
+}

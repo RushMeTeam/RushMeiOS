@@ -9,35 +9,43 @@
 import Foundation
 import UIKit
 class Fraternity : NSObject {
+  // The name of the fraternity
+  // e.g. "Lambda Lambda Chi"
   let name : String
+  // The chapter of the fraternity (if no chapter, then school)
+  // e.g. "Rho Chapter" or "RPI Chapter"
   let chapter : String
-  let previewImage : UIImage
+  // The previewImage is the image seen when the user scrolls through a list of fraternities
+  // e.g. a picture of the house, possibly the profile image
+  var previewImage : UIImage
+  // All the Fraternity's associated rush events are stored in events
   var events = [Date : FratEvent]()
-  
-//  var memberCount : Int? = nil
-//  var desc : String? = nil
-//  var coverPhoto : UIImage? = nil
-//  var profilePhoto : UIImage? = nil
-//  var previewPhoto : UIImage? = nil
-  
+  // All data in the Fraternity object is stored again in properties
   private var properties : Dictionary<String, Any>
-  // NOTE: PreviewImage will NOT be NULL in future iterations of this app
-  init(name : String, chapter : String, previewImage: UIImage?, properties : Dictionary<String, Any>? = nil) {
+  init(name : String,
+       chapter : String,
+       previewImage: UIImage?,
+       properties : Dictionary<String, Any>) {
+    
     self.name = name
     self.chapter = chapter
+    self.properties = properties
     if let previewImg = previewImage {
       self.previewImage = previewImg
     }
     else {
-      self.previewImage = IMAGE_CONST.NO_IMAGE
+      if let profImage = self.properties["profileImage"] as? UIImage {
+        self.previewImage = profImage
+      }
+      else {
+        self.previewImage = IMAGE_CONST.NO_IMAGE
+      }
     }
-    if let prop = properties {
-      self.properties = prop
+    if self.properties["profileImage"] != nil {
+      self.properties["profileImage"] = previewImage
     }
-    else {
-      self.properties = Dictionary<String, Any>()
-    }
-    self.properties["profileImage"] = previewImage
+    
+    
   }
   
   func getProperty(named : String) -> Any? {
@@ -46,8 +54,7 @@ class Fraternity : NSObject {
     if (named == "previewImage"){ return self.previewImage }
     return properties[named]
   }
-  func setProperty(named : String, to : Any){
-    
+  func setProperty(named : String, to : Any) {
     properties[named] = to
   }
   func add(eventDescribedBy dict : Dictionary<String, Any>, ownedBy : Fraternity) -> FratEvent? {
@@ -68,7 +75,7 @@ class Fraternity : NSObject {
                              startingAt: startTime,
                              endingAt: endTime,
                              atLocation: location) {
-      self.events[event.getStartDate()] = event
+      self.events[event.startDate] = event
       return event
     }
     return nil

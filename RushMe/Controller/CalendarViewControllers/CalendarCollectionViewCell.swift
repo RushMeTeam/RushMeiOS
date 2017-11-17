@@ -9,8 +9,7 @@
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
-  
-  private var circleLayer : CAShapeLayer?
+
   var eventsToday : [FratEvent]?
   @IBOutlet weak var eventsLabel: UILabel!
   @IBOutlet weak var dayLabel: UILabel!
