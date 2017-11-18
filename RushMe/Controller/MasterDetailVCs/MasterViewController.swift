@@ -15,6 +15,7 @@ import UIKit
 //    -- Allows 3DTouch
 //    -- Is the SWRevealViewController's .front view controller
 //          -- Set in AppDelegate
+// Style guide used: https://swift.org/documentation/api-design-guidelines/
 let LOADIMAGES = true
 class MasterViewController : UITableViewController {
   

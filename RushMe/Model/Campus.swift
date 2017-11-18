@@ -10,11 +10,18 @@ import UIKit
 
 let campusSharedInstance = Campus()
 
+enum Quality {
+  case High
+  case Medium
+  case Low
+}
+
 class Campus: NSObject {
   var favorites = [String]()
   var fratNames = [String]()
   var fraternities = [String : Fraternity]()
   var events = Set<FratEvent>()
+  var quality : Quality = .High
   func filterEventsForFavorites()  {
     let favoriteSet = Set.init(favorites)
     var newEvents = Set<FratEvent>()
@@ -28,7 +35,7 @@ class Campus: NSObject {
   }
   
   func pullImage(fromSource : String) -> UIImage? {
-    let downsize = fromSource.dropLast(4) + "_Quarter.png.png"
+    let downsize = fromSource//.dropLast(4) //+ "_Quarter.png.png"
     print(downsize + " Done")
     var image : UIImage? = nil
     let urlAsString = "http://" + NETWORK.IP + "/" + downsize

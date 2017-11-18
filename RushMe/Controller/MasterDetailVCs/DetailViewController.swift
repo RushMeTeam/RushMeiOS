@@ -18,6 +18,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet var underProfileLabel: UILabel!
   @IBOutlet var titleLabel: UILabel!
   
+  @IBOutlet weak var memberCountLabel: UILabel!
+  @IBOutlet weak var gpaLabel: UILabel!
+  
+  
   @IBOutlet weak var favoritesButton: UIBarButtonItem!
   @IBOutlet weak var eventView: UIView!
   var eventViewController : EventTableViewController? = nil
@@ -129,6 +133,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       self.titleLabel?.text = frat.name
       self.title = greekLetters(inString: frat.name)
       self.underProfileLabel?.text = frat.chapter + " Chapter"
+      self.gpaLabel?.text = frat.getProperty(named: "gpa") as? String
+      self.memberCountLabel?.text = String(describing: frat.getProperty(named: "members") as! Int)
       if campusSharedInstance.favorites.contains(frat.name) {
        self.favoritesButton.image = UIImage.init(named: "FavoritesIcon")
       }

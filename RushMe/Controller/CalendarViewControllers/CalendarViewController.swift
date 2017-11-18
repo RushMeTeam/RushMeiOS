@@ -134,7 +134,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     if (indexPath.row < 7) {
       let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (self.firstEvent!.startDate))!
-      let dateAsString = DateFormatter.localizedString(from: currentDay, dateStyle: DateFormatter.Style.full, timeStyle: DateFormatter.Style.full)
+      let dateAsString = DateFormatter.localizedString(from: currentDay,
+                                                       dateStyle: DateFormatter.Style.full,
+                                                       timeStyle: DateFormatter.Style.full)
       cell.dayLabel?.text = String(describing: dateAsString.prefix(3))
       cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 10, weight: UIFont.Weight.ultraLight)
       cell.eventsLabel?.isHidden = true
