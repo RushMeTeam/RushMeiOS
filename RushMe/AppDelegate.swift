@@ -16,18 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    // create the window
+    // Create the window
     self.window = UIWindow(frame: UIScreen.main.bounds)
     self.window!.backgroundColor = UIColor.white
     
-    // instantiate from storyboard
+    // Instantiate from storyboard
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
     let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
     let masterNav = UINavigationController(rootViewController: masterVC)
     let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
     let detailNav = UINavigationController(rootViewController: detailVC)
-    // add master and detail to the SplitView
+    // Add Master and Detail to the SplitView
     splitVC.viewControllers = [masterNav, detailNav]
     
     // Override point for customization after application launch.
@@ -44,21 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Set Root view and make it visible
     self.window!.rootViewController = swRevealView
     self.window!.makeKeyAndVisible()
-    
-    //UINavigationBar.appearance().tintColor = COLOR_CONST.MENU_COLOR
-    UINavigationBar.appearance().backgroundColor = COLOR_CONST.MENU_COLOR
-    UINavigationBar.appearance().tintColor = COLOR_CONST.MENU_COLOR
+  
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     
     
     
     
     return true
-    //let splitViewController = window!.rootViewController as! UISplitViewController
-    //let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-    //navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-    //splitViewController.delegate = self
-    //return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
