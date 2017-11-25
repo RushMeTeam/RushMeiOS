@@ -9,20 +9,30 @@
 import UIKit
 import OHMySQL
 
-let sharedSQLHandler = SQLHandler()
+let sharedSQLHandler = SQLHandler.init(userName: RMNetwork.userName,
+                                       password: RMNetwork.password,
+                                       serverIP: RMNetwork.IP,
+                                       dbName: RMNetwork.databaseName,
+                                       port: 3306,
+                                       socket: nil)
 
-
+// Centralize requests made to an SQL server
 class SQLHandler: NSObject {
   let user : OHMySQLUser?
   let coordinator : OHMySQLStoreCoordinator?
   let context : OHMySQLQueryContext?
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
-  override init() {
-    user = OHMySQLUser(userName: "guest", password: "guestaccess420",
-                       serverName: NETWORK.IP,
-                       dbName: "fratinfo",
-                       port: 3306,
-                       socket: nil)
+  fileprivate init(userName: String,
+                   password: String,
+                   serverIP: String,
+                   dbName: String,
+                   port: UInt,
+                   socket: String?) {
+    user = OHMySQLUser(userName: userName, password: password,
+                       serverName: serverIP,
+                       dbName: dbName,
+                       port: port,
+                       socket: socket)
     coordinator = OHMySQLStoreCoordinator(user: user!)
     coordinator!.encoding = .UTF8MB4
     coordinator!.connect()
@@ -53,7 +63,6 @@ class SQLHandler: NSObject {
       }
     }
     print("Failed on determining mainQueryContext")
-    
     return nil
   }
   

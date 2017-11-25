@@ -9,44 +9,34 @@
 import UIKit
 import EventKit
 
-private let reuseIdentifier = "CalendarCell"
+fileprivate let reuseIdentifier = "CalendarCell"
 
-
-class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-  public static let eventStore = EKEventStore()
+class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
   @IBOutlet weak var collectionView: UICollectionView!
-  //@IBOutlet weak var tableViewController: UITableView!
   var eventViewController : EventTableViewController? = nil
   let eventCountThreshold = 3
-  var firstEvent : FratEvent? =  campusSharedInstance.events.min(by: {
+  var firstEvent : FratEvent? =  campusSharedInstance.fratEvents.min(by: {
     (thisEvent, thatEvent) in
     return
       thisEvent.startDate.compare(
                 thatEvent.startDate) == ComparisonResult.orderedAscending
   })
-  var lastEvent : FratEvent? = campusSharedInstance.events.min(by: {
-    (thisEvent, thatEvent) in
-    return
-      thisEvent.startDate.compare(
-                thatEvent.startDate) != ComparisonResult.orderedAscending
-  })
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
   
-  
+  // Shown when share button is selected
   @IBAction func exportEvents(_ sender: UIBarButtonItem) {
-
-    if let url = CalendarManager.exportAsICS(events: Array(campusSharedInstance.events)) {
+    if let url = RushCalendarManager.exportAsICS(events: Array(campusSharedInstance.fratEvents)) {
     
-      let activityVC = UIActivityViewController(activityItems: ["Here are all the events I'll be going to this rush!", url], applicationActivities: nil)
+      let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
+                                                applicationActivities: nil)
       
       activityVC.popoverPresentationController?.sourceView = sender.customView
       self.present(activityVC, animated: true, completion: {
        sender.isEnabled = true
       })
     }
-    
   }
   
   override func viewDidLoad() {
@@ -60,8 +50,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
     navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.alpha = 1
-    //navigationController?.navigationBar.backgroundColor = COLOR_CONST.MENU_COLOR
+    //navigationController?.navigationBar.alpha = 1
+    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     
     
     
@@ -79,16 +69,16 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     campusSharedInstance.filterEventsForFavorites()
-    shareButton.isEnabled = campusSharedInstance.events.count != 0
-    if (campusSharedInstance.events.count != 0) {
+    shareButton.isEnabled = campusSharedInstance.fratEvents.count != 0
+    if (campusSharedInstance.fratEvents.count != 0) {
       self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: COLOR_CONST.NAVIGATION_BAR_COLOR]
-      navigationController?.navigationBar.tintColor = COLOR_CONST.MENU_COLOR
+        [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+      navigationController?.navigationBar.tintColor = RMColor.AppColor
     } else {
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
       navigationController?.navigationBar.tintColor = UIColor.lightGray
-      drawerButton.tintColor = COLOR_CONST.MENU_COLOR
+      drawerButton.tintColor = RMColor.AppColor
     }
     
   }
@@ -121,11 +111,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
     cell.setupView()
-    if (campusSharedInstance.events.count == 0) {
+    if (campusSharedInstance.fratEvents.count == 0) {
       cell.eventsLabel?.isHidden = true
       if (indexPath.row < 7) {
-        let weekDays = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
-        cell.dayLabel?.text = weekDays[indexPath.row]
+        cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
       }
       else {
         cell.dayLabel?.text = String(indexPath.row-6)
@@ -143,7 +132,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       return cell
     }
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (self.firstEvent!.startDate))!
-    cell.eventsToday = campusSharedInstance.events.filter ({
+    cell.eventsToday = campusSharedInstance.fratEvents.filter ({
      (event) in
       return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
     })
@@ -179,6 +168,16 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     else {
       eventViewController?.selectedEvents = nil
     }
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let cellWidth = collectionView.frame.width/7.5
+    var cellHeight = collectionView.frame.height/6.0
+    if (indexPath.row < 7) {
+      cellHeight = collectionView.frame.height/8.0
+    }
+    
+    return CGSize(width: cellWidth, height: cellHeight)
   }
   
  

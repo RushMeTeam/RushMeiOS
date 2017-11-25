@@ -14,7 +14,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var eventsLabel: UILabel!
   @IBOutlet weak var dayLabel: UILabel!
   func setupView() {
-    self.backgroundColor = COLOR_CONST.MENU_BUTTON_SELECTED_COLOR
-    self.eventsLabel?.textColor = COLOR_CONST.MENU_COLOR
+    self.backgroundColor = RMColor.MenuButtonSelectedColor
+    self.eventsLabel?.textColor = RMColor.AppColor
   }
 }

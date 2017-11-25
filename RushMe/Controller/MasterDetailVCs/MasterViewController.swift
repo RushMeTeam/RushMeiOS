@@ -5,9 +5,7 @@
 //  Created by Adam Kuniholm on 10/7/17.
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
-// Pushed Mon at 1:02 PM at Chi Phi
 import UIKit
-// Commit test comment
 // Master view controller, a subclass of UITableViewController,
 // provides the main list of fraternities from which a user can
 // select in order to find detail.
@@ -17,31 +15,37 @@ import UIKit
 //          -- Set in AppDelegate
 // Style guide used: https://swift.org/documentation/api-design-guidelines/
 let LOADIMAGES = true
+
+fileprivate let fratCellIdentifier = "FratCell"
+
 class MasterViewController : UITableViewController {
   
   // The hard data used in the table
   var lastPullDescription = ""
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
-  // MARK: SQL
-  let sqlHandler = sharedSQLHandler
   var viewingFavorites = false
+  @IBOutlet weak var favoritesBarButton: UIBarButtonItem!
   
   @IBAction func favoritesToggled(_ sender: UIBarButtonItem) {
     if (refreshControl!.isRefreshing) {
       return
     }
-    if !viewingFavorites {
-      sender.image = UIImage(named: "FavoritesIcon")
-    }
-    else {
-      sender.image = UIImage(named: "FavoritesUnfilled")
-    }
     viewingFavorites = !viewingFavorites
+    if !viewingFavorites { favoritesBarButton.image = RMImage.FavoritesImageUnfilled }
+    else { favoritesBarButton.image = RMImage.FavoritesImageFilled }
+    
     refreshControl?.isEnabled = !viewingFavorites
-    self.tableView.reloadData()
+    self.favoritesBarButton.isEnabled = !campusSharedInstance.favoritedFrats.isEmpty || self.viewingFavorites
+    //self.tableView.reloadData()
+    self.reloadTableView()
   }
-  
+  func reloadTableView() {
+    UIView.transition(with: tableView,
+                      duration: RMAnimation.ColoringTime/2,
+                      options: UIViewAnimationOptions.transitionCrossDissolve,
+                      animations: { self.tableView.reloadData() })
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -49,20 +53,24 @@ class MasterViewController : UITableViewController {
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    if (!COLOR_CONST.SLIDEOUT_MENU_SHADOW_ENABLED) {
+    self.title = RMMessage.AppName
+    // Remove the default shadow to keep with the simplistic theme
+    if (!RMColor.SlideOutMenuShadowIsEnabled) {
       self.revealViewController().frontViewShadowOpacity = 0
     }
+    // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
     }
+    // Make it look good
+    //navigationController?.navigationBar.alpha = 0.2
     navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.alpha = 1
-    //navigationController?.navigationBar.backgroundColor = COLOR_CONST.MENU_COLOR
-    navigationController?.navigationBar.tintColor = COLOR_CONST.MENU_COLOR
+    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
+    navigationController?.navigationBar.tintColor = RMColor.AppColor
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: COLOR_CONST.NAVIGATION_BAR_COLOR]
+      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     
-    openBarButtonItem.tintColor = COLOR_CONST.MENU_COLOR
+    openBarButtonItem.tintColor = RMColor.AppColor
     // Ensure the menu button toggles the menu
     openBarButtonItem.target = self
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
@@ -71,10 +79,11 @@ class MasterViewController : UITableViewController {
     
     
     refreshControl = UIRefreshControl()
-    refreshControl?.tintColor = COLOR_CONST.MENU_COLOR
+    refreshControl?.tintColor = RMColor.AppColor
     refreshControl?.tintAdjustmentMode = .normal
     self.refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl?.beginRefreshing()
+    
     
   }
   
@@ -85,14 +94,15 @@ class MasterViewController : UITableViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     self.handleRefresh(refreshControl: refreshControl!)
+    
   }
   
   @objc func pullFratsFromSQLDatabase(types : [String]) {
     self.refreshControl?.beginRefreshing()
     DispatchQueue.global(qos: .userInitiated).async {
       var dictArray = [Dictionary<String, Any>()]
-      if types.endIndex == 1 && types[0] == "all" {
-        if let arr = self.sqlHandler.select(aField: "*", fromTable: "house_info") {
+      if types.count == 1 && types[0] == "all" {
+        if let arr = sharedSQLHandler.select(aField: "*", fromTable: "house_info") {
           dictArray = arr
         }
       }
@@ -102,53 +112,61 @@ class MasterViewController : UITableViewController {
           querystring += type + ", "
         }
         querystring = String(querystring.dropLast(2))
-        if let arr = self.sqlHandler.select(aField: querystring, fromTable: "house_info") {
+        if let arr = sharedSQLHandler .select(aField: querystring, fromTable: "house_info") {
           dictArray = arr
         }
       }
       if (dictArray.count != campusSharedInstance.fratNames.count &&
-          dictArray.description != self.lastPullDescription ) {
+        dictArray.description != self.lastPullDescription ) {
         self.lastPullDescription = dictArray.description
         for dict in dictArray {
-            if let name = dict["name"] as? String {
-                if campusSharedInstance.fraternities[name] == nil {
-                  if let chapter = dict["chapter"] as? String {
-                    var previewImage : UIImage?
-                    if LOADIMAGES {
-                      if let URLString = dict["preview_image"] as? String {
-                        if let previewImg = campusSharedInstance.pullImage(fromSource: URLString) {
-                          previewImage = previewImg
-                        }
-                      }
-                      else if let URLString = dict["profile_image"] as? String {
-                        if let previewImg = campusSharedInstance.pullImage(fromSource: URLString) {
-                          previewImage = previewImg
-                        }
-                      }
+          if let name = dict[RMDatabaseKey.NameKey] as? String {
+            if campusSharedInstance.fraternitiesDict[name] == nil {
+              if let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
+                var previewImage : UIImage?
+                var profileImage : UIImage?
+                if LOADIMAGES {
+                  // Get the PreviewImage
+                  if let URLString = dict[RMDatabaseKey.PreviewImageKey] as? String {
+                    if let previewImg = campusSharedInstance.pullImage(fromSource: URLString) {
+                      previewImage = previewImg
                     }
-                    let frat = Fraternity(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
-                    if LOADIMAGES {
-                        if let URLString = dict["cover_image"] as? String {
-                          if let coverImg = campusSharedInstance.pullImage(fromSource: URLString) {
-                            frat.setProperty(named: "cover_image", to: coverImg)
-                          }
-                        }
-                        if let URLString = dict["profile_image"] as? String {
-                          if let coverImg = campusSharedInstance.pullImage(fromSource: URLString) {
-                            frat.setProperty(named: "profile_image", to: coverImg)
-                          }
-                        }
-                        if let URLString = dict["calendar_image"] as? String {
-                          if let coverImg = campusSharedInstance.pullImage(fromSource: URLString) {
-                            frat.setProperty(named: "calendar_image", to: coverImg)
-                          }
-                        }
-                    }
-                    campusSharedInstance.fraternities[name] = frat
-                    campusSharedInstance.fratNames.append(name)
-                    
                   }
+                    // Get the ProfileImage
+                  else if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
+                    if let previewImg = campusSharedInstance.pullImage(fromSource: URLString) {
+                      previewImage = previewImg
+                      profileImage = previewImg
+                    }
+                  }
+                }
+                let frat = Fraternity(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
+                if LOADIMAGES {
+                  if let _ = profileImage {
+                    frat.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
+                  }
+                  else {
+                    frat.setProperty(named: RMDatabaseKey.ProfileImageKey, to: RMImage.NoImage)
+                  }
+                  
+                  // Get the CoverImage
+                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
+                    if let coverImg = campusSharedInstance.pullImage(fromSource: URLString) {
+                      frat.setProperty(named: RMDatabaseKey.CoverImageKey, to: coverImg)
+                    }
+                  }
+                  if let URLString = dict[RMDatabaseKey.CalendarImageKey] as? String {
+                    if let calendarImg = campusSharedInstance.pullImage(fromSource: URLString) {
+                      frat.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
+                    }
+                  }
+                  
+                }
+                campusSharedInstance.fraternitiesDict[name] = frat
+                campusSharedInstance.fratNames.append(name)
+                
               }
+            }
           }
         }
       }
@@ -156,7 +174,6 @@ class MasterViewController : UITableViewController {
         self.tableView.reloadData()
         self.refreshControl!.endRefreshing()
       }
-      
     }
   }
   
@@ -174,6 +191,7 @@ class MasterViewController : UITableViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
     super.viewWillAppear(animated)
+    self.favoritesBarButton.isEnabled = !campusSharedInstance.favoritedFrats.isEmpty || self.viewingFavorites
   }
   
   
@@ -183,9 +201,9 @@ class MasterViewController : UITableViewController {
       if let indexPath = tableView.indexPathForSelectedRow {
         var fratName = campusSharedInstance.fratNames[indexPath.row]
         if (viewingFavorites) {
-          fratName = campusSharedInstance.favorites[indexPath.row]
+          fratName = campusSharedInstance.favoritedFrats[indexPath.row]
         }
-        if let object = campusSharedInstance.fraternities[fratName] {
+        if let object = campusSharedInstance.fraternitiesDict[fratName] {
           let controller = (segue.destination as! UINavigationController).topViewController
             as! DetailViewController
           // Send the detail controller the fraternity we're about to display
@@ -193,7 +211,7 @@ class MasterViewController : UITableViewController {
           let _ = campusSharedInstance.getEvents(forFratWithName : fratName)
           // Ensure a back button is given
           controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-          controller.navigationItem.leftBarButtonItem?.tintColor = COLOR_CONST.NAVIGATION_BAR_COLOR
+          controller.navigationItem.leftBarButtonItem?.tintColor = RMColor.NavigationItemsColor
           controller.navigationItem.leftItemsSupplementBackButton = true
         }
       }
@@ -203,9 +221,9 @@ class MasterViewController : UITableViewController {
         if let indexPath = tableView.indexPath(for: cell) {
           var fratName = campusSharedInstance.fratNames[indexPath.row]
           if (viewingFavorites) {
-            fratName = campusSharedInstance.favorites[indexPath.row]
+            fratName = campusSharedInstance.favoritedFrats[indexPath.row]
           }
-          if let object = campusSharedInstance.fraternities[fratName] {
+          if let object = campusSharedInstance.fraternitiesDict[fratName] {
             let controller = (segue.destination as! UINavigationController).topViewController
               as! DetailViewController
             controller.selectedFraternity = object
@@ -224,7 +242,7 @@ class MasterViewController : UITableViewController {
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
     if (viewingFavorites) {
-      return campusSharedInstance.favorites.count
+      return campusSharedInstance.favoritedFrats.count
     }
     return max(campusSharedInstance.fratNames.count, 1)
   }
@@ -232,16 +250,16 @@ class MasterViewController : UITableViewController {
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if (viewingFavorites) {
-      if (campusSharedInstance.favorites.count == 0){
+      if (campusSharedInstance.favoritedFrats.count == 0){
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         cell.textLabel?.textAlignment = NSTextAlignment.center
-        cell.textLabel?.text = "No Favorites!"
-        cell.textLabel?.textColor = COLOR_CONST.MENU_COLOR
+        cell.textLabel?.text = RMMessage.NoFavorites
+        cell.textLabel?.textColor = RMColor.AppColor
         return cell
       }
-      let cell = tableView.dequeueReusableCell(withIdentifier: "FratCell") as! FratCell
-      if let frat = campusSharedInstance.fraternities[campusSharedInstance.favorites[indexPath.row]] {
+      let cell = tableView.dequeueReusableCell(withIdentifier: fratCellIdentifier) as! FratCell
+      if let frat = campusSharedInstance.fraternitiesDict[campusSharedInstance.favoritedFrats[indexPath.row]] {
         cell.titleLabel!.text = frat.name
         cell.subheadingLabel!.text = frat.chapter
         cell.previewImageView!.image = frat.previewImage
@@ -254,16 +272,16 @@ class MasterViewController : UITableViewController {
         cell.selectionStyle = .none
         cell.textLabel?.textAlignment = NSTextAlignment.center
         if (self.refreshControl!.isRefreshing) {
-          cell.textLabel?.text = "Wandering Campus, Looking for Frats..."
+          cell.textLabel?.text = RMMessage.LoadingFrats
         }
         else {
-          cell.textLabel?.text = "Pull to Refresh!"
+          cell.textLabel?.text = RMMessage.Refresh
         }
-        cell.textLabel?.textColor = COLOR_CONST.MENU_COLOR
+        cell.textLabel?.textColor = RMColor.AppColor
         return cell
       }
-      let cell = tableView.dequeueReusableCell(withIdentifier: "FratCell") as! FratCell
-      if let frat = campusSharedInstance.fraternities[campusSharedInstance.fratNames[indexPath.row]] {
+      let cell = tableView.dequeueReusableCell(withIdentifier: fratCellIdentifier) as! FratCell
+      if let frat = campusSharedInstance.fraternitiesDict[campusSharedInstance.fratNames[indexPath.row]] {
         cell.titleLabel!.text = frat.name
         cell.subheadingLabel!.text = frat.chapter
         cell.previewImageView!.image = frat.previewImage
@@ -279,43 +297,42 @@ class MasterViewController : UITableViewController {
   
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     var fratName = ""
-    var title = "Favorite"
-    var bgColor = COLOR_CONST.MENU_COLOR
+    var title =  RMMessage.Favorite
+    var bgColor = RMColor.AppColor
     var fratIndex = Int(999)
     if (self.viewingFavorites) {
-      fratName = campusSharedInstance.favorites[indexPath.row]
+      fratName = campusSharedInstance.favoritedFrats[indexPath.row]
     }
     else {
       fratName = campusSharedInstance.fratNames[indexPath.row]
     }
-    if let index = campusSharedInstance.favorites.index(of: fratName) {
-      title = "Unfavorite"
+    if let index = campusSharedInstance.favoritedFrats.index(of: fratName) {
+      title = RMMessage.Unfavorite
       fratIndex = index
       bgColor = bgColor.withAlphaComponent(0.5)
     }
     let toggleFavorite = UITableViewRowAction(style: .normal, title: title, handler: {
       action, cellIndex in
-      if (title == "Favorite") {
-        campusSharedInstance.favorites.append(fratName)
-        action.backgroundColor = COLOR_CONST.MENU_COLOR
+      if (title == RMMessage.Favorite) {
+        let _ = campusSharedInstance.getEvents(forFratWithName: fratName, async: true)
+        campusSharedInstance.favoritedFrats.append(fratName)
+        action.backgroundColor = RMColor.AppColor
       }
       else {
-        action.backgroundColor = COLOR_CONST.MENU_COLOR.withAlphaComponent(0.5)
-        campusSharedInstance.favorites.remove(at: fratIndex)
+        action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
+        campusSharedInstance.favoritedFrats.remove(at: fratIndex)
         if (self.viewingFavorites) {
           self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
         }
-        
       }
+      self.favoritesBarButton.isEnabled = !campusSharedInstance.favoritedFrats.isEmpty || self.viewingFavorites
     })
     toggleFavorite.backgroundColor = bgColor
-    
     return [toggleFavorite]
   }
   
   // MARK: - Refresh Control
   @objc func handleRefresh(refreshControl : UIRefreshControl) {
-    tableView.reloadData()
     dataUpdate()
   }
 }

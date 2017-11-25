@@ -12,19 +12,21 @@ class AboutViewController: UIViewController {
 
   @IBOutlet var drawerButton: UIBarButtonItem!
   override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        if (self.revealViewController() != nil) {
-          // Allow drawer button to toggle the lefthand drawer menu
-          drawerButton.target = self.revealViewController()
-          drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-          // Allow drag to open drawer, tap out to close
-          view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-          view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-        }
+    super.viewDidLoad()
+    // Do any additional setup after loading the view.
+    if (self.revealViewController() != nil) {
+      // Allow drawer button to toggle the lefthand drawer menu
+      drawerButton.target = self.revealViewController()
+      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
+      // Allow drag to open drawer, tap out to close
+      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+    }
+    authorsTextView.text = "iOS App: Adam Kuniholm\nDatabase: Stephen Notley\nWebfront: Andie Labgold, with help from Benjamin Crevier and Jim Hines."
     }
 
-    override func didReceiveMemoryWarning() {
+  @IBOutlet weak var authorsTextView: UITextView!
+  override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

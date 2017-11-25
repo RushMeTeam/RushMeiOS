@@ -64,11 +64,8 @@ class FratEvent: NSObject {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-  
-
 }
-// Make a date, such as "Sunday, November 22nd, 12:00PM" return a time, such as "12:00PM"
+// Make a date, such as Sunday, November 22nd, 12:00PM return its time, as a string, i.e. "12:00PM"
 // An extension to Date that empowers the FratEvent class.
 extension Date {
   func formatToHour() -> String {

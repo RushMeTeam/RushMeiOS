@@ -73,7 +73,7 @@ class EventTableViewController: UITableViewController {
       }
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellIdentifier)!
-    cell.textLabel?.text = "No Events!"
+    cell.textLabel?.text = RMMessage.NoEvents
     cell.textLabel?.textAlignment = .center
     return cell
     
