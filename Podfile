@@ -16,7 +16,7 @@ target 'RushMe' do
   end
 
   target 'RushMeUITests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
   end
 
