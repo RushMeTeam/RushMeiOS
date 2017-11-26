@@ -10,7 +10,7 @@ import UIKit
 // Create a shared instance of the Campus class which
 // cannot be deinstantiated or instantiated, except by
 // the App itself
-let campusSharedInstance = Campus()
+fileprivate let campusSharedInstance = Campus()
 // Describe three quality metrics
 enum Quality {
   case High
@@ -31,24 +31,37 @@ enum Quality {
 class Campus: NSObject {
   // The user's favorite fraternities
   var favoritedFrats = [String]()
+  
   // The name of every fraternity, in download order
   var fratNames = [String]()
   // Refer to each fraternity by its name, in no order
   var fraternitiesDict = [String : Fraternity]()
   // FratEvents, unordered
-  var fratEvents = Set<FratEvent>()
+  private(set) var favoritedFratEvents = Set<FratEvent>()
+  private var allEvents = Set<FratEvent>()
   // The default quality at which an image should be downloaded
   var downloadedImageQuality : Quality = .Medium
+  
   // Remove any FratEvents that are not from favorited frats
   func filterEventsForFavorites()  {
     let favoriteSet = Set.init(favoritedFrats)
     var newEvents = Set<FratEvent>()
-    for event in fratEvents {
+    for event in allEvents {
       if favoriteSet.contains(event.frat.name) {
+        // If not considering events before today and this event is not after today
+        if !considerEventsBeforeToday && event.startDate.compare(Date()) == .orderedAscending {
+          continue
+        }
         newEvents.insert(event)
       }
     }
-    fratEvents = newEvents
+    favoritedFratEvents = newEvents
+  }
+  var considerEventsBeforeToday = true
+  static var shared : Campus {
+    get {
+      return campusSharedInstance
+    }
   }
   
   // Create an URL that descibes the location of an image on a server,
@@ -106,7 +119,7 @@ class Campus: NSObject {
     if (async) {
       // Dispatch a new relatively high priority thread to get the images
       DispatchQueue.global(qos: .userInitiated).async {
-        let _ = pullEventsFromSQLDataBase(fratName: fratName)
+        let _ = self.pullEventsFromSQLDataBase(fratName: fratName)
       }
       return [Date : FratEvent]() // return an empty dictionary for the meantime
     }
@@ -115,24 +128,25 @@ class Campus: NSObject {
     
     
   }
-}
-
-private func pullEventsFromSQLDataBase(fratName : String) -> [Date : FratEvent] {
-  // Try to grab the fraternity (see if it exists) 
-  if let fraternity = campusSharedInstance.fraternitiesDict[fratName] {
-    // Pull all this house's events from the SQL database
-    if let fratEvents = sharedSQLHandler.select(fromTable : "events",
-                                                whereClause: "house = '" + fratName + "'") {
-      for eventDict in fratEvents {
-        if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
-          campusSharedInstance.fratEvents.insert(fEvent)
+  
+  
+  private func pullEventsFromSQLDataBase(fratName : String) -> [Date : FratEvent] {
+    // Try to grab the fraternity (see if it exists)
+    if let fraternity = self.fraternitiesDict[fratName] {
+      // Pull all this house's events from the SQL database
+      if let fratEvents = sharedSQLHandler.select(fromTable : "events",
+                                                  whereClause: "house = '" + fratName + "'") {
+        for eventDict in fratEvents {
+          if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
+            campusSharedInstance.favoritedFratEvents.insert(fEvent)
+            campusSharedInstance.allEvents.insert(fEvent)
+          }
         }
       }
+      return fraternity.events
     }
-    return fraternity.events
+    // Failed, provide no dates
+    return [Date : FratEvent]()
   }
-  // Failed, provide no dates
-  return [Date : FratEvent]()
 }
-
 

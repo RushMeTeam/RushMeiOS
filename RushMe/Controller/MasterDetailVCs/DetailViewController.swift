@@ -41,12 +41,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   
   @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
     if let frat = self.selectedFraternity {
-      if let index = campusSharedInstance.favoritedFrats.index(of: frat.name) {
-        campusSharedInstance.favoritedFrats.remove(at: index)
+      if let index = Campus.shared.favoritedFrats.index(of: frat.name) {
+        Campus.shared.favoritedFrats.remove(at: index)
         favoritesButton.image = RMImage.FavoritesImageUnfilled
       }
       else {
-        campusSharedInstance.favoritedFrats.append(frat.name)
+        Campus.shared.favoritedFrats.append(frat.name)
         favoritesButton.image = RMImage.FavoritesImageFilled
       }
     }
@@ -109,7 +109,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     // Do any additional setup after loading the view, typically from a nib.
     configureView()
     if let frat = selectedFraternity {
-      if let event = Array(campusSharedInstance.getEvents(forFratWithName: frat.name)).last?.value {
+      if let event = Array(Campus.shared.getEvents(forFratWithName: frat.name)).last?.value {
         eventViewController?.selectedEvents = [event]
       }
       else {
@@ -132,7 +132,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         self.memberCountLabel?.text = String(describing: memberCount)
       }
       
-      if campusSharedInstance.favoritedFrats.contains(frat.name) {
+      if Campus.shared.favoritedFrats.contains(frat.name) {
         self.favoritesButton.image = RMImage.FavoritesImageFilled
       }
       else {

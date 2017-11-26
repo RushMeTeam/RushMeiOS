@@ -25,6 +25,13 @@ class FratCell : UITableViewCell {
   // The equivalent of viewDidLoad() for UITableViewCells
   // Current adjustments made to preview image
   //        -- Round the corners
+  var imageBorderColor = UIColor.white.withAlphaComponent(0.5) {
+    didSet {
+      UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+        self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
+        })
+    }
+  }
   override func layoutSubviews() {
     super.layoutSubviews()
     // Mask to bounds so corners work
@@ -32,6 +39,8 @@ class FratCell : UITableViewCell {
       iView.layer.masksToBounds = true
       iView.layer.cornerRadius = RMImage.CornerRadius
       iView.contentMode = UIViewContentMode.scaleAspectFill
+      iView.layer.borderColor = imageBorderColor.cgColor
+      iView.layer.borderWidth = 2
       // If there is no preview image
       if (iView.image == nil){
         iView.image = RMImage.NoImage

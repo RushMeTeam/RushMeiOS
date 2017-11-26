@@ -16,18 +16,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBOutlet weak var collectionView: UICollectionView!
   var eventViewController : EventTableViewController? = nil
   let eventCountThreshold = 3
-  var firstEvent : FratEvent? =  campusSharedInstance.fratEvents.min(by: {
-    (thisEvent, thatEvent) in
-    return
-      thisEvent.startDate.compare(
-                thatEvent.startDate) == ComparisonResult.orderedAscending
-  })
+  var firstEvent : FratEvent? = nil
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
   
   // Shown when share button is selected
   @IBAction func exportEvents(_ sender: UIBarButtonItem) {
-    if let url = RushCalendarManager.exportAsICS(events: Array(campusSharedInstance.fratEvents)) {
+    if let url = RushCalendarManager.exportAsICS(events: Array(Campus.shared.favoritedFratEvents)) {
     
       let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
                                                 applicationActivities: nil)
@@ -68,9 +63,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    campusSharedInstance.filterEventsForFavorites()
-    shareButton.isEnabled = campusSharedInstance.fratEvents.count != 0
-    if (campusSharedInstance.fratEvents.count != 0) {
+    Campus.shared.filterEventsForFavorites()
+    self.firstEvent = Campus.shared.favoritedFratEvents.min(by: {
+        (thisEvent, thatEvent) in
+        return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
+      })
+    shareButton.isEnabled = Campus.shared.favoritedFratEvents.count != 0
+    if (Campus.shared.favoritedFratEvents.count != 0) {
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
       navigationController?.navigationBar.tintColor = RMColor.AppColor
@@ -111,7 +110,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
     cell.setupView()
-    if (campusSharedInstance.fratEvents.count == 0) {
+    if (Campus.shared.favoritedFratEvents.count == 0) {
       cell.eventsLabel?.isHidden = true
       if (indexPath.row < 7) {
         cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
@@ -132,7 +131,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       return cell
     }
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (self.firstEvent!.startDate))!
-    cell.eventsToday = campusSharedInstance.fratEvents.filter ({
+    if Calendar.current.isDate(currentDay, inSameDayAs: Date()) {
+      cell.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
+      cell.layer.cornerRadius = RMImage.CornerRadius
+      cell.layer.masksToBounds = true
+    }
+    cell.eventsToday = Campus.shared.favoritedFratEvents.filter ({
      (event) in
       return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
     })

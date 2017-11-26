@@ -22,9 +22,9 @@ class FratEvent: NSObject {
         startingAt : String? = nil,
         endingAt : String? = nil,
         atLocation : String? = nil) {
-    self.name = withName
+    self.name = withName.localizedCapitalized
     self.frat = ownedByFraternity
-    self.location = atLocation
+    self.location = atLocation?.capitalized
     let dateArr = onDate.split(separator: "/")
     if (dateArr.count != 3){ return nil }
   
@@ -44,6 +44,9 @@ class FratEvent: NSObject {
           }
           startDate = DateComponents(calendar: self.calendar,
                                      year: year, month: month, day: day, hour: startHour, minute: startMin).date!
+//          if Date().compare(startDate) == ComparisonResult.orderedDescending {
+//            return nil
+//          }
           if let _ = endingAt {
             let splitEndingTime = endingAt!.split(separator: ":")
             endHour = NumberFormatter().number(from: String(splitEndingTime[0]))?.intValue
