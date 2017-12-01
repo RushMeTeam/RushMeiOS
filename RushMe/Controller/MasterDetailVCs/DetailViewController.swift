@@ -59,9 +59,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }
   
+  
   @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
     sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-  
+
     UIView.animate(withDuration: RMAnimation.ColoringTime*2,
                    delay: 0,
                    usingSpringWithDamping: 0.4,
@@ -70,13 +71,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
                    animations: {
       sender.view?.transform = CGAffineTransform.identity
     }, completion: { _ in
-      
+
     })
     if let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController {
       if let img = (sender.view as! UIImageView).image {
         imageVC.image = img
       }
-      self.present(imageVC, animated: true, completion: nil)
+      self.present(imageVC, animated: true, completion: {
+        self.scrollView.setContentOffset(CGPoint.zero, animated: true)
+        
+      })
     }
   }
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
@@ -146,6 +150,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
   }
+
   
   @IBAction func openInMaps(_ sender: UIButton) {
     if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil) }
@@ -218,6 +223,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.coverImageView.clipsToBounds = true
     
     self.configureView()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.profileImageView.transform = CGAffineTransform.identity
+    self.profileImageView.alpha = 1
+    self.coverImageView.transform = CGAffineTransform.identity
+    self.coverImageView.alpha = 1
   }
   
   func configureView() {

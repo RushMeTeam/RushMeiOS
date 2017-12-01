@@ -591,18 +591,9 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="jwT-d9-9Te" id="nkS-eM-8Fa"/>
+                                    <outletCollection property="gestureRecognizers" destination="dDz-m4-ZxY" appends="YES" id="75h-Rq-B03"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u63-Gf-ITl">
-                                <rect key="frame" x="16" y="28" width="41" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneButtonHit:" destination="jwT-d9-9Te" eventType="touchUpInside" id="mrb-kc-zvh"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -610,9 +601,7 @@
                             <constraint firstItem="owW-Dk-8Up" firstAttribute="top" secondItem="Ocd-GG-4PB" secondAttribute="bottom" id="5of-s0-5pH"/>
                             <constraint firstItem="Ocd-GG-4PB" firstAttribute="centerX" secondItem="Tu1-rM-bI1" secondAttribute="centerX" id="bYd-8J-ps7"/>
                             <constraint firstItem="Ocd-GG-4PB" firstAttribute="top" secondItem="Tu1-rM-bI1" secondAttribute="top" id="eZR-NU-Uk3"/>
-                            <constraint firstItem="u63-Gf-ITl" firstAttribute="top" secondItem="1o1-xK-pu9" secondAttribute="bottom" constant="8" id="hQl-DB-Pam"/>
                             <constraint firstItem="Ocd-GG-4PB" firstAttribute="leading" secondItem="Tu1-rM-bI1" secondAttribute="leading" id="llS-p4-IPT"/>
-                            <constraint firstItem="u63-Gf-ITl" firstAttribute="leading" secondItem="Tu1-rM-bI1" secondAttribute="leading" constant="16" id="spw-vz-RDl"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
@@ -622,8 +611,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71B-CA-SLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dDz-m4-ZxY">
+                    <connections>
+                        <action selector="screenTapped:" destination="jwT-d9-9Te" id="NTL-HC-Qhg"/>
+                        <outlet property="delegate" destination="jwT-d9-9Te" id="9M0-b9-876"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2224.8000000000002" y="70.614692653673174"/>
+            <point key="canvasLocation" x="1567" y="28"/>
         </scene>
         <!--Drawer Menu View Controller-->
         <scene sceneID="w5P-H8-j1y">

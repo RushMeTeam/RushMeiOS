@@ -9,35 +9,21 @@
 import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
-  var image : UIImage = RMImage.NoImage {
-    didSet {
-      //self.imageView?.image = image
-      
-    }
-  
-  }
+  var image : UIImage = RMImage.NoImage
   @IBOutlet var imageView: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
   override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.scrollView.maximumZoomScale = 3
         self.scrollView.minimumZoomScale = 1
         self.scrollView.isScrollEnabled = true
         self.scrollView.delegate = self
         self.scrollView.contentSize = imageView.frame.size
-    
-    
-        // Do any additional setup after loading the view.
     }
 
-  @IBAction func doneButtonHit(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-  }
   override func viewWillAppear(_ animated: Bool) {
     self.imageView?.image = image
-    self.imageView?.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-    self.imageView?.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
     self.imageView?.layer.masksToBounds = true
     self.imageView?.layer.cornerRadius = RMImage.CornerRadius
   }
@@ -51,8 +37,15 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     return self.imageView
   }
   
+  func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    if (scrollView.zoomScale < 0.75) {
+      self.dismiss(animated: true, completion: nil)
+    }
+  }
 
-  
+  @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
+    self.dismiss(animated: true, completion: nil)
+  }
 
     /*
     // MARK: - Navigation
