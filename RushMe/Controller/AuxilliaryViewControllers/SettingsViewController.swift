@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var qualityPicker: UISegmentedControl!
   
   @IBOutlet weak var displayPastEventsSwitch: UISwitch!
+  @IBOutlet weak var dateLabel: UILabel!
   
   override func viewDidLoad() {
     if (self.revealViewController() != nil) {
@@ -26,6 +27,7 @@ class SettingsViewController: UIViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
+    dateLabel.text = DateFormatter.localizedString(from: RMDate.Today, dateStyle: .medium, timeStyle: .short)
     displayPastEventsSwitch.isOn = Campus.shared.considerEventsBeforeToday
     if Campus.shared.downloadedImageQuality == .High {
      qualityPicker.selectedSegmentIndex = 2

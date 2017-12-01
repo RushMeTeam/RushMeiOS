@@ -22,9 +22,9 @@ class FratEvent: NSObject {
         startingAt : String? = nil,
         endingAt : String? = nil,
         atLocation : String? = nil) {
-    self.name = withName.localizedCapitalized
+    self.name = withName
     self.frat = ownedByFraternity
-    self.location = atLocation?.capitalized
+    self.location = atLocation
     let dateArr = onDate.split(separator: "/")
     if (dateArr.count != 3){ return nil }
   

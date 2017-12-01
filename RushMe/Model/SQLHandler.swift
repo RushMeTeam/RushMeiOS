@@ -66,8 +66,8 @@ class SQLHandler: NSObject {
     return nil
   }
   
-  func endConnections() {
-    coordinator!.disconnect()
+  deinit {
+   coordinator?.disconnect()
   }
   
 }

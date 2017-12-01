@@ -19,7 +19,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet var titleLabel: UILabel!
   
   @IBOutlet weak var memberCountLabel: UILabel!
+  @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
+  @IBOutlet weak var staticGPALabel: UILabel!
   
   
   @IBOutlet weak var favoritesButton: UIBarButtonItem!
@@ -32,8 +34,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var mapView: MKMapView!
   var selectedFraternity: Fraternity? {
     didSet {
-      // Update the view.
-      configureView()
       eventViewController?.selectedEvents = Array(selectedFraternity!.events.values)
     }
   }
@@ -44,14 +44,108 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       if let index = Campus.shared.favoritedFrats.index(of: frat.name) {
         Campus.shared.favoritedFrats.remove(at: index)
         favoritesButton.image = RMImage.FavoritesImageUnfilled
+        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+          self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
+        })
       }
       else {
         Campus.shared.favoritedFrats.append(frat.name)
         favoritesButton.image = RMImage.FavoritesImageFilled
+        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+          self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
+        })
+        
       }
     }
   }
   
+  @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
+    sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+  
+    UIView.animate(withDuration: RMAnimation.ColoringTime*2,
+                   delay: 0,
+                   usingSpringWithDamping: 0.4,
+                   initialSpringVelocity: 30,
+                   options: .allowUserInteraction,
+                   animations: {
+      sender.view?.transform = CGAffineTransform.identity
+    }, completion: { _ in
+      
+    })
+    if let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController {
+      if let img = (sender.view as! UIImageView).image {
+        imageVC.image = img
+      }
+      self.present(imageVC, animated: true, completion: nil)
+    }
+  }
+  @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
+    if sender.state == .began || sender.state == .changed {
+      guard let senderView = sender.view else { return }
+      self.scrollView.isScrollEnabled = false
+      let currScale = senderView.frame.size.width/senderView.bounds.size.width
+      var newScale = currScale*sender.scale
+      var maxScale : CGFloat = 2
+      if (sender.view == self.profileImageView) {
+       maxScale = (self.view.bounds.width*0.9)/senderView.bounds.width
+      }
+      let minScale : CGFloat = 1
+      newScale = max(newScale, minScale) // MIN SCALE
+      newScale = min(newScale, maxScale)
+      if newScale == 1 {
+       return
+      }
+      let overTime = min(pow(((1-newScale)*(1-6)), 2), 1)
+      let location = sender.location(in: self.view)
+      var transform = CGAffineTransform(scaleX: newScale, y: newScale)
+      var pinchCenter = CGPoint(x: (location.x - senderView.bounds.midX)*overTime*1.5,
+                                y: (location.y - senderView.bounds.midY)*overTime*1.5)
+      
+      if senderView == self.profileImageView {
+          pinchCenter = CGPoint(x: (self.view.frame.width/2 - senderView.bounds.midX)*overTime/newScale,
+                              y: 0)
+      }
+      else {
+       senderView.clipsToBounds = false
+      }
+      transform = transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
+      senderView.transform = transform
+      //senderView.layer.shadowColor = UIColor.black.cgColor
+      senderView.layer.shadowOpacity = Float(overTime)
+      senderView.layer.shadowRadius = (overTime)*10.0
+      if (senderView != self.profileImageView) {
+        self.setViews(toAlpha: 1 - overTime, except: senderView)
+      }
+      
+      sender.scale = 1
+      
+    }
+    else {
+      self.scrollView.isScrollEnabled = true
+      UIView.animate(withDuration: RMAnimation.ColoringTime/2, animations: {
+        sender.view?.transform = CGAffineTransform.identity
+        sender.view?.layer.shadowOpacity = 0
+        sender.view?.clipsToBounds = true
+        self.setViews(toAlpha: 1)
+      }, completion: { _ in
+       
+        
+      })
+     
+      
+    }
+  }
+  
+  func setViews(toAlpha : CGFloat, except exceptedView : UIView? = nil) {
+    let underlyingViews = [self.coverImageView, self.profileImageView, self.titleLabel,
+                           self.eventView, self.blockTextView, self.underProfileLabel,
+                           self.gpaLabel, self.memberCountLabel, self.staticGPALabel, self.staticMemberLabel]
+    for view in underlyingViews {
+      if let _ = view, view != exceptedView {
+       view!.alpha = toAlpha
+      }
+    }
+  }
   
   @IBAction func openInMaps(_ sender: UIButton) {
     if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil) }
@@ -62,8 +156,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.view.bringSubview(toFront: profileImageView)
     
     coverImageView.image = RMImage.NoImage
-    coverImageView.layer.masksToBounds = false
-    coverImageView.clipsToBounds = true
+    coverImageView.layer.masksToBounds = true
+    
+    coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.shadowRadius = 20
     coverImageView.layer.shadowOpacity = 0
@@ -109,13 +204,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     // Do any additional setup after loading the view, typically from a nib.
     configureView()
     if let frat = selectedFraternity {
-      if let event = Array(Campus.shared.getEvents(forFratWithName: frat.name)).last?.value {
+      if let event = Array(Campus.shared.getEvents(forFratWithName: frat.name)).filter({ (key, value) -> Bool in
+        return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
+      }).last?.value {
         eventViewController?.selectedEvents = [event]
       }
       else {
         eventViewController?.selectedEvents = nil
       }
     }
+    self.profileImageView.layer.zPosition = 10
+    self.scrollView.canCancelContentTouches = true
+    self.coverImageView.clipsToBounds = true
+    
+    self.configureView()
   }
   
   func configureView() {
@@ -134,9 +236,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       
       if Campus.shared.favoritedFrats.contains(frat.name) {
         self.favoritesButton.image = RMImage.FavoritesImageFilled
+        self.profileImageView?.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
       }
       else {
         self.favoritesButton.image = RMImage.FavoritesImageUnfilled
+        self.profileImageView?.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {
         if let textView = blockTextView {
@@ -195,6 +299,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         self.openMapButton?.isHidden = true
       }
     }
+    coverImageView?.isUserInteractionEnabled = coverImageView.image != RMImage.NoImage
+    profileImageView?.isUserInteractionEnabled = profileImageView.image != RMImage.NoImage
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

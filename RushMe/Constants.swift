@@ -69,3 +69,7 @@ struct RMDatabaseKey {
   static let CalendarImageKey = "calendar_image"
   
 }
+
+struct RMDate {
+  static let Today = Date.init(timeIntervalSince1970: 1505036460)
+}

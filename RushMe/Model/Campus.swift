@@ -49,7 +49,7 @@ class Campus: NSObject {
     for event in allEvents {
       if favoriteSet.contains(event.frat.name) {
         // If not considering events before today and this event is not after today
-        if !considerEventsBeforeToday && event.startDate.compare(Date()) == .orderedAscending {
+        if !considerEventsBeforeToday && event.startDate.compare(RMDate.Today) == .orderedAscending {
           continue
         }
         newEvents.insert(event)
