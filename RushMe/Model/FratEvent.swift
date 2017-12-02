@@ -10,31 +10,32 @@ import UIKit
 
 class FratEvent: NSObject {
   private(set) var calendar = Calendar.current
-  private(set) var startDate : Date = Date()
+  private(set) var startDate: Date = Date()
   private(set) var endDate = Date()
-  private(set) var name : String
-  private(set) var location : String?
-  private(set) var frat : Fraternity
-  
-  init?(withName : String,
-        onDate : String,
-        ownedByFraternity : Fraternity,
-        startingAt : String? = nil,
-        endingAt : String? = nil,
-        atLocation : String? = nil) {
+  private(set) var name: String
+  private(set) var location: String?
+  private(set) var frat: Fraternity
+
+  init?(withName: String,
+        onDate: String,
+        ownedByFraternity: Fraternity,
+        startingAt: String? = nil,
+        endingAt: String? = nil,
+        atLocation: String? = nil) {
     self.name = withName
     self.frat = ownedByFraternity
     self.location = atLocation
     let dateArr = onDate.split(separator: "/")
-    if (dateArr.count != 3){ return nil }
-  
+    if dateArr.count != 3 { return nil
+    }
+
     if let year = NumberFormatter().number(from: String(dateArr[2]))?.intValue {
       if let month = NumberFormatter().number(from: String(dateArr[0]))?.intValue {
         if let day = NumberFormatter().number(from: String(dateArr[1]))?.intValue {
-          var startHour : Int? = nil
-          var startMin : Int? = nil
-          var endHour : Int? = nil
-          var endMin : Int? = nil
+          var startHour: Int? = nil
+          var startMin: Int? = nil
+          var endHour: Int? = nil
+          var endMin: Int? = nil
           if let _ = startingAt {
             let splitStartingTime = startingAt!.split(separator: ":")
             startHour = NumberFormatter().number(from: String(splitStartingTime[0]))?.intValue
@@ -63,7 +64,7 @@ class FratEvent: NSObject {
     }
     return nil
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -71,16 +72,16 @@ class FratEvent: NSObject {
 // Make a date, such as Sunday, November 22nd, 12:00PM return its time, as a string, i.e. "12:00PM"
 // An extension to Date that empowers the FratEvent class.
 extension Date {
+
   func formatToHour() -> String {
     let time = DateFormatter.localizedString(from: self,
                                              dateStyle: DateFormatter.Style.none,
                                              timeStyle: DateFormatter.Style.full)
-    let AmPm = String(time.split(separator: " ")[1])
+    let amPm = String(time.split(separator: " ")[1])
     let split = time.split(separator: ":")
     let hour = String(split[0])
     let min = String(split[1])
-    return hour + ":" +  min + " " + AmPm
-    
+    return hour + ":" +  min + " " + amPm
   }
 
 }

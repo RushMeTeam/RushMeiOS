@@ -29,13 +29,13 @@ class SettingsViewController: UIViewController {
     }
     dateLabel.text = DateFormatter.localizedString(from: RMDate.Today, dateStyle: .medium, timeStyle: .short)
     displayPastEventsSwitch.isOn = Campus.shared.considerEventsBeforeToday
-    if Campus.shared.downloadedImageQuality == .High {
+    if Campus.shared.downloadedImageQuality == .high {
      qualityPicker.selectedSegmentIndex = 2
     }
-    if Campus.shared.downloadedImageQuality == .Medium {
+    if Campus.shared.downloadedImageQuality == .medium {
       qualityPicker.selectedSegmentIndex = 1
     }
-    if Campus.shared.downloadedImageQuality == .Low {
+    if Campus.shared.downloadedImageQuality == .low {
       qualityPicker.selectedSegmentIndex = 0
     }
     super.viewDidLoad()
@@ -49,13 +49,13 @@ class SettingsViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     if qualityPicker?.selectedSegmentIndex == 0 {
-     Campus.shared.downloadedImageQuality = .Low
+     Campus.shared.downloadedImageQuality = .low
     }
     else if qualityPicker?.selectedSegmentIndex == 1 {
-     Campus.shared.downloadedImageQuality = .Medium
+     Campus.shared.downloadedImageQuality = .medium
     }
     else if qualityPicker?.selectedSegmentIndex == 2 {
-     Campus.shared.downloadedImageQuality = .High
+     Campus.shared.downloadedImageQuality = .high
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
   }

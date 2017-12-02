@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Create the window
     self.window = UIWindow(frame: UIScreen.main.bounds)
     self.window!.backgroundColor = UIColor.white
-    
     // Instantiate from storyboard
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
@@ -30,29 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     let detailNav = UINavigationController(rootViewController: detailVC)
     // Add Master and Detail to the SplitView
     splitVC.viewControllers = [masterNav, detailNav]
-    
     // Override point for customization after application launch.
     let navController = splitVC.viewControllers[splitVC.viewControllers.count-1] as! UINavigationController
     navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
     splitVC.delegate = self
-    
     // SWRevealViewController
     let navDrawerView = mainStoryBoard.instantiateViewController(withIdentifier: "menuDrawerViewController")
     let swRevealView = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
     swRevealView.setFront(splitVC, animated: true)
     swRevealView.setRear(navDrawerView, animated: true)
-    
     // Set Root view and make it visible
     self.window!.rootViewController = swRevealView
     self.window!.makeKeyAndVisible()
-  
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-    
-    
-    
-    
     return true
   }
+
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -77,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
   // MARK: - Split view
 
-  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
       guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
       guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
       if topAsDetailController.selectedFraternity == nil {
@@ -88,4 +80,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   }
 
 }
-

@@ -18,9 +18,9 @@ let sharedSQLHandler = SQLHandler.init(userName: RMNetwork.userName,
 
 // Centralize requests made to an SQL server
 class SQLHandler: NSObject {
-  let user : OHMySQLUser?
-  let coordinator : OHMySQLStoreCoordinator?
-  let context : OHMySQLQueryContext?
+  let user: OHMySQLUser?
+  let coordinator: OHMySQLStoreCoordinator?
+  let context: OHMySQLQueryContext?
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
   fileprivate init(userName: String,
                    password: String,
@@ -40,18 +40,22 @@ class SQLHandler: NSObject {
     context!.storeCoordinator = coordinator!
     super.init()
   }
-  
-  func select(aField : String? = nil, fromTable : String? = nil, whereClause : String? = nil) -> [Dictionary<String, Any>]? {
+
+  func select(aField: String? = nil, fromTable: String? = nil, whereClause: String? = nil) -> [Dictionary<String, Any>]? {
     if user == nil {
       print("User initialization failed!")
       return nil
     }
     var queryString = "SELECT "
-    if let _ = aField { queryString += aField! }
-      else { queryString += "*" }
-    if let _ = fromTable { queryString += " FROM " + fromTable! }
-    if let _ = whereClause { queryString += " WHERE " + whereClause! }
-    //queryString += ";"
+    if let _ = aField { queryString += aField!
+    }
+      else { queryString += "*"
+    }
+    if let _ = fromTable { queryString += " FROM " + fromTable!
+    }
+    if let _ = whereClause { queryString += " WHERE " + whereClause!
+    }
+    // queryString += ";"
     let query = OHMySQLQueryRequest(queryString: queryString)
     if let qContext = context {
       if let result = try? qContext.executeQueryRequestAndFetchResult(query) {
@@ -65,9 +69,9 @@ class SQLHandler: NSObject {
     print("Failed on determining mainQueryContext")
     return nil
   }
-  
+
   deinit {
    coordinator?.disconnect()
   }
-  
+
 }

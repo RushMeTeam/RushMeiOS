@@ -8,25 +8,24 @@
 
 import Foundation
 import UIKit
-class Fraternity : NSObject {
+class Fraternity: NSObject {
   // The name of the fraternity
   // e.g. "Lambda Lambda Chi"
-  let name : String
+  let name: String
   // The chapter of the fraternity (if no chapter, then school)
   // e.g. "Rho Chapter" or "RPI Chapter"
-  let chapter : String
+  let chapter: String
   // The previewImage is the image seen when the user scrolls through a list of fraternities
   // e.g. a picture of the house, possibly the profile image
-  var previewImage : UIImage
+  var previewImage: UIImage
   // All the Fraternity's associated rush events are stored in events
-  var events = [Date : FratEvent]()
+  var events = [Date: FratEvent]()
   // All data in the Fraternity object is stored again in properties
-  private var properties : Dictionary<String, Any>
-  init(name : String,
-       chapter : String,
+  private var properties: Dictionary<String, Any>
+  init(name: String,
+       chapter: String,
        previewImage: UIImage?,
-       properties : Dictionary<String, Any>) {
-    
+       properties: Dictionary<String, Any>) {
     self.name = name
     self.chapter = chapter
     self.properties = properties
@@ -44,24 +43,28 @@ class Fraternity : NSObject {
     if self.properties["profileImage"] != nil {
       self.properties["profileImage"] = previewImage
     }
-    
-    
+
   }
-  
-  func getProperty(named : String) -> Any? {
-    if (named == "name"){ return self.name }
-    if (named == "chapter"){ return self.chapter }
-    if (named == "previewImage"){ return self.previewImage }
+
+  func getProperty(named: String) -> Any? {
+    if named == "name" { return self.name
+    }
+    if named == "chapter" { return self.chapter
+    }
+    if named == "previewImage" { return self.previewImage
+    }
     return properties[named]
-  }
-  func setProperty(named : String, to : Any) {
+    }
+
+  func setProperty(named: String, to: Any) {
     properties[named] = to
   }
-  func add(eventDescribedBy dict : Dictionary<String, Any>, ownedBy : Fraternity) -> FratEvent? {
-    //house, event_name, start_time, end_time, event_date, location
+
+  func add(eventDescribedBy dict: Dictionary<String, Any>, ownedBy: Fraternity) -> FratEvent? {
+    // house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
     let houseName = dict["house"] as! String
-    if (self.name != houseName){
+    if self.name != houseName {
       return nil
     }
     let eventName = dict["event_name"] as! String
@@ -80,10 +83,11 @@ class Fraternity : NSObject {
     }
     return nil
   }
-  
+
 }
 // A not-so-genius way to create greek representations of frat names
-func greekLetters(fromString : String) -> String {
+
+func greekLetters(fromString: String) -> String {
   var result = fromString.replacingOccurrences(of: "Alpha", with: "Α")// -> A
   result = result.replacingOccurrences(of: "Beta", with: "Β")         // -> Β
   result = result.replacingOccurrences(of: "Gamma", with: "Γ")        // -> Γ
@@ -110,4 +114,3 @@ func greekLetters(fromString : String) -> String {
   result = result.replacingOccurrences(of: "Omega", with: "Ω")        // -> Ω
   return result
 }
-

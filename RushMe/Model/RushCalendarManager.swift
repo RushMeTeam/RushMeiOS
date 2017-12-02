@@ -1,6 +1,6 @@
 //
 //  CalendarManager.swift
-//  
+//
 //
 //  Created by Adam Kuniholm on 11/11/17.
 //
@@ -31,7 +31,7 @@ class RushCalendarManager: NSObject {
 
   /*
   Export FratEvents to the device's default calendar application.
-  
+
    Each FratEvent is translated into its most pertinent event
    information, then, unless there is already one in the user's
    calendar app, creates a custom "RushMe Frat Events" calendar
@@ -74,7 +74,7 @@ class RushCalendarManager: NSObject {
         }
       }
     }
-    
+
     for event in events {
       let calEvent = EKEvent.init(eventStore: eventStore)
       calEvent.calendar = calendar
@@ -91,7 +91,7 @@ class RushCalendarManager: NSObject {
       } catch let e {
         print(e.localizedDescription)
       }
-      
+
     }
     do {
       try eventStore.saveCalendar(calendar!, commit: true)
@@ -108,16 +108,16 @@ class RushCalendarManager: NSObject {
    Saves a .ics file to the app's document directory, and
    returns the location at which the document was saved, if
    it was saved. If it was not saved, the URL will be nil!
-   
+
    The exportAsICS function makes good use of the iCalKit
    open-source framework, a software bundle used to describe
    Apple's Date-type as .ics VEvents, all within a VCalendar.
-   
+
    The function has two main components: firstly, it creates
    an ICS file, and secondly it saves that file to the disk.
- 
+
  */
-  static func exportAsICS(events : [FratEvent]) -> URL? {
+  static func exportAsICS(events: [FratEvent]) -> URL? {
     // Create the Array in which we will store the events
     var iCalEvents = [Event]()
     // Run through the FratEvents, add as much information
@@ -154,11 +154,5 @@ class RushCalendarManager: NSObject {
     // Success-- return where the file was saved.
     return saveFileURL
   }
-  
-  
+
 }
-    
-    
-    
-
-

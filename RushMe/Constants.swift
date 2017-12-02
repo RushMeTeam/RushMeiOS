@@ -17,7 +17,7 @@ struct RMImage {
   static let IconImage = UIImage(named: "appIcon.png")!
   static let FavoritesImageUnfilled = UIImage(named: "FavoritesUnfilled")
   static let FavoritesImageFilled = UIImage(named: "FavoritesIcon")
-  static let CornerRadius : CGFloat = 8
+  static let CornerRadius: CGFloat = 8
 }
 // Filename extensions for photos stored on the server
 struct RMImageQuality {
@@ -67,7 +67,6 @@ struct RMDatabaseKey {
   static let ProfileImageKey = "profile_image"
   static let CoverImageKey = "cover_image"
   static let CalendarImageKey = "calendar_image"
-  
 }
 
 struct RMPropertyKeys {

@@ -166,7 +166,7 @@
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FratEvent.swift; sourceTree = "<group>"; };
 		DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		DB6A7D791FB884FA0000ABA0 /* RushCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RushCalendarManager.swift; path = "/Users/adamthk/Documents/Box Sync/Documents/GitHub/RushMeiOS/RushMe/Model/RushCalendarManager.swift"; sourceTree = "<absolute>"; };
+		DB6A7D791FB884FA0000ABA0 /* RushCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RushCalendarManager.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -630,7 +630,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-			showEnvVarsInLog = 1;
 		};
 		7FC15B42A0F38B0126C3C54D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1001,7 +1000,6 @@
 		};
 		DB05F7731F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA1545654F3424CBF44F0D6D /* Pods-RushMeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1033,7 +1031,6 @@
 		};
 		DB05F7761F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B97419B9AB376617C1B2B6B4 /* Pods-RushMe-RushMeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
