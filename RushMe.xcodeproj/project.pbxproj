@@ -408,6 +408,7 @@
 				DB61D21A1F92B6CE009872DC /* Embed Frameworks */,
 				3DCFBEC0E8DA7B976094F45D /* [CP] Embed Pods Frameworks */,
 				4B1C7CD6E00A062AB790EEBC /* [CP] Copy Pods Resources */,
+				665ECE423FEC00F1CC5EB98B /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -615,6 +616,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMe-RushMeUITests/Pods-RushMe-RushMeUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		665ECE423FEC00F1CC5EB98B /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+			showEnvVarsInLog = 1;
 		};
 		7FC15B42A0F38B0126C3C54D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

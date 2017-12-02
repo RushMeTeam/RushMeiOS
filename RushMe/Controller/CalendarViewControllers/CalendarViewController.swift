@@ -140,7 +140,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       cell.layer.cornerRadius = RMImage.CornerRadius
       cell.layer.masksToBounds = true
     }
-    cell.eventsToday = Campus.shared.favoritedFratEvents.filter ({
+    cell.eventsToday = Campus.shared.favoritedFratEvents.filter({
      (event) in
       return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
     })

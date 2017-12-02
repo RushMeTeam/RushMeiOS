@@ -70,6 +70,14 @@ struct RMDatabaseKey {
   
 }
 
+struct RMPropertyKeys {
+ static let FavoriteFraternities = "FavoriteFrats"
+}
+struct RMFileManagement {
+  static let Path = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+  static let localURL = Path.appendingPathComponent("favoritedFrats")
+}
+
 struct RMDate {
   static let Today = Date.init(timeIntervalSince1970: 1505036460)
 }

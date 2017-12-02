@@ -10,7 +10,7 @@ import UIKit
 // Create a shared instance of the Campus class which
 // cannot be deinstantiated or instantiated, except by
 // the App itself
-fileprivate let campusSharedInstance = Campus()
+fileprivate let campusSharedInstance = Campus(loadFromFile: true)
 // Describe three quality metrics
 enum Quality {
   case High
@@ -30,8 +30,11 @@ enum Quality {
  */
 class Campus: NSObject {
   // The user's favorite fraternities
-  var favoritedFrats = [String]()
-  
+  var favoritedFrats = [String]() {
+    didSet {
+     self.saveFavorites()
+    }
+  }
   // The name of every fraternity, in download order
   var fratNames = [String]()
   // Refer to each fraternity by its name, in no order
@@ -41,6 +44,13 @@ class Campus: NSObject {
   private var allEvents = Set<FratEvent>()
   // The default quality at which an image should be downloaded
   var downloadedImageQuality : Quality = .Medium
+  
+  convenience init(loadFromFile : Bool) {
+    self.init()
+    if let favorites = Campus.loadFavorites() {
+     self.favoritedFrats = favorites
+    }
+  }
   
   // Remove any FratEvents that are not from favorited frats
   func filterEventsForFavorites()  {
@@ -129,7 +139,6 @@ class Campus: NSObject {
     
   }
   
-  
   private func pullEventsFromSQLDataBase(fratName : String) -> [Date : FratEvent] {
     // Try to grab the fraternity (see if it exists)
     if let fraternity = self.fraternitiesDict[fratName] {
@@ -147,6 +156,20 @@ class Campus: NSObject {
     }
     // Failed, provide no dates
     return [Date : FratEvent]()
+  }
+  func saveFavorites() {
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.localURL.path)
+    if !isSuccessfulSave {
+      print("Errors with saving!")
+    }
+  }
+  static private func loadFavorites() -> [String]? {
+    if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.localURL.path) as? [String] {
+      return favoritedFrats
+    }
+    else {
+      return nil
+    }
   }
 }
 
