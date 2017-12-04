@@ -1,10 +1,10 @@
 version: "Apple Swift version 4.0 (swiftlang-900.0.65.2 clang-900.0.37)"
 options: "2f77096ced77d54a898f42e01814fec7"
-build_time: [1509066761, 710473000]
+build_time: [1509067011, 324561000]
 inputs:
   "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/DetailViewController.swift": [1509053419, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/DrawerMenu/DrawerMenuViewController.swift": [1509065673, 0]
-  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1509066761, 0]
+  "/Users/adamthk/Google Drive/RushMe/RushMe/MasterDetailVCs/MasterViewController.swift": [1509067010, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/TableViewCells/FratCell.swift": [1508794894, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/AppDelegate.swift": [1508892810, 0]
   "/Users/adamthk/Google Drive/RushMe/RushMe/Model/Fraternity.swift": [1509062688, 0]

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/adamthk/Google\ Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.m \
-  /Users/adamthk/Google\ Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h
+  /Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.m \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h

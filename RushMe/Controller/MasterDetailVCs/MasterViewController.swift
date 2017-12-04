@@ -60,6 +60,8 @@ class MasterViewController : UITableViewController {
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       self.revealViewController().frontViewShadowOpacity = 0
     }
+    
+    self.revealViewController().rearViewRevealOverdraw = 0
     // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
@@ -71,8 +73,8 @@ class MasterViewController : UITableViewController {
     navigationController?.navigationBar.tintColor = RMColor.AppColor
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-    
-    openBarButtonItem.tintColor = RMColor.AppColor
+    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     // Ensure the menu button toggles the menu
     openBarButtonItem.target = self
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
@@ -190,8 +192,6 @@ class MasterViewController : UITableViewController {
   // is cleared
   // (i.e. it's not highlighted in the dark gray of a selected cell)
   override func viewWillAppear(_ animated: Bool) {
-    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
@@ -341,7 +341,6 @@ class MasterViewController : UITableViewController {
         }
         
       }
-      
       self.favoritesBarButton.isEnabled = !Campus.shared.favoritedFrats.isEmpty || self.viewingFavorites
     })
     toggleFavorite.backgroundColor = bgColor

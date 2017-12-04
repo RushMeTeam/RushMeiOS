@@ -1,69 +1,119 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
-- "IMAGE_CONST"
-- "COLOR_CONST"
-- "ANIM_CONST"
+- "DEBUG"
+- "RMImage"
+- "RMImageQuality"
+- "RMColor"
+- "RMAnimation"
+- "RMNetwork"
+- "RMMessage"
+- "RMDatabaseKey"
+- "RMPropertyKeys"
+- "RMFileManagement"
+- "RMDate"
 provides-nominal:
-- "6RushMe11IMAGE_CONSTV"
-- "6RushMe11COLOR_CONSTV"
-- "6RushMe10ANIM_CONSTV"
+- "6RushMe7RMImageV"
+- "6RushMe14RMImageQualityV"
+- "6RushMe7RMColorV"
+- "6RushMe11RMAnimationV"
+- "6RushMe9RMNetworkV"
+- "6RushMe9RMMessageV"
+- "6RushMe13RMDatabaseKeyV"
+- "6RushMe14RMPropertyKeysV"
+- "6RushMe16RMFileManagementV"
+- "6RushMe6RMDateV"
 provides-member:
-- ["6RushMe11IMAGE_CONSTV", ""]
-- ["6RushMe11COLOR_CONSTV", ""]
-- ["6RushMe10ANIM_CONSTV", ""]
+- ["6RushMe7RMImageV", ""]
+- ["6RushMe14RMImageQualityV", ""]
+- ["6RushMe7RMColorV", ""]
+- ["6RushMe11RMAnimationV", ""]
+- ["6RushMe9RMNetworkV", ""]
+- ["6RushMe9RMMessageV", ""]
+- ["6RushMe13RMDatabaseKeyV", ""]
+- ["6RushMe14RMPropertyKeysV", ""]
+- ["6RushMe16RMFileManagementV", ""]
+- ["6RushMe6RMDateV", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "+"
 - "/"
-- "ANIM_CONST"
 - "BooleanLiteralType"
 - "CGFloat"
-- "COLOR_CONST"
-- "IMAGE_CONST"
+- "DEBUG"
+- "Date"
+- "FileManager"
+- "RMAnimation"
+- "RMColor"
+- "RMDatabaseKey"
+- "RMDate"
+- "RMFileManagement"
+- "RMImage"
+- "RMImageQuality"
+- "RMMessage"
+- "RMNetwork"
+- "RMPropertyKeys"
 - "StringLiteralType"
 - "UIColor"
 - "UIImage"
+- "UnicodeScalarType"
 depends-member:
-- ["6RushMe10ANIM_CONSTV", "COLORING_TIME"]
-- ["6RushMe10ANIM_CONSTV", "init"]
+- ["Sa", "first"]
+- ["s23BidirectionalCollectionP", "first"]
 - ["s23BidirectionalCollectionP", "init"]
-- ["6RushMe11COLOR_CONSTV", "MENU_BUTTON_SELECTED_COLOR"]
-- ["6RushMe11COLOR_CONSTV", "MENU_COLOR"]
-- ["6RushMe11COLOR_CONSTV", "NAVIGATION_BAR_COLOR"]
-- ["6RushMe11COLOR_CONSTV", "SLIDEOUT_MENU_SHADOW_ENABLED"]
-- ["6RushMe11COLOR_CONSTV", "UIColor"]
-- ["6RushMe11COLOR_CONSTV", "init"]
+- ["s7CVarArgP", "first"]
 - ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "urls"]
 - ["s7CVarArgP", "white"]
 - ["s7CVarArgP", "withAlphaComponent"]
+- ["s10CollectionP", "first"]
 - ["s10CollectionP", "init"]
 - ["s10ComparableP", "init"]
+- ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
+- ["s28CustomDebugStringConvertibleP", "first"]
 - ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "urls"]
 - ["s28CustomDebugStringConvertibleP", "white"]
 - ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
+- ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s17CustomReflectableP", "first"]
 - ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "appendingPathComponent"]
+- ["s23CustomStringConvertibleP", "first"]
 - ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "urls"]
 - ["s23CustomStringConvertibleP", "white"]
 - ["s23CustomStringConvertibleP", "withAlphaComponent"]
+- ["10Foundation4DateV", "init"]
+- ["s9DecodableP", "appendingPathComponent"]
+- ["s9DecodableP", "first"]
 - ["s9DecodableP", "init"]
+- ["s9EncodableP", "appendingPathComponent"]
+- ["s9EncodableP", "first"]
 - ["s9EncodableP", "init"]
+- ["s9EquatableP", "appendingPathComponent"]
+- ["s9EquatableP", "documentDirectory"]
 - ["s9EquatableP", "init"]
+- ["s9EquatableP", "urls"]
+- ["s9EquatableP", "userDomainMask"]
 - ["s9EquatableP", "white"]
 - ["s9EquatableP", "withAlphaComponent"]
+- ["s25ExpressibleByArrayLiteralP", "first"]
+- ["s25ExpressibleByArrayLiteralP", "userDomainMask"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - ["s26ExpressibleByStringLiteralP", "init"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["So11FileManagerC", "init"]
+- ["So11FileManagerC", "urls"]
+- ["s8HashableP", "appendingPathComponent"]
+- ["s8HashableP", "documentDirectory"]
 - ["s8HashableP", "init"]
+- ["s8HashableP", "urls"]
 - ["s8HashableP", "white"]
 - ["s8HashableP", "withAlphaComponent"]
-- ["6RushMe11IMAGE_CONSTV", "CGFloat"]
-- ["6RushMe11IMAGE_CONSTV", "CORNER_RADIUS"]
-- ["6RushMe11IMAGE_CONSTV", "ICON_IMAGE"]
-- ["6RushMe11IMAGE_CONSTV", "NO_IMAGE"]
-- ["6RushMe11IMAGE_CONSTV", "UIImage"]
-- ["6RushMe11IMAGE_CONSTV", "init"]
 - ["s25LosslessStringConvertibleP", "init"]
 - ["s10MirrorPathP", "init"]
+- ["s17MutableCollectionP", "first"]
 - ["So8NSCodingP", "init"]
 - ["So8NSCodingP", "white"]
 - ["So8NSCodingP", "withAlphaComponent"]
@@ -77,9 +127,12 @@ depends-member:
 - ["So21NSItemProviderWritingP", "white"]
 - ["So21NSItemProviderWritingP", "withAlphaComponent"]
 - ["So16NSMutableCopyingP", "init"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "urls"]
 - ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "withAlphaComponent"]
 - ["So16NSObjectProtocolP", "init"]
+- ["So16NSObjectProtocolP", "urls"]
 - ["So16NSObjectProtocolP", "white"]
 - ["So16NSObjectProtocolP", "withAlphaComponent"]
 - ["So14NSSecureCodingP", "init"]
@@ -87,8 +140,75 @@ depends-member:
 - ["So14NSSecureCodingP", "withAlphaComponent"]
 - ["So8NSStringC", "init"]
 - ["So15OHSerializationP", "init"]
+- ["s9OptionSetP", "userDomainMask"]
+- ["6RushMe11RMAnimationV", "ColoringTime"]
+- ["6RushMe11RMAnimationV", "init"]
+- ["6RushMe7RMColorV", "AppColor"]
+- ["6RushMe7RMColorV", "MenuButtonSelectedColor"]
+- ["6RushMe7RMColorV", "NavigationItemsColor"]
+- ["6RushMe7RMColorV", "SlideOutMenuShadowIsEnabled"]
+- ["6RushMe7RMColorV", "UIColor"]
+- ["6RushMe7RMColorV", "init"]
+- ["6RushMe13RMDatabaseKeyV", "AddressKey"]
+- ["6RushMe13RMDatabaseKeyV", "CalendarImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "ChapterKey"]
+- ["6RushMe13RMDatabaseKeyV", "CoverImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "DescriptionKey"]
+- ["6RushMe13RMDatabaseKeyV", "MemberCountKey"]
+- ["6RushMe13RMDatabaseKeyV", "NameKey"]
+- ["6RushMe13RMDatabaseKeyV", "PreviewImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "ProfileImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "gpaKey"]
+- ["6RushMe13RMDatabaseKeyV", "init"]
+- ["6RushMe6RMDateV", "Date"]
+- ["6RushMe6RMDateV", "Today"]
+- ["6RushMe6RMDateV", "init"]
+- ["6RushMe16RMFileManagementV", "FileManager"]
+- ["6RushMe16RMFileManagementV", "Path"]
+- ["6RushMe16RMFileManagementV", "favoritedFratURL"]
+- ["6RushMe16RMFileManagementV", "fratImageURL"]
+- ["6RushMe16RMFileManagementV", "init"]
+- ["6RushMe7RMImageV", "CGFloat"]
+- ["6RushMe7RMImageV", "CornerRadius"]
+- ["6RushMe7RMImageV", "FavoritesImageFilled"]
+- ["6RushMe7RMImageV", "FavoritesImageUnfilled"]
+- ["6RushMe7RMImageV", "IconImage"]
+- ["6RushMe7RMImageV", "NoImage"]
+- ["6RushMe7RMImageV", "UIImage"]
+- ["6RushMe7RMImageV", "init"]
+- ["6RushMe14RMImageQualityV", "High"]
+- ["6RushMe14RMImageQualityV", "Low"]
+- ["6RushMe14RMImageQualityV", "Medium"]
+- ["6RushMe14RMImageQualityV", "init"]
+- ["6RushMe9RMMessageV", "AppName"]
+- ["6RushMe9RMMessageV", "Favorite"]
+- ["6RushMe9RMMessageV", "LoadingFrats"]
+- ["6RushMe9RMMessageV", "NoEvents"]
+- ["6RushMe9RMMessageV", "NoFavorites"]
+- ["6RushMe9RMMessageV", "Refresh"]
+- ["6RushMe9RMMessageV", "Sharing"]
+- ["6RushMe9RMMessageV", "Unfavorite"]
+- ["6RushMe9RMMessageV", "init"]
+- ["6RushMe9RMNetworkV", "HTTP"]
+- ["6RushMe9RMNetworkV", "IP"]
+- ["6RushMe9RMNetworkV", "databaseName"]
+- ["6RushMe9RMNetworkV", "init"]
+- ["6RushMe9RMNetworkV", "password"]
+- ["6RushMe9RMNetworkV", "userName"]
+- ["6RushMe14RMPropertyKeysV", "FavoriteFraternities"]
+- ["6RushMe14RMPropertyKeysV", "init"]
+- ["s22RandomAccessCollectionP", "first"]
+- ["s26RangeReplaceableCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "init"]
+- ["s16RawRepresentableP", "documentDirectory"]
+- ["s16RawRepresentableP", "userDomainMask"]
+- ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
+- ["10Foundation20ReferenceConvertibleP", "init"]
+- ["So11FileManagerC19SearchPathDirectoryO", "documentDirectory"]
+- ["So11FileManagerC20SearchPathDomainMaskV", "userDomainMask"]
+- ["s8SequenceP", "first"]
 - ["s8SequenceP", "init"]
+- ["s10SetAlgebraP", "userDomainMask"]
 - ["SS", "init"]
 - ["s14StringProtocolP", "init"]
 - ["s16TextOutputStreamP", "init"]
@@ -99,7 +219,11 @@ depends-member:
 - ["So7UIColorC", "withAlphaComponent"]
 - ["So7UIImageC", "init"]
 - ["So39UIItemProviderPresentationSizeProvidingP", "init"]
+- ["10Foundation3URLV", "appendingPathComponent"]
+- ["s14_ArrayProtocolP", "first"]
+- ["s23_BidirectionalIndexableP", "first"]
 - ["s23_BidirectionalIndexableP", "init"]
+- ["s24_DestructorSafeContainerP", "first"]
 - ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
@@ -107,21 +231,29 @@ depends-member:
 - ["s26_ExpressibleByColorLiteralP", "init"]
 - ["s26_ExpressibleByColorLiteralP", "white"]
 - ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
+- ["s34_ExpressibleByFileReferenceLiteralP", "appendingPathComponent"]
 - ["s26_ExpressibleByImageLiteralP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s10_IndexableP", "first"]
 - ["s10_IndexableP", "init"]
+- ["s14_IndexableBaseP", "first"]
 - ["s14_IndexableBaseP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "white"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
+- ["s17_MutableIndexableP", "first"]
+- ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
+- ["s21_ObjectiveCBridgeableP", "first"]
 - ["s21_ObjectiveCBridgeableP", "init"]
+- ["s22_RandomAccessIndexableP", "first"]
+- ["s26_RangeReplaceableIndexableP", "first"]
 - ["s26_RangeReplaceableIndexableP", "init"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
-- "6RushMe10ANIM_CONSTV"
+- "Sa"
 - "s23BidirectionalCollectionP"
-- "6RushMe11COLOR_CONSTV"
 - "s7CVarArgP"
 - "s10CollectionP"
 - "s10ComparableP"
@@ -129,16 +261,19 @@ depends-nominal:
 - "s29CustomPlaygroundQuickLookableP"
 - "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
+- "10Foundation4DateV"
 - "s9DecodableP"
 - "s9EncodableP"
 - "s9EquatableP"
+- "s25ExpressibleByArrayLiteralP"
 - "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - "s26ExpressibleByStringLiteralP"
 - "s33ExpressibleByUnicodeScalarLiteralP"
+- "So11FileManagerC"
 - "s8HashableP"
-- "6RushMe11IMAGE_CONSTV"
 - "s25LosslessStringConvertibleP"
 - "s10MirrorPathP"
+- "s17MutableCollectionP"
 - "So8NSCodingP"
 - "So9NSCopyingP"
 - "So21NSItemProviderReadingP"
@@ -149,8 +284,25 @@ depends-nominal:
 - "So14NSSecureCodingP"
 - "So8NSStringC"
 - "So15OHSerializationP"
+- "s9OptionSetP"
+- "6RushMe11RMAnimationV"
+- "6RushMe7RMColorV"
+- "6RushMe13RMDatabaseKeyV"
+- "6RushMe6RMDateV"
+- "6RushMe16RMFileManagementV"
+- "6RushMe7RMImageV"
+- "6RushMe14RMImageQualityV"
+- "6RushMe9RMMessageV"
+- "6RushMe9RMNetworkV"
+- "6RushMe14RMPropertyKeysV"
+- "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
+- "s16RawRepresentableP"
+- "10Foundation20ReferenceConvertibleP"
+- "So11FileManagerC19SearchPathDirectoryO"
+- "So11FileManagerC20SearchPathDomainMaskV"
 - "s8SequenceP"
+- "s10SetAlgebraP"
 - "SS"
 - "s14StringProtocolP"
 - "s16TextOutputStreamP"
@@ -159,63 +311,75 @@ depends-nominal:
 - "So7UIColorC"
 - "So7UIImageC"
 - "So39UIItemProviderPresentationSizeProvidingP"
+- "10Foundation3URLV"
+- "s14_ArrayProtocolP"
 - "s23_BidirectionalIndexableP"
+- "s24_DestructorSafeContainerP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - "s34_ExpressibleByBuiltinStringLiteralP"
 - "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - "s26_ExpressibleByColorLiteralP"
+- "s34_ExpressibleByFileReferenceLiteralP"
 - "s26_ExpressibleByImageLiteralP"
 - "s33_ExpressibleByStringInterpolationP"
 - "s35_HasCustomAnyHashableRepresentationP"
 - "s10_IndexableP"
 - "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
+- "s17_MutableIndexableP"
 - "s21_ObjectiveCBridgeableP"
+- "s22_RandomAccessIndexableP"
 - "s26_RangeReplaceableIndexableP"
 - "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
-- "/Users/adamthk/Google Drive/RushMe/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Google Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "b11740bb6916198129ee3c201b9b6b82"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
+interface-hash: "d29f57f4c970aaf020fd5f3c33bef52c"

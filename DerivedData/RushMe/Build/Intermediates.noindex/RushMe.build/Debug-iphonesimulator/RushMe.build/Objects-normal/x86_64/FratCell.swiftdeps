@@ -6,6 +6,7 @@ provides-nominal:
 provides-member:
 - ["6RushMe8FratCellC", ""]
 provides-dynamic-lookup:
+- "imageBorderColor"
 - "layoutSubviews"
 - "previewImageView"
 - "subheadingLabel"
@@ -15,122 +16,213 @@ depends-top-level:
 - "AssignmentPrecedence"
 - !private "BooleanLiteralType"
 - "FratCell"
-- !private "IMAGE_CONST"
+- !private "RMAnimation"
+- !private "RMImage"
+- "UIColor"
 - "UIImageView"
 - "UILabel"
 - "UITableViewCell"
+- !private "UIView"
 - !private "UIViewContentMode"
 depends-member:
 - !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So7CALayerC", "borderColor"]
+- !private ["So7CALayerC", "borderWidth"]
 - !private ["So7CALayerC", "cornerRadius"]
 - !private ["So7CALayerC", "masksToBounds"]
-- !private ["So15CALayerDelegateP", "IMAGE_CONST"]
+- !private ["So15CALayerDelegateP", "RMAnimation"]
+- !private ["So15CALayerDelegateP", "RMImage"]
+- ["So15CALayerDelegateP", "UIColor"]
+- !private ["So15CALayerDelegateP", "UIView"]
 - !private ["So15CALayerDelegateP", "UIViewContentMode"]
+- !private ["So15CALayerDelegateP", "animate"]
 - !private ["So15CALayerDelegateP", "contentMode"]
 - !private ["So15CALayerDelegateP", "image"]
+- !private ["So15CALayerDelegateP", "imageBorderColor"]
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "layer"]
 - !private ["So15CALayerDelegateP", "layoutSubviews"]
 - !private ["So15CALayerDelegateP", "previewImageView"]
 - ["So15CALayerDelegateP", ""]
+- !private ["So13CAMediaTimingP", "borderColor"]
+- !private ["So13CAMediaTimingP", "borderWidth"]
 - !private ["So13CAMediaTimingP", "cornerRadius"]
 - !private ["So13CAMediaTimingP", "masksToBounds"]
-- !private ["s7CVarArgP", "IMAGE_CONST"]
+- !private ["s7CVarArgP", "RMAnimation"]
+- !private ["s7CVarArgP", "RMImage"]
+- ["s7CVarArgP", "UIColor"]
+- !private ["s7CVarArgP", "UIView"]
 - !private ["s7CVarArgP", "UIViewContentMode"]
+- !private ["s7CVarArgP", "animate"]
+- !private ["s7CVarArgP", "borderColor"]
+- !private ["s7CVarArgP", "borderWidth"]
+- !private ["s7CVarArgP", "cgColor"]
 - !private ["s7CVarArgP", "contentMode"]
 - !private ["s7CVarArgP", "cornerRadius"]
 - !private ["s7CVarArgP", "image"]
+- !private ["s7CVarArgP", "imageBorderColor"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "layer"]
 - !private ["s7CVarArgP", "layoutSubviews"]
 - !private ["s7CVarArgP", "masksToBounds"]
 - !private ["s7CVarArgP", "previewImageView"]
+- ["s7CVarArgP", "white"]
+- ["s7CVarArgP", "withAlphaComponent"]
 - ["s7CVarArgP", ""]
-- !private ["s28CustomDebugStringConvertibleP", "IMAGE_CONST"]
+- !private ["s28CustomDebugStringConvertibleP", "RMAnimation"]
+- !private ["s28CustomDebugStringConvertibleP", "RMImage"]
+- ["s28CustomDebugStringConvertibleP", "UIColor"]
+- !private ["s28CustomDebugStringConvertibleP", "UIView"]
 - !private ["s28CustomDebugStringConvertibleP", "UIViewContentMode"]
+- !private ["s28CustomDebugStringConvertibleP", "animate"]
+- !private ["s28CustomDebugStringConvertibleP", "borderColor"]
+- !private ["s28CustomDebugStringConvertibleP", "borderWidth"]
+- !private ["s28CustomDebugStringConvertibleP", "cgColor"]
 - !private ["s28CustomDebugStringConvertibleP", "contentMode"]
 - !private ["s28CustomDebugStringConvertibleP", "cornerRadius"]
 - !private ["s28CustomDebugStringConvertibleP", "image"]
+- !private ["s28CustomDebugStringConvertibleP", "imageBorderColor"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "layer"]
 - !private ["s28CustomDebugStringConvertibleP", "layoutSubviews"]
 - !private ["s28CustomDebugStringConvertibleP", "masksToBounds"]
 - !private ["s28CustomDebugStringConvertibleP", "previewImageView"]
+- ["s28CustomDebugStringConvertibleP", "white"]
+- ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
-- !private ["s23CustomStringConvertibleP", "IMAGE_CONST"]
+- !private ["s23CustomStringConvertibleP", "RMAnimation"]
+- !private ["s23CustomStringConvertibleP", "RMImage"]
+- ["s23CustomStringConvertibleP", "UIColor"]
+- !private ["s23CustomStringConvertibleP", "UIView"]
 - !private ["s23CustomStringConvertibleP", "UIViewContentMode"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "animate"]
+- !private ["s23CustomStringConvertibleP", "borderColor"]
+- !private ["s23CustomStringConvertibleP", "borderWidth"]
+- !private ["s23CustomStringConvertibleP", "cgColor"]
 - !private ["s23CustomStringConvertibleP", "contentMode"]
 - !private ["s23CustomStringConvertibleP", "cornerRadius"]
 - !private ["s23CustomStringConvertibleP", "image"]
+- !private ["s23CustomStringConvertibleP", "imageBorderColor"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "layer"]
 - !private ["s23CustomStringConvertibleP", "layoutSubviews"]
 - !private ["s23CustomStringConvertibleP", "masksToBounds"]
 - !private ["s23CustomStringConvertibleP", "previewImageView"]
+- ["s23CustomStringConvertibleP", "white"]
+- ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
-- !private ["s9EquatableP", "IMAGE_CONST"]
+- !private ["s9EquatableP", "RMAnimation"]
+- !private ["s9EquatableP", "RMImage"]
+- ["s9EquatableP", "UIColor"]
+- !private ["s9EquatableP", "UIView"]
 - !private ["s9EquatableP", "UIViewContentMode"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "animate"]
+- !private ["s9EquatableP", "borderColor"]
+- !private ["s9EquatableP", "borderWidth"]
+- !private ["s9EquatableP", "cgColor"]
 - !private ["s9EquatableP", "contentMode"]
 - !private ["s9EquatableP", "cornerRadius"]
 - !private ["s9EquatableP", "image"]
+- !private ["s9EquatableP", "imageBorderColor"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "layer"]
 - !private ["s9EquatableP", "layoutSubviews"]
 - !private ["s9EquatableP", "masksToBounds"]
 - !private ["s9EquatableP", "previewImageView"]
 - !private ["s9EquatableP", "scaleAspectFill"]
+- ["s9EquatableP", "white"]
+- ["s9EquatableP", "withAlphaComponent"]
 - ["s9EquatableP", ""]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- !private ["6RushMe8FratCellC", "IMAGE_CONST"]
+- !private ["6RushMe8FratCellC", "RMAnimation"]
+- !private ["6RushMe8FratCellC", "RMImage"]
+- ["6RushMe8FratCellC", "UIColor"]
 - ["6RushMe8FratCellC", "UIImageView"]
 - ["6RushMe8FratCellC", "UILabel"]
+- !private ["6RushMe8FratCellC", "UIView"]
 - !private ["6RushMe8FratCellC", "UIViewContentMode"]
 - ["6RushMe8FratCellC", "deinit"]
+- ["6RushMe8FratCellC", "imageBorderColor"]
 - ["6RushMe8FratCellC", "init"]
 - ["6RushMe8FratCellC", "layoutSubviews"]
 - ["6RushMe8FratCellC", "previewImageView"]
 - ["6RushMe8FratCellC", "subheadingLabel"]
 - ["6RushMe8FratCellC", "titleLabel"]
-- !private ["s8HashableP", "IMAGE_CONST"]
+- !private ["s8HashableP", "RMAnimation"]
+- !private ["s8HashableP", "RMImage"]
+- ["s8HashableP", "UIColor"]
+- !private ["s8HashableP", "UIView"]
 - !private ["s8HashableP", "UIViewContentMode"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "animate"]
+- !private ["s8HashableP", "borderColor"]
+- !private ["s8HashableP", "borderWidth"]
+- !private ["s8HashableP", "cgColor"]
 - !private ["s8HashableP", "contentMode"]
 - !private ["s8HashableP", "cornerRadius"]
 - !private ["s8HashableP", "image"]
+- !private ["s8HashableP", "imageBorderColor"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "layer"]
 - !private ["s8HashableP", "layoutSubviews"]
 - !private ["s8HashableP", "masksToBounds"]
 - !private ["s8HashableP", "previewImageView"]
 - !private ["s8HashableP", "scaleAspectFill"]
+- ["s8HashableP", "white"]
+- ["s8HashableP", "withAlphaComponent"]
 - ["s8HashableP", ""]
-- !private ["6RushMe11IMAGE_CONSTV", "CORNER_RADIUS"]
-- !private ["6RushMe11IMAGE_CONSTV", "NO_IMAGE"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- !private ["So8NSCodingP", "IMAGE_CONST"]
+- !private ["So8NSCodingP", "RMAnimation"]
+- !private ["So8NSCodingP", "RMImage"]
+- ["So8NSCodingP", "UIColor"]
+- !private ["So8NSCodingP", "UIView"]
 - !private ["So8NSCodingP", "UIViewContentMode"]
+- !private ["So8NSCodingP", "animate"]
+- !private ["So8NSCodingP", "borderColor"]
+- !private ["So8NSCodingP", "borderWidth"]
+- !private ["So8NSCodingP", "cgColor"]
 - !private ["So8NSCodingP", "contentMode"]
 - !private ["So8NSCodingP", "cornerRadius"]
 - !private ["So8NSCodingP", "image"]
+- !private ["So8NSCodingP", "imageBorderColor"]
 - !private ["So8NSCodingP", "init"]
 - !private ["So8NSCodingP", "layer"]
 - !private ["So8NSCodingP", "layoutSubviews"]
 - !private ["So8NSCodingP", "masksToBounds"]
 - !private ["So8NSCodingP", "previewImageView"]
+- ["So8NSCodingP", "white"]
+- ["So8NSCodingP", "withAlphaComponent"]
 - ["So8NSCodingP", ""]
-- !private ["So8NSObjectC", "IMAGE_CONST"]
+- !private ["So9NSCopyingP", "cgColor"]
+- ["So9NSCopyingP", "white"]
+- ["So9NSCopyingP", "withAlphaComponent"]
+- !private ["So21NSItemProviderReadingP", "cgColor"]
+- ["So21NSItemProviderReadingP", "white"]
+- ["So21NSItemProviderReadingP", "withAlphaComponent"]
+- !private ["So21NSItemProviderWritingP", "cgColor"]
+- ["So21NSItemProviderWritingP", "white"]
+- ["So21NSItemProviderWritingP", "withAlphaComponent"]
+- !private ["So8NSObjectC", "RMAnimation"]
+- !private ["So8NSObjectC", "RMImage"]
+- ["So8NSObjectC", "UIColor"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
+- !private ["So8NSObjectC", "UIView"]
 - !private ["So8NSObjectC", "UIViewContentMode"]
+- !private ["So8NSObjectC", "animate"]
+- !private ["So8NSObjectC", "borderColor"]
+- !private ["So8NSObjectC", "borderWidth"]
+- !private ["So8NSObjectC", "cgColor"]
 - !private ["So8NSObjectC", "contentMode"]
 - !private ["So8NSObjectC", "cornerRadius"]
 - !private ["So8NSObjectC", "image"]
+- ["So8NSObjectC", "imageBorderColor"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "layer"]
 - ["So8NSObjectC", "layoutSubviews"]
@@ -138,88 +230,150 @@ depends-member:
 - ["So8NSObjectC", "previewImageView"]
 - ["So8NSObjectC", "subheadingLabel"]
 - ["So8NSObjectC", "titleLabel"]
-- !private ["So16NSObjectProtocolP", "IMAGE_CONST"]
+- ["So8NSObjectC", "white"]
+- ["So8NSObjectC", "withAlphaComponent"]
+- !private ["So16NSObjectProtocolP", "RMAnimation"]
+- !private ["So16NSObjectProtocolP", "RMImage"]
+- ["So16NSObjectProtocolP", "UIColor"]
+- !private ["So16NSObjectProtocolP", "UIView"]
 - !private ["So16NSObjectProtocolP", "UIViewContentMode"]
+- !private ["So16NSObjectProtocolP", "animate"]
+- !private ["So16NSObjectProtocolP", "borderColor"]
+- !private ["So16NSObjectProtocolP", "borderWidth"]
+- !private ["So16NSObjectProtocolP", "cgColor"]
 - !private ["So16NSObjectProtocolP", "contentMode"]
 - !private ["So16NSObjectProtocolP", "cornerRadius"]
 - !private ["So16NSObjectProtocolP", "image"]
+- !private ["So16NSObjectProtocolP", "imageBorderColor"]
 - !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "layer"]
 - !private ["So16NSObjectProtocolP", "layoutSubviews"]
 - !private ["So16NSObjectProtocolP", "masksToBounds"]
 - !private ["So16NSObjectProtocolP", "previewImageView"]
+- ["So16NSObjectProtocolP", "white"]
+- ["So16NSObjectProtocolP", "withAlphaComponent"]
 - ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "borderColor"]
+- !private ["So14NSSecureCodingP", "borderWidth"]
+- !private ["So14NSSecureCodingP", "cgColor"]
 - !private ["So14NSSecureCodingP", "cornerRadius"]
 - !private ["So14NSSecureCodingP", "masksToBounds"]
+- ["So14NSSecureCodingP", "white"]
+- ["So14NSSecureCodingP", "withAlphaComponent"]
+- !private ["6RushMe11RMAnimationV", "ColoringTime"]
+- !private ["6RushMe7RMImageV", "CornerRadius"]
+- !private ["6RushMe7RMImageV", "NoImage"]
 - !private ["s16RawRepresentableP", "scaleAspectFill"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "contentMode"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "layer"]
-- !private ["So29UIAccessibilityIdentificationP", "IMAGE_CONST"]
+- !private ["So29UIAccessibilityIdentificationP", "RMAnimation"]
+- !private ["So29UIAccessibilityIdentificationP", "RMImage"]
+- ["So29UIAccessibilityIdentificationP", "UIColor"]
+- !private ["So29UIAccessibilityIdentificationP", "UIView"]
 - !private ["So29UIAccessibilityIdentificationP", "UIViewContentMode"]
+- !private ["So29UIAccessibilityIdentificationP", "animate"]
 - !private ["So29UIAccessibilityIdentificationP", "contentMode"]
 - !private ["So29UIAccessibilityIdentificationP", "image"]
+- !private ["So29UIAccessibilityIdentificationP", "imageBorderColor"]
 - !private ["So29UIAccessibilityIdentificationP", "init"]
 - !private ["So29UIAccessibilityIdentificationP", "layer"]
 - !private ["So29UIAccessibilityIdentificationP", "layoutSubviews"]
 - !private ["So29UIAccessibilityIdentificationP", "previewImageView"]
 - ["So29UIAccessibilityIdentificationP", ""]
-- !private ["So12UIAppearanceP", "IMAGE_CONST"]
+- !private ["So12UIAppearanceP", "RMAnimation"]
+- !private ["So12UIAppearanceP", "RMImage"]
+- ["So12UIAppearanceP", "UIColor"]
+- !private ["So12UIAppearanceP", "UIView"]
 - !private ["So12UIAppearanceP", "UIViewContentMode"]
+- !private ["So12UIAppearanceP", "animate"]
 - !private ["So12UIAppearanceP", "contentMode"]
 - !private ["So12UIAppearanceP", "image"]
+- !private ["So12UIAppearanceP", "imageBorderColor"]
 - !private ["So12UIAppearanceP", "init"]
 - !private ["So12UIAppearanceP", "layer"]
 - !private ["So12UIAppearanceP", "layoutSubviews"]
 - !private ["So12UIAppearanceP", "previewImageView"]
 - ["So12UIAppearanceP", ""]
-- !private ["So21UIAppearanceContainerP", "IMAGE_CONST"]
+- !private ["So21UIAppearanceContainerP", "RMAnimation"]
+- !private ["So21UIAppearanceContainerP", "RMImage"]
+- ["So21UIAppearanceContainerP", "UIColor"]
+- !private ["So21UIAppearanceContainerP", "UIView"]
 - !private ["So21UIAppearanceContainerP", "UIViewContentMode"]
+- !private ["So21UIAppearanceContainerP", "animate"]
 - !private ["So21UIAppearanceContainerP", "contentMode"]
 - !private ["So21UIAppearanceContainerP", "image"]
+- !private ["So21UIAppearanceContainerP", "imageBorderColor"]
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "layer"]
 - !private ["So21UIAppearanceContainerP", "layoutSubviews"]
 - !private ["So21UIAppearanceContainerP", "previewImageView"]
 - ["So21UIAppearanceContainerP", ""]
-- !private ["So17UICoordinateSpaceP", "IMAGE_CONST"]
+- !private ["So7UIColorC", "cgColor"]
+- ["So7UIColorC", "white"]
+- ["So7UIColorC", "withAlphaComponent"]
+- !private ["So17UICoordinateSpaceP", "RMAnimation"]
+- !private ["So17UICoordinateSpaceP", "RMImage"]
+- ["So17UICoordinateSpaceP", "UIColor"]
+- !private ["So17UICoordinateSpaceP", "UIView"]
 - !private ["So17UICoordinateSpaceP", "UIViewContentMode"]
+- !private ["So17UICoordinateSpaceP", "animate"]
 - !private ["So17UICoordinateSpaceP", "contentMode"]
 - !private ["So17UICoordinateSpaceP", "image"]
+- !private ["So17UICoordinateSpaceP", "imageBorderColor"]
 - !private ["So17UICoordinateSpaceP", "init"]
 - !private ["So17UICoordinateSpaceP", "layer"]
 - !private ["So17UICoordinateSpaceP", "layoutSubviews"]
 - !private ["So17UICoordinateSpaceP", "previewImageView"]
 - ["So17UICoordinateSpaceP", ""]
-- !private ["So13UIDynamicItemP", "IMAGE_CONST"]
+- !private ["So13UIDynamicItemP", "RMAnimation"]
+- !private ["So13UIDynamicItemP", "RMImage"]
+- ["So13UIDynamicItemP", "UIColor"]
+- !private ["So13UIDynamicItemP", "UIView"]
 - !private ["So13UIDynamicItemP", "UIViewContentMode"]
+- !private ["So13UIDynamicItemP", "animate"]
 - !private ["So13UIDynamicItemP", "contentMode"]
 - !private ["So13UIDynamicItemP", "image"]
+- !private ["So13UIDynamicItemP", "imageBorderColor"]
 - !private ["So13UIDynamicItemP", "init"]
 - !private ["So13UIDynamicItemP", "layer"]
 - !private ["So13UIDynamicItemP", "layoutSubviews"]
 - !private ["So13UIDynamicItemP", "previewImageView"]
 - ["So13UIDynamicItemP", ""]
-- !private ["So18UIFocusEnvironmentP", "IMAGE_CONST"]
+- !private ["So18UIFocusEnvironmentP", "RMAnimation"]
+- !private ["So18UIFocusEnvironmentP", "RMImage"]
+- ["So18UIFocusEnvironmentP", "UIColor"]
+- !private ["So18UIFocusEnvironmentP", "UIView"]
 - !private ["So18UIFocusEnvironmentP", "UIViewContentMode"]
+- !private ["So18UIFocusEnvironmentP", "animate"]
 - !private ["So18UIFocusEnvironmentP", "contentMode"]
 - !private ["So18UIFocusEnvironmentP", "image"]
+- !private ["So18UIFocusEnvironmentP", "imageBorderColor"]
 - !private ["So18UIFocusEnvironmentP", "init"]
 - !private ["So18UIFocusEnvironmentP", "layer"]
 - !private ["So18UIFocusEnvironmentP", "layoutSubviews"]
 - !private ["So18UIFocusEnvironmentP", "previewImageView"]
 - ["So18UIFocusEnvironmentP", ""]
-- !private ["So11UIFocusItemP", "IMAGE_CONST"]
+- !private ["So11UIFocusItemP", "RMAnimation"]
+- !private ["So11UIFocusItemP", "RMImage"]
+- ["So11UIFocusItemP", "UIColor"]
+- !private ["So11UIFocusItemP", "UIView"]
 - !private ["So11UIFocusItemP", "UIViewContentMode"]
+- !private ["So11UIFocusItemP", "animate"]
 - !private ["So11UIFocusItemP", "contentMode"]
 - !private ["So11UIFocusItemP", "image"]
+- !private ["So11UIFocusItemP", "imageBorderColor"]
 - !private ["So11UIFocusItemP", "init"]
 - !private ["So11UIFocusItemP", "layer"]
 - !private ["So11UIFocusItemP", "layoutSubviews"]
 - !private ["So11UIFocusItemP", "previewImageView"]
 - ["So11UIFocusItemP", ""]
-- !private ["So27UIGestureRecognizerDelegateP", "IMAGE_CONST"]
+- !private ["So27UIGestureRecognizerDelegateP", "RMAnimation"]
+- !private ["So27UIGestureRecognizerDelegateP", "RMImage"]
+- ["So27UIGestureRecognizerDelegateP", "UIColor"]
+- !private ["So27UIGestureRecognizerDelegateP", "UIView"]
 - !private ["So27UIGestureRecognizerDelegateP", "UIViewContentMode"]
+- !private ["So27UIGestureRecognizerDelegateP", "imageBorderColor"]
 - !private ["So27UIGestureRecognizerDelegateP", "init"]
 - !private ["So27UIGestureRecognizerDelegateP", "layoutSubviews"]
 - !private ["So27UIGestureRecognizerDelegateP", "previewImageView"]
@@ -227,61 +381,90 @@ depends-member:
 - !private ["So11UIImageViewC", "contentMode"]
 - !private ["So11UIImageViewC", "image"]
 - !private ["So11UIImageViewC", "layer"]
-- !private ["So30UIPasteConfigurationSupportingP", "IMAGE_CONST"]
+- !private ["So30UIPasteConfigurationSupportingP", "RMAnimation"]
+- !private ["So30UIPasteConfigurationSupportingP", "RMImage"]
+- ["So30UIPasteConfigurationSupportingP", "UIColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIView"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIViewContentMode"]
+- !private ["So30UIPasteConfigurationSupportingP", "animate"]
 - !private ["So30UIPasteConfigurationSupportingP", "contentMode"]
 - !private ["So30UIPasteConfigurationSupportingP", "image"]
+- !private ["So30UIPasteConfigurationSupportingP", "imageBorderColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "layer"]
 - !private ["So30UIPasteConfigurationSupportingP", "layoutSubviews"]
 - !private ["So30UIPasteConfigurationSupportingP", "previewImageView"]
 - ["So30UIPasteConfigurationSupportingP", ""]
-- !private ["So11UIResponderC", "IMAGE_CONST"]
+- !private ["So11UIResponderC", "RMAnimation"]
+- !private ["So11UIResponderC", "RMImage"]
+- ["So11UIResponderC", "UIColor"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
+- !private ["So11UIResponderC", "UIView"]
 - !private ["So11UIResponderC", "UIViewContentMode"]
+- !private ["So11UIResponderC", "animate"]
 - !private ["So11UIResponderC", "contentMode"]
 - !private ["So11UIResponderC", "image"]
+- ["So11UIResponderC", "imageBorderColor"]
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "layer"]
 - ["So11UIResponderC", "layoutSubviews"]
 - ["So11UIResponderC", "previewImageView"]
 - ["So11UIResponderC", "subheadingLabel"]
 - ["So11UIResponderC", "titleLabel"]
-- !private ["So30UIResponderStandardEditActionsP", "IMAGE_CONST"]
+- !private ["So30UIResponderStandardEditActionsP", "RMAnimation"]
+- !private ["So30UIResponderStandardEditActionsP", "RMImage"]
+- ["So30UIResponderStandardEditActionsP", "UIColor"]
+- !private ["So30UIResponderStandardEditActionsP", "UIView"]
 - !private ["So30UIResponderStandardEditActionsP", "UIViewContentMode"]
+- !private ["So30UIResponderStandardEditActionsP", "animate"]
 - !private ["So30UIResponderStandardEditActionsP", "contentMode"]
 - !private ["So30UIResponderStandardEditActionsP", "image"]
+- !private ["So30UIResponderStandardEditActionsP", "imageBorderColor"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
 - !private ["So30UIResponderStandardEditActionsP", "layer"]
 - !private ["So30UIResponderStandardEditActionsP", "layoutSubviews"]
 - !private ["So30UIResponderStandardEditActionsP", "previewImageView"]
 - ["So30UIResponderStandardEditActionsP", ""]
-- !private ["So15UITableViewCellC", "IMAGE_CONST"]
+- !private ["So15UITableViewCellC", "RMAnimation"]
+- !private ["So15UITableViewCellC", "RMImage"]
+- ["So15UITableViewCellC", "UIColor"]
 - ["So15UITableViewCellC", "UIImageView"]
 - ["So15UITableViewCellC", "UILabel"]
+- !private ["So15UITableViewCellC", "UIView"]
 - !private ["So15UITableViewCellC", "UIViewContentMode"]
+- ["So15UITableViewCellC", "imageBorderColor"]
 - ["So15UITableViewCellC", "init"]
 - ["So15UITableViewCellC", "layoutSubviews"]
 - ["So15UITableViewCellC", "previewImageView"]
 - ["So15UITableViewCellC", "subheadingLabel"]
 - ["So15UITableViewCellC", "titleLabel"]
 - ["So15UITableViewCellC", ""]
-- !private ["So18UITraitEnvironmentP", "IMAGE_CONST"]
+- !private ["So18UITraitEnvironmentP", "RMAnimation"]
+- !private ["So18UITraitEnvironmentP", "RMImage"]
+- ["So18UITraitEnvironmentP", "UIColor"]
+- !private ["So18UITraitEnvironmentP", "UIView"]
 - !private ["So18UITraitEnvironmentP", "UIViewContentMode"]
+- !private ["So18UITraitEnvironmentP", "animate"]
 - !private ["So18UITraitEnvironmentP", "contentMode"]
 - !private ["So18UITraitEnvironmentP", "image"]
+- !private ["So18UITraitEnvironmentP", "imageBorderColor"]
 - !private ["So18UITraitEnvironmentP", "init"]
 - !private ["So18UITraitEnvironmentP", "layer"]
 - !private ["So18UITraitEnvironmentP", "layoutSubviews"]
 - !private ["So18UITraitEnvironmentP", "previewImageView"]
 - ["So18UITraitEnvironmentP", ""]
-- !private ["So6UIViewC", "IMAGE_CONST"]
+- !private ["So6UIViewC", "RMAnimation"]
+- !private ["So6UIViewC", "RMImage"]
+- ["So6UIViewC", "UIColor"]
 - ["So6UIViewC", "UIImageView"]
 - ["So6UIViewC", "UILabel"]
+- !private ["So6UIViewC", "UIView"]
 - !private ["So6UIViewC", "UIViewContentMode"]
+- !private ["So6UIViewC", "animate"]
 - !private ["So6UIViewC", "contentMode"]
 - !private ["So6UIViewC", "image"]
+- ["So6UIViewC", "imageBorderColor"]
 - ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "layer"]
 - ["So6UIViewC", "layoutSubviews"]
@@ -289,26 +472,44 @@ depends-member:
 - ["So6UIViewC", "subheadingLabel"]
 - ["So6UIViewC", "titleLabel"]
 - !private ["SC17UIViewContentModeO", "scaleAspectFill"]
-- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "IMAGE_CONST"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "RMAnimation"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "RMImage"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", "UIColor"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIView"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIViewContentMode"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "animate"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "contentMode"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "image"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "imageBorderColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layer"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layoutSubviews"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "previewImageView"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "IMAGE_CONST"]
+- !private ["s26_ExpressibleByColorLiteralP", "cgColor"]
+- ["s26_ExpressibleByColorLiteralP", "white"]
+- ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMAnimation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIViewContentMode"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "animate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "borderColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "borderWidth"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "cgColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "contentMode"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cornerRadius"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "image"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "imageBorderColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layoutSubviews"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "masksToBounds"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "previewImageView"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "white"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 depends-nominal:
@@ -327,17 +528,22 @@ depends-nominal:
 - !private "s27ExpressibleByBooleanLiteralP"
 - "6RushMe8FratCellC"
 - "s8HashableP"
-- !private "6RushMe11IMAGE_CONSTV"
 - !private "s25LosslessStringConvertibleP"
 - "So8NSCodingP"
+- "So9NSCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
-- !private "So14NSSecureCodingP"
+- "So14NSSecureCodingP"
+- !private "6RushMe11RMAnimationV"
+- !private "6RushMe7RMImageV"
 - !private "s16RawRepresentableP"
 - !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
 - "So29UIAccessibilityIdentificationP"
 - "So12UIAppearanceP"
 - "So21UIAppearanceContainerP"
+- "So7UIColorC"
 - "So17UICoordinateSpaceP"
 - "So13UIDynamicItemP"
 - "So18UIFocusEnvironmentP"
@@ -353,50 +559,57 @@ depends-nominal:
 - !private "SC17UIViewContentModeO"
 - "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s26_ExpressibleByColorLiteralP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
-- "/Users/adamthk/Google Drive/RushMe/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Google Drive/RushMe/RushMe/SWRevealVC/SWRevealViewController.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "0a427133e55014f63f7a4bdd1b44c2aa"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
+interface-hash: "df0388728c5193b35d1771f5ed177b08"

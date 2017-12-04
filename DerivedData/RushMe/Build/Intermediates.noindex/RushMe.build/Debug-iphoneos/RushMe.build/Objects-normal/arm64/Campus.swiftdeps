@@ -1,0 +1,971 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Quality"
+- "Campus"
+provides-nominal:
+- "6RushMe7QualityO"
+- "6RushMe6CampusC"
+provides-member:
+- ["6RushMe7QualityO", ""]
+- ["6RushMe6CampusC", ""]
+provides-dynamic-lookup:
+- "considerEventsBeforeToday"
+- "favoritedFratEvents"
+- "favoritedFrats"
+- "filterEventsForFavorites"
+- "fratNames"
+- "fraternitiesDict"
+- "getEvents"
+- "pullImage"
+- "saveFavorites"
+- "shared"
+depends-top-level:
+- !private "!"
+- !private "&&"
+- !private "+"
+- "=="
+- !private ">"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "Campus"
+- !private "CastingPrecedence"
+- !private "DEBUG"
+- !private "Data"
+- "Date"
+- !private "DispatchQueue"
+- !private "ExtendedGraphemeClusterType"
+- "FratEvent"
+- "Fraternity"
+- !private "NSKeyedArchiver"
+- !private "NSKeyedUnarchiver"
+- "NSObject"
+- "Quality"
+- !private "RMDate"
+- !private "RMFileManagement"
+- !private "RMImageQuality"
+- !private "RMNetwork"
+- "Set"
+- "String"
+- !private "StringLiteralType"
+- "UIImage"
+- !private "UIImagePNGRepresentation"
+- !private "URL"
+- !private "UnicodeScalarType"
+- !private "campusSharedInstance"
+- !private "print"
+- !private "sharedSQLHandler"
+depends-member:
+- ["Sa", "init"]
+- !private ["Sa", "last"]
+- !private ["s23BidirectionalCollectionP", "dropLast"]
+- ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "last"]
+- !private ["s23BidirectionalCollectionP", "split"]
+- !private ["s23BidirectionalCollectionP", "write"]
+- !private ["s13BinaryIntegerP", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Campus"]
+- !private ["s7CVarArgP", "DEBUG"]
+- !private ["s7CVarArgP", "Data"]
+- !private ["s7CVarArgP", "Date"]
+- !private ["s7CVarArgP", "DispatchQueue"]
+- !private ["s7CVarArgP", "FratEvent"]
+- ["s7CVarArgP", "Fraternity"]
+- !private ["s7CVarArgP", "NSKeyedArchiver"]
+- !private ["s7CVarArgP", "NSKeyedUnarchiver"]
+- !private ["s7CVarArgP", "RMDate"]
+- !private ["s7CVarArgP", "RMFileManagement"]
+- !private ["s7CVarArgP", "RMImageQuality"]
+- !private ["s7CVarArgP", "RMNetwork"]
+- ["s7CVarArgP", "Set"]
+- ["s7CVarArgP", "String"]
+- !private ["s7CVarArgP", "UIImage"]
+- !private ["s7CVarArgP", "UIImagePNGRepresentation"]
+- !private ["s7CVarArgP", "URL"]
+- !private ["s7CVarArgP", "add"]
+- !private ["s7CVarArgP", "allEvents"]
+- !private ["s7CVarArgP", "archiveRootObject"]
+- !private ["s7CVarArgP", "async"]
+- !private ["s7CVarArgP", "campusSharedInstance"]
+- !private ["s7CVarArgP", "considerEventsBeforeToday"]
+- !private ["s7CVarArgP", "contains"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "downloadedImageQuality"]
+- !private ["s7CVarArgP", "dropLast"]
+- !private ["s7CVarArgP", "events"]
+- !private ["s7CVarArgP", "favoritedFratEvents"]
+- !private ["s7CVarArgP", "favoritedFrats"]
+- !private ["s7CVarArgP", "frat"]
+- !private ["s7CVarArgP", "fraternitiesDict"]
+- !private ["s7CVarArgP", "global"]
+- !private ["s7CVarArgP", "hashValue"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "insert"]
+- !private ["s7CVarArgP", "last"]
+- !private ["s7CVarArgP", "loadFavorites"]
+- !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "pullEventsFromSQLDataBase"]
+- !private ["s7CVarArgP", "saveFavorites"]
+- !private ["s7CVarArgP", "select"]
+- !private ["s7CVarArgP", "shared"]
+- !private ["s7CVarArgP", "sharedSQLHandler"]
+- !private ["s7CVarArgP", "split"]
+- !private ["s7CVarArgP", "startDate"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "unarchiveObject"]
+- ["s7CVarArgP", ""]
+- ["6RushMe6CampusC", "Bool"]
+- ["6RushMe6CampusC", "Campus"]
+- !private ["6RushMe6CampusC", "DEBUG"]
+- !private ["6RushMe6CampusC", "Data"]
+- ["6RushMe6CampusC", "Date"]
+- !private ["6RushMe6CampusC", "DispatchQueue"]
+- ["6RushMe6CampusC", "FratEvent"]
+- ["6RushMe6CampusC", "Fraternity"]
+- !private ["6RushMe6CampusC", "NSKeyedArchiver"]
+- !private ["6RushMe6CampusC", "NSKeyedUnarchiver"]
+- ["6RushMe6CampusC", "Quality"]
+- !private ["6RushMe6CampusC", "RMDate"]
+- !private ["6RushMe6CampusC", "RMFileManagement"]
+- !private ["6RushMe6CampusC", "RMImageQuality"]
+- !private ["6RushMe6CampusC", "RMNetwork"]
+- ["6RushMe6CampusC", "Set"]
+- ["6RushMe6CampusC", "String"]
+- ["6RushMe6CampusC", "UIImage"]
+- !private ["6RushMe6CampusC", "UIImagePNGRepresentation"]
+- !private ["6RushMe6CampusC", "URL"]
+- !private ["6RushMe6CampusC", "allEvents"]
+- !private ["6RushMe6CampusC", "campusSharedInstance"]
+- ["6RushMe6CampusC", "considerEventsBeforeToday"]
+- ["6RushMe6CampusC", "deinit"]
+- ["6RushMe6CampusC", "downloadedImageQuality"]
+- ["6RushMe6CampusC", "favoritedFratEvents"]
+- ["6RushMe6CampusC", "favoritedFrats"]
+- ["6RushMe6CampusC", "filterEventsForFavorites"]
+- ["6RushMe6CampusC", "fratNames"]
+- ["6RushMe6CampusC", "fraternitiesDict"]
+- ["6RushMe6CampusC", "getEvents"]
+- ["6RushMe6CampusC", "init"]
+- !private ["6RushMe6CampusC", "loadFavorites"]
+- !private ["6RushMe6CampusC", "print"]
+- !private ["6RushMe6CampusC", "pullEventsFromSQLDataBase"]
+- ["6RushMe6CampusC", "pullImage"]
+- ["6RushMe6CampusC", "saveFavorites"]
+- ["6RushMe6CampusC", "shared"]
+- !private ["6RushMe6CampusC", "sharedSQLHandler"]
+- !private ["s9CharacterV", "init"]
+- !private ["s10CollectionP", "contains"]
+- !private ["s10CollectionP", "count"]
+- !private ["s10CollectionP", "dropLast"]
+- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "insert"]
+- !private ["s10CollectionP", "last"]
+- !private ["s10CollectionP", "split"]
+- !private ["s10CollectionP", "subscript"]
+- !private ["s10CollectionP", "write"]
+- !private ["s10ComparableP", "compare"]
+- !private ["s10ComparableP", "dropLast"]
+- !private ["s10ComparableP", "hashValue"]
+- !private ["s10ComparableP", "init"]
+- !private ["s10ComparableP", "split"]
+- !private ["SC16ComparisonResultO", "orderedAscending"]
+- !private ["s28CustomDebugStringConvertibleP", "Campus"]
+- !private ["s28CustomDebugStringConvertibleP", "DEBUG"]
+- !private ["s28CustomDebugStringConvertibleP", "Data"]
+- !private ["s28CustomDebugStringConvertibleP", "Date"]
+- !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
+- !private ["s28CustomDebugStringConvertibleP", "FratEvent"]
+- ["s28CustomDebugStringConvertibleP", "Fraternity"]
+- !private ["s28CustomDebugStringConvertibleP", "NSKeyedArchiver"]
+- !private ["s28CustomDebugStringConvertibleP", "NSKeyedUnarchiver"]
+- !private ["s28CustomDebugStringConvertibleP", "RMDate"]
+- !private ["s28CustomDebugStringConvertibleP", "RMFileManagement"]
+- !private ["s28CustomDebugStringConvertibleP", "RMImageQuality"]
+- !private ["s28CustomDebugStringConvertibleP", "RMNetwork"]
+- ["s28CustomDebugStringConvertibleP", "Set"]
+- ["s28CustomDebugStringConvertibleP", "String"]
+- !private ["s28CustomDebugStringConvertibleP", "UIImage"]
+- !private ["s28CustomDebugStringConvertibleP", "UIImagePNGRepresentation"]
+- !private ["s28CustomDebugStringConvertibleP", "URL"]
+- !private ["s28CustomDebugStringConvertibleP", "add"]
+- !private ["s28CustomDebugStringConvertibleP", "allEvents"]
+- !private ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
+- !private ["s28CustomDebugStringConvertibleP", "archiveRootObject"]
+- !private ["s28CustomDebugStringConvertibleP", "async"]
+- !private ["s28CustomDebugStringConvertibleP", "campusSharedInstance"]
+- !private ["s28CustomDebugStringConvertibleP", "compare"]
+- !private ["s28CustomDebugStringConvertibleP", "considerEventsBeforeToday"]
+- !private ["s28CustomDebugStringConvertibleP", "contains"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "downloadedImageQuality"]
+- !private ["s28CustomDebugStringConvertibleP", "dropLast"]
+- !private ["s28CustomDebugStringConvertibleP", "events"]
+- !private ["s28CustomDebugStringConvertibleP", "favoritedFratEvents"]
+- !private ["s28CustomDebugStringConvertibleP", "favoritedFrats"]
+- !private ["s28CustomDebugStringConvertibleP", "frat"]
+- !private ["s28CustomDebugStringConvertibleP", "fraternitiesDict"]
+- !private ["s28CustomDebugStringConvertibleP", "global"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "insert"]
+- !private ["s28CustomDebugStringConvertibleP", "last"]
+- !private ["s28CustomDebugStringConvertibleP", "loadFavorites"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "path"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "pullEventsFromSQLDataBase"]
+- !private ["s28CustomDebugStringConvertibleP", "saveFavorites"]
+- !private ["s28CustomDebugStringConvertibleP", "select"]
+- !private ["s28CustomDebugStringConvertibleP", "shared"]
+- !private ["s28CustomDebugStringConvertibleP", "sharedSQLHandler"]
+- !private ["s28CustomDebugStringConvertibleP", "split"]
+- !private ["s28CustomDebugStringConvertibleP", "startDate"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "unarchiveObject"]
+- !private ["s28CustomDebugStringConvertibleP", "write"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
+- !private ["s29CustomPlaygroundQuickLookableP", "compare"]
+- !private ["s29CustomPlaygroundQuickLookableP", "dropLast"]
+- !private ["s29CustomPlaygroundQuickLookableP", "hashValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "path"]
+- !private ["s29CustomPlaygroundQuickLookableP", "split"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "compare"]
+- !private ["s17CustomReflectableP", "contains"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "dropLast"]
+- !private ["s17CustomReflectableP", "hashValue"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "insert"]
+- !private ["s17CustomReflectableP", "last"]
+- !private ["s17CustomReflectableP", "split"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "write"]
+- !private ["s23CustomStringConvertibleP", "Campus"]
+- !private ["s23CustomStringConvertibleP", "DEBUG"]
+- !private ["s23CustomStringConvertibleP", "Data"]
+- !private ["s23CustomStringConvertibleP", "Date"]
+- !private ["s23CustomStringConvertibleP", "DispatchQueue"]
+- !private ["s23CustomStringConvertibleP", "FratEvent"]
+- ["s23CustomStringConvertibleP", "Fraternity"]
+- !private ["s23CustomStringConvertibleP", "NSKeyedArchiver"]
+- !private ["s23CustomStringConvertibleP", "NSKeyedUnarchiver"]
+- !private ["s23CustomStringConvertibleP", "RMDate"]
+- !private ["s23CustomStringConvertibleP", "RMFileManagement"]
+- !private ["s23CustomStringConvertibleP", "RMImageQuality"]
+- !private ["s23CustomStringConvertibleP", "RMNetwork"]
+- ["s23CustomStringConvertibleP", "Set"]
+- ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "UIImage"]
+- !private ["s23CustomStringConvertibleP", "UIImagePNGRepresentation"]
+- !private ["s23CustomStringConvertibleP", "URL"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "add"]
+- !private ["s23CustomStringConvertibleP", "allEvents"]
+- !private ["s23CustomStringConvertibleP", "appendingPathComponent"]
+- !private ["s23CustomStringConvertibleP", "archiveRootObject"]
+- !private ["s23CustomStringConvertibleP", "async"]
+- !private ["s23CustomStringConvertibleP", "campusSharedInstance"]
+- !private ["s23CustomStringConvertibleP", "compare"]
+- !private ["s23CustomStringConvertibleP", "considerEventsBeforeToday"]
+- !private ["s23CustomStringConvertibleP", "contains"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "downloadedImageQuality"]
+- !private ["s23CustomStringConvertibleP", "dropLast"]
+- !private ["s23CustomStringConvertibleP", "events"]
+- !private ["s23CustomStringConvertibleP", "favoritedFratEvents"]
+- !private ["s23CustomStringConvertibleP", "favoritedFrats"]
+- !private ["s23CustomStringConvertibleP", "frat"]
+- !private ["s23CustomStringConvertibleP", "fraternitiesDict"]
+- !private ["s23CustomStringConvertibleP", "global"]
+- !private ["s23CustomStringConvertibleP", "hashValue"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "insert"]
+- !private ["s23CustomStringConvertibleP", "last"]
+- !private ["s23CustomStringConvertibleP", "loadFavorites"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "path"]
+- !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "pullEventsFromSQLDataBase"]
+- !private ["s23CustomStringConvertibleP", "saveFavorites"]
+- !private ["s23CustomStringConvertibleP", "select"]
+- !private ["s23CustomStringConvertibleP", "shared"]
+- !private ["s23CustomStringConvertibleP", "sharedSQLHandler"]
+- !private ["s23CustomStringConvertibleP", "split"]
+- !private ["s23CustomStringConvertibleP", "startDate"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "unarchiveObject"]
+- !private ["s23CustomStringConvertibleP", "write"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["10Foundation4DataV", "init"]
+- !private ["10Foundation4DataV", "write"]
+- !private ["10Foundation4DateV", "compare"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "appendingPathComponent"]
+- !private ["s9DecodableP", "compare"]
+- !private ["s9DecodableP", "contains"]
+- !private ["s9DecodableP", "count"]
+- !private ["s9DecodableP", "dropLast"]
+- !private ["s9DecodableP", "hashValue"]
+- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "insert"]
+- !private ["s9DecodableP", "last"]
+- !private ["s9DecodableP", "path"]
+- !private ["s9DecodableP", "split"]
+- !private ["s9DecodableP", "subscript"]
+- !private ["s9DecodableP", "write"]
+- !private ["s10DictionaryV", "count"]
+- ["s10DictionaryV", "init"]
+- !private ["s10DictionaryV", "subscript"]
+- !private ["So14DispatchObjectC", "async"]
+- !private ["So14DispatchObjectC", "global"]
+- !private ["So13DispatchQueueC", "async"]
+- !private ["So13DispatchQueueC", "global"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "appendingPathComponent"]
+- !private ["s9EncodableP", "compare"]
+- !private ["s9EncodableP", "contains"]
+- !private ["s9EncodableP", "count"]
+- !private ["s9EncodableP", "dropLast"]
+- !private ["s9EncodableP", "hashValue"]
+- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "insert"]
+- !private ["s9EncodableP", "last"]
+- !private ["s9EncodableP", "path"]
+- !private ["s9EncodableP", "split"]
+- !private ["s9EncodableP", "subscript"]
+- !private ["s9EncodableP", "write"]
+- !private ["s9EquatableP", "Campus"]
+- !private ["s9EquatableP", "DEBUG"]
+- !private ["s9EquatableP", "Data"]
+- !private ["s9EquatableP", "Date"]
+- !private ["s9EquatableP", "DispatchQueue"]
+- !private ["s9EquatableP", "FratEvent"]
+- ["s9EquatableP", "Fraternity"]
+- ["s9EquatableP", "High"]
+- ["s9EquatableP", "Low"]
+- ["s9EquatableP", "Medium"]
+- !private ["s9EquatableP", "NSKeyedArchiver"]
+- !private ["s9EquatableP", "NSKeyedUnarchiver"]
+- !private ["s9EquatableP", "RMDate"]
+- !private ["s9EquatableP", "RMFileManagement"]
+- !private ["s9EquatableP", "RMImageQuality"]
+- !private ["s9EquatableP", "RMNetwork"]
+- ["s9EquatableP", "Set"]
+- ["s9EquatableP", "String"]
+- !private ["s9EquatableP", "UIImage"]
+- !private ["s9EquatableP", "UIImagePNGRepresentation"]
+- !private ["s9EquatableP", "URL"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "add"]
+- !private ["s9EquatableP", "allEvents"]
+- !private ["s9EquatableP", "appendingPathComponent"]
+- !private ["s9EquatableP", "archiveRootObject"]
+- !private ["s9EquatableP", "async"]
+- !private ["s9EquatableP", "campusSharedInstance"]
+- !private ["s9EquatableP", "compare"]
+- !private ["s9EquatableP", "considerEventsBeforeToday"]
+- !private ["s9EquatableP", "contains"]
+- !private ["s9EquatableP", "downloadedImageQuality"]
+- !private ["s9EquatableP", "dropLast"]
+- !private ["s9EquatableP", "events"]
+- !private ["s9EquatableP", "favoritedFratEvents"]
+- !private ["s9EquatableP", "favoritedFrats"]
+- !private ["s9EquatableP", "frat"]
+- !private ["s9EquatableP", "fraternitiesDict"]
+- !private ["s9EquatableP", "global"]
+- ["s9EquatableP", "hashValue"]
+- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "insert"]
+- !private ["s9EquatableP", "loadFavorites"]
+- !private ["s9EquatableP", "name"]
+- !private ["s9EquatableP", "orderedAscending"]
+- !private ["s9EquatableP", "path"]
+- !private ["s9EquatableP", "print"]
+- !private ["s9EquatableP", "pullEventsFromSQLDataBase"]
+- !private ["s9EquatableP", "saveFavorites"]
+- !private ["s9EquatableP", "select"]
+- !private ["s9EquatableP", "shared"]
+- !private ["s9EquatableP", "sharedSQLHandler"]
+- !private ["s9EquatableP", "split"]
+- !private ["s9EquatableP", "startDate"]
+- !private ["s9EquatableP", "unarchiveObject"]
+- !private ["s9EquatableP", "userInitiated"]
+- !private ["s9EquatableP", "write"]
+- ["s9EquatableP", ""]
+- !private ["s5ErrorP", "localizedDescription"]
+- !private ["s25ExpressibleByArrayLiteralP", "contains"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "insert"]
+- !private ["s25ExpressibleByArrayLiteralP", "last"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "count"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "dropLast"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "split"]
+- !private ["s27ExpressibleByIntegerLiteralP", "hashValue"]
+- !private ["s26ExpressibleByStringLiteralP", "dropLast"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "split"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "dropLast"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "split"]
+- !private ["s17FixedWidthIntegerP", "hashValue"]
+- ["6RushMe9FratEventC", "deinit"]
+- !private ["6RushMe9FratEventC", "frat"]
+- !private ["6RushMe9FratEventC", "startDate"]
+- !private ["6RushMe10FraternityC", "add"]
+- !private ["6RushMe10FraternityC", "events"]
+- !private ["6RushMe10FraternityC", "name"]
+- !private ["s8HashableP", "Campus"]
+- !private ["s8HashableP", "DEBUG"]
+- !private ["s8HashableP", "Data"]
+- !private ["s8HashableP", "Date"]
+- !private ["s8HashableP", "DispatchQueue"]
+- !private ["s8HashableP", "FratEvent"]
+- ["s8HashableP", "Fraternity"]
+- ["s8HashableP", "High"]
+- ["s8HashableP", "Low"]
+- ["s8HashableP", "Medium"]
+- !private ["s8HashableP", "NSKeyedArchiver"]
+- !private ["s8HashableP", "NSKeyedUnarchiver"]
+- !private ["s8HashableP", "RMDate"]
+- !private ["s8HashableP", "RMFileManagement"]
+- !private ["s8HashableP", "RMImageQuality"]
+- !private ["s8HashableP", "RMNetwork"]
+- ["s8HashableP", "Set"]
+- ["s8HashableP", "String"]
+- !private ["s8HashableP", "UIImage"]
+- !private ["s8HashableP", "UIImagePNGRepresentation"]
+- !private ["s8HashableP", "URL"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "add"]
+- !private ["s8HashableP", "allEvents"]
+- !private ["s8HashableP", "appendingPathComponent"]
+- !private ["s8HashableP", "archiveRootObject"]
+- !private ["s8HashableP", "async"]
+- !private ["s8HashableP", "campusSharedInstance"]
+- !private ["s8HashableP", "compare"]
+- !private ["s8HashableP", "considerEventsBeforeToday"]
+- !private ["s8HashableP", "contains"]
+- !private ["s8HashableP", "downloadedImageQuality"]
+- !private ["s8HashableP", "dropLast"]
+- !private ["s8HashableP", "events"]
+- !private ["s8HashableP", "favoritedFratEvents"]
+- !private ["s8HashableP", "favoritedFrats"]
+- !private ["s8HashableP", "frat"]
+- !private ["s8HashableP", "fraternitiesDict"]
+- !private ["s8HashableP", "global"]
+- ["s8HashableP", "hashValue"]
+- ["s8HashableP", "init"]
+- !private ["s8HashableP", "insert"]
+- !private ["s8HashableP", "loadFavorites"]
+- !private ["s8HashableP", "name"]
+- !private ["s8HashableP", "orderedAscending"]
+- !private ["s8HashableP", "path"]
+- !private ["s8HashableP", "print"]
+- !private ["s8HashableP", "pullEventsFromSQLDataBase"]
+- !private ["s8HashableP", "saveFavorites"]
+- !private ["s8HashableP", "select"]
+- !private ["s8HashableP", "shared"]
+- !private ["s8HashableP", "sharedSQLHandler"]
+- !private ["s8HashableP", "split"]
+- !private ["s8HashableP", "startDate"]
+- !private ["s8HashableP", "unarchiveObject"]
+- !private ["s8HashableP", "userInitiated"]
+- !private ["s8HashableP", "write"]
+- ["s8HashableP", ""]
+- !private ["Si", "hashValue"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "dropLast"]
+- !private ["s25LosslessStringConvertibleP", "hashValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "split"]
+- !private ["s10MirrorPathP", "dropLast"]
+- !private ["s10MirrorPathP", "hashValue"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "split"]
+- ["s17MutableCollectionP", "init"]
+- !private ["s17MutableCollectionP", "last"]
+- !private ["s17MutableCollectionP", "write"]
+- !private ["So7NSCoderC", "archiveRootObject"]
+- !private ["So7NSCoderC", "unarchiveObject"]
+- !private ["So8NSCodingP", "dropLast"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "split"]
+- !private ["So9NSCopyingP", "dropLast"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "split"]
+- !private ["So21NSItemProviderReadingP", "dropLast"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderReadingP", "split"]
+- !private ["So21NSItemProviderWritingP", "dropLast"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So21NSItemProviderWritingP", "split"]
+- !private ["So15NSKeyedArchiverC", "archiveRootObject"]
+- !private ["So17NSKeyedUnarchiverC", "unarchiveObject"]
+- !private ["So16NSMutableCopyingP", "dropLast"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So16NSMutableCopyingP", "split"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "Campus"]
+- !private ["So8NSObjectC", "DEBUG"]
+- !private ["So8NSObjectC", "Data"]
+- ["So8NSObjectC", "Date"]
+- !private ["So8NSObjectC", "DispatchQueue"]
+- ["So8NSObjectC", "FratEvent"]
+- ["So8NSObjectC", "Fraternity"]
+- !private ["So8NSObjectC", "NSKeyedArchiver"]
+- !private ["So8NSObjectC", "NSKeyedUnarchiver"]
+- ["So8NSObjectC", "Quality"]
+- !private ["So8NSObjectC", "RMDate"]
+- !private ["So8NSObjectC", "RMFileManagement"]
+- !private ["So8NSObjectC", "RMImageQuality"]
+- !private ["So8NSObjectC", "RMNetwork"]
+- ["So8NSObjectC", "Set"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "UIImage"]
+- !private ["So8NSObjectC", "UIImagePNGRepresentation"]
+- !private ["So8NSObjectC", "URL"]
+- !private ["So8NSObjectC", "add"]
+- ["So8NSObjectC", "allEvents"]
+- !private ["So8NSObjectC", "archiveRootObject"]
+- !private ["So8NSObjectC", "async"]
+- !private ["So8NSObjectC", "campusSharedInstance"]
+- ["So8NSObjectC", "considerEventsBeforeToday"]
+- ["So8NSObjectC", "downloadedImageQuality"]
+- !private ["So8NSObjectC", "dropLast"]
+- !private ["So8NSObjectC", "events"]
+- ["So8NSObjectC", "favoritedFratEvents"]
+- ["So8NSObjectC", "favoritedFrats"]
+- ["So8NSObjectC", "filterEventsForFavorites"]
+- !private ["So8NSObjectC", "frat"]
+- ["So8NSObjectC", "fratNames"]
+- ["So8NSObjectC", "fraternitiesDict"]
+- ["So8NSObjectC", "getEvents"]
+- !private ["So8NSObjectC", "global"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "loadFavorites"]
+- !private ["So8NSObjectC", "name"]
+- !private ["So8NSObjectC", "print"]
+- ["So8NSObjectC", "pullEventsFromSQLDataBase"]
+- ["So8NSObjectC", "pullImage"]
+- ["So8NSObjectC", "saveFavorites"]
+- !private ["So8NSObjectC", "select"]
+- ["So8NSObjectC", "shared"]
+- !private ["So8NSObjectC", "sharedSQLHandler"]
+- !private ["So8NSObjectC", "split"]
+- !private ["So8NSObjectC", "startDate"]
+- !private ["So8NSObjectC", "unarchiveObject"]
+- ["So8NSObjectC", ""]
+- !private ["So16NSObjectProtocolP", "Campus"]
+- !private ["So16NSObjectProtocolP", "DEBUG"]
+- !private ["So16NSObjectProtocolP", "Data"]
+- !private ["So16NSObjectProtocolP", "Date"]
+- !private ["So16NSObjectProtocolP", "DispatchQueue"]
+- !private ["So16NSObjectProtocolP", "FratEvent"]
+- ["So16NSObjectProtocolP", "Fraternity"]
+- !private ["So16NSObjectProtocolP", "NSKeyedArchiver"]
+- !private ["So16NSObjectProtocolP", "NSKeyedUnarchiver"]
+- !private ["So16NSObjectProtocolP", "RMDate"]
+- !private ["So16NSObjectProtocolP", "RMFileManagement"]
+- !private ["So16NSObjectProtocolP", "RMImageQuality"]
+- !private ["So16NSObjectProtocolP", "RMNetwork"]
+- ["So16NSObjectProtocolP", "Set"]
+- ["So16NSObjectProtocolP", "String"]
+- !private ["So16NSObjectProtocolP", "UIImage"]
+- !private ["So16NSObjectProtocolP", "UIImagePNGRepresentation"]
+- !private ["So16NSObjectProtocolP", "URL"]
+- !private ["So16NSObjectProtocolP", "add"]
+- !private ["So16NSObjectProtocolP", "allEvents"]
+- !private ["So16NSObjectProtocolP", "archiveRootObject"]
+- !private ["So16NSObjectProtocolP", "async"]
+- !private ["So16NSObjectProtocolP", "campusSharedInstance"]
+- !private ["So16NSObjectProtocolP", "considerEventsBeforeToday"]
+- !private ["So16NSObjectProtocolP", "downloadedImageQuality"]
+- !private ["So16NSObjectProtocolP", "dropLast"]
+- !private ["So16NSObjectProtocolP", "events"]
+- !private ["So16NSObjectProtocolP", "favoritedFratEvents"]
+- !private ["So16NSObjectProtocolP", "favoritedFrats"]
+- !private ["So16NSObjectProtocolP", "frat"]
+- !private ["So16NSObjectProtocolP", "fraternitiesDict"]
+- !private ["So16NSObjectProtocolP", "global"]
+- ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "loadFavorites"]
+- !private ["So16NSObjectProtocolP", "name"]
+- !private ["So16NSObjectProtocolP", "print"]
+- !private ["So16NSObjectProtocolP", "pullEventsFromSQLDataBase"]
+- !private ["So16NSObjectProtocolP", "saveFavorites"]
+- !private ["So16NSObjectProtocolP", "select"]
+- !private ["So16NSObjectProtocolP", "shared"]
+- !private ["So16NSObjectProtocolP", "sharedSQLHandler"]
+- !private ["So16NSObjectProtocolP", "split"]
+- !private ["So16NSObjectProtocolP", "startDate"]
+- !private ["So16NSObjectProtocolP", "unarchiveObject"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "dropLast"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "split"]
+- !private ["So8NSStringC", "dropLast"]
+- !private ["So8NSStringC", "init"]
+- !private ["So8NSStringC", "split"]
+- !private ["s7NumericP", "hashValue"]
+- !private ["So15OHSerializationP", "dropLast"]
+- !private ["So15OHSerializationP", "init"]
+- !private ["So15OHSerializationP", "split"]
+- !private ["So9OS_objectC", "async"]
+- !private ["So9OS_objectC", "global"]
+- !private ["8Dispatch0A3QoSV0B6SClassO", "userInitiated"]
+- ["6RushMe7QualityO", "High"]
+- ["6RushMe7QualityO", "Low"]
+- ["6RushMe7QualityO", "Medium"]
+- ["6RushMe7QualityO", "__derived_enum_equals"]
+- ["6RushMe7QualityO", "deinit"]
+- ["6RushMe7QualityO", "hashValue"]
+- !private ["6RushMe6RMDateV", "Today"]
+- !private ["6RushMe16RMFileManagementV", "favoritedFratURL"]
+- !private ["6RushMe16RMFileManagementV", "fratImageURL"]
+- !private ["6RushMe14RMImageQualityV", "Low"]
+- !private ["6RushMe14RMImageQualityV", "Medium"]
+- !private ["6RushMe9RMNetworkV", "HTTP"]
+- ["s22RandomAccessCollectionP", "init"]
+- !private ["s22RandomAccessCollectionP", "last"]
+- !private ["s22RandomAccessCollectionP", "write"]
+- !private ["s26RangeReplaceableCollectionP", "dropLast"]
+- ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "last"]
+- !private ["s26RangeReplaceableCollectionP", "split"]
+- !private ["s26RangeReplaceableCollectionP", "write"]
+- !private ["s16RawRepresentableP", "orderedAscending"]
+- !private ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
+- !private ["10Foundation20ReferenceConvertibleP", "compare"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "path"]
+- !private ["10Foundation20ReferenceConvertibleP", "write"]
+- !private ["6RushMe10SQLHandlerC", "select"]
+- !private ["s8SequenceP", "contains"]
+- !private ["s8SequenceP", "count"]
+- !private ["s8SequenceP", "dropLast"]
+- ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "insert"]
+- !private ["s8SequenceP", "last"]
+- !private ["s8SequenceP", "split"]
+- !private ["s8SequenceP", "subscript"]
+- !private ["s8SequenceP", "write"]
+- !private ["s3SetV", "contains"]
+- ["s3SetV", "init"]
+- !private ["s3SetV", "insert"]
+- !private ["s10SetAlgebraP", "contains"]
+- ["s10SetAlgebraP", "init"]
+- !private ["s10SetAlgebraP", "insert"]
+- !private ["s13SignedIntegerP", "hashValue"]
+- !private ["s13SignedNumericP", "hashValue"]
+- !private ["s10StrideableP", "hashValue"]
+- !private ["SS", "dropLast"]
+- !private ["SS", "init"]
+- !private ["SS", "split"]
+- !private ["s14StringProtocolP", "dropLast"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s14StringProtocolP", "split"]
+- !private ["s16TextOutputStreamP", "dropLast"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "split"]
+- !private ["s20TextOutputStreamableP", "dropLast"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "split"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- !private ["So7UIImageC", "init"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "init"]
+- !private ["10Foundation3URLV", "appendingPathComponent"]
+- !private ["10Foundation3URLV", "init"]
+- !private ["10Foundation3URLV", "path"]
+- ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "last"]
+- !private ["s23_BidirectionalIndexableP", "dropLast"]
+- ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "last"]
+- !private ["s23_BidirectionalIndexableP", "split"]
+- !private ["s23_BidirectionalIndexableP", "write"]
+- !private ["s18_BitwiseOperationsP", "hashValue"]
+- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "last"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "dropLast"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "split"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "hashValue"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "dropLast"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "split"]
+- !private ["s56_ExpressibleByBuiltinUTF16ExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "dropLast"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "split"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "dropLast"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "split"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "appendingPathComponent"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "init"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "path"]
+- !private ["s26_ExpressibleByImageLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "dropLast"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "split"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "dropLast"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "split"]
+- !private ["s10_IndexableP", "contains"]
+- !private ["s10_IndexableP", "count"]
+- !private ["s10_IndexableP", "dropLast"]
+- ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "insert"]
+- !private ["s10_IndexableP", "last"]
+- !private ["s10_IndexableP", "split"]
+- !private ["s10_IndexableP", "subscript"]
+- !private ["s10_IndexableP", "write"]
+- !private ["s14_IndexableBaseP", "contains"]
+- !private ["s14_IndexableBaseP", "count"]
+- !private ["s14_IndexableBaseP", "dropLast"]
+- ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "insert"]
+- !private ["s14_IndexableBaseP", "last"]
+- !private ["s14_IndexableBaseP", "split"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- !private ["s14_IndexableBaseP", "write"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Campus"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DEBUG"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Data"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Date"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Fraternity"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSKeyedArchiver"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSKeyedUnarchiver"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFileManagement"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImageQuality"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMNetwork"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Set"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "String"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIImagePNGRepresentation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "URL"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "add"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "allEvents"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "archiveRootObject"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "campusSharedInstance"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "considerEventsBeforeToday"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "downloadedImageQuality"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dropLast"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "events"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFratEvents"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "frat"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesDict"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "global"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "loadFavorites"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pullEventsFromSQLDataBase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "saveFavorites"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "select"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "sharedSQLHandler"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "split"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "unarchiveObject"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- ["s17_MutableIndexableP", "init"]
+- !private ["s17_MutableIndexableP", "last"]
+- !private ["s17_MutableIndexableP", "write"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
+- !private ["s21_ObjectiveCBridgeableP", "compare"]
+- !private ["s21_ObjectiveCBridgeableP", "contains"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "dropLast"]
+- !private ["s21_ObjectiveCBridgeableP", "hashValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "insert"]
+- !private ["s21_ObjectiveCBridgeableP", "last"]
+- !private ["s21_ObjectiveCBridgeableP", "path"]
+- !private ["s21_ObjectiveCBridgeableP", "split"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "write"]
+- ["s22_RandomAccessIndexableP", "init"]
+- !private ["s22_RandomAccessIndexableP", "last"]
+- !private ["s22_RandomAccessIndexableP", "write"]
+- !private ["s26_RangeReplaceableIndexableP", "dropLast"]
+- ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "last"]
+- !private ["s26_RangeReplaceableIndexableP", "split"]
+- !private ["s26_RangeReplaceableIndexableP", "write"]
+- !private ["s11_StrideableP", "hashValue"]
+- !private ["s16_SwiftStringViewP", "dropLast"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "split"]
+depends-nominal:
+- "Sa"
+- "s23BidirectionalCollectionP"
+- !private "s13BinaryIntegerP"
+- !private "Sb"
+- "s7CVarArgP"
+- "6RushMe6CampusC"
+- !private "s9CharacterV"
+- "s10CollectionP"
+- !private "s10ComparableP"
+- !private "SC16ComparisonResultO"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation4DataV"
+- !private "10Foundation4DateV"
+- "s9DecodableP"
+- "s10DictionaryV"
+- !private "So14DispatchObjectC"
+- !private "So13DispatchQueueC"
+- "s9EncodableP"
+- "s9EquatableP"
+- !private "s5ErrorP"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
+- "6RushMe9FratEventC"
+- !private "6RushMe10FraternityC"
+- "s8HashableP"
+- !private "Si"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- "s17MutableCollectionP"
+- !private "So7NSCoderC"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So15NSKeyedArchiverC"
+- !private "So17NSKeyedUnarchiverC"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "s7NumericP"
+- !private "So15OHSerializationP"
+- !private "So9OS_objectC"
+- !private "8Dispatch0A3QoSV0B6SClassO"
+- "6RushMe7QualityO"
+- !private "6RushMe6RMDateV"
+- !private "6RushMe16RMFileManagementV"
+- !private "6RushMe14RMImageQualityV"
+- !private "6RushMe9RMNetworkV"
+- "s22RandomAccessCollectionP"
+- "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "10Foundation20ReferenceConvertibleP"
+- !private "6RushMe10SQLHandlerC"
+- "s8SequenceP"
+- "s3SetV"
+- "s10SetAlgebraP"
+- !private "s13SignedIntegerP"
+- !private "s13SignedNumericP"
+- !private "s10StrideableP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So29UIAccessibilityIdentificationP"
+- !private "So7UIImageC"
+- !private "So39UIItemProviderPresentationSizeProvidingP"
+- !private "10Foundation3URLV"
+- "s14_ArrayProtocolP"
+- "s23_BidirectionalIndexableP"
+- !private "s18_BitwiseOperationsP"
+- "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s56_ExpressibleByBuiltinUTF16ExtendedGraphemeClusterLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s34_ExpressibleByFileReferenceLiteralP"
+- !private "s26_ExpressibleByImageLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s17_MutableIndexableP"
+- "s21_ObjectiveCBridgeableP"
+- "s22_RandomAccessIndexableP"
+- "s26_RangeReplaceableIndexableP"
+- !private "s11_StrideableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
+interface-hash: "252ae02a67274bf92a6c252679ed3b69"

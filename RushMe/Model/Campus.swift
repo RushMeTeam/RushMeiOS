@@ -180,10 +180,13 @@ class Campus: NSObject {
     return [Date : FratEvent]()
   }
   func saveFavorites() {
-    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
-    if !isSuccessfulSave {
-      print("Errors with saving!")
+    DispatchQueue.global().async {
+      let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
+      if !isSuccessfulSave {
+        print("Errors with saving!")
+      }
     }
+    
   }
   static private func loadFavorites() -> [String]? {
     if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.favoritedFratURL.path) as? [String] {

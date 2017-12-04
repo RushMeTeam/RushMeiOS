@@ -2,15 +2,19 @@
 provides-top-level:
 - "IMAGE_CONST"
 - "COLOR_CONST"
+- "ANIM_CONST"
 provides-nominal:
 - "6RushMe11IMAGE_CONSTV"
 - "6RushMe11COLOR_CONSTV"
+- "6RushMe10ANIM_CONSTV"
 provides-member:
 - ["6RushMe11IMAGE_CONSTV", ""]
 - ["6RushMe11COLOR_CONSTV", ""]
+- ["6RushMe10ANIM_CONSTV", ""]
 provides-dynamic-lookup:
 depends-top-level:
 - "/"
+- "ANIM_CONST"
 - "BooleanLiteralType"
 - "CGFloat"
 - "COLOR_CONST"
@@ -19,6 +23,8 @@ depends-top-level:
 - "UIColor"
 - "UIImage"
 depends-member:
+- ["6RushMe10ANIM_CONSTV", "COLORING_TIME"]
+- ["6RushMe10ANIM_CONSTV", "init"]
 - ["s23BidirectionalCollectionP", "init"]
 - ["6RushMe11COLOR_CONSTV", "MENU_BUTTON_SELECTED_COLOR"]
 - ["6RushMe11COLOR_CONSTV", "MENU_COLOR"]
@@ -113,6 +119,7 @@ depends-member:
 - ["s26_RangeReplaceableIndexableP", "init"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
+- "6RushMe10ANIM_CONSTV"
 - "s23BidirectionalCollectionP"
 - "6RushMe11COLOR_CONSTV"
 - "s7CVarArgP"
@@ -211,4 +218,4 @@ depends-external:
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Google Drive/RushMe/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-interface-hash: "d078f8679a61b348358d66f1c0795a42"
+interface-hash: "b11740bb6916198129ee3c201b9b6b82"
