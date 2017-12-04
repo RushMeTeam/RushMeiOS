@@ -408,7 +408,6 @@
 				DB61D21A1F92B6CE009872DC /* Embed Frameworks */,
 				3DCFBEC0E8DA7B976094F45D /* [CP] Embed Pods Frameworks */,
 				4B1C7CD6E00A062AB790EEBC /* [CP] Copy Pods Resources */,
-				665ECE423FEC00F1CC5EB98B /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -616,21 +615,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RushMe-RushMeUITests/Pods-RushMe-RushMeUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		665ECE423FEC00F1CC5EB98B /* Tailor */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Tailor;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
-			showEnvVarsInLog = 1;
 		};
 		7FC15B42A0F38B0126C3C54D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1001,7 +985,6 @@
 		};
 		DB05F7731F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA1545654F3424CBF44F0D6D /* Pods-RushMeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1017,7 +1000,6 @@
 		};
 		DB05F7741F894A910090DEC3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1033,7 +1015,6 @@
 		};
 		DB05F7761F894A910090DEC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B97419B9AB376617C1B2B6B4 /* Pods-RushMe-RushMeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
@@ -1048,7 +1029,6 @@
 		};
 		DB05F7771F894A910090DEC3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B94D4ADAF90DF4AC8150A6A9 /* Pods-RushMe-RushMeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
@@ -1071,7 +1051,7 @@
 				DB05F76E1F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DB05F76F1F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMe" */ = {
 			isa = XCConfigurationList;
@@ -1080,7 +1060,7 @@
 				DB05F7711F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DB05F7721F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMeTests" */ = {
 			isa = XCConfigurationList;
@@ -1089,7 +1069,7 @@
 				DB05F7741F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DB05F7751F894A910090DEC3 /* Build configuration list for PBXNativeTarget "RushMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -1098,7 +1078,7 @@
 				DB05F7771F894A910090DEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

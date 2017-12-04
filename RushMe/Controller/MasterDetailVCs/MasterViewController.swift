@@ -166,6 +166,9 @@ class MasterViewController : UITableViewController {
                 }
                 Campus.shared.fraternitiesDict[name] = frat
                 Campus.shared.fratNames.append(name)
+                if Campus.shared.favoritedFrats.contains(name) {
+                  let _ = Campus.shared.getEvents(forFratWithName: name)
+                }
                 
               }
             }
@@ -295,17 +298,13 @@ class MasterViewController : UITableViewController {
           cell.imageBorderColor = UIColor.white.withAlphaComponent(0.5)
         }
       }
-      
-      
       return cell
     }
   }
-  
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Should only be able to do things to cells if there are actually fraternities represented
-    return !Campus.shared.fratNames.isEmpty
+    return !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
   }
-  
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     var fratName = ""
     var title =  RMMessage.Favorite
@@ -354,12 +353,3 @@ class MasterViewController : UITableViewController {
     dataUpdate()
   }
 }
-
-
-
-
-
-
-
-
-

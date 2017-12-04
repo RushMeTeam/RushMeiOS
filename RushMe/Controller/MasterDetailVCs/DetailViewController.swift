@@ -34,7 +34,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var mapView: MKMapView!
   var selectedFraternity: Fraternity? {
     didSet {
-      eventViewController?.selectedEvents = Array(selectedFraternity!.events.values)
+      if let frat = selectedFraternity {
+        eventViewController?.selectedEvents = Array(frat.events.values)
+        self.title = greekLetters(fromString: frat.name)
+      }
     }
   }
   @IBOutlet weak var openMapButton: UIButton!
@@ -79,7 +82,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       self.present(imageVC, animated: true, completion: {
         self.scrollView.setContentOffset(CGPoint.zero, animated: true)
-        
       })
     }
   }

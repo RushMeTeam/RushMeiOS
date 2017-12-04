@@ -44,11 +44,13 @@ class Campus: NSObject {
   private var allEvents = Set<FratEvent>()
   // The default quality at which an image should be downloaded
   var downloadedImageQuality : Quality = .Medium
-  
+  // Allows fraternity favorites to be loaded from a file
   convenience init(loadFromFile : Bool) {
     self.init()
-    if let favorites = Campus.loadFavorites() {
-     self.favoritedFrats = favorites
+    if loadFromFile {
+      if let favorites = Campus.loadFavorites() {
+        self.favoritedFrats = favorites
+      }
     }
   }
   
@@ -75,8 +77,8 @@ class Campus: NSObject {
   }
   
   // Create an URL that descibes the location of an image on a server,
-  // then (try to!) download the images. If anything goes wrong, return
-  // nil
+  // in addition to a local URL. Then (try to!) (down)load the image. 
+  // If anything goes wrong, return nil
   func pullImage(fromSource : String) -> UIImage? {
     var fileName = ""
     // Images are scaled to three different sizes:
@@ -88,11 +90,23 @@ class Campus: NSObject {
     // have a half-sized image named "image_Half.png"
     switch downloadedImageQuality {
     case .High:
+      // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
       fileName = fromSource
     case.Medium:
+      // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
       fileName = fromSource.dropLast(4) + RMImageQuality.Medium
     case.Low:
+      // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
       fileName = fromSource.dropLast(4) + RMImageQuality.Low
+    }
+    // Sigma_Delta_Cover_Image.png
+    let fixedPath = String(fileName.split(separator: "/").last!)
+    // .../local/on/device/path/Sigma_Delta_Cover_Image.png
+    let localFileURL = RMFileManagement.fratImageURL.appendingPathComponent(fixedPath)
+    if let imageData = try? Data.init(contentsOf: localFileURL) {
+      if let image = UIImage.init(data: imageData) {
+        return image
+      }
     }
     if (DEBUG) { print(fileName, separator: "", terminator: "") }
     let urlAsString = RMNetwork.HTTP +  fileName
@@ -104,8 +118,18 @@ class Campus: NSObject {
       if let data = try? Data.init(contentsOf: url){
         if (DEBUG) { print(".", separator: "", terminator: "") }
         // Try to downcase the retreived data to an image
-        if let im = UIImage(data: data) {
-          image = im
+        if let img = UIImage(data: data) {
+          image = img
+          if let imageData = UIImagePNGRepresentation(img) {
+            DispatchQueue.global().async {
+              do {
+                try imageData.write(to: localFileURL)
+              }
+              catch let e {
+                print(e.localizedDescription) 
+              }
+            }
+          }
           if (DEBUG) { print(".Done", separator: "", terminator: "") }
         }
       }
@@ -135,8 +159,6 @@ class Campus: NSObject {
     }
     // If not asyncrhonous, call function in (presumably) main thread
     return pullEventsFromSQLDataBase(fratName : fratName)
-    
-    
   }
   
   private func pullEventsFromSQLDataBase(fratName : String) -> [Date : FratEvent] {
@@ -147,8 +169,8 @@ class Campus: NSObject {
                                                   whereClause: "house = '" + fratName + "'") {
         for eventDict in fratEvents {
           if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
-            campusSharedInstance.favoritedFratEvents.insert(fEvent)
-            campusSharedInstance.allEvents.insert(fEvent)
+            self.favoritedFratEvents.insert(fEvent)
+            self.allEvents.insert(fEvent)
           }
         }
       }
@@ -158,13 +180,13 @@ class Campus: NSObject {
     return [Date : FratEvent]()
   }
   func saveFavorites() {
-    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.localURL.path)
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
     if !isSuccessfulSave {
       print("Errors with saving!")
     }
   }
   static private func loadFavorites() -> [String]? {
-    if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.localURL.path) as? [String] {
+    if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.favoritedFratURL.path) as? [String] {
       return favoritedFrats
     }
     else {

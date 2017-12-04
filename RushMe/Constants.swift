@@ -75,7 +75,8 @@ struct RMPropertyKeys {
 }
 struct RMFileManagement {
   static let Path = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-  static let localURL = Path.appendingPathComponent("favoritedFrats")
+  static let favoritedFratURL = Path.appendingPathComponent("favoritedFrats")
+  static let fratImageURL = Path
 }
 
 struct RMDate {
