@@ -9,9 +9,10 @@
 import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
-  var image : UIImage = RMImage.NoImage
+  var image: UIImage = RMImage.NoImage
   @IBOutlet var imageView: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
+
   override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -27,18 +28,18 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     self.imageView?.layer.masksToBounds = true
     self.imageView?.layer.cornerRadius = RMImage.CornerRadius
   }
-  
+
   override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
+
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return self.imageView
   }
-  
+
   func scrollViewDidZoom(_ scrollView: UIScrollView) {
-    if (scrollView.zoomScale < 0.75) {
+    if scrollView.zoomScale < 0.75 {
       self.dismiss(animated: true, completion: nil)
     }
   }

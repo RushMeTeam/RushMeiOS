@@ -11,10 +11,11 @@ import UIKit
 class AboutViewController: UIViewController {
 
   @IBOutlet var drawerButton: UIBarButtonItem!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    if (self.revealViewController() != nil) {
+    if self.revealViewController() != nil {
       // Allow drawer button to toggle the lefthand drawer menu
       drawerButton.target = self.revealViewController()
       drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
@@ -26,11 +27,12 @@ class AboutViewController: UIViewController {
     }
 
   @IBOutlet weak var authorsTextView: UITextView!
+
   override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation

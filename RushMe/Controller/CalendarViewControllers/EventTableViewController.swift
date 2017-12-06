@@ -13,14 +13,14 @@ fileprivate let tableViewCellIdentifier = "eventTBCell"
 
 class EventTableViewController: UITableViewController {
 
-  
-  var selectedEvents : [FratEvent]? = nil {
+
+  var selectedEvents: [FratEvent]? = nil {
     didSet {
       self.tableView.isScrollEnabled = selectedEvents != nil
       self.tableView.reloadData()
     }
   }
-  
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,15 +42,16 @@ class EventTableViewController: UITableViewController {
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
+
   override func tableView(_ tableView: UITableView,
                  canEditRowAt indexPath: IndexPath) -> Bool {
     return false
   }
-  
-  
+
+
   override func tableView(_ tableView: UITableView,
                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+
     if let events = selectedEvents {
       if events.count != 0 {
           if let event = selectedEvents?[indexPath.row] {
@@ -66,7 +67,7 @@ class EventTableViewController: UITableViewController {
               cell.timeLabel?.text = time
             }
             cell.eventNameLabel?.text = event.name
-            
+
             cell.fraternityNameLabel?.text = event.frat.name
             return cell
         }
@@ -76,8 +77,9 @@ class EventTableViewController: UITableViewController {
     cell.textLabel?.text = RMMessage.NoEvents
     cell.textLabel?.textAlignment = .center
     return cell
-    
+
   }
+
   override func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
     if let events = selectedEvents {
@@ -85,10 +87,11 @@ class EventTableViewController: UITableViewController {
     }
     return 1
   }
+
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 64
   }
-  
+
 
 
 }

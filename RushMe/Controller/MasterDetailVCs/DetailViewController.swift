@@ -17,20 +17,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet var profileImageView: UIImageView!
   @IBOutlet var underProfileLabel: UILabel!
   @IBOutlet var titleLabel: UILabel!
-  
+
   @IBOutlet weak var memberCountLabel: UILabel!
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
-  
-  
+
+
   @IBOutlet weak var favoritesButton: UIBarButtonItem!
   @IBOutlet weak var eventView: UIView!
-  var eventViewController : EventTableViewController? = nil
-  
+  var eventViewController: EventTableViewController? = nil
+
   @IBOutlet var blockTextView: UITextView!
-  
-  var mapItem : MKMapItem?
+
+  var mapItem: MKMapItem?
   @IBOutlet weak var mapView: MKMapView!
   var selectedFraternity: Fraternity? {
     didSet {
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }
   @IBOutlet weak var openMapButton: UIButton!
-  
+
   @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
     if let frat = self.selectedFraternity {
       if let index = Campus.shared.favoritedFrats.index(of: frat.name) {
@@ -54,12 +54,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
           self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
         })
-        
+
       }
     }
   }
-  
-  
+
+
   @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
     sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
 
@@ -79,21 +79,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       self.present(imageVC, animated: true, completion: {
         self.scrollView.setContentOffset(CGPoint.zero, animated: true)
-        
+
       })
     }
   }
+
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
     if sender.state == .began || sender.state == .changed {
       guard let senderView = sender.view else { return }
       self.scrollView.isScrollEnabled = false
       let currScale = senderView.frame.size.width/senderView.bounds.size.width
       var newScale = currScale*sender.scale
-      var maxScale : CGFloat = 2
-      if (sender.view == self.profileImageView) {
+      var maxScale: CGFloat = 2
+      if sender.view == self.profileImageView {
        maxScale = (self.view.bounds.width*0.9)/senderView.bounds.width
       }
-      let minScale : CGFloat = 1
+      let minScale: CGFloat = 1
       newScale = max(newScale, minScale) // MIN SCALE
       newScale = min(newScale, maxScale)
       if newScale == 1 {
@@ -104,7 +105,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       var transform = CGAffineTransform(scaleX: newScale, y: newScale)
       var pinchCenter = CGPoint(x: (location.x - senderView.bounds.midX)*overTime*1.5,
                                 y: (location.y - senderView.bounds.midY)*overTime*1.5)
-      
+
       if senderView == self.profileImageView {
           pinchCenter = CGPoint(x: (self.view.frame.width/2 - senderView.bounds.midX)*overTime/newScale,
                               y: 0)
@@ -114,15 +115,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       transform = transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
       senderView.transform = transform
-      //senderView.layer.shadowColor = UIColor.black.cgColor
+      // senderView.layer.shadowColor = UIColor.black.cgColor
       senderView.layer.shadowOpacity = Float(overTime)
       senderView.layer.shadowRadius = (overTime)*10.0
-      if (senderView != self.profileImageView) {
+      if senderView != self.profileImageView {
         self.setViews(toAlpha: 1 - overTime, except: senderView)
       }
-      
+
       sender.scale = 1
-      
+
     }
     else {
       self.scrollView.isScrollEnabled = true
@@ -132,15 +133,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         sender.view?.clipsToBounds = true
         self.setViews(toAlpha: 1)
       }, completion: { _ in
-       
-        
+
+
       })
-     
-      
+
+
     }
   }
-  
-  func setViews(toAlpha : CGFloat, except exceptedView : UIView? = nil) {
+
+  func setViews(toAlpha: CGFloat, except exceptedView: UIView? = nil) {
     let underlyingViews = [self.coverImageView, self.profileImageView, self.titleLabel,
                            self.eventView, self.blockTextView, self.underProfileLabel,
                            self.gpaLabel, self.memberCountLabel, self.staticGPALabel, self.staticMemberLabel]
@@ -151,24 +152,27 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }
 
-  
+
   @IBAction func openInMaps(_ sender: UIButton) {
-    if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil) }
+    if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil)
+
+    }
   }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.bringSubview(toFront: coverImageView)
     self.view.bringSubview(toFront: profileImageView)
-    
+
     coverImageView.image = RMImage.NoImage
     coverImageView.layer.masksToBounds = true
-    
+
     coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.shadowRadius = 20
     coverImageView.layer.shadowOpacity = 0
     coverImageView.layer.shadowColor = UIColor.black.cgColor
-    
+
     profileImageView.image = RMImage.NoImage
     profileImageView.layer.masksToBounds = false
     profileImageView.clipsToBounds = true
@@ -177,7 +181,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
     profileImageView.layer.borderWidth = 1
     profileImageView.setNeedsDisplay()
-    
+
     if let tbView = self.childViewControllers.first as? EventTableViewController {
       eventViewController = tbView
     }
@@ -203,7 +207,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     openMapButton.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
     openMapButton.layer.cornerRadius = 5
     openMapButton.layer.masksToBounds = true
-    
+
     self.underlyingView.bringSubview(toFront: mapView)
     self.underlyingView.bringSubview(toFront: openMapButton)
     // Do any additional setup after loading the view, typically from a nib.
@@ -221,10 +225,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.profileImageView.layer.zPosition = 10
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true
-    
+
     self.configureView()
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.profileImageView.transform = CGAffineTransform.identity
@@ -232,7 +236,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.coverImageView.transform = CGAffineTransform.identity
     self.coverImageView.alpha = 1
   }
-  
+
   func configureView() {
     if let frat = selectedFraternity {
       // Update the user interface for the detail item.
@@ -246,7 +250,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       if let memberCount = frat.getProperty(named: RMDatabaseKey.MemberCountKey) as? Int {
         self.memberCountLabel?.text = String(describing: memberCount)
       }
-      
+
       if Campus.shared.favoritedFrats.contains(frat.name) {
         self.favoritesButton.image = RMImage.FavoritesImageFilled
         self.profileImageView?.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
@@ -261,9 +265,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
           textView.sizeToFit()
           scrollView?.isScrollEnabled = true
           scrollView?.contentSize = textView.contentSize
-          //underlyingView?.frame.size = textView.contentSize
+          // underlyingView?.frame.size = textView.contentSize
           self.view.layoutSubviews()
-          
+
         }
       }
       if let coverImage = frat.getProperty(named: RMDatabaseKey.CoverImageKey) as? UIImage {
@@ -271,25 +275,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       else if let coverImage = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? UIImage {
         self.coverImageView?.image = coverImage
-        //self.coverImageView?.layer.shadowOpacity = 0.5
+        // self.coverImageView?.layer.shadowOpacity = 0.5
       }
       if let profileImage = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? UIImage {
         self.profileImageView?.image = profileImage
-        //self.profileImageView?.layer.shadowOpacity = 0.5
+        // self.profileImageView?.layer.shadowOpacity = 0.5
       }
       else if let previewImage = frat.getProperty(named: RMDatabaseKey.PreviewImageKey) as? UIImage {
         self.profileImageView?.image = previewImage
       }
       if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String {
-        
+
         let geoCoder = CLGeocoder()
-        
+
         geoCoder.geocodeAddressString(address, completionHandler: {
           (placemarks, error) in
           guard
             let placemarks = placemarks,
             let location = placemarks.first?.location
-            
+
             else {
               // handle no location found
               return
@@ -298,11 +302,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
           let annotation = MKPointAnnotation.init()
           self.mapItem = MKMapItem.init(placemark: MKPlacemark.init(coordinate: location.coordinate))
           self.mapItem?.name = frat.name
-          
+
           annotation.coordinate = location.coordinate
           annotation.title = frat.name
           annotation.subtitle = address
-          
+
           self.mapView.setCenter(annotation.coordinate, animated: false)
           self.mapView.addAnnotation(annotation)
         })
@@ -315,10 +319,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     coverImageView?.isUserInteractionEnabled = coverImageView.image != RMImage.NoImage
     profileImageView?.isUserInteractionEnabled = profileImageView.image != RMImage.NoImage
   }
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+
 }
-
-

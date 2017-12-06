@@ -15,7 +15,7 @@ import UIKit
 //      -- A preview image view which shows a preview photo
 //                  -- By default, it is IMAGE_CONST.NO_IMAGE
 //      -- A subheading label that presents the chapter's name
-class FratCell : UITableViewCell {
+class FratCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
   @IBOutlet var titleLabel: UILabel!
   // Preview image (e.g. a crest)
@@ -32,6 +32,7 @@ class FratCell : UITableViewCell {
         })
     }
   }
+  
   override func layoutSubviews() {
     super.layoutSubviews()
     // Mask to bounds so corners work
@@ -42,9 +43,10 @@ class FratCell : UITableViewCell {
       iView.layer.borderColor = imageBorderColor.cgColor
       iView.layer.borderWidth = 2
       // If there is no preview image
-      if (iView.image == nil){
+      if iView.image == nil {
         iView.image = RMImage.NoImage
       }
     }
   }
+
 }

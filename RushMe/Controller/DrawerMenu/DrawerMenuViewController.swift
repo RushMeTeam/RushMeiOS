@@ -12,18 +12,18 @@ import UIKit
 fileprivate let fraternitiesSegueIdentifier = "Fraternities"
 fileprivate let settingsSegueIdentifier = "Settings"
 fileprivate let calendarSegueIdentifier = "Calendar"
-// The DrawerMenuViewController handles 
+// The DrawerMenuViewController handles
 class DrawerMenuViewController: UITableViewController {
-  
+
   @IBOutlet var fraternitiesButton: UITableViewCell!
-  
+
   @IBOutlet var settingsButton: UITableViewCell!
-  
+
   @IBOutlet weak var calendarButton: UITableViewCell!
-  
+
   @IBOutlet weak var topCell: UITableViewCell!
-  var masterVC : UIViewController?
-  
+  var masterVC: UIViewController?
+
   override func viewDidLoad() {
     tableView.isScrollEnabled = false
     tableView.backgroundColor = RMColor.AppColor
@@ -33,7 +33,7 @@ class DrawerMenuViewController: UITableViewController {
     calendarButton.backgroundColor = UIColor.clear
     topCell.backgroundColor = UIColor.clear
   }
-  
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     fraternitiesButton.isUserInteractionEnabled = true
     settingsButton.isUserInteractionEnabled = true
@@ -42,30 +42,29 @@ class DrawerMenuViewController: UITableViewController {
     settingsButton.backgroundColor = UIColor.clear
     calendarButton.backgroundColor = UIColor.clear
     if let id = segue.identifier {
-      let selectedButton : UITableViewCell
-      if (id == fraternitiesSegueIdentifier){
+      let selectedButton: UITableViewCell
+      if id == fraternitiesSegueIdentifier {
         selectedButton = fraternitiesButton
         self.revealViewController().pushFrontViewController(masterVC, animated: true)
       }
-      else if (id == settingsSegueIdentifier){
+      else if id == settingsSegueIdentifier {
         selectedButton = settingsButton
       }
-      else if (id == calendarSegueIdentifier){
+      else if id == calendarSegueIdentifier {
         selectedButton = calendarButton
       }
       else {
        return
       }
       selectedButton.isSelected = true
-      UIView.animate(withDuration: RMAnimation.ColoringTime){
+      UIView.animate(withDuration: RMAnimation.ColoringTime) {
         selectedButton.backgroundColor = RMColor.MenuButtonSelectedColor
       }
-      
+
       selectedButton.isUserInteractionEnabled = false
     }
-    
-    
-  }
-  
-}
 
+
+  }
+
+}

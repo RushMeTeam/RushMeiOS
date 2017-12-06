@@ -14,12 +14,12 @@ class SettingsViewController: UIViewController {
   @IBOutlet var drawerButton: UIBarButtonItem!
 
   @IBOutlet weak var qualityPicker: UISegmentedControl!
-  
+
   @IBOutlet weak var displayPastEventsSwitch: UISwitch!
   @IBOutlet weak var dateLabel: UILabel!
-  
+
   override func viewDidLoad() {
-    if (self.revealViewController() != nil) {
+    if self.revealViewController() != nil {
       // Allow drawer button to toggle the lefthand drawer menu
       drawerButton.target = self.revealViewController()
       drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
@@ -42,10 +42,10 @@ class SettingsViewController: UIViewController {
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     navigationController?.navigationBar.tintColor = RMColor.AppColor
-    
-    
+
+
   }
-  
+
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     if qualityPicker?.selectedSegmentIndex == 0 {
@@ -59,21 +59,20 @@ class SettingsViewController: UIViewController {
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
   }
-  
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
-  
+
   /*
    // MARK: - Navigation
-   
+
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    // Get the new view controller using segue.destinationViewController.
    // Pass the selected object to the new view controller.
    }
    */
-  
+
 }
