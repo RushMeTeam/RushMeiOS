@@ -29,6 +29,7 @@ enum Quality {
  saving.
  */
 class Campus: NSObject {
+  // MARK: Member Variables
   // The user's favorite fraternities
   var favoritedFrats = [String]() {
     didSet {
@@ -44,6 +45,13 @@ class Campus: NSObject {
   private var allEvents = Set<FratEvent>()
   // The default quality at which an image should be downloaded
   var downloadedImageQuality : Quality = .Medium
+  var considerEventsBeforeToday = true
+  // MARK: Shared Instance (singleton)
+  static var shared : Campus {
+    get {
+      return campusSharedInstance
+    }
+  }
   // Allows fraternity favorites to be loaded from a file
   convenience init(loadFromFile : Bool) {
     self.init()
@@ -53,7 +61,6 @@ class Campus: NSObject {
       }
     }
   }
-  
   // Remove any FratEvents that are not from favorited frats
   func filterEventsForFavorites()  {
     let favoriteSet = Set.init(favoritedFrats)
@@ -68,12 +75,6 @@ class Campus: NSObject {
       }
     }
     favoritedFratEvents = newEvents
-  }
-  var considerEventsBeforeToday = true
-  static var shared : Campus {
-    get {
-      return campusSharedInstance
-    }
   }
   
   // Create an URL that descibes the location of an image on a server,
@@ -108,15 +109,15 @@ class Campus: NSObject {
         return image
       }
     }
-    if (DEBUG) { print(fileName, separator: "", terminator: "") }
+    //if (DEBUG) { print(fileName, separator: "", terminator: "") }
     let urlAsString = RMNetwork.HTTP +  fileName
     var image : UIImage? = nil
     // Try to create an URL from the string-- upon fail return nil
     if let url = URL(string: urlAsString) {
-      if (DEBUG) { print(".", separator: "", terminator: "") }
+      //if (DEBUG) { print(".", separator: "", terminator: "") }
       // Try to retreive the image-- upon fail return nil
       if let data = try? Data.init(contentsOf: url){
-        if (DEBUG) { print(".", separator: "", terminator: "") }
+        //if (DEBUG) { print(".", separator: "", terminator: "") }
         // Try to downcase the retreived data to an image
         if let img = UIImage(data: data) {
           image = img
@@ -130,11 +131,11 @@ class Campus: NSObject {
               }
             }
           }
-          if (DEBUG) { print(".Done", separator: "", terminator: "") }
+          //if (DEBUG) { print(".Done", separator: "", terminator: "") }
         }
       }
     }
-    if (DEBUG) { print("") }
+    //if (DEBUG) { print("") }
     // May be nil!
     return image
   }
@@ -165,7 +166,7 @@ class Campus: NSObject {
     // Try to grab the fraternity (see if it exists)
     if let fraternity = self.fraternitiesDict[fratName] {
       // Pull all this house's events from the SQL database
-      if let fratEvents = sharedSQLHandler.select(fromTable : "events",
+      if let fratEvents = SQLHandler.shared.select(fromTable : "events",
                                                   whereClause: "house = '" + fratName + "'") {
         for eventDict in fratEvents {
           if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
@@ -179,6 +180,7 @@ class Campus: NSObject {
     // Failed, provide no dates
     return [Date : FratEvent]()
   }
+  // MARK: Save To and Load From File
   func saveFavorites() {
     DispatchQueue.global().async {
       let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
@@ -186,7 +188,6 @@ class Campus: NSObject {
         print("Errors with saving!")
       }
     }
-    
   }
   static private func loadFavorites() -> [String]? {
     if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.favoritedFratURL.path) as? [String] {

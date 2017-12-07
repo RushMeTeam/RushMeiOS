@@ -9,12 +9,10 @@
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
-
   var eventsToday : [FratEvent]?
   @IBOutlet weak var eventsLabel: UILabel!
   @IBOutlet weak var dayLabel: UILabel!
   func setupView() {
     self.eventsLabel?.textColor = RMColor.AppColor
   }
-
 }

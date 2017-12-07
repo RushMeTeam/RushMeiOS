@@ -19,14 +19,14 @@ let LOADIMAGES = true
 fileprivate let fratCellIdentifier = "FratCell"
 
 class MasterViewController : UITableViewController {
-  
+  // MARK: Member Variables
   // The hard data used in the table
   var lastPullDescription = ""
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   var viewingFavorites = false
   @IBOutlet weak var favoritesBarButton: UIBarButtonItem!
-  
+  // MARK: IBActions
   @IBAction func favoritesToggled(_ sender: UIBarButtonItem) {
     if (refreshControl!.isRefreshing) {
       return
@@ -60,12 +60,12 @@ class MasterViewController : UITableViewController {
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       self.revealViewController().frontViewShadowOpacity = 0
     }
-    
     self.revealViewController().rearViewRevealOverdraw = 0
     // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
     }
+    
     // Make it look good
     //navigationController?.navigationBar.alpha = 0.2
     navigationController?.navigationBar.isTranslucent = false
@@ -73,8 +73,6 @@ class MasterViewController : UITableViewController {
     navigationController?.navigationBar.tintColor = RMColor.AppColor
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     // Ensure the menu button toggles the menu
     openBarButtonItem.target = self
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
@@ -85,7 +83,7 @@ class MasterViewController : UITableViewController {
     refreshControl = UIRefreshControl()
     refreshControl?.tintColor = RMColor.AppColor
     refreshControl?.tintAdjustmentMode = .normal
-    self.refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    refreshControl?.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl?.beginRefreshing()
     
     
@@ -95,18 +93,23 @@ class MasterViewController : UITableViewController {
   func dataUpdate() {
     self.pullFratsFromSQLDatabase(types: ["all"])
   }
+  
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    self.handleRefresh(refreshControl: refreshControl!)
+    if let _ = refreshControl {
+      self.handleRefresh(refreshControl: refreshControl!)
+    }
+    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     
   }
-  
+  // MARK: Data Request
   @objc func pullFratsFromSQLDatabase(types : [String]) {
     self.refreshControl?.beginRefreshing()
     DispatchQueue.global(qos: .userInitiated).async {
       var dictArray = [Dictionary<String, Any>()]
       if types.count == 1 && types[0] == "all" {
-        if let arr = sharedSQLHandler.select(aField: "*", fromTable: "house_info") {
+        if let arr = SQLHandler.shared.select(aField: "*", fromTable: "house_info") {
           dictArray = arr
         }
       }
@@ -116,7 +119,7 @@ class MasterViewController : UITableViewController {
           querystring += type + ", "
         }
         querystring = String(querystring.dropLast(2))
-        if let arr = sharedSQLHandler .select(aField: querystring, fromTable: "house_info") {
+        if let arr = SQLHandler.shared.select(aField: querystring, fromTable: "house_info") {
           dictArray = arr
         }
       }
@@ -171,7 +174,6 @@ class MasterViewController : UITableViewController {
                 if Campus.shared.favoritedFrats.contains(name) {
                   let _ = Campus.shared.getEvents(forFratWithName: name)
                 }
-                
               }
             }
           }
@@ -179,7 +181,7 @@ class MasterViewController : UITableViewController {
       }
       DispatchQueue.main.async {
         self.tableView.reloadData()
-        self.refreshControl!.endRefreshing()
+        self.refreshControl?.endRefreshing()
       }
     }
   }
@@ -198,7 +200,6 @@ class MasterViewController : UITableViewController {
     super.viewWillAppear(animated)
     self.favoritesBarButton.isEnabled = !Campus.shared.favoritedFrats.isEmpty || self.viewingFavorites
   }
-  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
@@ -265,9 +266,9 @@ class MasterViewController : UITableViewController {
       }
       let cell = tableView.dequeueReusableCell(withIdentifier: fratCellIdentifier) as! FratCell
       if let frat = Campus.shared.fraternitiesDict[Campus.shared.favoritedFrats[indexPath.row]] {
-        cell.titleLabel!.text = frat.name
-        cell.subheadingLabel!.text = frat.chapter
-        cell.previewImageView!.image = frat.previewImage
+        cell.titleLabel?.text = frat.name
+        cell.subheadingLabel?.text = frat.chapter
+        cell.previewImageView?.image = frat.previewImage
       }
       cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
       return cell
@@ -288,9 +289,9 @@ class MasterViewController : UITableViewController {
       }
       let cell = tableView.dequeueReusableCell(withIdentifier: fratCellIdentifier) as! FratCell
       if let frat = Campus.shared.fraternitiesDict[Campus.shared.fratNames[indexPath.row]] {
-        cell.titleLabel!.text = frat.name
-        cell.subheadingLabel!.text = frat.chapter
-        cell.previewImageView!.image = frat.previewImage
+        cell.titleLabel?.text = frat.name
+        cell.subheadingLabel?.text = frat.chapter
+        cell.previewImageView?.image = frat.previewImage
         if Campus.shared.favoritedFrats.contains(frat.name) {
           cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
         }
@@ -328,7 +329,7 @@ class MasterViewController : UITableViewController {
         Campus.shared.favoritedFrats.append(fratName)
         action.backgroundColor = RMColor.AppColor
         if let cell = self.tableView.cellForRow(at: cellIndex) as? FratCell {
-            cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)        }
+          cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)        }
       }
       else {
         action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
@@ -339,7 +340,6 @@ class MasterViewController : UITableViewController {
         if (self.viewingFavorites) {
           self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
         }
-        
       }
       self.favoritesBarButton.isEnabled = !Campus.shared.favoritedFrats.isEmpty || self.viewingFavorites
     })

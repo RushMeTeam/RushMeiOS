@@ -27,6 +27,9 @@ class SettingsViewController: UIViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
+    self.qualityPicker.tintColor = RMColor.AppColor
+    self.displayPastEventsSwitch.tintColor = RMColor.AppColor
+    self.displayPastEventsSwitch.onTintColor = RMColor.AppColor
     dateLabel.text = DateFormatter.localizedString(from: RMDate.Today, dateStyle: .medium, timeStyle: .short)
     displayPastEventsSwitch.isOn = Campus.shared.considerEventsBeforeToday
     if Campus.shared.downloadedImageQuality == .High {

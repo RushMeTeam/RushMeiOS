@@ -44,8 +44,6 @@ class Fraternity : NSObject {
     if self.properties["profileImage"] != nil {
       self.properties["profileImage"] = previewImage
     }
-    
-    
   }
   
   func getProperty(named : String) -> Any? {

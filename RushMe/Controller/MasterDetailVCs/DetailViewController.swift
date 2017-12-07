@@ -11,27 +11,25 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
+  // MARK: IBOutlets
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet var underlyingView: UIView!
   @IBOutlet var coverImageView: UIImageView!
   @IBOutlet var profileImageView: UIImageView!
   @IBOutlet var underProfileLabel: UILabel!
   @IBOutlet var titleLabel: UILabel!
-  
   @IBOutlet weak var memberCountLabel: UILabel!
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
-  
-  
   @IBOutlet weak var favoritesButton: UIBarButtonItem!
   @IBOutlet weak var eventView: UIView!
-  var eventViewController : EventTableViewController? = nil
-  
   @IBOutlet var blockTextView: UITextView!
-  
-  var mapItem : MKMapItem?
   @IBOutlet weak var mapView: MKMapView!
+  @IBOutlet weak var openMapButton: UIButton!
+  // MARK: Member Variables
+  var eventViewController : EventTableViewController? = nil
+  var mapItem : MKMapItem?
   var selectedFraternity: Fraternity? {
     didSet {
       if let frat = selectedFraternity {
@@ -40,8 +38,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
   }
-  @IBOutlet weak var openMapButton: UIButton!
-  
+  // MARK: IBActions
   @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
     if let frat = self.selectedFraternity {
       if let index = Campus.shared.favoritedFrats.index(of: frat.name) {
@@ -61,8 +58,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
   }
-  
-  
   @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
     sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
 
@@ -140,23 +135,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
      
       
     }
+  }  
+  @IBAction func openInMaps(_ sender: UIButton) {
+    if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil) }
   }
-  
+  // MARK: Set View Alphas
   func setViews(toAlpha : CGFloat, except exceptedView : UIView? = nil) {
     let underlyingViews = [self.coverImageView, self.profileImageView, self.titleLabel,
                            self.eventView, self.blockTextView, self.underProfileLabel,
                            self.gpaLabel, self.memberCountLabel, self.staticGPALabel, self.staticMemberLabel]
     for view in underlyingViews {
       if let _ = view, view != exceptedView {
-       view!.alpha = toAlpha
+        view!.alpha = toAlpha
       }
     }
   }
-
-  
-  @IBAction func openInMaps(_ sender: UIButton) {
-    if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil) }
-  }
+  // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.bringSubview(toFront: coverImageView)
@@ -185,7 +179,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
     mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
     mapView.showsBuildings = true
-    mapView.mapType = .hybrid
     mapView.showsCompass = false
     mapView.isZoomEnabled = false
     mapView.isScrollEnabled = false
@@ -211,7 +204,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     // Do any additional setup after loading the view, typically from a nib.
     configureView()
     if let frat = selectedFraternity {
-      if let event = Array(Campus.shared.getEvents(forFratWithName: frat.name)).filter({ (key, value) -> Bool in
+      if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
         return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
       }).last?.value {
         eventViewController?.selectedEvents = [event]
@@ -234,7 +227,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.coverImageView.transform = CGAffineTransform.identity
     self.coverImageView.alpha = 1
   }
-  
+  // MARK: ConfigureView
   func configureView() {
     if let frat = selectedFraternity {
       // Update the user interface for the detail item.

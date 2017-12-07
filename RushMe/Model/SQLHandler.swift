@@ -9,7 +9,7 @@
 import UIKit
 import OHMySQL
 
-let sharedSQLHandler = SQLHandler.init(userName: RMNetwork.userName,
+fileprivate let sharedSQLHandler = SQLHandler.init(userName: RMNetwork.userName,
                                        password: RMNetwork.password,
                                        serverIP: RMNetwork.IP,
                                        dbName: RMNetwork.databaseName,
@@ -39,6 +39,11 @@ class SQLHandler: NSObject {
     context = OHMySQLQueryContext()
     context!.storeCoordinator = coordinator!
     super.init()
+  }
+  static var shared : SQLHandler {
+    get {
+      return sharedSQLHandler 
+    }
   }
   
   func select(aField : String? = nil, fromTable : String? = nil, whereClause : String? = nil) -> [Dictionary<String, Any>]? {

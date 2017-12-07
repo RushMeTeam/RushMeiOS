@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     self.window!.makeKeyAndVisible()
   
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-    
+    UINavigationBar.appearance().tintColor = RMColor.AppColor
     
     
     
