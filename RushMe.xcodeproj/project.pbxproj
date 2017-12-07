@@ -20,8 +20,6 @@
 		DB05F7601F894A910090DEC3 /* RushMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75F1F894A910090DEC3 /* RushMeTests.swift */; };
 		DB05F76B1F894A910090DEC3 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
 		DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
-		DB05F77B1F89A6A40090DEC3 /* chiPhiImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */; };
-		DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */; };
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
 		DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FA3D91F8A8EB7006480BE /* FratCell.swift */; };
@@ -52,9 +50,6 @@
 		DB457D7A1FCB682900410149 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
 		DB457D7B1FCB682900410149 /* defaultImage.png in Sources */ = {isa = PBXBuildFile; fileRef = DB346C2F1FB104EB003E59AE /* defaultImage.png */; };
 		DB457D7C1FCB682900410149 /* appIcon.png in Sources */ = {isa = PBXBuildFile; fileRef = DB9E4E841F90302D002CA218 /* appIcon.png */; };
-		DB457D7D1FCB682900410149 /* rushCalendar.jpg in Sources */ = {isa = PBXBuildFile; fileRef = DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */; };
-		DB457D7E1FCB682900410149 /* Elipses.png in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A231F8AA638001645D5 /* Elipses.png */; };
-		DB457D7F1FCB682900410149 /* chiPhiImage.png in Sources */ = {isa = PBXBuildFile; fileRef = DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */; };
 		DB457D801FCB682900410149 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
 		DB457D811FCB682900410149 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7561F894A910090DEC3 /* Info.plist */; };
 		DB457D821FCB690C00410149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
@@ -76,9 +71,6 @@
 		DB457D921FCB690C00410149 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
 		DB457D931FCB690C00410149 /* defaultImage.png in Sources */ = {isa = PBXBuildFile; fileRef = DB346C2F1FB104EB003E59AE /* defaultImage.png */; };
 		DB457D941FCB690C00410149 /* appIcon.png in Sources */ = {isa = PBXBuildFile; fileRef = DB9E4E841F90302D002CA218 /* appIcon.png */; };
-		DB457D951FCB690C00410149 /* rushCalendar.jpg in Sources */ = {isa = PBXBuildFile; fileRef = DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */; };
-		DB457D961FCB690C00410149 /* Elipses.png in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A231F8AA638001645D5 /* Elipses.png */; };
-		DB457D971FCB690C00410149 /* chiPhiImage.png in Sources */ = {isa = PBXBuildFile; fileRef = DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */; };
 		DB457D981FCB690C00410149 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
 		DB457D991FCB690C00410149 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7561F894A910090DEC3 /* Info.plist */; };
 		DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
@@ -97,7 +89,6 @@
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
 		DBF07A221F8AA576001645D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
-		DBF07A241F8AA638001645D5 /* Elipses.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF07A231F8AA638001645D5 /* Elipses.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,8 +147,6 @@
 		DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RushMeUITests.swift; sourceTree = "<group>"; };
 		DB05F76C1F894A910090DEC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB05F7781F894AFB0090DEC3 /* Fraternity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fraternity.swift; sourceTree = "<group>"; };
-		DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chiPhiImage.png; sourceTree = "<group>"; };
-		DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rushCalendar.jpg; sourceTree = "<group>"; };
 		DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +166,6 @@
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBF07A211F8AA576001645D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DBF07A231F8AA638001645D5 /* Elipses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elipses.png; sourceTree = "<group>"; };
 		E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMe/Pods-RushMe.release.xcconfig"; sourceTree = "<group>"; };
 		F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMeTests/Pods-RushMeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,9 +311,6 @@
 			children = (
 				DB346C2F1FB104EB003E59AE /* defaultImage.png */,
 				DB9E4E841F90302D002CA218 /* appIcon.png */,
-				DB05F77C1F89A8B80090DEC3 /* rushCalendar.jpg */,
-				DBF07A231F8AA638001645D5 /* Elipses.png */,
-				DB05F77A1F89A6A40090DEC3 /* chiPhiImage.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -519,11 +504,8 @@
 				DB457D641FCB649A00410149 /* Info.plist in Resources */,
 				DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */,
 				DB457D671FCB649F00410149 /* Info.plist in Resources */,
-				DBF07A241F8AA638001645D5 /* Elipses.png in Resources */,
 				DB346C301FB104EB003E59AE /* defaultImage.png in Resources */,
-				DB05F77B1F89A6A40090DEC3 /* chiPhiImage.png in Resources */,
 				DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */,
-				DB05F77D1F89A8B80090DEC3 /* rushCalendar.jpg in Resources */,
 				DB05F7501F894A910090DEC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -767,9 +749,6 @@
 				DB457D7A1FCB682900410149 /* RushMe-Bridging-Header.h in Sources */,
 				DB457D7B1FCB682900410149 /* defaultImage.png in Sources */,
 				DB457D7C1FCB682900410149 /* appIcon.png in Sources */,
-				DB457D7D1FCB682900410149 /* rushCalendar.jpg in Sources */,
-				DB457D7E1FCB682900410149 /* Elipses.png in Sources */,
-				DB457D7F1FCB682900410149 /* chiPhiImage.png in Sources */,
 				DB457D801FCB682900410149 /* Assets.xcassets in Sources */,
 				DB457D811FCB682900410149 /* Info.plist in Sources */,
 				DB8997F41FAC0320006A5246 /* CalendarViewController.swift in Sources */,
@@ -802,9 +781,6 @@
 				DB457D921FCB690C00410149 /* RushMe-Bridging-Header.h in Sources */,
 				DB457D931FCB690C00410149 /* defaultImage.png in Sources */,
 				DB457D941FCB690C00410149 /* appIcon.png in Sources */,
-				DB457D951FCB690C00410149 /* rushCalendar.jpg in Sources */,
-				DB457D961FCB690C00410149 /* Elipses.png in Sources */,
-				DB457D971FCB690C00410149 /* chiPhiImage.png in Sources */,
 				DB457D981FCB690C00410149 /* Assets.xcassets in Sources */,
 				DB457D991FCB690C00410149 /* Info.plist in Sources */,
 				DB8997F51FAC0320006A5246 /* CalendarViewController.swift in Sources */,
