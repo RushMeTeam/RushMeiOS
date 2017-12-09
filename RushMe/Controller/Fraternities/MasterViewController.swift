@@ -32,8 +32,14 @@ class MasterViewController : UITableViewController {
       return
     }
     viewingFavorites = !viewingFavorites
-    if !viewingFavorites { favoritesBarButton.image = RMImage.FavoritesImageUnfilled }
-    else { favoritesBarButton.image = RMImage.FavoritesImageFilled }
+    if !viewingFavorites {
+        //favoritesBarButton.image = RMImage.FavoritesImageUnfilled
+        favoritesBarButton.title = "Favorites"
+    }
+    else {
+        //favoritesBarButton.image = RMImage.FavoritesImageFilled
+        favoritesBarButton.title = "All"
+    }
     
     refreshControl?.isEnabled = !viewingFavorites
     self.favoritesBarButton.isEnabled = !Campus.shared.favoritedFrats.isEmpty || self.viewingFavorites

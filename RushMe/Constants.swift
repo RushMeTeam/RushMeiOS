@@ -55,6 +55,9 @@ struct RMMessage {
   static let Unfavorite = "Unfavorite"
   static let Sharing = "Here are all the events I'll be going to this rush!"
 }
+struct RMFratPropertyKeys {
+ static let fratMapAnnotation = "Annotation"
+}
 
 struct RMDatabaseKey {
   static let NameKey = "name"
@@ -72,6 +75,7 @@ struct RMDatabaseKey {
 
 struct RMPropertyKeys {
  static let FavoriteFraternities = "FavoriteFrats"
+  
 }
 struct RMFileManagement {
   static let Path = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!

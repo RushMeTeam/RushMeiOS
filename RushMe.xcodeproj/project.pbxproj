@@ -42,8 +42,6 @@
 		DB457D721FCB682900410149 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB457D731FCB682900410149 /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */; };
 		DB457D741FCB682900410149 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
-		DB457D751FCB682900410149 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
-		DB457D761FCB682900410149 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DB457D771FCB682900410149 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
 		DB457D781FCB682900410149 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
 		DB457D791FCB682900410149 /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
@@ -62,8 +60,6 @@
 		DB457D8A1FCB690C00410149 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB457D8B1FCB690C00410149 /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */; };
 		DB457D8C1FCB690C00410149 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
-		DB457D8D1FCB690C00410149 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
-		DB457D8E1FCB690C00410149 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DB457D8F1FCB690C00410149 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
 		DB457D901FCB690C00410149 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
 		DB457D911FCB690C00410149 /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
@@ -74,6 +70,7 @@
 		DB457D991FCB690C00410149 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7561F894A910090DEC3 /* Info.plist */; };
 		DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
 		DB457D9B1FCB6B1C00410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
+		DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */; };
 		DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
 		DB8997EB1FABFBA9006A5246 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EA1FABFBA9006A5246 /* Campus.swift */; };
@@ -153,6 +150,7 @@
 		DB346C2F1FB104EB003E59AE /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FratEvent.swift; sourceTree = "<group>"; };
+		DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
@@ -281,24 +279,25 @@
 			path = RushMeUITests;
 			sourceTree = "<group>";
 		};
-		DB346C2A1FB103B4003E59AE /* CalendarViewControllers */ = {
+		DB346C2A1FB103B4003E59AE /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
 				DB8997F21FAC0320006A5246 /* CalendarViewController.swift */,
 				DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */,
 			);
-			path = CalendarViewControllers;
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		DB346C2B1FB103CA003E59AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				DB394E971FD10AFE004BF952 /* ImageViewController.swift */,
-				DBD1404A1F92846E00945D9B /* SWRevealVC */,
-				DBD140461F9283BD00945D9B /* AuxilliaryViewControllers */,
-				DB346C2A1FB103B4003E59AE /* CalendarViewControllers */,
-				DBD1404B1F92848700945D9B /* MasterDetailVCs */,
-				DBD140491F92845100945D9B /* DrawerMenu */,
+				DB5789811FDC6C5C0083CB6C /* About */,
+				DBD1404B1F92848700945D9B /* Fraternities */,
+				DB346C2A1FB103B4003E59AE /* Calendar */,
+				DB5789801FDC6C170083CB6C /* Maps */,
+				DB5789821FDC6C630083CB6C /* Settings */,
+				DBD140491F92845100945D9B /* Drawer Menu */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,13 +320,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DBD140461F9283BD00945D9B /* AuxilliaryViewControllers */ = {
+		DB5789801FDC6C170083CB6C /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		DB5789811FDC6C5C0083CB6C /* About */ = {
 			isa = PBXGroup;
 			children = (
 				DBD140401F90FCE800945D9B /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		DB5789821FDC6C630083CB6C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */,
 			);
-			path = AuxilliaryViewControllers;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		DBD140471F92840700945D9B /* TableViewCells */ = {
@@ -351,30 +365,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DBD140491F92845100945D9B /* DrawerMenu */ = {
+		DBD140491F92845100945D9B /* Drawer Menu */ = {
 			isa = PBXGroup;
 			children = (
+				DBD1404A1F92846E00945D9B /* SlideoutMenu (SWRevealVC) */,
 				DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */,
 			);
-			path = DrawerMenu;
+			path = "Drawer Menu";
 			sourceTree = "<group>";
 		};
-		DBD1404A1F92846E00945D9B /* SWRevealVC */ = {
+		DBD1404A1F92846E00945D9B /* SlideoutMenu (SWRevealVC) */ = {
 			isa = PBXGroup;
 			children = (
 				DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */,
 				DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */,
 			);
-			path = SWRevealVC;
+			path = "SlideoutMenu (SWRevealVC)";
 			sourceTree = "<group>";
 		};
-		DBD1404B1F92848700945D9B /* MasterDetailVCs */ = {
+		DBD1404B1F92848700945D9B /* Fraternities */ = {
 			isa = PBXGroup;
 			children = (
 				DB05F74A1F894A910090DEC3 /* MasterViewController.swift */,
 				DB05F74C1F894A910090DEC3 /* DetailViewController.swift */,
 			);
-			path = MasterDetailVCs;
+			path = Fraternities;
 			sourceTree = "<group>";
 		};
 		DBDB5BCE1FD9942A000319D4 /* CollectionViewCells */ = {
@@ -698,6 +713,7 @@
 				DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */,
 				DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */,
 				DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */,
+				DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */,
 				DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */,
 				DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */,
 				DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */,
@@ -731,8 +747,6 @@
 				DB457D721FCB682900410149 /* EventTableViewCell.swift in Sources */,
 				DB457D731FCB682900410149 /* SWRevealViewController.h in Sources */,
 				DB457D741FCB682900410149 /* SWRevealViewController.m in Sources */,
-				DB457D751FCB682900410149 /* AboutViewController.swift in Sources */,
-				DB457D761FCB682900410149 /* SettingsViewController.swift in Sources */,
 				DB457D771FCB682900410149 /* MasterViewController.swift in Sources */,
 				DB457D781FCB682900410149 /* DetailViewController.swift in Sources */,
 				DB457D791FCB682900410149 /* DrawerMenuViewController.swift in Sources */,
@@ -762,8 +776,6 @@
 				DB457D8A1FCB690C00410149 /* EventTableViewCell.swift in Sources */,
 				DB457D8B1FCB690C00410149 /* SWRevealViewController.h in Sources */,
 				DB457D8C1FCB690C00410149 /* SWRevealViewController.m in Sources */,
-				DB457D8D1FCB690C00410149 /* AboutViewController.swift in Sources */,
-				DB457D8E1FCB690C00410149 /* SettingsViewController.swift in Sources */,
 				DB457D8F1FCB690C00410149 /* MasterViewController.swift in Sources */,
 				DB457D901FCB690C00410149 /* DetailViewController.swift in Sources */,
 				DB457D911FCB690C00410149 /* DrawerMenuViewController.swift in Sources */,

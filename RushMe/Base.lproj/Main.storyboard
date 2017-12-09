@@ -623,6 +623,54 @@
             </objects>
             <point key="canvasLocation" x="1524" y="128"/>
         </scene>
+        <!--Maps-->
+        <scene sceneID="AdF-Wu-7KL">
+            <objects>
+                <viewController id="pqG-g4-aqb" customClass="MapViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybridFlyover" showsUserLocation="YES" id="f9s-mo-AVI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="pqG-g4-aqb" id="LyA-hE-I4B"/>
+                        </connections>
+                    </mapView>
+                    <navigationItem key="navigationItem" title="Maps" id="Moe-Lb-fFS">
+                        <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="upV-Wa-RQ0"/>
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="K10-FL-rFK">
+                            <connections>
+                                <action selector="favoritesButtonHit:" destination="pqG-g4-aqb" id="154-g2-ZiH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="drawerButton" destination="upV-Wa-RQ0" id="Df6-Hp-BL8"/>
+                        <outlet property="favoritesButton" destination="K10-FL-rFK" id="lkR-6Z-JJo"/>
+                        <outlet property="mapView" destination="f9s-mo-AVI" id="LKg-Nk-cO1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzx-jf-LI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4286" y="579"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v8c-00-jWD">
+            <objects>
+                <navigationController id="k3M-Sm-5Za" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="36w-HN-g2n">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zOx-cZ-bDe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="pqG-g4-aqb" kind="relationship" relationship="rootViewController" id="DXk-Ry-d3f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTc-oN-oa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3420" y="579"/>
+        </scene>
         <!--Drawer Menu View Controller-->
         <scene sceneID="w5P-H8-j1y">
             <objects>
@@ -737,8 +785,42 @@
                                             <segue destination="Yr7-Bk-TIM" kind="custom" identifier="Calendar" customClass="SWRevealViewControllerSeguePushController" id="SMY-EX-mOs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Settings Button" rowHeight="48" id="zTz-gX-4yz">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Map Button" rowHeight="48" id="XQM-40-JZd">
                                         <rect key="frame" x="0.0" y="352" width="375" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XQM-40-JZd" id="wwZ-gS-Hvu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="I0Q-nv-gY2">
+                                                    <rect key="frame" x="8" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="dce-sl-1WM"/>
+                                                        <constraint firstAttribute="width" constant="32" id="hWv-5s-H0k"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeT-4u-XtO">
+                                                    <rect key="frame" x="48" y="14" width="327" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="I0Q-nv-gY2" firstAttribute="centerY" secondItem="wwZ-gS-Hvu" secondAttribute="centerY" id="CWJ-lC-l1V"/>
+                                                <constraint firstItem="HeT-4u-XtO" firstAttribute="centerY" secondItem="I0Q-nv-gY2" secondAttribute="centerY" id="EDg-ZX-IUw"/>
+                                                <constraint firstItem="HeT-4u-XtO" firstAttribute="leading" secondItem="I0Q-nv-gY2" secondAttribute="trailing" constant="8" id="Egc-D7-KAJ"/>
+                                                <constraint firstItem="I0Q-nv-gY2" firstAttribute="leading" secondItem="wwZ-gS-Hvu" secondAttribute="leading" constant="8" id="lXF-q4-ctf"/>
+                                                <constraint firstAttribute="trailing" secondItem="HeT-4u-XtO" secondAttribute="trailing" id="mq3-gv-bDy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="k3M-Sm-5Za" kind="custom" identifier="Maps" customClass="SWRevealViewControllerSeguePushController" id="XWb-ec-dAf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Settings Button" rowHeight="48" id="zTz-gX-4yz">
+                                        <rect key="frame" x="0.0" y="400" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zTz-gX-4yz" id="YTz-F2-9dv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -782,6 +864,7 @@
                     <connections>
                         <outlet property="calendarButton" destination="NAq-GP-pGL" id="uA1-Ca-Lz4"/>
                         <outlet property="fraternitiesButton" destination="FDJ-jQ-Tkr" id="S14-L8-Abb"/>
+                        <outlet property="mapButton" destination="XQM-40-JZd" id="xns-cf-m4I"/>
                         <outlet property="settingsButton" destination="zTz-gX-4yz" id="4Sz-0Z-qrC"/>
                         <outlet property="topCell" destination="zWI-xB-dqd" id="YzL-yU-IL0"/>
                     </connections>
@@ -997,7 +1080,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="RushMe" largeTitleDisplayMode="always" id="Zdf-7t-Un8">
                         <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="hN2-4n-0qh"/>
-                        <barButtonItem key="rightBarButtonItem" image="FavoritesUnfilled" id="tdK-W6-DVB">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="tdK-W6-DVB">
                             <connections>
                                 <action selector="favoritesToggled:" destination="7bK-jq-Zjz" id="LIk-Lo-fOY"/>
                             </connections>
@@ -1036,6 +1119,7 @@
         <image name="EventsIcon" width="24" height="24"/>
         <image name="FavoritesUnfilled" width="24" height="24"/>
         <image name="FraternitiesIcon" width="24" height="24"/>
+        <image name="MapsIcon" width="48" height="48"/>
         <image name="RushMeLogo" width="1597" height="1824"/>
         <image name="SettingsIcon" width="24" height="24"/>
         <image name="defaultImage" width="2509" height="1667"/>

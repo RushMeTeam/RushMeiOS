@@ -36,6 +36,9 @@ class Campus: NSObject {
      self.saveFavorites()
     }
   }
+  var hasFavorites : Bool {
+    return favoritedFrats.count > 0
+  }
   // The name of every fraternity, in download order
   var fratNames = [String]()
   // Refer to each fraternity by its name, in no order
