@@ -8,6 +8,8 @@
 
 import UIKit
 import OHMySQL
+import Firebase
+import Chatto
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -18,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     // Create the window
+    
     self.window = UIWindow(frame: UIScreen.main.bounds)
     self.window!.backgroundColor = UIColor.white
     
@@ -42,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     swRevealView.setFront(splitVC, animated: true)
     swRevealView.setRear(navDrawerView, animated: true)
     
+    
     // Set Root view and make it visible
     self.window!.rootViewController = swRevealView
     self.window!.makeKeyAndVisible()
@@ -49,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     UINavigationBar.appearance().tintColor = RMColor.AppColor
     
-    
+    FirebaseApp.configure()
     
     return true
   }

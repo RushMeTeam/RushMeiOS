@@ -9,6 +9,11 @@ target 'RushMe' do
 
   pod 'OHMySQL'
   
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Chatto', '>= 3.2.0'
+
   # Pods for RushMe
   target 'RushMeTests' do
     inherit! :search_paths

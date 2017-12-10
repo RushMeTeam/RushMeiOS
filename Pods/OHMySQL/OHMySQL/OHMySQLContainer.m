@@ -1,5 +1,5 @@
-//  Created by Oleg on 6/20/16.
-//  Copyright © 2016 Oleg Hnidets. All rights reserved.
+//  Created by Oleg Hnidets on 6/20/16.
+//  Copyright © 2016-2017 Oleg Hnidets. All rights reserved.
 //
 
 #import "OHMySQLContainer.h"
@@ -10,16 +10,16 @@ static OHMySQLContainer *_sharedManager = nil;
 @implementation OHMySQLContainer
 
 + (OHMySQLContainer *)sharedManager {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedManager = [OHMySQLContainer new];
-    });
-    
-    return _sharedManager;
+	return [self sharedContainer];
 }
 
 + (OHMySQLContainer *)sharedContainer {
-	return [self sharedManager];
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		_sharedManager = [OHMySQLContainer new];
+	});
+
+	return _sharedManager;
 }
 
 - (OHMySQLStoreCoordinator *)storeCoordinator {

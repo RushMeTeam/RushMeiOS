@@ -320,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8a-ui-INZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1204" y="1460"/>
+            <point key="canvasLocation" x="-452" y="1460"/>
         </scene>
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
@@ -655,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzx-jf-LI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2060" y="2203"/>
+            <point key="canvasLocation" x="-1282" y="2203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v8c-00-jWD">
@@ -674,7 +674,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TTc-oN-oa9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2060" y="1460"/>
+            <point key="canvasLocation" x="-1282" y="1460"/>
         </scene>
         <!--Events-->
         <scene sceneID="y0x-hM-Qtb">
@@ -770,6 +770,25 @@
             </objects>
             <point key="canvasLocation" x="-2895.1999999999998" y="2202.5487256371816"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="ClB-pa-CS1">
+            <objects>
+                <viewController id="63e-xj-hbI" customClass="ChatViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JZj-I4-NnE"/>
+                        <viewControllerLayoutGuide type="bottom" id="OIY-HP-bUO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MRj-oL-N2W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GDX-0M-7DF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DRS-li-cnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2119" y="2203"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="SxQ-og-l6w">
             <objects>
@@ -785,6 +804,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLb-71-Cue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2895" y="1460"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aKZ-g4-TKQ">
+            <objects>
+                <navigationController id="mIg-HS-OmC" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OHg-XX-W6a">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="63e-xj-hbI" kind="relationship" relationship="rootViewController" id="ZfJ-Hj-SfN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DeR-dx-6qw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2118" y="1460"/>
         </scene>
         <!--Drawer Menu View Controller-->
         <scene sceneID="w5P-H8-j1y">
@@ -934,7 +969,7 @@
                                             <segue destination="cNh-i9-1rP" kind="custom" identifier="Events" customClass="SWRevealViewControllerSeguePushController" id="0Fq-Xx-mmZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Events" rowHeight="48" id="NFZ-yC-mcE">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Chat Button" rowHeight="48" id="NFZ-yC-mcE">
                                         <rect key="frame" x="0.0" y="400" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NFZ-yC-mcE" id="THu-ZH-U5i">
@@ -964,6 +999,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="mIg-HS-OmC" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="EnJ-r4-RiP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Map" rowHeight="48" id="XQM-40-JZd">
                                         <rect key="frame" x="0.0" y="448" width="375" height="48"/>
@@ -1162,7 +1200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rmf-pU-hMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1204" y="2203"/>
+            <point key="canvasLocation" x="-452" y="2203"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="asi-5D-uB4">
