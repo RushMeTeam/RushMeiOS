@@ -71,6 +71,7 @@
 		DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
 		DB457D9B1FCB6B1C00410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
 		DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */; };
+		DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */; };
 		DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
 		DB8997EB1FABFBA9006A5246 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EA1FABFBA9006A5246 /* Campus.swift */; };
@@ -151,6 +152,7 @@
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FratEvent.swift; sourceTree = "<group>"; };
 		DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullEventsListTableViewController.swift; sourceTree = "<group>"; };
 		DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
@@ -295,6 +297,7 @@
 				DB5789811FDC6C5C0083CB6C /* About */,
 				DBD1404B1F92848700945D9B /* Fraternities */,
 				DB346C2A1FB103B4003E59AE /* Calendar */,
+				DB5789851FDCAA8A0083CB6C /* Events */,
 				DB5789801FDC6C170083CB6C /* Maps */,
 				DB5789821FDC6C630083CB6C /* Settings */,
 				DBD140491F92845100945D9B /* Drawer Menu */,
@@ -342,6 +345,14 @@
 				DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		DB5789851FDCAA8A0083CB6C /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		DBD140471F92840700945D9B /* TableViewCells */ = {
@@ -718,6 +729,7 @@
 				DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */,
 				DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */,
 				DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */,
+				DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */,
 				DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,

@@ -117,7 +117,7 @@ class RushCalendarManager: NSObject {
    an ICS file, and secondly it saves that file to the disk.
  
  */
-  static func exportAsICS(events : [FratEvent]) -> URL? {
+  static func exportAsICS(events : Set<FratEvent>) -> URL? {
     // Create the Array in which we will store the events
     var iCalEvents = [Event]()
     // Run through the FratEvents, add as much information

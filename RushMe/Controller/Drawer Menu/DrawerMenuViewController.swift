@@ -13,64 +13,68 @@ fileprivate let fraternitiesSegueIdentifier = "Fraternities"
 fileprivate let settingsSegueIdentifier = "Settings"
 fileprivate let calendarSegueIdentifier = "Calendar"
 fileprivate let mapSegueIdentifier = "Maps"
+fileprivate let eventsSegueIdentifier = "Events"
 // The DrawerMenuViewController handles 
 class DrawerMenuViewController: UITableViewController {
   
+  @IBOutlet var eventsButton: UITableViewCell!
   @IBOutlet var fraternitiesButton: UITableViewCell!
   @IBOutlet var settingsButton: UITableViewCell!
-  @IBOutlet weak var calendarButton: UITableViewCell!
-  @IBOutlet weak var mapButton: UITableViewCell!
-  @IBOutlet weak var topCell: UITableViewCell!
+  @IBOutlet var calendarButton: UITableViewCell!
+  @IBOutlet var mapButton: UITableViewCell!
+  @IBOutlet var topCell: UITableViewCell!
   
+  @IBOutlet var buttons: [UITableViewCell]!
+//  
+//  var buttons : [String : UITableViewCell] {
+//    get {
+//      return [fraternitiesSegueIdentifier : self.fraternitiesButton, 
+//              settingsSegueIdentifier     : self.settingsButton, 
+//              mapSegueIdentifier          : self.mapButton, 
+//              calendarSegueIdentifier     : self.calendarButton,
+//              eventsSegueIdentifier       : self.eventsButton,
+//              "" : self.topCell]
+//    }
+//  }
   var masterVC : UIViewController?
   
   override func viewDidLoad() {
     tableView.isScrollEnabled = false
     tableView.backgroundColor = RMColor.AppColor
     self.view.backgroundColor = RMColor.AppColor
-    fraternitiesButton?.backgroundColor = RMColor.MenuButtonSelectedColor
-    settingsButton.backgroundColor = UIColor.clear
-    calendarButton.backgroundColor = UIColor.clear
-    mapButton.backgroundColor = UIColor.clear
-    topCell.backgroundColor = UIColor.clear
+    fraternitiesButton.backgroundColor = RMColor.MenuButtonSelectedColor
+//    for button in buttons {
+//     button.isUserInteractionEnabled = true
+//      button.backgroundColor = UIColor.clear
+//    }
+//    fraternitiesButton?.backgroundColor = RMColor.MenuButtonSelectedColor
+//    fraternitiesButton?.isUserInteractionEnabled = false
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    fraternitiesButton.isUserInteractionEnabled = true
-    settingsButton.isUserInteractionEnabled = true
-    calendarButton.isUserInteractionEnabled = true
-    mapButton.isUserInteractionEnabled = true
-    fraternitiesButton.backgroundColor = UIColor.clear
-    settingsButton.backgroundColor = UIColor.clear
-    calendarButton.backgroundColor = UIColor.clear
-    mapButton.backgroundColor = UIColor.clear
     if let id = segue.identifier {
-      let selectedButton : UITableViewCell
-      if (id == fraternitiesSegueIdentifier){
-        selectedButton = fraternitiesButton
-        self.revealViewController().pushFrontViewController(masterVC, animated: true)
+      var selectedButton : UITableViewCell? 
+      for button in buttons {
+        if button.reuseIdentifier == id{
+          selectedButton = button
+        }
+        else {
+          button.backgroundColor = UIColor.clear
+        }
+        button.isUserInteractionEnabled = true
       }
-      else if (id == settingsSegueIdentifier){
-        selectedButton = settingsButton
+      if let _ = selectedButton {
+        selectedButton!.isSelected = true
+        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+          selectedButton!.backgroundColor = RMColor.MenuButtonSelectedColor
+        }, completion: { (_) in
+          selectedButton!.isUserInteractionEnabled = false
+        })
+        if selectedButton == fraternitiesButton {
+         self.revealViewController().pushFrontViewController(masterVC, animated: true) 
+        }
       }
-      else if (id == calendarSegueIdentifier){
-        selectedButton = calendarButton
-      }
-      else if (id == mapSegueIdentifier) {
-        selectedButton = mapButton
-      }
-      else {
-       return
-      }
-      selectedButton.isSelected = true
-      UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-        selectedButton.backgroundColor = RMColor.MenuButtonSelectedColor
-      }, completion: { (_) in
-        selectedButton.isUserInteractionEnabled = false
-      })
     }
-    
-    
   }
   
 }

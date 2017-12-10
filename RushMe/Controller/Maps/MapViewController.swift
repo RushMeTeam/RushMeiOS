@@ -65,8 +65,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     super.viewWillAppear(animated)
     self.loadAnnotations(fromAllFrats: true, animated: false)
     self.favoritesButton.isEnabled = Campus.shared.hasFavorites
-    
-    
   }
   
   func loadAnnotations(fromAllFrats: Bool = true, animated : Bool = true) {

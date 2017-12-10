@@ -12,7 +12,7 @@ fileprivate let emptyCellIdentifier = "emptyCell"
 fileprivate let tableViewCellIdentifier = "eventTBCell"
 
 class EventTableViewController: UITableViewController {
-  
+  var provideDate = false
   // MARK: Member Variables
   var selectedEvents : [FratEvent]? = nil {
     didSet {
@@ -54,19 +54,8 @@ class EventTableViewController: UITableViewController {
       if events.count != 0 {
         if let event = selectedEvents?[indexPath.row] {
           let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! EventTableViewCell
-          cell.timeLabel.isHidden = false
-          cell.fraternityNameLabel.isHidden = false
-          cell.eventNameLabel.isHidden = false
-          cell.textLabel?.isHidden = true
-          let end = event.endDate.formatToHour()
-          let start = event.startDate.formatToHour()
-          if start != end {
-            let time = start + "-" + end
-            cell.timeLabel?.text = time
-          }
-          cell.eventNameLabel?.text = event.name
-          
-          cell.fraternityNameLabel?.text = event.frat.name
+          cell.event = event
+          cell.provideDate = self.provideDate
           return cell
         }
       }

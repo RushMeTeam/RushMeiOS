@@ -28,9 +28,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       // Do nothing-- already loaded
     }
     else {
-      self.fileURL = RushCalendarManager.exportAsICS(events: Array(Campus.shared.favoritedFratEvents))
+      self.fileURL = RushCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
-    
     if let url = self.fileURL {
       let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
                                                 applicationActivities: nil)
@@ -73,18 +72,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    Campus.shared.filterEventsForFavorites()
     DispatchQueue.global().async {
       self.fileURL =
-        RushCalendarManager.exportAsICS(events: Array(Campus.shared.favoritedFratEvents))
+        RushCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
-    self.firstEvent = Campus.shared.favoritedFratEvents.min(by: {
-      (thisEvent, thatEvent) in
-      return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
-    })
+    self.firstEvent = Campus.shared.firstEvent
     
-    shareButton.isEnabled = Campus.shared.favoritedFratEvents.count != 0
-    if (Campus.shared.favoritedFratEvents.count != 0) {
+    shareButton.isEnabled = Campus.shared.favoritedEvents.count != 0
+    if (Campus.shared.favoritedEvents.count != 0) {
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
       navigationController?.navigationBar.tintColor = RMColor.AppColor
@@ -123,7 +118,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
     cell.setupView()
-    if (Campus.shared.favoritedFratEvents.count == 0) {
+    if (Campus.shared.favoritedEvents.count == 0) {
       cell.eventsLabel?.isHidden = true
       if (indexPath.row < 7) {
         cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
@@ -150,7 +145,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       cell.layer.cornerRadius = RMImage.CornerRadius
       cell.layer.masksToBounds = true
     }
-    cell.eventsToday = Campus.shared.favoritedFratEvents.filter({
+    cell.eventsToday = Campus.shared.favoritedEvents.filter({
       (event) in
       return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
     })

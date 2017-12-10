@@ -27,7 +27,7 @@ class FratEvent: NSObject {
     self.location = atLocation
     let dateArr = onDate.split(separator: "/")
     if (dateArr.count != 3){ return nil }
-  
+    
     if let year = NumberFormatter().number(from: String(dateArr[2]))?.intValue {
       if let month = NumberFormatter().number(from: String(dateArr[0]))?.intValue {
         if let day = NumberFormatter().number(from: String(dateArr[1]))?.intValue {
@@ -44,9 +44,9 @@ class FratEvent: NSObject {
           }
           startDate = DateComponents(calendar: self.calendar,
                                      year: year, month: month, day: day, hour: startHour, minute: startMin).date!
-//          if Date().compare(startDate) == ComparisonResult.orderedDescending {
-//            return nil
-//          }
+          //          if Date().compare(startDate) == ComparisonResult.orderedDescending {
+          //            return nil
+          //          }
           if let _ = endingAt {
             let splitEndingTime = endingAt!.split(separator: ":")
             endHour = NumberFormatter().number(from: String(splitEndingTime[0]))?.intValue
@@ -67,6 +67,13 @@ class FratEvent: NSObject {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  var dayKey : String {
+    return DateFormatter.localizedString(from: self.startDate, dateStyle: .medium, timeStyle: .none)
+  }
+  static func <(lhs : FratEvent, rhs : FratEvent) -> Bool {
+   return lhs.startDate < rhs.startDate 
+  }
+  
 }
 // Make a date, such as Sunday, November 22nd, 12:00PM return its time, as a string, i.e. "12:00PM"
 // An extension to Date that empowers the FratEvent class.
@@ -82,5 +89,5 @@ extension Date {
     return hour + ":" +  min + " " + AmPm
     
   }
-
+  
 }

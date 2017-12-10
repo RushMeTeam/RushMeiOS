@@ -33,22 +33,98 @@ class Campus: NSObject {
   // The user's favorite fraternities
   var favoritedFrats = [String]() {
     didSet {
-     self.saveFavorites()
+      self.saveFavorites()
+      self.firstEvent_ = nil
+      self.eventsByDay_ = nil
+      self.favoritedEvents_ = nil
+      self.favoritedEventsByDay_ = nil
     }
   }
   var hasFavorites : Bool {
-    return favoritedFrats.count > 0
+    return !favoritedFrats.isEmpty
   }
   // The name of every fraternity, in download order
   var fratNames = [String]()
   // Refer to each fraternity by its name, in no order
   var fraternitiesDict = [String : Fraternity]()
   // FratEvents, unordered
-  private(set) var favoritedFratEvents = Set<FratEvent>()
+  private var favoritedEvents_ : Set<FratEvent>? = nil
+  var favoritedEvents : Set<FratEvent> {
+    get {
+      if favoritedEvents_ == nil {
+        favoritedEvents_ = self.allEvents.filter({ (event) -> Bool in
+          return self.favoritedFrats.contains(event.frat.name)
+        })
+      }
+      return favoritedEvents_!
+    }
+  }
+  private var eventsByDay_ : [[FratEvent]]? = nil
+  var eventsByDay : [[FratEvent]] {
+    get {
+      if eventsByDay_ == nil {
+        eventsByDay_ = [[FratEvent]]()
+        for daysEvents in fratEventsByDay.values {
+          let futureDaysEvents = daysEvents.filter({ (event) -> Bool in
+            return considerEventsBeforeToday || event.startDate.compare(RMDate.Today) != .orderedAscending
+          }).sorted { (first, second) -> Bool in
+            return first.startDate < second.startDate 
+          }
+          if futureDaysEvents.count > 0 {
+            eventsByDay_!.append(futureDaysEvents)
+          }
+        }
+        eventsByDay_!.sort(by: { (first, second) -> Bool in
+          return first[0].startDate < second[0].startDate
+        })
+      }
+      return eventsByDay_!
+    }
+  }
+  private var favoritedEventsByDay_ : [[FratEvent]]? = nil
+  var favoritedEventsByDay : [[FratEvent]] {
+    get {
+      if favoritedEventsByDay_ == nil {
+        favoritedEventsByDay_ = [[FratEvent]]()
+        for daysEvents in eventsByDay {
+          let favoritedEventsToday = daysEvents.filter({ (event) -> Bool in
+            return favoritedFrats.contains(event.frat.name)
+          })
+          if !favoritedEventsToday.isEmpty {
+              favoritedEventsByDay_!.append(favoritedEventsToday)
+          }
+        }
+      }
+      return favoritedEventsByDay_!
+    }
+  }
+  private var fratEventsByDay = [String : [FratEvent]]()
   private var allEvents = Set<FratEvent>()
+  private var firstEvent_ : FratEvent? = nil
+  var firstEvent : FratEvent? {
+    get {
+      if firstEvent_ == nil {
+        firstEvent_ = favoritedEvents.min(by: {
+          (thisEvent, thatEvent) in
+          return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
+        })
+      }
+      return firstEvent_!
+    }
+  }
+  
   // The default quality at which an image should be downloaded
   var downloadedImageQuality : Quality = .Medium
-  var considerEventsBeforeToday = true
+  var considerEventsBeforeToday = true {
+    willSet {
+      if newValue != self.considerEventsBeforeToday {
+        self.firstEvent_ = nil
+        self.eventsByDay_ = nil
+        self.favoritedEvents_ = nil
+        self.favoritedEventsByDay_ = nil 
+      }
+    }
+  }
   // MARK: Shared Instance (singleton)
   static var shared : Campus {
     get {
@@ -65,20 +141,28 @@ class Campus: NSObject {
     }
   }
   // Remove any FratEvents that are not from favorited frats
-  func filterEventsForFavorites()  {
-    let favoriteSet = Set.init(favoritedFrats)
-    var newEvents = Set<FratEvent>()
-    for event in allEvents {
-      if favoriteSet.contains(event.frat.name) {
-        // If not considering events before today and this event is not after today
-        if !considerEventsBeforeToday && event.startDate.compare(RMDate.Today) == .orderedAscending {
-          continue
-        }
-        newEvents.insert(event)
-      }
-    }
-    favoritedFratEvents = newEvents
-  }
+//  func filterEventsForFavorites()  {
+//    let favoriteSet = Set.init(favoritedFrats)
+//    var newEventsByDay = [String : [FratEvent]]()
+//    var newEvents = Set<FratEvent>()
+//    for event in allEvents {
+//      if favoriteSet.contains(event.frat.name) {
+//        // If not considering events before today and this event is not after today
+//        if !considerEventsBeforeToday && event.startDate.compare(RMDate.Today) == .orderedAscending {
+//          continue
+//        }
+//        if let _ = newEventsByDay[event.dayKey] {
+//          print("did this")
+//          newEventsByDay[event.dayKey]!.append(event)
+//        }
+//        else {
+//          newEventsByDay[event.dayKey] = [event] 
+//        }
+//        newEvents.insert(event)
+//      }
+//    }
+//    favoritedEvents = newEvents
+//  }
   
   // Create an URL that descibes the location of an image on a server,
   // in addition to a local URL. Then (try to!) (down)load the image. 
@@ -170,10 +254,15 @@ class Campus: NSObject {
     if let fraternity = self.fraternitiesDict[fratName] {
       // Pull all this house's events from the SQL database
       if let fratEvents = SQLHandler.shared.select(fromTable : "events",
-                                                  whereClause: "house = '" + fratName + "'") {
+                                                   whereClause: "house = '" + fratName + "'") {
         for eventDict in fratEvents {
           if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
-            self.favoritedFratEvents.insert(fEvent)
+            if let _ = fratEventsByDay[fEvent.dayKey] {
+              fratEventsByDay[fEvent.dayKey]!.append(fEvent)
+            }
+            else {
+              fratEventsByDay[fEvent.dayKey] = [fEvent] 
+            }
             self.allEvents.insert(fEvent)
           }
         }

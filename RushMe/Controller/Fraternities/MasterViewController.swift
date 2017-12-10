@@ -24,7 +24,21 @@ class MasterViewController : UITableViewController {
   var lastPullDescription = ""
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
-  var viewingFavorites = false
+  var viewingFavorites = false {
+    didSet {
+      if !viewingFavorites {
+        //favoritesBarButton.image = RMImage.FavoritesImageUnfilled
+        favoritesBarButton.title = "Favorites"
+      }
+      else {
+        //favoritesBarButton.image = RMImage.FavoritesImageFilled
+        favoritesBarButton.title = "All"
+      }
+      self.reloadTableView()
+      refreshControl?.isEnabled = !viewingFavorites
+      self.favoritesBarButton.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+    }
+  }
   @IBOutlet weak var favoritesBarButton: UIBarButtonItem!
   // MARK: IBActions
   @IBAction func favoritesToggled(_ sender: UIBarButtonItem) {
@@ -32,19 +46,11 @@ class MasterViewController : UITableViewController {
       return
     }
     viewingFavorites = !viewingFavorites
-    if !viewingFavorites {
-        //favoritesBarButton.image = RMImage.FavoritesImageUnfilled
-        favoritesBarButton.title = "Favorites"
-    }
-    else {
-        //favoritesBarButton.image = RMImage.FavoritesImageFilled
-        favoritesBarButton.title = "All"
-    }
     
-    refreshControl?.isEnabled = !viewingFavorites
-    self.favoritesBarButton.isEnabled = !Campus.shared.favoritedFrats.isEmpty || self.viewingFavorites
+    
+    
     //self.tableView.reloadData()
-    self.reloadTableView()
+    
   }
   func reloadTableView() {
     UIView.transition(with: tableView,
@@ -177,9 +183,8 @@ class MasterViewController : UITableViewController {
                 }
                 Campus.shared.fraternitiesDict[name] = frat
                 Campus.shared.fratNames.append(name)
-                if Campus.shared.favoritedFrats.contains(name) {
-                  let _ = Campus.shared.getEvents(forFratWithName: name)
-                }
+                let _ = Campus.shared.getEvents(forFratWithName: name)
+                
               }
             }
           }

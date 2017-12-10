@@ -58,6 +58,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
   }
+  // Would like to add 3D touch support
   @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
     sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
 
@@ -208,6 +209,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
       }).last?.value {
         eventViewController?.selectedEvents = [event]
+        eventViewController?.provideDate = true
       }
       else {
         eventViewController?.selectedEvents = nil

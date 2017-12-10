@@ -22,11 +22,12 @@ class AboutViewController: UIViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     navigationController?.navigationBar.tintColor = RMColor.AppColor
-    self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+    
     authorsTextView.text = "iOS App: Adam Kuniholm\nDatabase: Stephen Notley\nWebfront: Andie Labgold, with help from Benjamin Crevier and Jim Hines."
     }
 
