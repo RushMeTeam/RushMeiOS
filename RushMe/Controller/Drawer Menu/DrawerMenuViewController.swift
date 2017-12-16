@@ -23,7 +23,7 @@ class DrawerMenuViewController: UITableViewController {
   @IBOutlet var calendarButton: UITableViewCell!
   @IBOutlet var mapButton: UITableViewCell!
   @IBOutlet var topCell: UITableViewCell!
-  
+  @IBOutlet var chatButton: UITableViewCell!
   @IBOutlet var buttons: [UITableViewCell]!
 //  
 //  var buttons : [String : UITableViewCell] {
@@ -73,9 +73,20 @@ class DrawerMenuViewController: UITableViewController {
         if selectedButton == fraternitiesButton {
          self.revealViewController().pushFrontViewController(masterVC, animated: true) 
         }
+        if selectedButton == chatButton {
+          //self.revealViewController().pushFrontViewController(storyboard!.instantiateViewController(withIdentifier: "chatNavVC"), animated: true)
+         //self.revealViewController().pushFrontViewController(storyboard!.instantiateViewController(withIdentifier: "chatNavVC"), animated: true) 
+        }
       }
     }
   }
-  
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//    if (identifier == "Chat Button") {
+//      self.revealViewController().pushFrontViewController(storyboard!.instantiateViewController(withIdentifier: "chatNavVC"), animated: true)
+//     return false 
+//    }
+    return true
+  }
 }
+
 

@@ -9,10 +9,14 @@ target 'RushMe' do
 
   pod 'OHMySQL'
   
-  pod 'Firebase/Storage'
+  pod 'Firebase'
   pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'Firebase/Database'
-  pod 'Chatto', '>= 3.2.0'
+
+#pod 'Atlas'
+#   pod 'Chatto', '>= 3.2.0'
+#   pod 'ChattoAdditions', '>= 3.2.0'
 
   # Pods for RushMe
   target 'RushMeTests' do
