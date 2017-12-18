@@ -132,7 +132,7 @@ class Campus: NSObject {
     }
   }
   // Allows fraternity favorites to be loaded from a file
-  convenience init(loadFromFile : Bool) {
+  fileprivate convenience init(loadFromFile : Bool) {
     self.init()
     if loadFromFile {
       if let favorites = Campus.loadFavorites() {

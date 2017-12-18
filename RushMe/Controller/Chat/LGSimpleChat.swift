@@ -116,6 +116,7 @@ class LGChatMessageCell : UITableViewCell {
   private lazy var textView: MessageBubbleTextView = {
     let textView = MessageBubbleTextView(frame: CGRect.zero, textContainer: nil)
     self.contentView.addSubview(textView)
+    textView.isUserInteractionEnabled = false
     return textView
   }()
   
@@ -187,6 +188,8 @@ class LGChatMessageCell : UITableViewCell {
     textView.bounds.size = size
     self.styleTextViewForSentBy(sentBy: message.sentBy)
     if let color = message.color {
+      self.textView.layer.backgroundColor = color.cgColor
+      self.textView.textColor = UIColor.white
       self.textView.layer.borderColor = color.cgColor
     }
     return size
@@ -404,7 +407,7 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
      message.color = RMColor.AppColor 
     }
     else {
-      message.color = RMColor.AppColor.withAlphaComponent(0.5)
+      message.color = UIColor.lightGray
     }
     messages += [message]
     tableView.reloadData()
@@ -556,6 +559,8 @@ class LGChatInput : UIView, LGStretchyTextViewDelegate {
     textView.bounds = UIEdgeInsetsInsetRect(self.bounds, self.textViewInsets)
     textView.stretchyTextViewDelegate = self
     textView.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+    textView.returnKeyType = .default
+    textView.tintColor = RMColor.AppColor
     self.styleTextView()
     self.addSubview(textView)
   }
@@ -563,7 +568,7 @@ class LGChatInput : UIView, LGStretchyTextViewDelegate {
   func styleTextView() {
     textView.layer.rasterizationScale = UIScreen.main.scale
     textView.layer.shouldRasterize = true
-    textView.layer.cornerRadius = 8 
+    textView.layer.cornerRadius = textView.frame.height/2.0
     textView.layer.borderWidth = 1.0
     textView.layer.borderColor = UIColor(white: 0.0, alpha: 0.2).cgColor
   }
@@ -786,8 +791,5 @@ class LGStretchyTextView : UITextView, UITextViewDelegate {
   func textViewDidChange(_ textView: UITextView) {
     // TODO: Possibly filter spaces and newlines
     self.isValid = textView.hasText
-    
-    
-    
   }
 }

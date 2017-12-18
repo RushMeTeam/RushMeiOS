@@ -14,6 +14,7 @@ fileprivate let settingsSegueIdentifier = "Settings"
 fileprivate let calendarSegueIdentifier = "Calendar"
 fileprivate let mapSegueIdentifier = "Maps"
 fileprivate let eventsSegueIdentifier = "Events"
+fileprivate let chatSegueIdentifier = "Chat"
 // The DrawerMenuViewController handles 
 class DrawerMenuViewController: UITableViewController {
   
@@ -72,10 +73,6 @@ class DrawerMenuViewController: UITableViewController {
         })
         if selectedButton == fraternitiesButton {
          self.revealViewController().pushFrontViewController(masterVC, animated: true) 
-        }
-        if selectedButton == chatButton {
-          //self.revealViewController().pushFrontViewController(storyboard!.instantiateViewController(withIdentifier: "chatNavVC"), animated: true)
-         //self.revealViewController().pushFrontViewController(storyboard!.instantiateViewController(withIdentifier: "chatNavVC"), animated: true) 
         }
       }
     }

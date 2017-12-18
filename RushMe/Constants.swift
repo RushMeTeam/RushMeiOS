@@ -72,6 +72,10 @@ struct RMDatabaseKey {
   static let CalendarImageKey = "calendar_image"
   
 }
+struct RMUser {
+  static let minPassLength = 6 
+  static let minUsernameLength = 6
+}
 
 struct RMPropertyKeys {
  static let FavoriteFraternities = "FavoriteFrats"
@@ -80,6 +84,7 @@ struct RMPropertyKeys {
 struct RMFileManagement {
   static let Path = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
   static let favoritedFratURL = Path.appendingPathComponent("favoritedFrats")
+  static let userInfoURL = Path.appendingPathComponent("userInfo")
   static let fratImageURL = Path
 }
 

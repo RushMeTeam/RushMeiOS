@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     didSet {
       if let frat = selectedFraternity {
         eventViewController?.selectedEvents = Array(frat.events.values)
-        self.title = greekLetters(fromString: frat.name)
+        self.title = frat.name.greekLetters
       }
     }
   }
@@ -234,7 +234,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     if let frat = selectedFraternity {
       // Update the user interface for the detail item.
       self.titleLabel?.text = frat.name
-      self.title = greekLetters(fromString: frat.name)
+      self.title = frat.name.greekLetters
       self.underProfileLabel?.text = frat.chapter + " Chapter"
       self.gpaLabel?.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
       if let _ = self.gpaLabel?.text {

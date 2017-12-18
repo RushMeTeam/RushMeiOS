@@ -10,44 +10,22 @@ import UIKit
 import Firebase
 // Uses Chatto
 class ChatViewController: LGChatController, LGChatControllerDelegate {
-  private var selectedChannel : String? 
-  func set(channel : String, user: User) {
-    self.selectedChannel = channel
-    self.user = user
-    self.title = channel
-    channelRef.keepSynced(true)
-    cRef = Database.database().reference().child(channel).child(user.uid)
-    cRef.keepSynced(true)
-    channelReferenceHandle = channelRef.observe(.childAdded, with: { (snapshot) in
-      if let channelData = snapshot.value as? Dictionary<String, AnyObject>  {
-        //let id = snapshot.key
-        if let content = channelData["content"] as? String, let from = channelData["from"] as? String, !content.isEmpty {
-          print("Success pushing message" + content)
-          if from == self.user?.uid {
-            //self.addNewMessage(message: LGChatMessage.init(content: content, sentBy: LGChatMessage.SentBy.User))
-            // No need to add a message already on the screen
-          }
-          else {
-            self.addNewMessage(message: LGChatMessage.init(content: content, sentBy: LGChatMessage.SentBy.Opponent))
-          }
-        }
-        else {
-          print("Error with adding new message to database!!") 
-        }
+  private var selectedChannel : DatabaseReference? 
+  private var channelTitle : String? {
+    didSet {
+      if let _ = channelTitle {
+       self.title = channelTitle 
       }
-      else {
-        print("Could not unwrap snapshot data") 
-      }
-    }) 
-  }
-
-  
-  private lazy var cRef : DatabaseReference = Database.database().reference()
-  private var channelRef : DatabaseReference {
-    get {
-      return cRef
     }
   }
+  func set(title : String, channel : DatabaseReference, user: User) {
+    self.selectedChannel = channel
+    self.user = user
+    self.channelTitle = title
+    self.selectedChannel!.keepSynced(true)
+    selectedChannel?.queryLimited(toLast: 25)
+  }
+  var addNewMessage = true
   private var selfRef : DatabaseReference?
   private var channelReferenceHandle : DatabaseHandle?
   var user : User? 
@@ -56,22 +34,7 @@ class ChatViewController: LGChatController, LGChatControllerDelegate {
         
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-//      if (self.revealViewController() != nil) {
-//        // Allow drawer button to toggle the lefthand drawer menu
-//        drawerButton.target = self.revealViewController()
-//        drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-//        // Allow drag to open drawer, tap out to close
-//        view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-//        view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-//      }
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
       self.delegate = self
-      
-      //if let _ = selfRef {
-        // Do any additional setup after loading the view.
-        
-      //}
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,26 +44,42 @@ class ChatViewController: LGChatController, LGChatControllerDelegate {
   
   
   func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {
-    
-    print("Added a message " + message.content + " to sfirecreen")
+    print("Added a message \"" + message.content + "\" to device screen")
   }
   
   deinit {
     //channelRef.removeObserver(withHandle: handle)
-    channelReferenceHandle = nil
+//    channelReferenceHandle = nil
     
   }
+  
   func shouldChatController(chatController: LGChatController, addMessage message: LGChatMessage) -> Bool {
-    if let channel = self.selectedChannel {
-      let newChannelReference = channelRef.child(DateFormatter.localizedString(from: Date(), dateStyle: .full, timeStyle: .full))
+    if let _ = self.selectedChannel, let _ = self.channelTitle, addNewMessage {
+      let sendDateString = DateFormatter.localizedString(from: Date(), dateStyle: .full, timeStyle: .full)
+      let newChannelReference = self.selectedChannel!.child(sendDateString)
       let channelItem = [
-      "to" : channel,
-      "from" : self.user?.uid,
-      "content" : message.content
-    ]
-    newChannelReference.setValue(channelItem)
+        "to" : self.channelTitle,
+        "from" : self.user?.uid,
+        "content" : message.content,
+        "sendDate" : sendDateString,
+        "timeStamp" : String(Date().timeIntervalSinceReferenceDate),
+        "messageNumber" : String(messages.count)
+      ]
+      addNewMessage = true
+      print("Adding message: \"\(message.content)\" to Database")
+      newChannelReference.setValue(channelItem)
+      return false
     }
-    return true
+    else {
+      if self.selectedChannel == nil {
+       print("Failed because selectedChannel is nil!") 
+      }
+      else if self.channelTitle == nil {
+       print("Failed because channelTitle is nil!") 
+      }
+    }
+    addNewMessage = false
+    return false
   }
     /*
     // MARK: - Navigation

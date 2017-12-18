@@ -81,31 +81,36 @@ class Fraternity : NSObject {
   
 }
 // A not-so-genius way to create greek representations of frat names
-func greekLetters(fromString : String) -> String {
-  var result = fromString.replacingOccurrences(of: "Alpha", with: "Α")// -> A
-  result = result.replacingOccurrences(of: "Beta", with: "Β")         // -> Β
-  result = result.replacingOccurrences(of: "Gamma", with: "Γ")        // -> Γ
-  result = result.replacingOccurrences(of: "Delta", with: "Δ")        // -> Δ
-  result = result.replacingOccurrences(of: "Epsilon", with: "Ε")      // -> Ε
-  result = result.replacingOccurrences(of: "Zeta", with: "Ζ")         // -> Ζ
-  result = result.replacingOccurrences(of: "Eta", with: "Η")          // -> H
-  result = result.replacingOccurrences(of: "Theta", with: "Θ")        // -> Θ
-  result = result.replacingOccurrences(of: "Iota", with: "Ι")         // -> Ι
-  result = result.replacingOccurrences(of: "Kappa", with: "Κ")        // -> Κ
-  result = result.replacingOccurrences(of: "Lambda", with: "Λ")       // -> Λ
-  result = result.replacingOccurrences(of: "Mu", with: "Μ")           // -> Μ
-  result = result.replacingOccurrences(of: "Nu", with: "Ν")           // -> Ν
-  result = result.replacingOccurrences(of: "Xi", with: "Ξ")           // -> Ξ
-  result = result.replacingOccurrences(of: "Omicron", with: "Ο")      // -> Ο
-  result = result.replacingOccurrences(of: "Pi", with: "Π")           // -> Π
-  result = result.replacingOccurrences(of: "Rho", with: "Ρ")          // -> Ρ
-  result = result.replacingOccurrences(of: "Sigma", with: "Σ")        // -> Σ
-  result = result.replacingOccurrences(of: "Tau", with: "Τ")          // -> Τ
-  result = result.replacingOccurrences(of: "Upsilon", with: "Υ")      // -> Y
-  result = result.replacingOccurrences(of: "Phi", with: "Φ")          // -> Φ
-  result = result.replacingOccurrences(of: "Chi", with: "Χ")          // -> Χ
-  result = result.replacingOccurrences(of: "Psi", with: "Ψ")          // -> Ψ
-  result = result.replacingOccurrences(of: "Omega", with: "Ω")        // -> Ω
-  return result
+extension String {
+  var greekLetters : String {
+    get {
+      var result = self.replacingOccurrences(of: "Alpha", with: "Α")// -> A
+      result = result.replacingOccurrences(of: "Beta", with: "Β")         // -> Β
+      result = result.replacingOccurrences(of: "Gamma", with: "Γ")        // -> Γ
+      result = result.replacingOccurrences(of: "Delta", with: "Δ")        // -> Δ
+      result = result.replacingOccurrences(of: "Epsilon", with: "Ε")      // -> Ε
+      result = result.replacingOccurrences(of: "Zeta", with: "Ζ")         // -> Ζ
+      result = result.replacingOccurrences(of: "Eta", with: "Η")          // -> H
+      result = result.replacingOccurrences(of: "Theta", with: "Θ")        // -> Θ
+      result = result.replacingOccurrences(of: "Iota", with: "Ι")         // -> Ι
+      result = result.replacingOccurrences(of: "Kappa", with: "Κ")        // -> Κ
+      result = result.replacingOccurrences(of: "Lambda", with: "Λ")       // -> Λ
+      result = result.replacingOccurrences(of: "Mu", with: "Μ")           // -> Μ
+      result = result.replacingOccurrences(of: "Nu", with: "Ν")           // -> Ν
+      result = result.replacingOccurrences(of: "Xi", with: "Ξ")           // -> Ξ
+      result = result.replacingOccurrences(of: "Omicron", with: "Ο")      // -> Ο
+      result = result.replacingOccurrences(of: "Pi", with: "Π")           // -> Π
+      result = result.replacingOccurrences(of: "Rho", with: "Ρ")          // -> Ρ
+      result = result.replacingOccurrences(of: "Sigma", with: "Σ")        // -> Σ
+      result = result.replacingOccurrences(of: "Tau", with: "Τ")          // -> Τ
+      result = result.replacingOccurrences(of: "Upsilon", with: "Υ")      // -> Y
+      result = result.replacingOccurrences(of: "Phi", with: "Φ")          // -> Φ
+      result = result.replacingOccurrences(of: "Chi", with: "Χ")          // -> Χ
+      result = result.replacingOccurrences(of: "Psi", with: "Ψ")          // -> Ψ
+      result = result.replacingOccurrences(of: "Omega", with: "Ω")        // -> Ω
+      return result
+    }
+}
+
 }
 

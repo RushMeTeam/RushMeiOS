@@ -120,7 +120,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
       var numFrats = 0
       let maxFrats = 3
       for annotation in memberAnnotations {
-        title += greekLetters(fromString: annotation.title!!)
+        title += annotation.title!!.greekLetters
         numFrats += 1
         if numFrats < maxFrats {
           title += ", "
