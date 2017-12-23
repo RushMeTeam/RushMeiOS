@@ -24,8 +24,26 @@ class ConversationListViewControllerTableViewController: UITableViewController {
       return !signedInAsFrat
     }
   }
+  class Pair<T: Hashable, U: Hashable> : Hashable {
+    static func ==(lhs: ConversationListViewControllerTableViewController.Pair<T, U>, 
+                   rhs: ConversationListViewControllerTableViewController.Pair<T, U>) -> Bool {
+      return lhs.first == rhs.first && lhs.second == rhs.second
+    }
+    init (_ first : T, _ second : U) {
+      self.first = first
+      self.second = second
+    }
+    let first : T
+    let second : U
+    var hashValue : Int {
+      get {
+        return first.hashValue &* 31 &+ second.hashValue
+      }
+    }
+  }
+  
   var conversations : [String] = []
-  var lastMessages : [LGChatMessage?] = Array<LGChatMessage?>.init(repeating: nil, count: Campus.shared.favoritedFrats.count)
+  var lastMessages = [Pair<Bool, Int>:Pair<String, LGChatMessage>]() 
   var channelReferenceHandle : DatabaseHandle? = nil
   var selectedChannel : DatabaseReference? = nil
   @IBAction func signIn(_ sender: UIBarButtonItem) {
@@ -53,10 +71,12 @@ class ConversationListViewControllerTableViewController: UITableViewController {
       // Allow drag to open drawer, tap out to close
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+      navigationItem.rightBarButtonItem = nil
       
     }
     // TODO: ONLY APPEARS WHEN SETTING ENABLED
     fratSignInButton.isEnabled = true
+    
     
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
@@ -87,6 +107,12 @@ class ConversationListViewControllerTableViewController: UITableViewController {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    if UniqueUser.shared.fratSignInEnabled {
+      self.navigationItem.rightBarButtonItem = self.fratSignInButton 
+    }
+    else {
+      self.navigationItem.rightBarButtonItem = nil 
+    }
     if signedInAsFrat {
       let _ = Database.database().reference().child("Chi Phi").observe(.value) { (snapshot) in
         if let conversationList = snapshot.value as? Dictionary<String, AnyObject>{
@@ -122,35 +148,39 @@ class ConversationListViewControllerTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
     if self.signedInAsFrat {
-      return conversations.count 
+      return max(conversations.count, 1)
     }
-    return Campus.shared.favoritedFrats.count
+    return max(Campus.shared.favoritedFrats.count, 1)
   }
   
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: conversationCellReuseIdentifier, for: indexPath)
-    if signedInAsFrat {
+    if (signedInAsFrat && conversations.count == 0) || (!signedInAsFrat && Campus.shared.favoritedFrats.count == 0){
+      let cell = UITableViewCell()
+      cell.textLabel!.text = "No messages (yet!)"
+      cell.textLabel!.textColor = UIColor.darkGray
+      cell.textLabel?.textAlignment = .center
+      return cell
+    }
+    else if signedInAsFrat {
       cell.textLabel?.text = "User " + String(indexPath.row+1)
       cell.detailTextLabel?.text = self.conversations[indexPath.row] 
     }
     else {
       //cell.imageView?.image = Campus.shared.fraternitiesDict[Campus.shared.favoritedFrats[indexPath.row]]?.previewImage
       cell.textLabel?.text = Campus.shared.favoritedFrats[indexPath.row]
-      if let lastMessage = self.lastMessages[indexPath.row] {
-        if lastMessage.sentBy == .User {
-          cell.detailTextLabel?.text = "You: " + lastMessage.content 
-        }
-        else {
-          cell.detailTextLabel?.text = "\(Campus.shared.favoritedFrats[indexPath.row].greekLetters): \(lastMessage.content)" 
-        }
-      }
-      else {
-        cell.detailTextLabel?.text = "Send \(Campus.shared.favoritedFrats[indexPath.row].greekLetters) a message!"
-      }
+      cell.detailTextLabel?.text = "Send \(Campus.shared.favoritedFrats[indexPath.row].greekLetters) a message!"
     }
     // Configure the cell...
-    
+    if let lastMessage = self.lastMessages[Pair(self.signedInAsFrat, indexPath.row)] {
+      if lastMessage.second.sentBy == .User {
+        cell.detailTextLabel?.text = "You: " + lastMessage.second.content 
+      }
+      else {
+        cell.detailTextLabel?.text = lastMessage.second.content 
+      }
+    }
     return cell
   }
   
@@ -200,20 +230,19 @@ class ConversationListViewControllerTableViewController: UITableViewController {
         if let senderCell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: senderCell) {
           if signedInAsFrat {
             self.selectedChannel = Database.database().reference().child("Chi Phi").child(conversations[indexPath.row])
-            senderVC.set(title: "User " + String(indexPath.row), channel: self.selectedChannel!, user: Auth.auth().currentUser!)
+            senderVC.set(title: "User " + String(indexPath.row+1), channel: self.selectedChannel!, user: Auth.auth().currentUser!)
           }
           else {
             let frat = Campus.shared.favoritedFrats[indexPath.row]
-            self.selectedChannel = Database.database().reference().child(frat).child(Auth.auth().currentUser!.uid)
+            self.selectedChannel = Database.database().reference().child(frat).child(Messaging.messaging().fcmToken! )
             senderVC.set(title: frat, channel: self.selectedChannel!, user: Auth.auth().currentUser!)
           }
           self.channelReferenceHandle = self.selectedChannel!.observe(.childAdded, with: { (snapshot) in
           if let newMessage = (snapshot.value as? Dictionary<String, AnyObject>) {
             if let content = newMessage["content"] as? String,
-              let from = newMessage["from"] as? String,
-              let timeStamp = newMessage["timeStamp"] as? String {
+              let from = newMessage["fcmToken"] as? String {
               var message : LGChatMessage? = nil
-              if from == Auth.auth().currentUser?.uid {
+              if from == Messaging.messaging().fcmToken {
                 senderVC.addNewMessage = true
                 message = LGChatMessage.init(content: content, sentBy: LGChatMessage.SentBy.User)
                 senderVC.addNewMessage(message: message!) 
@@ -222,7 +251,8 @@ class ConversationListViewControllerTableViewController: UITableViewController {
                 message = LGChatMessage.init(content: content, sentBy: LGChatMessage.SentBy.Opponent)
                 senderVC.addNewMessage(message: message!) 
               }
-              self.lastMessages[indexPath.row] = message
+              
+              self.lastMessages[Pair(self.signedInAsFrat, indexPath.row)] = Pair(from, message!)
             }
           }
         })

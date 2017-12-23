@@ -109,7 +109,7 @@ class Campus: NSObject {
           return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
         })
       }
-      return firstEvent_!
+      return firstEvent_
     }
   }
   

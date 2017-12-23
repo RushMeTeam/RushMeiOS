@@ -53,7 +53,13 @@ class AuthenticationViewController: UIViewController {
     //self.signInButton.isEnabled = false
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+    usernameField.becomeFirstResponder()
     // Do any additional setup after loading the view.
+  }
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    usernameField.resignFirstResponder()
+    passwordField.resignFirstResponder()
   }
   
   override func didReceiveMemoryWarning() {

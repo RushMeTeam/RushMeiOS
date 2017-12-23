@@ -27,8 +27,8 @@ class EventTableViewCell: UITableViewCell {
           self.timeLabel?.text = time
         }
         self.eventNameLabel?.text = event.name
-        
         self.fraternityNameLabel?.text = event.frat.name
+  
       }
     }
   }

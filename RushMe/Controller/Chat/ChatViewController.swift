@@ -14,7 +14,7 @@ class ChatViewController: LGChatController, LGChatControllerDelegate {
   private var channelTitle : String? {
     didSet {
       if let _ = channelTitle {
-       self.title = channelTitle 
+        self.title = channelTitle 
       }
     }
   }
@@ -29,28 +29,22 @@ class ChatViewController: LGChatController, LGChatControllerDelegate {
   private var selfRef : DatabaseReference?
   private var channelReferenceHandle : DatabaseHandle?
   var user : User? 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-      self.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+    self.delegate = self
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
   
   
   func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {
     print("Added a message \"" + message.content + "\" to device screen")
-  }
-  
-  deinit {
-    //channelRef.removeObserver(withHandle: handle)
-//    channelReferenceHandle = nil
-    
   }
   
   func shouldChatController(chatController: LGChatController, addMessage message: LGChatMessage) -> Bool {
@@ -59,12 +53,15 @@ class ChatViewController: LGChatController, LGChatControllerDelegate {
       let newChannelReference = self.selectedChannel!.child(sendDateString)
       let channelItem = [
         "to" : self.channelTitle,
-        "from" : self.user?.uid,
+        "from" : Auth.auth().currentUser!.uid,
+        "fcmToken" : Messaging.messaging().fcmToken,
         "content" : message.content,
         "sendDate" : sendDateString,
         "timeStamp" : String(Date().timeIntervalSinceReferenceDate),
         "messageNumber" : String(messages.count)
       ]
+      //Messaging.messaging().sendMessage(channelItem, to: "632745064590", withMessageID: String(Date().timeIntervalSinceReferenceDate), timeToLive: 1024)
+      
       addNewMessage = true
       print("Adding message: \"\(message.content)\" to Database")
       newChannelReference.setValue(channelItem)
@@ -72,23 +69,23 @@ class ChatViewController: LGChatController, LGChatControllerDelegate {
     }
     else {
       if self.selectedChannel == nil {
-       print("Failed because selectedChannel is nil!") 
+        print("Failed because selectedChannel is nil!") 
       }
       else if self.channelTitle == nil {
-       print("Failed because channelTitle is nil!") 
+        print("Failed because channelTitle is nil!") 
       }
     }
     addNewMessage = false
     return false
   }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
+  
 }

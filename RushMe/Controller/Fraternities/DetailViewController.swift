@@ -61,7 +61,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   // Would like to add 3D touch support
   @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
     sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-
     UIView.animate(withDuration: RMAnimation.ColoringTime*2,
                    delay: 0,
                    usingSpringWithDamping: 0.4,
@@ -70,7 +69,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
                    animations: {
       sender.view?.transform = CGAffineTransform.identity
     }, completion: { _ in
-
     })
     if let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController {
       if let img = (sender.view as! UIImageView).image {
@@ -133,8 +131,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
        
         
       })
-     
-      
     }
   }  
   @IBAction func openInMaps(_ sender: UIButton) {
@@ -159,13 +155,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     
     coverImageView.image = RMImage.NoImage
     coverImageView.layer.masksToBounds = true
-    
     coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
-    coverImageView.layer.shadowRadius = 20
-    coverImageView.layer.shadowOpacity = 0
-    coverImageView.layer.shadowColor = UIColor.black.cgColor
-    
     profileImageView.image = RMImage.NoImage
     profileImageView.layer.masksToBounds = false
     profileImageView.clipsToBounds = true
@@ -189,14 +180,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     eventViewController!.view.layer.shadowColor = UIColor.black.cgColor
     eventViewController!.view.layer.shadowRadius = 10
     eventViewController!.view.layer.shadowOpacity = 0.7
-    eventViewController!.view.layer.masksToBounds = false
+    eventViewController!.view.layer.masksToBounds = true
     eventViewController!.view.layer.cornerRadius = 5
-    mapView.layer.shadowColor = UIColor.black.cgColor
-    mapView.layer.shadowRadius = 10
-    mapView.layer.shadowOpacity = 0.7
-    mapView.layer.masksToBounds = false
-    openMapButton.tintColor = RMColor.AppColor
-    openMapButton.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
+    mapView.layer.cornerRadius = 5
+    mapView.layer.masksToBounds = true
+    openMapButton.tintColor = UIColor.white
     openMapButton.layer.cornerRadius = 5
     openMapButton.layer.masksToBounds = true
     

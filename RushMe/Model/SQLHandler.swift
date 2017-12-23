@@ -21,6 +21,11 @@ class SQLHandler: NSObject {
   let user : OHMySQLUser?
   let coordinator : OHMySQLStoreCoordinator?
   let context : OHMySQLQueryContext?
+  var isConnected : Bool {
+    get {
+     return user != nil 
+    }
+  }
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
   fileprivate init(userName: String,
                    password: String,

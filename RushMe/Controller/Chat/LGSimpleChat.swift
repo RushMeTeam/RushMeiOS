@@ -131,7 +131,7 @@ class LGChatMessageCell : UITableViewCell {
       self.layer.cornerRadius = 15
       self.layer.borderWidth = 2.0
     }
-    
+  
     required init(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
     }
@@ -434,10 +434,15 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
   
   // MARK: UITableViewDelegate
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    let padding: CGFloat = 8.0
-    sizingCell.bounds.size.width = self.view.bounds.width
-    let height = self.sizingCell.setupWithMessage(message: messages[indexPath.row]).height + padding;
-    return height
+    if messages.count > 0 {
+      let padding: CGFloat = 8.0
+      sizingCell.bounds.size.width = self.view.bounds.width
+      let height = self.sizingCell.setupWithMessage(message: messages[indexPath.row]).height + padding;
+      return height
+    }
+    else {
+     return 32
+    }
   }
   
   
@@ -457,15 +462,26 @@ class LGChatController : UIViewController, UITableViewDelegate, UITableViewDataS
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.messages.count;
+    return max(self.messages.count, 1);
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "identifier", for: indexPath) as! LGChatMessageCell
-    let message = self.messages[indexPath.row]
-    cell.opponentImageView.image = message.sentBy == .Opponent ? self.opponentImage : nil
-    let _ = cell.setupWithMessage(message: message)
-    return cell;
+    if self.messages.count > 0 {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "identifier", for: indexPath) as! LGChatMessageCell
+      let message = self.messages[indexPath.row]
+      cell.opponentImageView.image = message.sentBy == .Opponent ? self.opponentImage : nil
+      let _ = cell.setupWithMessage(message: message)
+      return cell
+    }
+    else {
+      let cell = UITableViewCell.init()
+      cell.textLabel?.text = "Send a message!"
+      cell.textLabel?.textAlignment = .center
+      cell.textLabel?.isUserInteractionEnabled = false
+      cell.textLabel?.textColor = RMColor.AppColor
+      return cell
+    }
+    
   }
   
 }
@@ -559,7 +575,7 @@ class LGChatInput : UIView, LGStretchyTextViewDelegate {
     textView.bounds = UIEdgeInsetsInsetRect(self.bounds, self.textViewInsets)
     textView.stretchyTextViewDelegate = self
     textView.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-    textView.returnKeyType = .default
+    textView.returnKeyType = .send
     textView.tintColor = RMColor.AppColor
     self.styleTextView()
     self.addSubview(textView)
@@ -590,7 +606,7 @@ class LGChatInput : UIView, LGStretchyTextViewDelegate {
     // TODO: Fix so that button height doesn't change on first newLine
     let rightConstraint = NSLayoutConstraint(item: self, attribute: .right, relatedBy: .equal, toItem: self.sendButton, attribute: .right, multiplier: 1.0, constant: textViewInsets.right)
     let bottomConstraint = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: self.sendButton, attribute: .bottom, multiplier: 1.0, constant: textViewInsets.bottom)
-    let widthConstraint = NSLayoutConstraint(item: self.sendButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40)
+    let widthConstraint = NSLayoutConstraint(item: self.sendButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0)
     sendButtonHeightConstraint = NSLayoutConstraint(item: self.sendButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 64)
     self.addConstraints([sendButtonHeightConstraint, widthConstraint, rightConstraint, bottomConstraint])
   }
@@ -651,9 +667,13 @@ class LGChatInput : UIView, LGStretchyTextViewDelegate {
   
   @objc func sendButtonPressed(sender: UIButton) {
     if self.textView.text.count > 0 {
-      self.delegate?.chatInput(chatInput: self, didSendMessage: self.textView.text)
+      self.delegate?.chatInput(chatInput: self, 
+                               didSendMessage: self.textView.text.trimmingCharacters(in: .whitespacesAndNewlines))
       self.textView.text = ""
     }
+  }
+  func textViewEndedEditing(chatInput: LGStretchyTextView) {
+    self.sendButtonPressed(sender: UIButton())
   }
 }
 
@@ -661,6 +681,7 @@ class LGChatInput : UIView, LGStretchyTextViewDelegate {
 
 @objc protocol LGStretchyTextViewDelegate {
   func stretchyTextViewDidChangeSize(chatInput: LGStretchyTextView)
+  func textViewEndedEditing(chatInput : LGStretchyTextView)
   @objc optional func stretchyTextView(textView: LGStretchyTextView, validityDidChange isValid: Bool)
 }
 
@@ -791,5 +812,18 @@ class LGStretchyTextView : UITextView, UITextViewDelegate {
   func textViewDidChange(_ textView: UITextView) {
     // TODO: Possibly filter spaces and newlines
     self.isValid = textView.hasText
+  }
+  
+  func textViewDidEndEditing(_ textView: UITextView) {
+    //self.stretchyTextViewDelegate?.textViewEndedEditing(chatInput: self)
+  }
+  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    if text == "\n" {
+      if textView.text.count > 0 {
+        self.stretchyTextViewDelegate?.textViewEndedEditing(chatInput: self) 
+      }
+      return false
+    }
+    return true
   }
 }

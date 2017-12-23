@@ -17,8 +17,11 @@ import UIKit
 let LOADIMAGES = true
 
 fileprivate let fratCellIdentifier = "FratCell"
+fileprivate let attractiveFratCellIdentifier = "prettyFratCell"
 
-class MasterViewController : UITableViewController {
+
+class MasterViewController : UITableViewController,
+                              UISearchBarDelegate {
   // MARK: Member Variables
   // The hard data used in the table
   var lastPullDescription = ""
@@ -46,12 +49,9 @@ class MasterViewController : UITableViewController {
       return
     }
     viewingFavorites = !viewingFavorites
-    
-    
-    
-    //self.tableView.reloadData()
-    
+    //self.tableView.reloadData()    
   }
+
   func reloadTableView() {
     UIView.transition(with: tableView,
                       duration: RMAnimation.ColoringTime/2,
@@ -80,30 +80,27 @@ class MasterViewController : UITableViewController {
     
     // Make it look good
     //navigationController?.navigationBar.alpha = 0.2
-    navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
+    //navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.backgroundColor = UIColor.white
     navigationController?.navigationBar.tintColor = RMColor.AppColor
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     // Ensure the menu button toggles the menu
     openBarButtonItem.target = self
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
-    
     // Allows for drag to open and tap out to close
-    
-    
     refreshControl = UIRefreshControl()
     refreshControl?.tintColor = RMColor.AppColor
     refreshControl?.tintAdjustmentMode = .normal
     refreshControl?.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl?.beginRefreshing()
-    
-    
   }
   
   // MARK: - Data Handling
   func dataUpdate() {
-    self.pullFratsFromSQLDatabase(types: ["all"])
+    if !self.pullFratsFromSQLDatabase() {
+     print("Failed to load!") 
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -116,11 +113,14 @@ class MasterViewController : UITableViewController {
     
   }
   // MARK: Data Request
-  @objc func pullFratsFromSQLDatabase(types : [String]) {
+  @objc func pullFratsFromSQLDatabase(types : [String] = []) -> Bool {
     self.refreshControl?.beginRefreshing()
+    if SQLHandler.shared.isConnected == false {
+      return false
+    }
     DispatchQueue.global(qos: .userInitiated).async {
       var dictArray = [Dictionary<String, Any>()]
-      if types.count == 1 && types[0] == "all" {
+      if types.count == 0 {
         if let arr = SQLHandler.shared.select(aField: "*", fromTable: "house_info") {
           dictArray = arr
         }
@@ -170,14 +170,20 @@ class MasterViewController : UITableViewController {
                   
                   // Get the CoverImage
                   if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
-                    if let coverImg = Campus.shared.pullImage(fromSource: URLString) {
-                      frat.setProperty(named: RMDatabaseKey.CoverImageKey, to: coverImg)
+                    DispatchQueue.global().async {
+                      if let coverImg = Campus.shared.pullImage(fromSource: URLString) {
+                        frat.setProperty(named: RMDatabaseKey.CoverImageKey, to: coverImg)
+                      }
                     }
+                    
                   }
                   if let URLString = dict[RMDatabaseKey.CalendarImageKey] as? String {
-                    if let calendarImg = Campus.shared.pullImage(fromSource: URLString) {
-                      frat.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
+                    DispatchQueue.global().async {
+                      if let calendarImg = Campus.shared.pullImage(fromSource: URLString) {
+                        frat.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
+                      }
                     }
+                    
                   }
                   
                 }
@@ -195,6 +201,7 @@ class MasterViewController : UITableViewController {
         self.refreshControl?.endRefreshing()
       }
     }
+    return true
   }
   
   // MARK: - Transitions
@@ -233,7 +240,7 @@ class MasterViewController : UITableViewController {
         }
       }
         // 3D Touch preview!
-      else if let cell = sender as? FratCell {
+      else if let cell = sender as? UITableViewCell {
         // Determine which object user selected
         if let indexPath = tableView.indexPath(for: cell) {
           var fratName = Campus.shared.fratNames[indexPath.row]
@@ -275,7 +282,7 @@ class MasterViewController : UITableViewController {
         cell.textLabel?.textColor = RMColor.AppColor
         return cell
       }
-      let cell = tableView.dequeueReusableCell(withIdentifier: fratCellIdentifier) as! FratCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell//FratCell
       if let frat = Campus.shared.fraternitiesDict[Campus.shared.favoritedFrats[indexPath.row]] {
         cell.titleLabel?.text = frat.name
         cell.subheadingLabel?.text = frat.chapter
@@ -298,7 +305,7 @@ class MasterViewController : UITableViewController {
         cell.textLabel?.textColor = RMColor.AppColor
         return cell
       }
-      let cell = tableView.dequeueReusableCell(withIdentifier: fratCellIdentifier) as! FratCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell//FratCell
       if let frat = Campus.shared.fraternitiesDict[Campus.shared.fratNames[indexPath.row]] {
         cell.titleLabel?.text = frat.name
         cell.subheadingLabel?.text = frat.chapter
@@ -339,12 +346,12 @@ class MasterViewController : UITableViewController {
         let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
         Campus.shared.favoritedFrats.append(fratName)
         action.backgroundColor = RMColor.AppColor
-        if let cell = self.tableView.cellForRow(at: cellIndex) as? FratCell {
+        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
           cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)        }
       }
       else {
         action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
-        if let cell = self.tableView.cellForRow(at: cellIndex) as? FratCell {
+        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
           cell.imageBorderColor = UIColor.white.withAlphaComponent(0.5)
         }
         Campus.shared.favoritedFrats.remove(at: fratIndex)

@@ -43,15 +43,20 @@ class DrawerMenuViewController: UITableViewController {
     tableView.isScrollEnabled = false
     tableView.backgroundColor = RMColor.AppColor
     self.view.backgroundColor = RMColor.AppColor
+    self.topCell.backgroundColor = UIColor.clear
+    
+    for button in buttons {
+      button.isUserInteractionEnabled = true
+      button.backgroundColor = UIColor.clear
+    }
     fraternitiesButton.backgroundColor = RMColor.MenuButtonSelectedColor
-//    for button in buttons {
-//     button.isUserInteractionEnabled = true
-//      button.backgroundColor = UIColor.clear
-//    }
-//    fraternitiesButton?.backgroundColor = RMColor.MenuButtonSelectedColor
-//    fraternitiesButton?.isUserInteractionEnabled = false
+    fraternitiesButton.isUserInteractionEnabled = false
+    
   }
-  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+  }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let id = segue.identifier {
       var selectedButton : UITableViewCell? 

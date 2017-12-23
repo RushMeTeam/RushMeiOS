@@ -11,6 +11,11 @@ import FirebaseAuth
 fileprivate let sharedUserInstance = UniqueUser(openFromFile: true)
 
 class UniqueUser: NSObject {
+  var fratSignInEnabled : Bool = false {
+    didSet {
+     self.saveUser() 
+    }
+  }
   var user : User? = nil {
     didSet {
      self.saveUser() 
@@ -36,7 +41,10 @@ class UniqueUser: NSObject {
 
   fileprivate convenience init(openFromFile : Bool = false) {
     self.init()
-    self.user = UniqueUser.loadUser() 
+    let dict = UniqueUser.loadUser() 
+    if let signInEnabled = dict?["fratSignInEnabled"] {
+      self.fratSignInEnabled = signInEnabled == "true" ? true : false
+    }
   }
   
   deinit {
@@ -46,18 +54,19 @@ class UniqueUser: NSObject {
   func saveUser() {
     DispatchQueue.global().async {
       var dict = Dictionary<String, String>() 
-      dict["username"] = self.username
-      let isSuccessfulSave =  NSKeyedArchiver.archiveRootObject(self.user, toFile: RMFileManagement.userInfoURL.path)
+      dict["fratSignInEnabled"] = self.fratSignInEnabled ? "true" : "false"
+      let isSuccessfulSave =  NSKeyedArchiver.archiveRootObject(dict, toFile: RMFileManagement.userInfoURL.path)
       if !isSuccessfulSave {
         print("Errors with saving UniqueUser!")
       }
     }
   }
-  static private func loadUser() -> User? {
-    if let user = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.favoritedFratURL.path) as? User{
-      return nil //return user
+  static private func loadUser() -> Dictionary<String, String>? {
+    if let user = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.userInfoURL.path) as? Dictionary<String, String> {
+      return user 
     }
     else {
+      print("Failed to load user")
       return nil
     }
   }
