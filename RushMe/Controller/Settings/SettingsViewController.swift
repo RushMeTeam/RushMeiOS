@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
   
   @IBOutlet weak var displayPastEventsSwitch: UISwitch!
   @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet var enableFratSignIn: UISwitch!
+//  @IBOutlet var enableFratSignIn: UISwitch!
   
   override func viewDidLoad() {
     if (self.revealViewController() != nil) {
@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
-    self.enableFratSignIn.isOn = UniqueUser.shared.fratSignInEnabled
+//    self.enableFratSignIn.isOn = UniqueUser.shared.fratSignInEnabled
     self.qualityPicker.tintColor = RMColor.AppColor
     self.displayPastEventsSwitch.tintColor = RMColor.AppColor
     self.displayPastEventsSwitch.onTintColor = RMColor.AppColor
@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
      Campus.shared.downloadedImageQuality = .High
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
-    UniqueUser.shared.fratSignInEnabled = enableFratSignIn.isOn
+//    UniqueUser.shared.fratSignInEnabled = enableFratSignIn.isOn
   }
   
   override func didReceiveMemoryWarning() {

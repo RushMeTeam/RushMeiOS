@@ -273,6 +273,7 @@ class MasterViewController : UITableViewController,
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
     if (viewingFavorites) {
       if (Campus.shared.favoritedFrats.count == 0){
         let cell = UITableViewCell()
@@ -320,6 +321,7 @@ class MasterViewController : UITableViewController,
       return cell
     }
   }
+
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Should only be able to do things to cells if there are actually fraternities represented
     return !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0

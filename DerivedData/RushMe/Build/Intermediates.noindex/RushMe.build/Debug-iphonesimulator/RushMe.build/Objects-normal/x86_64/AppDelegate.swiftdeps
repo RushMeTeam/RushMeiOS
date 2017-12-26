@@ -24,6 +24,7 @@ depends-top-level:
 - !private "BooleanLiteralType"
 - "CastingPrecedence"
 - !private "DetailViewController"
+- !private "FirebaseApp"
 - !private "MasterViewController"
 - !private "SWRevealViewController"
 - !private "StringLiteralType"
@@ -36,13 +37,13 @@ depends-top-level:
 - !private "UIScreen"
 - "UISplitViewController"
 - "UISplitViewControllerDelegate"
-- !private "UIStatusBarStyle"
 - !private "UIStoryboard"
 - "UIViewController"
 - "UIWindow"
 depends-member:
 - ["6RushMe11AppDelegateC", "Bool"]
 - !private ["6RushMe11AppDelegateC", "DetailViewController"]
+- !private ["6RushMe11AppDelegateC", "FirebaseApp"]
 - !private ["6RushMe11AppDelegateC", "MasterViewController"]
 - !private ["6RushMe11AppDelegateC", "SWRevealViewController"]
 - ["6RushMe11AppDelegateC", "UIApplication"]
@@ -51,7 +52,6 @@ depends-member:
 - !private ["6RushMe11AppDelegateC", "UINavigationController"]
 - !private ["6RushMe11AppDelegateC", "UIScreen"]
 - ["6RushMe11AppDelegateC", "UISplitViewController"]
-- !private ["6RushMe11AppDelegateC", "UIStatusBarStyle"]
 - !private ["6RushMe11AppDelegateC", "UIStoryboard"]
 - ["6RushMe11AppDelegateC", "UIViewController"]
 - ["6RushMe11AppDelegateC", "UIWindow"]
@@ -88,11 +88,10 @@ depends-member:
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "makeKeyAndVisible"]
 - !private ["So15CALayerDelegateP", "rootViewController"]
-- !private ["s7CVarArgP", "UIApplication"]
+- !private ["s7CVarArgP", "FirebaseApp"]
 - !private ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UINavigationController"]
 - !private ["s7CVarArgP", "UIScreen"]
-- !private ["s7CVarArgP", "UIStatusBarStyle"]
 - !private ["s7CVarArgP", "UIStoryboard"]
 - !private ["s7CVarArgP", "UIWindow"]
 - ["s7CVarArgP", "application"]
@@ -109,6 +108,7 @@ depends-member:
 - ["s7CVarArgP", "applicationWillTerminate"]
 - !private ["s7CVarArgP", "backgroundColor"]
 - !private ["s7CVarArgP", "bounds"]
+- !private ["s7CVarArgP", "configure"]
 - !private ["s7CVarArgP", "count"]
 - !private ["s7CVarArgP", "delegate"]
 - !private ["s7CVarArgP", "displayModeButtonItem"]
@@ -125,11 +125,9 @@ depends-member:
 - !private ["s7CVarArgP", "selectedFraternity"]
 - !private ["s7CVarArgP", "setFront"]
 - !private ["s7CVarArgP", "setRear"]
-- !private ["s7CVarArgP", "shared"]
 - ["s7CVarArgP", "splitViewController"]
 - ["s7CVarArgP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["s7CVarArgP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["s7CVarArgP", "statusBarStyle"]
 - !private ["s7CVarArgP", "subscript"]
 - ["s7CVarArgP", "targetDisplayModeForAction"]
 - ["s7CVarArgP", "targetDisplayModeForActionInSplitViewController"]
@@ -142,11 +140,10 @@ depends-member:
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "UIApplication"]
+- !private ["s28CustomDebugStringConvertibleP", "FirebaseApp"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UINavigationController"]
 - !private ["s28CustomDebugStringConvertibleP", "UIScreen"]
-- !private ["s28CustomDebugStringConvertibleP", "UIStatusBarStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "UIStoryboard"]
 - !private ["s28CustomDebugStringConvertibleP", "UIWindow"]
 - ["s28CustomDebugStringConvertibleP", "application"]
@@ -163,6 +160,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "applicationWillTerminate"]
 - !private ["s28CustomDebugStringConvertibleP", "backgroundColor"]
 - !private ["s28CustomDebugStringConvertibleP", "bounds"]
+- !private ["s28CustomDebugStringConvertibleP", "configure"]
 - !private ["s28CustomDebugStringConvertibleP", "count"]
 - !private ["s28CustomDebugStringConvertibleP", "delegate"]
 - !private ["s28CustomDebugStringConvertibleP", "displayModeButtonItem"]
@@ -179,11 +177,9 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "selectedFraternity"]
 - !private ["s28CustomDebugStringConvertibleP", "setFront"]
 - !private ["s28CustomDebugStringConvertibleP", "setRear"]
-- !private ["s28CustomDebugStringConvertibleP", "shared"]
 - ["s28CustomDebugStringConvertibleP", "splitViewController"]
 - ["s28CustomDebugStringConvertibleP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["s28CustomDebugStringConvertibleP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["s28CustomDebugStringConvertibleP", "statusBarStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - ["s28CustomDebugStringConvertibleP", "targetDisplayModeForAction"]
 - ["s28CustomDebugStringConvertibleP", "targetDisplayModeForActionInSplitViewController"]
@@ -198,11 +194,10 @@ depends-member:
 - !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
-- !private ["s23CustomStringConvertibleP", "UIApplication"]
+- !private ["s23CustomStringConvertibleP", "FirebaseApp"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UINavigationController"]
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
-- !private ["s23CustomStringConvertibleP", "UIStatusBarStyle"]
 - !private ["s23CustomStringConvertibleP", "UIStoryboard"]
 - !private ["s23CustomStringConvertibleP", "UIWindow"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
@@ -220,6 +215,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "applicationWillTerminate"]
 - !private ["s23CustomStringConvertibleP", "backgroundColor"]
 - !private ["s23CustomStringConvertibleP", "bounds"]
+- !private ["s23CustomStringConvertibleP", "configure"]
 - !private ["s23CustomStringConvertibleP", "count"]
 - !private ["s23CustomStringConvertibleP", "delegate"]
 - !private ["s23CustomStringConvertibleP", "displayModeButtonItem"]
@@ -236,11 +232,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "selectedFraternity"]
 - !private ["s23CustomStringConvertibleP", "setFront"]
 - !private ["s23CustomStringConvertibleP", "setRear"]
-- !private ["s23CustomStringConvertibleP", "shared"]
 - ["s23CustomStringConvertibleP", "splitViewController"]
 - ["s23CustomStringConvertibleP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["s23CustomStringConvertibleP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["s23CustomStringConvertibleP", "statusBarStyle"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - ["s23CustomStringConvertibleP", "targetDisplayModeForAction"]
 - ["s23CustomStringConvertibleP", "targetDisplayModeForActionInSplitViewController"]
@@ -258,11 +252,10 @@ depends-member:
 - !private ["s9EncodableP", "count"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "subscript"]
-- !private ["s9EquatableP", "UIApplication"]
+- !private ["s9EquatableP", "FirebaseApp"]
 - !private ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UINavigationController"]
 - !private ["s9EquatableP", "UIScreen"]
-- !private ["s9EquatableP", "UIStatusBarStyle"]
 - !private ["s9EquatableP", "UIStoryboard"]
 - !private ["s9EquatableP", "UIWindow"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
@@ -280,12 +273,12 @@ depends-member:
 - ["s9EquatableP", "applicationWillTerminate"]
 - !private ["s9EquatableP", "backgroundColor"]
 - !private ["s9EquatableP", "bounds"]
+- !private ["s9EquatableP", "configure"]
 - !private ["s9EquatableP", "delegate"]
 - !private ["s9EquatableP", "displayModeButtonItem"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "instantiateViewController"]
 - !private ["s9EquatableP", "leftBarButtonItem"]
-- !private ["s9EquatableP", "lightContent"]
 - !private ["s9EquatableP", "main"]
 - !private ["s9EquatableP", "makeKeyAndVisible"]
 - !private ["s9EquatableP", "navigationItem"]
@@ -296,11 +289,9 @@ depends-member:
 - !private ["s9EquatableP", "selectedFraternity"]
 - !private ["s9EquatableP", "setFront"]
 - !private ["s9EquatableP", "setRear"]
-- !private ["s9EquatableP", "shared"]
 - ["s9EquatableP", "splitViewController"]
 - ["s9EquatableP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["s9EquatableP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["s9EquatableP", "statusBarStyle"]
 - ["s9EquatableP", "targetDisplayModeForAction"]
 - ["s9EquatableP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s9EquatableP", "topViewController"]
@@ -314,12 +305,12 @@ depends-member:
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["So11FirebaseAppC", "configure"]
 - !private ["6RushMe10FraternityC", "deinit"]
-- !private ["s8HashableP", "UIApplication"]
+- !private ["s8HashableP", "FirebaseApp"]
 - !private ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UINavigationController"]
 - !private ["s8HashableP", "UIScreen"]
-- !private ["s8HashableP", "UIStatusBarStyle"]
 - !private ["s8HashableP", "UIStoryboard"]
 - !private ["s8HashableP", "UIWindow"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
@@ -337,12 +328,12 @@ depends-member:
 - ["s8HashableP", "applicationWillTerminate"]
 - !private ["s8HashableP", "backgroundColor"]
 - !private ["s8HashableP", "bounds"]
+- !private ["s8HashableP", "configure"]
 - !private ["s8HashableP", "delegate"]
 - !private ["s8HashableP", "displayModeButtonItem"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "instantiateViewController"]
 - !private ["s8HashableP", "leftBarButtonItem"]
-- !private ["s8HashableP", "lightContent"]
 - !private ["s8HashableP", "main"]
 - !private ["s8HashableP", "makeKeyAndVisible"]
 - !private ["s8HashableP", "navigationItem"]
@@ -353,11 +344,9 @@ depends-member:
 - !private ["s8HashableP", "selectedFraternity"]
 - !private ["s8HashableP", "setFront"]
 - !private ["s8HashableP", "setRear"]
-- !private ["s8HashableP", "shared"]
 - ["s8HashableP", "splitViewController"]
 - ["s8HashableP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["s8HashableP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["s8HashableP", "statusBarStyle"]
 - ["s8HashableP", "targetDisplayModeForAction"]
 - ["s8HashableP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s8HashableP", "topViewController"]
@@ -403,6 +392,7 @@ depends-member:
 - !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Bool"]
 - !private ["So8NSObjectC", "DetailViewController"]
+- !private ["So8NSObjectC", "FirebaseApp"]
 - !private ["So8NSObjectC", "MasterViewController"]
 - !private ["So8NSObjectC", "SWRevealViewController"]
 - ["So8NSObjectC", "UIApplication"]
@@ -411,7 +401,6 @@ depends-member:
 - !private ["So8NSObjectC", "UINavigationController"]
 - !private ["So8NSObjectC", "UIScreen"]
 - ["So8NSObjectC", "UISplitViewController"]
-- !private ["So8NSObjectC", "UIStatusBarStyle"]
 - !private ["So8NSObjectC", "UIStoryboard"]
 - ["So8NSObjectC", "UIViewController"]
 - ["So8NSObjectC", "UIWindow"]
@@ -429,6 +418,7 @@ depends-member:
 - ["So8NSObjectC", "applicationWillTerminate"]
 - !private ["So8NSObjectC", "backgroundColor"]
 - !private ["So8NSObjectC", "bounds"]
+- !private ["So8NSObjectC", "configure"]
 - !private ["So8NSObjectC", "delegate"]
 - !private ["So8NSObjectC", "displayModeButtonItem"]
 - ["So8NSObjectC", "init"]
@@ -444,22 +434,19 @@ depends-member:
 - !private ["So8NSObjectC", "selectedFraternity"]
 - !private ["So8NSObjectC", "setFront"]
 - !private ["So8NSObjectC", "setRear"]
-- !private ["So8NSObjectC", "shared"]
 - ["So8NSObjectC", "splitViewController"]
 - ["So8NSObjectC", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["So8NSObjectC", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["So8NSObjectC", "statusBarStyle"]
 - ["So8NSObjectC", "targetDisplayModeForAction"]
 - ["So8NSObjectC", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So8NSObjectC", "topViewController"]
 - !private ["So8NSObjectC", "viewControllers"]
 - !private ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "window"]
-- !private ["So16NSObjectProtocolP", "UIApplication"]
+- !private ["So16NSObjectProtocolP", "FirebaseApp"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UINavigationController"]
 - !private ["So16NSObjectProtocolP", "UIScreen"]
-- !private ["So16NSObjectProtocolP", "UIStatusBarStyle"]
 - !private ["So16NSObjectProtocolP", "UIStoryboard"]
 - !private ["So16NSObjectProtocolP", "UIWindow"]
 - ["So16NSObjectProtocolP", "application"]
@@ -476,6 +463,7 @@ depends-member:
 - ["So16NSObjectProtocolP", "applicationWillTerminate"]
 - !private ["So16NSObjectProtocolP", "backgroundColor"]
 - !private ["So16NSObjectProtocolP", "bounds"]
+- !private ["So16NSObjectProtocolP", "configure"]
 - !private ["So16NSObjectProtocolP", "delegate"]
 - !private ["So16NSObjectProtocolP", "displayModeButtonItem"]
 - !private ["So16NSObjectProtocolP", "init"]
@@ -491,11 +479,9 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "selectedFraternity"]
 - !private ["So16NSObjectProtocolP", "setFront"]
 - !private ["So16NSObjectProtocolP", "setRear"]
-- !private ["So16NSObjectProtocolP", "shared"]
 - ["So16NSObjectProtocolP", "splitViewController"]
 - ["So16NSObjectProtocolP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["So16NSObjectProtocolP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["So16NSObjectProtocolP", "statusBarStyle"]
 - ["So16NSObjectProtocolP", "targetDisplayModeForAction"]
 - ["So16NSObjectProtocolP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So16NSObjectProtocolP", "topViewController"]
@@ -512,7 +498,6 @@ depends-member:
 - !private ["s26RangeReplaceableCollectionP", "count"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "subscript"]
-- !private ["s16RawRepresentableP", "lightContent"]
 - !private ["So22SWRevealViewControllerC", "setFront"]
 - !private ["So22SWRevealViewControllerC", "setRear"]
 - !private ["s8SequenceP", "count"]
@@ -542,13 +527,10 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "setRear"]
 - !private ["So21UIAppearanceContainerP", "topViewController"]
 - !private ["So21UIAppearanceContainerP", "viewControllers"]
-- !private ["So13UIApplicationC", "shared"]
-- !private ["So13UIApplicationC", "statusBarStyle"]
-- !private ["So21UIApplicationDelegateP", "UIApplication"]
+- !private ["So21UIApplicationDelegateP", "FirebaseApp"]
 - !private ["So21UIApplicationDelegateP", "UIColor"]
 - !private ["So21UIApplicationDelegateP", "UINavigationController"]
 - !private ["So21UIApplicationDelegateP", "UIScreen"]
-- !private ["So21UIApplicationDelegateP", "UIStatusBarStyle"]
 - !private ["So21UIApplicationDelegateP", "UIStoryboard"]
 - !private ["So21UIApplicationDelegateP", "UIWindow"]
 - ["So21UIApplicationDelegateP", "application"]
@@ -610,11 +592,10 @@ depends-member:
 - !private ["So22UINavigationControllerC", "init"]
 - !private ["So22UINavigationControllerC", "topViewController"]
 - !private ["So16UINavigationItemC", "leftBarButtonItem"]
-- !private ["So30UIPasteConfigurationSupportingP", "UIApplication"]
+- !private ["So30UIPasteConfigurationSupportingP", "FirebaseApp"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UINavigationController"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIScreen"]
-- !private ["So30UIPasteConfigurationSupportingP", "UIStatusBarStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIStoryboard"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIWindow"]
 - ["So30UIPasteConfigurationSupportingP", "application"]
@@ -642,11 +623,9 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "selectedFraternity"]
 - !private ["So30UIPasteConfigurationSupportingP", "setFront"]
 - !private ["So30UIPasteConfigurationSupportingP", "setRear"]
-- !private ["So30UIPasteConfigurationSupportingP", "shared"]
 - ["So30UIPasteConfigurationSupportingP", "splitViewController"]
 - ["So30UIPasteConfigurationSupportingP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["So30UIPasteConfigurationSupportingP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["So30UIPasteConfigurationSupportingP", "statusBarStyle"]
 - ["So30UIPasteConfigurationSupportingP", "targetDisplayModeForAction"]
 - ["So30UIPasteConfigurationSupportingP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "topViewController"]
@@ -655,6 +634,7 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Bool"]
 - !private ["So11UIResponderC", "DetailViewController"]
+- !private ["So11UIResponderC", "FirebaseApp"]
 - !private ["So11UIResponderC", "MasterViewController"]
 - !private ["So11UIResponderC", "SWRevealViewController"]
 - ["So11UIResponderC", "UIApplication"]
@@ -663,7 +643,6 @@ depends-member:
 - !private ["So11UIResponderC", "UINavigationController"]
 - !private ["So11UIResponderC", "UIScreen"]
 - ["So11UIResponderC", "UISplitViewController"]
-- !private ["So11UIResponderC", "UIStatusBarStyle"]
 - !private ["So11UIResponderC", "UIStoryboard"]
 - ["So11UIResponderC", "UIViewController"]
 - ["So11UIResponderC", "UIWindow"]
@@ -692,22 +671,19 @@ depends-member:
 - !private ["So11UIResponderC", "selectedFraternity"]
 - !private ["So11UIResponderC", "setFront"]
 - !private ["So11UIResponderC", "setRear"]
-- !private ["So11UIResponderC", "shared"]
 - ["So11UIResponderC", "splitViewController"]
 - ["So11UIResponderC", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["So11UIResponderC", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["So11UIResponderC", "statusBarStyle"]
 - ["So11UIResponderC", "targetDisplayModeForAction"]
 - ["So11UIResponderC", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So11UIResponderC", "topViewController"]
 - !private ["So11UIResponderC", "viewControllers"]
 - ["So11UIResponderC", "window"]
 - ["So11UIResponderC", ""]
-- !private ["So30UIResponderStandardEditActionsP", "UIApplication"]
+- !private ["So30UIResponderStandardEditActionsP", "FirebaseApp"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UINavigationController"]
 - !private ["So30UIResponderStandardEditActionsP", "UIScreen"]
-- !private ["So30UIResponderStandardEditActionsP", "UIStatusBarStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "UIStoryboard"]
 - !private ["So30UIResponderStandardEditActionsP", "UIWindow"]
 - ["So30UIResponderStandardEditActionsP", "application"]
@@ -735,11 +711,9 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "selectedFraternity"]
 - !private ["So30UIResponderStandardEditActionsP", "setFront"]
 - !private ["So30UIResponderStandardEditActionsP", "setRear"]
-- !private ["So30UIResponderStandardEditActionsP", "shared"]
 - ["So30UIResponderStandardEditActionsP", "splitViewController"]
 - ["So30UIResponderStandardEditActionsP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["So30UIResponderStandardEditActionsP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["So30UIResponderStandardEditActionsP", "statusBarStyle"]
 - ["So30UIResponderStandardEditActionsP", "targetDisplayModeForAction"]
 - ["So30UIResponderStandardEditActionsP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "topViewController"]
@@ -752,11 +726,10 @@ depends-member:
 - !private ["So21UISplitViewControllerC", "delegate"]
 - !private ["So21UISplitViewControllerC", "displayModeButtonItem"]
 - !private ["So21UISplitViewControllerC", "viewControllers"]
-- !private ["So29UISplitViewControllerDelegateP", "UIApplication"]
+- !private ["So29UISplitViewControllerDelegateP", "FirebaseApp"]
 - !private ["So29UISplitViewControllerDelegateP", "UIColor"]
 - !private ["So29UISplitViewControllerDelegateP", "UINavigationController"]
 - !private ["So29UISplitViewControllerDelegateP", "UIScreen"]
-- !private ["So29UISplitViewControllerDelegateP", "UIStatusBarStyle"]
 - !private ["So29UISplitViewControllerDelegateP", "UIStoryboard"]
 - !private ["So29UISplitViewControllerDelegateP", "UIWindow"]
 - ["So29UISplitViewControllerDelegateP", "application"]
@@ -790,7 +763,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "setRear"]
 - !private ["So16UIStateRestoringP", "topViewController"]
 - !private ["So16UIStateRestoringP", "viewControllers"]
-- !private ["SC16UIStatusBarStyleO", "lightContent"]
 - !private ["So12UIStoryboardC", "init"]
 - !private ["So12UIStoryboardC", "instantiateViewController"]
 - !private ["So18UITraitEnvironmentP", "backgroundColor"]
@@ -849,11 +821,10 @@ depends-member:
 - !private ["s14_IndexableBaseP", "count"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIApplication"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "FirebaseApp"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UINavigationController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIScreen"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIStatusBarStyle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIStoryboard"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIWindow"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "application"]
@@ -870,6 +841,7 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "applicationWillTerminate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "backgroundColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "bounds"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "configure"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "delegate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "displayModeButtonItem"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
@@ -885,11 +857,9 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "selectedFraternity"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setFront"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setRear"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "splitViewController"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "splitViewControllerPreferredInterfaceOrientationForPresentation"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "splitViewControllerSupportedInterfaceOrientations"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "statusBarStyle"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "targetDisplayModeForAction"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "topViewController"]
@@ -931,6 +901,7 @@ depends-nominal:
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "So11FirebaseAppC"
 - !private "6RushMe10FraternityC"
 - "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
@@ -950,7 +921,6 @@ depends-nominal:
 - !private "So15OHSerializationP"
 - !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
-- !private "s16RawRepresentableP"
 - !private "So22SWRevealViewControllerC"
 - !private "s8SequenceP"
 - !private "SS"
@@ -960,7 +930,6 @@ depends-nominal:
 - !private "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
 - !private "So21UIAppearanceContainerP"
-- !private "So13UIApplicationC"
 - "So21UIApplicationDelegateP"
 - !private "So7UIColorC"
 - !private "So18UIContentContainerP"
@@ -978,7 +947,6 @@ depends-nominal:
 - !private "So21UISplitViewControllerC"
 - "So29UISplitViewControllerDelegateP"
 - !private "So16UIStateRestoringP"
-- !private "SC16UIStatusBarStyleO"
 - !private "So12UIStoryboardC"
 - !private "So18UITraitEnvironmentP"
 - !private "So6UIViewC"
@@ -1022,36 +990,99 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserMetadata.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthAPNSTokenType.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthUIDelegate.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthCredential.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAdditionalUserInfo.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIROAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRActionCodeSettings.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "77b2ff3e457aa754526d21ad83a0e58c"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
+interface-hash: "e91f1b3f38dd761615fd934b2d7fd9f4"

@@ -1,3 +1,4 @@
 dependencies: \
-  /Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.m \
-  /Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h
+  /Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer\ Menu/SlideoutMenu\ (SWRevealVC)/SWRevealViewController.m \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer\ Menu/SlideoutMenu\ (SWRevealVC)/SWRevealViewController.h

@@ -11,24 +11,22 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
   @IBOutlet var mapView: MKMapView!
+//  @IBOutlet var stepper: UIStepper!
   
   private let geoCoder = CLGeocoder()
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   
-  @IBOutlet weak var favoritesButton: UIBarButtonItem!
-  @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
-    if let _ = favoritesButton.title {
-      if favoritesButton.title! == "Favorites" {
-        self.loadAnnotations(fromAllFrats: false)
-        self.favoritesButton.title = "All"
-      }
-      else {
-        self.loadAnnotations(fromAllFrats: true)
-        self.favoritesButton.title = "Favorites"
-      }
-      self.mapView.setNeedsDisplay()
-    }
+  @IBOutlet var favoritesControl: UISegmentedControl!
+  
+  @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
+    let allFrats = sender.selectedSegmentIndex == 0
+    self.loadAnnotations(fromAllFrats: allFrats, animated: true)
   }
+//
+//  @IBAction func stepperSelected(_ sender: UIStepper) {
+//    // Iterate through all annotations
+//    self.mapView.showAnnotations([self.mapView.annotations[Int(sender.value)%self.mapView.annotations.count]], animated: true)
+//  }
   let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(42.729109), longitude: CLLocationDegrees(-73.677621))
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,18 +62,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
     super.viewWillAppear(animated)
     self.loadAnnotations(fromAllFrats: true, animated: false)
-    self.favoritesButton.isEnabled = Campus.shared.hasFavorites
+    self.favoritesControl.isHidden = !Campus.shared.hasFavorites
   }
   
   func loadAnnotations(fromAllFrats: Bool = true, animated : Bool = true) {
-    self.favoritesButton.isEnabled = false
+    self.favoritesControl.isEnabled = false
     var loadList = Campus.shared.favoritedFrats
     if fromAllFrats {
       loadList = Array(Campus.shared.fraternitiesDict.keys)
     }
     self.mapView.removeAnnotations(mapView.annotations)
     for fratName in loadList {
-      
       let frat = Campus.shared.fraternitiesDict[fratName]!
       if let annotation = frat.getProperty(named: RMFratPropertyKeys.fratMapAnnotation) as? MKAnnotation {
         self.mapView.addAnnotation(annotation)
@@ -106,7 +103,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //print("done with " + String(annotations.count))
 //    self.mapView.addAnnotations(annotations)
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
-    self.favoritesButton.isEnabled = Campus.shared.hasFavorites
+    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   
   @available(iOS 11.0, *)
@@ -134,10 +131,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     return cluster
   }
   func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-    self.favoritesButton.isEnabled = false
+    self.favoritesControl.isEnabled = false
   }
   func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-    self.favoritesButton.isEnabled = Campus.shared.hasFavorites
+    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
+    
   }
   /*
    // MARK: - Navigation

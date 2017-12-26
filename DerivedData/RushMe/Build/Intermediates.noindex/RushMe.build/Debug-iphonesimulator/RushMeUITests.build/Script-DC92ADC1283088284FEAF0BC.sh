@@ -1,3 +1,3 @@
 #!/bin/sh
-"${SRCROOT}/Pods/Target Support Files/Pods-RushMeUITests/Pods-RushMeUITests-resources.sh"
+"${SRCROOT}/Pods/Target Support Files/Pods-RushMe-RushMeUITests/Pods-RushMe-RushMeUITests-resources.sh"
 

@@ -17,6 +17,7 @@ dependencies: \
   /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/my_alloc.h \
   /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql/psi/psi_memory.h \
   /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql/psi/psi_base.h \
-  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Categories/NSNumber+OHSerialization.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Categories/NSData+OHSerialization.h \
   /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHSerializationProtocol.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Categories/NSNumber+OHSerialization.h \
   /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Categories/NSString+OHSerialization.h

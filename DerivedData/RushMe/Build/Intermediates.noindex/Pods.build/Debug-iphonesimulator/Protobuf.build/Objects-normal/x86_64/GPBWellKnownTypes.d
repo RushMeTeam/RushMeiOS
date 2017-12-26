@@ -1,0 +1,32 @@
+dependencies: \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBWellKnownTypes.m \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Protobuf.build/module.modulemap \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Target\ Support\ Files/Protobuf/Protobuf-prefix.pch \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBWellKnownTypes.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Any.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBProtocolBuffers.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBBootstrap.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBArray.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBRuntimeTypes.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBCodedInputStream.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBCodedOutputStream.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBWireFormat.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBDescriptor.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBDictionary.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBExtensionRegistry.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBMessage.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBRootObject.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBUnknownField.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBUnknownFieldSet.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBUtilities.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Api.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Duration.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Empty.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/FieldMask.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/SourceContext.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Struct.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Timestamp.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Type.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/google/protobuf/Wrappers.pbobjc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBUtilities_PackagePrivate.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Protobuf/objectivec/GPBDescriptor_PackagePrivate.h

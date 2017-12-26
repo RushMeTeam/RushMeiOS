@@ -82,7 +82,6 @@ depends-top-level:
 - "UIView"
 - !private "UIViewContentMode"
 - "UIViewController"
-- !private "greekLetters"
 - !private "max"
 - !private "min"
 - !private "pow"
@@ -90,7 +89,6 @@ depends-top-level:
 depends-member:
 - !private ["Sa", "append"]
 - !private ["Sa", "contains"]
-- !private ["Sa", "filter"]
 - !private ["Sa", "first"]
 - !private ["Sa", "index"]
 - !private ["Sa", "init"]
@@ -99,8 +97,8 @@ depends-member:
 - !private ["s23BidirectionalCollectionP", "append"]
 - !private ["s23BidirectionalCollectionP", "contains"]
 - !private ["s23BidirectionalCollectionP", "dropLast"]
-- !private ["s23BidirectionalCollectionP", "filter"]
 - !private ["s23BidirectionalCollectionP", "first"]
+- !private ["s23BidirectionalCollectionP", "greekLetters"]
 - !private ["s23BidirectionalCollectionP", "index"]
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "last"]
@@ -118,7 +116,6 @@ depends-member:
 - !private ["So15CALayerDelegateP", "addAnnotation"]
 - !private ["So15CALayerDelegateP", "alpha"]
 - !private ["So15CALayerDelegateP", "animate"]
-- !private ["So15CALayerDelegateP", "backgroundColor"]
 - !private ["So15CALayerDelegateP", "bounds"]
 - !private ["So15CALayerDelegateP", "bringSubview"]
 - !private ["So15CALayerDelegateP", "canCancelContentTouches"]
@@ -134,7 +131,6 @@ depends-member:
 - !private ["So15CALayerDelegateP", "isZoomEnabled"]
 - !private ["So15CALayerDelegateP", "layer"]
 - !private ["So15CALayerDelegateP", "layoutSubviews"]
-- !private ["So15CALayerDelegateP", "mapType"]
 - !private ["So15CALayerDelegateP", "region"]
 - !private ["So15CALayerDelegateP", "setCenter"]
 - !private ["So15CALayerDelegateP", "setContentOffset"]
@@ -193,7 +189,6 @@ depends-member:
 - !private ["s7CVarArgP", "alpha"]
 - !private ["s7CVarArgP", "animate"]
 - !private ["s7CVarArgP", "append"]
-- !private ["s7CVarArgP", "backgroundColor"]
 - !private ["s7CVarArgP", "black"]
 - !private ["s7CVarArgP", "blockTextView"]
 - !private ["s7CVarArgP", "borderColor"]
@@ -242,7 +237,6 @@ depends-member:
 - !private ["s7CVarArgP", "layoutSubviews"]
 - !private ["s7CVarArgP", "location"]
 - !private ["s7CVarArgP", "mapItem"]
-- !private ["s7CVarArgP", "mapType"]
 - ["s7CVarArgP", "mapView"]
 - ["s7CVarArgP", "mapViewDidFailLoadingMap"]
 - ["s7CVarArgP", "mapViewDidFinishLoadingMap"]
@@ -261,6 +255,7 @@ depends-member:
 - !private ["s7CVarArgP", "pow"]
 - !private ["s7CVarArgP", "present"]
 - !private ["s7CVarArgP", "profileImageView"]
+- !private ["s7CVarArgP", "provideDate"]
 - !private ["s7CVarArgP", "region"]
 - !private ["s7CVarArgP", "remove"]
 - !private ["s7CVarArgP", "scale"]
@@ -323,6 +318,7 @@ depends-member:
 - !private ["s10CollectionP", "dropLast"]
 - !private ["s10CollectionP", "filter"]
 - !private ["s10CollectionP", "first"]
+- !private ["s10CollectionP", "greekLetters"]
 - !private ["s10CollectionP", "index"]
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "last"]
@@ -330,6 +326,7 @@ depends-member:
 - !private ["s10CollectionP", "values"]
 - !private ["s10ComparableP", "compare"]
 - !private ["s10ComparableP", "dropLast"]
+- !private ["s10ComparableP", "greekLetters"]
 - !private ["s10ComparableP", "init"]
 - !private ["SC16ComparisonResultO", "orderedAscending"]
 - !private ["s28CustomDebugStringConvertibleP", "Array"]
@@ -355,7 +352,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "alpha"]
 - !private ["s28CustomDebugStringConvertibleP", "animate"]
 - !private ["s28CustomDebugStringConvertibleP", "append"]
-- !private ["s28CustomDebugStringConvertibleP", "backgroundColor"]
 - !private ["s28CustomDebugStringConvertibleP", "black"]
 - !private ["s28CustomDebugStringConvertibleP", "blockTextView"]
 - !private ["s28CustomDebugStringConvertibleP", "borderColor"]
@@ -405,7 +401,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "layoutSubviews"]
 - !private ["s28CustomDebugStringConvertibleP", "location"]
 - !private ["s28CustomDebugStringConvertibleP", "mapItem"]
-- !private ["s28CustomDebugStringConvertibleP", "mapType"]
 - ["s28CustomDebugStringConvertibleP", "mapView"]
 - ["s28CustomDebugStringConvertibleP", "mapViewDidFailLoadingMap"]
 - ["s28CustomDebugStringConvertibleP", "mapViewDidFinishLoadingMap"]
@@ -426,6 +421,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "pow"]
 - !private ["s28CustomDebugStringConvertibleP", "present"]
 - !private ["s28CustomDebugStringConvertibleP", "profileImageView"]
+- !private ["s28CustomDebugStringConvertibleP", "provideDate"]
 - !private ["s28CustomDebugStringConvertibleP", "region"]
 - !private ["s28CustomDebugStringConvertibleP", "remove"]
 - !private ["s28CustomDebugStringConvertibleP", "scale"]
@@ -487,6 +483,7 @@ depends-member:
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "compare"]
 - !private ["s29CustomPlaygroundQuickLookableP", "dropLast"]
+- !private ["s29CustomPlaygroundQuickLookableP", "greekLetters"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "midX"]
 - !private ["s29CustomPlaygroundQuickLookableP", "midY"]
@@ -502,6 +499,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "dropLast"]
 - !private ["s17CustomReflectableP", "filter"]
 - !private ["s17CustomReflectableP", "first"]
+- !private ["s17CustomReflectableP", "greekLetters"]
 - !private ["s17CustomReflectableP", "index"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "last"]
@@ -538,7 +536,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "alpha"]
 - !private ["s23CustomStringConvertibleP", "animate"]
 - !private ["s23CustomStringConvertibleP", "append"]
-- !private ["s23CustomStringConvertibleP", "backgroundColor"]
 - !private ["s23CustomStringConvertibleP", "black"]
 - !private ["s23CustomStringConvertibleP", "blockTextView"]
 - !private ["s23CustomStringConvertibleP", "borderColor"]
@@ -588,7 +585,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "layoutSubviews"]
 - !private ["s23CustomStringConvertibleP", "location"]
 - !private ["s23CustomStringConvertibleP", "mapItem"]
-- !private ["s23CustomStringConvertibleP", "mapType"]
 - ["s23CustomStringConvertibleP", "mapView"]
 - ["s23CustomStringConvertibleP", "mapViewDidFailLoadingMap"]
 - ["s23CustomStringConvertibleP", "mapViewDidFinishLoadingMap"]
@@ -607,6 +603,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "pow"]
 - !private ["s23CustomStringConvertibleP", "present"]
 - !private ["s23CustomStringConvertibleP", "profileImageView"]
+- !private ["s23CustomStringConvertibleP", "provideDate"]
 - !private ["s23CustomStringConvertibleP", "region"]
 - !private ["s23CustomStringConvertibleP", "remove"]
 - !private ["s23CustomStringConvertibleP", "scale"]
@@ -668,6 +665,7 @@ depends-member:
 - !private ["s9DecodableP", "dropLast"]
 - !private ["s9DecodableP", "filter"]
 - !private ["s9DecodableP", "first"]
+- !private ["s9DecodableP", "greekLetters"]
 - !private ["s9DecodableP", "identity"]
 - !private ["s9DecodableP", "index"]
 - !private ["s9DecodableP", "init"]
@@ -730,7 +728,6 @@ depends-member:
 - ["6RushMe20DetailViewControllerC", "favoritesButton"]
 - ["6RushMe20DetailViewControllerC", "favoritesButtonHit"]
 - ["6RushMe20DetailViewControllerC", "gpaLabel"]
-- !private ["6RushMe20DetailViewControllerC", "greekLetters"]
 - ["6RushMe20DetailViewControllerC", "init"]
 - ["6RushMe20DetailViewControllerC", "mapItem"]
 - ["6RushMe20DetailViewControllerC", "mapView"]
@@ -777,6 +774,8 @@ depends-member:
 - ["6RushMe20DetailViewControllerC", "viewForZooming"]
 - ["6RushMe20DetailViewControllerC", "viewForZoomingInScrollView"]
 - ["6RushMe20DetailViewControllerC", "viewWillAppear"]
+- !private ["s10DictionaryV", "filter"]
+- !private ["s10DictionaryV", "last"]
 - !private ["s10DictionaryV", "values"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "append"]
@@ -785,6 +784,7 @@ depends-member:
 - !private ["s9EncodableP", "dropLast"]
 - !private ["s9EncodableP", "filter"]
 - !private ["s9EncodableP", "first"]
+- !private ["s9EncodableP", "greekLetters"]
 - !private ["s9EncodableP", "identity"]
 - !private ["s9EncodableP", "index"]
 - !private ["s9EncodableP", "init"]
@@ -823,7 +823,6 @@ depends-member:
 - !private ["s9EquatableP", "allowUserInteraction"]
 - !private ["s9EquatableP", "alpha"]
 - !private ["s9EquatableP", "animate"]
-- !private ["s9EquatableP", "backgroundColor"]
 - !private ["s9EquatableP", "began"]
 - !private ["s9EquatableP", "black"]
 - !private ["s9EquatableP", "blockTextView"]
@@ -858,7 +857,6 @@ depends-member:
 - !private ["s9EquatableP", "getProperty"]
 - !private ["s9EquatableP", "gpaLabel"]
 - !private ["s9EquatableP", "greekLetters"]
-- !private ["s9EquatableP", "hybrid"]
 - !private ["s9EquatableP", "identity"]
 - !private ["s9EquatableP", "image"]
 - !private ["s9EquatableP", "init"]
@@ -872,7 +870,6 @@ depends-member:
 - !private ["s9EquatableP", "layoutSubviews"]
 - !private ["s9EquatableP", "location"]
 - !private ["s9EquatableP", "mapItem"]
-- !private ["s9EquatableP", "mapType"]
 - ["s9EquatableP", "mapView"]
 - ["s9EquatableP", "mapViewDidFailLoadingMap"]
 - ["s9EquatableP", "mapViewDidFinishLoadingMap"]
@@ -894,6 +891,7 @@ depends-member:
 - !private ["s9EquatableP", "pow"]
 - !private ["s9EquatableP", "present"]
 - !private ["s9EquatableP", "profileImageView"]
+- !private ["s9EquatableP", "provideDate"]
 - !private ["s9EquatableP", "region"]
 - !private ["s9EquatableP", "scale"]
 - !private ["s9EquatableP", "scaleAspectFill"]
@@ -952,26 +950,31 @@ depends-member:
 - !private ["s9EquatableP", "zPosition"]
 - !private ["s9EquatableP", "zero"]
 - ["s9EquatableP", ""]
+- !private ["6RushMe24EventTableViewControllerC", "provideDate"]
 - !private ["6RushMe24EventTableViewControllerC", "selectedEvents"]
 - !private ["6RushMe24EventTableViewControllerC", "view"]
 - !private ["s25ExpressibleByArrayLiteralP", "allowUserInteraction"]
 - !private ["s25ExpressibleByArrayLiteralP", "append"]
 - !private ["s25ExpressibleByArrayLiteralP", "contains"]
-- !private ["s25ExpressibleByArrayLiteralP", "filter"]
 - !private ["s25ExpressibleByArrayLiteralP", "first"]
 - !private ["s25ExpressibleByArrayLiteralP", "index"]
 - !private ["s25ExpressibleByArrayLiteralP", "init"]
 - !private ["s25ExpressibleByArrayLiteralP", "last"]
 - !private ["s25ExpressibleByArrayLiteralP", "remove"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "filter"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "last"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "values"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "dropLast"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "greekLetters"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s25ExpressibleByFloatLiteralP", "init"]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "dropLast"]
+- !private ["s26ExpressibleByStringLiteralP", "greekLetters"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "dropLast"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "greekLetters"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["Sf", "init"]
 - !private ["s13FloatingPointP", "init"]
@@ -1003,7 +1006,6 @@ depends-member:
 - !private ["s8HashableP", "addAnnotation"]
 - !private ["s8HashableP", "alpha"]
 - !private ["s8HashableP", "animate"]
-- !private ["s8HashableP", "backgroundColor"]
 - !private ["s8HashableP", "began"]
 - !private ["s8HashableP", "black"]
 - !private ["s8HashableP", "blockTextView"]
@@ -1038,7 +1040,6 @@ depends-member:
 - !private ["s8HashableP", "getProperty"]
 - !private ["s8HashableP", "gpaLabel"]
 - !private ["s8HashableP", "greekLetters"]
-- !private ["s8HashableP", "hybrid"]
 - !private ["s8HashableP", "image"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "instantiateViewController"]
@@ -1051,7 +1052,6 @@ depends-member:
 - !private ["s8HashableP", "layoutSubviews"]
 - !private ["s8HashableP", "location"]
 - !private ["s8HashableP", "mapItem"]
-- !private ["s8HashableP", "mapType"]
 - ["s8HashableP", "mapView"]
 - ["s8HashableP", "mapViewDidFailLoadingMap"]
 - ["s8HashableP", "mapViewDidFinishLoadingMap"]
@@ -1071,6 +1071,7 @@ depends-member:
 - !private ["s8HashableP", "pow"]
 - !private ["s8HashableP", "present"]
 - !private ["s8HashableP", "profileImageView"]
+- !private ["s8HashableP", "provideDate"]
 - !private ["s8HashableP", "region"]
 - !private ["s8HashableP", "scale"]
 - !private ["s8HashableP", "scaleAspectFill"]
@@ -1126,6 +1127,7 @@ depends-member:
 - !private ["6RushMe19ImageViewControllerC", "image"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "dropLast"]
+- !private ["s25LosslessStringConvertibleP", "greekLetters"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["So12MKAnnotationP", "coordinate"]
 - !private ["So12MKAnnotationP", "init"]
@@ -1136,13 +1138,11 @@ depends-member:
 - !private ["So9MKMapItemC", "init"]
 - !private ["So9MKMapItemC", "name"]
 - !private ["So9MKMapItemC", "openMaps"]
-- !private ["SC9MKMapTypeO", "hybrid"]
 - !private ["So9MKMapViewC", "addAnnotation"]
 - !private ["So9MKMapViewC", "isHidden"]
 - !private ["So9MKMapViewC", "isScrollEnabled"]
 - !private ["So9MKMapViewC", "isZoomEnabled"]
 - !private ["So9MKMapViewC", "layer"]
-- !private ["So9MKMapViewC", "mapType"]
 - !private ["So9MKMapViewC", "region"]
 - !private ["So9MKMapViewC", "setCenter"]
 - !private ["So9MKMapViewC", "showsBuildings"]
@@ -1174,7 +1174,6 @@ depends-member:
 - !private ["So17MKMapViewDelegateP", "eventViewController"]
 - !private ["So17MKMapViewDelegateP", "favoritesButton"]
 - !private ["So17MKMapViewDelegateP", "gpaLabel"]
-- !private ["So17MKMapViewDelegateP", "greekLetters"]
 - !private ["So17MKMapViewDelegateP", "mapItem"]
 - ["So17MKMapViewDelegateP", "mapView"]
 - ["So17MKMapViewDelegateP", "mapViewDidFailLoadingMap"]
@@ -1228,10 +1227,10 @@ depends-member:
 - !private ["So7MKShapeC", "subtitle"]
 - !private ["So7MKShapeC", "title"]
 - !private ["s10MirrorPathP", "dropLast"]
+- !private ["s10MirrorPathP", "greekLetters"]
 - !private ["s10MirrorPathP", "init"]
 - !private ["s17MutableCollectionP", "append"]
 - !private ["s17MutableCollectionP", "contains"]
-- !private ["s17MutableCollectionP", "filter"]
 - !private ["s17MutableCollectionP", "first"]
 - !private ["s17MutableCollectionP", "index"]
 - !private ["s17MutableCollectionP", "init"]
@@ -1259,7 +1258,6 @@ depends-member:
 - !private ["So8NSCodingP", "addAnnotation"]
 - !private ["So8NSCodingP", "alpha"]
 - !private ["So8NSCodingP", "animate"]
-- !private ["So8NSCodingP", "backgroundColor"]
 - !private ["So8NSCodingP", "black"]
 - !private ["So8NSCodingP", "blockTextView"]
 - !private ["So8NSCodingP", "borderColor"]
@@ -1295,7 +1293,6 @@ depends-member:
 - !private ["So8NSCodingP", "layoutSubviews"]
 - !private ["So8NSCodingP", "location"]
 - !private ["So8NSCodingP", "mapItem"]
-- !private ["So8NSCodingP", "mapType"]
 - ["So8NSCodingP", "mapView"]
 - ["So8NSCodingP", "mapViewDidFailLoadingMap"]
 - ["So8NSCodingP", "mapViewDidFinishLoadingMap"]
@@ -1314,6 +1311,7 @@ depends-member:
 - !private ["So8NSCodingP", "pow"]
 - !private ["So8NSCodingP", "present"]
 - !private ["So8NSCodingP", "profileImageView"]
+- !private ["So8NSCodingP", "provideDate"]
 - !private ["So8NSCodingP", "region"]
 - !private ["So8NSCodingP", "scrollView"]
 - ["So8NSCodingP", "scrollViewDidChangeAdjustedContentInset"]
@@ -1364,6 +1362,7 @@ depends-member:
 - !private ["So9NSCopyingP", "cgColor"]
 - !private ["So9NSCopyingP", "coordinate"]
 - !private ["So9NSCopyingP", "dropLast"]
+- !private ["So9NSCopyingP", "greekLetters"]
 - !private ["So9NSCopyingP", "init"]
 - !private ["So9NSCopyingP", "location"]
 - !private ["So9NSCopyingP", "white"]
@@ -1396,7 +1395,6 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "eventViewController"]
 - !private ["So26NSExtensionRequestHandlingP", "favoritesButton"]
 - !private ["So26NSExtensionRequestHandlingP", "gpaLabel"]
-- !private ["So26NSExtensionRequestHandlingP", "greekLetters"]
 - !private ["So26NSExtensionRequestHandlingP", "image"]
 - !private ["So26NSExtensionRequestHandlingP", "init"]
 - !private ["So26NSExtensionRequestHandlingP", "mapItem"]
@@ -1415,6 +1413,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "pow"]
 - !private ["So26NSExtensionRequestHandlingP", "present"]
 - !private ["So26NSExtensionRequestHandlingP", "profileImageView"]
+- !private ["So26NSExtensionRequestHandlingP", "provideDate"]
 - !private ["So26NSExtensionRequestHandlingP", "scrollView"]
 - ["So26NSExtensionRequestHandlingP", "scrollViewDidChangeAdjustedContentInset"]
 - ["So26NSExtensionRequestHandlingP", "scrollViewDidEndDecelerating"]
@@ -1448,6 +1447,7 @@ depends-member:
 - !private ["So21NSItemProviderReadingP", "black"]
 - !private ["So21NSItemProviderReadingP", "cgColor"]
 - !private ["So21NSItemProviderReadingP", "dropLast"]
+- !private ["So21NSItemProviderReadingP", "greekLetters"]
 - !private ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderReadingP", "name"]
 - !private ["So21NSItemProviderReadingP", "openMaps"]
@@ -1456,12 +1456,14 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "black"]
 - !private ["So21NSItemProviderWritingP", "cgColor"]
 - !private ["So21NSItemProviderWritingP", "dropLast"]
+- !private ["So21NSItemProviderWritingP", "greekLetters"]
 - !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So21NSItemProviderWritingP", "name"]
 - !private ["So21NSItemProviderWritingP", "openMaps"]
 - !private ["So21NSItemProviderWritingP", "white"]
 - !private ["So21NSItemProviderWritingP", "withAlphaComponent"]
 - !private ["So16NSMutableCopyingP", "dropLast"]
+- !private ["So16NSMutableCopyingP", "greekLetters"]
 - !private ["So16NSMutableCopyingP", "init"]
 - !private ["So8NSObjectC", "Array"]
 - ["So8NSObjectC", "Bool"]
@@ -1501,7 +1503,6 @@ depends-member:
 - !private ["So8NSObjectC", "addAnnotation"]
 - !private ["So8NSObjectC", "alpha"]
 - !private ["So8NSObjectC", "animate"]
-- !private ["So8NSObjectC", "backgroundColor"]
 - !private ["So8NSObjectC", "black"]
 - ["So8NSObjectC", "blockTextView"]
 - !private ["So8NSObjectC", "borderColor"]
@@ -1548,7 +1549,6 @@ depends-member:
 - !private ["So8NSObjectC", "layoutSubviews"]
 - !private ["So8NSObjectC", "location"]
 - ["So8NSObjectC", "mapItem"]
-- !private ["So8NSObjectC", "mapType"]
 - ["So8NSObjectC", "mapView"]
 - ["So8NSObjectC", "mapViewDidFailLoadingMap"]
 - ["So8NSObjectC", "mapViewDidFinishLoadingMap"]
@@ -1568,6 +1568,7 @@ depends-member:
 - !private ["So8NSObjectC", "pow"]
 - !private ["So8NSObjectC", "present"]
 - ["So8NSObjectC", "profileImageView"]
+- !private ["So8NSObjectC", "provideDate"]
 - !private ["So8NSObjectC", "region"]
 - !private ["So8NSObjectC", "scale"]
 - ["So8NSObjectC", "scrollView"]
@@ -1640,7 +1641,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "addAnnotation"]
 - !private ["So16NSObjectProtocolP", "alpha"]
 - !private ["So16NSObjectProtocolP", "animate"]
-- !private ["So16NSObjectProtocolP", "backgroundColor"]
 - !private ["So16NSObjectProtocolP", "black"]
 - !private ["So16NSObjectProtocolP", "blockTextView"]
 - !private ["So16NSObjectProtocolP", "borderColor"]
@@ -1684,7 +1684,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "layoutSubviews"]
 - !private ["So16NSObjectProtocolP", "location"]
 - !private ["So16NSObjectProtocolP", "mapItem"]
-- !private ["So16NSObjectProtocolP", "mapType"]
 - ["So16NSObjectProtocolP", "mapView"]
 - ["So16NSObjectProtocolP", "mapViewDidFailLoadingMap"]
 - ["So16NSObjectProtocolP", "mapViewDidFinishLoadingMap"]
@@ -1703,6 +1702,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "pow"]
 - !private ["So16NSObjectProtocolP", "present"]
 - !private ["So16NSObjectProtocolP", "profileImageView"]
+- !private ["So16NSObjectProtocolP", "provideDate"]
 - !private ["So16NSObjectProtocolP", "region"]
 - !private ["So16NSObjectProtocolP", "scale"]
 - !private ["So16NSObjectProtocolP", "scrollView"]
@@ -1761,6 +1761,7 @@ depends-member:
 - !private ["So14NSSecureCodingP", "coordinate"]
 - !private ["So14NSSecureCodingP", "cornerRadius"]
 - !private ["So14NSSecureCodingP", "dropLast"]
+- !private ["So14NSSecureCodingP", "greekLetters"]
 - !private ["So14NSSecureCodingP", "init"]
 - !private ["So14NSSecureCodingP", "location"]
 - !private ["So14NSSecureCodingP", "masksToBounds"]
@@ -1773,9 +1774,11 @@ depends-member:
 - !private ["So14NSSecureCodingP", "withAlphaComponent"]
 - !private ["So14NSSecureCodingP", "zPosition"]
 - !private ["So8NSStringC", "dropLast"]
+- !private ["So8NSStringC", "greekLetters"]
 - !private ["So8NSStringC", "init"]
 - !private ["s7NumericP", "init"]
 - !private ["So15OHSerializationP", "dropLast"]
+- !private ["So15OHSerializationP", "greekLetters"]
 - !private ["So15OHSerializationP", "init"]
 - !private ["s9OptionSetP", "allowUserInteraction"]
 - !private ["6RushMe11RMAnimationV", "ColoringTime"]
@@ -1795,7 +1798,6 @@ depends-member:
 - !private ["6RushMe7RMImageV", "NoImage"]
 - !private ["s22RandomAccessCollectionP", "append"]
 - !private ["s22RandomAccessCollectionP", "contains"]
-- !private ["s22RandomAccessCollectionP", "filter"]
 - !private ["s22RandomAccessCollectionP", "first"]
 - !private ["s22RandomAccessCollectionP", "index"]
 - !private ["s22RandomAccessCollectionP", "init"]
@@ -1804,8 +1806,8 @@ depends-member:
 - !private ["s26RangeReplaceableCollectionP", "append"]
 - !private ["s26RangeReplaceableCollectionP", "contains"]
 - !private ["s26RangeReplaceableCollectionP", "dropLast"]
-- !private ["s26RangeReplaceableCollectionP", "filter"]
 - !private ["s26RangeReplaceableCollectionP", "first"]
+- !private ["s26RangeReplaceableCollectionP", "greekLetters"]
 - !private ["s26RangeReplaceableCollectionP", "index"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "last"]
@@ -1813,7 +1815,6 @@ depends-member:
 - !private ["s16RawRepresentableP", "allowUserInteraction"]
 - !private ["s16RawRepresentableP", "began"]
 - !private ["s16RawRepresentableP", "changed"]
-- !private ["s16RawRepresentableP", "hybrid"]
 - !private ["s16RawRepresentableP", "orderedAscending"]
 - !private ["s16RawRepresentableP", "scaleAspectFill"]
 - !private ["10Foundation20ReferenceConvertibleP", "compare"]
@@ -1822,6 +1823,7 @@ depends-member:
 - !private ["s8SequenceP", "dropLast"]
 - !private ["s8SequenceP", "filter"]
 - !private ["s8SequenceP", "first"]
+- !private ["s8SequenceP", "greekLetters"]
 - !private ["s8SequenceP", "index"]
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "last"]
@@ -1831,15 +1833,18 @@ depends-member:
 - !private ["s13SignedNumericP", "init"]
 - !private ["s10StrideableP", "init"]
 - !private ["SS", "dropLast"]
+- !private ["SS", "greekLetters"]
 - !private ["SS", "init"]
 - !private ["s14StringProtocolP", "dropLast"]
+- !private ["s14StringProtocolP", "greekLetters"]
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "dropLast"]
+- !private ["s16TextOutputStreamP", "greekLetters"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "dropLast"]
+- !private ["s20TextOutputStreamableP", "greekLetters"]
 - !private ["s20TextOutputStreamableP", "init"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "alpha"]
-- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "backgroundColor"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "clipsToBounds"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "contentMode"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
@@ -1852,7 +1857,6 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "addAnnotation"]
 - !private ["So29UIAccessibilityIdentificationP", "alpha"]
 - !private ["So29UIAccessibilityIdentificationP", "animate"]
-- !private ["So29UIAccessibilityIdentificationP", "backgroundColor"]
 - !private ["So29UIAccessibilityIdentificationP", "bounds"]
 - !private ["So29UIAccessibilityIdentificationP", "bringSubview"]
 - !private ["So29UIAccessibilityIdentificationP", "canCancelContentTouches"]
@@ -1868,7 +1872,6 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "isZoomEnabled"]
 - !private ["So29UIAccessibilityIdentificationP", "layer"]
 - !private ["So29UIAccessibilityIdentificationP", "layoutSubviews"]
-- !private ["So29UIAccessibilityIdentificationP", "mapType"]
 - !private ["So29UIAccessibilityIdentificationP", "region"]
 - !private ["So29UIAccessibilityIdentificationP", "setCenter"]
 - !private ["So29UIAccessibilityIdentificationP", "setContentOffset"]
@@ -1882,7 +1885,6 @@ depends-member:
 - !private ["So12UIAppearanceP", "addAnnotation"]
 - !private ["So12UIAppearanceP", "alpha"]
 - !private ["So12UIAppearanceP", "animate"]
-- !private ["So12UIAppearanceP", "backgroundColor"]
 - !private ["So12UIAppearanceP", "bounds"]
 - !private ["So12UIAppearanceP", "bringSubview"]
 - !private ["So12UIAppearanceP", "canCancelContentTouches"]
@@ -1898,7 +1900,6 @@ depends-member:
 - !private ["So12UIAppearanceP", "isZoomEnabled"]
 - !private ["So12UIAppearanceP", "layer"]
 - !private ["So12UIAppearanceP", "layoutSubviews"]
-- !private ["So12UIAppearanceP", "mapType"]
 - !private ["So12UIAppearanceP", "region"]
 - !private ["So12UIAppearanceP", "setCenter"]
 - !private ["So12UIAppearanceP", "setContentOffset"]
@@ -1931,7 +1932,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "addAnnotation"]
 - !private ["So21UIAppearanceContainerP", "alpha"]
 - !private ["So21UIAppearanceContainerP", "animate"]
-- !private ["So21UIAppearanceContainerP", "backgroundColor"]
 - !private ["So21UIAppearanceContainerP", "blockTextView"]
 - !private ["So21UIAppearanceContainerP", "bounds"]
 - !private ["So21UIAppearanceContainerP", "bringSubview"]
@@ -1948,7 +1948,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "favoritesButton"]
 - !private ["So21UIAppearanceContainerP", "frame"]
 - !private ["So21UIAppearanceContainerP", "gpaLabel"]
-- !private ["So21UIAppearanceContainerP", "greekLetters"]
 - !private ["So21UIAppearanceContainerP", "image"]
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "isEditable"]
@@ -1959,7 +1958,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "layer"]
 - !private ["So21UIAppearanceContainerP", "layoutSubviews"]
 - !private ["So21UIAppearanceContainerP", "mapItem"]
-- !private ["So21UIAppearanceContainerP", "mapType"]
 - ["So21UIAppearanceContainerP", "mapView"]
 - ["So21UIAppearanceContainerP", "mapViewDidFailLoadingMap"]
 - ["So21UIAppearanceContainerP", "mapViewDidFinishLoadingMap"]
@@ -1975,6 +1973,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "pow"]
 - !private ["So21UIAppearanceContainerP", "present"]
 - !private ["So21UIAppearanceContainerP", "profileImageView"]
+- !private ["So21UIAppearanceContainerP", "provideDate"]
 - !private ["So21UIAppearanceContainerP", "region"]
 - !private ["So21UIAppearanceContainerP", "scrollView"]
 - ["So21UIAppearanceContainerP", "scrollViewDidChangeAdjustedContentInset"]
@@ -2017,7 +2016,6 @@ depends-member:
 - ["So21UIAppearanceContainerP", ""]
 - !private ["So15UIBarButtonItemC", "image"]
 - !private ["So9UIBarItemC", "image"]
-- !private ["So8UIButtonC", "backgroundColor"]
 - !private ["So8UIButtonC", "isHidden"]
 - !private ["So8UIButtonC", "layer"]
 - !private ["So8UIButtonC", "tintColor"]
@@ -2053,7 +2051,6 @@ depends-member:
 - !private ["So18UIContentContainerP", "eventViewController"]
 - !private ["So18UIContentContainerP", "favoritesButton"]
 - !private ["So18UIContentContainerP", "gpaLabel"]
-- !private ["So18UIContentContainerP", "greekLetters"]
 - !private ["So18UIContentContainerP", "image"]
 - !private ["So18UIContentContainerP", "init"]
 - !private ["So18UIContentContainerP", "mapItem"]
@@ -2072,6 +2069,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "pow"]
 - !private ["So18UIContentContainerP", "present"]
 - !private ["So18UIContentContainerP", "profileImageView"]
+- !private ["So18UIContentContainerP", "provideDate"]
 - !private ["So18UIContentContainerP", "scrollView"]
 - ["So18UIContentContainerP", "scrollViewDidChangeAdjustedContentInset"]
 - ["So18UIContentContainerP", "scrollViewDidEndDecelerating"]
@@ -2107,14 +2105,12 @@ depends-member:
 - !private ["So30UIContentSizeCategoryAdjustingP", "isScrollEnabled"]
 - !private ["So30UIContentSizeCategoryAdjustingP", "sizeToFit"]
 - !private ["So30UIContentSizeCategoryAdjustingP", "text"]
-- !private ["So9UIControlC", "backgroundColor"]
 - !private ["So9UIControlC", "isHidden"]
 - !private ["So9UIControlC", "layer"]
 - !private ["So9UIControlC", "tintColor"]
 - !private ["So17UICoordinateSpaceP", "addAnnotation"]
 - !private ["So17UICoordinateSpaceP", "alpha"]
 - !private ["So17UICoordinateSpaceP", "animate"]
-- !private ["So17UICoordinateSpaceP", "backgroundColor"]
 - !private ["So17UICoordinateSpaceP", "bounds"]
 - !private ["So17UICoordinateSpaceP", "bringSubview"]
 - !private ["So17UICoordinateSpaceP", "canCancelContentTouches"]
@@ -2130,7 +2126,6 @@ depends-member:
 - !private ["So17UICoordinateSpaceP", "isZoomEnabled"]
 - !private ["So17UICoordinateSpaceP", "layer"]
 - !private ["So17UICoordinateSpaceP", "layoutSubviews"]
-- !private ["So17UICoordinateSpaceP", "mapType"]
 - !private ["So17UICoordinateSpaceP", "region"]
 - !private ["So17UICoordinateSpaceP", "setCenter"]
 - !private ["So17UICoordinateSpaceP", "setContentOffset"]
@@ -2144,7 +2139,6 @@ depends-member:
 - !private ["So13UIDynamicItemP", "addAnnotation"]
 - !private ["So13UIDynamicItemP", "alpha"]
 - !private ["So13UIDynamicItemP", "animate"]
-- !private ["So13UIDynamicItemP", "backgroundColor"]
 - !private ["So13UIDynamicItemP", "bounds"]
 - !private ["So13UIDynamicItemP", "bringSubview"]
 - !private ["So13UIDynamicItemP", "canCancelContentTouches"]
@@ -2160,7 +2154,6 @@ depends-member:
 - !private ["So13UIDynamicItemP", "isZoomEnabled"]
 - !private ["So13UIDynamicItemP", "layer"]
 - !private ["So13UIDynamicItemP", "layoutSubviews"]
-- !private ["So13UIDynamicItemP", "mapType"]
 - !private ["So13UIDynamicItemP", "region"]
 - !private ["So13UIDynamicItemP", "setCenter"]
 - !private ["So13UIDynamicItemP", "setContentOffset"]
@@ -2193,7 +2186,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "addAnnotation"]
 - !private ["So18UIFocusEnvironmentP", "alpha"]
 - !private ["So18UIFocusEnvironmentP", "animate"]
-- !private ["So18UIFocusEnvironmentP", "backgroundColor"]
 - !private ["So18UIFocusEnvironmentP", "blockTextView"]
 - !private ["So18UIFocusEnvironmentP", "bounds"]
 - !private ["So18UIFocusEnvironmentP", "bringSubview"]
@@ -2210,7 +2202,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "favoritesButton"]
 - !private ["So18UIFocusEnvironmentP", "frame"]
 - !private ["So18UIFocusEnvironmentP", "gpaLabel"]
-- !private ["So18UIFocusEnvironmentP", "greekLetters"]
 - !private ["So18UIFocusEnvironmentP", "image"]
 - !private ["So18UIFocusEnvironmentP", "init"]
 - !private ["So18UIFocusEnvironmentP", "isEditable"]
@@ -2221,7 +2212,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "layer"]
 - !private ["So18UIFocusEnvironmentP", "layoutSubviews"]
 - !private ["So18UIFocusEnvironmentP", "mapItem"]
-- !private ["So18UIFocusEnvironmentP", "mapType"]
 - ["So18UIFocusEnvironmentP", "mapView"]
 - ["So18UIFocusEnvironmentP", "mapViewDidFailLoadingMap"]
 - ["So18UIFocusEnvironmentP", "mapViewDidFinishLoadingMap"]
@@ -2237,6 +2227,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "pow"]
 - !private ["So18UIFocusEnvironmentP", "present"]
 - !private ["So18UIFocusEnvironmentP", "profileImageView"]
+- !private ["So18UIFocusEnvironmentP", "provideDate"]
 - !private ["So18UIFocusEnvironmentP", "region"]
 - !private ["So18UIFocusEnvironmentP", "scrollView"]
 - ["So18UIFocusEnvironmentP", "scrollViewDidChangeAdjustedContentInset"]
@@ -2280,7 +2271,6 @@ depends-member:
 - !private ["So11UIFocusItemP", "addAnnotation"]
 - !private ["So11UIFocusItemP", "alpha"]
 - !private ["So11UIFocusItemP", "animate"]
-- !private ["So11UIFocusItemP", "backgroundColor"]
 - !private ["So11UIFocusItemP", "bounds"]
 - !private ["So11UIFocusItemP", "bringSubview"]
 - !private ["So11UIFocusItemP", "canCancelContentTouches"]
@@ -2296,7 +2286,6 @@ depends-member:
 - !private ["So11UIFocusItemP", "isZoomEnabled"]
 - !private ["So11UIFocusItemP", "layer"]
 - !private ["So11UIFocusItemP", "layoutSubviews"]
-- !private ["So11UIFocusItemP", "mapType"]
 - !private ["So11UIFocusItemP", "region"]
 - !private ["So11UIFocusItemP", "setCenter"]
 - !private ["So11UIFocusItemP", "setContentOffset"]
@@ -2349,7 +2338,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "addAnnotation"]
 - !private ["So30UIPasteConfigurationSupportingP", "alpha"]
 - !private ["So30UIPasteConfigurationSupportingP", "animate"]
-- !private ["So30UIPasteConfigurationSupportingP", "backgroundColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "blockTextView"]
 - !private ["So30UIPasteConfigurationSupportingP", "bounds"]
 - !private ["So30UIPasteConfigurationSupportingP", "bringSubview"]
@@ -2366,7 +2354,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "favoritesButton"]
 - !private ["So30UIPasteConfigurationSupportingP", "frame"]
 - !private ["So30UIPasteConfigurationSupportingP", "gpaLabel"]
-- !private ["So30UIPasteConfigurationSupportingP", "greekLetters"]
 - !private ["So30UIPasteConfigurationSupportingP", "image"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "isEditable"]
@@ -2377,7 +2364,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "layer"]
 - !private ["So30UIPasteConfigurationSupportingP", "layoutSubviews"]
 - !private ["So30UIPasteConfigurationSupportingP", "mapItem"]
-- !private ["So30UIPasteConfigurationSupportingP", "mapType"]
 - ["So30UIPasteConfigurationSupportingP", "mapView"]
 - ["So30UIPasteConfigurationSupportingP", "mapViewDidFailLoadingMap"]
 - ["So30UIPasteConfigurationSupportingP", "mapViewDidFinishLoadingMap"]
@@ -2393,6 +2379,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "pow"]
 - !private ["So30UIPasteConfigurationSupportingP", "present"]
 - !private ["So30UIPasteConfigurationSupportingP", "profileImageView"]
+- !private ["So30UIPasteConfigurationSupportingP", "provideDate"]
 - !private ["So30UIPasteConfigurationSupportingP", "region"]
 - !private ["So30UIPasteConfigurationSupportingP", "scrollView"]
 - ["So30UIPasteConfigurationSupportingP", "scrollViewDidChangeAdjustedContentInset"]
@@ -2475,7 +2462,6 @@ depends-member:
 - !private ["So11UIResponderC", "addAnnotation"]
 - !private ["So11UIResponderC", "alpha"]
 - !private ["So11UIResponderC", "animate"]
-- !private ["So11UIResponderC", "backgroundColor"]
 - ["So11UIResponderC", "blockTextView"]
 - !private ["So11UIResponderC", "bounds"]
 - !private ["So11UIResponderC", "bringSubview"]
@@ -2495,7 +2481,6 @@ depends-member:
 - ["So11UIResponderC", "favoritesButtonHit"]
 - !private ["So11UIResponderC", "frame"]
 - ["So11UIResponderC", "gpaLabel"]
-- !private ["So11UIResponderC", "greekLetters"]
 - !private ["So11UIResponderC", "image"]
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "isEditable"]
@@ -2506,7 +2491,6 @@ depends-member:
 - !private ["So11UIResponderC", "layer"]
 - !private ["So11UIResponderC", "layoutSubviews"]
 - ["So11UIResponderC", "mapItem"]
-- !private ["So11UIResponderC", "mapType"]
 - ["So11UIResponderC", "mapView"]
 - ["So11UIResponderC", "mapViewDidFailLoadingMap"]
 - ["So11UIResponderC", "mapViewDidFinishLoadingMap"]
@@ -2523,6 +2507,7 @@ depends-member:
 - !private ["So11UIResponderC", "pow"]
 - !private ["So11UIResponderC", "present"]
 - ["So11UIResponderC", "profileImageView"]
+- !private ["So11UIResponderC", "provideDate"]
 - !private ["So11UIResponderC", "region"]
 - ["So11UIResponderC", "scrollView"]
 - ["So11UIResponderC", "scrollViewDidChangeAdjustedContentInset"]
@@ -2584,7 +2569,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "addAnnotation"]
 - !private ["So30UIResponderStandardEditActionsP", "alpha"]
 - !private ["So30UIResponderStandardEditActionsP", "animate"]
-- !private ["So30UIResponderStandardEditActionsP", "backgroundColor"]
 - !private ["So30UIResponderStandardEditActionsP", "blockTextView"]
 - !private ["So30UIResponderStandardEditActionsP", "bounds"]
 - !private ["So30UIResponderStandardEditActionsP", "bringSubview"]
@@ -2601,7 +2585,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "favoritesButton"]
 - !private ["So30UIResponderStandardEditActionsP", "frame"]
 - !private ["So30UIResponderStandardEditActionsP", "gpaLabel"]
-- !private ["So30UIResponderStandardEditActionsP", "greekLetters"]
 - !private ["So30UIResponderStandardEditActionsP", "image"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
 - !private ["So30UIResponderStandardEditActionsP", "isEditable"]
@@ -2612,7 +2595,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "layer"]
 - !private ["So30UIResponderStandardEditActionsP", "layoutSubviews"]
 - !private ["So30UIResponderStandardEditActionsP", "mapItem"]
-- !private ["So30UIResponderStandardEditActionsP", "mapType"]
 - ["So30UIResponderStandardEditActionsP", "mapView"]
 - ["So30UIResponderStandardEditActionsP", "mapViewDidFailLoadingMap"]
 - ["So30UIResponderStandardEditActionsP", "mapViewDidFinishLoadingMap"]
@@ -2628,6 +2610,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "pow"]
 - !private ["So30UIResponderStandardEditActionsP", "present"]
 - !private ["So30UIResponderStandardEditActionsP", "profileImageView"]
+- !private ["So30UIResponderStandardEditActionsP", "provideDate"]
 - !private ["So30UIResponderStandardEditActionsP", "region"]
 - !private ["So30UIResponderStandardEditActionsP", "scrollView"]
 - ["So30UIResponderStandardEditActionsP", "scrollViewDidChangeAdjustedContentInset"]
@@ -2702,7 +2685,6 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "eventViewController"]
 - !private ["So20UIScrollViewDelegateP", "favoritesButton"]
 - !private ["So20UIScrollViewDelegateP", "gpaLabel"]
-- !private ["So20UIScrollViewDelegateP", "greekLetters"]
 - !private ["So20UIScrollViewDelegateP", "image"]
 - !private ["So20UIScrollViewDelegateP", "mapItem"]
 - ["So20UIScrollViewDelegateP", "mapView"]
@@ -2720,6 +2702,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "pow"]
 - !private ["So20UIScrollViewDelegateP", "present"]
 - !private ["So20UIScrollViewDelegateP", "profileImageView"]
+- !private ["So20UIScrollViewDelegateP", "provideDate"]
 - !private ["So20UIScrollViewDelegateP", "scrollView"]
 - ["So20UIScrollViewDelegateP", "scrollViewDidChangeAdjustedContentInset"]
 - ["So20UIScrollViewDelegateP", "scrollViewDidEndDecelerating"]
@@ -2748,7 +2731,6 @@ depends-member:
 - ["So20UIScrollViewDelegateP", "viewForZooming"]
 - ["So20UIScrollViewDelegateP", "viewForZoomingInScrollView"]
 - ["So20UIScrollViewDelegateP", ""]
-- !private ["So35UISpringLoadedInteractionSupportingP", "backgroundColor"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "image"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "isHidden"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "layer"]
@@ -2781,7 +2763,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "eventViewController"]
 - !private ["So16UIStateRestoringP", "favoritesButton"]
 - !private ["So16UIStateRestoringP", "gpaLabel"]
-- !private ["So16UIStateRestoringP", "greekLetters"]
 - !private ["So16UIStateRestoringP", "image"]
 - !private ["So16UIStateRestoringP", "init"]
 - !private ["So16UIStateRestoringP", "mapItem"]
@@ -2800,6 +2781,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "pow"]
 - !private ["So16UIStateRestoringP", "present"]
 - !private ["So16UIStateRestoringP", "profileImageView"]
+- !private ["So16UIStateRestoringP", "provideDate"]
 - !private ["So16UIStateRestoringP", "scrollView"]
 - ["So16UIStateRestoringP", "scrollViewDidChangeAdjustedContentInset"]
 - ["So16UIStateRestoringP", "scrollViewDidEndDecelerating"]
@@ -2831,10 +2813,13 @@ depends-member:
 - !private ["So16UIStateRestoringP", "viewWillAppear"]
 - ["So16UIStateRestoringP", ""]
 - !private ["So12UIStoryboardC", "instantiateViewController"]
+- !private ["So21UITableViewControllerC", "provideDate"]
 - !private ["So21UITableViewControllerC", "selectedEvents"]
 - !private ["So21UITableViewControllerC", "view"]
+- !private ["So21UITableViewDataSourceP", "provideDate"]
 - !private ["So21UITableViewDataSourceP", "selectedEvents"]
 - !private ["So21UITableViewDataSourceP", "view"]
+- !private ["So19UITableViewDelegateP", "provideDate"]
 - !private ["So19UITableViewDelegateP", "selectedEvents"]
 - !private ["So19UITableViewDelegateP", "view"]
 - !private ["So22UITapGestureRecognizerC", "view"]
@@ -2890,7 +2875,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "addAnnotation"]
 - !private ["So18UITraitEnvironmentP", "alpha"]
 - !private ["So18UITraitEnvironmentP", "animate"]
-- !private ["So18UITraitEnvironmentP", "backgroundColor"]
 - !private ["So18UITraitEnvironmentP", "blockTextView"]
 - !private ["So18UITraitEnvironmentP", "bounds"]
 - !private ["So18UITraitEnvironmentP", "bringSubview"]
@@ -2907,7 +2891,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "favoritesButton"]
 - !private ["So18UITraitEnvironmentP", "frame"]
 - !private ["So18UITraitEnvironmentP", "gpaLabel"]
-- !private ["So18UITraitEnvironmentP", "greekLetters"]
 - !private ["So18UITraitEnvironmentP", "image"]
 - !private ["So18UITraitEnvironmentP", "init"]
 - !private ["So18UITraitEnvironmentP", "isEditable"]
@@ -2918,7 +2901,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "layer"]
 - !private ["So18UITraitEnvironmentP", "layoutSubviews"]
 - !private ["So18UITraitEnvironmentP", "mapItem"]
-- !private ["So18UITraitEnvironmentP", "mapType"]
 - ["So18UITraitEnvironmentP", "mapView"]
 - ["So18UITraitEnvironmentP", "mapViewDidFailLoadingMap"]
 - ["So18UITraitEnvironmentP", "mapViewDidFinishLoadingMap"]
@@ -2934,6 +2916,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "pow"]
 - !private ["So18UITraitEnvironmentP", "present"]
 - !private ["So18UITraitEnvironmentP", "profileImageView"]
+- !private ["So18UITraitEnvironmentP", "provideDate"]
 - !private ["So18UITraitEnvironmentP", "region"]
 - !private ["So18UITraitEnvironmentP", "scrollView"]
 - ["So18UITraitEnvironmentP", "scrollViewDidChangeAdjustedContentInset"]
@@ -2977,7 +2960,6 @@ depends-member:
 - !private ["So6UIViewC", "addAnnotation"]
 - !private ["So6UIViewC", "alpha"]
 - !private ["So6UIViewC", "animate"]
-- !private ["So6UIViewC", "backgroundColor"]
 - !private ["So6UIViewC", "bounds"]
 - !private ["So6UIViewC", "bringSubview"]
 - !private ["So6UIViewC", "canCancelContentTouches"]
@@ -2993,7 +2975,6 @@ depends-member:
 - !private ["So6UIViewC", "isZoomEnabled"]
 - !private ["So6UIViewC", "layer"]
 - !private ["So6UIViewC", "layoutSubviews"]
-- !private ["So6UIViewC", "mapType"]
 - !private ["So6UIViewC", "region"]
 - !private ["So6UIViewC", "setCenter"]
 - !private ["So6UIViewC", "setContentOffset"]
@@ -3053,7 +3034,6 @@ depends-member:
 - ["So16UIViewControllerC", "favoritesButton"]
 - ["So16UIViewControllerC", "favoritesButtonHit"]
 - ["So16UIViewControllerC", "gpaLabel"]
-- !private ["So16UIViewControllerC", "greekLetters"]
 - !private ["So16UIViewControllerC", "image"]
 - ["So16UIViewControllerC", "init"]
 - ["So16UIViewControllerC", "mapItem"]
@@ -3073,6 +3053,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "pow"]
 - !private ["So16UIViewControllerC", "present"]
 - ["So16UIViewControllerC", "profileImageView"]
+- !private ["So16UIViewControllerC", "provideDate"]
 - ["So16UIViewControllerC", "scrollView"]
 - ["So16UIViewControllerC", "scrollViewDidChangeAdjustedContentInset"]
 - ["So16UIViewControllerC", "scrollViewDidEndDecelerating"]
@@ -3105,7 +3086,6 @@ depends-member:
 - ["So16UIViewControllerC", ""]
 - !private ["s14_ArrayProtocolP", "append"]
 - !private ["s14_ArrayProtocolP", "contains"]
-- !private ["s14_ArrayProtocolP", "filter"]
 - !private ["s14_ArrayProtocolP", "first"]
 - !private ["s14_ArrayProtocolP", "index"]
 - !private ["s14_ArrayProtocolP", "init"]
@@ -3114,8 +3094,8 @@ depends-member:
 - !private ["s23_BidirectionalIndexableP", "append"]
 - !private ["s23_BidirectionalIndexableP", "contains"]
 - !private ["s23_BidirectionalIndexableP", "dropLast"]
-- !private ["s23_BidirectionalIndexableP", "filter"]
 - !private ["s23_BidirectionalIndexableP", "first"]
+- !private ["s23_BidirectionalIndexableP", "greekLetters"]
 - !private ["s23_BidirectionalIndexableP", "index"]
 - !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s23_BidirectionalIndexableP", "last"]
@@ -3125,7 +3105,6 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addAnnotation"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "alpha"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "animate"]
-- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "backgroundColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "bounds"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "bringSubview"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "canCancelContentTouches"]
@@ -3141,7 +3120,6 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isZoomEnabled"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layer"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layoutSubviews"]
-- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "mapType"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "region"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "setCenter"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "setContentOffset"]
@@ -3154,7 +3132,6 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "transform"]
 - !private ["s24_DestructorSafeContainerP", "append"]
 - !private ["s24_DestructorSafeContainerP", "contains"]
-- !private ["s24_DestructorSafeContainerP", "filter"]
 - !private ["s24_DestructorSafeContainerP", "first"]
 - !private ["s24_DestructorSafeContainerP", "index"]
 - !private ["s24_DestructorSafeContainerP", "init"]
@@ -3162,28 +3139,35 @@ depends-member:
 - !private ["s24_DestructorSafeContainerP", "remove"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "dropLast"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "greekLetters"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "dropLast"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "greekLetters"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "dropLast"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "greekLetters"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "dropLast"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "greekLetters"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s26_ExpressibleByColorLiteralP", "black"]
 - !private ["s26_ExpressibleByColorLiteralP", "cgColor"]
 - !private ["s26_ExpressibleByColorLiteralP", "white"]
 - !private ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
 - !private ["s33_ExpressibleByStringInterpolationP", "dropLast"]
+- !private ["s33_ExpressibleByStringInterpolationP", "greekLetters"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "dropLast"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "greekLetters"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s10_IndexableP", "append"]
 - !private ["s10_IndexableP", "contains"]
 - !private ["s10_IndexableP", "dropLast"]
 - !private ["s10_IndexableP", "filter"]
 - !private ["s10_IndexableP", "first"]
+- !private ["s10_IndexableP", "greekLetters"]
 - !private ["s10_IndexableP", "index"]
 - !private ["s10_IndexableP", "init"]
 - !private ["s10_IndexableP", "last"]
@@ -3194,6 +3178,7 @@ depends-member:
 - !private ["s14_IndexableBaseP", "dropLast"]
 - !private ["s14_IndexableBaseP", "filter"]
 - !private ["s14_IndexableBaseP", "first"]
+- !private ["s14_IndexableBaseP", "greekLetters"]
 - !private ["s14_IndexableBaseP", "index"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "last"]
@@ -3221,7 +3206,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addAnnotation"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "alpha"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "animate"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "backgroundColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "black"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "blockTextView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "borderColor"]
@@ -3265,7 +3249,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layoutSubviews"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "location"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "mapItem"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "mapType"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "mapView"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "mapViewDidFailLoadingMap"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "mapViewDidFinishLoadingMap"]
@@ -3284,6 +3267,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pow"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "present"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "profileImageView"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "provideDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "region"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "scale"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "scrollView"]
@@ -3337,7 +3321,6 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s17_MutableIndexableP", "append"]
 - !private ["s17_MutableIndexableP", "contains"]
-- !private ["s17_MutableIndexableP", "filter"]
 - !private ["s17_MutableIndexableP", "first"]
 - !private ["s17_MutableIndexableP", "index"]
 - !private ["s17_MutableIndexableP", "init"]
@@ -3350,6 +3333,7 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "dropLast"]
 - !private ["s21_ObjectiveCBridgeableP", "filter"]
 - !private ["s21_ObjectiveCBridgeableP", "first"]
+- !private ["s21_ObjectiveCBridgeableP", "greekLetters"]
 - !private ["s21_ObjectiveCBridgeableP", "identity"]
 - !private ["s21_ObjectiveCBridgeableP", "index"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
@@ -3366,7 +3350,6 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "zero"]
 - !private ["s22_RandomAccessIndexableP", "append"]
 - !private ["s22_RandomAccessIndexableP", "contains"]
-- !private ["s22_RandomAccessIndexableP", "filter"]
 - !private ["s22_RandomAccessIndexableP", "first"]
 - !private ["s22_RandomAccessIndexableP", "index"]
 - !private ["s22_RandomAccessIndexableP", "init"]
@@ -3375,14 +3358,15 @@ depends-member:
 - !private ["s26_RangeReplaceableIndexableP", "append"]
 - !private ["s26_RangeReplaceableIndexableP", "contains"]
 - !private ["s26_RangeReplaceableIndexableP", "dropLast"]
-- !private ["s26_RangeReplaceableIndexableP", "filter"]
 - !private ["s26_RangeReplaceableIndexableP", "first"]
+- !private ["s26_RangeReplaceableIndexableP", "greekLetters"]
 - !private ["s26_RangeReplaceableIndexableP", "index"]
 - !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s26_RangeReplaceableIndexableP", "last"]
 - !private ["s26_RangeReplaceableIndexableP", "remove"]
 - !private ["s11_StrideableP", "init"]
 - !private ["s16_SwiftStringViewP", "dropLast"]
+- !private ["s16_SwiftStringViewP", "greekLetters"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "Sa"
@@ -3434,7 +3418,6 @@ depends-nominal:
 - !private "SC18MKCoordinateRegionV"
 - !private "SC16MKCoordinateSpanV"
 - !private "So9MKMapItemC"
-- !private "SC9MKMapTypeO"
 - !private "So9MKMapViewC"
 - "So17MKMapViewDelegateP"
 - !private "So11MKPlacemarkC"
@@ -3559,36 +3542,99 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserMetadata.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthAPNSTokenType.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthUIDelegate.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthCredential.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAdditionalUserInfo.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/SWRevealVC/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIROAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRActionCodeSettings.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "5d9c47bc87cf9b750260ef8be315f82a"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
+interface-hash: "38cf3dacd575e05bccd611b3c0337adb"

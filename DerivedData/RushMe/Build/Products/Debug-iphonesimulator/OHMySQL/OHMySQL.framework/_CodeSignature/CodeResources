@@ -4,13 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/NSData+OHSerialization.h</key>
+		<data>
+		Nj4QRGCD/TU0ijRwG4LRQvKttr0=
+		</data>
 		<key>Headers/NSNumber+OHSerialization.h</key>
 		<data>
-		QeL1SD9L6lPTTofF4zDQ3LKl/A4=
+		fT0SjVGARGv8ClXo/c/LTelHjmw=
 		</data>
 		<key>Headers/NSObject+Mapping.h</key>
 		<data>
-		RMoFGK9j2HdMzr7iG7oMqgGW82E=
+		Kpe81u3OsT/BnsG9ijKtFz6cgTE=
 		</data>
 		<key>Headers/NSString+Escaping.h</key>
 		<data>
@@ -18,11 +22,11 @@
 		</data>
 		<key>Headers/NSString+OHSerialization.h</key>
 		<data>
-		8CdEr7dmfQg9IqznbmTrxz0nhJM=
+		uDdD4dwektrXK8Bh1gAXE5qd2q8=
 		</data>
 		<key>Headers/NSString+Utility.h</key>
 		<data>
-		ilU7MPbXfuRm84X4DpN5/VS8sPM=
+		kZIc9jlyvbUwkgUT1KBYWgqyQl0=
 		</data>
 		<key>Headers/OHCharsetEncoding.h</key>
 		<data>
@@ -30,87 +34,87 @@
 		</data>
 		<key>Headers/OHConstants.h</key>
 		<data>
-		MYoHlWSQXBuQZMdcVIttiJCuxI8=
+		kvKcUyIjR5wy5a8vkvK2KDbQDQo=
 		</data>
 		<key>Headers/OHJoinConstants.h</key>
 		<data>
-		zeMz7YNH/QXggwcjguVGCLJgJqY=
+		T8y3OJSw4ClMCw7/Z78GopG3jko=
 		</data>
 		<key>Headers/OHLogging.h</key>
 		<data>
-		xxnP/ekLXqpWKS/stPqr1S8F9c4=
+		n+he+btepIJM3EX5UcUbruUSbF4=
 		</data>
 		<key>Headers/OHMappingProtocol.h</key>
 		<data>
-		Tgej5MY4pCfzyPB4kJ2d1f3z0mE=
+		MPIH8bKoLaKPrLODwfNZQPsxMyA=
 		</data>
 		<key>Headers/OHMySQL-umbrella.h</key>
 		<data>
-		6wximdH41AHVbBWo3L9rDp65+bc=
+		PN3nE+Y/vjgB9/e2MuDy2wDQpPY=
 		</data>
 		<key>Headers/OHMySQL.h</key>
 		<data>
-		GkJHv9ETyK7sBQy/TkNR/i59G/g=
+		WrFxtxSRYQ5E5FzwFE9bbiYRV2E=
 		</data>
 		<key>Headers/OHMySQLContainer.h</key>
 		<data>
-		AsMZX3jNmJcaPfT4K/9ycxTGn00=
+		p0gszVaypadFHVvA7M9pX5ouJ+E=
 		</data>
 		<key>Headers/OHMySQLQueryContext.h</key>
 		<data>
-		4GTU4KrJxm2+Y+t0zMN3hOyEawI=
+		p2nd7EQew7PjTn9ua+dyiq/ds68=
 		</data>
 		<key>Headers/OHMySQLQueryRequest.h</key>
 		<data>
-		SdstVvaqOgE6U6NqtFhLfoznl+g=
+		ROaXKL1DFcnWoi5jqVgYDJrQSfc=
 		</data>
 		<key>Headers/OHMySQLQueryRequestFactory.h</key>
 		<data>
-		YDgA6EdYDlhc4i08aNw8FX5mpRk=
+		0xuponrJ4mdQKz7kcF8G+kyUWCk=
 		</data>
 		<key>Headers/OHMySQLSerialization.h</key>
 		<data>
-		nTyW/JnsVC3OHl7nGLZRcCjYBQo=
+		/aBly3nNcp1dQ7zJpQJAVv5c4mU=
 		</data>
 		<key>Headers/OHMySQLStore.h</key>
 		<data>
-		I4OJyHzINC/yyf1XLwxrz1TFTWg=
+		EpJ2cE3HQGs4IJbej0cqDIhAlFE=
 		</data>
 		<key>Headers/OHMySQLStoreCoordinator.h</key>
 		<data>
-		frpx8U/184qRwlOV4G2/q4NDqWU=
+		DX9knWC8HetXcp51GTf0Gs1IGy8=
 		</data>
 		<key>Headers/OHMySQLTimeline.h</key>
 		<data>
-		7J14/JoEk8BPzBTK5wEcczfM/yY=
+		4FiPSLCdGjyBGwrI6lMeKnhLSpQ=
 		</data>
 		<key>Headers/OHMySQLUser.h</key>
 		<data>
-		axOnvLMUwMGtCkxXw+8m2C3NKFs=
+		d3V3xBpbYlK6ivR0jWaFJvFvQCU=
 		</data>
 		<key>Headers/OHProtocolType.h</key>
 		<data>
-		+A2Y5QjDimsA05MVcYebU1/rAQ0=
+		d3bW4dC+TB2T6jakXfvnrTdBFDs=
 		</data>
 		<key>Headers/OHRefreshOptions.h</key>
 		<data>
-		BgswX1jHFMGpwZrDqljmkxDeAtc=
+		SLqo93lI/C1p05g1Qp9dVIhBSXM=
 		</data>
 		<key>Headers/OHResultErrorType.h</key>
 		<data>
-		6zwebI8oQr36/tNpmJx6EnJK4gE=
+		xcBzw/+xST1dtxDBBznXm/Q6UFY=
 		</data>
 		<key>Headers/OHSSLConfig.h</key>
 		<data>
-		waHvmIlv9EElwsfPEvlg7nLQvlw=
+		tdVuK905Lx4DSL8p6tPAsLgdH7k=
 		</data>
 		<key>Headers/OHSerializationProtocol.h</key>
 		<data>
-		kY2DcY8toq3Movk8xAdurvEs7Ac=
+		/5SdHnuj0h9F8WxWOvaYrTeikSU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2Qj+hAGW25JohhGelck9/V9TrmA=
+		XMuu38k4ZYwlpeShISsEQLie3Ho=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -375,26 +379,37 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/NSData+OHSerialization.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Nj4QRGCD/TU0ijRwG4LRQvKttr0=
+			</data>
+			<key>hash2</key>
+			<data>
+			LoLpp5qzsv/oEa/WFXVjSl04s/LG39Aygb97M3L8DE4=
+			</data>
+		</dict>
 		<key>Headers/NSNumber+OHSerialization.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QeL1SD9L6lPTTofF4zDQ3LKl/A4=
+			fT0SjVGARGv8ClXo/c/LTelHjmw=
 			</data>
 			<key>hash2</key>
 			<data>
-			/nGZN1xVUgNwd2S165DvpQVGwqXXDW91ntEJIxVmZek=
+			hB5Y4QxudP+1DkW+NuZ8dxEFZ/FM3qLakvVYAlWsXRo=
 			</data>
 		</dict>
 		<key>Headers/NSObject+Mapping.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RMoFGK9j2HdMzr7iG7oMqgGW82E=
+			Kpe81u3OsT/BnsG9ijKtFz6cgTE=
 			</data>
 			<key>hash2</key>
 			<data>
-			wG+XC06CVQQwNPoXtqQGpsfknB9/m0TEqw5lzOjqtXI=
+			0aO1oqSE9T1AkwgfoWVSM3DOK6XI/+RHPehosfUw63w=
 			</data>
 		</dict>
 		<key>Headers/NSString+Escaping.h</key>
@@ -412,22 +427,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8CdEr7dmfQg9IqznbmTrxz0nhJM=
+			uDdD4dwektrXK8Bh1gAXE5qd2q8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lb1pi0fn5qgut6mgksbkmG3sL/gyV+5v744zO2sn3Xk=
+			w+rQxScWaGpL4GRooO/QU7N3v/tigvjVLZt8lequPj8=
 			</data>
 		</dict>
 		<key>Headers/NSString+Utility.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ilU7MPbXfuRm84X4DpN5/VS8sPM=
+			kZIc9jlyvbUwkgUT1KBYWgqyQl0=
 			</data>
 			<key>hash2</key>
 			<data>
-			tSUgNnQJCpztOAIIzmPiGOvIz/710C4fmuyedc3TYqc=
+			f3lOg39PtrnTsnQPU6Bcbt2ksYfNorYaXQCdZ+czJwQ=
 			</data>
 		</dict>
 		<key>Headers/OHCharsetEncoding.h</key>
@@ -445,220 +460,220 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MYoHlWSQXBuQZMdcVIttiJCuxI8=
+			kvKcUyIjR5wy5a8vkvK2KDbQDQo=
 			</data>
 			<key>hash2</key>
 			<data>
-			qTVewTqXESQsE4o1OaTs9ljcFUpngUuABcMsQjzBCsc=
+			2yHvoHN8XZfboiqyJ4cGfLVdJh2tVl6ilaXV7q69UY4=
 			</data>
 		</dict>
 		<key>Headers/OHJoinConstants.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zeMz7YNH/QXggwcjguVGCLJgJqY=
+			T8y3OJSw4ClMCw7/Z78GopG3jko=
 			</data>
 			<key>hash2</key>
 			<data>
-			yiKRq7vty2r07BLBTagjlQj0EQrPVCpINlnAWGlTjuE=
+			xuj0ddiASkzwiE9tTqeJSGMrNaIfVW9WLYzoSaoT/BM=
 			</data>
 		</dict>
 		<key>Headers/OHLogging.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xxnP/ekLXqpWKS/stPqr1S8F9c4=
+			n+he+btepIJM3EX5UcUbruUSbF4=
 			</data>
 			<key>hash2</key>
 			<data>
-			+k/63B3fZ4t/7QDEWrTH5ogqITFI1DlW30446ieCgM4=
+			nIHFdavfqpuq2fRnhPSplA3vRYg9t3w9w4YNUJDJmno=
 			</data>
 		</dict>
 		<key>Headers/OHMappingProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Tgej5MY4pCfzyPB4kJ2d1f3z0mE=
+			MPIH8bKoLaKPrLODwfNZQPsxMyA=
 			</data>
 			<key>hash2</key>
 			<data>
-			r8BKfP3pAhjn9Z0C5017yLS+nY7GvHP3cYFH+MQo4I4=
+			OFo/IeMPmTXIuapaNLsm02JicoIyPdNzLlNkScb6DSw=
 			</data>
 		</dict>
 		<key>Headers/OHMySQL-umbrella.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6wximdH41AHVbBWo3L9rDp65+bc=
+			PN3nE+Y/vjgB9/e2MuDy2wDQpPY=
 			</data>
 			<key>hash2</key>
 			<data>
-			pLLG3Dp3oROXfy7U4HjPZJcbqVH22Kd4ojhJC7q3734=
+			7keXijbRxgFkxxRza4a9QwqMYkmxyox3LXAH8r2zPos=
 			</data>
 		</dict>
 		<key>Headers/OHMySQL.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GkJHv9ETyK7sBQy/TkNR/i59G/g=
+			WrFxtxSRYQ5E5FzwFE9bbiYRV2E=
 			</data>
 			<key>hash2</key>
 			<data>
-			9gDPamMwFMpLRMJXxsI3glqO+oAkIWgAtBNWvy2KS/A=
+			sGvXw/MxMCqXla/P7EhPb+fSkdKoQ5xp9XUIiN+twN0=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLContainer.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AsMZX3jNmJcaPfT4K/9ycxTGn00=
+			p0gszVaypadFHVvA7M9pX5ouJ+E=
 			</data>
 			<key>hash2</key>
 			<data>
-			SDXomKdsVCUb3JnTYjCiu/U5iRnKktUqlbflHBVrMyI=
+			UM7UxF4sXFW1HBOx2V/O/rInbXz30eyTABAbkXv4yh4=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLQueryContext.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4GTU4KrJxm2+Y+t0zMN3hOyEawI=
+			p2nd7EQew7PjTn9ua+dyiq/ds68=
 			</data>
 			<key>hash2</key>
 			<data>
-			OJS/xw9IqIxiB2SL8sNe/2mrCFK/U1CWhNe2FF802o8=
+			1joUaQb+5YcQEi6NjFsej4rCmUR9HNnay4vtAqcQacg=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLQueryRequest.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SdstVvaqOgE6U6NqtFhLfoznl+g=
+			ROaXKL1DFcnWoi5jqVgYDJrQSfc=
 			</data>
 			<key>hash2</key>
 			<data>
-			aAqdoL+xwzLhw2jr6GluSF0qHMSBmXc6sFKztXU3aXs=
+			KjP+tvSbPNybglv3rPgN4HkjQEkqdLCbNDBxB5SVxN4=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLQueryRequestFactory.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YDgA6EdYDlhc4i08aNw8FX5mpRk=
+			0xuponrJ4mdQKz7kcF8G+kyUWCk=
 			</data>
 			<key>hash2</key>
 			<data>
-			A3PQYrr5e1KYknVKT+6FttTy1/m0BawB/MKDdVTZ3oc=
+			w2JjvhbyqUAeB/IuJb+SamvhqvzGvRpbn7FrKNCBkQw=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLSerialization.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nTyW/JnsVC3OHl7nGLZRcCjYBQo=
+			/aBly3nNcp1dQ7zJpQJAVv5c4mU=
 			</data>
 			<key>hash2</key>
 			<data>
-			9hb8GlJjT0ziN2irXodY+Aezq/aHoQR9uU6Ue+Ej23U=
+			FCl7GGb/Ds/zjtnFQUtMlUXoDF2fgOkBMKpM6LdhSuQ=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLStore.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I4OJyHzINC/yyf1XLwxrz1TFTWg=
+			EpJ2cE3HQGs4IJbej0cqDIhAlFE=
 			</data>
 			<key>hash2</key>
 			<data>
-			A0IeeLxy659JqMBkysq92GuhpxtEO+uQyMpy4RbyGTY=
+			3Mwhy+fpaU2C67gH8ihAQ/uOmaSWI62XCRQg58b/LaY=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLStoreCoordinator.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			frpx8U/184qRwlOV4G2/q4NDqWU=
+			DX9knWC8HetXcp51GTf0Gs1IGy8=
 			</data>
 			<key>hash2</key>
 			<data>
-			pHFuDLYir6p668bwPO1yIwTtKO0tN0mcGvjUeF+h/UE=
+			qj0abVQDBcNuMtWd8Yl5XxCJAKSg7Aj3+a8HgvvQGiM=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLTimeline.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7J14/JoEk8BPzBTK5wEcczfM/yY=
+			4FiPSLCdGjyBGwrI6lMeKnhLSpQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			c0kAQJYBEc0En9LQI8+Qwow9web3CJZGeMc0KMTJCog=
+			ThvMmintoOjz/R0Wb1FyYtUVPjEir3jgEGoKYG8mweo=
 			</data>
 		</dict>
 		<key>Headers/OHMySQLUser.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			axOnvLMUwMGtCkxXw+8m2C3NKFs=
+			d3V3xBpbYlK6ivR0jWaFJvFvQCU=
 			</data>
 			<key>hash2</key>
 			<data>
-			YJ2HzdXEP4oYxQbR7huLB9T+imaN2dFYRgRrZzdwtRM=
+			Lzqs/d3eVliEORz+KIM8ZqhzkMBzBYKyXKYh0BfHfpo=
 			</data>
 		</dict>
 		<key>Headers/OHProtocolType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+A2Y5QjDimsA05MVcYebU1/rAQ0=
+			d3bW4dC+TB2T6jakXfvnrTdBFDs=
 			</data>
 			<key>hash2</key>
 			<data>
-			kibYPPEUilHVCWyMD0pwujrnykDrjJu8mrnttDi8fYc=
+			ZYvYMoSzNMC4Cn1/Makc7rSUGVphIlA9xaNVSDYzZ4Q=
 			</data>
 		</dict>
 		<key>Headers/OHRefreshOptions.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BgswX1jHFMGpwZrDqljmkxDeAtc=
+			SLqo93lI/C1p05g1Qp9dVIhBSXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			+zj23NO/gSKcZmGGSpkeUFf6nXlPBeAkMT/GA3M7QLo=
+			T9R+92gohdGsZyzbiUoUh3em/vN4EvsSLXTU00M8Dzo=
 			</data>
 		</dict>
 		<key>Headers/OHResultErrorType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6zwebI8oQr36/tNpmJx6EnJK4gE=
+			xcBzw/+xST1dtxDBBznXm/Q6UFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			ENQwFYqdgYjdJuYzMhKqowGIHVPlc1Mx462Fr45aosc=
+			B5EaYzBId1WoyLRAzAR3BvzIC1k5ZQuV9kD2uk3lPQI=
 			</data>
 		</dict>
 		<key>Headers/OHSSLConfig.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			waHvmIlv9EElwsfPEvlg7nLQvlw=
+			tdVuK905Lx4DSL8p6tPAsLgdH7k=
 			</data>
 			<key>hash2</key>
 			<data>
-			WH7TFNwVq42qImGPlTgest0tAV6o6Nn2At1HJ40NGn8=
+			4WJOt1HFZ9OYxafwP6AeWxHG8VcG4dBSqoDq6SxQgWo=
 			</data>
 		</dict>
 		<key>Headers/OHSerializationProtocol.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kY2DcY8toq3Movk8xAdurvEs7Ac=
+			/5SdHnuj0h9F8WxWOvaYrTeikSU=
 			</data>
 			<key>hash2</key>
 			<data>
-			dZlfj4DRR4edNq4eTsgcD6z5aSUeH1+8OP+aCyBnFPQ=
+			HvGNPmGhj5/SBmB7Cpz/BhwCqtRr6fempPqQ8IWW7GM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

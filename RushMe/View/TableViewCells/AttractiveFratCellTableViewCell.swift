@@ -52,7 +52,9 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
         gradientLayer.locations = [0.5, 1.0]
         iView.layer.insertSublayer(gradientLayer, at: 0)
         self.gradientLayer = gradientLayer
+        
       }
+      iView.isUserInteractionEnabled = false
     }
     if let subLabel = subheadingLabel {
       subLabel.layer.masksToBounds = true

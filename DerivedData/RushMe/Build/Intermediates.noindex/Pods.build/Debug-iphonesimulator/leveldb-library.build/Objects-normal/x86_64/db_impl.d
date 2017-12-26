@@ -1,0 +1,42 @@
+dependencies: \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/db_impl.cc \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Target\ Support\ Files/leveldb-library/leveldb-library-prefix.pch \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/db_impl.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/dbformat.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/comparator.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/db.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/iterator.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/slice.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/status.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/options.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/filter_policy.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/table_builder.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/util/coding.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/port/port.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/port/port_posix.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/port/atomic_pointer.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/util/logging.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/log_writer.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/log_format.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/snapshot.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/env.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/port/thread_annotations.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/builder.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/db_iter.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/filename.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/log_reader.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/memtable.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/skiplist.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/util/arena.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/util/random.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/table_cache.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/cache.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/table.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/version_set.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/version_edit.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/db/write_batch_internal.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/include/leveldb/write_batch.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/table/block.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/table/merger.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/table/two_level_iterator.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/leveldb-library/util/mutexlock.h

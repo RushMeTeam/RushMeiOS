@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "NSData+OHSerialization.h"
 #import "NSNumber+OHSerialization.h"
 #import "NSObject+Mapping.h"
 #import "NSString+Escaping.h"
