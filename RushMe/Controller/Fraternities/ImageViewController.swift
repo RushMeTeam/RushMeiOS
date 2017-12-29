@@ -20,6 +20,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.isScrollEnabled = true
         self.scrollView.delegate = self
         self.scrollView.contentSize = imageView.frame.size
+        self.scrollView.bounces = true
     }
 
   override func viewWillAppear(_ animated: Bool) {

@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/iCalKit-umbrella.h</key>
 		<data>
-		zuIpwjtbIEwYtipRZA8N0pn34sc=
+		dgTWXGlQ/riJQALONUvfyHXUPzM=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/iCalKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		O/XVw17a7VSlXxUYKn+Nwv7woiU=
+		ozc2fbcEOr3g3Ea5cRBk1Q0aWLY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -46,11 +46,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zuIpwjtbIEwYtipRZA8N0pn34sc=
+			dgTWXGlQ/riJQALONUvfyHXUPzM=
 			</data>
 			<key>hash2</key>
 			<data>
-			DnIiSBuDd1nAQNwHjY0F5djFBh+NSoUq2amEHHNJ9D0=
+			TQsK5CV8J3bHm1VAySgckypG4jGnJw0Jm1JnXZaHoUo=
 			</data>
 		</dict>
 		<key>Modules/iCalKit.swiftmodule/x86_64.swiftdoc</key>
@@ -68,11 +68,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			O/XVw17a7VSlXxUYKn+Nwv7woiU=
+			ozc2fbcEOr3g3Ea5cRBk1Q0aWLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			MVK+nm/7zn0f31J1a2doxe+1qKnWolCrUFFhGOILYkI=
+			ouEGRR0EC8EgXV3o6/KHWuXjnBnz3dBFWTOrr6yAvZQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

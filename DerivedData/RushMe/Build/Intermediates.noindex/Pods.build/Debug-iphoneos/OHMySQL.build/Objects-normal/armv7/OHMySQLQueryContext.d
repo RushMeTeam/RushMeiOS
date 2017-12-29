@@ -1,0 +1,32 @@
+dependencies: \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHMySQLQueryContext.m \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/OHMySQL.build/module.modulemap \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Target\ Support\ Files/OHMySQL/OHMySQL-prefix.pch \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHMySQLQueryContext.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHMySQLStoreCoordinator.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHConstants.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHLogging.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHProtocolType.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHJoinConstants.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHRefreshOptions.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHResultErrorType.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Constants/OHCharsetEncoding.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Models/OHMySQLQueryRequest.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Models/OHMySQLTimeline.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHMySQLSerialization.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHMappingProtocol.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/OHMySQLQueryRequestFactory.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/Categories/NSObject+Mapping.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql_version.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql_com.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/binary_log_types.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/my_command.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql_time.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/my_list.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql/client_plugin.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql/plugin_auth_common.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/typelib.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/my_alloc.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql/psi/psi_memory.h \
+  /Users/adamthk/Documents/GitHub/RushMeiOS/Pods/OHMySQL/OHMySQL/lib/include/mysql/psi/psi_base.h

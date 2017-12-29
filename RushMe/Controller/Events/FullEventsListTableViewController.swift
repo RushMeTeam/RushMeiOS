@@ -8,6 +8,9 @@
 
 import UIKit
 
+fileprivate let emptyCellReuseIdentifier = "emptyCell"
+fileprivate let eventCellReuseIdentifier = "fullEventTBCell"
+// TODO: Add segment control picker for favorites vs. all
 class FullEventsListTableViewController: UITableViewController, UISearchResultsUpdating {
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
@@ -35,14 +38,26 @@ class FullEventsListTableViewController: UITableViewController, UISearchResultsU
     get {
       if dataSource_ == nil {
         if viewingFavorites {
-         dataSource_ = Campus.shared.favoritedEventsByDay 
+         dataSource_ = Campus.shared.favoritedEventsByDay
         }
         else {
          dataSource_ = Campus.shared.eventsByDay 
         }
+        if dataSource_!.count == 0 {
+          self.tableView.separatorStyle = .none
+          self.tableView.isScrollEnabled = false
+        }
+        else {
+         self.tableView.separatorStyle = .singleLine
+          self.tableView.isScrollEnabled = true
+        }
       }
       return dataSource_!
     }
+  }
+  
+  var emptyDataSource : Bool {
+   return dataSource.count == 0
   }
   func reloadTableView() {
     UIView.transition(with: tableView,
@@ -96,19 +111,32 @@ class FullEventsListTableViewController: UITableViewController, UISearchResultsU
   
   // MARK: - Table view data source
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if self.dataSource.count == 0 {
+     return nil
+    }
     return DateFormatter.localizedString(from: self.dataSource[section][0].startDate, dateStyle: .medium, timeStyle: .none)
   }
   override func numberOfSections(in tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
-    return self.dataSource.count
+    return max(self.dataSource.count, 1)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if self.dataSource.count == 0 {
+     return 1
+    }
     // #warning Incomplete implementation, return the number of rows
     return self.dataSource[section].count
   }
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-   let cell = tableView.dequeueReusableCell(withIdentifier: "fullEventTBCell", for: indexPath) as! EventTableViewCell
+    if self.dataSource.count == 0 {
+     let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellReuseIdentifier)!
+      cell.textLabel?.text = "No Events"
+      cell.textLabel?.textColor = RMColor.AppColor
+      cell.textLabel?.textAlignment = .center
+      return cell
+    }
+   let cell = tableView.dequeueReusableCell(withIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventTableViewCell
     cell.event = self.dataSource[indexPath.section][indexPath.row]
     return cell
    }

@@ -1,0 +1,403 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DEBUG"
+- "RMImage"
+- "RMImageQuality"
+- "RMColor"
+- "RMAnimation"
+- "RMNetwork"
+- "RMMessage"
+- "RMFratPropertyKeys"
+- "RMDatabaseKey"
+- "RMUser"
+- "RMPropertyKeys"
+- "RMFileManagement"
+- "RMDate"
+provides-nominal:
+- "6RushMe7RMImageV"
+- "6RushMe14RMImageQualityV"
+- "6RushMe7RMColorV"
+- "6RushMe11RMAnimationV"
+- "6RushMe9RMNetworkV"
+- "6RushMe9RMMessageV"
+- "6RushMe18RMFratPropertyKeysV"
+- "6RushMe13RMDatabaseKeyV"
+- "6RushMe6RMUserV"
+- "6RushMe14RMPropertyKeysV"
+- "6RushMe16RMFileManagementV"
+- "6RushMe6RMDateV"
+provides-member:
+- ["6RushMe7RMImageV", ""]
+- ["6RushMe14RMImageQualityV", ""]
+- ["6RushMe7RMColorV", ""]
+- ["6RushMe11RMAnimationV", ""]
+- ["6RushMe9RMNetworkV", ""]
+- ["6RushMe9RMMessageV", ""]
+- ["6RushMe18RMFratPropertyKeysV", ""]
+- ["6RushMe13RMDatabaseKeyV", ""]
+- ["6RushMe6RMUserV", ""]
+- ["6RushMe14RMPropertyKeysV", ""]
+- ["6RushMe16RMFileManagementV", ""]
+- ["6RushMe6RMDateV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "+"
+- "/"
+- "BooleanLiteralType"
+- "CGFloat"
+- "DEBUG"
+- "Date"
+- "FileManager"
+- "RMAnimation"
+- "RMColor"
+- "RMDatabaseKey"
+- "RMDate"
+- "RMFileManagement"
+- "RMFratPropertyKeys"
+- "RMImage"
+- "RMImageQuality"
+- "RMMessage"
+- "RMNetwork"
+- "RMPropertyKeys"
+- "RMUser"
+- "StringLiteralType"
+- "UIColor"
+- "UIImage"
+- "UnicodeScalarType"
+depends-member:
+- ["Sa", "first"]
+- ["s23BidirectionalCollectionP", "first"]
+- ["s23BidirectionalCollectionP", "init"]
+- ["s7CVarArgP", "first"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "urls"]
+- ["s7CVarArgP", "white"]
+- ["s7CVarArgP", "withAlphaComponent"]
+- ["s10CollectionP", "first"]
+- ["s10CollectionP", "init"]
+- ["s10ComparableP", "init"]
+- ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
+- ["s28CustomDebugStringConvertibleP", "first"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "urls"]
+- ["s28CustomDebugStringConvertibleP", "white"]
+- ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
+- ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s17CustomReflectableP", "first"]
+- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "appendingPathComponent"]
+- ["s23CustomStringConvertibleP", "first"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "urls"]
+- ["s23CustomStringConvertibleP", "white"]
+- ["s23CustomStringConvertibleP", "withAlphaComponent"]
+- ["10Foundation4DateV", "init"]
+- ["s9DecodableP", "appendingPathComponent"]
+- ["s9DecodableP", "first"]
+- ["s9DecodableP", "init"]
+- ["s9EncodableP", "appendingPathComponent"]
+- ["s9EncodableP", "first"]
+- ["s9EncodableP", "init"]
+- ["s9EquatableP", "appendingPathComponent"]
+- ["s9EquatableP", "documentDirectory"]
+- ["s9EquatableP", "init"]
+- ["s9EquatableP", "urls"]
+- ["s9EquatableP", "userDomainMask"]
+- ["s9EquatableP", "white"]
+- ["s9EquatableP", "withAlphaComponent"]
+- ["s25ExpressibleByArrayLiteralP", "first"]
+- ["s25ExpressibleByArrayLiteralP", "userDomainMask"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["So11FileManagerC", "init"]
+- ["So11FileManagerC", "urls"]
+- ["s8HashableP", "appendingPathComponent"]
+- ["s8HashableP", "documentDirectory"]
+- ["s8HashableP", "init"]
+- ["s8HashableP", "urls"]
+- ["s8HashableP", "white"]
+- ["s8HashableP", "withAlphaComponent"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["s17MutableCollectionP", "first"]
+- ["So8NSCodingP", "init"]
+- ["So8NSCodingP", "white"]
+- ["So8NSCodingP", "withAlphaComponent"]
+- ["So9NSCopyingP", "init"]
+- ["So9NSCopyingP", "white"]
+- ["So9NSCopyingP", "withAlphaComponent"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderReadingP", "white"]
+- ["So21NSItemProviderReadingP", "withAlphaComponent"]
+- ["So21NSItemProviderWritingP", "init"]
+- ["So21NSItemProviderWritingP", "white"]
+- ["So21NSItemProviderWritingP", "withAlphaComponent"]
+- ["So16NSMutableCopyingP", "init"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "urls"]
+- ["So8NSObjectC", "white"]
+- ["So8NSObjectC", "withAlphaComponent"]
+- ["So16NSObjectProtocolP", "init"]
+- ["So16NSObjectProtocolP", "urls"]
+- ["So16NSObjectProtocolP", "white"]
+- ["So16NSObjectProtocolP", "withAlphaComponent"]
+- ["So14NSSecureCodingP", "init"]
+- ["So14NSSecureCodingP", "white"]
+- ["So14NSSecureCodingP", "withAlphaComponent"]
+- ["So8NSStringC", "init"]
+- ["So15OHSerializationP", "init"]
+- ["s9OptionSetP", "userDomainMask"]
+- ["6RushMe11RMAnimationV", "ColoringTime"]
+- ["6RushMe11RMAnimationV", "init"]
+- ["6RushMe7RMColorV", "AppColor"]
+- ["6RushMe7RMColorV", "MenuButtonSelectedColor"]
+- ["6RushMe7RMColorV", "NavigationItemsColor"]
+- ["6RushMe7RMColorV", "SlideOutMenuShadowIsEnabled"]
+- ["6RushMe7RMColorV", "UIColor"]
+- ["6RushMe7RMColorV", "init"]
+- ["6RushMe13RMDatabaseKeyV", "AddressKey"]
+- ["6RushMe13RMDatabaseKeyV", "CalendarImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "ChapterKey"]
+- ["6RushMe13RMDatabaseKeyV", "CoverImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "DescriptionKey"]
+- ["6RushMe13RMDatabaseKeyV", "MemberCountKey"]
+- ["6RushMe13RMDatabaseKeyV", "NameKey"]
+- ["6RushMe13RMDatabaseKeyV", "PreviewImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "ProfileImageKey"]
+- ["6RushMe13RMDatabaseKeyV", "gpaKey"]
+- ["6RushMe13RMDatabaseKeyV", "init"]
+- ["6RushMe6RMDateV", "Date"]
+- ["6RushMe6RMDateV", "Today"]
+- ["6RushMe6RMDateV", "init"]
+- ["6RushMe16RMFileManagementV", "FileManager"]
+- ["6RushMe16RMFileManagementV", "Path"]
+- ["6RushMe16RMFileManagementV", "favoritedFratURL"]
+- ["6RushMe16RMFileManagementV", "fratImageURL"]
+- ["6RushMe16RMFileManagementV", "init"]
+- ["6RushMe16RMFileManagementV", "userInfoURL"]
+- ["6RushMe18RMFratPropertyKeysV", "fratMapAnnotation"]
+- ["6RushMe18RMFratPropertyKeysV", "init"]
+- ["6RushMe7RMImageV", "CGFloat"]
+- ["6RushMe7RMImageV", "CornerRadius"]
+- ["6RushMe7RMImageV", "FavoritesImageFilled"]
+- ["6RushMe7RMImageV", "FavoritesImageUnfilled"]
+- ["6RushMe7RMImageV", "IconImage"]
+- ["6RushMe7RMImageV", "NoImage"]
+- ["6RushMe7RMImageV", "UIImage"]
+- ["6RushMe7RMImageV", "init"]
+- ["6RushMe14RMImageQualityV", "High"]
+- ["6RushMe14RMImageQualityV", "Low"]
+- ["6RushMe14RMImageQualityV", "Medium"]
+- ["6RushMe14RMImageQualityV", "init"]
+- ["6RushMe9RMMessageV", "AppName"]
+- ["6RushMe9RMMessageV", "Favorite"]
+- ["6RushMe9RMMessageV", "LoadingFrats"]
+- ["6RushMe9RMMessageV", "NoEvents"]
+- ["6RushMe9RMMessageV", "NoFavorites"]
+- ["6RushMe9RMMessageV", "Refresh"]
+- ["6RushMe9RMMessageV", "Sharing"]
+- ["6RushMe9RMMessageV", "Unfavorite"]
+- ["6RushMe9RMMessageV", "init"]
+- ["6RushMe9RMNetworkV", "HTTP"]
+- ["6RushMe9RMNetworkV", "IP"]
+- ["6RushMe9RMNetworkV", "databaseName"]
+- ["6RushMe9RMNetworkV", "init"]
+- ["6RushMe9RMNetworkV", "password"]
+- ["6RushMe9RMNetworkV", "userName"]
+- ["6RushMe14RMPropertyKeysV", "ConsiderEventsBeforeTodayKey"]
+- ["6RushMe14RMPropertyKeysV", "FavoriteFraternities"]
+- ["6RushMe14RMPropertyKeysV", "init"]
+- ["6RushMe6RMUserV", "init"]
+- ["6RushMe6RMUserV", "minPassLength"]
+- ["6RushMe6RMUserV", "minUsernameLength"]
+- ["s22RandomAccessCollectionP", "first"]
+- ["s26RangeReplaceableCollectionP", "first"]
+- ["s26RangeReplaceableCollectionP", "init"]
+- ["s16RawRepresentableP", "documentDirectory"]
+- ["s16RawRepresentableP", "userDomainMask"]
+- ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
+- ["10Foundation20ReferenceConvertibleP", "init"]
+- ["So11FileManagerC19SearchPathDirectoryO", "documentDirectory"]
+- ["So11FileManagerC20SearchPathDomainMaskV", "userDomainMask"]
+- ["s8SequenceP", "first"]
+- ["s8SequenceP", "init"]
+- ["s10SetAlgebraP", "userDomainMask"]
+- ["SS", "init"]
+- ["s14StringProtocolP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["So29UIAccessibilityIdentificationP", "init"]
+- ["So7UIColorC", "init"]
+- ["So7UIColorC", "white"]
+- ["So7UIColorC", "withAlphaComponent"]
+- ["So7UIImageC", "init"]
+- ["So39UIItemProviderPresentationSizeProvidingP", "init"]
+- ["10Foundation3URLV", "appendingPathComponent"]
+- ["s14_ArrayProtocolP", "first"]
+- ["s23_BidirectionalIndexableP", "first"]
+- ["s23_BidirectionalIndexableP", "init"]
+- ["s24_DestructorSafeContainerP", "first"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s26_ExpressibleByColorLiteralP", "init"]
+- ["s26_ExpressibleByColorLiteralP", "white"]
+- ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
+- ["s34_ExpressibleByFileReferenceLiteralP", "appendingPathComponent"]
+- ["s26_ExpressibleByImageLiteralP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s10_IndexableP", "first"]
+- ["s10_IndexableP", "init"]
+- ["s14_IndexableBaseP", "first"]
+- ["s14_IndexableBaseP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "white"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
+- ["s17_MutableIndexableP", "first"]
+- ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
+- ["s21_ObjectiveCBridgeableP", "first"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s22_RandomAccessIndexableP", "first"]
+- ["s26_RangeReplaceableIndexableP", "first"]
+- ["s26_RangeReplaceableIndexableP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "Sa"
+- "s23BidirectionalCollectionP"
+- "s7CVarArgP"
+- "s10CollectionP"
+- "s10ComparableP"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "10Foundation4DateV"
+- "s9DecodableP"
+- "s9EncodableP"
+- "s9EquatableP"
+- "s25ExpressibleByArrayLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "So11FileManagerC"
+- "s8HashableP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "s17MutableCollectionP"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So14NSSecureCodingP"
+- "So8NSStringC"
+- "So15OHSerializationP"
+- "s9OptionSetP"
+- "6RushMe11RMAnimationV"
+- "6RushMe7RMColorV"
+- "6RushMe13RMDatabaseKeyV"
+- "6RushMe6RMDateV"
+- "6RushMe16RMFileManagementV"
+- "6RushMe18RMFratPropertyKeysV"
+- "6RushMe7RMImageV"
+- "6RushMe14RMImageQualityV"
+- "6RushMe9RMMessageV"
+- "6RushMe9RMNetworkV"
+- "6RushMe14RMPropertyKeysV"
+- "6RushMe6RMUserV"
+- "s22RandomAccessCollectionP"
+- "s26RangeReplaceableCollectionP"
+- "s16RawRepresentableP"
+- "10Foundation20ReferenceConvertibleP"
+- "So11FileManagerC19SearchPathDirectoryO"
+- "So11FileManagerC20SearchPathDomainMaskV"
+- "s8SequenceP"
+- "s10SetAlgebraP"
+- "SS"
+- "s14StringProtocolP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "So29UIAccessibilityIdentificationP"
+- "So7UIColorC"
+- "So7UIImageC"
+- "So39UIItemProviderPresentationSizeProvidingP"
+- "10Foundation3URLV"
+- "s14_ArrayProtocolP"
+- "s23_BidirectionalIndexableP"
+- "s24_DestructorSafeContainerP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s26_ExpressibleByColorLiteralP"
+- "s34_ExpressibleByFileReferenceLiteralP"
+- "s26_ExpressibleByImageLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s17_MutableIndexableP"
+- "s21_ObjectiveCBridgeableP"
+- "s22_RandomAccessIndexableP"
+- "s26_RangeReplaceableIndexableP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/arm.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
+interface-hash: "78f17568aacd8e2e5634c465a5bec367"

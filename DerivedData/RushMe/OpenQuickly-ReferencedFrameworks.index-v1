@@ -2,41 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>GoogleMobileAds</string>
-	<string>EventKit</string>
-	<string>FirebasePerformance</string>
-	<string>FirebaseDynamicLinks</string>
-	<string>objc</string>
-	<string>FirebaseAuth</string>
-	<string>Firebase</string>
-	<string>FirebaseCore</string>
-	<string>FirebaseMessaging</string>
-	<string>Protobuf</string>
-	<string>CoreFoundation</string>
-	<string>sys</string>
-	<string>Messages</string>
-	<string>FirebaseInstanceID</string>
-	<string>FirebaseFirestore</string>
-	<string>FirebaseDatabase</string>
-	<string>libkern</string>
-	<string>FirebaseRemoteConfig</string>
-	<string>Crashlytics</string>
-	<string>MapKit</string>
 	<string>XCTest</string>
-	<string>WatchKit</string>
+	<string>MapKit</string>
 	<string>Foundation</string>
-	<string>Fabric</string>
-	<string>FirebaseCrash</string>
-	<string>mach</string>
-	<string>FirebaseAppIndexing</string>
-	<string>QuartzCore</string>
-	<string>OHMySQL</string>
-	<string>FirebaseInvites</string>
 	<string>RushMe</string>
-	<string>FirebaseStorage</string>
-	<string>iCalKit</string>
 	<string>CoreGraphics</string>
-	<string>FirebaseAnalytics</string>
+	<string>iCalKit</string>
+	<string>OHMySQL</string>
+	<string>CoreFoundation</string>
+	<string>QuartzCore</string>
 	<string>UIKit</string>
+	<string>EventKit</string>
 </array>
 </plist>

@@ -240,27 +240,6 @@ SWIFT_CLASS("_TtC6RushMe31AttractiveFratCellTableViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UITextField;
-
-SWIFT_CLASS("_TtC6RushMe28AuthenticationViewController")
-@interface AuthenticationViewController : UIViewController
-@property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified signInButton;
-@property (nonatomic) NSInteger tryNumber SWIFT_DEPRECATED_OBJC("Swift property 'AuthenticationViewController.tryNumber' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (IBAction)signIn:(UIBarButtonItem * _Nonnull)sender;
-- (IBAction)cancel:(UIBarButtonItem * _Nonnull)sender;
-- (void)viewDidLoad;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)didReceiveMemoryWarning;
-@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified usernameField;
-@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified passwordField;
-@property (nonatomic, copy) IBOutletCollection(UITextField) NSArray<UITextField *> * _Null_unspecified inputTextFields;
-- (void)textFieldsDidChange SWIFT_DEPRECATED_OBJC("Swift method 'AuthenticationViewController.textFieldsDidChange()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (IBAction)editingChanged:(UITextField * _Nonnull)sender;
-- (IBAction)editingTextFields:(UITextField * _Nonnull)sender;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class FratEvent;
 
 SWIFT_CLASS("_TtC6RushMe26CalendarCollectionViewCell")
@@ -314,6 +293,7 @@ SWIFT_CLASS("_TtC6RushMe6Campus")
 @property (nonatomic, readonly, copy) NSArray<NSArray<FratEvent *> *> * _Nonnull favoritedEventsByDay SWIFT_DEPRECATED_OBJC("Swift property 'Campus.favoritedEventsByDay' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) FratEvent * _Nullable firstEvent SWIFT_DEPRECATED_OBJC("Swift property 'Campus.firstEvent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic) BOOL considerEventsBeforeToday SWIFT_DEPRECATED_OBJC("Swift property 'Campus.considerEventsBeforeToday' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) BOOL firstLoad SWIFT_DEPRECATED_OBJC("Swift property 'Campus.firstLoad' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'Campus.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
 + (Campus * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'Campus.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (UIImage * _Nullable)pullImageFromSource:(NSString * _Nonnull)fromSource SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'Campus.pullImage(fromSource:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -322,87 +302,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class LGChatController;
-@class LGChatMessage;
-
-SWIFT_PROTOCOL("_TtP6RushMe24LGChatControllerDelegate_")
-@protocol LGChatControllerDelegate
-@optional
-- (BOOL)shouldChatControllerWithChatController:(LGChatController * _Nonnull)chatController addMessage:(LGChatMessage * _Nonnull)message SWIFT_WARN_UNUSED_RESULT;
-- (void)chatControllerWithChatController:(LGChatController * _Nonnull)chatController didAddNewMessage:(LGChatMessage * _Nonnull)message;
-@end
-
-@class NSNotification;
-@protocol UIViewControllerTransitionCoordinator;
-@class LGChatInput;
-@class UITableView;
 @class UIScrollView;
-
-SWIFT_CLASS("_TtC6RushMe16LGChatController")
-@interface LGChatController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, copy) NSArray<LGChatMessage *> * _Nonnull messages SWIFT_DEPRECATED_OBJC("Swift property 'LGChatController.messages' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) UIImage * _Nullable opponentImage SWIFT_DEPRECATED_OBJC("Swift property 'LGChatController.opponentImage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, weak) id <LGChatControllerDelegate> _Nullable delegate SWIFT_DEPRECATED_OBJC("Swift property 'LGChatController.delegate' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)viewDidAppear:(BOOL)animated;
-- (void)viewWillDisappear:(BOOL)animated;
-- (void)keyboardWillChangeFrameWithNote:(NSNotification * _Nonnull)note;
-- (void)viewWillTransitionToSizeWithSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator SWIFT_DEPRECATED_OBJC("Swift method 'LGChatController.viewWillTransitionToSize(size:withTransitionCoordinator:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)addNewMessageWithMessage:(LGChatMessage * _Nonnull)message SWIFT_DEPRECATED_OBJC("Swift method 'LGChatController.addNewMessage(message:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)chatInputDidResizeWithChatInput:(LGChatInput * _Nonnull)chatInput SWIFT_DEPRECATED_OBJC("Swift method 'LGChatController.chatInputDidResize(chatInput:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)chatInputWithChatInput:(LGChatInput * _Nonnull)chatInput didSendMessage:(NSString * _Nonnull)message SWIFT_DEPRECATED_OBJC("Swift method 'LGChatController.chatInput(chatInput:didSendMessage:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
-- (void)tableView:(UITableView * _Nonnull)tableView didHighlightRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (NSInteger)numberOfSectionsInTableViewWithTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LGChatController.numberOfSectionsInTableView(tableView:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class FIRDatabaseReference;
-@class FIRUser;
-
-SWIFT_CLASS("_TtC6RushMe18ChatViewController")
-@interface ChatViewController : LGChatController <LGChatControllerDelegate>
-- (void)setWithTitle:(NSString * _Nonnull)title channel:(FIRDatabaseReference * _Nonnull)channel user:(FIRUser * _Nonnull)user SWIFT_DEPRECATED_OBJC("Swift method 'ChatViewController.set(title:channel:user:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) BOOL addNewMessage SWIFT_DEPRECATED_OBJC("Swift property 'ChatViewController.addNewMessage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) FIRUser * _Nullable user SWIFT_DEPRECATED_OBJC("Swift property 'ChatViewController.user' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (void)chatControllerWithChatController:(LGChatController * _Nonnull)chatController didAddNewMessage:(LGChatMessage * _Nonnull)message;
-- (BOOL)shouldChatControllerWithChatController:(LGChatController * _Nonnull)chatController addMessage:(LGChatMessage * _Nonnull)message SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UIStoryboardSegue;
-
-SWIFT_CLASS("_TtC6RushMe49ConversationListViewControllerTableViewController")
-@interface ConversationListViewControllerTableViewController : UITableViewController
-@property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified fratSignInButton;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified drawerButton;
-@property (nonatomic, strong) FIRUser * _Nullable anonymousUser SWIFT_DEPRECATED_OBJC("Swift property 'ConversationListViewControllerTableViewController.anonymousUser' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) BOOL signedInAsFrat SWIFT_DEPRECATED_OBJC("Swift property 'ConversationListViewControllerTableViewController.signedInAsFrat' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) BOOL isAnonymous SWIFT_DEPRECATED_OBJC("Swift property 'ConversationListViewControllerTableViewController.isAnonymous' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSArray<NSString *> * _Nonnull conversations SWIFT_DEPRECATED_OBJC("Swift property 'ConversationListViewControllerTableViewController.conversations' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) FIRDatabaseReference * _Nullable selectedChannel SWIFT_DEPRECATED_OBJC("Swift property 'ConversationListViewControllerTableViewController.selectedChannel' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (IBAction)signIn:(UIBarButtonItem * _Nonnull)sender;
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)didReceiveMemoryWarning;
-- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString * _Nonnull)identifier sender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIView;
 @class MKMapView;
 @class UIButton;
@@ -427,6 +327,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified blockTextView;
 @property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified openMapButton;
+@property (nonatomic, copy) IBOutletCollection(UIView) NSArray<UIView *> * _Null_unspecified toMakeClear;
 @property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) MKMapItem * _Nullable mapItem SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.mapItem' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) Fraternity * _Nullable selectedFraternity SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.selectedFraternity' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -443,6 +344,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIStoryboardSegue;
 
 SWIFT_CLASS("_TtC6RushMe24DrawerMenuViewController")
 @interface DrawerMenuViewController : UITableViewController
@@ -452,13 +354,11 @@ SWIFT_CLASS("_TtC6RushMe24DrawerMenuViewController")
 @property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified calendarButton;
 @property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified mapButton;
 @property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified topCell;
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified chatButton;
 @property (nonatomic, copy) IBOutletCollection(UITableViewCell) NSArray<UITableViewCell *> * _Null_unspecified buttons;
 @property (nonatomic, strong) UIViewController * _Nullable masterVC SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.masterVC' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString * _Nonnull)identifier sender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -479,6 +379,7 @@ SWIFT_CLASS("_TtC6RushMe18EventTableViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UITableView;
 
 SWIFT_CLASS("_TtC6RushMe24EventTableViewController")
 @interface EventTableViewController : UITableViewController
@@ -545,6 +446,7 @@ SWIFT_CLASS("_TtC6RushMe33FullEventsListTableViewController")
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified favoritesButton;
 @property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSArray<NSArray<FratEvent *> *> * _Nonnull dataSource SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.dataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) BOOL emptyDataSource SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.emptyDataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)reloadTableView SWIFT_DEPRECATED_OBJC("Swift method 'FullEventsListTableViewController.reloadTableView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (IBAction)favoritesButtonToggled:(UIBarButtonItem * _Nonnull)sender;
 - (void)viewDidLoad;
@@ -577,96 +479,6 @@ SWIFT_CLASS("_TtC6RushMe19ImageViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
-@class LGStretchyTextView;
-
-SWIFT_PROTOCOL("_TtP6RushMe26LGStretchyTextViewDelegate_")
-@protocol LGStretchyTextViewDelegate
-- (void)stretchyTextViewDidChangeSizeWithChatInput:(LGStretchyTextView * _Nonnull)chatInput;
-- (void)textViewEndedEditingWithChatInput:(LGStretchyTextView * _Nonnull)chatInput;
-@optional
-- (void)stretchyTextViewWithTextView:(LGStretchyTextView * _Nonnull)textView validityDidChange:(BOOL)isValid;
-@end
-
-@class UIFont;
-
-SWIFT_CLASS("_TtC6RushMe11LGChatInput")
-@interface LGChatInput : UIView <LGStretchyTextViewDelegate>
-+ (void)setAppearanceIncludeBlurWithIncludeBlur:(BOOL)includeBlur SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setAppearanceIncludeBlur(includeBlur:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceTintColorWithColor:(UIColor * _Nonnull)color SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setAppearanceTintColor(color:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceBackgroundColorWithColor:(UIColor * _Nonnull)color SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setAppearanceBackgroundColor(color:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceTextViewFontWithTextViewFont:(UIFont * _Nonnull)textViewFont SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setAppearanceTextViewFont(textViewFont:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceTextViewTextColorWithTextColor:(UIColor * _Nonnull)textColor SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setAppearanceTextViewTextColor(textColor:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceTextViewBackgroundColorWithColor:(UIColor * _Nonnull)color SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setAppearanceTextViewBackgroundColor(color:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) UIEdgeInsets textViewInsets SWIFT_DEPRECATED_OBJC("Swift property 'LGChatInput.textViewInsets' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, strong) LGStretchyTextView * _Nonnull textView SWIFT_DEPRECATED_OBJC("Swift property 'LGChatInput.textView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)setup SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setup()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setupTextView SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setupTextView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)styleTextView SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.styleTextView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setupSendButton SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setupSendButton()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setupSendButtonConstraints SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setupSendButtonConstraints()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setupTextViewConstraints SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setupTextViewConstraints()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setupBlurredBackgroundView SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setupBlurredBackgroundView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)setupBlurredBackgroundViewConstraints SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.setupBlurredBackgroundViewConstraints()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)stylize SWIFT_DEPRECATED_OBJC("Swift method 'LGChatInput.stylize()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)stretchyTextViewDidChangeSizeWithChatInput:(LGStretchyTextView * _Nonnull)textView;
-- (void)stretchyTextViewWithTextView:(LGStretchyTextView * _Nonnull)textView validityDidChange:(BOOL)isValid;
-- (void)sendButtonPressedWithSender:(UIButton * _Nonnull)sender;
-- (void)textViewEndedEditingWithChatInput:(LGStretchyTextView * _Nonnull)chatInput;
-@end
-
-
-SWIFT_CLASS("_TtC6RushMe13LGChatMessage")
-@interface LGChatMessage : NSObject
-@property (nonatomic, strong) UIColor * _Nullable color SWIFT_DEPRECATED_OBJC("Swift property 'LGChatMessage.color' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (NSString * _Nonnull)SentByUserString SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LGChatMessage.SentByUserString()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (NSString * _Nonnull)SentByOpponentString SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LGChatMessage.SentByOpponentString()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nonnull sentByString SWIFT_DEPRECATED_OBJC("Swift property 'LGChatMessage.sentByString' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nonnull content SWIFT_DEPRECATED_OBJC("Swift property 'LGChatMessage.content' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithContent:(NSString * _Nonnull)content sentByString:(NSString * _Nonnull)sentByString SWIFT_DEPRECATED_OBJC("Swift initializer 'LGChatMessage.init(content:sentByString:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithContent:(NSString * _Nonnull)content sentByString:(NSString * _Nonnull)sentByString timeStamp:(NSTimeInterval)timeStamp SWIFT_DEPRECATED_OBJC("Swift initializer 'LGChatMessage.init(content:sentByString:timeStamp:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
-
-SWIFT_CLASS("_TtC6RushMe17LGChatMessageCell")
-@interface LGChatMessageCell : UITableViewCell
-+ (void)setAppearanceOpponentColorWithOpponentColor:(UIColor * _Nonnull)opponentColor SWIFT_DEPRECATED_OBJC("Swift method 'LGChatMessageCell.setAppearanceOpponentColor(opponentColor:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceUserColorWithUserColor:(UIColor * _Nonnull)userColor SWIFT_DEPRECATED_OBJC("Swift method 'LGChatMessageCell.setAppearanceUserColor(userColor:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-+ (void)setAppearanceFontWithFont:(UIFont * _Nonnull)font SWIFT_DEPRECATED_OBJC("Swift method 'LGChatMessageCell.setAppearanceFont(font:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) UIImageView * _Nonnull opponentImageView SWIFT_DEPRECATED_OBJC("Swift property 'LGChatMessageCell.opponentImageView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (CGSize)setupWithMessageWithMessage:(LGChatMessage * _Nonnull)message SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LGChatMessageCell.setupWithMessage(message:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class NSTextContainer;
-
-SWIFT_CLASS("_TtC6RushMe18LGStretchyTextView")
-@interface LGStretchyTextView : UITextView <UITextViewDelegate>
-@property (nonatomic, weak) id <LGStretchyTextViewDelegate> _Nullable stretchyTextViewDelegate SWIFT_DEPRECATED_OBJC("Swift property 'LGStretchyTextView.stretchyTextViewDelegate' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) CGFloat maxHeightPortrait SWIFT_DEPRECATED_OBJC("Swift property 'LGStretchyTextView.maxHeightPortrait' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) CGFloat maxHeightLandScape SWIFT_DEPRECATED_OBJC("Swift property 'LGStretchyTextView.maxHeightLandScape' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) CGFloat maxHeight SWIFT_DEPRECATED_OBJC("Swift property 'LGStretchyTextView.maxHeight' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) CGSize contentSize;
-@property (nonatomic, strong) UIFont * _Null_unspecified font;
-@property (nonatomic) UIEdgeInsets textContainerInset;
-- (nonnull instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer * _Nullable)textContainer OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)setup SWIFT_DEPRECATED_OBJC("Swift method 'LGStretchyTextView.setup()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)resize SWIFT_DEPRECATED_OBJC("Swift method 'LGStretchyTextView.resize()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (CGFloat)targetHeight SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'LGStretchyTextView.targetHeight()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)align SWIFT_DEPRECATED_OBJC("Swift method 'LGStretchyTextView.align()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)textViewDidChangeSelection:(UITextView * _Nonnull)textView;
-- (void)textViewDidChange:(UITextView * _Nonnull)textView;
-- (void)textViewDidEndEditing:(UITextView * _Nonnull)textView;
-- (BOOL)textView:(UITextView * _Nonnull)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 @class UISegmentedControl;
 @protocol MKAnnotation;
 @class MKClusterAnnotation;
@@ -695,10 +507,10 @@ SWIFT_CLASS("_TtC6RushMe17MapViewController")
 SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 @interface MasterViewController : UITableViewController <UISearchBarDelegate>
 @property (nonatomic, copy) NSString * _Nonnull lastPullDescription SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.lastPullDescription' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSDictionary<NSAttributedStringKey, UIColor *> * _Nonnull attributedStringColor SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.attributedStringColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified openBarButtonItem;
 @property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified favoritesBarButton;
-- (IBAction)favoritesToggled:(UIBarButtonItem * _Nonnull)sender;
+@property (nonatomic, weak) UISegmentedControl * _Nullable favoritesSegmentControl SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.favoritesSegmentControl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)reloadTableView SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.reloadTableView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)didReceiveMemoryWarning;
 - (void)viewDidLoad;
@@ -708,9 +520,11 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 - (void)toggleViewControllers:(id _Nullable)_;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (void)segmentControlChangedWithSender:(UISegmentedControl * _Nonnull)sender;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canEditRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<UITableViewRowAction *> * _Nullable)tableView:(UITableView * _Nonnull)tableView editActionsForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)handleRefreshWithRefreshControl:(UIRefreshControl * _Nonnull)refreshControl;
@@ -742,6 +556,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SQLHandler *
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+
+SWIFT_CLASS("_TtC6RushMe11SegmentCell")
+@interface SegmentCell : UITableViewCell
+@property (nonatomic, strong) IBOutlet UISegmentedControl * _Null_unspecified segmentControl;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UISwitch;
 
 SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
@@ -750,25 +574,12 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified qualityPicker;
 @property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified displayPastEventsSwitch;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dateLabel;
+- (IBAction)displayPastEventsSwitch:(UISwitch * _Nonnull)sender;
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC6RushMe10UniqueUser")
-@interface UniqueUser : NSObject
-@property (nonatomic) BOOL fratSignInEnabled SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.fratSignInEnabled' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) FIRUser * _Nullable user SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.user' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) FIRUser * _Nullable anonymousUser SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.anonymousUser' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UniqueUser * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (UniqueUser * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable username SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.username' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSString * _Nullable password SWIFT_DEPRECATED_OBJC("Swift property 'UniqueUser.password' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)saveUser SWIFT_DEPRECATED_OBJC("Swift method 'UniqueUser.saveUser()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

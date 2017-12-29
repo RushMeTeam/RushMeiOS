@@ -53,7 +53,7 @@ class Campus: NSObject {
     get {
       if favoritedEvents_ == nil {
         favoritedEvents_ = self.allEvents.filter({ (event) -> Bool in
-          return self.favoritedFrats.contains(event.frat.name)
+          return self.favoritedFrats.contains(event.frat.name) && (considerEventsBeforeToday || event.startDate.compare(RMDate.Today) != .orderedAscending)
         })
       }
       return favoritedEvents_!
@@ -124,7 +124,24 @@ class Campus: NSObject {
         self.favoritedEventsByDay_ = nil 
       }
     }
+    didSet {
+      preferences[RMPropertyKeys.ConsiderEventsBeforeTodayKey] = considerEventsBeforeToday
+    }
   }
+  private(set) var firstLoad : Bool = false
+  private var preferences : Dictionary<String, Any> = Dictionary<String, Any>() {
+    didSet {
+      DispatchQueue.global().async {
+        if NSKeyedArchiver.archiveRootObject(self.preferences, toFile: RMFileManagement.userInfoURL.path) {
+          //print("Success saving Campus preferences")
+        }
+        else {
+          print("Failed to save Campus preferences!")
+        }
+      }
+    }
+  }
+  
   // MARK: Shared Instance (singleton)
   static var shared : Campus {
     get {
@@ -135,8 +152,20 @@ class Campus: NSObject {
   fileprivate convenience init(loadFromFile : Bool) {
     self.init()
     if loadFromFile {
+      if let preferencesObject = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.userInfoURL.path) as? Dictionary<String, Any>,
+          let considerEventsBeforeTodayValue = preferencesObject[RMPropertyKeys.ConsiderEventsBeforeTodayKey] as? Bool {
+        self.considerEventsBeforeToday = considerEventsBeforeTodayValue
+      }
+      else {
+       print("Failed to load Preferences")
+      }
       if let favorites = Campus.loadFavorites() {
         self.favoritedFrats = favorites
+        self.firstLoad = false
+      }
+      else {
+        self.firstLoad = true
+        self.saveFavorites()
       }
     }
   }

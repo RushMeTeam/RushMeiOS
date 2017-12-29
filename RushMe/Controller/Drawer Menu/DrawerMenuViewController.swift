@@ -14,8 +14,9 @@ fileprivate let settingsSegueIdentifier = "Settings"
 fileprivate let calendarSegueIdentifier = "Calendar"
 fileprivate let mapSegueIdentifier = "Maps"
 fileprivate let eventsSegueIdentifier = "Events"
-fileprivate let chatSegueIdentifier = "Chat"
-// The DrawerMenuViewController handles 
+
+// The DrawerMenuViewController handles all sidebar navigation, managing all
+// animation and user interaction
 class DrawerMenuViewController: UITableViewController {
   
   @IBOutlet var eventsButton: UITableViewCell!
@@ -24,19 +25,7 @@ class DrawerMenuViewController: UITableViewController {
   @IBOutlet var calendarButton: UITableViewCell!
   @IBOutlet var mapButton: UITableViewCell!
   @IBOutlet var topCell: UITableViewCell!
-  @IBOutlet var chatButton: UITableViewCell!
   @IBOutlet var buttons: [UITableViewCell]!
-//  
-//  var buttons : [String : UITableViewCell] {
-//    get {
-//      return [fraternitiesSegueIdentifier : self.fraternitiesButton, 
-//              settingsSegueIdentifier     : self.settingsButton, 
-//              mapSegueIdentifier          : self.mapButton, 
-//              calendarSegueIdentifier     : self.calendarButton,
-//              eventsSegueIdentifier       : self.eventsButton,
-//              "" : self.topCell]
-//    }
-//  }
   var masterVC : UIViewController?
   
   override func viewDidLoad() {
@@ -44,7 +33,8 @@ class DrawerMenuViewController: UITableViewController {
     tableView.backgroundColor = RMColor.AppColor
     self.view.backgroundColor = RMColor.AppColor
     self.topCell.backgroundColor = UIColor.clear
-    
+    // When this View Controller is first created, we are currently
+    // viewing fraternities-- set all other buttons to deselected state
     for button in buttons {
       button.isUserInteractionEnabled = true
       button.backgroundColor = UIColor.clear
@@ -59,17 +49,22 @@ class DrawerMenuViewController: UITableViewController {
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let id = segue.identifier {
-      var selectedButton : UITableViewCell? 
+      var selectedButton : UITableViewCell?
+      // Find the selected button by matching segue identifier
+      // with button (a UITableCell) reuse identifier
       for button in buttons {
         if button.reuseIdentifier == id{
           selectedButton = button
         }
         else {
+          // Reset all buttons to clear
           button.backgroundColor = UIColor.clear
         }
+        // Make all buttons interact-able
         button.isUserInteractionEnabled = true
       }
       if let _ = selectedButton {
+        // Animate selected button to show selection
         selectedButton!.isSelected = true
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
           selectedButton!.backgroundColor = RMColor.MenuButtonSelectedColor
@@ -77,17 +72,11 @@ class DrawerMenuViewController: UITableViewController {
           selectedButton!.isUserInteractionEnabled = false
         })
         if selectedButton == fraternitiesButton {
+          // Particular segue for fraternities tab
          self.revealViewController().pushFrontViewController(masterVC, animated: true) 
         }
       }
     }
-  }
-  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//    if (identifier == "Chat Button") {
-//      self.revealViewController().pushFrontViewController(storyboard!.instantiateViewController(withIdentifier: "chatNavVC"), animated: true)
-//     return false 
-//    }
-    return true
   }
 }
 

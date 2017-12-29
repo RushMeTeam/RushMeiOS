@@ -30,7 +30,7 @@ struct RMColor {
   static let AppColor = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
   static let NavigationItemsColor = AppColor
   static let SlideOutMenuShadowIsEnabled = false
-  static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.5)
+  static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.25)
 }
 // Variables used to tune animations
 struct RMAnimation {
@@ -50,6 +50,7 @@ struct RMMessage {
   static let NoEvents = "No Events!"
   static let NoFavorites = "No Favorites!"
   static let LoadingFrats = "Wandering Campus..."
+  static let LoadingFratsFirstTime = "Setting up Campus for the first time..."
   static let Refresh = "Something went wrong. Pull to refresh!"
   static let Favorite = "Favorite"
   static let Unfavorite = "Unfavorite"
@@ -79,6 +80,7 @@ struct RMUser {
 
 struct RMPropertyKeys {
  static let FavoriteFraternities = "FavoriteFrats"
+  static let ConsiderEventsBeforeTodayKey = "ConsiderEventsBeforeToday"
   
 }
 struct RMFileManagement {

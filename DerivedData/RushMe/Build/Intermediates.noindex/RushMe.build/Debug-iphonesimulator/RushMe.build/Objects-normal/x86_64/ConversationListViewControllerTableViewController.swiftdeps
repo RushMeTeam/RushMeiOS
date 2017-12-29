@@ -37,7 +37,6 @@ depends-top-level:
 - "AssignmentPrecedence"
 - !private "Auth"
 - "Bool"
-- !private "BooleanLiteralType"
 - !private "Campus"
 - "CastingPrecedence"
 - !private "ChatViewController"
@@ -135,7 +134,6 @@ depends-member:
 - !private ["s7CVarArgP", "fcmToken"]
 - !private ["s7CVarArgP", "first"]
 - !private ["s7CVarArgP", "fratSignInButton"]
-- !private ["s7CVarArgP", "fratSignInEnabled"]
 - !private ["s7CVarArgP", "greekLetters"]
 - !private ["s7CVarArgP", "identifier"]
 - !private ["s7CVarArgP", "indexPath"]
@@ -176,7 +174,6 @@ depends-member:
 - !private ["s7CVarArgP", "textLabel"]
 - !private ["s7CVarArgP", "title"]
 - !private ["s7CVarArgP", "titleTextAttributes"]
-- !private ["s7CVarArgP", "user"]
 - !private ["s7CVarArgP", "value"]
 - !private ["s7CVarArgP", "view"]
 - !private ["s7CVarArgP", "viewDidLoad"]
@@ -290,7 +287,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "fcmToken"]
 - !private ["s28CustomDebugStringConvertibleP", "first"]
 - !private ["s28CustomDebugStringConvertibleP", "fratSignInButton"]
-- !private ["s28CustomDebugStringConvertibleP", "fratSignInEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "greekLetters"]
 - !private ["s28CustomDebugStringConvertibleP", "identifier"]
 - !private ["s28CustomDebugStringConvertibleP", "indexPath"]
@@ -332,7 +328,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "textLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "title"]
 - !private ["s28CustomDebugStringConvertibleP", "titleTextAttributes"]
-- !private ["s28CustomDebugStringConvertibleP", "user"]
 - !private ["s28CustomDebugStringConvertibleP", "value"]
 - !private ["s28CustomDebugStringConvertibleP", "view"]
 - !private ["s28CustomDebugStringConvertibleP", "viewDidLoad"]
@@ -389,7 +384,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "fcmToken"]
 - !private ["s23CustomStringConvertibleP", "first"]
 - !private ["s23CustomStringConvertibleP", "fratSignInButton"]
-- !private ["s23CustomStringConvertibleP", "fratSignInEnabled"]
 - !private ["s23CustomStringConvertibleP", "greekLetters"]
 - !private ["s23CustomStringConvertibleP", "identifier"]
 - !private ["s23CustomStringConvertibleP", "indexPath"]
@@ -431,7 +425,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "textLabel"]
 - !private ["s23CustomStringConvertibleP", "title"]
 - !private ["s23CustomStringConvertibleP", "titleTextAttributes"]
-- !private ["s23CustomStringConvertibleP", "user"]
 - !private ["s23CustomStringConvertibleP", "value"]
 - !private ["s23CustomStringConvertibleP", "view"]
 - !private ["s23CustomStringConvertibleP", "viewDidLoad"]
@@ -509,7 +502,6 @@ depends-member:
 - !private ["s9EquatableP", "first"]
 - !private ["s9EquatableP", "foregroundColor"]
 - !private ["s9EquatableP", "fratSignInButton"]
-- !private ["s9EquatableP", "fratSignInEnabled"]
 - !private ["s9EquatableP", "greekLetters"]
 - ["s9EquatableP", "hashValue"]
 - !private ["s9EquatableP", "identifier"]
@@ -551,7 +543,6 @@ depends-member:
 - !private ["s9EquatableP", "textLabel"]
 - !private ["s9EquatableP", "title"]
 - !private ["s9EquatableP", "titleTextAttributes"]
-- !private ["s9EquatableP", "user"]
 - !private ["s9EquatableP", "value"]
 - !private ["s9EquatableP", "view"]
 - !private ["s9EquatableP", "viewDidLoad"]
@@ -616,7 +607,6 @@ depends-member:
 - !private ["s8HashableP", "first"]
 - !private ["s8HashableP", "foregroundColor"]
 - !private ["s8HashableP", "fratSignInButton"]
-- !private ["s8HashableP", "fratSignInEnabled"]
 - !private ["s8HashableP", "greekLetters"]
 - ["s8HashableP", "hashValue"]
 - !private ["s8HashableP", "identifier"]
@@ -658,7 +648,6 @@ depends-member:
 - !private ["s8HashableP", "textLabel"]
 - !private ["s8HashableP", "title"]
 - !private ["s8HashableP", "titleTextAttributes"]
-- !private ["s8HashableP", "user"]
 - !private ["s8HashableP", "value"]
 - !private ["s8HashableP", "view"]
 - !private ["s8HashableP", "viewDidLoad"]
@@ -853,7 +842,6 @@ depends-member:
 - !private ["So8NSObjectC", "favoritedFrats"]
 - !private ["So8NSObjectC", "fcmToken"]
 - ["So8NSObjectC", "fratSignInButton"]
-- !private ["So8NSObjectC", "fratSignInEnabled"]
 - !private ["So8NSObjectC", "greekLetters"]
 - !private ["So8NSObjectC", "identifier"]
 - !private ["So8NSObjectC", "indexPath"]
@@ -897,7 +885,6 @@ depends-member:
 - !private ["So8NSObjectC", "textLabel"]
 - !private ["So8NSObjectC", "title"]
 - !private ["So8NSObjectC", "titleTextAttributes"]
-- !private ["So8NSObjectC", "user"]
 - !private ["So8NSObjectC", "value"]
 - !private ["So8NSObjectC", "view"]
 - ["So8NSObjectC", "viewDidLoad"]
@@ -937,7 +924,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritedFrats"]
 - !private ["So16NSObjectProtocolP", "fcmToken"]
 - !private ["So16NSObjectProtocolP", "fratSignInButton"]
-- !private ["So16NSObjectProtocolP", "fratSignInEnabled"]
 - !private ["So16NSObjectProtocolP", "greekLetters"]
 - !private ["So16NSObjectProtocolP", "identifier"]
 - !private ["So16NSObjectProtocolP", "indexPath"]
@@ -976,7 +962,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "textLabel"]
 - !private ["So16NSObjectProtocolP", "title"]
 - !private ["So16NSObjectProtocolP", "titleTextAttributes"]
-- !private ["So16NSObjectProtocolP", "user"]
 - !private ["So16NSObjectProtocolP", "value"]
 - !private ["So16NSObjectProtocolP", "view"]
 - !private ["So16NSObjectProtocolP", "viewDidLoad"]
@@ -1813,9 +1798,6 @@ depends-member:
 - !private ["So16UIViewControllerC", "view"]
 - ["So16UIViewControllerC", "viewDidLoad"]
 - ["So16UIViewControllerC", "viewWillAppear"]
-- !private ["6RushMe10UniqueUserC", "fratSignInEnabled"]
-- !private ["6RushMe10UniqueUserC", "shared"]
-- !private ["6RushMe10UniqueUserC", "user"]
 - !private ["s14_ArrayProtocolP", "append"]
 - !private ["s14_ArrayProtocolP", "count"]
 - !private ["s14_ArrayProtocolP", "first"]
@@ -1909,7 +1891,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fcmToken"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fratSignInButton"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "fratSignInEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "greekLetters"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "identifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "indexPath"]
@@ -1948,7 +1929,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "textLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "title"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "titleTextAttributes"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "user"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "value"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "view"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
@@ -2090,7 +2070,6 @@ depends-nominal:
 - "So18UITraitEnvironmentP"
 - !private "So6UIViewC"
 - "So16UIViewControllerC"
-- !private "6RushMe10UniqueUserC"
 - !private "s14_ArrayProtocolP"
 - "s23_BidirectionalIndexableP"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"

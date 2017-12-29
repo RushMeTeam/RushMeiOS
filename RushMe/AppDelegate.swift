@@ -8,7 +8,6 @@
 
 import UIKit
 import OHMySQL
-import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -46,8 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Set Root view and make it visible
     self.window!.rootViewController = swRevealView
     self.window!.makeKeyAndVisible()
-    FirebaseApp.configure()
-    
     
     
     return true

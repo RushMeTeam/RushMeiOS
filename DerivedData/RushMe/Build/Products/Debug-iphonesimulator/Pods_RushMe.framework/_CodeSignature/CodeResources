@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Pods-RushMe-umbrella.h</key>
 		<data>
-		EHHRkQXdbD6NSJTCDc4PHauHKyk=
+		vSKlm0w1vs5c6+JOrzS7+nLEz9I=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -23,11 +23,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EHHRkQXdbD6NSJTCDc4PHauHKyk=
+			vSKlm0w1vs5c6+JOrzS7+nLEz9I=
 			</data>
 			<key>hash2</key>
 			<data>
-			PnQo3C9y5j4q4EWGEXy0BrDGQx2OStWNFn7kSbbdFq8=
+			b91+t6GrLLmq7ljdE0iUWNNi2kafEsUy3hdPMTpMEGw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

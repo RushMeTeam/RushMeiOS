@@ -9,6 +9,7 @@ provides-dynamic-lookup:
 - "dataSource"
 - "didReceiveMemoryWarning"
 - "drawerButton"
+- "emptyDataSource"
 - "favoritesButton"
 - "favoritesButtonToggled"
 - "numberOfSections"
@@ -25,7 +26,7 @@ depends-top-level:
 - !private "=="
 - !private "??"
 - "AssignmentPrecedence"
-- !private "Bool"
+- "Bool"
 - "BooleanLiteralType"
 - "CGFloat"
 - !private "Campus"
@@ -41,7 +42,7 @@ depends-top-level:
 - !private "RMAnimation"
 - !private "RMColor"
 - "String"
-- !private "StringLiteralType"
+- "StringLiteralType"
 - "UIBarButtonItem"
 - "UISearchController"
 - "UISearchResultsUpdating"
@@ -50,6 +51,9 @@ depends-top-level:
 - "UITableViewController"
 - !private "UIView"
 - !private "UIViewAnimationOptions"
+- !private "emptyCellReuseIdentifier"
+- !private "eventCellReuseIdentifier"
+- !private "max"
 - !private "||"
 depends-member:
 - !private ["Sa", "append"]
@@ -66,7 +70,7 @@ depends-member:
 - !private ["s23BidirectionalCollectionP", "count"]
 - !private ["s23BidirectionalCollectionP", "dropLast"]
 - !private ["s23BidirectionalCollectionP", "filter"]
-- !private ["s23BidirectionalCollectionP", "init"]
+- ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "isEmpty"]
 - !private ["s23BidirectionalCollectionP", "row"]
 - !private ["s23BidirectionalCollectionP", "section"]
@@ -77,8 +81,13 @@ depends-member:
 - !private ["So15CALayerDelegateP", "dequeueReusableCell"]
 - !private ["So15CALayerDelegateP", "event"]
 - !private ["So15CALayerDelegateP", "isEnabled"]
+- !private ["So15CALayerDelegateP", "isScrollEnabled"]
 - !private ["So15CALayerDelegateP", "reloadData"]
+- !private ["So15CALayerDelegateP", "separatorStyle"]
 - !private ["So15CALayerDelegateP", "text"]
+- !private ["So15CALayerDelegateP", "textAlignment"]
+- !private ["So15CALayerDelegateP", "textColor"]
+- !private ["So15CALayerDelegateP", "textLabel"]
 - !private ["So15CALayerDelegateP", "titleTextAttributes"]
 - !private ["So15CALayerDelegateP", "transition"]
 - !private ["s7CVarArgP", "Campus"]
@@ -101,17 +110,21 @@ depends-member:
 - !private ["s7CVarArgP", "didReceiveMemoryWarning"]
 - !private ["s7CVarArgP", "drawerButton"]
 - !private ["s7CVarArgP", "dropLast"]
+- !private ["s7CVarArgP", "emptyCellReuseIdentifier"]
 - !private ["s7CVarArgP", "event"]
+- !private ["s7CVarArgP", "eventCellReuseIdentifier"]
 - !private ["s7CVarArgP", "eventsByDay"]
 - !private ["s7CVarArgP", "favoritedEventsByDay"]
 - !private ["s7CVarArgP", "favoritesButton"]
 - !private ["s7CVarArgP", "filter"]
 - !private ["s7CVarArgP", "frat"]
 - !private ["s7CVarArgP", "hasFavorites"]
-- !private ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "isEmpty"]
 - !private ["s7CVarArgP", "isEnabled"]
+- !private ["s7CVarArgP", "isScrollEnabled"]
 - !private ["s7CVarArgP", "localizedString"]
+- !private ["s7CVarArgP", "max"]
 - !private ["s7CVarArgP", "name"]
 - !private ["s7CVarArgP", "navigationBar"]
 - !private ["s7CVarArgP", "navigationController"]
@@ -122,6 +135,7 @@ depends-member:
 - !private ["s7CVarArgP", "revealToggle"]
 - !private ["s7CVarArgP", "revealViewController"]
 - !private ["s7CVarArgP", "searchBar"]
+- !private ["s7CVarArgP", "separatorStyle"]
 - !private ["s7CVarArgP", "shared"]
 - !private ["s7CVarArgP", "startDate"]
 - !private ["s7CVarArgP", "subscript"]
@@ -129,6 +143,9 @@ depends-member:
 - !private ["s7CVarArgP", "tapGestureRecognizer"]
 - !private ["s7CVarArgP", "target"]
 - !private ["s7CVarArgP", "text"]
+- !private ["s7CVarArgP", "textAlignment"]
+- !private ["s7CVarArgP", "textColor"]
+- !private ["s7CVarArgP", "textLabel"]
 - !private ["s7CVarArgP", "title"]
 - !private ["s7CVarArgP", "titleTextAttributes"]
 - !private ["s7CVarArgP", "transition"]
@@ -147,7 +164,7 @@ depends-member:
 - !private ["s10CollectionP", "count"]
 - !private ["s10CollectionP", "dropLast"]
 - !private ["s10CollectionP", "filter"]
-- !private ["s10CollectionP", "init"]
+- ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "isEmpty"]
 - !private ["s10CollectionP", "row"]
 - !private ["s10CollectionP", "section"]
@@ -155,7 +172,7 @@ depends-member:
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "contains"]
 - !private ["s10ComparableP", "dropLast"]
-- !private ["s10ComparableP", "init"]
+- ["s10ComparableP", "init"]
 - !private ["s10ComparableP", "row"]
 - !private ["s10ComparableP", "section"]
 - !private ["s28CustomDebugStringConvertibleP", "Campus"]
@@ -178,17 +195,21 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "didReceiveMemoryWarning"]
 - !private ["s28CustomDebugStringConvertibleP", "drawerButton"]
 - !private ["s28CustomDebugStringConvertibleP", "dropLast"]
+- !private ["s28CustomDebugStringConvertibleP", "emptyCellReuseIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "event"]
+- !private ["s28CustomDebugStringConvertibleP", "eventCellReuseIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "eventsByDay"]
 - !private ["s28CustomDebugStringConvertibleP", "favoritedEventsByDay"]
 - !private ["s28CustomDebugStringConvertibleP", "favoritesButton"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "frat"]
 - !private ["s28CustomDebugStringConvertibleP", "hasFavorites"]
-- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isEmpty"]
 - !private ["s28CustomDebugStringConvertibleP", "isEnabled"]
+- !private ["s28CustomDebugStringConvertibleP", "isScrollEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "localizedString"]
+- !private ["s28CustomDebugStringConvertibleP", "max"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "navigationBar"]
 - !private ["s28CustomDebugStringConvertibleP", "navigationController"]
@@ -201,6 +222,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "row"]
 - !private ["s28CustomDebugStringConvertibleP", "searchBar"]
 - !private ["s28CustomDebugStringConvertibleP", "section"]
+- !private ["s28CustomDebugStringConvertibleP", "separatorStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "startDate"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
@@ -208,6 +230,9 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "tapGestureRecognizer"]
 - !private ["s28CustomDebugStringConvertibleP", "target"]
 - !private ["s28CustomDebugStringConvertibleP", "text"]
+- !private ["s28CustomDebugStringConvertibleP", "textAlignment"]
+- !private ["s28CustomDebugStringConvertibleP", "textColor"]
+- !private ["s28CustomDebugStringConvertibleP", "textLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "title"]
 - !private ["s28CustomDebugStringConvertibleP", "titleTextAttributes"]
 - !private ["s28CustomDebugStringConvertibleP", "transition"]
@@ -220,14 +245,14 @@ depends-member:
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "contains"]
 - !private ["s29CustomPlaygroundQuickLookableP", "dropLast"]
-- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "append"]
 - !private ["s17CustomReflectableP", "contains"]
 - !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "dropLast"]
 - !private ["s17CustomReflectableP", "filter"]
-- !private ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "isEmpty"]
 - !private ["s17CustomReflectableP", "row"]
 - !private ["s17CustomReflectableP", "section"]
@@ -254,17 +279,21 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "didReceiveMemoryWarning"]
 - !private ["s23CustomStringConvertibleP", "drawerButton"]
 - !private ["s23CustomStringConvertibleP", "dropLast"]
+- !private ["s23CustomStringConvertibleP", "emptyCellReuseIdentifier"]
 - !private ["s23CustomStringConvertibleP", "event"]
+- !private ["s23CustomStringConvertibleP", "eventCellReuseIdentifier"]
 - !private ["s23CustomStringConvertibleP", "eventsByDay"]
 - !private ["s23CustomStringConvertibleP", "favoritedEventsByDay"]
 - !private ["s23CustomStringConvertibleP", "favoritesButton"]
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "frat"]
 - !private ["s23CustomStringConvertibleP", "hasFavorites"]
-- !private ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "isEmpty"]
 - !private ["s23CustomStringConvertibleP", "isEnabled"]
+- !private ["s23CustomStringConvertibleP", "isScrollEnabled"]
 - !private ["s23CustomStringConvertibleP", "localizedString"]
+- !private ["s23CustomStringConvertibleP", "max"]
 - !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "navigationBar"]
 - !private ["s23CustomStringConvertibleP", "navigationController"]
@@ -277,6 +306,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "row"]
 - !private ["s23CustomStringConvertibleP", "searchBar"]
 - !private ["s23CustomStringConvertibleP", "section"]
+- !private ["s23CustomStringConvertibleP", "separatorStyle"]
 - !private ["s23CustomStringConvertibleP", "shared"]
 - !private ["s23CustomStringConvertibleP", "startDate"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
@@ -284,6 +314,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "tapGestureRecognizer"]
 - !private ["s23CustomStringConvertibleP", "target"]
 - !private ["s23CustomStringConvertibleP", "text"]
+- !private ["s23CustomStringConvertibleP", "textAlignment"]
+- !private ["s23CustomStringConvertibleP", "textColor"]
+- !private ["s23CustomStringConvertibleP", "textLabel"]
 - !private ["s23CustomStringConvertibleP", "title"]
 - !private ["s23CustomStringConvertibleP", "titleTextAttributes"]
 - !private ["s23CustomStringConvertibleP", "transition"]
@@ -300,7 +333,7 @@ depends-member:
 - !private ["s9DecodableP", "count"]
 - !private ["s9DecodableP", "dropLast"]
 - !private ["s9DecodableP", "filter"]
-- !private ["s9DecodableP", "init"]
+- ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "isEmpty"]
 - !private ["s9DecodableP", "row"]
 - !private ["s9DecodableP", "section"]
@@ -311,7 +344,7 @@ depends-member:
 - !private ["s9EncodableP", "count"]
 - !private ["s9EncodableP", "dropLast"]
 - !private ["s9EncodableP", "filter"]
-- !private ["s9EncodableP", "init"]
+- ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "isEmpty"]
 - !private ["s9EncodableP", "row"]
 - !private ["s9EncodableP", "section"]
@@ -328,6 +361,7 @@ depends-member:
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "action"]
 - !private ["s9EquatableP", "addGestureRecognizer"]
+- !private ["s9EquatableP", "center"]
 - !private ["s9EquatableP", "contains"]
 - !private ["s9EquatableP", "dataSource"]
 - !private ["s9EquatableP", "dataSource_"]
@@ -335,16 +369,20 @@ depends-member:
 - !private ["s9EquatableP", "didReceiveMemoryWarning"]
 - !private ["s9EquatableP", "drawerButton"]
 - !private ["s9EquatableP", "dropLast"]
+- !private ["s9EquatableP", "emptyCellReuseIdentifier"]
 - !private ["s9EquatableP", "event"]
+- !private ["s9EquatableP", "eventCellReuseIdentifier"]
 - !private ["s9EquatableP", "eventsByDay"]
 - !private ["s9EquatableP", "favoritedEventsByDay"]
 - !private ["s9EquatableP", "favoritesButton"]
 - !private ["s9EquatableP", "foregroundColor"]
 - !private ["s9EquatableP", "frat"]
 - !private ["s9EquatableP", "hasFavorites"]
-- !private ["s9EquatableP", "init"]
+- ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "isEnabled"]
+- !private ["s9EquatableP", "isScrollEnabled"]
 - !private ["s9EquatableP", "localizedString"]
+- !private ["s9EquatableP", "max"]
 - !private ["s9EquatableP", "medium"]
 - !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "navigationBar"]
@@ -359,13 +397,18 @@ depends-member:
 - !private ["s9EquatableP", "row"]
 - !private ["s9EquatableP", "searchBar"]
 - !private ["s9EquatableP", "section"]
+- !private ["s9EquatableP", "separatorStyle"]
 - !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "short"]
+- !private ["s9EquatableP", "singleLine"]
 - !private ["s9EquatableP", "startDate"]
 - !private ["s9EquatableP", "tableView"]
 - !private ["s9EquatableP", "tapGestureRecognizer"]
 - !private ["s9EquatableP", "target"]
 - !private ["s9EquatableP", "text"]
+- !private ["s9EquatableP", "textAlignment"]
+- !private ["s9EquatableP", "textColor"]
+- !private ["s9EquatableP", "textLabel"]
 - !private ["s9EquatableP", "title"]
 - !private ["s9EquatableP", "titleTextAttributes"]
 - !private ["s9EquatableP", "transition"]
@@ -390,19 +433,19 @@ depends-member:
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "contains"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "dropLast"]
-- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "contains"]
 - !private ["s26ExpressibleByStringLiteralP", "dropLast"]
-- !private ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "contains"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "dropLast"]
-- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["So9FormatterC", "localizedString"]
 - !private ["6RushMe9FratEventC", "frat"]
 - !private ["6RushMe9FratEventC", "name"]
 - !private ["6RushMe9FratEventC", "startDate"]
 - !private ["6RushMe10FraternityC", "name"]
-- !private ["6RushMe33FullEventsListTableViewControllerC", "Bool"]
+- ["6RushMe33FullEventsListTableViewControllerC", "Bool"]
 - ["6RushMe33FullEventsListTableViewControllerC", "CGFloat"]
 - !private ["6RushMe33FullEventsListTableViewControllerC", "Campus"]
 - !private ["6RushMe33FullEventsListTableViewControllerC", "DateFormatter"]
@@ -425,9 +468,13 @@ depends-member:
 - ["6RushMe33FullEventsListTableViewControllerC", "deinit"]
 - ["6RushMe33FullEventsListTableViewControllerC", "didReceiveMemoryWarning"]
 - ["6RushMe33FullEventsListTableViewControllerC", "drawerButton"]
+- !private ["6RushMe33FullEventsListTableViewControllerC", "emptyCellReuseIdentifier"]
+- ["6RushMe33FullEventsListTableViewControllerC", "emptyDataSource"]
+- !private ["6RushMe33FullEventsListTableViewControllerC", "eventCellReuseIdentifier"]
 - ["6RushMe33FullEventsListTableViewControllerC", "favoritesButton"]
 - ["6RushMe33FullEventsListTableViewControllerC", "favoritesButtonToggled"]
 - ["6RushMe33FullEventsListTableViewControllerC", "init"]
+- !private ["6RushMe33FullEventsListTableViewControllerC", "max"]
 - !private ["6RushMe33FullEventsListTableViewControllerC", "navigationController"]
 - ["6RushMe33FullEventsListTableViewControllerC", "numberOfSections"]
 - !private ["6RushMe33FullEventsListTableViewControllerC", "refreshControl"]
@@ -452,6 +499,7 @@ depends-member:
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "action"]
 - !private ["s8HashableP", "addGestureRecognizer"]
+- !private ["s8HashableP", "center"]
 - !private ["s8HashableP", "contains"]
 - !private ["s8HashableP", "dataSource"]
 - !private ["s8HashableP", "dataSource_"]
@@ -459,16 +507,20 @@ depends-member:
 - !private ["s8HashableP", "didReceiveMemoryWarning"]
 - !private ["s8HashableP", "drawerButton"]
 - !private ["s8HashableP", "dropLast"]
+- !private ["s8HashableP", "emptyCellReuseIdentifier"]
 - !private ["s8HashableP", "event"]
+- !private ["s8HashableP", "eventCellReuseIdentifier"]
 - !private ["s8HashableP", "eventsByDay"]
 - !private ["s8HashableP", "favoritedEventsByDay"]
 - !private ["s8HashableP", "favoritesButton"]
 - !private ["s8HashableP", "foregroundColor"]
 - !private ["s8HashableP", "frat"]
 - !private ["s8HashableP", "hasFavorites"]
-- !private ["s8HashableP", "init"]
+- ["s8HashableP", "init"]
 - !private ["s8HashableP", "isEnabled"]
+- !private ["s8HashableP", "isScrollEnabled"]
 - !private ["s8HashableP", "localizedString"]
+- !private ["s8HashableP", "max"]
 - !private ["s8HashableP", "medium"]
 - !private ["s8HashableP", "name"]
 - !private ["s8HashableP", "navigationBar"]
@@ -483,13 +535,18 @@ depends-member:
 - !private ["s8HashableP", "row"]
 - !private ["s8HashableP", "searchBar"]
 - !private ["s8HashableP", "section"]
+- !private ["s8HashableP", "separatorStyle"]
 - !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "short"]
+- !private ["s8HashableP", "singleLine"]
 - !private ["s8HashableP", "startDate"]
 - !private ["s8HashableP", "tableView"]
 - !private ["s8HashableP", "tapGestureRecognizer"]
 - !private ["s8HashableP", "target"]
 - !private ["s8HashableP", "text"]
+- !private ["s8HashableP", "textAlignment"]
+- !private ["s8HashableP", "textColor"]
+- !private ["s8HashableP", "textLabel"]
 - !private ["s8HashableP", "title"]
 - !private ["s8HashableP", "titleTextAttributes"]
 - !private ["s8HashableP", "transition"]
@@ -504,10 +561,10 @@ depends-member:
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "contains"]
 - !private ["s25LosslessStringConvertibleP", "dropLast"]
-- !private ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "contains"]
 - !private ["s10MirrorPathP", "dropLast"]
-- !private ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
 - !private ["s25MutableBidirectionalSliceV", "startDate"]
 - !private ["s17MutableCollectionP", "append"]
 - !private ["s17MutableCollectionP", "count"]
@@ -539,11 +596,15 @@ depends-member:
 - !private ["So8NSCodingP", "didReceiveMemoryWarning"]
 - !private ["So8NSCodingP", "drawerButton"]
 - !private ["So8NSCodingP", "dropLast"]
+- !private ["So8NSCodingP", "emptyCellReuseIdentifier"]
 - !private ["So8NSCodingP", "event"]
+- !private ["So8NSCodingP", "eventCellReuseIdentifier"]
 - !private ["So8NSCodingP", "favoritesButton"]
-- !private ["So8NSCodingP", "init"]
+- ["So8NSCodingP", "init"]
 - !private ["So8NSCodingP", "isEnabled"]
+- !private ["So8NSCodingP", "isScrollEnabled"]
 - !private ["So8NSCodingP", "localizedString"]
+- !private ["So8NSCodingP", "max"]
 - !private ["So8NSCodingP", "navigationBar"]
 - !private ["So8NSCodingP", "navigationController"]
 - !private ["So8NSCodingP", "panGestureRecognizer"]
@@ -553,10 +614,14 @@ depends-member:
 - !private ["So8NSCodingP", "revealToggle"]
 - !private ["So8NSCodingP", "revealViewController"]
 - !private ["So8NSCodingP", "searchBar"]
+- !private ["So8NSCodingP", "separatorStyle"]
 - !private ["So8NSCodingP", "tableView"]
 - !private ["So8NSCodingP", "tapGestureRecognizer"]
 - !private ["So8NSCodingP", "target"]
 - !private ["So8NSCodingP", "text"]
+- !private ["So8NSCodingP", "textAlignment"]
+- !private ["So8NSCodingP", "textColor"]
+- !private ["So8NSCodingP", "textLabel"]
 - !private ["So8NSCodingP", "title"]
 - !private ["So8NSCodingP", "titleTextAttributes"]
 - !private ["So8NSCodingP", "transition"]
@@ -568,7 +633,7 @@ depends-member:
 - ["So8NSCodingP", ""]
 - !private ["So9NSCopyingP", "contains"]
 - !private ["So9NSCopyingP", "dropLast"]
-- !private ["So9NSCopyingP", "init"]
+- ["So9NSCopyingP", "init"]
 - !private ["So9NSCopyingP", "localizedString"]
 - !private ["So26NSExtensionRequestHandlingP", "Campus"]
 - !private ["So26NSExtensionRequestHandlingP", "DateFormatter"]
@@ -583,8 +648,11 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "dataSource_"]
 - !private ["So26NSExtensionRequestHandlingP", "didReceiveMemoryWarning"]
 - !private ["So26NSExtensionRequestHandlingP", "drawerButton"]
+- !private ["So26NSExtensionRequestHandlingP", "emptyCellReuseIdentifier"]
+- !private ["So26NSExtensionRequestHandlingP", "eventCellReuseIdentifier"]
 - !private ["So26NSExtensionRequestHandlingP", "favoritesButton"]
 - !private ["So26NSExtensionRequestHandlingP", "init"]
+- !private ["So26NSExtensionRequestHandlingP", "max"]
 - !private ["So26NSExtensionRequestHandlingP", "navigationBar"]
 - !private ["So26NSExtensionRequestHandlingP", "navigationController"]
 - !private ["So26NSExtensionRequestHandlingP", "panGestureRecognizer"]
@@ -603,14 +671,14 @@ depends-member:
 - ["So26NSExtensionRequestHandlingP", ""]
 - !private ["So21NSItemProviderReadingP", "contains"]
 - !private ["So21NSItemProviderReadingP", "dropLast"]
-- !private ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderWritingP", "contains"]
 - !private ["So21NSItemProviderWritingP", "dropLast"]
-- !private ["So21NSItemProviderWritingP", "init"]
+- ["So21NSItemProviderWritingP", "init"]
 - !private ["So16NSMutableCopyingP", "contains"]
 - !private ["So16NSMutableCopyingP", "dropLast"]
-- !private ["So16NSMutableCopyingP", "init"]
-- !private ["So8NSObjectC", "Bool"]
+- ["So16NSMutableCopyingP", "init"]
+- ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "CGFloat"]
 - !private ["So8NSObjectC", "Campus"]
 - !private ["So8NSObjectC", "DateFormatter"]
@@ -637,7 +705,10 @@ depends-member:
 - ["So8NSObjectC", "didReceiveMemoryWarning"]
 - ["So8NSObjectC", "drawerButton"]
 - !private ["So8NSObjectC", "dropLast"]
+- !private ["So8NSObjectC", "emptyCellReuseIdentifier"]
+- ["So8NSObjectC", "emptyDataSource"]
 - !private ["So8NSObjectC", "event"]
+- !private ["So8NSObjectC", "eventCellReuseIdentifier"]
 - !private ["So8NSObjectC", "eventsByDay"]
 - !private ["So8NSObjectC", "favoritedEventsByDay"]
 - ["So8NSObjectC", "favoritesButton"]
@@ -646,7 +717,9 @@ depends-member:
 - !private ["So8NSObjectC", "hasFavorites"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "isEnabled"]
+- !private ["So8NSObjectC", "isScrollEnabled"]
 - !private ["So8NSObjectC", "localizedString"]
+- !private ["So8NSObjectC", "max"]
 - !private ["So8NSObjectC", "name"]
 - !private ["So8NSObjectC", "navigationBar"]
 - !private ["So8NSObjectC", "navigationController"]
@@ -659,12 +732,16 @@ depends-member:
 - !private ["So8NSObjectC", "revealViewController"]
 - !private ["So8NSObjectC", "searchBar"]
 - ["So8NSObjectC", "sectionIndexTitles"]
+- !private ["So8NSObjectC", "separatorStyle"]
 - !private ["So8NSObjectC", "shared"]
 - !private ["So8NSObjectC", "startDate"]
 - ["So8NSObjectC", "tableView"]
 - !private ["So8NSObjectC", "tapGestureRecognizer"]
 - !private ["So8NSObjectC", "target"]
 - !private ["So8NSObjectC", "text"]
+- !private ["So8NSObjectC", "textAlignment"]
+- !private ["So8NSObjectC", "textColor"]
+- !private ["So8NSObjectC", "textLabel"]
 - !private ["So8NSObjectC", "title"]
 - !private ["So8NSObjectC", "titleTextAttributes"]
 - !private ["So8NSObjectC", "transition"]
@@ -691,15 +768,19 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "didReceiveMemoryWarning"]
 - !private ["So16NSObjectProtocolP", "drawerButton"]
 - !private ["So16NSObjectProtocolP", "dropLast"]
+- !private ["So16NSObjectProtocolP", "emptyCellReuseIdentifier"]
 - !private ["So16NSObjectProtocolP", "event"]
+- !private ["So16NSObjectProtocolP", "eventCellReuseIdentifier"]
 - !private ["So16NSObjectProtocolP", "eventsByDay"]
 - !private ["So16NSObjectProtocolP", "favoritedEventsByDay"]
 - !private ["So16NSObjectProtocolP", "favoritesButton"]
 - !private ["So16NSObjectProtocolP", "frat"]
 - !private ["So16NSObjectProtocolP", "hasFavorites"]
-- !private ["So16NSObjectProtocolP", "init"]
+- ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "isEnabled"]
+- !private ["So16NSObjectProtocolP", "isScrollEnabled"]
 - !private ["So16NSObjectProtocolP", "localizedString"]
+- !private ["So16NSObjectProtocolP", "max"]
 - !private ["So16NSObjectProtocolP", "name"]
 - !private ["So16NSObjectProtocolP", "navigationBar"]
 - !private ["So16NSObjectProtocolP", "navigationController"]
@@ -710,12 +791,16 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "revealToggle"]
 - !private ["So16NSObjectProtocolP", "revealViewController"]
 - !private ["So16NSObjectProtocolP", "searchBar"]
+- !private ["So16NSObjectProtocolP", "separatorStyle"]
 - !private ["So16NSObjectProtocolP", "shared"]
 - !private ["So16NSObjectProtocolP", "startDate"]
 - !private ["So16NSObjectProtocolP", "tableView"]
 - !private ["So16NSObjectProtocolP", "tapGestureRecognizer"]
 - !private ["So16NSObjectProtocolP", "target"]
 - !private ["So16NSObjectProtocolP", "text"]
+- !private ["So16NSObjectProtocolP", "textAlignment"]
+- !private ["So16NSObjectProtocolP", "textColor"]
+- !private ["So16NSObjectProtocolP", "textLabel"]
 - !private ["So16NSObjectProtocolP", "title"]
 - !private ["So16NSObjectProtocolP", "titleTextAttributes"]
 - !private ["So16NSObjectProtocolP", "transition"]
@@ -727,15 +812,17 @@ depends-member:
 - ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "contains"]
 - !private ["So14NSSecureCodingP", "dropLast"]
-- !private ["So14NSSecureCodingP", "init"]
+- ["So14NSSecureCodingP", "init"]
 - !private ["So8NSStringC", "contains"]
 - !private ["So8NSStringC", "dropLast"]
-- !private ["So8NSStringC", "init"]
+- ["So8NSStringC", "init"]
+- !private ["SC15NSTextAlignmentO", "center"]
 - !private ["So15OHSerializationP", "contains"]
 - !private ["So15OHSerializationP", "dropLast"]
-- !private ["So15OHSerializationP", "init"]
+- ["So15OHSerializationP", "init"]
 - !private ["s9OptionSetP", "transitionCrossDissolve"]
 - !private ["6RushMe11RMAnimationV", "ColoringTime"]
+- !private ["6RushMe7RMColorV", "AppColor"]
 - !private ["6RushMe7RMColorV", "NavigationItemsColor"]
 - !private ["s22RandomAccessCollectionP", "append"]
 - !private ["s22RandomAccessCollectionP", "count"]
@@ -751,15 +838,17 @@ depends-member:
 - !private ["s26RangeReplaceableCollectionP", "count"]
 - !private ["s26RangeReplaceableCollectionP", "dropLast"]
 - !private ["s26RangeReplaceableCollectionP", "filter"]
-- !private ["s26RangeReplaceableCollectionP", "init"]
+- ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "isEmpty"]
 - !private ["s26RangeReplaceableCollectionP", "startDate"]
 - !private ["s26RangeReplaceableCollectionP", "subscript"]
 - !private ["s21RangeReplaceableSliceV", "startDate"]
+- !private ["s16RawRepresentableP", "center"]
 - !private ["s16RawRepresentableP", "foregroundColor"]
 - !private ["s16RawRepresentableP", "medium"]
 - !private ["s16RawRepresentableP", "none"]
 - !private ["s16RawRepresentableP", "short"]
+- !private ["s16RawRepresentableP", "singleLine"]
 - !private ["s16RawRepresentableP", "transitionCrossDissolve"]
 - !private ["10Foundation20ReferenceConvertibleP", "row"]
 - !private ["10Foundation20ReferenceConvertibleP", "section"]
@@ -771,7 +860,7 @@ depends-member:
 - !private ["s8SequenceP", "count"]
 - !private ["s8SequenceP", "dropLast"]
 - !private ["s8SequenceP", "filter"]
-- !private ["s8SequenceP", "init"]
+- ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "isEmpty"]
 - !private ["s8SequenceP", "row"]
 - !private ["s8SequenceP", "section"]
@@ -780,27 +869,32 @@ depends-member:
 - !private ["s10SetAlgebraP", "transitionCrossDissolve"]
 - !private ["SS", "contains"]
 - !private ["SS", "dropLast"]
-- !private ["SS", "init"]
+- ["SS", "init"]
 - !private ["s14StringProtocolP", "contains"]
 - !private ["s14StringProtocolP", "dropLast"]
-- !private ["s14StringProtocolP", "init"]
+- ["s14StringProtocolP", "init"]
 - !private ["So13DateFormatterC5StyleO", "medium"]
 - !private ["So13DateFormatterC5StyleO", "none"]
 - !private ["So13DateFormatterC5StyleO", "short"]
 - !private ["s16TextOutputStreamP", "contains"]
 - !private ["s16TextOutputStreamP", "dropLast"]
-- !private ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "contains"]
 - !private ["s20TextOutputStreamableP", "dropLast"]
-- !private ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
 - !private ["So29UIAccessibilityIdentificationP", "action"]
 - !private ["So29UIAccessibilityIdentificationP", "addGestureRecognizer"]
 - !private ["So29UIAccessibilityIdentificationP", "dequeueReusableCell"]
 - !private ["So29UIAccessibilityIdentificationP", "event"]
 - !private ["So29UIAccessibilityIdentificationP", "isEnabled"]
+- !private ["So29UIAccessibilityIdentificationP", "isScrollEnabled"]
 - !private ["So29UIAccessibilityIdentificationP", "reloadData"]
+- !private ["So29UIAccessibilityIdentificationP", "separatorStyle"]
 - !private ["So29UIAccessibilityIdentificationP", "target"]
 - !private ["So29UIAccessibilityIdentificationP", "text"]
+- !private ["So29UIAccessibilityIdentificationP", "textAlignment"]
+- !private ["So29UIAccessibilityIdentificationP", "textColor"]
+- !private ["So29UIAccessibilityIdentificationP", "textLabel"]
 - !private ["So29UIAccessibilityIdentificationP", "title"]
 - !private ["So29UIAccessibilityIdentificationP", "titleTextAttributes"]
 - !private ["So29UIAccessibilityIdentificationP", "transition"]
@@ -809,9 +903,14 @@ depends-member:
 - !private ["So12UIAppearanceP", "dequeueReusableCell"]
 - !private ["So12UIAppearanceP", "event"]
 - !private ["So12UIAppearanceP", "isEnabled"]
+- !private ["So12UIAppearanceP", "isScrollEnabled"]
 - !private ["So12UIAppearanceP", "reloadData"]
+- !private ["So12UIAppearanceP", "separatorStyle"]
 - !private ["So12UIAppearanceP", "target"]
 - !private ["So12UIAppearanceP", "text"]
+- !private ["So12UIAppearanceP", "textAlignment"]
+- !private ["So12UIAppearanceP", "textColor"]
+- !private ["So12UIAppearanceP", "textLabel"]
 - !private ["So12UIAppearanceP", "title"]
 - !private ["So12UIAppearanceP", "titleTextAttributes"]
 - !private ["So12UIAppearanceP", "transition"]
@@ -830,10 +929,14 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "dequeueReusableCell"]
 - !private ["So21UIAppearanceContainerP", "didReceiveMemoryWarning"]
 - !private ["So21UIAppearanceContainerP", "drawerButton"]
+- !private ["So21UIAppearanceContainerP", "emptyCellReuseIdentifier"]
 - !private ["So21UIAppearanceContainerP", "event"]
+- !private ["So21UIAppearanceContainerP", "eventCellReuseIdentifier"]
 - !private ["So21UIAppearanceContainerP", "favoritesButton"]
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "isEnabled"]
+- !private ["So21UIAppearanceContainerP", "isScrollEnabled"]
+- !private ["So21UIAppearanceContainerP", "max"]
 - !private ["So21UIAppearanceContainerP", "navigationBar"]
 - !private ["So21UIAppearanceContainerP", "navigationController"]
 - !private ["So21UIAppearanceContainerP", "panGestureRecognizer"]
@@ -843,9 +946,13 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "revealToggle"]
 - !private ["So21UIAppearanceContainerP", "revealViewController"]
 - !private ["So21UIAppearanceContainerP", "searchBar"]
+- !private ["So21UIAppearanceContainerP", "separatorStyle"]
 - !private ["So21UIAppearanceContainerP", "tableView"]
 - !private ["So21UIAppearanceContainerP", "tapGestureRecognizer"]
 - !private ["So21UIAppearanceContainerP", "text"]
+- !private ["So21UIAppearanceContainerP", "textAlignment"]
+- !private ["So21UIAppearanceContainerP", "textColor"]
+- !private ["So21UIAppearanceContainerP", "textLabel"]
 - !private ["So21UIAppearanceContainerP", "titleTextAttributes"]
 - !private ["So21UIAppearanceContainerP", "transition"]
 - ["So21UIAppearanceContainerP", "updateSearchResults"]
@@ -877,8 +984,11 @@ depends-member:
 - !private ["So18UIContentContainerP", "dataSource_"]
 - !private ["So18UIContentContainerP", "didReceiveMemoryWarning"]
 - !private ["So18UIContentContainerP", "drawerButton"]
+- !private ["So18UIContentContainerP", "emptyCellReuseIdentifier"]
+- !private ["So18UIContentContainerP", "eventCellReuseIdentifier"]
 - !private ["So18UIContentContainerP", "favoritesButton"]
 - !private ["So18UIContentContainerP", "init"]
+- !private ["So18UIContentContainerP", "max"]
 - !private ["So18UIContentContainerP", "navigationBar"]
 - !private ["So18UIContentContainerP", "navigationController"]
 - !private ["So18UIContentContainerP", "panGestureRecognizer"]
@@ -895,23 +1005,38 @@ depends-member:
 - !private ["So18UIContentContainerP", "viewDidLoad"]
 - !private ["So18UIContentContainerP", "viewingFavorites"]
 - ["So18UIContentContainerP", ""]
+- !private ["So30UIContentSizeCategoryAdjustingP", "text"]
+- !private ["So30UIContentSizeCategoryAdjustingP", "textAlignment"]
+- !private ["So30UIContentSizeCategoryAdjustingP", "textColor"]
 - !private ["So9UIControlC", "isEnabled"]
 - !private ["So17UICoordinateSpaceP", "addGestureRecognizer"]
 - !private ["So17UICoordinateSpaceP", "dequeueReusableCell"]
 - !private ["So17UICoordinateSpaceP", "event"]
 - !private ["So17UICoordinateSpaceP", "isEnabled"]
+- !private ["So17UICoordinateSpaceP", "isScrollEnabled"]
 - !private ["So17UICoordinateSpaceP", "reloadData"]
+- !private ["So17UICoordinateSpaceP", "separatorStyle"]
 - !private ["So17UICoordinateSpaceP", "text"]
+- !private ["So17UICoordinateSpaceP", "textAlignment"]
+- !private ["So17UICoordinateSpaceP", "textColor"]
+- !private ["So17UICoordinateSpaceP", "textLabel"]
 - !private ["So17UICoordinateSpaceP", "titleTextAttributes"]
 - !private ["So17UICoordinateSpaceP", "transition"]
 - !private ["So23UIDataSourceTranslatingP", "dequeueReusableCell"]
+- !private ["So23UIDataSourceTranslatingP", "isScrollEnabled"]
 - !private ["So23UIDataSourceTranslatingP", "reloadData"]
+- !private ["So23UIDataSourceTranslatingP", "separatorStyle"]
 - !private ["So13UIDynamicItemP", "addGestureRecognizer"]
 - !private ["So13UIDynamicItemP", "dequeueReusableCell"]
 - !private ["So13UIDynamicItemP", "event"]
 - !private ["So13UIDynamicItemP", "isEnabled"]
+- !private ["So13UIDynamicItemP", "isScrollEnabled"]
 - !private ["So13UIDynamicItemP", "reloadData"]
+- !private ["So13UIDynamicItemP", "separatorStyle"]
 - !private ["So13UIDynamicItemP", "text"]
+- !private ["So13UIDynamicItemP", "textAlignment"]
+- !private ["So13UIDynamicItemP", "textColor"]
+- !private ["So13UIDynamicItemP", "textLabel"]
 - !private ["So13UIDynamicItemP", "titleTextAttributes"]
 - !private ["So13UIDynamicItemP", "transition"]
 - !private ["So18UIFocusEnvironmentP", "Campus"]
@@ -929,10 +1054,14 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "dequeueReusableCell"]
 - !private ["So18UIFocusEnvironmentP", "didReceiveMemoryWarning"]
 - !private ["So18UIFocusEnvironmentP", "drawerButton"]
+- !private ["So18UIFocusEnvironmentP", "emptyCellReuseIdentifier"]
 - !private ["So18UIFocusEnvironmentP", "event"]
+- !private ["So18UIFocusEnvironmentP", "eventCellReuseIdentifier"]
 - !private ["So18UIFocusEnvironmentP", "favoritesButton"]
 - !private ["So18UIFocusEnvironmentP", "init"]
 - !private ["So18UIFocusEnvironmentP", "isEnabled"]
+- !private ["So18UIFocusEnvironmentP", "isScrollEnabled"]
+- !private ["So18UIFocusEnvironmentP", "max"]
 - !private ["So18UIFocusEnvironmentP", "navigationBar"]
 - !private ["So18UIFocusEnvironmentP", "navigationController"]
 - !private ["So18UIFocusEnvironmentP", "panGestureRecognizer"]
@@ -942,9 +1071,13 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "revealToggle"]
 - !private ["So18UIFocusEnvironmentP", "revealViewController"]
 - !private ["So18UIFocusEnvironmentP", "searchBar"]
+- !private ["So18UIFocusEnvironmentP", "separatorStyle"]
 - !private ["So18UIFocusEnvironmentP", "tableView"]
 - !private ["So18UIFocusEnvironmentP", "tapGestureRecognizer"]
 - !private ["So18UIFocusEnvironmentP", "text"]
+- !private ["So18UIFocusEnvironmentP", "textAlignment"]
+- !private ["So18UIFocusEnvironmentP", "textColor"]
+- !private ["So18UIFocusEnvironmentP", "textLabel"]
 - !private ["So18UIFocusEnvironmentP", "titleTextAttributes"]
 - !private ["So18UIFocusEnvironmentP", "transition"]
 - ["So18UIFocusEnvironmentP", "updateSearchResults"]
@@ -957,11 +1090,20 @@ depends-member:
 - !private ["So11UIFocusItemP", "dequeueReusableCell"]
 - !private ["So11UIFocusItemP", "event"]
 - !private ["So11UIFocusItemP", "isEnabled"]
+- !private ["So11UIFocusItemP", "isScrollEnabled"]
 - !private ["So11UIFocusItemP", "reloadData"]
+- !private ["So11UIFocusItemP", "separatorStyle"]
 - !private ["So11UIFocusItemP", "text"]
+- !private ["So11UIFocusItemP", "textAlignment"]
+- !private ["So11UIFocusItemP", "textColor"]
+- !private ["So11UIFocusItemP", "textLabel"]
 - !private ["So11UIFocusItemP", "titleTextAttributes"]
 - !private ["So11UIFocusItemP", "transition"]
 - !private ["So27UIGestureRecognizerDelegateP", "event"]
+- !private ["So27UIGestureRecognizerDelegateP", "textLabel"]
+- !private ["So7UILabelC", "text"]
+- !private ["So7UILabelC", "textAlignment"]
+- !private ["So7UILabelC", "textColor"]
 - !private ["So15UINavigationBarC", "titleTextAttributes"]
 - !private ["So22UINavigationControllerC", "navigationBar"]
 - !private ["So30UIPasteConfigurationSupportingP", "Campus"]
@@ -979,10 +1121,14 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "dequeueReusableCell"]
 - !private ["So30UIPasteConfigurationSupportingP", "didReceiveMemoryWarning"]
 - !private ["So30UIPasteConfigurationSupportingP", "drawerButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "emptyCellReuseIdentifier"]
 - !private ["So30UIPasteConfigurationSupportingP", "event"]
+- !private ["So30UIPasteConfigurationSupportingP", "eventCellReuseIdentifier"]
 - !private ["So30UIPasteConfigurationSupportingP", "favoritesButton"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "isEnabled"]
+- !private ["So30UIPasteConfigurationSupportingP", "isScrollEnabled"]
+- !private ["So30UIPasteConfigurationSupportingP", "max"]
 - !private ["So30UIPasteConfigurationSupportingP", "navigationBar"]
 - !private ["So30UIPasteConfigurationSupportingP", "navigationController"]
 - !private ["So30UIPasteConfigurationSupportingP", "panGestureRecognizer"]
@@ -992,9 +1138,13 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "revealToggle"]
 - !private ["So30UIPasteConfigurationSupportingP", "revealViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "searchBar"]
+- !private ["So30UIPasteConfigurationSupportingP", "separatorStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "tableView"]
 - !private ["So30UIPasteConfigurationSupportingP", "tapGestureRecognizer"]
 - !private ["So30UIPasteConfigurationSupportingP", "text"]
+- !private ["So30UIPasteConfigurationSupportingP", "textAlignment"]
+- !private ["So30UIPasteConfigurationSupportingP", "textColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "textLabel"]
 - !private ["So30UIPasteConfigurationSupportingP", "titleTextAttributes"]
 - !private ["So30UIPasteConfigurationSupportingP", "transition"]
 - ["So30UIPasteConfigurationSupportingP", "updateSearchResults"]
@@ -1004,7 +1154,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "viewingFavorites"]
 - ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So16UIRefreshControlC", "isEnabled"]
-- !private ["So11UIResponderC", "Bool"]
+- ["So11UIResponderC", "Bool"]
 - ["So11UIResponderC", "CGFloat"]
 - !private ["So11UIResponderC", "Campus"]
 - !private ["So11UIResponderC", "DateFormatter"]
@@ -1028,11 +1178,16 @@ depends-member:
 - !private ["So11UIResponderC", "dequeueReusableCell"]
 - ["So11UIResponderC", "didReceiveMemoryWarning"]
 - ["So11UIResponderC", "drawerButton"]
+- !private ["So11UIResponderC", "emptyCellReuseIdentifier"]
+- ["So11UIResponderC", "emptyDataSource"]
 - !private ["So11UIResponderC", "event"]
+- !private ["So11UIResponderC", "eventCellReuseIdentifier"]
 - ["So11UIResponderC", "favoritesButton"]
 - ["So11UIResponderC", "favoritesButtonToggled"]
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "isEnabled"]
+- !private ["So11UIResponderC", "isScrollEnabled"]
+- !private ["So11UIResponderC", "max"]
 - !private ["So11UIResponderC", "navigationBar"]
 - !private ["So11UIResponderC", "navigationController"]
 - ["So11UIResponderC", "numberOfSections"]
@@ -1044,9 +1199,13 @@ depends-member:
 - !private ["So11UIResponderC", "revealViewController"]
 - !private ["So11UIResponderC", "searchBar"]
 - ["So11UIResponderC", "sectionIndexTitles"]
+- !private ["So11UIResponderC", "separatorStyle"]
 - ["So11UIResponderC", "tableView"]
 - !private ["So11UIResponderC", "tapGestureRecognizer"]
 - !private ["So11UIResponderC", "text"]
+- !private ["So11UIResponderC", "textAlignment"]
+- !private ["So11UIResponderC", "textColor"]
+- !private ["So11UIResponderC", "textLabel"]
 - !private ["So11UIResponderC", "titleTextAttributes"]
 - !private ["So11UIResponderC", "transition"]
 - ["So11UIResponderC", "updateSearchResults"]
@@ -1069,10 +1228,14 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "dequeueReusableCell"]
 - !private ["So30UIResponderStandardEditActionsP", "didReceiveMemoryWarning"]
 - !private ["So30UIResponderStandardEditActionsP", "drawerButton"]
+- !private ["So30UIResponderStandardEditActionsP", "emptyCellReuseIdentifier"]
 - !private ["So30UIResponderStandardEditActionsP", "event"]
+- !private ["So30UIResponderStandardEditActionsP", "eventCellReuseIdentifier"]
 - !private ["So30UIResponderStandardEditActionsP", "favoritesButton"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
 - !private ["So30UIResponderStandardEditActionsP", "isEnabled"]
+- !private ["So30UIResponderStandardEditActionsP", "isScrollEnabled"]
+- !private ["So30UIResponderStandardEditActionsP", "max"]
 - !private ["So30UIResponderStandardEditActionsP", "navigationBar"]
 - !private ["So30UIResponderStandardEditActionsP", "navigationController"]
 - !private ["So30UIResponderStandardEditActionsP", "panGestureRecognizer"]
@@ -1082,9 +1245,13 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "revealToggle"]
 - !private ["So30UIResponderStandardEditActionsP", "revealViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "searchBar"]
+- !private ["So30UIResponderStandardEditActionsP", "separatorStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "tableView"]
 - !private ["So30UIResponderStandardEditActionsP", "tapGestureRecognizer"]
 - !private ["So30UIResponderStandardEditActionsP", "text"]
+- !private ["So30UIResponderStandardEditActionsP", "textAlignment"]
+- !private ["So30UIResponderStandardEditActionsP", "textColor"]
+- !private ["So30UIResponderStandardEditActionsP", "textLabel"]
 - !private ["So30UIResponderStandardEditActionsP", "titleTextAttributes"]
 - !private ["So30UIResponderStandardEditActionsP", "transition"]
 - ["So30UIResponderStandardEditActionsP", "updateSearchResults"]
@@ -1094,7 +1261,9 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "viewingFavorites"]
 - ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So12UIScrollViewC", "dequeueReusableCell"]
+- !private ["So12UIScrollViewC", "isScrollEnabled"]
 - !private ["So12UIScrollViewC", "reloadData"]
+- !private ["So12UIScrollViewC", "separatorStyle"]
 - !private ["So20UIScrollViewDelegateP", "Campus"]
 - !private ["So20UIScrollViewDelegateP", "DateFormatter"]
 - !private ["So20UIScrollViewDelegateP", "FratEvent"]
@@ -1108,8 +1277,11 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "dataSource_"]
 - !private ["So20UIScrollViewDelegateP", "didReceiveMemoryWarning"]
 - !private ["So20UIScrollViewDelegateP", "drawerButton"]
+- !private ["So20UIScrollViewDelegateP", "emptyCellReuseIdentifier"]
+- !private ["So20UIScrollViewDelegateP", "eventCellReuseIdentifier"]
 - !private ["So20UIScrollViewDelegateP", "favoritesButton"]
 - !private ["So20UIScrollViewDelegateP", "init"]
+- !private ["So20UIScrollViewDelegateP", "max"]
 - !private ["So20UIScrollViewDelegateP", "navigationController"]
 - !private ["So20UIScrollViewDelegateP", "refreshControl"]
 - !private ["So20UIScrollViewDelegateP", "reloadTableView"]
@@ -1135,7 +1307,10 @@ depends-member:
 - !private ["So23UISearchResultsUpdatingP", "dataSource"]
 - !private ["So23UISearchResultsUpdatingP", "dataSource_"]
 - !private ["So23UISearchResultsUpdatingP", "drawerButton"]
+- !private ["So23UISearchResultsUpdatingP", "emptyCellReuseIdentifier"]
+- !private ["So23UISearchResultsUpdatingP", "eventCellReuseIdentifier"]
 - !private ["So23UISearchResultsUpdatingP", "favoritesButton"]
+- !private ["So23UISearchResultsUpdatingP", "max"]
 - !private ["So23UISearchResultsUpdatingP", "navigationController"]
 - !private ["So23UISearchResultsUpdatingP", "refreshControl"]
 - !private ["So23UISearchResultsUpdatingP", "reloadTableView"]
@@ -1149,7 +1324,9 @@ depends-member:
 - !private ["So35UISpringLoadedInteractionSupportingP", "action"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "dequeueReusableCell"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "isEnabled"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "isScrollEnabled"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "reloadData"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "separatorStyle"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "target"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "title"]
 - !private ["So16UIStateRestoringP", "Campus"]
@@ -1165,8 +1342,11 @@ depends-member:
 - !private ["So16UIStateRestoringP", "dataSource_"]
 - !private ["So16UIStateRestoringP", "didReceiveMemoryWarning"]
 - !private ["So16UIStateRestoringP", "drawerButton"]
+- !private ["So16UIStateRestoringP", "emptyCellReuseIdentifier"]
+- !private ["So16UIStateRestoringP", "eventCellReuseIdentifier"]
 - !private ["So16UIStateRestoringP", "favoritesButton"]
 - !private ["So16UIStateRestoringP", "init"]
+- !private ["So16UIStateRestoringP", "max"]
 - !private ["So16UIStateRestoringP", "navigationBar"]
 - !private ["So16UIStateRestoringP", "navigationController"]
 - !private ["So16UIStateRestoringP", "panGestureRecognizer"]
@@ -1184,9 +1364,14 @@ depends-member:
 - !private ["So16UIStateRestoringP", "viewingFavorites"]
 - ["So16UIStateRestoringP", ""]
 - !private ["So11UITableViewC", "dequeueReusableCell"]
+- !private ["So11UITableViewC", "isScrollEnabled"]
 - !private ["So11UITableViewC", "reloadData"]
+- !private ["So11UITableViewC", "separatorStyle"]
 - !private ["So15UITableViewCellC", "event"]
-- !private ["So21UITableViewControllerC", "Bool"]
+- !private ["So15UITableViewCellC", "textLabel"]
+- !private ["SC29UITableViewCellSeparatorStyleO", "none"]
+- !private ["SC29UITableViewCellSeparatorStyleO", "singleLine"]
+- ["So21UITableViewControllerC", "Bool"]
 - ["So21UITableViewControllerC", "CGFloat"]
 - !private ["So21UITableViewControllerC", "Campus"]
 - !private ["So21UITableViewControllerC", "DateFormatter"]
@@ -1208,9 +1393,13 @@ depends-member:
 - ["So21UITableViewControllerC", "dataSource_"]
 - ["So21UITableViewControllerC", "didReceiveMemoryWarning"]
 - ["So21UITableViewControllerC", "drawerButton"]
+- !private ["So21UITableViewControllerC", "emptyCellReuseIdentifier"]
+- ["So21UITableViewControllerC", "emptyDataSource"]
+- !private ["So21UITableViewControllerC", "eventCellReuseIdentifier"]
 - ["So21UITableViewControllerC", "favoritesButton"]
 - ["So21UITableViewControllerC", "favoritesButtonToggled"]
 - ["So21UITableViewControllerC", "init"]
+- !private ["So21UITableViewControllerC", "max"]
 - !private ["So21UITableViewControllerC", "navigationController"]
 - ["So21UITableViewControllerC", "numberOfSections"]
 - !private ["So21UITableViewControllerC", "refreshControl"]
@@ -1237,8 +1426,11 @@ depends-member:
 - !private ["So21UITableViewDataSourceP", "dataSource_"]
 - !private ["So21UITableViewDataSourceP", "didReceiveMemoryWarning"]
 - !private ["So21UITableViewDataSourceP", "drawerButton"]
+- !private ["So21UITableViewDataSourceP", "emptyCellReuseIdentifier"]
+- !private ["So21UITableViewDataSourceP", "eventCellReuseIdentifier"]
 - !private ["So21UITableViewDataSourceP", "favoritesButton"]
 - !private ["So21UITableViewDataSourceP", "init"]
+- !private ["So21UITableViewDataSourceP", "max"]
 - !private ["So21UITableViewDataSourceP", "navigationController"]
 - !private ["So21UITableViewDataSourceP", "refreshControl"]
 - !private ["So21UITableViewDataSourceP", "reloadTableView"]
@@ -1263,8 +1455,11 @@ depends-member:
 - !private ["So19UITableViewDelegateP", "dataSource_"]
 - !private ["So19UITableViewDelegateP", "didReceiveMemoryWarning"]
 - !private ["So19UITableViewDelegateP", "drawerButton"]
+- !private ["So19UITableViewDelegateP", "emptyCellReuseIdentifier"]
+- !private ["So19UITableViewDelegateP", "eventCellReuseIdentifier"]
 - !private ["So19UITableViewDelegateP", "favoritesButton"]
 - !private ["So19UITableViewDelegateP", "init"]
+- !private ["So19UITableViewDelegateP", "max"]
 - !private ["So19UITableViewDelegateP", "navigationController"]
 - !private ["So19UITableViewDelegateP", "refreshControl"]
 - !private ["So19UITableViewDelegateP", "reloadTableView"]
@@ -1292,10 +1487,14 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "dequeueReusableCell"]
 - !private ["So18UITraitEnvironmentP", "didReceiveMemoryWarning"]
 - !private ["So18UITraitEnvironmentP", "drawerButton"]
+- !private ["So18UITraitEnvironmentP", "emptyCellReuseIdentifier"]
 - !private ["So18UITraitEnvironmentP", "event"]
+- !private ["So18UITraitEnvironmentP", "eventCellReuseIdentifier"]
 - !private ["So18UITraitEnvironmentP", "favoritesButton"]
 - !private ["So18UITraitEnvironmentP", "init"]
 - !private ["So18UITraitEnvironmentP", "isEnabled"]
+- !private ["So18UITraitEnvironmentP", "isScrollEnabled"]
+- !private ["So18UITraitEnvironmentP", "max"]
 - !private ["So18UITraitEnvironmentP", "navigationBar"]
 - !private ["So18UITraitEnvironmentP", "navigationController"]
 - !private ["So18UITraitEnvironmentP", "panGestureRecognizer"]
@@ -1305,9 +1504,13 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "revealToggle"]
 - !private ["So18UITraitEnvironmentP", "revealViewController"]
 - !private ["So18UITraitEnvironmentP", "searchBar"]
+- !private ["So18UITraitEnvironmentP", "separatorStyle"]
 - !private ["So18UITraitEnvironmentP", "tableView"]
 - !private ["So18UITraitEnvironmentP", "tapGestureRecognizer"]
 - !private ["So18UITraitEnvironmentP", "text"]
+- !private ["So18UITraitEnvironmentP", "textAlignment"]
+- !private ["So18UITraitEnvironmentP", "textColor"]
+- !private ["So18UITraitEnvironmentP", "textLabel"]
 - !private ["So18UITraitEnvironmentP", "titleTextAttributes"]
 - !private ["So18UITraitEnvironmentP", "transition"]
 - ["So18UITraitEnvironmentP", "updateSearchResults"]
@@ -1320,12 +1523,17 @@ depends-member:
 - !private ["So6UIViewC", "dequeueReusableCell"]
 - !private ["So6UIViewC", "event"]
 - !private ["So6UIViewC", "isEnabled"]
+- !private ["So6UIViewC", "isScrollEnabled"]
 - !private ["So6UIViewC", "reloadData"]
+- !private ["So6UIViewC", "separatorStyle"]
 - !private ["So6UIViewC", "text"]
+- !private ["So6UIViewC", "textAlignment"]
+- !private ["So6UIViewC", "textColor"]
+- !private ["So6UIViewC", "textLabel"]
 - !private ["So6UIViewC", "titleTextAttributes"]
 - !private ["So6UIViewC", "transition"]
 - !private ["SC22UIViewAnimationOptionsV", "transitionCrossDissolve"]
-- !private ["So16UIViewControllerC", "Bool"]
+- ["So16UIViewControllerC", "Bool"]
 - ["So16UIViewControllerC", "CGFloat"]
 - !private ["So16UIViewControllerC", "Campus"]
 - !private ["So16UIViewControllerC", "DateFormatter"]
@@ -1347,9 +1555,13 @@ depends-member:
 - ["So16UIViewControllerC", "dataSource_"]
 - ["So16UIViewControllerC", "didReceiveMemoryWarning"]
 - ["So16UIViewControllerC", "drawerButton"]
+- !private ["So16UIViewControllerC", "emptyCellReuseIdentifier"]
+- ["So16UIViewControllerC", "emptyDataSource"]
+- !private ["So16UIViewControllerC", "eventCellReuseIdentifier"]
 - ["So16UIViewControllerC", "favoritesButton"]
 - ["So16UIViewControllerC", "favoritesButtonToggled"]
 - ["So16UIViewControllerC", "init"]
+- !private ["So16UIViewControllerC", "max"]
 - !private ["So16UIViewControllerC", "navigationBar"]
 - !private ["So16UIViewControllerC", "navigationController"]
 - ["So16UIViewControllerC", "numberOfSections"]
@@ -1381,7 +1593,7 @@ depends-member:
 - !private ["s23_BidirectionalIndexableP", "count"]
 - !private ["s23_BidirectionalIndexableP", "dropLast"]
 - !private ["s23_BidirectionalIndexableP", "filter"]
-- !private ["s23_BidirectionalIndexableP", "init"]
+- ["s23_BidirectionalIndexableP", "init"]
 - !private ["s23_BidirectionalIndexableP", "isEmpty"]
 - !private ["s23_BidirectionalIndexableP", "row"]
 - !private ["s23_BidirectionalIndexableP", "section"]
@@ -1391,8 +1603,13 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "dequeueReusableCell"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "event"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isEnabled"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isScrollEnabled"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "reloadData"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "separatorStyle"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "textAlignment"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "textColor"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "textLabel"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "titleTextAttributes"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "transition"]
 - !private ["s24_DestructorSafeContainerP", "append"]
@@ -1405,28 +1622,28 @@ depends-member:
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "contains"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "dropLast"]
-- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "contains"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "dropLast"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "contains"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "dropLast"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "contains"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "dropLast"]
-- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "contains"]
 - !private ["s33_ExpressibleByStringInterpolationP", "dropLast"]
-- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "contains"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "dropLast"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s10_IndexableP", "append"]
 - !private ["s10_IndexableP", "contains"]
 - !private ["s10_IndexableP", "count"]
 - !private ["s10_IndexableP", "dropLast"]
 - !private ["s10_IndexableP", "filter"]
-- !private ["s10_IndexableP", "init"]
+- ["s10_IndexableP", "init"]
 - !private ["s10_IndexableP", "isEmpty"]
 - !private ["s10_IndexableP", "row"]
 - !private ["s10_IndexableP", "section"]
@@ -1437,7 +1654,7 @@ depends-member:
 - !private ["s14_IndexableBaseP", "count"]
 - !private ["s14_IndexableBaseP", "dropLast"]
 - !private ["s14_IndexableBaseP", "filter"]
-- !private ["s14_IndexableBaseP", "init"]
+- ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "isEmpty"]
 - !private ["s14_IndexableBaseP", "row"]
 - !private ["s14_IndexableBaseP", "section"]
@@ -1461,15 +1678,19 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "didReceiveMemoryWarning"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "drawerButton"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dropLast"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "emptyCellReuseIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "event"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "eventCellReuseIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "eventsByDay"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedEventsByDay"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritesButton"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "frat"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "hasFavorites"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isEnabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isScrollEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "localizedString"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "max"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "navigationBar"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "navigationController"]
@@ -1480,12 +1701,16 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealToggle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "searchBar"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "separatorStyle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tableView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tapGestureRecognizer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "target"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "text"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "textAlignment"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "textColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "textLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "title"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "titleTextAttributes"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "transition"]
@@ -1511,7 +1736,7 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "dropLast"]
 - !private ["s21_ObjectiveCBridgeableP", "filter"]
 - !private ["s21_ObjectiveCBridgeableP", "foregroundColor"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "isEmpty"]
 - !private ["s21_ObjectiveCBridgeableP", "row"]
 - !private ["s21_ObjectiveCBridgeableP", "section"]
@@ -1530,78 +1755,79 @@ depends-member:
 - !private ["s26_RangeReplaceableIndexableP", "count"]
 - !private ["s26_RangeReplaceableIndexableP", "dropLast"]
 - !private ["s26_RangeReplaceableIndexableP", "filter"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
+- ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s26_RangeReplaceableIndexableP", "isEmpty"]
 - !private ["s26_RangeReplaceableIndexableP", "startDate"]
 - !private ["s26_RangeReplaceableIndexableP", "subscript"]
 - !private ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
 - !private ["s16_SwiftStringViewP", "contains"]
 - !private ["s16_SwiftStringViewP", "dropLast"]
-- !private ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "Sa"
 - !private "s10ArraySliceV"
-- !private "s23BidirectionalCollectionP"
+- "s23BidirectionalCollectionP"
 - !private "Sb"
 - !private "So15CALayerDelegateP"
 - "s7CVarArgP"
 - !private "6RushMe6CampusC"
-- !private "s10CollectionP"
-- !private "s10ComparableP"
+- "s10CollectionP"
+- "s10ComparableP"
 - "s28CustomDebugStringConvertibleP"
-- !private "s29CustomPlaygroundQuickLookableP"
-- !private "s17CustomReflectableP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - !private "So13DateFormatterC"
-- !private "s9DecodableP"
-- !private "s9EncodableP"
+- "s9DecodableP"
+- "s9EncodableP"
 - "s9EquatableP"
 - !private "6RushMe18EventTableViewCellC"
 - !private "s25ExpressibleByArrayLiteralP"
 - !private "s27ExpressibleByBooleanLiteralP"
-- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
-- !private "s26ExpressibleByStringLiteralP"
-- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "So9FormatterC"
 - !private "6RushMe9FratEventC"
 - !private "6RushMe10FraternityC"
 - "6RushMe33FullEventsListTableViewControllerC"
 - "s8HashableP"
 - !private "10Foundation9IndexPathV"
-- !private "s25LosslessStringConvertibleP"
-- !private "s10MirrorPathP"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
 - !private "s25MutableBidirectionalSliceV"
 - !private "s17MutableCollectionP"
 - !private "s24MutableRandomAccessSliceV"
 - !private "s12MutableSliceV"
 - !private "SC21NSAttributedStringKeyV"
 - "So8NSCodingP"
-- !private "So9NSCopyingP"
+- "So9NSCopyingP"
 - "So26NSExtensionRequestHandlingP"
-- !private "So21NSItemProviderReadingP"
-- !private "So21NSItemProviderWritingP"
-- !private "So16NSMutableCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So16NSMutableCopyingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
-- !private "So14NSSecureCodingP"
-- !private "So8NSStringC"
-- !private "So15OHSerializationP"
+- "So14NSSecureCodingP"
+- "So8NSStringC"
+- !private "SC15NSTextAlignmentO"
+- "So15OHSerializationP"
 - !private "s9OptionSetP"
 - !private "6RushMe11RMAnimationV"
 - !private "6RushMe7RMColorV"
 - !private "s22RandomAccessCollectionP"
-- !private "s26RangeReplaceableCollectionP"
+- "s26RangeReplaceableCollectionP"
 - !private "s21RangeReplaceableSliceV"
 - !private "s16RawRepresentableP"
 - !private "10Foundation20ReferenceConvertibleP"
 - !private "So22SWRevealViewControllerC"
-- !private "s8SequenceP"
+- "s8SequenceP"
 - !private "s10SetAlgebraP"
-- !private "SS"
-- !private "s14StringProtocolP"
+- "SS"
+- "s14StringProtocolP"
 - !private "So13DateFormatterC5StyleO"
-- !private "s16TextOutputStreamP"
-- !private "s20TextOutputStreamableP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
 - !private "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
 - "So21UIAppearanceContainerP"
@@ -1609,6 +1835,7 @@ depends-nominal:
 - !private "So9UIBarItemC"
 - !private "So16UIBarPositioningP"
 - "So18UIContentContainerP"
+- !private "So30UIContentSizeCategoryAdjustingP"
 - !private "So9UIControlC"
 - !private "So17UICoordinateSpaceP"
 - !private "So23UIDataSourceTranslatingP"
@@ -1616,6 +1843,7 @@ depends-nominal:
 - "So18UIFocusEnvironmentP"
 - !private "So11UIFocusItemP"
 - !private "So27UIGestureRecognizerDelegateP"
+- !private "So7UILabelC"
 - !private "So15UINavigationBarC"
 - !private "So22UINavigationControllerC"
 - "So30UIPasteConfigurationSupportingP"
@@ -1631,6 +1859,7 @@ depends-nominal:
 - "So16UIStateRestoringP"
 - !private "So11UITableViewC"
 - !private "So15UITableViewCellC"
+- !private "SC29UITableViewCellSeparatorStyleO"
 - "So21UITableViewControllerC"
 - "So21UITableViewDataSourceP"
 - "So19UITableViewDelegateP"
@@ -1642,25 +1871,25 @@ depends-nominal:
 - !private "So37UIViewControllerAnimatedTransitioningP"
 - !private "So37UIViewControllerTransitioningDelegateP"
 - !private "s14_ArrayProtocolP"
-- !private "s23_BidirectionalIndexableP"
+- "s23_BidirectionalIndexableP"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
-- !private "s34_ExpressibleByBuiltinStringLiteralP"
-- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- !private "s33_ExpressibleByStringInterpolationP"
-- !private "s35_HasCustomAnyHashableRepresentationP"
-- !private "s10_IndexableP"
-- !private "s14_IndexableBaseP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s17_MutableIndexableP"
-- !private "s21_ObjectiveCBridgeableP"
+- "s21_ObjectiveCBridgeableP"
 - !private "s22_RandomAccessIndexableP"
-- !private "s26_RangeReplaceableIndexableP"
+- "s26_RangeReplaceableIndexableP"
 - !private "s20_SwiftNewtypeWrapperP"
-- !private "s16_SwiftStringViewP"
+- "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
@@ -1679,99 +1908,37 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserMetadata.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthAPNSTokenType.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/Firebase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthUIDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAdditionalUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIROAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRActionCodeSettings.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
-interface-hash: "084e6b7dcfb6ac0a03a7722c83736a12"
+interface-hash: "b2a57ac199c48056c1892ce80ac3f00d"

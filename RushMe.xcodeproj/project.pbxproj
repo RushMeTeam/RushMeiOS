@@ -23,7 +23,6 @@
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
 		DB2338A91FD4F53300FB7118 /* RushCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendarManager.swift */; };
-		DB2517361FE1F05D00D24521 /* LGSimpleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2517351FE1F05C00D24521 /* LGSimpleChat.swift */; };
 		DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FA3D91F8A8EB7006480BE /* FratCell.swift */; };
 		DB346C301FB104EB003E59AE /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB346C2F1FB104EB003E59AE /* defaultImage.png */; };
 		DB346C321FB10A0B003E59AE /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
@@ -80,18 +79,15 @@
 		DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8997F41FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8997F51FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
+		DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D52621FF5C438003A80C1 /* SegmentCell.swift */; };
 		DB91932D1FEB536C00D5617E /* appIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DB91932C1FEB536C00D5617E /* appIcon.jpg */; };
 		DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
-		DBA8F32D1FDDE22E00BD17F9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA8F32C1FDDE22E00BD17F9 /* ChatViewController.swift */; };
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
 		DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */; };
 		DBD2ED081FEDF59600407858 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
 		DBD2ED091FEDF59600407858 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
 		DBDBC86C1FDDDCB200E588A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBDBC86B1FDDDCB200E588A5 /* GoogleService-Info.plist */; };
-		DBEC94701FE5E45B001E0F7A /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC946F1FE5E45B001E0F7A /* AuthenticationViewController.swift */; };
-		DBEC94721FE5ED32001E0F7A /* UniqueUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC94711FE5ED32001E0F7A /* UniqueUser.swift */; };
-		DBEE83F01FE3524000FB31F8 /* ConversationListViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEE83EF1FE3524000FB31F8 /* ConversationListViewControllerTableViewController.swift */; };
 		DBF07A221F8AA576001645D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -155,7 +151,6 @@
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
 		DB2338A81FD4F53300FB7118 /* RushCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RushCalendarManager.swift; sourceTree = "<group>"; };
-		DB2517351FE1F05C00D24521 /* LGSimpleChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGSimpleChat.swift; sourceTree = "<group>"; };
 		DB2FA3D91F8A8EB7006480BE /* FratCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FratCell.swift; sourceTree = "<group>"; };
 		DB346C2F1FB104EB003E59AE /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -167,17 +162,14 @@
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB8997F21FAC0320006A5246 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		DB8D52621FF5C438003A80C1 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
 		DB91932C1FEB536C00D5617E /* appIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appIcon.jpg; sourceTree = "<group>"; };
 		DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
-		DBA8F32C1FDDE22E00BD17F9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractiveFratCellTableViewCell.swift; sourceTree = "<group>"; };
 		DBDBC86B1FDDDCB200E588A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DBEC946F1FE5E45B001E0F7A /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
-		DBEC94711FE5ED32001E0F7A /* UniqueUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUser.swift; sourceTree = "<group>"; };
-		DBEE83EF1FE3524000FB31F8 /* ConversationListViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		DBF07A211F8AA576001645D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4B1F4D4E0ACED8A6F204873 /* Pods-RushMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMe/Pods-RushMe.release.xcconfig"; sourceTree = "<group>"; };
 		F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RushMeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RushMeTests/Pods-RushMeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,7 +305,6 @@
 				DBD1404B1F92848700945D9B /* Fraternities */,
 				DB346C2A1FB103B4003E59AE /* Calendar */,
 				DB5789851FDCAA8A0083CB6C /* Events */,
-				DBA8F32E1FDDE27D00BD17F9 /* Chat */,
 				DB5789801FDC6C170083CB6C /* Maps */,
 				DB5789821FDC6C630083CB6C /* Settings */,
 				DBD140491F92845100945D9B /* Drawer Menu */,
@@ -371,23 +362,13 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
-		DBA8F32E1FDDE27D00BD17F9 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				DBEE83EF1FE3524000FB31F8 /* ConversationListViewControllerTableViewController.swift */,
-				DBA8F32C1FDDE22E00BD17F9 /* ChatViewController.swift */,
-				DB2517351FE1F05C00D24521 /* LGSimpleChat.swift */,
-				DBEC946F1FE5E45B001E0F7A /* AuthenticationViewController.swift */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
 		DBD140471F92840700945D9B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				DB2FA3D91F8A8EB7006480BE /* FratCell.swift */,
 				DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */,
 				DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */,
+				DB8D52621FF5C438003A80C1 /* SegmentCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -397,7 +378,6 @@
 			children = (
 				DB2338A81FD4F53300FB7118 /* RushCalendarManager.swift */,
 				DB8997EA1FABFBA9006A5246 /* Campus.swift */,
-				DBEC94711FE5ED32001E0F7A /* UniqueUser.swift */,
 				DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */,
 				DB05F7781F894AFB0090DEC3 /* Fraternity.swift */,
 				DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */,
@@ -760,26 +740,22 @@
 			files = (
 				DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */,
 				DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */,
-				DBEC94701FE5E45B001E0F7A /* AuthenticationViewController.swift in Sources */,
-				DBA8F32D1FDDE22E00BD17F9 /* ChatViewController.swift in Sources */,
 				DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */,
 				DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */,
 				DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */,
-				DBEC94721FE5ED32001E0F7A /* UniqueUser.swift in Sources */,
 				DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */,
 				DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */,
 				DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */,
 				DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */,
 				DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */,
-				DB2517361FE1F05D00D24521 /* LGSimpleChat.swift in Sources */,
 				DB2FA3DA1F8A8EB7006480BE /* FratCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
 				DBF07A221F8AA576001645D5 /* Constants.swift in Sources */,
-				DBEE83F01FE3524000FB31F8 /* ConversationListViewControllerTableViewController.swift in Sources */,
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
 				DB3B2ABF1FAB9380004AD27F /* FratEvent.swift in Sources */,
+				DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */,
 				DB2338A91FD4F53300FB7118 /* RushCalendarManager.swift in Sources */,
 				DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */,
 				DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */,

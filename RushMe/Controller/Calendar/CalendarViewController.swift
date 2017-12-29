@@ -24,6 +24,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   // MARK: Sharing
   // Shown when share button is selected
   @IBAction func exportEvents(_ sender: UIBarButtonItem) {
+    let overlayView = UIView(frame: self.view.frame)
+    overlayView.center = self.view.center
+    overlayView.alpha = 0
+    overlayView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+    overlayView.center.y -= 64
+    UIView.animate(withDuration: RMAnimation.ColoringTime) {
+      overlayView.alpha = 1
+    }
+    self.view.addSubview(overlayView)
     if let _ = self.fileURL {
       // Do nothing-- already loaded
     }
@@ -36,12 +45,16 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       activityVC.popoverPresentationController?.sourceView = sender.customView
       self.present(activityVC, animated: true, completion: {
         sender.isEnabled = true
+        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+          overlayView.alpha = 0
+        }, completion: { (completed) in
+          overlayView.removeFromSuperview()
+        })
       })
     }
     else {
-      print("Error in share button!")
+      print("Error in calendar share button!")
     }
-    
   }
   // MARK: ViewDidLoad and ViewWillAppear
   override func viewDidLoad() {

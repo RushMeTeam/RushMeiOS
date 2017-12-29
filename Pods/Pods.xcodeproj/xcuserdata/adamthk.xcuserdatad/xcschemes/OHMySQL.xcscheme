@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2FE6F7B6DC490F49B524F24BDB9FAEF5"
+               BlueprintIdentifier = "79B62E4AF5F8F991FF77695B09D4456D"
                BuildableName = "OHMySQL.framework"
                BlueprintName = "OHMySQL"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2FE6F7B6DC490F49B524F24BDB9FAEF5"
+            BlueprintIdentifier = "79B62E4AF5F8F991FF77695B09D4456D"
             BuildableName = "OHMySQL.framework"
             BlueprintName = "OHMySQL"
             ReferencedContainer = "container:Pods.xcodeproj">

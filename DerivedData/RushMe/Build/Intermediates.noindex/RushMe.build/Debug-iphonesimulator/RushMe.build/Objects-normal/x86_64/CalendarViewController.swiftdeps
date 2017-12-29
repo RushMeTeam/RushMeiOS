@@ -23,6 +23,7 @@ depends-top-level:
 - !private "!="
 - !private "+"
 - !private "-"
+- !private "-="
 - !private "/"
 - !private "<"
 - !private "<="
@@ -46,6 +47,7 @@ depends-top-level:
 - "IndexPath"
 - "Int"
 - !private "NSAttributedStringKey"
+- !private "RMAnimation"
 - !private "RMColor"
 - !private "RMDate"
 - !private "RMImage"
@@ -64,6 +66,7 @@ depends-top-level:
 - !private "UIColor"
 - !private "UIFont"
 - "UILabel"
+- !private "UIView"
 - "UIViewController"
 - "URL"
 - !private "UnicodeScalarType"
@@ -83,23 +86,30 @@ depends-member:
 - !private ["So7CALayerC", "cornerRadius"]
 - !private ["So7CALayerC", "masksToBounds"]
 - !private ["So15CALayerDelegateP", "addGestureRecognizer"]
+- !private ["So15CALayerDelegateP", "addSubview"]
+- !private ["So15CALayerDelegateP", "alpha"]
+- !private ["So15CALayerDelegateP", "animate"]
 - !private ["So15CALayerDelegateP", "backgroundColor"]
 - !private ["So15CALayerDelegateP", "cellForItem"]
+- !private ["So15CALayerDelegateP", "center"]
 - !private ["So15CALayerDelegateP", "dayLabel"]
 - !private ["So15CALayerDelegateP", "dequeueReusableCell"]
 - !private ["So15CALayerDelegateP", "eventsLabel"]
 - !private ["So15CALayerDelegateP", "eventsToday"]
 - !private ["So15CALayerDelegateP", "font"]
 - !private ["So15CALayerDelegateP", "frame"]
+- !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "isHidden"]
 - !private ["So15CALayerDelegateP", "isTranslucent"]
 - !private ["So15CALayerDelegateP", "layer"]
+- !private ["So15CALayerDelegateP", "removeFromSuperview"]
 - !private ["So15CALayerDelegateP", "setupView"]
 - !private ["So15CALayerDelegateP", "text"]
 - !private ["So15CALayerDelegateP", "tintColor"]
 - !private ["So15CALayerDelegateP", "titleTextAttributes"]
 - !private ["So13CAMediaTimingP", "cornerRadius"]
 - !private ["So13CAMediaTimingP", "masksToBounds"]
+- !private ["SC7CGPointV", "y"]
 - !private ["SC6CGRectV", "height"]
 - !private ["SC6CGRectV", "width"]
 - !private ["SC6CGSizeV", "init"]
@@ -110,6 +120,7 @@ depends-member:
 - !private ["s7CVarArgP", "DateFormatter"]
 - !private ["s7CVarArgP", "DispatchQueue"]
 - !private ["s7CVarArgP", "NSAttributedStringKey"]
+- !private ["s7CVarArgP", "RMAnimation"]
 - !private ["s7CVarArgP", "RMColor"]
 - !private ["s7CVarArgP", "RMDate"]
 - !private ["s7CVarArgP", "RMImage"]
@@ -120,12 +131,17 @@ depends-member:
 - !private ["s7CVarArgP", "UIActivityViewController"]
 - !private ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UIFont"]
+- !private ["s7CVarArgP", "UIView"]
 - !private ["s7CVarArgP", "Weight"]
 - !private ["s7CVarArgP", "action"]
 - !private ["s7CVarArgP", "addGestureRecognizer"]
+- !private ["s7CVarArgP", "addSubview"]
+- !private ["s7CVarArgP", "alpha"]
+- !private ["s7CVarArgP", "animate"]
 - !private ["s7CVarArgP", "async"]
 - !private ["s7CVarArgP", "backgroundColor"]
 - !private ["s7CVarArgP", "cellForItem"]
+- !private ["s7CVarArgP", "center"]
 - !private ["s7CVarArgP", "childViewControllers"]
 - ["s7CVarArgP", "collectionView"]
 - !private ["s7CVarArgP", "cornerRadius"]
@@ -170,6 +186,7 @@ depends-member:
 - !private ["s7CVarArgP", "prefix"]
 - !private ["s7CVarArgP", "present"]
 - !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "removeFromSuperview"]
 - !private ["s7CVarArgP", "reuseIdentifier"]
 - !private ["s7CVarArgP", "revealToggle"]
 - !private ["s7CVarArgP", "revealViewController"]
@@ -205,6 +222,7 @@ depends-member:
 - ["s7CVarArgP", "viewForZooming"]
 - ["s7CVarArgP", "viewForZoomingInScrollView"]
 - !private ["s7CVarArgP", "viewWillAppear"]
+- !private ["s7CVarArgP", "white"]
 - !private ["s7CVarArgP", "withAlphaComponent"]
 - ["s7CVarArgP", ""]
 - !private ["10Foundation8CalendarV", "compare"]
@@ -231,6 +249,7 @@ depends-member:
 - ["6RushMe22CalendarViewControllerC", "IndexPath"]
 - ["6RushMe22CalendarViewControllerC", "Int"]
 - !private ["6RushMe22CalendarViewControllerC", "NSAttributedStringKey"]
+- !private ["6RushMe22CalendarViewControllerC", "RMAnimation"]
 - !private ["6RushMe22CalendarViewControllerC", "RMColor"]
 - !private ["6RushMe22CalendarViewControllerC", "RMDate"]
 - !private ["6RushMe22CalendarViewControllerC", "RMImage"]
@@ -245,6 +264,7 @@ depends-member:
 - !private ["6RushMe22CalendarViewControllerC", "UIColor"]
 - !private ["6RushMe22CalendarViewControllerC", "UIFont"]
 - ["6RushMe22CalendarViewControllerC", "UILabel"]
+- !private ["6RushMe22CalendarViewControllerC", "UIView"]
 - ["6RushMe22CalendarViewControllerC", "URL"]
 - !private ["6RushMe22CalendarViewControllerC", "childViewControllers"]
 - ["6RushMe22CalendarViewControllerC", "collectionView"]
@@ -310,6 +330,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DateFormatter"]
 - !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
 - !private ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
+- !private ["s28CustomDebugStringConvertibleP", "RMAnimation"]
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
 - !private ["s28CustomDebugStringConvertibleP", "RMDate"]
 - !private ["s28CustomDebugStringConvertibleP", "RMImage"]
@@ -320,12 +341,17 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "UIActivityViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UIFont"]
+- !private ["s28CustomDebugStringConvertibleP", "UIView"]
 - !private ["s28CustomDebugStringConvertibleP", "Weight"]
 - !private ["s28CustomDebugStringConvertibleP", "action"]
 - !private ["s28CustomDebugStringConvertibleP", "addGestureRecognizer"]
+- !private ["s28CustomDebugStringConvertibleP", "addSubview"]
+- !private ["s28CustomDebugStringConvertibleP", "alpha"]
+- !private ["s28CustomDebugStringConvertibleP", "animate"]
 - !private ["s28CustomDebugStringConvertibleP", "async"]
 - !private ["s28CustomDebugStringConvertibleP", "backgroundColor"]
 - !private ["s28CustomDebugStringConvertibleP", "cellForItem"]
+- !private ["s28CustomDebugStringConvertibleP", "center"]
 - !private ["s28CustomDebugStringConvertibleP", "childViewControllers"]
 - ["s28CustomDebugStringConvertibleP", "collectionView"]
 - !private ["s28CustomDebugStringConvertibleP", "compare"]
@@ -377,6 +403,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "prefix"]
 - !private ["s28CustomDebugStringConvertibleP", "present"]
 - !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "removeFromSuperview"]
 - !private ["s28CustomDebugStringConvertibleP", "reuseIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "revealToggle"]
 - !private ["s28CustomDebugStringConvertibleP", "revealViewController"]
@@ -413,14 +440,17 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "viewForZooming"]
 - ["s28CustomDebugStringConvertibleP", "viewForZoomingInScrollView"]
 - !private ["s28CustomDebugStringConvertibleP", "viewWillAppear"]
+- !private ["s28CustomDebugStringConvertibleP", "white"]
 - !private ["s28CustomDebugStringConvertibleP", "width"]
 - !private ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
+- !private ["s28CustomDebugStringConvertibleP", "y"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "height"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "prefix"]
 - !private ["s29CustomPlaygroundQuickLookableP", "width"]
+- !private ["s29CustomPlaygroundQuickLookableP", "y"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "compare"]
 - !private ["s17CustomReflectableP", "count"]
@@ -437,6 +467,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "row"]
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s17CustomReflectableP", "width"]
+- !private ["s17CustomReflectableP", "y"]
 - !private ["s23CustomStringConvertibleP", "CGSize"]
 - !private ["s23CustomStringConvertibleP", "Calendar"]
 - !private ["s23CustomStringConvertibleP", "Campus"]
@@ -444,6 +475,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DateFormatter"]
 - !private ["s23CustomStringConvertibleP", "DispatchQueue"]
 - !private ["s23CustomStringConvertibleP", "NSAttributedStringKey"]
+- !private ["s23CustomStringConvertibleP", "RMAnimation"]
 - !private ["s23CustomStringConvertibleP", "RMColor"]
 - !private ["s23CustomStringConvertibleP", "RMDate"]
 - !private ["s23CustomStringConvertibleP", "RMImage"]
@@ -454,13 +486,18 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "UIActivityViewController"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UIFont"]
+- !private ["s23CustomStringConvertibleP", "UIView"]
 - !private ["s23CustomStringConvertibleP", "Weight"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "action"]
 - !private ["s23CustomStringConvertibleP", "addGestureRecognizer"]
+- !private ["s23CustomStringConvertibleP", "addSubview"]
+- !private ["s23CustomStringConvertibleP", "alpha"]
+- !private ["s23CustomStringConvertibleP", "animate"]
 - !private ["s23CustomStringConvertibleP", "async"]
 - !private ["s23CustomStringConvertibleP", "backgroundColor"]
 - !private ["s23CustomStringConvertibleP", "cellForItem"]
+- !private ["s23CustomStringConvertibleP", "center"]
 - !private ["s23CustomStringConvertibleP", "childViewControllers"]
 - ["s23CustomStringConvertibleP", "collectionView"]
 - !private ["s23CustomStringConvertibleP", "compare"]
@@ -511,6 +548,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "prefix"]
 - !private ["s23CustomStringConvertibleP", "present"]
 - !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "removeFromSuperview"]
 - !private ["s23CustomStringConvertibleP", "reuseIdentifier"]
 - !private ["s23CustomStringConvertibleP", "revealToggle"]
 - !private ["s23CustomStringConvertibleP", "revealViewController"]
@@ -547,6 +585,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "viewForZooming"]
 - ["s23CustomStringConvertibleP", "viewForZoomingInScrollView"]
 - !private ["s23CustomStringConvertibleP", "viewWillAppear"]
+- !private ["s23CustomStringConvertibleP", "white"]
 - !private ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["10Foundation14DateComponentsV", "day"]
@@ -568,6 +607,7 @@ depends-member:
 - !private ["s9DecodableP", "row"]
 - !private ["s9DecodableP", "subscript"]
 - !private ["s9DecodableP", "width"]
+- !private ["s9DecodableP", "y"]
 - !private ["So14DispatchObjectC", "async"]
 - !private ["So14DispatchObjectC", "global"]
 - !private ["So13DispatchQueueC", "async"]
@@ -588,6 +628,7 @@ depends-member:
 - !private ["s9EncodableP", "row"]
 - !private ["s9EncodableP", "subscript"]
 - !private ["s9EncodableP", "width"]
+- !private ["s9EncodableP", "y"]
 - !private ["s9EquatableP", "CGSize"]
 - !private ["s9EquatableP", "Calendar"]
 - !private ["s9EquatableP", "Campus"]
@@ -595,6 +636,7 @@ depends-member:
 - !private ["s9EquatableP", "DateFormatter"]
 - !private ["s9EquatableP", "DispatchQueue"]
 - !private ["s9EquatableP", "NSAttributedStringKey"]
+- !private ["s9EquatableP", "RMAnimation"]
 - !private ["s9EquatableP", "RMColor"]
 - !private ["s9EquatableP", "RMDate"]
 - !private ["s9EquatableP", "RMImage"]
@@ -605,13 +647,18 @@ depends-member:
 - !private ["s9EquatableP", "UIActivityViewController"]
 - !private ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UIFont"]
+- !private ["s9EquatableP", "UIView"]
 - !private ["s9EquatableP", "Weight"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "action"]
 - !private ["s9EquatableP", "addGestureRecognizer"]
+- !private ["s9EquatableP", "addSubview"]
+- !private ["s9EquatableP", "alpha"]
+- !private ["s9EquatableP", "animate"]
 - !private ["s9EquatableP", "async"]
 - !private ["s9EquatableP", "backgroundColor"]
 - !private ["s9EquatableP", "cellForItem"]
+- !private ["s9EquatableP", "center"]
 - !private ["s9EquatableP", "childViewControllers"]
 - ["s9EquatableP", "collectionView"]
 - !private ["s9EquatableP", "compare"]
@@ -667,6 +714,7 @@ depends-member:
 - !private ["s9EquatableP", "prefix"]
 - !private ["s9EquatableP", "present"]
 - !private ["s9EquatableP", "print"]
+- !private ["s9EquatableP", "removeFromSuperview"]
 - !private ["s9EquatableP", "reuseIdentifier"]
 - !private ["s9EquatableP", "revealToggle"]
 - !private ["s9EquatableP", "revealViewController"]
@@ -703,8 +751,10 @@ depends-member:
 - ["s9EquatableP", "viewForZooming"]
 - ["s9EquatableP", "viewForZoomingInScrollView"]
 - !private ["s9EquatableP", "viewWillAppear"]
+- !private ["s9EquatableP", "white"]
 - !private ["s9EquatableP", "width"]
 - !private ["s9EquatableP", "withAlphaComponent"]
+- !private ["s9EquatableP", "y"]
 - ["s9EquatableP", ""]
 - !private ["6RushMe24EventTableViewControllerC", "selectedEvents"]
 - !private ["s25ExpressibleByArrayLiteralP", "count"]
@@ -731,6 +781,7 @@ depends-member:
 - !private ["s8HashableP", "DateFormatter"]
 - !private ["s8HashableP", "DispatchQueue"]
 - !private ["s8HashableP", "NSAttributedStringKey"]
+- !private ["s8HashableP", "RMAnimation"]
 - !private ["s8HashableP", "RMColor"]
 - !private ["s8HashableP", "RMDate"]
 - !private ["s8HashableP", "RMImage"]
@@ -741,13 +792,18 @@ depends-member:
 - !private ["s8HashableP", "UIActivityViewController"]
 - !private ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UIFont"]
+- !private ["s8HashableP", "UIView"]
 - !private ["s8HashableP", "Weight"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "action"]
 - !private ["s8HashableP", "addGestureRecognizer"]
+- !private ["s8HashableP", "addSubview"]
+- !private ["s8HashableP", "alpha"]
+- !private ["s8HashableP", "animate"]
 - !private ["s8HashableP", "async"]
 - !private ["s8HashableP", "backgroundColor"]
 - !private ["s8HashableP", "cellForItem"]
+- !private ["s8HashableP", "center"]
 - !private ["s8HashableP", "childViewControllers"]
 - ["s8HashableP", "collectionView"]
 - !private ["s8HashableP", "compare"]
@@ -802,6 +858,7 @@ depends-member:
 - !private ["s8HashableP", "prefix"]
 - !private ["s8HashableP", "present"]
 - !private ["s8HashableP", "print"]
+- !private ["s8HashableP", "removeFromSuperview"]
 - !private ["s8HashableP", "reuseIdentifier"]
 - !private ["s8HashableP", "revealToggle"]
 - !private ["s8HashableP", "revealViewController"]
@@ -838,6 +895,7 @@ depends-member:
 - ["s8HashableP", "viewForZooming"]
 - ["s8HashableP", "viewForZoomingInScrollView"]
 - !private ["s8HashableP", "viewWillAppear"]
+- !private ["s8HashableP", "white"]
 - !private ["s8HashableP", "withAlphaComponent"]
 - ["s8HashableP", ""]
 - !private ["10Foundation9IndexPathV", "row"]
@@ -858,6 +916,7 @@ depends-member:
 - !private ["So8NSCodingP", "DateFormatter"]
 - !private ["So8NSCodingP", "DispatchQueue"]
 - !private ["So8NSCodingP", "NSAttributedStringKey"]
+- !private ["So8NSCodingP", "RMAnimation"]
 - !private ["So8NSCodingP", "RMColor"]
 - !private ["So8NSCodingP", "RMDate"]
 - !private ["So8NSCodingP", "RMImage"]
@@ -868,10 +927,15 @@ depends-member:
 - !private ["So8NSCodingP", "UIActivityViewController"]
 - !private ["So8NSCodingP", "UIColor"]
 - !private ["So8NSCodingP", "UIFont"]
+- !private ["So8NSCodingP", "UIView"]
 - !private ["So8NSCodingP", "action"]
 - !private ["So8NSCodingP", "addGestureRecognizer"]
+- !private ["So8NSCodingP", "addSubview"]
+- !private ["So8NSCodingP", "alpha"]
+- !private ["So8NSCodingP", "animate"]
 - !private ["So8NSCodingP", "backgroundColor"]
 - !private ["So8NSCodingP", "cellForItem"]
+- !private ["So8NSCodingP", "center"]
 - !private ["So8NSCodingP", "childViewControllers"]
 - ["So8NSCodingP", "collectionView"]
 - !private ["So8NSCodingP", "cornerRadius"]
@@ -910,6 +974,7 @@ depends-member:
 - !private ["So8NSCodingP", "prefix"]
 - !private ["So8NSCodingP", "present"]
 - !private ["So8NSCodingP", "print"]
+- !private ["So8NSCodingP", "removeFromSuperview"]
 - !private ["So8NSCodingP", "reuseIdentifier"]
 - !private ["So8NSCodingP", "revealToggle"]
 - !private ["So8NSCodingP", "revealViewController"]
@@ -939,6 +1004,7 @@ depends-member:
 - ["So8NSCodingP", "viewForZooming"]
 - ["So8NSCodingP", "viewForZoomingInScrollView"]
 - !private ["So8NSCodingP", "viewWillAppear"]
+- !private ["So8NSCodingP", "white"]
 - !private ["So8NSCodingP", "withAlphaComponent"]
 - ["So8NSCodingP", ""]
 - !private ["So9NSCopyingP", "Style"]
@@ -949,6 +1015,7 @@ depends-member:
 - !private ["So9NSCopyingP", "prefix"]
 - !private ["So9NSCopyingP", "systemFont"]
 - !private ["So9NSCopyingP", "systemFontSize"]
+- !private ["So9NSCopyingP", "white"]
 - !private ["So9NSCopyingP", "withAlphaComponent"]
 - !private ["So26NSExtensionRequestHandlingP", "CGSize"]
 - !private ["So26NSExtensionRequestHandlingP", "Calendar"]
@@ -957,6 +1024,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "DateFormatter"]
 - !private ["So26NSExtensionRequestHandlingP", "DispatchQueue"]
 - !private ["So26NSExtensionRequestHandlingP", "NSAttributedStringKey"]
+- !private ["So26NSExtensionRequestHandlingP", "RMAnimation"]
 - !private ["So26NSExtensionRequestHandlingP", "RMColor"]
 - !private ["So26NSExtensionRequestHandlingP", "RMDate"]
 - !private ["So26NSExtensionRequestHandlingP", "RMImage"]
@@ -966,6 +1034,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "UIActivityViewController"]
 - !private ["So26NSExtensionRequestHandlingP", "UIColor"]
 - !private ["So26NSExtensionRequestHandlingP", "UIFont"]
+- !private ["So26NSExtensionRequestHandlingP", "UIView"]
 - !private ["So26NSExtensionRequestHandlingP", "childViewControllers"]
 - ["So26NSExtensionRequestHandlingP", "collectionView"]
 - !private ["So26NSExtensionRequestHandlingP", "dateLabel"]
@@ -1016,10 +1085,12 @@ depends-member:
 - ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderReadingP", "lightGray"]
 - !private ["So21NSItemProviderReadingP", "prefix"]
+- !private ["So21NSItemProviderReadingP", "white"]
 - !private ["So21NSItemProviderReadingP", "withAlphaComponent"]
 - ["So21NSItemProviderWritingP", "init"]
 - !private ["So21NSItemProviderWritingP", "lightGray"]
 - !private ["So21NSItemProviderWritingP", "prefix"]
+- !private ["So21NSItemProviderWritingP", "white"]
 - !private ["So21NSItemProviderWritingP", "withAlphaComponent"]
 - ["So16NSMutableCopyingP", "init"]
 - !private ["So16NSMutableCopyingP", "prefix"]
@@ -1036,6 +1107,7 @@ depends-member:
 - ["So8NSObjectC", "IndexPath"]
 - ["So8NSObjectC", "Int"]
 - !private ["So8NSObjectC", "NSAttributedStringKey"]
+- !private ["So8NSObjectC", "RMAnimation"]
 - !private ["So8NSObjectC", "RMColor"]
 - !private ["So8NSObjectC", "RMDate"]
 - !private ["So8NSObjectC", "RMImage"]
@@ -1051,13 +1123,18 @@ depends-member:
 - !private ["So8NSObjectC", "UIColor"]
 - !private ["So8NSObjectC", "UIFont"]
 - ["So8NSObjectC", "UILabel"]
+- !private ["So8NSObjectC", "UIView"]
 - ["So8NSObjectC", "URL"]
 - !private ["So8NSObjectC", "Weight"]
 - !private ["So8NSObjectC", "action"]
 - !private ["So8NSObjectC", "addGestureRecognizer"]
+- !private ["So8NSObjectC", "addSubview"]
+- !private ["So8NSObjectC", "alpha"]
+- !private ["So8NSObjectC", "animate"]
 - !private ["So8NSObjectC", "async"]
 - !private ["So8NSObjectC", "backgroundColor"]
 - !private ["So8NSObjectC", "cellForItem"]
+- !private ["So8NSObjectC", "center"]
 - !private ["So8NSObjectC", "childViewControllers"]
 - ["So8NSObjectC", "collectionView"]
 - !private ["So8NSObjectC", "cornerRadius"]
@@ -1100,6 +1177,7 @@ depends-member:
 - !private ["So8NSObjectC", "prefix"]
 - !private ["So8NSObjectC", "present"]
 - !private ["So8NSObjectC", "print"]
+- !private ["So8NSObjectC", "removeFromSuperview"]
 - !private ["So8NSObjectC", "reuseIdentifier"]
 - !private ["So8NSObjectC", "revealToggle"]
 - !private ["So8NSObjectC", "revealViewController"]
@@ -1134,6 +1212,7 @@ depends-member:
 - ["So8NSObjectC", "viewForZooming"]
 - ["So8NSObjectC", "viewForZoomingInScrollView"]
 - ["So8NSObjectC", "viewWillAppear"]
+- !private ["So8NSObjectC", "white"]
 - !private ["So8NSObjectC", "withAlphaComponent"]
 - !private ["So16NSObjectProtocolP", "CGSize"]
 - !private ["So16NSObjectProtocolP", "Calendar"]
@@ -1142,6 +1221,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "DateFormatter"]
 - !private ["So16NSObjectProtocolP", "DispatchQueue"]
 - !private ["So16NSObjectProtocolP", "NSAttributedStringKey"]
+- !private ["So16NSObjectProtocolP", "RMAnimation"]
 - !private ["So16NSObjectProtocolP", "RMColor"]
 - !private ["So16NSObjectProtocolP", "RMDate"]
 - !private ["So16NSObjectProtocolP", "RMImage"]
@@ -1152,12 +1232,17 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "UIActivityViewController"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UIFont"]
+- !private ["So16NSObjectProtocolP", "UIView"]
 - !private ["So16NSObjectProtocolP", "Weight"]
 - !private ["So16NSObjectProtocolP", "action"]
 - !private ["So16NSObjectProtocolP", "addGestureRecognizer"]
+- !private ["So16NSObjectProtocolP", "addSubview"]
+- !private ["So16NSObjectProtocolP", "alpha"]
+- !private ["So16NSObjectProtocolP", "animate"]
 - !private ["So16NSObjectProtocolP", "async"]
 - !private ["So16NSObjectProtocolP", "backgroundColor"]
 - !private ["So16NSObjectProtocolP", "cellForItem"]
+- !private ["So16NSObjectProtocolP", "center"]
 - !private ["So16NSObjectProtocolP", "childViewControllers"]
 - ["So16NSObjectProtocolP", "collectionView"]
 - !private ["So16NSObjectProtocolP", "cornerRadius"]
@@ -1199,6 +1284,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "prefix"]
 - !private ["So16NSObjectProtocolP", "present"]
 - !private ["So16NSObjectProtocolP", "print"]
+- !private ["So16NSObjectProtocolP", "removeFromSuperview"]
 - !private ["So16NSObjectProtocolP", "reuseIdentifier"]
 - !private ["So16NSObjectProtocolP", "revealToggle"]
 - !private ["So16NSObjectProtocolP", "revealViewController"]
@@ -1233,6 +1319,7 @@ depends-member:
 - ["So16NSObjectProtocolP", "viewForZooming"]
 - ["So16NSObjectProtocolP", "viewForZoomingInScrollView"]
 - !private ["So16NSObjectProtocolP", "viewWillAppear"]
+- !private ["So16NSObjectProtocolP", "white"]
 - !private ["So16NSObjectProtocolP", "withAlphaComponent"]
 - ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "cornerRadius"]
@@ -1240,6 +1327,7 @@ depends-member:
 - !private ["So14NSSecureCodingP", "lightGray"]
 - !private ["So14NSSecureCodingP", "masksToBounds"]
 - !private ["So14NSSecureCodingP", "prefix"]
+- !private ["So14NSSecureCodingP", "white"]
 - !private ["So14NSSecureCodingP", "withAlphaComponent"]
 - ["So8NSStringC", "init"]
 - !private ["So8NSStringC", "prefix"]
@@ -1248,6 +1336,7 @@ depends-member:
 - !private ["So9OS_objectC", "async"]
 - !private ["So9OS_objectC", "global"]
 - !private ["s9OptionSetP", "day"]
+- !private ["6RushMe11RMAnimationV", "ColoringTime"]
 - !private ["6RushMe7RMColorV", "AppColor"]
 - !private ["6RushMe7RMColorV", "NavigationItemsColor"]
 - !private ["6RushMe6RMDateV", "Today"]
@@ -1305,8 +1394,12 @@ depends-member:
 - !private ["s20TextOutputStreamableP", "prefix"]
 - !private ["So29UIAccessibilityIdentificationP", "action"]
 - !private ["So29UIAccessibilityIdentificationP", "addGestureRecognizer"]
+- !private ["So29UIAccessibilityIdentificationP", "addSubview"]
+- !private ["So29UIAccessibilityIdentificationP", "alpha"]
+- !private ["So29UIAccessibilityIdentificationP", "animate"]
 - !private ["So29UIAccessibilityIdentificationP", "backgroundColor"]
 - !private ["So29UIAccessibilityIdentificationP", "cellForItem"]
+- !private ["So29UIAccessibilityIdentificationP", "center"]
 - !private ["So29UIAccessibilityIdentificationP", "customView"]
 - !private ["So29UIAccessibilityIdentificationP", "dayLabel"]
 - !private ["So29UIAccessibilityIdentificationP", "dequeueReusableCell"]
@@ -1314,10 +1407,12 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "eventsToday"]
 - !private ["So29UIAccessibilityIdentificationP", "font"]
 - !private ["So29UIAccessibilityIdentificationP", "frame"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
 - !private ["So29UIAccessibilityIdentificationP", "isEnabled"]
 - !private ["So29UIAccessibilityIdentificationP", "isHidden"]
 - !private ["So29UIAccessibilityIdentificationP", "isTranslucent"]
 - !private ["So29UIAccessibilityIdentificationP", "layer"]
+- !private ["So29UIAccessibilityIdentificationP", "removeFromSuperview"]
 - !private ["So29UIAccessibilityIdentificationP", "setupView"]
 - !private ["So29UIAccessibilityIdentificationP", "target"]
 - !private ["So29UIAccessibilityIdentificationP", "text"]
@@ -1327,8 +1422,12 @@ depends-member:
 - !private ["So24UIActivityViewControllerC", "popoverPresentationController"]
 - !private ["So12UIAppearanceP", "action"]
 - !private ["So12UIAppearanceP", "addGestureRecognizer"]
+- !private ["So12UIAppearanceP", "addSubview"]
+- !private ["So12UIAppearanceP", "alpha"]
+- !private ["So12UIAppearanceP", "animate"]
 - !private ["So12UIAppearanceP", "backgroundColor"]
 - !private ["So12UIAppearanceP", "cellForItem"]
+- !private ["So12UIAppearanceP", "center"]
 - !private ["So12UIAppearanceP", "customView"]
 - !private ["So12UIAppearanceP", "dayLabel"]
 - !private ["So12UIAppearanceP", "dequeueReusableCell"]
@@ -1336,10 +1435,12 @@ depends-member:
 - !private ["So12UIAppearanceP", "eventsToday"]
 - !private ["So12UIAppearanceP", "font"]
 - !private ["So12UIAppearanceP", "frame"]
+- !private ["So12UIAppearanceP", "init"]
 - !private ["So12UIAppearanceP", "isEnabled"]
 - !private ["So12UIAppearanceP", "isHidden"]
 - !private ["So12UIAppearanceP", "isTranslucent"]
 - !private ["So12UIAppearanceP", "layer"]
+- !private ["So12UIAppearanceP", "removeFromSuperview"]
 - !private ["So12UIAppearanceP", "setupView"]
 - !private ["So12UIAppearanceP", "target"]
 - !private ["So12UIAppearanceP", "text"]
@@ -1352,6 +1453,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "DateFormatter"]
 - !private ["So21UIAppearanceContainerP", "DispatchQueue"]
 - !private ["So21UIAppearanceContainerP", "NSAttributedStringKey"]
+- !private ["So21UIAppearanceContainerP", "RMAnimation"]
 - !private ["So21UIAppearanceContainerP", "RMColor"]
 - !private ["So21UIAppearanceContainerP", "RMDate"]
 - !private ["So21UIAppearanceContainerP", "RMImage"]
@@ -1361,9 +1463,14 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "UIActivityViewController"]
 - !private ["So21UIAppearanceContainerP", "UIColor"]
 - !private ["So21UIAppearanceContainerP", "UIFont"]
+- !private ["So21UIAppearanceContainerP", "UIView"]
 - !private ["So21UIAppearanceContainerP", "addGestureRecognizer"]
+- !private ["So21UIAppearanceContainerP", "addSubview"]
+- !private ["So21UIAppearanceContainerP", "alpha"]
+- !private ["So21UIAppearanceContainerP", "animate"]
 - !private ["So21UIAppearanceContainerP", "backgroundColor"]
 - !private ["So21UIAppearanceContainerP", "cellForItem"]
+- !private ["So21UIAppearanceContainerP", "center"]
 - !private ["So21UIAppearanceContainerP", "childViewControllers"]
 - ["So21UIAppearanceContainerP", "collectionView"]
 - !private ["So21UIAppearanceContainerP", "dateLabel"]
@@ -1395,6 +1502,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "popoverPresentationController"]
 - !private ["So21UIAppearanceContainerP", "present"]
 - !private ["So21UIAppearanceContainerP", "print"]
+- !private ["So21UIAppearanceContainerP", "removeFromSuperview"]
 - !private ["So21UIAppearanceContainerP", "reuseIdentifier"]
 - !private ["So21UIAppearanceContainerP", "revealToggle"]
 - !private ["So21UIAppearanceContainerP", "revealViewController"]
@@ -1461,6 +1569,7 @@ depends-member:
 - !private ["So26UICollectionViewDataSourceP", "DateFormatter"]
 - !private ["So26UICollectionViewDataSourceP", "DispatchQueue"]
 - !private ["So26UICollectionViewDataSourceP", "NSAttributedStringKey"]
+- !private ["So26UICollectionViewDataSourceP", "RMAnimation"]
 - !private ["So26UICollectionViewDataSourceP", "RMColor"]
 - !private ["So26UICollectionViewDataSourceP", "RMDate"]
 - !private ["So26UICollectionViewDataSourceP", "RMImage"]
@@ -1470,6 +1579,7 @@ depends-member:
 - !private ["So26UICollectionViewDataSourceP", "UIActivityViewController"]
 - !private ["So26UICollectionViewDataSourceP", "UIColor"]
 - !private ["So26UICollectionViewDataSourceP", "UIFont"]
+- !private ["So26UICollectionViewDataSourceP", "UIView"]
 - !private ["So26UICollectionViewDataSourceP", "childViewControllers"]
 - ["So26UICollectionViewDataSourceP", "collectionView"]
 - !private ["So26UICollectionViewDataSourceP", "dateLabel"]
@@ -1514,6 +1624,7 @@ depends-member:
 - !private ["So24UICollectionViewDelegateP", "DateFormatter"]
 - !private ["So24UICollectionViewDelegateP", "DispatchQueue"]
 - !private ["So24UICollectionViewDelegateP", "NSAttributedStringKey"]
+- !private ["So24UICollectionViewDelegateP", "RMAnimation"]
 - !private ["So24UICollectionViewDelegateP", "RMColor"]
 - !private ["So24UICollectionViewDelegateP", "RMDate"]
 - !private ["So24UICollectionViewDelegateP", "RMImage"]
@@ -1523,6 +1634,7 @@ depends-member:
 - !private ["So24UICollectionViewDelegateP", "UIActivityViewController"]
 - !private ["So24UICollectionViewDelegateP", "UIColor"]
 - !private ["So24UICollectionViewDelegateP", "UIFont"]
+- !private ["So24UICollectionViewDelegateP", "UIView"]
 - !private ["So24UICollectionViewDelegateP", "childViewControllers"]
 - ["So24UICollectionViewDelegateP", "collectionView"]
 - !private ["So24UICollectionViewDelegateP", "dateLabel"]
@@ -1567,6 +1679,7 @@ depends-member:
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "DateFormatter"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "DispatchQueue"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "NSAttributedStringKey"]
+- !private ["So34UICollectionViewDelegateFlowLayoutP", "RMAnimation"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "RMColor"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "RMDate"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "RMImage"]
@@ -1576,6 +1689,7 @@ depends-member:
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "UIActivityViewController"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "UIColor"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "UIFont"]
+- !private ["So34UICollectionViewDelegateFlowLayoutP", "UIView"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "childViewControllers"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "collectionView"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "dateLabel"]
@@ -1614,6 +1728,7 @@ depends-member:
 - ["So34UICollectionViewDelegateFlowLayoutP", "viewForZoomingInScrollView"]
 - ["So34UICollectionViewDelegateFlowLayoutP", ""]
 - !private ["So7UIColorC", "lightGray"]
+- !private ["So7UIColorC", "white"]
 - !private ["So7UIColorC", "withAlphaComponent"]
 - !private ["So18UIContentContainerP", "CGSize"]
 - !private ["So18UIContentContainerP", "Calendar"]
@@ -1622,6 +1737,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "DateFormatter"]
 - !private ["So18UIContentContainerP", "DispatchQueue"]
 - !private ["So18UIContentContainerP", "NSAttributedStringKey"]
+- !private ["So18UIContentContainerP", "RMAnimation"]
 - !private ["So18UIContentContainerP", "RMColor"]
 - !private ["So18UIContentContainerP", "RMDate"]
 - !private ["So18UIContentContainerP", "RMImage"]
@@ -1631,6 +1747,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "UIActivityViewController"]
 - !private ["So18UIContentContainerP", "UIColor"]
 - !private ["So18UIContentContainerP", "UIFont"]
+- !private ["So18UIContentContainerP", "UIView"]
 - !private ["So18UIContentContainerP", "childViewControllers"]
 - ["So18UIContentContainerP", "collectionView"]
 - !private ["So18UIContentContainerP", "dateLabel"]
@@ -1683,17 +1800,23 @@ depends-member:
 - !private ["So30UIContentSizeCategoryAdjustingP", "isHidden"]
 - !private ["So30UIContentSizeCategoryAdjustingP", "text"]
 - !private ["So17UICoordinateSpaceP", "addGestureRecognizer"]
+- !private ["So17UICoordinateSpaceP", "addSubview"]
+- !private ["So17UICoordinateSpaceP", "alpha"]
+- !private ["So17UICoordinateSpaceP", "animate"]
 - !private ["So17UICoordinateSpaceP", "backgroundColor"]
 - !private ["So17UICoordinateSpaceP", "cellForItem"]
+- !private ["So17UICoordinateSpaceP", "center"]
 - !private ["So17UICoordinateSpaceP", "dayLabel"]
 - !private ["So17UICoordinateSpaceP", "dequeueReusableCell"]
 - !private ["So17UICoordinateSpaceP", "eventsLabel"]
 - !private ["So17UICoordinateSpaceP", "eventsToday"]
 - !private ["So17UICoordinateSpaceP", "font"]
 - !private ["So17UICoordinateSpaceP", "frame"]
+- !private ["So17UICoordinateSpaceP", "init"]
 - !private ["So17UICoordinateSpaceP", "isHidden"]
 - !private ["So17UICoordinateSpaceP", "isTranslucent"]
 - !private ["So17UICoordinateSpaceP", "layer"]
+- !private ["So17UICoordinateSpaceP", "removeFromSuperview"]
 - !private ["So17UICoordinateSpaceP", "setupView"]
 - !private ["So17UICoordinateSpaceP", "text"]
 - !private ["So17UICoordinateSpaceP", "tintColor"]
@@ -1702,17 +1825,23 @@ depends-member:
 - !private ["So23UIDataSourceTranslatingP", "dequeueReusableCell"]
 - !private ["So23UIDataSourceTranslatingP", "frame"]
 - !private ["So13UIDynamicItemP", "addGestureRecognizer"]
+- !private ["So13UIDynamicItemP", "addSubview"]
+- !private ["So13UIDynamicItemP", "alpha"]
+- !private ["So13UIDynamicItemP", "animate"]
 - !private ["So13UIDynamicItemP", "backgroundColor"]
 - !private ["So13UIDynamicItemP", "cellForItem"]
+- !private ["So13UIDynamicItemP", "center"]
 - !private ["So13UIDynamicItemP", "dayLabel"]
 - !private ["So13UIDynamicItemP", "dequeueReusableCell"]
 - !private ["So13UIDynamicItemP", "eventsLabel"]
 - !private ["So13UIDynamicItemP", "eventsToday"]
 - !private ["So13UIDynamicItemP", "font"]
 - !private ["So13UIDynamicItemP", "frame"]
+- !private ["So13UIDynamicItemP", "init"]
 - !private ["So13UIDynamicItemP", "isHidden"]
 - !private ["So13UIDynamicItemP", "isTranslucent"]
 - !private ["So13UIDynamicItemP", "layer"]
+- !private ["So13UIDynamicItemP", "removeFromSuperview"]
 - !private ["So13UIDynamicItemP", "setupView"]
 - !private ["So13UIDynamicItemP", "text"]
 - !private ["So13UIDynamicItemP", "tintColor"]
@@ -1724,6 +1853,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "DateFormatter"]
 - !private ["So18UIFocusEnvironmentP", "DispatchQueue"]
 - !private ["So18UIFocusEnvironmentP", "NSAttributedStringKey"]
+- !private ["So18UIFocusEnvironmentP", "RMAnimation"]
 - !private ["So18UIFocusEnvironmentP", "RMColor"]
 - !private ["So18UIFocusEnvironmentP", "RMDate"]
 - !private ["So18UIFocusEnvironmentP", "RMImage"]
@@ -1733,9 +1863,14 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "UIActivityViewController"]
 - !private ["So18UIFocusEnvironmentP", "UIColor"]
 - !private ["So18UIFocusEnvironmentP", "UIFont"]
+- !private ["So18UIFocusEnvironmentP", "UIView"]
 - !private ["So18UIFocusEnvironmentP", "addGestureRecognizer"]
+- !private ["So18UIFocusEnvironmentP", "addSubview"]
+- !private ["So18UIFocusEnvironmentP", "alpha"]
+- !private ["So18UIFocusEnvironmentP", "animate"]
 - !private ["So18UIFocusEnvironmentP", "backgroundColor"]
 - !private ["So18UIFocusEnvironmentP", "cellForItem"]
+- !private ["So18UIFocusEnvironmentP", "center"]
 - !private ["So18UIFocusEnvironmentP", "childViewControllers"]
 - ["So18UIFocusEnvironmentP", "collectionView"]
 - !private ["So18UIFocusEnvironmentP", "dateLabel"]
@@ -1767,6 +1902,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "popoverPresentationController"]
 - !private ["So18UIFocusEnvironmentP", "present"]
 - !private ["So18UIFocusEnvironmentP", "print"]
+- !private ["So18UIFocusEnvironmentP", "removeFromSuperview"]
 - !private ["So18UIFocusEnvironmentP", "reuseIdentifier"]
 - !private ["So18UIFocusEnvironmentP", "revealToggle"]
 - !private ["So18UIFocusEnvironmentP", "revealViewController"]
@@ -1798,17 +1934,23 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "viewWillAppear"]
 - ["So18UIFocusEnvironmentP", ""]
 - !private ["So11UIFocusItemP", "addGestureRecognizer"]
+- !private ["So11UIFocusItemP", "addSubview"]
+- !private ["So11UIFocusItemP", "alpha"]
+- !private ["So11UIFocusItemP", "animate"]
 - !private ["So11UIFocusItemP", "backgroundColor"]
 - !private ["So11UIFocusItemP", "cellForItem"]
+- !private ["So11UIFocusItemP", "center"]
 - !private ["So11UIFocusItemP", "dayLabel"]
 - !private ["So11UIFocusItemP", "dequeueReusableCell"]
 - !private ["So11UIFocusItemP", "eventsLabel"]
 - !private ["So11UIFocusItemP", "eventsToday"]
 - !private ["So11UIFocusItemP", "font"]
 - !private ["So11UIFocusItemP", "frame"]
+- !private ["So11UIFocusItemP", "init"]
 - !private ["So11UIFocusItemP", "isHidden"]
 - !private ["So11UIFocusItemP", "isTranslucent"]
 - !private ["So11UIFocusItemP", "layer"]
+- !private ["So11UIFocusItemP", "removeFromSuperview"]
 - !private ["So11UIFocusItemP", "setupView"]
 - !private ["So11UIFocusItemP", "text"]
 - !private ["So11UIFocusItemP", "tintColor"]
@@ -1831,6 +1973,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "DateFormatter"]
 - !private ["So30UIPasteConfigurationSupportingP", "DispatchQueue"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSAttributedStringKey"]
+- !private ["So30UIPasteConfigurationSupportingP", "RMAnimation"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMDate"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMImage"]
@@ -1840,9 +1983,14 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "UIActivityViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIFont"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIView"]
 - !private ["So30UIPasteConfigurationSupportingP", "addGestureRecognizer"]
+- !private ["So30UIPasteConfigurationSupportingP", "addSubview"]
+- !private ["So30UIPasteConfigurationSupportingP", "alpha"]
+- !private ["So30UIPasteConfigurationSupportingP", "animate"]
 - !private ["So30UIPasteConfigurationSupportingP", "backgroundColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "cellForItem"]
+- !private ["So30UIPasteConfigurationSupportingP", "center"]
 - !private ["So30UIPasteConfigurationSupportingP", "childViewControllers"]
 - ["So30UIPasteConfigurationSupportingP", "collectionView"]
 - !private ["So30UIPasteConfigurationSupportingP", "dateLabel"]
@@ -1874,6 +2022,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "popoverPresentationController"]
 - !private ["So30UIPasteConfigurationSupportingP", "present"]
 - !private ["So30UIPasteConfigurationSupportingP", "print"]
+- !private ["So30UIPasteConfigurationSupportingP", "removeFromSuperview"]
 - !private ["So30UIPasteConfigurationSupportingP", "reuseIdentifier"]
 - !private ["So30UIPasteConfigurationSupportingP", "revealToggle"]
 - !private ["So30UIPasteConfigurationSupportingP", "revealViewController"]
@@ -1918,6 +2067,7 @@ depends-member:
 - ["So11UIResponderC", "IndexPath"]
 - ["So11UIResponderC", "Int"]
 - !private ["So11UIResponderC", "NSAttributedStringKey"]
+- !private ["So11UIResponderC", "RMAnimation"]
 - !private ["So11UIResponderC", "RMColor"]
 - !private ["So11UIResponderC", "RMDate"]
 - !private ["So11UIResponderC", "RMImage"]
@@ -1932,10 +2082,15 @@ depends-member:
 - !private ["So11UIResponderC", "UIColor"]
 - !private ["So11UIResponderC", "UIFont"]
 - ["So11UIResponderC", "UILabel"]
+- !private ["So11UIResponderC", "UIView"]
 - ["So11UIResponderC", "URL"]
 - !private ["So11UIResponderC", "addGestureRecognizer"]
+- !private ["So11UIResponderC", "addSubview"]
+- !private ["So11UIResponderC", "alpha"]
+- !private ["So11UIResponderC", "animate"]
 - !private ["So11UIResponderC", "backgroundColor"]
 - !private ["So11UIResponderC", "cellForItem"]
+- !private ["So11UIResponderC", "center"]
 - !private ["So11UIResponderC", "childViewControllers"]
 - ["So11UIResponderC", "collectionView"]
 - ["So11UIResponderC", "dateLabel"]
@@ -1968,6 +2123,7 @@ depends-member:
 - !private ["So11UIResponderC", "popoverPresentationController"]
 - !private ["So11UIResponderC", "present"]
 - !private ["So11UIResponderC", "print"]
+- !private ["So11UIResponderC", "removeFromSuperview"]
 - !private ["So11UIResponderC", "reuseIdentifier"]
 - !private ["So11UIResponderC", "revealToggle"]
 - !private ["So11UIResponderC", "revealViewController"]
@@ -2003,6 +2159,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "DateFormatter"]
 - !private ["So30UIResponderStandardEditActionsP", "DispatchQueue"]
 - !private ["So30UIResponderStandardEditActionsP", "NSAttributedStringKey"]
+- !private ["So30UIResponderStandardEditActionsP", "RMAnimation"]
 - !private ["So30UIResponderStandardEditActionsP", "RMColor"]
 - !private ["So30UIResponderStandardEditActionsP", "RMDate"]
 - !private ["So30UIResponderStandardEditActionsP", "RMImage"]
@@ -2012,9 +2169,14 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "UIActivityViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UIFont"]
+- !private ["So30UIResponderStandardEditActionsP", "UIView"]
 - !private ["So30UIResponderStandardEditActionsP", "addGestureRecognizer"]
+- !private ["So30UIResponderStandardEditActionsP", "addSubview"]
+- !private ["So30UIResponderStandardEditActionsP", "alpha"]
+- !private ["So30UIResponderStandardEditActionsP", "animate"]
 - !private ["So30UIResponderStandardEditActionsP", "backgroundColor"]
 - !private ["So30UIResponderStandardEditActionsP", "cellForItem"]
+- !private ["So30UIResponderStandardEditActionsP", "center"]
 - !private ["So30UIResponderStandardEditActionsP", "childViewControllers"]
 - ["So30UIResponderStandardEditActionsP", "collectionView"]
 - !private ["So30UIResponderStandardEditActionsP", "dateLabel"]
@@ -2046,6 +2208,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "popoverPresentationController"]
 - !private ["So30UIResponderStandardEditActionsP", "present"]
 - !private ["So30UIResponderStandardEditActionsP", "print"]
+- !private ["So30UIResponderStandardEditActionsP", "removeFromSuperview"]
 - !private ["So30UIResponderStandardEditActionsP", "reuseIdentifier"]
 - !private ["So30UIResponderStandardEditActionsP", "revealToggle"]
 - !private ["So30UIResponderStandardEditActionsP", "revealViewController"]
@@ -2085,6 +2248,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "DateFormatter"]
 - !private ["So20UIScrollViewDelegateP", "DispatchQueue"]
 - !private ["So20UIScrollViewDelegateP", "NSAttributedStringKey"]
+- !private ["So20UIScrollViewDelegateP", "RMAnimation"]
 - !private ["So20UIScrollViewDelegateP", "RMColor"]
 - !private ["So20UIScrollViewDelegateP", "RMDate"]
 - !private ["So20UIScrollViewDelegateP", "RMImage"]
@@ -2094,6 +2258,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "UIActivityViewController"]
 - !private ["So20UIScrollViewDelegateP", "UIColor"]
 - !private ["So20UIScrollViewDelegateP", "UIFont"]
+- !private ["So20UIScrollViewDelegateP", "UIView"]
 - !private ["So20UIScrollViewDelegateP", "childViewControllers"]
 - ["So20UIScrollViewDelegateP", "collectionView"]
 - !private ["So20UIScrollViewDelegateP", "dateLabel"]
@@ -2147,6 +2312,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "DateFormatter"]
 - !private ["So16UIStateRestoringP", "DispatchQueue"]
 - !private ["So16UIStateRestoringP", "NSAttributedStringKey"]
+- !private ["So16UIStateRestoringP", "RMAnimation"]
 - !private ["So16UIStateRestoringP", "RMColor"]
 - !private ["So16UIStateRestoringP", "RMDate"]
 - !private ["So16UIStateRestoringP", "RMImage"]
@@ -2156,6 +2322,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "UIActivityViewController"]
 - !private ["So16UIStateRestoringP", "UIColor"]
 - !private ["So16UIStateRestoringP", "UIFont"]
+- !private ["So16UIStateRestoringP", "UIView"]
 - !private ["So16UIStateRestoringP", "childViewControllers"]
 - ["So16UIStateRestoringP", "collectionView"]
 - !private ["So16UIStateRestoringP", "dateLabel"]
@@ -2213,6 +2380,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "DateFormatter"]
 - !private ["So18UITraitEnvironmentP", "DispatchQueue"]
 - !private ["So18UITraitEnvironmentP", "NSAttributedStringKey"]
+- !private ["So18UITraitEnvironmentP", "RMAnimation"]
 - !private ["So18UITraitEnvironmentP", "RMColor"]
 - !private ["So18UITraitEnvironmentP", "RMDate"]
 - !private ["So18UITraitEnvironmentP", "RMImage"]
@@ -2222,9 +2390,14 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "UIActivityViewController"]
 - !private ["So18UITraitEnvironmentP", "UIColor"]
 - !private ["So18UITraitEnvironmentP", "UIFont"]
+- !private ["So18UITraitEnvironmentP", "UIView"]
 - !private ["So18UITraitEnvironmentP", "addGestureRecognizer"]
+- !private ["So18UITraitEnvironmentP", "addSubview"]
+- !private ["So18UITraitEnvironmentP", "alpha"]
+- !private ["So18UITraitEnvironmentP", "animate"]
 - !private ["So18UITraitEnvironmentP", "backgroundColor"]
 - !private ["So18UITraitEnvironmentP", "cellForItem"]
+- !private ["So18UITraitEnvironmentP", "center"]
 - !private ["So18UITraitEnvironmentP", "childViewControllers"]
 - ["So18UITraitEnvironmentP", "collectionView"]
 - !private ["So18UITraitEnvironmentP", "dateLabel"]
@@ -2256,6 +2429,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "popoverPresentationController"]
 - !private ["So18UITraitEnvironmentP", "present"]
 - !private ["So18UITraitEnvironmentP", "print"]
+- !private ["So18UITraitEnvironmentP", "removeFromSuperview"]
 - !private ["So18UITraitEnvironmentP", "reuseIdentifier"]
 - !private ["So18UITraitEnvironmentP", "revealToggle"]
 - !private ["So18UITraitEnvironmentP", "revealViewController"]
@@ -2287,17 +2461,23 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "viewWillAppear"]
 - ["So18UITraitEnvironmentP", ""]
 - !private ["So6UIViewC", "addGestureRecognizer"]
+- !private ["So6UIViewC", "addSubview"]
+- !private ["So6UIViewC", "alpha"]
+- !private ["So6UIViewC", "animate"]
 - !private ["So6UIViewC", "backgroundColor"]
 - !private ["So6UIViewC", "cellForItem"]
+- !private ["So6UIViewC", "center"]
 - !private ["So6UIViewC", "dayLabel"]
 - !private ["So6UIViewC", "dequeueReusableCell"]
 - !private ["So6UIViewC", "eventsLabel"]
 - !private ["So6UIViewC", "eventsToday"]
 - !private ["So6UIViewC", "font"]
 - !private ["So6UIViewC", "frame"]
+- !private ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "isHidden"]
 - !private ["So6UIViewC", "isTranslucent"]
 - !private ["So6UIViewC", "layer"]
+- !private ["So6UIViewC", "removeFromSuperview"]
 - !private ["So6UIViewC", "setupView"]
 - !private ["So6UIViewC", "text"]
 - !private ["So6UIViewC", "tintColor"]
@@ -2315,6 +2495,7 @@ depends-member:
 - ["So16UIViewControllerC", "IndexPath"]
 - ["So16UIViewControllerC", "Int"]
 - !private ["So16UIViewControllerC", "NSAttributedStringKey"]
+- !private ["So16UIViewControllerC", "RMAnimation"]
 - !private ["So16UIViewControllerC", "RMColor"]
 - !private ["So16UIViewControllerC", "RMDate"]
 - !private ["So16UIViewControllerC", "RMImage"]
@@ -2329,6 +2510,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "UIColor"]
 - !private ["So16UIViewControllerC", "UIFont"]
 - ["So16UIViewControllerC", "UILabel"]
+- !private ["So16UIViewControllerC", "UIView"]
 - ["So16UIViewControllerC", "URL"]
 - !private ["So16UIViewControllerC", "childViewControllers"]
 - ["So16UIViewControllerC", "collectionView"]
@@ -2390,17 +2572,23 @@ depends-member:
 - !private ["s23_BidirectionalIndexableP", "row"]
 - !private ["s23_BidirectionalIndexableP", "subscript"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addGestureRecognizer"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addSubview"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "alpha"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "animate"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "backgroundColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "cellForItem"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "center"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "dayLabel"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "dequeueReusableCell"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "eventsLabel"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "eventsToday"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "font"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "frame"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isHidden"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isTranslucent"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layer"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "removeFromSuperview"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "setupView"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "tintColor"]
@@ -2418,6 +2606,7 @@ depends-member:
 - ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "prefix"]
 - !private ["s26_ExpressibleByColorLiteralP", "lightGray"]
+- !private ["s26_ExpressibleByColorLiteralP", "white"]
 - !private ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "prefix"]
@@ -2444,6 +2633,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DateFormatter"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedStringKey"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMAnimation"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
@@ -2454,12 +2644,17 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIActivityViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIFont"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Weight"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "action"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addGestureRecognizer"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addSubview"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "alpha"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "animate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "backgroundColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cellForItem"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "center"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "childViewControllers"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "collectionView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cornerRadius"]
@@ -2501,6 +2696,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "prefix"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "present"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "removeFromSuperview"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "reuseIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealToggle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealViewController"]
@@ -2535,6 +2731,7 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "viewForZooming"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "viewForZoomingInScrollView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewWillAppear"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "white"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation14_MutableBoxingP", "compare"]
@@ -2565,6 +2762,7 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "ultraLight"]
 - !private ["s21_ObjectiveCBridgeableP", "width"]
+- !private ["s21_ObjectiveCBridgeableP", "y"]
 - !private ["s22_RandomAccessIndexableP", "count"]
 - !private ["s22_RandomAccessIndexableP", "first"]
 - !private ["s22_RandomAccessIndexableP", "row"]
@@ -2585,6 +2783,7 @@ depends-nominal:
 - !private "So7CALayerC"
 - !private "So15CALayerDelegateP"
 - !private "So13CAMediaTimingP"
+- !private "SC7CGPointV"
 - !private "SC6CGRectV"
 - !private "SC6CGSizeV"
 - "s7CVarArgP"
@@ -2634,6 +2833,7 @@ depends-nominal:
 - "So15OHSerializationP"
 - !private "So9OS_objectC"
 - !private "s9OptionSetP"
+- !private "6RushMe11RMAnimationV"
 - !private "6RushMe7RMColorV"
 - !private "6RushMe6RMDateV"
 - !private "6RushMe7RMImageV"
@@ -2734,99 +2934,37 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserMetadata.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthAPNSTokenType.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/Firebase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthUIDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAdditionalUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIROAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRActionCodeSettings.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
 interface-hash: "533404ed5e876f977470e62cb222e67f"

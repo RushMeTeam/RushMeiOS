@@ -29,6 +29,7 @@ provides-dynamic-lookup:
 - "staticGPALabel"
 - "staticMemberLabel"
 - "titleLabel"
+- "toMakeClear"
 - "underProfileLabel"
 - "underlyingView"
 - "viewDidLoad"
@@ -296,6 +297,7 @@ depends-member:
 - !private ["s7CVarArgP", "tintColor"]
 - !private ["s7CVarArgP", "title"]
 - !private ["s7CVarArgP", "titleLabel"]
+- !private ["s7CVarArgP", "toMakeClear"]
 - !private ["s7CVarArgP", "transform"]
 - !private ["s7CVarArgP", "underProfileLabel"]
 - !private ["s7CVarArgP", "underlyingView"]
@@ -463,6 +465,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "tintColor"]
 - !private ["s28CustomDebugStringConvertibleP", "title"]
 - !private ["s28CustomDebugStringConvertibleP", "titleLabel"]
+- !private ["s28CustomDebugStringConvertibleP", "toMakeClear"]
 - !private ["s28CustomDebugStringConvertibleP", "transform"]
 - !private ["s28CustomDebugStringConvertibleP", "underProfileLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "underlyingView"]
@@ -644,6 +647,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "tintColor"]
 - !private ["s23CustomStringConvertibleP", "title"]
 - !private ["s23CustomStringConvertibleP", "titleLabel"]
+- !private ["s23CustomStringConvertibleP", "toMakeClear"]
 - !private ["s23CustomStringConvertibleP", "transform"]
 - !private ["s23CustomStringConvertibleP", "underProfileLabel"]
 - !private ["s23CustomStringConvertibleP", "underlyingView"]
@@ -767,6 +771,7 @@ depends-member:
 - !private ["6RushMe20DetailViewControllerC", "storyboard"]
 - !private ["6RushMe20DetailViewControllerC", "title"]
 - ["6RushMe20DetailViewControllerC", "titleLabel"]
+- ["6RushMe20DetailViewControllerC", "toMakeClear"]
 - ["6RushMe20DetailViewControllerC", "underProfileLabel"]
 - ["6RushMe20DetailViewControllerC", "underlyingView"]
 - !private ["6RushMe20DetailViewControllerC", "view"]
@@ -933,6 +938,7 @@ depends-member:
 - !private ["s9EquatableP", "tintColor"]
 - !private ["s9EquatableP", "title"]
 - !private ["s9EquatableP", "titleLabel"]
+- !private ["s9EquatableP", "toMakeClear"]
 - !private ["s9EquatableP", "transform"]
 - !private ["s9EquatableP", "translatedBy"]
 - !private ["s9EquatableP", "underProfileLabel"]
@@ -1112,6 +1118,7 @@ depends-member:
 - !private ["s8HashableP", "tintColor"]
 - !private ["s8HashableP", "title"]
 - !private ["s8HashableP", "titleLabel"]
+- !private ["s8HashableP", "toMakeClear"]
 - !private ["s8HashableP", "transform"]
 - !private ["s8HashableP", "underProfileLabel"]
 - !private ["s8HashableP", "underlyingView"]
@@ -1211,6 +1218,7 @@ depends-member:
 - !private ["So17MKMapViewDelegateP", "storyboard"]
 - !private ["So17MKMapViewDelegateP", "title"]
 - !private ["So17MKMapViewDelegateP", "titleLabel"]
+- !private ["So17MKMapViewDelegateP", "toMakeClear"]
 - !private ["So17MKMapViewDelegateP", "underProfileLabel"]
 - !private ["So17MKMapViewDelegateP", "underlyingView"]
 - !private ["So17MKMapViewDelegateP", "view"]
@@ -1346,6 +1354,7 @@ depends-member:
 - !private ["So8NSCodingP", "tintColor"]
 - !private ["So8NSCodingP", "title"]
 - !private ["So8NSCodingP", "titleLabel"]
+- !private ["So8NSCodingP", "toMakeClear"]
 - !private ["So8NSCodingP", "transform"]
 - !private ["So8NSCodingP", "underProfileLabel"]
 - !private ["So8NSCodingP", "underlyingView"]
@@ -1436,6 +1445,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "storyboard"]
 - !private ["So26NSExtensionRequestHandlingP", "title"]
 - !private ["So26NSExtensionRequestHandlingP", "titleLabel"]
+- !private ["So26NSExtensionRequestHandlingP", "toMakeClear"]
 - !private ["So26NSExtensionRequestHandlingP", "underProfileLabel"]
 - !private ["So26NSExtensionRequestHandlingP", "underlyingView"]
 - !private ["So26NSExtensionRequestHandlingP", "view"]
@@ -1608,6 +1618,7 @@ depends-member:
 - !private ["So8NSObjectC", "tintColor"]
 - !private ["So8NSObjectC", "title"]
 - ["So8NSObjectC", "titleLabel"]
+- ["So8NSObjectC", "toMakeClear"]
 - !private ["So8NSObjectC", "transform"]
 - ["So8NSObjectC", "underProfileLabel"]
 - ["So8NSObjectC", "underlyingView"]
@@ -1742,6 +1753,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "tintColor"]
 - !private ["So16NSObjectProtocolP", "title"]
 - !private ["So16NSObjectProtocolP", "titleLabel"]
+- !private ["So16NSObjectProtocolP", "toMakeClear"]
 - !private ["So16NSObjectProtocolP", "transform"]
 - !private ["So16NSObjectProtocolP", "underProfileLabel"]
 - !private ["So16NSObjectProtocolP", "underlyingView"]
@@ -2005,6 +2017,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "tintColor"]
 - !private ["So21UIAppearanceContainerP", "title"]
 - !private ["So21UIAppearanceContainerP", "titleLabel"]
+- !private ["So21UIAppearanceContainerP", "toMakeClear"]
 - !private ["So21UIAppearanceContainerP", "transform"]
 - !private ["So21UIAppearanceContainerP", "underProfileLabel"]
 - !private ["So21UIAppearanceContainerP", "underlyingView"]
@@ -2092,6 +2105,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "storyboard"]
 - !private ["So18UIContentContainerP", "title"]
 - !private ["So18UIContentContainerP", "titleLabel"]
+- !private ["So18UIContentContainerP", "toMakeClear"]
 - !private ["So18UIContentContainerP", "underProfileLabel"]
 - !private ["So18UIContentContainerP", "underlyingView"]
 - !private ["So18UIContentContainerP", "view"]
@@ -2259,6 +2273,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "tintColor"]
 - !private ["So18UIFocusEnvironmentP", "title"]
 - !private ["So18UIFocusEnvironmentP", "titleLabel"]
+- !private ["So18UIFocusEnvironmentP", "toMakeClear"]
 - !private ["So18UIFocusEnvironmentP", "transform"]
 - !private ["So18UIFocusEnvironmentP", "underProfileLabel"]
 - !private ["So18UIFocusEnvironmentP", "underlyingView"]
@@ -2411,6 +2426,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "tintColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "title"]
 - !private ["So30UIPasteConfigurationSupportingP", "titleLabel"]
+- !private ["So30UIPasteConfigurationSupportingP", "toMakeClear"]
 - !private ["So30UIPasteConfigurationSupportingP", "transform"]
 - !private ["So30UIPasteConfigurationSupportingP", "underProfileLabel"]
 - !private ["So30UIPasteConfigurationSupportingP", "underlyingView"]
@@ -2539,6 +2555,7 @@ depends-member:
 - !private ["So11UIResponderC", "tintColor"]
 - !private ["So11UIResponderC", "title"]
 - ["So11UIResponderC", "titleLabel"]
+- ["So11UIResponderC", "toMakeClear"]
 - !private ["So11UIResponderC", "transform"]
 - ["So11UIResponderC", "underProfileLabel"]
 - ["So11UIResponderC", "underlyingView"]
@@ -2642,6 +2659,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "tintColor"]
 - !private ["So30UIResponderStandardEditActionsP", "title"]
 - !private ["So30UIResponderStandardEditActionsP", "titleLabel"]
+- !private ["So30UIResponderStandardEditActionsP", "toMakeClear"]
 - !private ["So30UIResponderStandardEditActionsP", "transform"]
 - !private ["So30UIResponderStandardEditActionsP", "underProfileLabel"]
 - !private ["So30UIResponderStandardEditActionsP", "underlyingView"]
@@ -2725,6 +2743,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "storyboard"]
 - !private ["So20UIScrollViewDelegateP", "title"]
 - !private ["So20UIScrollViewDelegateP", "titleLabel"]
+- !private ["So20UIScrollViewDelegateP", "toMakeClear"]
 - !private ["So20UIScrollViewDelegateP", "underProfileLabel"]
 - !private ["So20UIScrollViewDelegateP", "underlyingView"]
 - !private ["So20UIScrollViewDelegateP", "view"]
@@ -2804,6 +2823,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "storyboard"]
 - !private ["So16UIStateRestoringP", "title"]
 - !private ["So16UIStateRestoringP", "titleLabel"]
+- !private ["So16UIStateRestoringP", "toMakeClear"]
 - !private ["So16UIStateRestoringP", "underProfileLabel"]
 - !private ["So16UIStateRestoringP", "underlyingView"]
 - !private ["So16UIStateRestoringP", "view"]
@@ -2948,6 +2968,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "tintColor"]
 - !private ["So18UITraitEnvironmentP", "title"]
 - !private ["So18UITraitEnvironmentP", "titleLabel"]
+- !private ["So18UITraitEnvironmentP", "toMakeClear"]
 - !private ["So18UITraitEnvironmentP", "transform"]
 - !private ["So18UITraitEnvironmentP", "underProfileLabel"]
 - !private ["So18UITraitEnvironmentP", "underlyingView"]
@@ -3076,6 +3097,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "storyboard"]
 - !private ["So16UIViewControllerC", "title"]
 - ["So16UIViewControllerC", "titleLabel"]
+- ["So16UIViewControllerC", "toMakeClear"]
 - ["So16UIViewControllerC", "underProfileLabel"]
 - ["So16UIViewControllerC", "underlyingView"]
 - !private ["So16UIViewControllerC", "view"]
@@ -3307,6 +3329,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tintColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "title"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "titleLabel"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "toMakeClear"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "transform"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "underProfileLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "underlyingView"]
@@ -3542,99 +3565,37 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserMetadata.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthAPNSTokenType.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/Firebase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthUIDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAdditionalUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIROAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRActionCodeSettings.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
-interface-hash: "38cf3dacd575e05bccd611b3c0337adb"
+interface-hash: "5880521dba02176234c3c8e44a778c55"

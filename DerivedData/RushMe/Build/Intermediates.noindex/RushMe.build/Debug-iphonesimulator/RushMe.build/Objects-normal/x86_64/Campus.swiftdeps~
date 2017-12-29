@@ -15,6 +15,7 @@ provides-dynamic-lookup:
 - "favoritedEventsByDay"
 - "favoritedFrats"
 - "firstEvent"
+- "firstLoad"
 - "fratNames"
 - "fraternitiesDict"
 - "getEvents"
@@ -25,6 +26,7 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "!"
 - !private "!="
+- !private "&&"
 - !private "+"
 - !private "<"
 - "=="
@@ -38,6 +40,7 @@ depends-top-level:
 - !private "ComparisonResult"
 - !private "Data"
 - "Date"
+- "Dictionary"
 - !private "DispatchQueue"
 - !private "ExtendedGraphemeClusterType"
 - "FratEvent"
@@ -50,10 +53,10 @@ depends-top-level:
 - !private "RMFileManagement"
 - !private "RMImageQuality"
 - !private "RMNetwork"
+- !private "RMPropertyKeys"
 - !private "SQLHandler"
 - "Set"
 - "String"
-- !private "StringLiteralType"
 - "UIImage"
 - !private "UIImagePNGRepresentation"
 - !private "URL"
@@ -93,6 +96,7 @@ depends-member:
 - !private ["s7CVarArgP", "ComparisonResult"]
 - !private ["s7CVarArgP", "Data"]
 - !private ["s7CVarArgP", "Date"]
+- ["s7CVarArgP", "Dictionary"]
 - !private ["s7CVarArgP", "DispatchQueue"]
 - ["s7CVarArgP", "FratEvent"]
 - ["s7CVarArgP", "Fraternity"]
@@ -102,6 +106,7 @@ depends-member:
 - !private ["s7CVarArgP", "RMFileManagement"]
 - !private ["s7CVarArgP", "RMImageQuality"]
 - !private ["s7CVarArgP", "RMNetwork"]
+- !private ["s7CVarArgP", "RMPropertyKeys"]
 - !private ["s7CVarArgP", "SQLHandler"]
 - ["s7CVarArgP", "Set"]
 - ["s7CVarArgP", "String"]
@@ -129,6 +134,7 @@ depends-member:
 - !private ["s7CVarArgP", "favoritedFrats"]
 - !private ["s7CVarArgP", "filter"]
 - !private ["s7CVarArgP", "firstEvent_"]
+- !private ["s7CVarArgP", "firstLoad"]
 - !private ["s7CVarArgP", "frat"]
 - !private ["s7CVarArgP", "fratEventsByDay"]
 - !private ["s7CVarArgP", "fraternitiesDict"]
@@ -141,6 +147,7 @@ depends-member:
 - !private ["s7CVarArgP", "loadFavorites"]
 - !private ["s7CVarArgP", "min"]
 - !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "preferences"]
 - !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "pullEventsFromSQLDataBase"]
 - !private ["s7CVarArgP", "saveFavorites"]
@@ -159,6 +166,7 @@ depends-member:
 - !private ["6RushMe6CampusC", "ComparisonResult"]
 - !private ["6RushMe6CampusC", "Data"]
 - ["6RushMe6CampusC", "Date"]
+- ["6RushMe6CampusC", "Dictionary"]
 - !private ["6RushMe6CampusC", "DispatchQueue"]
 - ["6RushMe6CampusC", "FratEvent"]
 - ["6RushMe6CampusC", "Fraternity"]
@@ -169,6 +177,7 @@ depends-member:
 - !private ["6RushMe6CampusC", "RMFileManagement"]
 - !private ["6RushMe6CampusC", "RMImageQuality"]
 - !private ["6RushMe6CampusC", "RMNetwork"]
+- !private ["6RushMe6CampusC", "RMPropertyKeys"]
 - !private ["6RushMe6CampusC", "SQLHandler"]
 - ["6RushMe6CampusC", "Set"]
 - ["6RushMe6CampusC", "String"]
@@ -189,6 +198,7 @@ depends-member:
 - ["6RushMe6CampusC", "favoritedFrats"]
 - ["6RushMe6CampusC", "firstEvent"]
 - !private ["6RushMe6CampusC", "firstEvent_"]
+- ["6RushMe6CampusC", "firstLoad"]
 - !private ["6RushMe6CampusC", "fratEventsByDay"]
 - ["6RushMe6CampusC", "fratNames"]
 - ["6RushMe6CampusC", "fraternitiesDict"]
@@ -196,6 +206,7 @@ depends-member:
 - ["6RushMe6CampusC", "hasFavorites"]
 - ["6RushMe6CampusC", "init"]
 - !private ["6RushMe6CampusC", "loadFavorites"]
+- !private ["6RushMe6CampusC", "preferences"]
 - !private ["6RushMe6CampusC", "print"]
 - !private ["6RushMe6CampusC", "pullEventsFromSQLDataBase"]
 - ["6RushMe6CampusC", "pullImage"]
@@ -229,6 +240,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "ComparisonResult"]
 - !private ["s28CustomDebugStringConvertibleP", "Data"]
 - !private ["s28CustomDebugStringConvertibleP", "Date"]
+- ["s28CustomDebugStringConvertibleP", "Dictionary"]
 - !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
 - ["s28CustomDebugStringConvertibleP", "FratEvent"]
 - ["s28CustomDebugStringConvertibleP", "Fraternity"]
@@ -238,6 +250,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "RMFileManagement"]
 - !private ["s28CustomDebugStringConvertibleP", "RMImageQuality"]
 - !private ["s28CustomDebugStringConvertibleP", "RMNetwork"]
+- !private ["s28CustomDebugStringConvertibleP", "RMPropertyKeys"]
 - !private ["s28CustomDebugStringConvertibleP", "SQLHandler"]
 - ["s28CustomDebugStringConvertibleP", "Set"]
 - ["s28CustomDebugStringConvertibleP", "String"]
@@ -267,6 +280,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "favoritedFrats"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "firstEvent_"]
+- !private ["s28CustomDebugStringConvertibleP", "firstLoad"]
 - !private ["s28CustomDebugStringConvertibleP", "frat"]
 - !private ["s28CustomDebugStringConvertibleP", "fratEventsByDay"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesDict"]
@@ -279,6 +293,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "min"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "path"]
+- !private ["s28CustomDebugStringConvertibleP", "preferences"]
 - !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "pullEventsFromSQLDataBase"]
 - !private ["s28CustomDebugStringConvertibleP", "saveFavorites"]
@@ -325,6 +340,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "ComparisonResult"]
 - !private ["s23CustomStringConvertibleP", "Data"]
 - !private ["s23CustomStringConvertibleP", "Date"]
+- ["s23CustomStringConvertibleP", "Dictionary"]
 - !private ["s23CustomStringConvertibleP", "DispatchQueue"]
 - ["s23CustomStringConvertibleP", "FratEvent"]
 - ["s23CustomStringConvertibleP", "Fraternity"]
@@ -334,6 +350,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "RMFileManagement"]
 - !private ["s23CustomStringConvertibleP", "RMImageQuality"]
 - !private ["s23CustomStringConvertibleP", "RMNetwork"]
+- !private ["s23CustomStringConvertibleP", "RMPropertyKeys"]
 - !private ["s23CustomStringConvertibleP", "SQLHandler"]
 - ["s23CustomStringConvertibleP", "Set"]
 - ["s23CustomStringConvertibleP", "String"]
@@ -364,6 +381,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "favoritedFrats"]
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "firstEvent_"]
+- !private ["s23CustomStringConvertibleP", "firstLoad"]
 - !private ["s23CustomStringConvertibleP", "frat"]
 - !private ["s23CustomStringConvertibleP", "fratEventsByDay"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesDict"]
@@ -377,6 +395,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "min"]
 - !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "path"]
+- !private ["s23CustomStringConvertibleP", "preferences"]
 - !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "pullEventsFromSQLDataBase"]
 - !private ["s23CustomStringConvertibleP", "saveFavorites"]
@@ -448,6 +467,7 @@ depends-member:
 - !private ["s9EquatableP", "ComparisonResult"]
 - !private ["s9EquatableP", "Data"]
 - !private ["s9EquatableP", "Date"]
+- ["s9EquatableP", "Dictionary"]
 - !private ["s9EquatableP", "DispatchQueue"]
 - ["s9EquatableP", "FratEvent"]
 - ["s9EquatableP", "Fraternity"]
@@ -460,6 +480,7 @@ depends-member:
 - !private ["s9EquatableP", "RMFileManagement"]
 - !private ["s9EquatableP", "RMImageQuality"]
 - !private ["s9EquatableP", "RMNetwork"]
+- !private ["s9EquatableP", "RMPropertyKeys"]
 - !private ["s9EquatableP", "SQLHandler"]
 - ["s9EquatableP", "Set"]
 - ["s9EquatableP", "String"]
@@ -487,6 +508,7 @@ depends-member:
 - !private ["s9EquatableP", "favoritedFrats"]
 - !private ["s9EquatableP", "filter"]
 - !private ["s9EquatableP", "firstEvent_"]
+- !private ["s9EquatableP", "firstLoad"]
 - !private ["s9EquatableP", "frat"]
 - !private ["s9EquatableP", "fratEventsByDay"]
 - !private ["s9EquatableP", "fraternitiesDict"]
@@ -499,6 +521,7 @@ depends-member:
 - !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "orderedAscending"]
 - !private ["s9EquatableP", "path"]
+- !private ["s9EquatableP", "preferences"]
 - !private ["s9EquatableP", "print"]
 - !private ["s9EquatableP", "pullEventsFromSQLDataBase"]
 - !private ["s9EquatableP", "saveFavorites"]
@@ -551,6 +574,7 @@ depends-member:
 - !private ["s8HashableP", "ComparisonResult"]
 - !private ["s8HashableP", "Data"]
 - !private ["s8HashableP", "Date"]
+- ["s8HashableP", "Dictionary"]
 - !private ["s8HashableP", "DispatchQueue"]
 - ["s8HashableP", "FratEvent"]
 - ["s8HashableP", "Fraternity"]
@@ -563,6 +587,7 @@ depends-member:
 - !private ["s8HashableP", "RMFileManagement"]
 - !private ["s8HashableP", "RMImageQuality"]
 - !private ["s8HashableP", "RMNetwork"]
+- !private ["s8HashableP", "RMPropertyKeys"]
 - !private ["s8HashableP", "SQLHandler"]
 - ["s8HashableP", "Set"]
 - ["s8HashableP", "String"]
@@ -590,6 +615,7 @@ depends-member:
 - !private ["s8HashableP", "favoritedFrats"]
 - !private ["s8HashableP", "filter"]
 - !private ["s8HashableP", "firstEvent_"]
+- !private ["s8HashableP", "firstLoad"]
 - !private ["s8HashableP", "frat"]
 - !private ["s8HashableP", "fratEventsByDay"]
 - !private ["s8HashableP", "fraternitiesDict"]
@@ -602,6 +628,7 @@ depends-member:
 - !private ["s8HashableP", "name"]
 - !private ["s8HashableP", "orderedAscending"]
 - !private ["s8HashableP", "path"]
+- !private ["s8HashableP", "preferences"]
 - !private ["s8HashableP", "print"]
 - !private ["s8HashableP", "pullEventsFromSQLDataBase"]
 - !private ["s8HashableP", "saveFavorites"]
@@ -662,6 +689,7 @@ depends-member:
 - !private ["So8NSObjectC", "ComparisonResult"]
 - !private ["So8NSObjectC", "Data"]
 - ["So8NSObjectC", "Date"]
+- ["So8NSObjectC", "Dictionary"]
 - !private ["So8NSObjectC", "DispatchQueue"]
 - ["So8NSObjectC", "FratEvent"]
 - ["So8NSObjectC", "Fraternity"]
@@ -672,6 +700,7 @@ depends-member:
 - !private ["So8NSObjectC", "RMFileManagement"]
 - !private ["So8NSObjectC", "RMImageQuality"]
 - !private ["So8NSObjectC", "RMNetwork"]
+- !private ["So8NSObjectC", "RMPropertyKeys"]
 - !private ["So8NSObjectC", "SQLHandler"]
 - ["So8NSObjectC", "Set"]
 - ["So8NSObjectC", "String"]
@@ -697,6 +726,7 @@ depends-member:
 - ["So8NSObjectC", "favoritedFrats"]
 - ["So8NSObjectC", "firstEvent"]
 - ["So8NSObjectC", "firstEvent_"]
+- ["So8NSObjectC", "firstLoad"]
 - !private ["So8NSObjectC", "frat"]
 - ["So8NSObjectC", "fratEventsByDay"]
 - ["So8NSObjectC", "fratNames"]
@@ -707,6 +737,7 @@ depends-member:
 - ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "loadFavorites"]
 - !private ["So8NSObjectC", "name"]
+- ["So8NSObjectC", "preferences"]
 - !private ["So8NSObjectC", "print"]
 - ["So8NSObjectC", "pullEventsFromSQLDataBase"]
 - ["So8NSObjectC", "pullImage"]
@@ -721,6 +752,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "ComparisonResult"]
 - !private ["So16NSObjectProtocolP", "Data"]
 - !private ["So16NSObjectProtocolP", "Date"]
+- ["So16NSObjectProtocolP", "Dictionary"]
 - !private ["So16NSObjectProtocolP", "DispatchQueue"]
 - ["So16NSObjectProtocolP", "FratEvent"]
 - ["So16NSObjectProtocolP", "Fraternity"]
@@ -730,6 +762,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "RMFileManagement"]
 - !private ["So16NSObjectProtocolP", "RMImageQuality"]
 - !private ["So16NSObjectProtocolP", "RMNetwork"]
+- !private ["So16NSObjectProtocolP", "RMPropertyKeys"]
 - !private ["So16NSObjectProtocolP", "SQLHandler"]
 - ["So16NSObjectProtocolP", "Set"]
 - ["So16NSObjectProtocolP", "String"]
@@ -753,6 +786,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritedEvents_"]
 - !private ["So16NSObjectProtocolP", "favoritedFrats"]
 - !private ["So16NSObjectProtocolP", "firstEvent_"]
+- !private ["So16NSObjectProtocolP", "firstLoad"]
 - !private ["So16NSObjectProtocolP", "frat"]
 - !private ["So16NSObjectProtocolP", "fratEventsByDay"]
 - !private ["So16NSObjectProtocolP", "fraternitiesDict"]
@@ -760,6 +794,7 @@ depends-member:
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "loadFavorites"]
 - !private ["So16NSObjectProtocolP", "name"]
+- !private ["So16NSObjectProtocolP", "preferences"]
 - !private ["So16NSObjectProtocolP", "print"]
 - !private ["So16NSObjectProtocolP", "pullEventsFromSQLDataBase"]
 - !private ["So16NSObjectProtocolP", "saveFavorites"]
@@ -791,9 +826,11 @@ depends-member:
 - !private ["6RushMe6RMDateV", "Today"]
 - !private ["6RushMe16RMFileManagementV", "favoritedFratURL"]
 - !private ["6RushMe16RMFileManagementV", "fratImageURL"]
+- !private ["6RushMe16RMFileManagementV", "userInfoURL"]
 - !private ["6RushMe14RMImageQualityV", "Low"]
 - !private ["6RushMe14RMImageQualityV", "Medium"]
 - !private ["6RushMe9RMNetworkV", "HTTP"]
+- !private ["6RushMe14RMPropertyKeysV", "ConsiderEventsBeforeTodayKey"]
 - !private ["s22RandomAccessCollectionP", "append"]
 - !private ["s22RandomAccessCollectionP", "contains"]
 - !private ["s22RandomAccessCollectionP", "count"]
@@ -975,6 +1012,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ComparisonResult"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Data"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Date"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Dictionary"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Fraternity"]
@@ -984,6 +1022,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFileManagement"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImageQuality"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMNetwork"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMPropertyKeys"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "SQLHandler"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Set"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "String"]
@@ -1007,6 +1046,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedEvents_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstEvent_"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "firstLoad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "frat"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fratEventsByDay"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesDict"]
@@ -1014,6 +1054,7 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadFavorites"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "preferences"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pullEventsFromSQLDataBase"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "saveFavorites"]
@@ -1150,6 +1191,7 @@ depends-nominal:
 - !private "6RushMe16RMFileManagementV"
 - !private "6RushMe14RMImageQualityV"
 - !private "6RushMe9RMNetworkV"
+- !private "6RushMe14RMPropertyKeysV"
 - "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
 - !private "s21RangeReplaceableSliceV"
@@ -1212,99 +1254,37 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserMetadata.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthAPNSTokenType.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/Firebase.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthUIDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FIRMessaging.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Headers/FirebaseMessaging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthCredential.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAdditionalUserInfo.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIROAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRPhoneAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailAuthProvider.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRActionCodeSettings.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthDataResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Firebase/Core/Sources/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseMessaging/Frameworks/FirebaseMessaging.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.2.sdk/System/Library/Frameworks/EventKit.framework/Headers/EventKit.apinotes"
-interface-hash: "47e81eb41cf2b2064c0256e07df3e8b7"
+interface-hash: "9b1b087acb247c9213f808441191e411"

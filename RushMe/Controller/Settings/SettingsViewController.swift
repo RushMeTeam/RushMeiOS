@@ -10,16 +10,20 @@ import UIKit
 // A simple UIViewController for settings, will handle
 // data. In the future, will probably need a delegate
 class SettingsViewController: UIViewController {
-  // Button to toggle UIImageView
+  // Button to toggle slideout menu
   @IBOutlet var drawerButton: UIBarButtonItem!
-
+  // Allow user to pick desired quality of downloaded images
   @IBOutlet weak var qualityPicker: UISegmentedControl!
-  
+  // Allow user to choose whether to display/consider past events
   @IBOutlet weak var displayPastEventsSwitch: UISwitch!
   @IBOutlet weak var dateLabel: UILabel!
-//  @IBOutlet var enableFratSignIn: UISwitch!
+  
+  @IBAction func displayPastEventsSwitch(_ sender: UISwitch) {
+    Campus.shared.considerEventsBeforeToday = sender.isOn
+  }
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     if (self.revealViewController() != nil) {
       // Allow drawer button to toggle the lefthand drawer menu
       drawerButton.target = self.revealViewController()
@@ -28,10 +32,14 @@ class SettingsViewController: UIViewController {
       view.addGestureRecognizer(revealViewController().panGestureRecognizer())
       view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     }
-//    self.enableFratSignIn.isOn = UniqueUser.shared.fratSignInEnabled
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+    navigationController?.navigationBar.tintColor = RMColor.AppColor
+    // Visual details
     self.qualityPicker.tintColor = RMColor.AppColor
     self.displayPastEventsSwitch.tintColor = RMColor.AppColor
     self.displayPastEventsSwitch.onTintColor = RMColor.AppColor
+    // Update UI to match current settings
     dateLabel.text = DateFormatter.localizedString(from: RMDate.Today, dateStyle: .medium, timeStyle: .short)
     displayPastEventsSwitch.isOn = Campus.shared.considerEventsBeforeToday
     if Campus.shared.downloadedImageQuality == .High {
@@ -43,16 +51,10 @@ class SettingsViewController: UIViewController {
     if Campus.shared.downloadedImageQuality == .Low {
       qualityPicker.selectedSegmentIndex = 0
     }
-    super.viewDidLoad()
-    self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-    navigationController?.navigationBar.tintColor = RMColor.AppColor
-    
-    
   }
-  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    // Update settings to match UI
     if qualityPicker?.selectedSegmentIndex == 0 {
      Campus.shared.downloadedImageQuality = .Low
     }
@@ -63,8 +65,8 @@ class SettingsViewController: UIViewController {
      Campus.shared.downloadedImageQuality = .High
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
-//    UniqueUser.shared.fratSignInEnabled = enableFratSignIn.isOn
   }
+
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

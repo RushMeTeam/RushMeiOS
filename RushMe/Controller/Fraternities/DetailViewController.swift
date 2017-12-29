@@ -27,6 +27,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var openMapButton: UIButton!
+  
+  @IBOutlet var toMakeClear: [UIView]!
   // MARK: Member Variables
   var eventViewController : EventTableViewController? = nil
   var mapItem : MKMapItem?
@@ -145,6 +147,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       if let _ = view, view != exceptedView {
         view!.alpha = toAlpha
       }
+    }
+    for view in toMakeClear {
+     view.alpha = toAlpha
     }
   }
   // MARK: ViewDidLoad
