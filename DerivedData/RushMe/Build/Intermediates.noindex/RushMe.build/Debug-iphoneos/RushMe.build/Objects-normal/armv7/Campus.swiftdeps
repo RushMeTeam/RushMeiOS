@@ -8,6 +8,8 @@ provides-nominal:
 provides-member:
 - ["6RushMe7QualityO", ""]
 - ["6RushMe6CampusC", ""]
+- ["6RushMe10FraternityC", ""]
+- ["6RushMe10FraternityC", "register"]
 provides-dynamic-lookup:
 - "considerEventsBeforeToday"
 - "eventsByDay"
@@ -20,7 +22,9 @@ provides-dynamic-lookup:
 - "fraternitiesDict"
 - "getEvents"
 - "hasFavorites"
+- "loadCampus"
 - "pullImage"
+- "register"
 - "saveFavorites"
 - "shared"
 depends-top-level:
@@ -36,7 +40,7 @@ depends-top-level:
 - "Bool"
 - "BooleanLiteralType"
 - "Campus"
-- !private "CastingPrecedence"
+- "CastingPrecedence"
 - !private "ComparisonResult"
 - !private "Data"
 - "Date"
@@ -45,12 +49,15 @@ depends-top-level:
 - !private "ExtendedGraphemeClusterType"
 - "FratEvent"
 - "Fraternity"
+- !private "LOADIMAGES"
 - !private "NSKeyedArchiver"
 - !private "NSKeyedUnarchiver"
 - "NSObject"
 - "Quality"
+- !private "RMDatabaseKey"
 - !private "RMDate"
 - !private "RMFileManagement"
+- !private "RMImage"
 - !private "RMImageQuality"
 - !private "RMNetwork"
 - !private "RMPropertyKeys"
@@ -100,10 +107,13 @@ depends-member:
 - !private ["s7CVarArgP", "DispatchQueue"]
 - ["s7CVarArgP", "FratEvent"]
 - ["s7CVarArgP", "Fraternity"]
+- !private ["s7CVarArgP", "LOADIMAGES"]
 - !private ["s7CVarArgP", "NSKeyedArchiver"]
 - !private ["s7CVarArgP", "NSKeyedUnarchiver"]
+- !private ["s7CVarArgP", "RMDatabaseKey"]
 - !private ["s7CVarArgP", "RMDate"]
 - !private ["s7CVarArgP", "RMFileManagement"]
+- !private ["s7CVarArgP", "RMImage"]
 - !private ["s7CVarArgP", "RMImageQuality"]
 - !private ["s7CVarArgP", "RMNetwork"]
 - !private ["s7CVarArgP", "RMPropertyKeys"]
@@ -134,9 +144,12 @@ depends-member:
 - !private ["s7CVarArgP", "favoritedFrats"]
 - !private ["s7CVarArgP", "filter"]
 - !private ["s7CVarArgP", "firstEvent_"]
+- !private ["s7CVarArgP", "firstLoad"]
 - !private ["s7CVarArgP", "frat"]
 - !private ["s7CVarArgP", "fratEventsByDay"]
+- !private ["s7CVarArgP", "fratNames"]
 - !private ["s7CVarArgP", "fraternitiesDict"]
+- !private ["s7CVarArgP", "getEvents"]
 - !private ["s7CVarArgP", "global"]
 - !private ["s7CVarArgP", "hashValue"]
 - ["s7CVarArgP", "init"]
@@ -149,8 +162,10 @@ depends-member:
 - !private ["s7CVarArgP", "preferences"]
 - !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "pullEventsFromSQLDataBase"]
+- !private ["s7CVarArgP", "pullImage"]
 - !private ["s7CVarArgP", "saveFavorites"]
 - !private ["s7CVarArgP", "select"]
+- !private ["s7CVarArgP", "setProperty"]
 - !private ["s7CVarArgP", "shared"]
 - !private ["s7CVarArgP", "sort"]
 - !private ["s7CVarArgP", "sorted"]
@@ -169,11 +184,14 @@ depends-member:
 - !private ["6RushMe6CampusC", "DispatchQueue"]
 - ["6RushMe6CampusC", "FratEvent"]
 - ["6RushMe6CampusC", "Fraternity"]
+- !private ["6RushMe6CampusC", "LOADIMAGES"]
 - !private ["6RushMe6CampusC", "NSKeyedArchiver"]
 - !private ["6RushMe6CampusC", "NSKeyedUnarchiver"]
 - ["6RushMe6CampusC", "Quality"]
+- !private ["6RushMe6CampusC", "RMDatabaseKey"]
 - !private ["6RushMe6CampusC", "RMDate"]
 - !private ["6RushMe6CampusC", "RMFileManagement"]
+- !private ["6RushMe6CampusC", "RMImage"]
 - !private ["6RushMe6CampusC", "RMImageQuality"]
 - !private ["6RushMe6CampusC", "RMNetwork"]
 - !private ["6RushMe6CampusC", "RMPropertyKeys"]
@@ -204,6 +222,7 @@ depends-member:
 - ["6RushMe6CampusC", "getEvents"]
 - ["6RushMe6CampusC", "hasFavorites"]
 - ["6RushMe6CampusC", "init"]
+- ["6RushMe6CampusC", "loadCampus"]
 - !private ["6RushMe6CampusC", "loadFavorites"]
 - !private ["6RushMe6CampusC", "preferences"]
 - !private ["6RushMe6CampusC", "print"]
@@ -243,10 +262,13 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
 - ["s28CustomDebugStringConvertibleP", "FratEvent"]
 - ["s28CustomDebugStringConvertibleP", "Fraternity"]
+- !private ["s28CustomDebugStringConvertibleP", "LOADIMAGES"]
 - !private ["s28CustomDebugStringConvertibleP", "NSKeyedArchiver"]
 - !private ["s28CustomDebugStringConvertibleP", "NSKeyedUnarchiver"]
+- !private ["s28CustomDebugStringConvertibleP", "RMDatabaseKey"]
 - !private ["s28CustomDebugStringConvertibleP", "RMDate"]
 - !private ["s28CustomDebugStringConvertibleP", "RMFileManagement"]
+- !private ["s28CustomDebugStringConvertibleP", "RMImage"]
 - !private ["s28CustomDebugStringConvertibleP", "RMImageQuality"]
 - !private ["s28CustomDebugStringConvertibleP", "RMNetwork"]
 - !private ["s28CustomDebugStringConvertibleP", "RMPropertyKeys"]
@@ -279,9 +301,12 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "favoritedFrats"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "firstEvent_"]
+- !private ["s28CustomDebugStringConvertibleP", "firstLoad"]
 - !private ["s28CustomDebugStringConvertibleP", "frat"]
 - !private ["s28CustomDebugStringConvertibleP", "fratEventsByDay"]
+- !private ["s28CustomDebugStringConvertibleP", "fratNames"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesDict"]
+- !private ["s28CustomDebugStringConvertibleP", "getEvents"]
 - !private ["s28CustomDebugStringConvertibleP", "global"]
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "insert"]
@@ -294,8 +319,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "preferences"]
 - !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "pullEventsFromSQLDataBase"]
+- !private ["s28CustomDebugStringConvertibleP", "pullImage"]
 - !private ["s28CustomDebugStringConvertibleP", "saveFavorites"]
 - !private ["s28CustomDebugStringConvertibleP", "select"]
+- !private ["s28CustomDebugStringConvertibleP", "setProperty"]
 - !private ["s28CustomDebugStringConvertibleP", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "sort"]
 - !private ["s28CustomDebugStringConvertibleP", "sorted"]
@@ -342,10 +369,13 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "DispatchQueue"]
 - ["s23CustomStringConvertibleP", "FratEvent"]
 - ["s23CustomStringConvertibleP", "Fraternity"]
+- !private ["s23CustomStringConvertibleP", "LOADIMAGES"]
 - !private ["s23CustomStringConvertibleP", "NSKeyedArchiver"]
 - !private ["s23CustomStringConvertibleP", "NSKeyedUnarchiver"]
+- !private ["s23CustomStringConvertibleP", "RMDatabaseKey"]
 - !private ["s23CustomStringConvertibleP", "RMDate"]
 - !private ["s23CustomStringConvertibleP", "RMFileManagement"]
+- !private ["s23CustomStringConvertibleP", "RMImage"]
 - !private ["s23CustomStringConvertibleP", "RMImageQuality"]
 - !private ["s23CustomStringConvertibleP", "RMNetwork"]
 - !private ["s23CustomStringConvertibleP", "RMPropertyKeys"]
@@ -379,9 +409,12 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "favoritedFrats"]
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "firstEvent_"]
+- !private ["s23CustomStringConvertibleP", "firstLoad"]
 - !private ["s23CustomStringConvertibleP", "frat"]
 - !private ["s23CustomStringConvertibleP", "fratEventsByDay"]
+- !private ["s23CustomStringConvertibleP", "fratNames"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesDict"]
+- !private ["s23CustomStringConvertibleP", "getEvents"]
 - !private ["s23CustomStringConvertibleP", "global"]
 - !private ["s23CustomStringConvertibleP", "hashValue"]
 - ["s23CustomStringConvertibleP", "init"]
@@ -395,8 +428,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "preferences"]
 - !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "pullEventsFromSQLDataBase"]
+- !private ["s23CustomStringConvertibleP", "pullImage"]
 - !private ["s23CustomStringConvertibleP", "saveFavorites"]
 - !private ["s23CustomStringConvertibleP", "select"]
+- !private ["s23CustomStringConvertibleP", "setProperty"]
 - !private ["s23CustomStringConvertibleP", "shared"]
 - !private ["s23CustomStringConvertibleP", "sort"]
 - !private ["s23CustomStringConvertibleP", "sorted"]
@@ -469,12 +504,15 @@ depends-member:
 - ["s9EquatableP", "FratEvent"]
 - ["s9EquatableP", "Fraternity"]
 - ["s9EquatableP", "High"]
+- !private ["s9EquatableP", "LOADIMAGES"]
 - ["s9EquatableP", "Low"]
 - ["s9EquatableP", "Medium"]
 - !private ["s9EquatableP", "NSKeyedArchiver"]
 - !private ["s9EquatableP", "NSKeyedUnarchiver"]
+- !private ["s9EquatableP", "RMDatabaseKey"]
 - !private ["s9EquatableP", "RMDate"]
 - !private ["s9EquatableP", "RMFileManagement"]
+- !private ["s9EquatableP", "RMImage"]
 - !private ["s9EquatableP", "RMImageQuality"]
 - !private ["s9EquatableP", "RMNetwork"]
 - !private ["s9EquatableP", "RMPropertyKeys"]
@@ -505,9 +543,12 @@ depends-member:
 - !private ["s9EquatableP", "favoritedFrats"]
 - !private ["s9EquatableP", "filter"]
 - !private ["s9EquatableP", "firstEvent_"]
+- !private ["s9EquatableP", "firstLoad"]
 - !private ["s9EquatableP", "frat"]
 - !private ["s9EquatableP", "fratEventsByDay"]
+- !private ["s9EquatableP", "fratNames"]
 - !private ["s9EquatableP", "fraternitiesDict"]
+- !private ["s9EquatableP", "getEvents"]
 - !private ["s9EquatableP", "global"]
 - ["s9EquatableP", "hashValue"]
 - ["s9EquatableP", "init"]
@@ -520,8 +561,10 @@ depends-member:
 - !private ["s9EquatableP", "preferences"]
 - !private ["s9EquatableP", "print"]
 - !private ["s9EquatableP", "pullEventsFromSQLDataBase"]
+- !private ["s9EquatableP", "pullImage"]
 - !private ["s9EquatableP", "saveFavorites"]
 - !private ["s9EquatableP", "select"]
+- !private ["s9EquatableP", "setProperty"]
 - !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "split"]
 - !private ["s9EquatableP", "startDate"]
@@ -563,9 +606,14 @@ depends-member:
 - ["6RushMe9FratEventC", "deinit"]
 - !private ["6RushMe9FratEventC", "frat"]
 - !private ["6RushMe9FratEventC", "startDate"]
+- ["6RushMe10FraternityC", "Campus"]
 - !private ["6RushMe10FraternityC", "add"]
+- !private ["6RushMe10FraternityC", "deinit"]
 - !private ["6RushMe10FraternityC", "events"]
+- !private ["6RushMe10FraternityC", "init"]
 - !private ["6RushMe10FraternityC", "name"]
+- ["6RushMe10FraternityC", "register"]
+- !private ["6RushMe10FraternityC", "setProperty"]
 - !private ["s8HashableP", "Campus"]
 - !private ["s8HashableP", "ComparisonResult"]
 - !private ["s8HashableP", "Data"]
@@ -575,12 +623,15 @@ depends-member:
 - ["s8HashableP", "FratEvent"]
 - ["s8HashableP", "Fraternity"]
 - ["s8HashableP", "High"]
+- !private ["s8HashableP", "LOADIMAGES"]
 - ["s8HashableP", "Low"]
 - ["s8HashableP", "Medium"]
 - !private ["s8HashableP", "NSKeyedArchiver"]
 - !private ["s8HashableP", "NSKeyedUnarchiver"]
+- !private ["s8HashableP", "RMDatabaseKey"]
 - !private ["s8HashableP", "RMDate"]
 - !private ["s8HashableP", "RMFileManagement"]
+- !private ["s8HashableP", "RMImage"]
 - !private ["s8HashableP", "RMImageQuality"]
 - !private ["s8HashableP", "RMNetwork"]
 - !private ["s8HashableP", "RMPropertyKeys"]
@@ -611,9 +662,12 @@ depends-member:
 - !private ["s8HashableP", "favoritedFrats"]
 - !private ["s8HashableP", "filter"]
 - !private ["s8HashableP", "firstEvent_"]
+- !private ["s8HashableP", "firstLoad"]
 - !private ["s8HashableP", "frat"]
 - !private ["s8HashableP", "fratEventsByDay"]
+- !private ["s8HashableP", "fratNames"]
 - !private ["s8HashableP", "fraternitiesDict"]
+- !private ["s8HashableP", "getEvents"]
 - !private ["s8HashableP", "global"]
 - ["s8HashableP", "hashValue"]
 - ["s8HashableP", "init"]
@@ -626,8 +680,10 @@ depends-member:
 - !private ["s8HashableP", "preferences"]
 - !private ["s8HashableP", "print"]
 - !private ["s8HashableP", "pullEventsFromSQLDataBase"]
+- !private ["s8HashableP", "pullImage"]
 - !private ["s8HashableP", "saveFavorites"]
 - !private ["s8HashableP", "select"]
+- !private ["s8HashableP", "setProperty"]
 - !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "split"]
 - !private ["s8HashableP", "startDate"]
@@ -688,11 +744,14 @@ depends-member:
 - !private ["So8NSObjectC", "DispatchQueue"]
 - ["So8NSObjectC", "FratEvent"]
 - ["So8NSObjectC", "Fraternity"]
+- !private ["So8NSObjectC", "LOADIMAGES"]
 - !private ["So8NSObjectC", "NSKeyedArchiver"]
 - !private ["So8NSObjectC", "NSKeyedUnarchiver"]
 - ["So8NSObjectC", "Quality"]
+- !private ["So8NSObjectC", "RMDatabaseKey"]
 - !private ["So8NSObjectC", "RMDate"]
 - !private ["So8NSObjectC", "RMFileManagement"]
+- !private ["So8NSObjectC", "RMImage"]
 - !private ["So8NSObjectC", "RMImageQuality"]
 - !private ["So8NSObjectC", "RMNetwork"]
 - !private ["So8NSObjectC", "RMPropertyKeys"]
@@ -730,14 +789,17 @@ depends-member:
 - !private ["So8NSObjectC", "global"]
 - ["So8NSObjectC", "hasFavorites"]
 - ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "loadCampus"]
 - ["So8NSObjectC", "loadFavorites"]
 - !private ["So8NSObjectC", "name"]
 - ["So8NSObjectC", "preferences"]
 - !private ["So8NSObjectC", "print"]
 - ["So8NSObjectC", "pullEventsFromSQLDataBase"]
 - ["So8NSObjectC", "pullImage"]
+- ["So8NSObjectC", "register"]
 - ["So8NSObjectC", "saveFavorites"]
 - !private ["So8NSObjectC", "select"]
+- !private ["So8NSObjectC", "setProperty"]
 - ["So8NSObjectC", "shared"]
 - !private ["So8NSObjectC", "split"]
 - !private ["So8NSObjectC", "startDate"]
@@ -751,10 +813,13 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "DispatchQueue"]
 - ["So16NSObjectProtocolP", "FratEvent"]
 - ["So16NSObjectProtocolP", "Fraternity"]
+- !private ["So16NSObjectProtocolP", "LOADIMAGES"]
 - !private ["So16NSObjectProtocolP", "NSKeyedArchiver"]
 - !private ["So16NSObjectProtocolP", "NSKeyedUnarchiver"]
+- !private ["So16NSObjectProtocolP", "RMDatabaseKey"]
 - !private ["So16NSObjectProtocolP", "RMDate"]
 - !private ["So16NSObjectProtocolP", "RMFileManagement"]
+- !private ["So16NSObjectProtocolP", "RMImage"]
 - !private ["So16NSObjectProtocolP", "RMImageQuality"]
 - !private ["So16NSObjectProtocolP", "RMNetwork"]
 - !private ["So16NSObjectProtocolP", "RMPropertyKeys"]
@@ -781,9 +846,12 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritedEvents_"]
 - !private ["So16NSObjectProtocolP", "favoritedFrats"]
 - !private ["So16NSObjectProtocolP", "firstEvent_"]
+- !private ["So16NSObjectProtocolP", "firstLoad"]
 - !private ["So16NSObjectProtocolP", "frat"]
 - !private ["So16NSObjectProtocolP", "fratEventsByDay"]
+- !private ["So16NSObjectProtocolP", "fratNames"]
 - !private ["So16NSObjectProtocolP", "fraternitiesDict"]
+- !private ["So16NSObjectProtocolP", "getEvents"]
 - !private ["So16NSObjectProtocolP", "global"]
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "loadFavorites"]
@@ -791,8 +859,10 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "preferences"]
 - !private ["So16NSObjectProtocolP", "print"]
 - !private ["So16NSObjectProtocolP", "pullEventsFromSQLDataBase"]
+- !private ["So16NSObjectProtocolP", "pullImage"]
 - !private ["So16NSObjectProtocolP", "saveFavorites"]
 - !private ["So16NSObjectProtocolP", "select"]
+- !private ["So16NSObjectProtocolP", "setProperty"]
 - !private ["So16NSObjectProtocolP", "shared"]
 - !private ["So16NSObjectProtocolP", "split"]
 - !private ["So16NSObjectProtocolP", "startDate"]
@@ -817,10 +887,16 @@ depends-member:
 - ["6RushMe7QualityO", "__derived_enum_equals"]
 - ["6RushMe7QualityO", "deinit"]
 - ["6RushMe7QualityO", "hashValue"]
+- !private ["6RushMe13RMDatabaseKeyV", "CalendarImageKey"]
+- !private ["6RushMe13RMDatabaseKeyV", "ChapterKey"]
+- !private ["6RushMe13RMDatabaseKeyV", "NameKey"]
+- !private ["6RushMe13RMDatabaseKeyV", "PreviewImageKey"]
+- !private ["6RushMe13RMDatabaseKeyV", "ProfileImageKey"]
 - !private ["6RushMe6RMDateV", "Today"]
 - !private ["6RushMe16RMFileManagementV", "favoritedFratURL"]
 - !private ["6RushMe16RMFileManagementV", "fratImageURL"]
 - !private ["6RushMe16RMFileManagementV", "userInfoURL"]
+- !private ["6RushMe7RMImageV", "NoImage"]
 - !private ["6RushMe14RMImageQualityV", "Low"]
 - !private ["6RushMe14RMImageQualityV", "Medium"]
 - !private ["6RushMe9RMNetworkV", "HTTP"]
@@ -1010,10 +1086,13 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Fraternity"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "LOADIMAGES"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSKeyedArchiver"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSKeyedUnarchiver"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDatabaseKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFileManagement"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImageQuality"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMNetwork"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMPropertyKeys"]
@@ -1040,9 +1119,12 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedEvents_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstEvent_"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "firstLoad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "frat"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fratEventsByDay"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fratNames"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesDict"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "getEvents"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "global"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadFavorites"]
@@ -1050,8 +1132,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "preferences"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pullEventsFromSQLDataBase"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pullImage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "saveFavorites"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "select"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "setProperty"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "split"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
@@ -1154,7 +1238,7 @@ depends-nominal:
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "s17FixedWidthIntegerP"
 - "6RushMe9FratEventC"
-- !private "6RushMe10FraternityC"
+- "6RushMe10FraternityC"
 - "s8HashableP"
 - !private "Si"
 - !private "s25LosslessStringConvertibleP"
@@ -1180,8 +1264,10 @@ depends-nominal:
 - !private "So9OS_objectC"
 - !private "8Dispatch0A3QoSV0B6SClassO"
 - "6RushMe7QualityO"
+- !private "6RushMe13RMDatabaseKeyV"
 - !private "6RushMe6RMDateV"
 - !private "6RushMe16RMFileManagementV"
+- !private "6RushMe7RMImageV"
 - !private "6RushMe14RMImageQualityV"
 - !private "6RushMe9RMNetworkV"
 - !private "6RushMe14RMPropertyKeysV"
@@ -1280,4 +1366,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "784d73d1afbacf5e133694b08f4b2a3c"
+interface-hash: "b6fc3dcbf1e6f1a860d545b36c923c21"

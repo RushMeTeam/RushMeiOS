@@ -194,6 +194,7 @@ depends-member:
 - ["6RushMe9RMMessageV", "AppName"]
 - ["6RushMe9RMMessageV", "Favorite"]
 - ["6RushMe9RMMessageV", "LoadingFrats"]
+- ["6RushMe9RMMessageV", "LoadingFratsFirstTime"]
 - ["6RushMe9RMMessageV", "NoEvents"]
 - ["6RushMe9RMMessageV", "NoFavorites"]
 - ["6RushMe9RMMessageV", "Refresh"]
@@ -400,4 +401,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "78f17568aacd8e2e5634c465a5bec367"
+interface-hash: "ea4f6c2ad1527cedb7861ec6311bffff"

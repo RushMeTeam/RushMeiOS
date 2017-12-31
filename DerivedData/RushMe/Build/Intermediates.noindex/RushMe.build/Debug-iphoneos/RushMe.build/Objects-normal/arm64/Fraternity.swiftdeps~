@@ -1,0 +1,370 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Fraternity"
+provides-nominal:
+- "6RushMe10FraternityC"
+provides-member:
+- ["6RushMe10FraternityC", ""]
+- ["SS", ""]
+- ["SS", "greekLetters"]
+provides-dynamic-lookup:
+- "add"
+- "chapter"
+- "events"
+- "getProperty"
+- "name"
+- "previewImage"
+- "setProperty"
+depends-top-level:
+- !private "!="
+- !private "=="
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "Date"
+- "Dictionary"
+- "FratEvent"
+- "Fraternity"
+- "NSObject"
+- !private "RMImage"
+- "String"
+- !private "StringLiteralType"
+- "UIImage"
+- !private "UnicodeScalarType"
+depends-member:
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "replacingOccurrences"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["s7CVarArgP", "Date"]
+- ["s7CVarArgP", "FratEvent"]
+- !private ["s7CVarArgP", "RMImage"]
+- !private ["s7CVarArgP", "chapter"]
+- !private ["s7CVarArgP", "events"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "name"]
+- !private ["s7CVarArgP", "previewImage"]
+- !private ["s7CVarArgP", "properties"]
+- !private ["s7CVarArgP", "replacingOccurrences"]
+- !private ["s7CVarArgP", "startDate"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", ""]
+- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "replacingOccurrences"]
+- !private ["s10CollectionP", "subscript"]
+- !private ["s10ComparableP", "init"]
+- !private ["s10ComparableP", "replacingOccurrences"]
+- ["s28CustomDebugStringConvertibleP", "Date"]
+- ["s28CustomDebugStringConvertibleP", "FratEvent"]
+- !private ["s28CustomDebugStringConvertibleP", "RMImage"]
+- !private ["s28CustomDebugStringConvertibleP", "chapter"]
+- !private ["s28CustomDebugStringConvertibleP", "events"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "previewImage"]
+- !private ["s28CustomDebugStringConvertibleP", "properties"]
+- !private ["s28CustomDebugStringConvertibleP", "replacingOccurrences"]
+- !private ["s28CustomDebugStringConvertibleP", "startDate"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "replacingOccurrences"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "replacingOccurrences"]
+- !private ["s17CustomReflectableP", "subscript"]
+- ["s23CustomStringConvertibleP", "Date"]
+- ["s23CustomStringConvertibleP", "FratEvent"]
+- !private ["s23CustomStringConvertibleP", "RMImage"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "chapter"]
+- !private ["s23CustomStringConvertibleP", "events"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "previewImage"]
+- !private ["s23CustomStringConvertibleP", "properties"]
+- !private ["s23CustomStringConvertibleP", "replacingOccurrences"]
+- !private ["s23CustomStringConvertibleP", "startDate"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "replacingOccurrences"]
+- !private ["s9DecodableP", "subscript"]
+- ["s10DictionaryV", "init"]
+- !private ["s10DictionaryV", "subscript"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "replacingOccurrences"]
+- !private ["s9EncodableP", "subscript"]
+- ["s9EquatableP", "Date"]
+- ["s9EquatableP", "FratEvent"]
+- !private ["s9EquatableP", "RMImage"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "chapter"]
+- !private ["s9EquatableP", "events"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "name"]
+- !private ["s9EquatableP", "previewImage"]
+- !private ["s9EquatableP", "properties"]
+- !private ["s9EquatableP", "replacingOccurrences"]
+- !private ["s9EquatableP", "startDate"]
+- ["s9EquatableP", ""]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "replacingOccurrences"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "replacingOccurrences"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "replacingOccurrences"]
+- !private ["6RushMe9FratEventC", "init"]
+- !private ["6RushMe9FratEventC", "startDate"]
+- ["6RushMe10FraternityC", "Date"]
+- ["6RushMe10FraternityC", "Dictionary"]
+- ["6RushMe10FraternityC", "FratEvent"]
+- ["6RushMe10FraternityC", "Fraternity"]
+- !private ["6RushMe10FraternityC", "RMImage"]
+- ["6RushMe10FraternityC", "String"]
+- ["6RushMe10FraternityC", "UIImage"]
+- ["6RushMe10FraternityC", "add"]
+- ["6RushMe10FraternityC", "chapter"]
+- ["6RushMe10FraternityC", "deinit"]
+- ["6RushMe10FraternityC", "events"]
+- ["6RushMe10FraternityC", "getProperty"]
+- ["6RushMe10FraternityC", "init"]
+- ["6RushMe10FraternityC", "name"]
+- ["6RushMe10FraternityC", "previewImage"]
+- !private ["6RushMe10FraternityC", "properties"]
+- ["6RushMe10FraternityC", "setProperty"]
+- ["s8HashableP", "Date"]
+- ["s8HashableP", "FratEvent"]
+- !private ["s8HashableP", "RMImage"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "chapter"]
+- !private ["s8HashableP", "events"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "name"]
+- !private ["s8HashableP", "previewImage"]
+- !private ["s8HashableP", "properties"]
+- !private ["s8HashableP", "replacingOccurrences"]
+- !private ["s8HashableP", "startDate"]
+- ["s8HashableP", ""]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s25LosslessStringConvertibleP", "replacingOccurrences"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s10MirrorPathP", "replacingOccurrences"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "replacingOccurrences"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "replacingOccurrences"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderReadingP", "replacingOccurrences"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So21NSItemProviderWritingP", "replacingOccurrences"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So16NSMutableCopyingP", "replacingOccurrences"]
+- ["So8NSObjectC", "Date"]
+- ["So8NSObjectC", "Dictionary"]
+- ["So8NSObjectC", "FratEvent"]
+- ["So8NSObjectC", "Fraternity"]
+- !private ["So8NSObjectC", "RMImage"]
+- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "UIImage"]
+- ["So8NSObjectC", "add"]
+- ["So8NSObjectC", "chapter"]
+- ["So8NSObjectC", "events"]
+- ["So8NSObjectC", "getProperty"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "name"]
+- ["So8NSObjectC", "previewImage"]
+- ["So8NSObjectC", "properties"]
+- !private ["So8NSObjectC", "replacingOccurrences"]
+- ["So8NSObjectC", "setProperty"]
+- !private ["So8NSObjectC", "startDate"]
+- ["So8NSObjectC", ""]
+- ["So16NSObjectProtocolP", "Date"]
+- ["So16NSObjectProtocolP", "FratEvent"]
+- !private ["So16NSObjectProtocolP", "RMImage"]
+- !private ["So16NSObjectProtocolP", "chapter"]
+- !private ["So16NSObjectProtocolP", "events"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "name"]
+- !private ["So16NSObjectProtocolP", "previewImage"]
+- !private ["So16NSObjectProtocolP", "properties"]
+- !private ["So16NSObjectProtocolP", "replacingOccurrences"]
+- !private ["So16NSObjectProtocolP", "startDate"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "replacingOccurrences"]
+- !private ["So8NSStringC", "init"]
+- !private ["So8NSStringC", "replacingOccurrences"]
+- !private ["So15OHSerializationP", "init"]
+- !private ["So15OHSerializationP", "replacingOccurrences"]
+- !private ["6RushMe7RMImageV", "NoImage"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "replacingOccurrences"]
+- ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "replacingOccurrences"]
+- !private ["s8SequenceP", "subscript"]
+- !private ["s12StaticStringV", "init"]
+- ["SS", "String"]
+- ["SS", "greekLetters"]
+- !private ["SS", "init"]
+- !private ["SS", "replacingOccurrences"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s14StringProtocolP", "replacingOccurrences"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s16TextOutputStreamP", "replacingOccurrences"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["s20TextOutputStreamableP", "replacingOccurrences"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "replacingOccurrences"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "replacingOccurrences"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "replacingOccurrences"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "replacingOccurrences"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "replacingOccurrences"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "replacingOccurrences"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "replacingOccurrences"]
+- ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "replacingOccurrences"]
+- !private ["s10_IndexableP", "subscript"]
+- ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "replacingOccurrences"]
+- !private ["s14_IndexableBaseP", "subscript"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Date"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "chapter"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "events"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "previewImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "properties"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "replacingOccurrences"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "replacingOccurrences"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "replacingOccurrences"]
+- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "replacingOccurrences"]
+depends-nominal:
+- !private "s23BidirectionalCollectionP"
+- !private "Sb"
+- "s7CVarArgP"
+- "s10CollectionP"
+- !private "s10ComparableP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "s9DecodableP"
+- "s10DictionaryV"
+- "s9EncodableP"
+- "s9EquatableP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "6RushMe9FratEventC"
+- "6RushMe10FraternityC"
+- "s8HashableP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "So15OHSerializationP"
+- !private "6RushMe7RMImageV"
+- !private "s26RangeReplaceableCollectionP"
+- "s8SequenceP"
+- !private "s12StaticStringV"
+- "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
+interface-hash: "527f6f60650a3880e5840ba729abc635"

@@ -192,7 +192,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     openMapButton.tintColor = UIColor.white
     openMapButton.layer.cornerRadius = 5
     openMapButton.layer.masksToBounds = true
-    
+    //openMapButton.addSubview(visualEffectView)
+    //openMapButton.sendSubview(toBack: visualEffectView)
     self.underlyingView.bringSubview(toFront: mapView)
     self.underlyingView.bringSubview(toFront: openMapButton)
     // Do any additional setup after loading the view, typically from a nib.

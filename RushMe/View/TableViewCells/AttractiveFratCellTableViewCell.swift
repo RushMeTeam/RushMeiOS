@@ -27,7 +27,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  var imageBorderColor = UIColor.white.withAlphaComponent(0.5) {
+  var imageBorderColor = UIColor.clear {
     didSet {
       UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
         self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor

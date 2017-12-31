@@ -63,6 +63,7 @@ class SQLHandler: NSObject {
     if let _ = whereClause { queryString += " WHERE " + whereClause! }
     //queryString += ";"
     let query = OHMySQLQueryRequest(queryString: queryString)
+    
     if let qContext = context {
       if let result = try? qContext.executeQueryRequestAndFetchResult(query) {
        return result

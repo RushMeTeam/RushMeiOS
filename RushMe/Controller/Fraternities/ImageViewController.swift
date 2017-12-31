@@ -12,9 +12,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   var image : UIImage = RMImage.NoImage
   @IBOutlet var imageView: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
+  var visualEffectView : UIVisualEffectView?
   override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+        visualEffectView!.frame = self.view.frame
+        self.view.addSubview(visualEffectView!)
+        self.view.sendSubview(toBack: visualEffectView!)
+        self.view.backgroundColor = UIColor.clear
         self.scrollView.maximumZoomScale = 3
         self.scrollView.minimumZoomScale = 1
         self.scrollView.isScrollEnabled = true
