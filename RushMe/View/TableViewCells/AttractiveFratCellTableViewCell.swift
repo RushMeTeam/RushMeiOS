@@ -15,10 +15,16 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   @IBOutlet var subheadingLabel: UILabel!
   @IBOutlet var previewImageView: UIImageView!
   var gradientLayer : CAGradientLayer? = nil
-  
+  var previewImageURL : String = "" {
+    didSet {
+      self.layoutSubviews()
+    }
+    
+  }
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+    
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {

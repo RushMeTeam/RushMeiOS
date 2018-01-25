@@ -10,26 +10,14 @@ import UIKit
 
 fileprivate let emptyCellReuseIdentifier = "emptyCell"
 fileprivate let eventCellReuseIdentifier = "fullEventTBCell"
-// TODO: Add segment control picker for favorites vs. all
 class FullEventsListTableViewController: UITableViewController, UISearchResultsUpdating {
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
-  @IBOutlet var favoritesButton: UIBarButtonItem!
-  
+  weak var favoritesSegmentControl : UISegmentedControl?
   var viewingFavorites = false {
     didSet {
-      if !viewingFavorites {
-        //favoritesBarButton.image = RMImage.FavoritesImageUnfilled
-        favoritesButton.title = "Favorites"
-      }
-      else {
-        //favoritesBarButton.image = RMImage.FavoritesImageFilled
-        favoritesButton.title = "All"
-      }
       dataSource_ = nil
       self.reloadTableView()
-      refreshControl?.isEnabled = !viewingFavorites
-      self.favoritesButton.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
     }
   }
   
@@ -65,9 +53,7 @@ class FullEventsListTableViewController: UITableViewController, UISearchResultsU
                       options: UIViewAnimationOptions.transitionCrossDissolve,
                       animations: { self.tableView.reloadData() })
   }
-  @IBAction func favoritesButtonToggled(_ sender: UIBarButtonItem) {
-    viewingFavorites = !viewingFavorites
-  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     if (self.revealViewController() != nil) {
@@ -85,10 +71,12 @@ class FullEventsListTableViewController: UITableViewController, UISearchResultsU
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    self.favoritesButton.isEnabled = Campus.shared.hasFavorites
 
   }
-  
+  override func viewWillAppear(_ animated : Bool) {
+    super.viewWillAppear(animated)
+    self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites
+  }
   func updateSearchResults(for searchController: UISearchController) {
     var newDataSource = [[FratEvent]]()
     let searchText = searchController.searchBar.text ?? ""
@@ -111,24 +99,50 @@ class FullEventsListTableViewController: UITableViewController, UISearchResultsU
   
   // MARK: - Table view data source
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    if section == 0 {
+     return nil 
+    }
     if self.dataSource.count == 0 {
      return nil
     }
-    return DateFormatter.localizedString(from: self.dataSource[section][0].startDate, dateStyle: .medium, timeStyle: .none)
+    let indexDate = dataSource[section-1][0].startDate
+    var relation = ""
+    if Calendar.current.compare(indexDate, to: RMDate.Today, toGranularity: .day) == .orderedSame {
+     relation = " (Today)" 
+    }
+    else if Calendar.current.compare(indexDate.addingTimeInterval(-86400), to: RMDate.Today, toGranularity: .day) == .orderedSame {
+     relation = " (Tomorrow)" 
+    }
+    else if Calendar.current.compare(indexDate.addingTimeInterval(86400), to: RMDate.Today, toGranularity: .day) == .orderedSame {
+      relation = " (Yesterday)"
+    }
+    return DateFormatter.localizedString(from: indexDate, dateStyle: .medium, timeStyle: .none) + relation
   }
   override func numberOfSections(in tableView: UITableView) -> Int {
     // #warning Incomplete implementation, return the number of sections
-    return max(self.dataSource.count, 1)
+    return max(self.dataSource.count+1, 2)
   }
-  
+  @objc func segmentControlChanged(sender : UISegmentedControl) {
+    viewingFavorites = (sender.selectedSegmentIndex == 1)
+  }
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if section == 0 {
+      return 1
+    }
     if self.dataSource.count == 0 {
      return 1
     }
     // #warning Incomplete implementation, return the number of rows
-    return self.dataSource[section].count
+    return self.dataSource[section-1].count
   }
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if indexPath.section == 0 {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "SegmentedControlCell") as! SegmentCell
+      cell.segmentControl.addTarget(self, action: #selector(FullEventsListTableViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
+      cell.segmentControl.isEnabled = Campus.shared.hasFavorites
+      favoritesSegmentControl = cell.segmentControl
+      return cell
+    }
     if self.dataSource.count == 0 {
      let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellReuseIdentifier)!
       cell.textLabel?.text = "No Events"
@@ -136,24 +150,29 @@ class FullEventsListTableViewController: UITableViewController, UISearchResultsU
       cell.textLabel?.textAlignment = .center
       return cell
     }
+    
    let cell = tableView.dequeueReusableCell(withIdentifier: eventCellReuseIdentifier, for: indexPath) as! EventTableViewCell
-    cell.event = self.dataSource[indexPath.section][indexPath.row]
+    cell.event = self.dataSource[indexPath.section-1][indexPath.row]
     return cell
    }
   
   override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-    var titles = [String]()
+    var titles = [""]
     for daysEvents in dataSource {
       let dateText = DateFormatter.localizedString(from: daysEvents[0].startDate, dateStyle: .short, timeStyle: .none)
-       
-      titles.append(String(dateText.dropLast(3)))
+      if Calendar.current.compare(daysEvents[0].startDate, to: RMDate.Today, toGranularity: .day) == .orderedSame {
+       titles.append("TDY") 
+      }
+      else {
+        titles.append(String(dateText.dropLast(3)))
+      }
     }
     return titles
   }
   
    
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 64
+    return indexPath.section == 0 ? 36 : 64
   }
   /*
    // Override to support conditional editing of the table view.

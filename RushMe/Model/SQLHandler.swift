@@ -23,7 +23,7 @@ class SQLHandler: NSObject {
   let context : OHMySQLQueryContext?
   var isConnected : Bool {
     get {
-     return user != nil && coordinator != nil && coordinator!.isConnected
+     return user != nil && coordinator != nil
     }
   }
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"

@@ -10,6 +10,7 @@ import UIKit
 import EventKit
 
 fileprivate let reuseIdentifier = "CalendarCell"
+fileprivate let labelReuseIdentifier = "DayCell"
 
 class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   // MARK: Member Variables
@@ -143,14 +144,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       return cell
     }
     if (indexPath.row < 7) {
+      let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! CalendarLabelCollectionViewCell
       let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (self.firstEvent!.startDate))!
       let dateAsString = DateFormatter.localizedString(from: currentDay,
                                                        dateStyle: DateFormatter.Style.full,
                                                        timeStyle: DateFormatter.Style.full)
-      cell.dayLabel?.text = String(describing: dateAsString.prefix(3))
-      cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
-      cell.eventsLabel?.isHidden = true
-      return cell
+      labelCell.dayLabel?.text = String(describing: dateAsString.prefix(3))
+      labelCell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
+      return labelCell
     }
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (self.firstEvent!.startDate))!
     if Calendar.current.isDate(currentDay, inSameDayAs: RMDate.Today) {
@@ -190,12 +191,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       eventViewController?.selectedEvents = collectionCell.eventsToday
       
       if let todaysEvent = collectionCell.eventsToday?.first {
-        if Calendar.current.isDate(todaysEvent.startDate, inSameDayAs: RMDate.Today) {
-          dateLabel.text = "Today"
-        }
-        else {
-          self.dateLabel.text = DateFormatter.localizedString(from: todaysEvent.startDate, dateStyle: .long, timeStyle: .none)
-        }
+        self.dateLabel.text = DateFormatter.localizedString(from: todaysEvent.startDate, dateStyle: .long, timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, inSameDayAs: RMDate.Today) ? " (Today)" : "")
       }
       else {
         dateLabel?.text = " "

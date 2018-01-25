@@ -77,6 +77,7 @@ class MasterViewController : UITableViewController,
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
     // Ensure the menu button toggles the menu
+    openBarButtonItem.isEnabled = false
     openBarButtonItem.target = self
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
     // Allows for drag to open and tap out to close
@@ -89,6 +90,7 @@ class MasterViewController : UITableViewController,
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl!.beginRefreshing()
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
+    
   }
   
   // MARK: - Data Handling
@@ -96,11 +98,10 @@ class MasterViewController : UITableViewController,
     if !self.pullFratsFromSQLDatabase() {
      print("Failed to load!") 
     }
-    
   }
   // MARK: Data Request
   @objc func pullFratsFromSQLDatabase(types : [String] = []) -> Bool {
-    DispatchQueue.global().async {
+    DispatchQueue.global(qos: .default).async {
       self.animateRefreshView()
     }
     if SQLHandler.shared.isConnected == false {
@@ -142,6 +143,7 @@ class MasterViewController : UITableViewController,
           self.favoritesSegmentControl?.isHidden = false
           self.favoritesSegmentControl?.alpha = 0
           self.refreshControl!.isEnabled = true
+          self.openBarButtonItem.isEnabled = true
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
             self.favoritesSegmentControl?.alpha = 1
           })
@@ -153,6 +155,7 @@ class MasterViewController : UITableViewController,
         self.refreshControl!.endRefreshing()
         self.tableView.reloadData()
         self.refreshControl!.isEnabled = true
+        
       })
     }
     return true
@@ -176,10 +179,7 @@ class MasterViewController : UITableViewController,
           UIView.animate(withDuration: 0.8, animations: {
             self.refreshControl!.backgroundColor = UIColor.white
             self.refreshControl!.tintColor = RMColor.AppColor
-          
           })
-          
-          
         }
       })
     }
@@ -238,6 +238,10 @@ class MasterViewController : UITableViewController,
         }
       }
     }
+  }
+  
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    return !(self.refreshControl?.isRefreshing ?? true)
   }
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
@@ -303,6 +307,7 @@ class MasterViewController : UITableViewController,
         cell.titleLabel?.text = frat.name
         cell.subheadingLabel?.text = frat.chapter
         cell.previewImageView?.image = frat.previewImage
+        cell.previewImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String
         if Campus.shared.favoritedFrats.contains(frat.name) {
           cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
         }
@@ -346,19 +351,30 @@ class MasterViewController : UITableViewController,
         Campus.shared.favoritedFrats.append(fratName)
         action.backgroundColor = RMColor.AppColor
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)        }
+          cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)  
+          cell.layoutSubviews()
+        }
+        action.backgroundColor = RMColor.AppColor
       }
       else {
         action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
           cell.imageBorderColor = UIColor.white.withAlphaComponent(0.5)
+          cell.layoutSubviews()
         }
         Campus.shared.favoritedFrats.remove(at: fratIndex)
         if (self.viewingFavorites) {
           self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
         }
+        else {
+         action.backgroundColor = RMColor.AppColor 
+        }
+        
+        
+        
       }
       self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+      
     })
     toggleFavorite.backgroundColor = bgColor
     return [toggleFavorite]
