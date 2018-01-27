@@ -15,12 +15,6 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   @IBOutlet var subheadingLabel: UILabel!
   @IBOutlet var previewImageView: UIImageView!
   var gradientLayer : CAGradientLayer? = nil
-  var previewImageURL : String = "" {
-    didSet {
-      self.layoutSubviews()
-    }
-    
-  }
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -62,23 +56,23 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
       }
       iView.isUserInteractionEnabled = false
     }
-    if let subLabel = subheadingLabel {
-      subLabel.layer.masksToBounds = true
-      subLabel.layer.cornerRadius = RMImage.CornerRadius/2.0
-//      if #available(iOS 11.0, *) {
-//        subLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
-//      } else {
-//        // Fallback on earlier versions
-//      }
-    }
-    if let bigLabel = titleLabel {
-      bigLabel.layer.masksToBounds = true
-      bigLabel.layer.cornerRadius = RMImage.CornerRadius/2.0
-//      if #available(iOS 11.0, *) {
-//        bigLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
-//      } else {
-//        // Fallback on earlier versions
-//      }
-    }
+//    if let subLabel = subheadingLabel {
+//      subLabel.layer.masksToBounds = true
+////      subLabel.layer.cornerRadius = RMImage.CornerRadius/2.0
+////      if #available(iOS 11.0, *) {
+////        subLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+////      } else {
+////        // Fallback on earlier versions
+////      }
+//    }
+//    if let bigLabel = titleLabel {
+//      bigLabel.layer.masksToBounds = true
+////      bigLabel.layer.cornerRadius = RMImage.CornerRadius/2.0
+////      if #available(iOS 11.0, *) {
+////        bigLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+////      } else {
+////        // Fallback on earlier versions
+////      }
+//    }
   }
 }

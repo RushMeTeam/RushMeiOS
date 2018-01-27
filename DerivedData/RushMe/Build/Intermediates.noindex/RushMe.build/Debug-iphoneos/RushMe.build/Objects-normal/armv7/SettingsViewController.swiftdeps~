@@ -78,9 +78,6 @@ depends-member:
 - !private ["6RushMe6CampusC", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "Campus"]
 - !private ["s28CustomDebugStringConvertibleP", "DateFormatter"]
-- !private ["s28CustomDebugStringConvertibleP", "High"]
-- !private ["s28CustomDebugStringConvertibleP", "Low"]
-- !private ["s28CustomDebugStringConvertibleP", "Medium"]
 - !private ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
 - !private ["s28CustomDebugStringConvertibleP", "RMDate"]
@@ -114,9 +111,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "viewWillDisappear"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- !private ["s17CustomReflectableP", "High"]
-- !private ["s17CustomReflectableP", "Low"]
-- !private ["s17CustomReflectableP", "Medium"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "Campus"]
 - !private ["s23CustomStringConvertibleP", "DateFormatter"]
@@ -154,13 +148,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "viewWillDisappear"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["So13DateFormatterC", "localizedString"]
-- !private ["s9DecodableP", "High"]
-- !private ["s9DecodableP", "Low"]
-- !private ["s9DecodableP", "Medium"]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
-- !private ["s9EncodableP", "High"]
-- !private ["s9EncodableP", "Low"]
-- !private ["s9EncodableP", "Medium"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "Campus"]
 - !private ["s9EquatableP", "DateFormatter"]
@@ -204,9 +192,6 @@ depends-member:
 - !private ["s9EquatableP", "viewWillDisappear"]
 - ["s9EquatableP", ""]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- !private ["s23ExpressibleByNilLiteralP", "High"]
-- !private ["s23ExpressibleByNilLiteralP", "Low"]
-- !private ["s23ExpressibleByNilLiteralP", "Medium"]
 - !private ["So9FormatterC", "localizedString"]
 - !private ["s8HashableP", "Campus"]
 - !private ["s8HashableP", "DateFormatter"]
@@ -376,9 +361,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "viewDidLoad"]
 - !private ["So16NSObjectProtocolP", "viewWillDisappear"]
 - ["So16NSObjectProtocolP", ""]
-- !private ["Sq", "High"]
-- !private ["Sq", "Low"]
-- !private ["Sq", "Medium"]
 - !private ["6RushMe7QualityO", "High"]
 - !private ["6RushMe7QualityO", "Low"]
 - !private ["6RushMe7QualityO", "Medium"]
@@ -386,6 +368,9 @@ depends-member:
 - !private ["6RushMe7RMColorV", "AppColor"]
 - !private ["6RushMe7RMColorV", "NavigationItemsColor"]
 - !private ["6RushMe6RMDateV", "Today"]
+- !private ["s16RawRepresentableP", "High"]
+- !private ["s16RawRepresentableP", "Low"]
+- !private ["s16RawRepresentableP", "Medium"]
 - !private ["s16RawRepresentableP", "foregroundColor"]
 - !private ["s16RawRepresentableP", "medium"]
 - !private ["s16RawRepresentableP", "short"]
@@ -768,14 +753,8 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewWillDisappear"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
-- !private ["s21_ObjectiveCBridgeableP", "High"]
-- !private ["s21_ObjectiveCBridgeableP", "Low"]
-- !private ["s21_ObjectiveCBridgeableP", "Medium"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "foregroundColor"]
-- !private ["s26_OptionalNilComparisonTypeV", "High"]
-- !private ["s26_OptionalNilComparisonTypeV", "Low"]
-- !private ["s26_OptionalNilComparisonTypeV", "Medium"]
 - !private ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
 depends-nominal:
 - !private "Sb"
@@ -791,7 +770,6 @@ depends-nominal:
 - !private "s9EncodableP"
 - "s9EquatableP"
 - !private "s27ExpressibleByBooleanLiteralP"
-- !private "s23ExpressibleByNilLiteralP"
 - !private "So9FormatterC"
 - "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
@@ -801,7 +779,6 @@ depends-nominal:
 - "So26NSExtensionRequestHandlingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
-- !private "Sq"
 - !private "6RushMe7QualityO"
 - !private "6RushMe7RMColorV"
 - !private "6RushMe6RMDateV"
@@ -839,7 +816,6 @@ depends-nominal:
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s26_OptionalNilComparisonTypeV"
 - !private "s20_SwiftNewtypeWrapperP"
 depends-dynamic-lookup:
 depends-external:

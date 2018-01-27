@@ -282,7 +282,7 @@ extension Fraternity {
     if let name = dict[RMDatabaseKey.NameKey] as? String,
       let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
       var previewImage : UIImage?
-//      var profileImage : UIImage?
+      var profileImage : UIImage?
       if loadImages {
         // Get the PreviewImage
         if let URLString = dict[RMDatabaseKey.PreviewImageKey] as? String {
@@ -295,7 +295,7 @@ extension Fraternity {
         else if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
           if let previewImg = pullImage(fromSource: URLString) {
             previewImage = previewImg
-//            profileImage = previewImg
+            profileImage = previewImg
           }
         }
       }
@@ -306,6 +306,10 @@ extension Fraternity {
             self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
           }
         }
+        if let _ = profileImage {
+          self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
+        }
+        
         // Get the CoverImage
         //                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
         //                    DispatchQueue.global().async {
@@ -332,7 +336,8 @@ extension Fraternity {
   
   
 }
-func url(forFileWithName urlSuffix : String, quality : Quality = Campus.shared.downloadedImageQuality) -> URL{
+
+func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.shared.downloadedImageQuality) -> String {
   var fileName = ""
   // Images are scaled to three different sizes:
   //    - high (i.e. full)
@@ -353,64 +358,54 @@ func url(forFileWithName urlSuffix : String, quality : Quality = Campus.shared.d
     fileName = urlSuffix.dropLast(4) + RMImageQuality.Low
   }
   // Sigma_Delta_Cover_Image.png
-  let fixedPath = String(fileName.split(separator: "/").last!)
+  
   // .../local/on/device/path/Sigma_Delta_Cover_Image.png
-  return RMFileManagement.fratImageURL.appendingPathComponent(fixedPath)
+  return fileName
 }
 
-func urls(forFilesWithName urlSuffix : String) -> [URL] {
- return [url(forFileWithName: urlSuffix, quality: .Low), url(forFileWithName: urlSuffix, quality: .Medium), url(forFileWithName: urlSuffix, quality: .High)] 
+func urlSuffixes(forFilesWithName filename : String) -> [String] {
+ return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
 }
 
 func pullImage(fromSource : String, quality : Quality = Campus.shared.downloadedImageQuality) -> UIImage? {
-  let localFileURLs = urls(forFilesWithName: fromSource)
-  let lowQualityURL = localFileURLs[0]
-  let mediumQualityURL = localFileURLs[1]
-  let highQualityURL = localFileURLs[2]
-  var localFileURL = lowQualityURL
-  if quality == .Low && FileManager.default.fileExists(atPath: mediumQualityURL.path){
-    // Try to find a higher quality version, if not, stick with current URL
-    localFileURL = mediumQualityURL
+  if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
+    do {
+      try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
+    }
+    catch let e {
+     print(e.localizedDescription)
+    }
   }
-  else if quality == .Low && FileManager.default.fileExists(atPath: highQualityURL.path) {
-    localFileURL = highQualityURL
-  }
+//  let localFileURLs = urls(forFilesWithName: fromSource)
+//  let lowQualityURL = localFileURLs[0]
+//  let mediumQualityURL = localFileURLs[1]
+//  let highQualityURL = localFileURLs[2]
+  let fixedPath = urlSuffix(forFileWithName: fromSource, quality : quality)
+  let urlEnding = String(fixedPath.split(separator: "/").last!)
+  let localFileURL = RMFileManagement.fratImageURL.appendingPathComponent(urlEnding)
+//  if quality == .Low && FileManager.default.fileExists(atPath: mediumQualityURL.path){
+//    // Try to find a higher quality version, if not, stick with current URL
+//    localFileURL = mediumQualityURL
+//  }
+//  else if quality == .Low && FileManager.default.fileExists(atPath: highQualityURL.path) {
+//    localFileURL = highQualityURL
+//  }
 //  else if quality == .Medium && FileManager.default.fileExists(atPath: lowQualityURL.path) {
 //    // Make sure to delete lower quality versions
 //    do {
 //     try FileManager.default.removeItem(atPath: lowQualityURL.path)
 //    }
 //    catch let error {
-//     print(error.localizedDescription) 
+//     print(error.localizedDescription)
 //    }
 //  }
-  
   if let imageData = try? Data.init(contentsOf: localFileURL) {
     if let image = UIImage.init(data: imageData) {
       return image
     }
   }
-  var fileName = ""
-  // Images are scaled to three different sizes:
-  //    - high (i.e. full)
-  //    - medium (i.e. half-size)
-  //    - low (i.e. quarter-size)
-  // The quality of the image retreived is based on the
-  // file URL. For example, a file named "image.png" would
-  // have a half-sized image named "image_Half.png"
-  switch quality {
-  case .High:
-    // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
-    fileName = fromSource
-  case.Medium:
-    // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
-    fileName = fromSource.dropLast(4) + RMImageQuality.Medium
-  case.Low:
-    // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
-    fileName = fromSource.dropLast(4) + RMImageQuality.Low
-  }
   //if (DEBUG) { print(fileName, separator: "", terminator: "") }
-  let urlAsString = RMNetwork.HTTP +  fileName
+  let urlAsString = RMNetwork.HTTP +  fixedPath
   var image : UIImage? = nil
   // Try to create an URL from the string-- upon fail return nil
   if let url = URL(string: urlAsString) {

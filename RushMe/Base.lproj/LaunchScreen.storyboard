@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,34 +21,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RushMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0y-Wk-qFp">
-                                <rect key="frame" x="117" y="294.5" width="141" height="50.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqt-an-Wxo">
+                                <rect key="frame" x="170" y="626" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RushMeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-7Q-iQm">
-                                <rect key="frame" x="91" y="148" width="192" height="128"/>
+                                <rect key="frame" x="91" y="269" width="192" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="9pg-8H-AsV"/>
                                     <constraint firstAttribute="width" constant="192" id="wcR-6y-h6d"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqt-an-Wxo">
-                                <rect key="frame" x="169.5" y="353" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="90f-TO-7vH"/>
-                            <constraint firstItem="E0y-Wk-qFp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="A86-Dx-mdk"/>
-                            <constraint firstItem="Uqt-an-Wxo" firstAttribute="centerX" secondItem="E0y-Wk-qFp" secondAttribute="centerX" id="CwY-PC-fhf"/>
-                            <constraint firstItem="Uqt-an-Wxo" firstAttribute="top" secondItem="E0y-Wk-qFp" secondAttribute="bottom" constant="8" id="QEp-44-bcd"/>
-                            <constraint firstItem="E0y-Wk-qFp" firstAttribute="firstBaseline" secondItem="kLT-7Q-iQm" secondAttribute="baseline" constant="58.5" symbolType="layoutAnchor" id="Ryi-gv-sZo"/>
-                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="128" id="Tp4-HH-1kN"/>
+                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KZq-bu-ODt"/>
+                            <constraint firstItem="Uqt-an-Wxo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iW8-Pb-ITc"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Uqt-an-Wxo" secondAttribute="bottom" constant="20" id="qvP-7O-PxH"/>
                             <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uss-64-93o"/>
                         </constraints>
                     </view>

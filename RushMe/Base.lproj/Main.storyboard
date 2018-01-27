@@ -1214,6 +1214,15 @@
                                     <segment title="High"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaT-le-GEJ">
+                                <rect key="frame" x="146" y="621" width="82" height="30"/>
+                                <state key="normal" title="Clear cache">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearCache:" destination="TB9-1Y-2V2" eventType="touchUpInside" id="5XU-GN-LEQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1221,6 +1230,8 @@
                             <constraint firstItem="To1-x3-ZEo" firstAttribute="leading" secondItem="NfJ-mq-p3o" secondAttribute="leading" constant="16" id="DNX-fD-c0T"/>
                             <constraint firstItem="WOU-aO-xKE" firstAttribute="top" secondItem="Ehq-w3-5iQ" secondAttribute="bottom" constant="8" id="DUU-lF-Evn"/>
                             <constraint firstItem="zrV-Gs-Zxa" firstAttribute="top" secondItem="To1-x3-ZEo" secondAttribute="bottom" constant="8" id="ELK-bB-Mjd"/>
+                            <constraint firstItem="OlU-fw-J9D" firstAttribute="top" secondItem="OaT-le-GEJ" secondAttribute="bottom" constant="16" id="Esn-RD-EBL"/>
+                            <constraint firstItem="OaT-le-GEJ" firstAttribute="centerX" secondItem="NfJ-mq-p3o" secondAttribute="centerX" id="Gho-dL-2sM"/>
                             <constraint firstAttribute="trailing" secondItem="Ehq-w3-5iQ" secondAttribute="trailing" constant="17" id="Gjc-UO-MnN"/>
                             <constraint firstItem="BaF-tr-ERF" firstAttribute="top" secondItem="YdQ-QB-aed" secondAttribute="bottom" constant="8" id="Htm-4N-Pta"/>
                             <constraint firstItem="Ehq-w3-5iQ" firstAttribute="top" secondItem="BD7-9A-ErT" secondAttribute="bottom" constant="8" id="J3k-ph-gJj"/>
@@ -1243,6 +1254,7 @@
                         <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="UGP-2e-Phc"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearCacheButton" destination="OaT-le-GEJ" id="nfV-ig-ZR3"/>
                         <outlet property="dateLabel" destination="WOU-aO-xKE" id="If1-eB-PNM"/>
                         <outlet property="displayPastEventsSwitch" destination="BD7-9A-ErT" id="26b-4x-Eia"/>
                         <outlet property="drawerButton" destination="UGP-2e-Phc" id="M3g-aU-5jG"/>
@@ -1296,7 +1308,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="128" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SegmentedControlCell" rowHeight="36" id="ymL-Bw-9Vt" customClass="SegmentCell" customModule="RushMe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="375" height="36"/>
@@ -1306,7 +1318,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RuO-PJ-QTb">
-                                            <rect key="frame" x="4" y="4" width="367" height="29"/>
+                                            <rect key="frame" x="6" y="4" width="363" height="29"/>
                                             <segments>
                                                 <segment title="All Fraternities"/>
                                                 <segment title="Favorites"/>
@@ -1315,9 +1327,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="RuO-PJ-QTb" secondAttribute="bottom" constant="4" id="6ba-yQ-xmw"/>
-                                        <constraint firstItem="RuO-PJ-QTb" firstAttribute="leading" secondItem="wj9-8X-TMa" secondAttribute="leading" constant="4" id="DYh-z3-vRJ"/>
+                                        <constraint firstItem="RuO-PJ-QTb" firstAttribute="leading" secondItem="wj9-8X-TMa" secondAttribute="leading" constant="6" id="DYh-z3-vRJ"/>
                                         <constraint firstItem="RuO-PJ-QTb" firstAttribute="top" secondItem="wj9-8X-TMa" secondAttribute="top" constant="4" id="QK8-h0-kUr"/>
-                                        <constraint firstAttribute="trailing" secondItem="RuO-PJ-QTb" secondAttribute="trailing" constant="4" id="W3Q-jK-8EG"/>
+                                        <constraint firstAttribute="trailing" secondItem="RuO-PJ-QTb" secondAttribute="trailing" constant="6" id="W3Q-jK-8EG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

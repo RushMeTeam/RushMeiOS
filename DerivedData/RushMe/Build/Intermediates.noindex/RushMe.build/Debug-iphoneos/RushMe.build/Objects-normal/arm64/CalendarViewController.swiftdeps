@@ -35,6 +35,7 @@ depends-top-level:
 - "CGSize"
 - !private "Calendar"
 - !private "CalendarCollectionViewCell"
+- !private "CalendarLabelCollectionViewCell"
 - "CalendarViewController"
 - !private "Campus"
 - "CastingPrecedence"
@@ -55,6 +56,7 @@ depends-top-level:
 - !private "RushCalendarManager"
 - !private "String"
 - "StringLiteralType"
+- "TernaryPrecedence"
 - !private "UIActivityViewController"
 - "UIBarButtonItem"
 - "UICollectionView"
@@ -70,6 +72,7 @@ depends-top-level:
 - "UIViewController"
 - "URL"
 - !private "UnicodeScalarType"
+- !private "labelReuseIdentifier"
 - !private "print"
 - !private "reuseIdentifier"
 depends-member:
@@ -173,6 +176,7 @@ depends-member:
 - !private ["s7CVarArgP", "isEnabled"]
 - !private ["s7CVarArgP", "isHidden"]
 - !private ["s7CVarArgP", "isTranslucent"]
+- !private ["s7CVarArgP", "labelReuseIdentifier"]
 - !private ["s7CVarArgP", "layer"]
 - !private ["s7CVarArgP", "lightGray"]
 - !private ["s7CVarArgP", "localizedString"]
@@ -236,10 +240,12 @@ depends-member:
 - !private ["6RushMe26CalendarCollectionViewCellC", "eventsToday"]
 - !private ["6RushMe26CalendarCollectionViewCellC", "layer"]
 - !private ["6RushMe26CalendarCollectionViewCellC", "setupView"]
+- !private ["6RushMe31CalendarLabelCollectionViewCellC", "dayLabel"]
 - ["6RushMe22CalendarViewControllerC", "Bool"]
 - ["6RushMe22CalendarViewControllerC", "CGSize"]
 - !private ["6RushMe22CalendarViewControllerC", "Calendar"]
 - !private ["6RushMe22CalendarViewControllerC", "CalendarCollectionViewCell"]
+- !private ["6RushMe22CalendarViewControllerC", "CalendarLabelCollectionViewCell"]
 - !private ["6RushMe22CalendarViewControllerC", "Campus"]
 - !private ["6RushMe22CalendarViewControllerC", "ComparisonResult"]
 - !private ["6RushMe22CalendarViewControllerC", "DateFormatter"]
@@ -282,6 +288,7 @@ depends-member:
 - ["6RushMe22CalendarViewControllerC", "indexTitles"]
 - ["6RushMe22CalendarViewControllerC", "indexTitlesForCollectionView"]
 - ["6RushMe22CalendarViewControllerC", "init"]
+- !private ["6RushMe22CalendarViewControllerC", "labelReuseIdentifier"]
 - !private ["6RushMe22CalendarViewControllerC", "navigationController"]
 - ["6RushMe22CalendarViewControllerC", "numberOfSections"]
 - ["6RushMe22CalendarViewControllerC", "numberOfSectionsInCollectionView"]
@@ -390,6 +397,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "isEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "isHidden"]
 - !private ["s28CustomDebugStringConvertibleP", "isTranslucent"]
+- !private ["s28CustomDebugStringConvertibleP", "labelReuseIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "layer"]
 - !private ["s28CustomDebugStringConvertibleP", "lightGray"]
 - !private ["s28CustomDebugStringConvertibleP", "localizedString"]
@@ -535,6 +543,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "isEnabled"]
 - !private ["s23CustomStringConvertibleP", "isHidden"]
 - !private ["s23CustomStringConvertibleP", "isTranslucent"]
+- !private ["s23CustomStringConvertibleP", "labelReuseIdentifier"]
 - !private ["s23CustomStringConvertibleP", "layer"]
 - !private ["s23CustomStringConvertibleP", "lightGray"]
 - !private ["s23CustomStringConvertibleP", "localizedString"]
@@ -698,6 +707,7 @@ depends-member:
 - !private ["s9EquatableP", "isEnabled"]
 - !private ["s9EquatableP", "isHidden"]
 - !private ["s9EquatableP", "isTranslucent"]
+- !private ["s9EquatableP", "labelReuseIdentifier"]
 - !private ["s9EquatableP", "layer"]
 - !private ["s9EquatableP", "lightGray"]
 - !private ["s9EquatableP", "localizedString"]
@@ -842,6 +852,7 @@ depends-member:
 - !private ["s8HashableP", "isEnabled"]
 - !private ["s8HashableP", "isHidden"]
 - !private ["s8HashableP", "isTranslucent"]
+- !private ["s8HashableP", "labelReuseIdentifier"]
 - !private ["s8HashableP", "layer"]
 - !private ["s8HashableP", "lightGray"]
 - !private ["s8HashableP", "localizedString"]
@@ -961,6 +972,7 @@ depends-member:
 - !private ["So8NSCodingP", "isEnabled"]
 - !private ["So8NSCodingP", "isHidden"]
 - !private ["So8NSCodingP", "isTranslucent"]
+- !private ["So8NSCodingP", "labelReuseIdentifier"]
 - !private ["So8NSCodingP", "layer"]
 - !private ["So8NSCodingP", "lightGray"]
 - !private ["So8NSCodingP", "localizedString"]
@@ -1049,6 +1061,7 @@ depends-member:
 - ["So26NSExtensionRequestHandlingP", "indexTitles"]
 - ["So26NSExtensionRequestHandlingP", "indexTitlesForCollectionView"]
 - !private ["So26NSExtensionRequestHandlingP", "init"]
+- !private ["So26NSExtensionRequestHandlingP", "labelReuseIdentifier"]
 - !private ["So26NSExtensionRequestHandlingP", "navigationBar"]
 - !private ["So26NSExtensionRequestHandlingP", "navigationController"]
 - ["So26NSExtensionRequestHandlingP", "numberOfSections"]
@@ -1098,6 +1111,7 @@ depends-member:
 - ["So8NSObjectC", "CGSize"]
 - !private ["So8NSObjectC", "Calendar"]
 - !private ["So8NSObjectC", "CalendarCollectionViewCell"]
+- !private ["So8NSObjectC", "CalendarLabelCollectionViewCell"]
 - !private ["So8NSObjectC", "Campus"]
 - !private ["So8NSObjectC", "ComparisonResult"]
 - !private ["So8NSObjectC", "DateFormatter"]
@@ -1164,6 +1178,7 @@ depends-member:
 - !private ["So8NSObjectC", "isEnabled"]
 - !private ["So8NSObjectC", "isHidden"]
 - !private ["So8NSObjectC", "isTranslucent"]
+- !private ["So8NSObjectC", "labelReuseIdentifier"]
 - !private ["So8NSObjectC", "layer"]
 - !private ["So8NSObjectC", "lightGray"]
 - !private ["So8NSObjectC", "localizedString"]
@@ -1271,6 +1286,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "isEnabled"]
 - !private ["So16NSObjectProtocolP", "isHidden"]
 - !private ["So16NSObjectProtocolP", "isTranslucent"]
+- !private ["So16NSObjectProtocolP", "labelReuseIdentifier"]
 - !private ["So16NSObjectProtocolP", "layer"]
 - !private ["So16NSObjectProtocolP", "lightGray"]
 - !private ["So16NSObjectProtocolP", "localizedString"]
@@ -1493,6 +1509,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "isHidden"]
 - !private ["So21UIAppearanceContainerP", "isTranslucent"]
+- !private ["So21UIAppearanceContainerP", "labelReuseIdentifier"]
 - !private ["So21UIAppearanceContainerP", "layer"]
 - !private ["So21UIAppearanceContainerP", "navigationBar"]
 - !private ["So21UIAppearanceContainerP", "navigationController"]
@@ -1592,6 +1609,7 @@ depends-member:
 - ["So26UICollectionViewDataSourceP", "indexPathForPreferredFocusedViewInCollectionView"]
 - ["So26UICollectionViewDataSourceP", "indexTitles"]
 - ["So26UICollectionViewDataSourceP", "indexTitlesForCollectionView"]
+- !private ["So26UICollectionViewDataSourceP", "labelReuseIdentifier"]
 - !private ["So26UICollectionViewDataSourceP", "navigationController"]
 - ["So26UICollectionViewDataSourceP", "numberOfSections"]
 - ["So26UICollectionViewDataSourceP", "numberOfSectionsInCollectionView"]
@@ -1647,6 +1665,7 @@ depends-member:
 - ["So24UICollectionViewDelegateP", "indexPathForPreferredFocusedViewInCollectionView"]
 - ["So24UICollectionViewDelegateP", "indexTitles"]
 - ["So24UICollectionViewDelegateP", "indexTitlesForCollectionView"]
+- !private ["So24UICollectionViewDelegateP", "labelReuseIdentifier"]
 - !private ["So24UICollectionViewDelegateP", "navigationController"]
 - ["So24UICollectionViewDelegateP", "numberOfSections"]
 - ["So24UICollectionViewDelegateP", "numberOfSectionsInCollectionView"]
@@ -1702,6 +1721,7 @@ depends-member:
 - ["So34UICollectionViewDelegateFlowLayoutP", "indexPathForPreferredFocusedViewInCollectionView"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "indexTitles"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "indexTitlesForCollectionView"]
+- !private ["So34UICollectionViewDelegateFlowLayoutP", "labelReuseIdentifier"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "navigationController"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "numberOfSections"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "numberOfSectionsInCollectionView"]
@@ -1762,6 +1782,7 @@ depends-member:
 - ["So18UIContentContainerP", "indexTitles"]
 - ["So18UIContentContainerP", "indexTitlesForCollectionView"]
 - !private ["So18UIContentContainerP", "init"]
+- !private ["So18UIContentContainerP", "labelReuseIdentifier"]
 - !private ["So18UIContentContainerP", "navigationBar"]
 - !private ["So18UIContentContainerP", "navigationController"]
 - ["So18UIContentContainerP", "numberOfSections"]
@@ -1893,6 +1914,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "init"]
 - !private ["So18UIFocusEnvironmentP", "isHidden"]
 - !private ["So18UIFocusEnvironmentP", "isTranslucent"]
+- !private ["So18UIFocusEnvironmentP", "labelReuseIdentifier"]
 - !private ["So18UIFocusEnvironmentP", "layer"]
 - !private ["So18UIFocusEnvironmentP", "navigationBar"]
 - !private ["So18UIFocusEnvironmentP", "navigationController"]
@@ -2013,6 +2035,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "isHidden"]
 - !private ["So30UIPasteConfigurationSupportingP", "isTranslucent"]
+- !private ["So30UIPasteConfigurationSupportingP", "labelReuseIdentifier"]
 - !private ["So30UIPasteConfigurationSupportingP", "layer"]
 - !private ["So30UIPasteConfigurationSupportingP", "navigationBar"]
 - !private ["So30UIPasteConfigurationSupportingP", "navigationController"]
@@ -2058,6 +2081,7 @@ depends-member:
 - ["So11UIResponderC", "CGSize"]
 - !private ["So11UIResponderC", "Calendar"]
 - !private ["So11UIResponderC", "CalendarCollectionViewCell"]
+- !private ["So11UIResponderC", "CalendarLabelCollectionViewCell"]
 - !private ["So11UIResponderC", "Campus"]
 - !private ["So11UIResponderC", "ComparisonResult"]
 - !private ["So11UIResponderC", "DateFormatter"]
@@ -2114,6 +2138,7 @@ depends-member:
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "isHidden"]
 - !private ["So11UIResponderC", "isTranslucent"]
+- !private ["So11UIResponderC", "labelReuseIdentifier"]
 - !private ["So11UIResponderC", "layer"]
 - !private ["So11UIResponderC", "navigationBar"]
 - !private ["So11UIResponderC", "navigationController"]
@@ -2199,6 +2224,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "init"]
 - !private ["So30UIResponderStandardEditActionsP", "isHidden"]
 - !private ["So30UIResponderStandardEditActionsP", "isTranslucent"]
+- !private ["So30UIResponderStandardEditActionsP", "labelReuseIdentifier"]
 - !private ["So30UIResponderStandardEditActionsP", "layer"]
 - !private ["So30UIResponderStandardEditActionsP", "navigationBar"]
 - !private ["So30UIResponderStandardEditActionsP", "navigationController"]
@@ -2271,6 +2297,7 @@ depends-member:
 - ["So20UIScrollViewDelegateP", "indexPathForPreferredFocusedViewInCollectionView"]
 - ["So20UIScrollViewDelegateP", "indexTitles"]
 - ["So20UIScrollViewDelegateP", "indexTitlesForCollectionView"]
+- !private ["So20UIScrollViewDelegateP", "labelReuseIdentifier"]
 - !private ["So20UIScrollViewDelegateP", "navigationController"]
 - ["So20UIScrollViewDelegateP", "numberOfSections"]
 - ["So20UIScrollViewDelegateP", "numberOfSectionsInCollectionView"]
@@ -2337,6 +2364,7 @@ depends-member:
 - ["So16UIStateRestoringP", "indexTitles"]
 - ["So16UIStateRestoringP", "indexTitlesForCollectionView"]
 - !private ["So16UIStateRestoringP", "init"]
+- !private ["So16UIStateRestoringP", "labelReuseIdentifier"]
 - !private ["So16UIStateRestoringP", "navigationBar"]
 - !private ["So16UIStateRestoringP", "navigationController"]
 - ["So16UIStateRestoringP", "numberOfSections"]
@@ -2420,6 +2448,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "init"]
 - !private ["So18UITraitEnvironmentP", "isHidden"]
 - !private ["So18UITraitEnvironmentP", "isTranslucent"]
+- !private ["So18UITraitEnvironmentP", "labelReuseIdentifier"]
 - !private ["So18UITraitEnvironmentP", "layer"]
 - !private ["So18UITraitEnvironmentP", "navigationBar"]
 - !private ["So18UITraitEnvironmentP", "navigationController"]
@@ -2486,6 +2515,7 @@ depends-member:
 - ["So16UIViewControllerC", "CGSize"]
 - !private ["So16UIViewControllerC", "Calendar"]
 - !private ["So16UIViewControllerC", "CalendarCollectionViewCell"]
+- !private ["So16UIViewControllerC", "CalendarLabelCollectionViewCell"]
 - !private ["So16UIViewControllerC", "Campus"]
 - !private ["So16UIViewControllerC", "ComparisonResult"]
 - !private ["So16UIViewControllerC", "DateFormatter"]
@@ -2527,6 +2557,7 @@ depends-member:
 - ["So16UIViewControllerC", "indexTitles"]
 - ["So16UIViewControllerC", "indexTitlesForCollectionView"]
 - ["So16UIViewControllerC", "init"]
+- !private ["So16UIViewControllerC", "labelReuseIdentifier"]
 - !private ["So16UIViewControllerC", "navigationBar"]
 - !private ["So16UIViewControllerC", "navigationController"]
 - ["So16UIViewControllerC", "numberOfSections"]
@@ -2683,6 +2714,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isHidden"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isTranslucent"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "labelReuseIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "lightGray"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "localizedString"]
@@ -2789,6 +2821,7 @@ depends-nominal:
 - "s7CVarArgP"
 - !private "10Foundation8CalendarV"
 - !private "6RushMe26CalendarCollectionViewCellC"
+- !private "6RushMe31CalendarLabelCollectionViewCellC"
 - "6RushMe22CalendarViewControllerC"
 - !private "6RushMe6CampusC"
 - "s10CollectionP"
@@ -2967,4 +3000,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "533404ed5e876f977470e62cb222e67f"
+interface-hash: "2b412f48d3a8ef1bec781eddb7188ced"

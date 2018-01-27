@@ -51,6 +51,7 @@ class SettingsViewController: UIViewController {
     if Campus.shared.downloadedImageQuality == .Low {
       qualityPicker.selectedSegmentIndex = 0
     }
+    clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path)
   }
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
@@ -73,7 +74,34 @@ class SettingsViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
+
+  @IBOutlet var clearCacheButton: UIButton!
+  @IBAction func clearCache(_ sender: UIButton) {
+    
+    var fileSize = 0.0
+    let _ = FileManager.default.subpaths(atPath: RMFileManagement.fratImageURL.path)?.forEach({ (fileName) in
+      fileSize += ((try? FileManager.default.attributesOfItem(atPath: RMFileManagement.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) ?? nil) ?? 0
+    })
+    let deleteAlert = UIAlertController.init(title: String(format: "Remove %.1f megabytes of images?", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
+    deleteAlert.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: { (action) in
+      self.clearCache()
+    }))
+    self.present(deleteAlert, animated: true) {
+      self.clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path)
+    }
+    deleteAlert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+  }
+  fileprivate func clearCache() {
+    if FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
+      do {
+        try FileManager.default.removeItem(at: RMFileManagement.fratImageURL)
+        print("Cache cleared!")
+      }
+      catch let e {
+        print(e.localizedDescription)
+      }
+    }
+  }
   /*
    // MARK: - Navigation
    
@@ -85,3 +113,5 @@ class SettingsViewController: UIViewController {
    */
   
 }
+
+

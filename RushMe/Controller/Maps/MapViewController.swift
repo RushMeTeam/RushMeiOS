@@ -62,7 +62,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
     super.viewWillAppear(animated)
     self.loadAnnotations(fromAllFrats: true, animated: false)
-    self.favoritesControl.isHidden = !Campus.shared.hasFavorites
+    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   
   func loadAnnotations(fromAllFrats: Bool = true, animated : Bool = true) {

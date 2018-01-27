@@ -27,6 +27,7 @@ class MasterViewController : UITableViewController,
   // The hard data used in the table
   var lastPullDescription = ""
   let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
+  let progressView = UIProgressView.init()
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   var viewingFavorites = false {
@@ -83,12 +84,20 @@ class MasterViewController : UITableViewController,
     // Allows for drag to open and tap out to close
     refreshControl = UIRefreshControl()
     refreshControl!.tintAdjustmentMode = .normal
-    let refreshTitle = Campus.shared.firstLoad ? RMMessage.LoadingFratsFirstTime : RMMessage.LoadingFrats
-    refreshControl!.attributedTitle = NSAttributedString.init(string: refreshTitle, attributes: attributedStringColor)
-    refreshControl!.tintColor = RMColor.AppColor
+    //let refreshTitle = Campus.shared.firstLoad ? RMMessage.LoadingFratsFirstTime : RMMessage.LoadingFrats
+   // refreshControl!.attributedTitle = NSAttributedString.init(string: refreshTitle, attributes: attributedStringColor)
+    refreshControl!.tintColor = RMColor.AppColor.withAlphaComponent(0.8)
     refreshControl!.alpha = 0.8
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl!.beginRefreshing()
+    self.navigationController!.view.addSubview(progressView)
+//    self.navigationController!.view.addConstraint(NSLayoutConstraint.init(item: progressView, attribute: .bottom, relatedBy: .equal, toItem: navigationController!.view, attribute: .bottom, multiplier: 1, constant: 0 ))
+//    self.navigationController!.view.layoutSubviews()
+//    refreshControl!.addSubview(progressView)
+    progressView.frame = self.navigationController!.view.frame
+    progressView.trackTintColor = UIColor.clear
+    progressView.tintColor = navigationController!.navigationBar.tintColor
+    progressView.frame.origin.y = UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.frame.height - progressView.frame.height
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
     
   }
@@ -101,15 +110,16 @@ class MasterViewController : UITableViewController,
   }
   // MARK: Data Request
   @objc func pullFratsFromSQLDatabase(types : [String] = []) -> Bool {
-    DispatchQueue.global(qos: .default).async {
-      self.animateRefreshView()
+    DispatchQueue.main.async {
+      self.progressView.setProgress(0.05, animated: false)
+      self.progressView.alpha = 1
+      
     }
     if SQLHandler.shared.isConnected == false {
       return false
     }
     var dictArray = [Dictionary<String, Any>()]
     if types.count == 0{
-    
         if let arr = SQLHandler.shared.select(aField: "*", fromTable: "house_info") {
           dictArray = arr
         }
@@ -127,26 +137,36 @@ class MasterViewController : UITableViewController,
     if dictArray.count > Campus.shared.fratNames.count {
       DispatchQueue.global(qos: .userInitiated).async {
         var fratCount = 0
+//        DispatchQueue.main.async {
+//          self.refreshControl!.attributedTitle = NSAttributedString.init(string: "")
+//        }
         for fraternityDict in dictArray {
           Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           fratCount += 1
           DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl!.isEnabled = false
-            self.refreshControl!.attributedTitle = NSAttributedString.init(string: "\(dictArray.count-fratCount) fraternities to go!", attributes: self.attributedStringColor)
+            if fratCount%2 == 0 {
+              self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
+            }
+            //self.refreshControl!.attributedTitle = NSAttributedString.init(string: "\(dictArray.count-fratCount) fraternities to go!", attributes: self.attributedStringColor)
           }
         }
         DispatchQueue.main.async {
           self.tableView.reloadData()
-          self.refreshControl!.attributedTitle = NSAttributedString.init(string: "Pull to refresh", attributes: self.attributedStringColor)
-          self.refreshControl!.endRefreshing()
+          //self.refreshControl!.attributedTitle = NSAttributedString.init(string: "Pull to refresh", attributes: self.attributedStringColor)
+          
           self.favoritesSegmentControl?.isHidden = false
-          self.favoritesSegmentControl?.alpha = 0
           self.refreshControl!.isEnabled = true
           self.openBarButtonItem.isEnabled = true
+          
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-            self.favoritesSegmentControl?.alpha = 1
+            self.progressView.progress = 1
+            self.progressView.alpha = 0
+          }, completion: { (_) in
+            self.refreshControl!.endRefreshing()
           })
+          
         }
       }
     }
@@ -155,7 +175,12 @@ class MasterViewController : UITableViewController,
         self.refreshControl!.endRefreshing()
         self.tableView.reloadData()
         self.refreshControl!.isEnabled = true
-        
+        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+          self.progressView.progress = 1
+          self.progressView.alpha = 0
+        }, completion: { (_) in
+          
+        })
       })
     }
     return true
@@ -307,7 +332,7 @@ class MasterViewController : UITableViewController,
         cell.titleLabel?.text = frat.name
         cell.subheadingLabel?.text = frat.chapter
         cell.previewImageView?.image = frat.previewImage
-        cell.previewImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String
+        //cell.previewImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String
         if Campus.shared.favoritedFrats.contains(frat.name) {
           cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
         }

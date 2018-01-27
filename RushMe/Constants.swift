@@ -87,7 +87,7 @@ struct RMFileManagement {
   static let Path = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
   static let favoritedFratURL = Path.appendingPathComponent("favoritedFrats")
   static let userInfoURL = Path.appendingPathComponent("userInfo")
-  static let fratImageURL = Path
+  static let fratImageURL = Path.appendingPathComponent("images")
 }
 
 struct RMDate {
