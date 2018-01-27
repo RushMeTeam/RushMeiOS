@@ -36,13 +36,14 @@ struct RMColor {
 struct RMAnimation {
   static let ColoringTime = 0.5
 }
+
 // Networking parameters, used to access the server
 struct RMNetwork {
-  static let userName = "guest"
-  static let password = "guestaccess"
+  static let userName = "RushMePublic"
+  static let password = "dred!u?u4ahube3raXe+2rechEnupu*a"
   static let databaseName = "fratinfo"
-  static let IP = "34.225.179.240"
-  static let HTTP = "http://" + IP + "/"
+  static let IP = "rushmedbinstance.cko1kwfapaog.us-east-2.rds.amazonaws.com"
+  static let HTTP = "https://s3.us-east-2.amazonaws.com/rushmepublic/"
 }
 
 struct RMMessage {

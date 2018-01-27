@@ -41,7 +41,6 @@ provides-member:
 - ["6RushMe6RMDateV", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "+"
 - "/"
 - "BooleanLiteralType"
 - "CGFloat"
@@ -63,7 +62,6 @@ depends-top-level:
 - "StringLiteralType"
 - "UIColor"
 - "UIImage"
-- "UnicodeScalarType"
 depends-member:
 - ["Sa", "first"]
 - ["s23BidirectionalCollectionP", "first"]
@@ -401,4 +399,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "6360210bfd6f10fd6d7cd37002fb3a85"
+interface-hash: "a122a40e3e8e9b8a8ba3ce1050fc3975"
