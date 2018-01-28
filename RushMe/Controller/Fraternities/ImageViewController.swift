@@ -14,20 +14,27 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   @IBOutlet weak var scrollView: UIScrollView!
   var visualEffectView : UIVisualEffectView?
   override func viewDidLoad() {
-        super.viewDidLoad()
-        visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
-        visualEffectView!.frame = self.view.frame
-        self.view.addSubview(visualEffectView!)
-        self.view.sendSubview(toBack: visualEffectView!)
-        self.view.backgroundColor = UIColor.clear
-        self.scrollView.maximumZoomScale = 3
-        self.scrollView.minimumZoomScale = 1
-        self.scrollView.isScrollEnabled = true
-        self.scrollView.delegate = self
-        self.scrollView.contentSize = imageView.frame.size
-        self.scrollView.bounces = true
+    super.viewDidLoad()
+    if #available(iOS 11.0, *) {
+      visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
     }
-
+    else {
+      visualEffectView = UIVisualEffectView.init(effect: nil)
+      visualEffectView?.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+    }
+    
+    visualEffectView!.frame = self.view.frame
+    self.view.addSubview(visualEffectView!)
+    self.view.sendSubview(toBack: visualEffectView!)
+    self.view.backgroundColor = UIColor.clear
+    self.scrollView.maximumZoomScale = 3
+    self.scrollView.minimumZoomScale = 1
+    self.scrollView.isScrollEnabled = true
+    self.scrollView.delegate = self
+    self.scrollView.contentSize = imageView.frame.size
+    self.scrollView.bounces = true
+  }
+  
   override func viewWillAppear(_ animated: Bool) {
     self.imageView?.image = image
     self.imageView?.layer.masksToBounds = true
@@ -35,9 +42,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   }
   
   override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
   
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return self.imageView
@@ -48,19 +55,19 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
       self.dismiss(animated: true, completion: nil)
     }
   }
-
+  
   @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
     self.dismiss(animated: true, completion: nil)
   }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using segue.destinationViewController.
+   // Pass the selected object to the new view controller.
+   }
+   */
+  
 }

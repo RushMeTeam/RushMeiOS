@@ -337,14 +337,14 @@ class MasterViewController : UITableViewController,
           cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
         }
         else {
-          cell.imageBorderColor = UIColor.white.withAlphaComponent(0.5)
+          cell.imageBorderColor = UIColor.clear
         }
       }
       return cell
     }
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return indexPath.row == 0 ? 36 : 128
+    return indexPath.row == 0 ? 36 : 160
   }
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Should only be able to do things to cells if there are actually fraternities represented

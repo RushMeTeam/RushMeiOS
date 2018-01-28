@@ -37,7 +37,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   override func layoutSubviews() {
     if let iView = previewImageView {
       iView.layer.masksToBounds = true
-      iView.layer.cornerRadius = RMImage.CornerRadius
+      //iView.layer.cornerRadius = RMImage.CornerRadius
       iView.contentMode = UIViewContentMode.scaleAspectFill
       iView.layer.borderColor = imageBorderColor.cgColor
       iView.layer.borderWidth = 2
