@@ -17,14 +17,13 @@ provides-dynamic-lookup:
 - "viewWillDisappear"
 depends-top-level:
 - !private "!="
-- !private "+="
 - !private "/"
 - !private "=="
 - !private "??"
 - "AssignmentPrecedence"
 - "Bool"
 - !private "Campus"
-- !private "CastingPrecedence"
+- "CastingPrecedence"
 - !private "DateFormatter"
 - !private "Dictionary"
 - !private "Double"
@@ -35,7 +34,6 @@ depends-top-level:
 - !private "RMDate"
 - !private "RMFileManagement"
 - "SettingsViewController"
-- !private "String"
 - !private "UIAlertAction"
 - !private "UIAlertController"
 - "UIBarButtonItem"
@@ -46,8 +44,6 @@ depends-top-level:
 - "UIViewController"
 - !private "print"
 depends-member:
-- !private ["Sa", "forEach"]
-- !private ["s23BidirectionalCollectionP", "forEach"]
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["So15CALayerDelegateP", "addGestureRecognizer"]
@@ -66,7 +62,6 @@ depends-member:
 - !private ["s7CVarArgP", "RMColor"]
 - !private ["s7CVarArgP", "RMDate"]
 - !private ["s7CVarArgP", "RMFileManagement"]
-- !private ["s7CVarArgP", "String"]
 - !private ["s7CVarArgP", "UIAlertAction"]
 - !private ["s7CVarArgP", "UIAlertController"]
 - !private ["s7CVarArgP", "action"]
@@ -83,7 +78,6 @@ depends-member:
 - !private ["s7CVarArgP", "downloadedImageQuality"]
 - !private ["s7CVarArgP", "drawerButton"]
 - !private ["s7CVarArgP", "fileExists"]
-- !private ["s7CVarArgP", "forEach"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "isEnabled"]
 - !private ["s7CVarArgP", "isOn"]
@@ -100,7 +94,6 @@ depends-member:
 - !private ["s7CVarArgP", "revealViewController"]
 - !private ["s7CVarArgP", "selectedSegmentIndex"]
 - !private ["s7CVarArgP", "shared"]
-- !private ["s7CVarArgP", "subpaths"]
 - !private ["s7CVarArgP", "subscript"]
 - !private ["s7CVarArgP", "tapGestureRecognizer"]
 - !private ["s7CVarArgP", "target"]
@@ -114,7 +107,6 @@ depends-member:
 - !private ["6RushMe6CampusC", "considerEventsBeforeToday"]
 - !private ["6RushMe6CampusC", "downloadedImageQuality"]
 - !private ["6RushMe6CampusC", "shared"]
-- !private ["s10CollectionP", "forEach"]
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
@@ -126,13 +118,11 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
 - !private ["s28CustomDebugStringConvertibleP", "RMDate"]
 - !private ["s28CustomDebugStringConvertibleP", "RMFileManagement"]
-- !private ["s28CustomDebugStringConvertibleP", "String"]
 - !private ["s28CustomDebugStringConvertibleP", "UIAlertAction"]
 - !private ["s28CustomDebugStringConvertibleP", "UIAlertController"]
 - !private ["s28CustomDebugStringConvertibleP", "action"]
 - !private ["s28CustomDebugStringConvertibleP", "addAction"]
 - !private ["s28CustomDebugStringConvertibleP", "addGestureRecognizer"]
-- !private ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
 - !private ["s28CustomDebugStringConvertibleP", "attributesOfItem"]
 - !private ["s28CustomDebugStringConvertibleP", "clearCache"]
 - !private ["s28CustomDebugStringConvertibleP", "clearCacheButton"]
@@ -144,7 +134,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "downloadedImageQuality"]
 - !private ["s28CustomDebugStringConvertibleP", "drawerButton"]
 - !private ["s28CustomDebugStringConvertibleP", "fileExists"]
-- !private ["s28CustomDebugStringConvertibleP", "forEach"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "isOn"]
@@ -162,7 +151,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "revealViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "selectedSegmentIndex"]
 - !private ["s28CustomDebugStringConvertibleP", "shared"]
-- !private ["s28CustomDebugStringConvertibleP", "subpaths"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["s28CustomDebugStringConvertibleP", "tapGestureRecognizer"]
 - !private ["s28CustomDebugStringConvertibleP", "target"]
@@ -174,11 +162,9 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "viewWillDisappear"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- !private ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "path"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
-- !private ["s17CustomReflectableP", "forEach"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "Campus"]
@@ -189,14 +175,12 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "RMColor"]
 - !private ["s23CustomStringConvertibleP", "RMDate"]
 - !private ["s23CustomStringConvertibleP", "RMFileManagement"]
-- !private ["s23CustomStringConvertibleP", "String"]
 - !private ["s23CustomStringConvertibleP", "UIAlertAction"]
 - !private ["s23CustomStringConvertibleP", "UIAlertController"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "action"]
 - !private ["s23CustomStringConvertibleP", "addAction"]
 - !private ["s23CustomStringConvertibleP", "addGestureRecognizer"]
-- !private ["s23CustomStringConvertibleP", "appendingPathComponent"]
 - !private ["s23CustomStringConvertibleP", "attributesOfItem"]
 - !private ["s23CustomStringConvertibleP", "clearCache"]
 - !private ["s23CustomStringConvertibleP", "clearCacheButton"]
@@ -208,7 +192,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "downloadedImageQuality"]
 - !private ["s23CustomStringConvertibleP", "drawerButton"]
 - !private ["s23CustomStringConvertibleP", "fileExists"]
-- !private ["s23CustomStringConvertibleP", "forEach"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "isEnabled"]
 - !private ["s23CustomStringConvertibleP", "isOn"]
@@ -226,7 +209,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "revealViewController"]
 - !private ["s23CustomStringConvertibleP", "selectedSegmentIndex"]
 - !private ["s23CustomStringConvertibleP", "shared"]
-- !private ["s23CustomStringConvertibleP", "subpaths"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "tapGestureRecognizer"]
 - !private ["s23CustomStringConvertibleP", "target"]
@@ -239,15 +221,11 @@ depends-member:
 - ["s23CustomStringConvertibleP", ""]
 - !private ["So13DateFormatterC", "localizedString"]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
-- !private ["s9DecodableP", "appendingPathComponent"]
-- !private ["s9DecodableP", "forEach"]
 - !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "path"]
 - !private ["s9DecodableP", "subscript"]
 - !private ["s10DictionaryV", "subscript"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
-- !private ["s9EncodableP", "appendingPathComponent"]
-- !private ["s9EncodableP", "forEach"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "path"]
 - !private ["s9EncodableP", "subscript"]
@@ -262,7 +240,6 @@ depends-member:
 - !private ["s9EquatableP", "RMColor"]
 - !private ["s9EquatableP", "RMDate"]
 - !private ["s9EquatableP", "RMFileManagement"]
-- !private ["s9EquatableP", "String"]
 - !private ["s9EquatableP", "UIAlertAction"]
 - !private ["s9EquatableP", "UIAlertController"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
@@ -270,7 +247,6 @@ depends-member:
 - !private ["s9EquatableP", "actionSheet"]
 - !private ["s9EquatableP", "addAction"]
 - !private ["s9EquatableP", "addGestureRecognizer"]
-- !private ["s9EquatableP", "appendingPathComponent"]
 - !private ["s9EquatableP", "attributesOfItem"]
 - !private ["s9EquatableP", "cancel"]
 - !private ["s9EquatableP", "clearCache"]
@@ -305,7 +281,6 @@ depends-member:
 - !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "short"]
 - !private ["s9EquatableP", "size"]
-- !private ["s9EquatableP", "subpaths"]
 - !private ["s9EquatableP", "tapGestureRecognizer"]
 - !private ["s9EquatableP", "target"]
 - !private ["s9EquatableP", "text"]
@@ -316,7 +291,6 @@ depends-member:
 - !private ["s9EquatableP", "viewWillDisappear"]
 - ["s9EquatableP", ""]
 - !private ["s5ErrorP", "localizedDescription"]
-- !private ["s25ExpressibleByArrayLiteralP", "forEach"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
@@ -327,7 +301,6 @@ depends-member:
 - !private ["So11FileManagerC", "default"]
 - !private ["So11FileManagerC", "fileExists"]
 - !private ["So11FileManagerC", "removeItem"]
-- !private ["So11FileManagerC", "subpaths"]
 - !private ["So9FormatterC", "localizedString"]
 - !private ["s8HashableP", "Campus"]
 - !private ["s8HashableP", "DateFormatter"]
@@ -340,7 +313,6 @@ depends-member:
 - !private ["s8HashableP", "RMColor"]
 - !private ["s8HashableP", "RMDate"]
 - !private ["s8HashableP", "RMFileManagement"]
-- !private ["s8HashableP", "String"]
 - !private ["s8HashableP", "UIAlertAction"]
 - !private ["s8HashableP", "UIAlertController"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
@@ -348,7 +320,6 @@ depends-member:
 - !private ["s8HashableP", "actionSheet"]
 - !private ["s8HashableP", "addAction"]
 - !private ["s8HashableP", "addGestureRecognizer"]
-- !private ["s8HashableP", "appendingPathComponent"]
 - !private ["s8HashableP", "attributesOfItem"]
 - !private ["s8HashableP", "cancel"]
 - !private ["s8HashableP", "clearCache"]
@@ -383,7 +354,6 @@ depends-member:
 - !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "short"]
 - !private ["s8HashableP", "size"]
-- !private ["s8HashableP", "subpaths"]
 - !private ["s8HashableP", "tapGestureRecognizer"]
 - !private ["s8HashableP", "target"]
 - !private ["s8HashableP", "text"]
@@ -396,7 +366,6 @@ depends-member:
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "init"]
-- !private ["s17MutableCollectionP", "forEach"]
 - !private ["SC21NSAttributedStringKeyV", "foregroundColor"]
 - !private ["So8NSCodingP", "Campus"]
 - !private ["So8NSCodingP", "DateFormatter"]
@@ -406,7 +375,6 @@ depends-member:
 - !private ["So8NSCodingP", "RMColor"]
 - !private ["So8NSCodingP", "RMDate"]
 - !private ["So8NSCodingP", "RMFileManagement"]
-- !private ["So8NSCodingP", "String"]
 - !private ["So8NSCodingP", "UIAlertAction"]
 - !private ["So8NSCodingP", "UIAlertController"]
 - !private ["So8NSCodingP", "action"]
@@ -451,7 +419,6 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "RMColor"]
 - !private ["So26NSExtensionRequestHandlingP", "RMDate"]
 - !private ["So26NSExtensionRequestHandlingP", "RMFileManagement"]
-- !private ["So26NSExtensionRequestHandlingP", "String"]
 - !private ["So26NSExtensionRequestHandlingP", "UIAlertAction"]
 - !private ["So26NSExtensionRequestHandlingP", "UIAlertController"]
 - !private ["So26NSExtensionRequestHandlingP", "addAction"]
@@ -488,7 +455,6 @@ depends-member:
 - !private ["So8NSObjectC", "RMColor"]
 - !private ["So8NSObjectC", "RMDate"]
 - !private ["So8NSObjectC", "RMFileManagement"]
-- !private ["So8NSObjectC", "String"]
 - !private ["So8NSObjectC", "UIAlertAction"]
 - !private ["So8NSObjectC", "UIAlertController"]
 - ["So8NSObjectC", "UIBarButtonItem"]
@@ -526,7 +492,6 @@ depends-member:
 - !private ["So8NSObjectC", "revealViewController"]
 - !private ["So8NSObjectC", "selectedSegmentIndex"]
 - !private ["So8NSObjectC", "shared"]
-- !private ["So8NSObjectC", "subpaths"]
 - !private ["So8NSObjectC", "tapGestureRecognizer"]
 - !private ["So8NSObjectC", "target"]
 - !private ["So8NSObjectC", "text"]
@@ -543,7 +508,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "RMColor"]
 - !private ["So16NSObjectProtocolP", "RMDate"]
 - !private ["So16NSObjectProtocolP", "RMFileManagement"]
-- !private ["So16NSObjectProtocolP", "String"]
 - !private ["So16NSObjectProtocolP", "UIAlertAction"]
 - !private ["So16NSObjectProtocolP", "UIAlertController"]
 - !private ["So16NSObjectProtocolP", "action"]
@@ -576,7 +540,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "revealViewController"]
 - !private ["So16NSObjectProtocolP", "selectedSegmentIndex"]
 - !private ["So16NSObjectProtocolP", "shared"]
-- !private ["So16NSObjectProtocolP", "subpaths"]
 - !private ["So16NSObjectProtocolP", "tapGestureRecognizer"]
 - !private ["So16NSObjectProtocolP", "target"]
 - !private ["So16NSObjectProtocolP", "text"]
@@ -597,8 +560,6 @@ depends-member:
 - !private ["6RushMe7RMColorV", "NavigationItemsColor"]
 - !private ["6RushMe6RMDateV", "Today"]
 - !private ["6RushMe16RMFileManagementV", "fratImageURL"]
-- !private ["s22RandomAccessCollectionP", "forEach"]
-- !private ["s26RangeReplaceableCollectionP", "forEach"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s16RawRepresentableP", "High"]
 - !private ["s16RawRepresentableP", "Low"]
@@ -610,12 +571,10 @@ depends-member:
 - !private ["s16RawRepresentableP", "medium"]
 - !private ["s16RawRepresentableP", "short"]
 - !private ["s16RawRepresentableP", "size"]
-- !private ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
 - !private ["10Foundation20ReferenceConvertibleP", "path"]
 - !private ["So22SWRevealViewControllerC", "panGestureRecognizer"]
 - !private ["So22SWRevealViewControllerC", "revealToggle"]
 - !private ["So22SWRevealViewControllerC", "tapGestureRecognizer"]
-- !private ["s8SequenceP", "forEach"]
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "subscript"]
 - ["6RushMe22SettingsViewControllerC", "Bool"]
@@ -628,7 +587,6 @@ depends-member:
 - !private ["6RushMe22SettingsViewControllerC", "RMColor"]
 - !private ["6RushMe22SettingsViewControllerC", "RMDate"]
 - !private ["6RushMe22SettingsViewControllerC", "RMFileManagement"]
-- !private ["6RushMe22SettingsViewControllerC", "String"]
 - !private ["6RushMe22SettingsViewControllerC", "UIAlertAction"]
 - !private ["6RushMe22SettingsViewControllerC", "UIAlertController"]
 - ["6RushMe22SettingsViewControllerC", "UIBarButtonItem"]
@@ -693,7 +651,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "RMColor"]
 - !private ["So21UIAppearanceContainerP", "RMDate"]
 - !private ["So21UIAppearanceContainerP", "RMFileManagement"]
-- !private ["So21UIAppearanceContainerP", "String"]
 - !private ["So21UIAppearanceContainerP", "UIAlertAction"]
 - !private ["So21UIAppearanceContainerP", "UIAlertController"]
 - !private ["So21UIAppearanceContainerP", "addAction"]
@@ -740,7 +697,6 @@ depends-member:
 - !private ["So18UIContentContainerP", "RMColor"]
 - !private ["So18UIContentContainerP", "RMDate"]
 - !private ["So18UIContentContainerP", "RMFileManagement"]
-- !private ["So18UIContentContainerP", "String"]
 - !private ["So18UIContentContainerP", "UIAlertAction"]
 - !private ["So18UIContentContainerP", "UIAlertController"]
 - !private ["So18UIContentContainerP", "addAction"]
@@ -794,7 +750,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "RMColor"]
 - !private ["So18UIFocusEnvironmentP", "RMDate"]
 - !private ["So18UIFocusEnvironmentP", "RMFileManagement"]
-- !private ["So18UIFocusEnvironmentP", "String"]
 - !private ["So18UIFocusEnvironmentP", "UIAlertAction"]
 - !private ["So18UIFocusEnvironmentP", "UIAlertController"]
 - !private ["So18UIFocusEnvironmentP", "addAction"]
@@ -846,7 +801,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMDate"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMFileManagement"]
-- !private ["So30UIPasteConfigurationSupportingP", "String"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIAlertAction"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIAlertController"]
 - !private ["So30UIPasteConfigurationSupportingP", "addAction"]
@@ -888,7 +842,6 @@ depends-member:
 - !private ["So11UIResponderC", "RMColor"]
 - !private ["So11UIResponderC", "RMDate"]
 - !private ["So11UIResponderC", "RMFileManagement"]
-- !private ["So11UIResponderC", "String"]
 - !private ["So11UIResponderC", "UIAlertAction"]
 - !private ["So11UIResponderC", "UIAlertController"]
 - ["So11UIResponderC", "UIBarButtonItem"]
@@ -932,7 +885,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "RMColor"]
 - !private ["So30UIResponderStandardEditActionsP", "RMDate"]
 - !private ["So30UIResponderStandardEditActionsP", "RMFileManagement"]
-- !private ["So30UIResponderStandardEditActionsP", "String"]
 - !private ["So30UIResponderStandardEditActionsP", "UIAlertAction"]
 - !private ["So30UIResponderStandardEditActionsP", "UIAlertController"]
 - !private ["So30UIResponderStandardEditActionsP", "addAction"]
@@ -981,7 +933,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "RMColor"]
 - !private ["So16UIStateRestoringP", "RMDate"]
 - !private ["So16UIStateRestoringP", "RMFileManagement"]
-- !private ["So16UIStateRestoringP", "String"]
 - !private ["So16UIStateRestoringP", "UIAlertAction"]
 - !private ["So16UIStateRestoringP", "UIAlertController"]
 - !private ["So16UIStateRestoringP", "addAction"]
@@ -1016,7 +967,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "RMColor"]
 - !private ["So18UITraitEnvironmentP", "RMDate"]
 - !private ["So18UITraitEnvironmentP", "RMFileManagement"]
-- !private ["So18UITraitEnvironmentP", "String"]
 - !private ["So18UITraitEnvironmentP", "UIAlertAction"]
 - !private ["So18UITraitEnvironmentP", "UIAlertController"]
 - !private ["So18UITraitEnvironmentP", "addAction"]
@@ -1066,7 +1016,6 @@ depends-member:
 - !private ["So16UIViewControllerC", "RMColor"]
 - !private ["So16UIViewControllerC", "RMDate"]
 - !private ["So16UIViewControllerC", "RMFileManagement"]
-- !private ["So16UIViewControllerC", "String"]
 - !private ["So16UIViewControllerC", "UIAlertAction"]
 - !private ["So16UIViewControllerC", "UIAlertController"]
 - ["So16UIViewControllerC", "UIBarButtonItem"]
@@ -1095,10 +1044,7 @@ depends-member:
 - ["So16UIViewControllerC", "viewDidLoad"]
 - ["So16UIViewControllerC", "viewWillDisappear"]
 - ["So16UIViewControllerC", ""]
-- !private ["10Foundation3URLV", "appendingPathComponent"]
 - !private ["10Foundation3URLV", "path"]
-- !private ["s14_ArrayProtocolP", "forEach"]
-- !private ["s23_BidirectionalIndexableP", "forEach"]
 - !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addGestureRecognizer"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isEnabled"]
@@ -1108,20 +1054,16 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "tintColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "titleTextAttributes"]
-- !private ["s24_DestructorSafeContainerP", "forEach"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s34_ExpressibleByFileReferenceLiteralP", "appendingPathComponent"]
 - !private ["s34_ExpressibleByFileReferenceLiteralP", "path"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s10_IndexableP", "forEach"]
 - !private ["s10_IndexableP", "init"]
 - !private ["s10_IndexableP", "subscript"]
-- !private ["s14_IndexableBaseP", "forEach"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Campus"]
@@ -1132,7 +1074,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFileManagement"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIAlertAction"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIAlertController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "action"]
@@ -1165,7 +1106,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "selectedSegmentIndex"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "subpaths"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tapGestureRecognizer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "target"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "text"]
@@ -1175,23 +1115,17 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewWillDisappear"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
-- !private ["s17_MutableIndexableP", "forEach"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
-- !private ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
-- !private ["s21_ObjectiveCBridgeableP", "forEach"]
 - !private ["s21_ObjectiveCBridgeableP", "foregroundColor"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "path"]
 - !private ["s21_ObjectiveCBridgeableP", "size"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
-- !private ["s22_RandomAccessIndexableP", "forEach"]
-- !private ["s26_RangeReplaceableIndexableP", "forEach"]
 - !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
 - !private ["s20_SwiftNewtypeWrapperP", "size"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
-- !private "Sa"
 - !private "s23BidirectionalCollectionP"
 - !private "Sb"
 - !private "So15CALayerDelegateP"
@@ -1209,7 +1143,6 @@ depends-nominal:
 - !private "s9EncodableP"
 - "s9EquatableP"
 - !private "s5ErrorP"
-- !private "s25ExpressibleByArrayLiteralP"
 - !private "s27ExpressibleByBooleanLiteralP"
 - !private "s30ExpressibleByDictionaryLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
@@ -1221,7 +1154,6 @@ depends-nominal:
 - "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
-- !private "s17MutableCollectionP"
 - !private "SC21NSAttributedStringKeyV"
 - "So8NSCodingP"
 - !private "So9NSCopyingP"
@@ -1238,7 +1170,6 @@ depends-nominal:
 - !private "6RushMe7RMColorV"
 - !private "6RushMe6RMDateV"
 - !private "6RushMe16RMFileManagementV"
-- !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
 - !private "10Foundation20ReferenceConvertibleP"
@@ -1283,10 +1214,8 @@ depends-nominal:
 - !private "So6UIViewC"
 - "So16UIViewControllerC"
 - !private "10Foundation3URLV"
-- !private "s14_ArrayProtocolP"
 - !private "s23_BidirectionalIndexableP"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
-- !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
@@ -1298,9 +1227,7 @@ depends-nominal:
 - !private "s10_IndexableP"
 - !private "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
-- !private "s17_MutableIndexableP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s22_RandomAccessIndexableP"
 - !private "s26_RangeReplaceableIndexableP"
 - !private "s20_SwiftNewtypeWrapperP"
 - !private "s16_SwiftStringViewP"

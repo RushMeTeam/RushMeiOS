@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "c3b23298b1fc369fe73fa54b8c4c8564"
-build_time: [1517089395, 760965000]
+build_time: [1517065482, 243880000]
 inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/EventTableViewCell.swift": [1514245464, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/CollectionViewCells/CalendarLabelCollectionViewCell.swift": [1516899138, 0]
@@ -9,13 +9,13 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/DetailViewController.swift": [1514653920, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/CalendarViewController.swift": [1516899138, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/DrawerMenuViewController.swift": [1514477167, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/MasterViewController.swift": [1517089394, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Events/FullEventsListTableViewController.swift": [1517083494, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/MasterViewController.swift": [1516932462, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Events/FullEventsListTableViewController.swift": [1517065481, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/AttractiveFratCellTableViewCell.swift": [1516932474, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/FratCell.swift": [1512357238, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/AppDelegate.swift": [1514475823, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Fraternity.swift": [1514245464, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Constants.swift": [1517086790, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Constants.swift": [1516900076, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/CollectionViewCells/CalendarCollectionViewCell.swift": [1512858239, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/SQLHandler.swift": [1516899138, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/FratEvent.swift": [1514245464, 0]
@@ -24,4 +24,4 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/About/AboutViewController.swift": [1514245464, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/ImageViewController.swift": [1514653425, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Settings/SettingsViewController.swift": [1516903374, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Campus.swift": [1517089261, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Campus.swift": [1516933273, 0]

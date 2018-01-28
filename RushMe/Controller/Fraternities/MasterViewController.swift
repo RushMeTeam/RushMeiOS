@@ -144,7 +144,7 @@ class MasterViewController : UITableViewController,
           Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           fratCount += 1
           DispatchQueue.main.async {
-            self.reloadTableView()
+            self.tableView.reloadData()
             self.refreshControl!.isEnabled = false
             if fratCount%2 == 0 {
               self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
