@@ -301,15 +301,14 @@ extension Fraternity {
       }
       self.init(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
       if loadImages {
-        if let URLString = self.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
-          if let calendarImg = pullImage(fromSource: URLString) {
-            self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
-          }
-        }
+//        if let URLString = self.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
+//          if let calendarImg = pullImage(fromSource: URLString) {
+//            self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
+//          }
+//        }
         if let _ = profileImage {
           self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
         }
-        
         // Get the CoverImage
         //                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
         //                    DispatchQueue.global().async {
@@ -376,10 +375,6 @@ func pullImage(fromSource : String, quality : Quality = Campus.shared.downloaded
      print(e.localizedDescription)
     }
   }
-//  let localFileURLs = urls(forFilesWithName: fromSource)
-//  let lowQualityURL = localFileURLs[0]
-//  let mediumQualityURL = localFileURLs[1]
-//  let highQualityURL = localFileURLs[2]
   let fixedPath = urlSuffix(forFileWithName: fromSource, quality : quality)
   let urlEnding = String(fixedPath.split(separator: "/").last!)
   let localFileURL = RMFileManagement.fratImageURL.appendingPathComponent(urlEnding)

@@ -69,12 +69,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
                    initialSpringVelocity: 30,
                    options: .allowUserInteraction,
                    animations: {
-      sender.view?.transform = CGAffineTransform.identity
+                    sender.view?.transform = CGAffineTransform.identity
     }, completion: { _ in
     })
     if let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController {
-      if let img = (sender.view as! UIImageView).image {
-        imageVC.image = img
+      if let image = (sender.view as! UIImageView).image, image != RMImage.NoImage {
+        imageVC.image = image
       }
       self.present(imageVC, animated: true, completion: {
         self.scrollView.setContentOffset(CGPoint.zero, animated: true)
@@ -83,19 +83,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
     if sender.state == .began || sender.state == .changed {
-      guard let senderView = sender.view else { return }
+      guard let senderView = sender.view as? UIImageView, 
+        senderView.image != RMImage.NoImage else { return }
       self.scrollView.isScrollEnabled = false
       let currScale = senderView.frame.size.width/senderView.bounds.size.width
       var newScale = currScale*sender.scale
       var maxScale : CGFloat = 2
       if (sender.view == self.profileImageView) {
-       maxScale = (self.view.bounds.width*0.9)/senderView.bounds.width
+        maxScale = (self.view.bounds.width*0.9)/senderView.bounds.width
       }
       let minScale : CGFloat = 1
       newScale = max(newScale, minScale) // MIN SCALE
       newScale = min(newScale, maxScale)
       if newScale == 1 {
-       return
+        return
       }
       let overTime = min(pow(((1-newScale)*(1-6)), 2), 1)
       let location = sender.location(in: self.view)
@@ -104,11 +105,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
                                 y: (location.y - senderView.bounds.midY)*overTime*1.5)
       
       if senderView == self.profileImageView {
-          pinchCenter = CGPoint(x: (self.view.frame.width/2 - senderView.bounds.midX)*overTime/newScale,
+        pinchCenter = CGPoint(x: (self.view.frame.width/2 - senderView.bounds.midX)*overTime/newScale,
                               y: 0)
       }
       else {
-       senderView.clipsToBounds = false
+        senderView.clipsToBounds = false
       }
       transform = transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
       senderView.transform = transform
@@ -130,7 +131,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         sender.view?.clipsToBounds = true
         self.setViews(toAlpha: 1)
       }, completion: { _ in
-       
+        
         
       })
     }
@@ -149,7 +150,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
     for view in toMakeClear {
-     view.alpha = toAlpha
+      view.alpha = toAlpha
     }
   }
   // MARK: ViewDidLoad
@@ -158,11 +159,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.view.bringSubview(toFront: coverImageView)
     self.view.bringSubview(toFront: profileImageView)
     
-    coverImageView.image = RMImage.NoImage
     coverImageView.layer.masksToBounds = true
     coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
-    profileImageView.image = RMImage.NoImage
     profileImageView.layer.masksToBounds = false
     profileImageView.clipsToBounds = true
     profileImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -182,11 +181,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     blockTextView.isScrollEnabled = false
     blockTextView.isEditable = false
     scrollView.isScrollEnabled = true
-    eventViewController!.view.layer.shadowColor = UIColor.black.cgColor
-    eventViewController!.view.layer.shadowRadius = 10
-    eventViewController!.view.layer.shadowOpacity = 0.7
     eventViewController!.view.layer.masksToBounds = true
-    eventViewController!.view.layer.cornerRadius = 5
     mapView.layer.cornerRadius = 5
     mapView.layer.masksToBounds = true
     openMapButton.tintColor = UIColor.white
@@ -202,11 +197,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
         return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
       }).last?.value {
-        eventViewController?.selectedEvents = [event]
-        eventViewController?.provideDate = true
+        eventViewController!.selectedEvents = [event]
+        eventViewController!.provideDate = true
       }
       else {
-        eventViewController?.selectedEvents = nil
+        eventViewController!.selectedEvents = nil
       }
     }
     self.profileImageView.layer.zPosition = 10
@@ -257,19 +252,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
           
         }
       }
-      if let coverImage = frat.getProperty(named: RMDatabaseKey.CoverImageKey) as? UIImage {
-        self.coverImageView?.image = coverImage
+      
+      if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
+        self.coverImageView.setImageByURL(fromSource: coverImageURL)
       }
-      else if let coverImage = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? UIImage {
-        self.coverImageView?.image = coverImage
-        //self.coverImageView?.layer.shadowOpacity = 0.5
+      if frat.previewImage == RMImage.NoImage {
+        self.profileImageView.isUserInteractionEnabled = false 
       }
-      if let profileImage = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? UIImage {
-        self.profileImageView?.image = profileImage
-        //self.profileImageView?.layer.shadowOpacity = 0.5
-      }
-      else if let previewImage = frat.getProperty(named: RMDatabaseKey.PreviewImageKey) as? UIImage {
-        self.profileImageView?.image = previewImage
+      else {
+        self.profileImageView?.image = frat.previewImage
       }
       if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String {
         
@@ -303,12 +294,33 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         self.openMapButton?.isHidden = true
       }
     }
-    coverImageView?.isUserInteractionEnabled = coverImageView.image != RMImage.NoImage
-    profileImageView?.isUserInteractionEnabled = profileImageView.image != RMImage.NoImage
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+}
+
+extension UIImageView {
+  func setImageByURL(fromSource imageURL : String) {
+    // Set an imageView's image asynchronously, allowing rest of page to be loaded
+    DispatchQueue.global(qos: .background).async {
+      // Try to load the image
+      if let downloadedImage = pullImage(fromSource: imageURL) {
+        DispatchQueue.main.async {
+          // Image loaded, set it in main thread
+          self.image = downloadedImage
+          self.isUserInteractionEnabled = true
+        }
+      }
+      else {
+        DispatchQueue.main.async{
+          // Image could not be loaded, set image to default image
+          self.image = RMImage.NoImage 
+          self.isUserInteractionEnabled = false
+        }
+      }
+    }
   }
 }
 

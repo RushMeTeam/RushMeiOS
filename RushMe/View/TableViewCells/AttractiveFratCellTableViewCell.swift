@@ -22,7 +22,8 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+    // Do nothing
+    //super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
   }
