@@ -264,7 +264,7 @@ class Campus: NSObject {
     DispatchQueue.global().async {
       let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
       if !isSuccessfulSave {
-        print("Errors with saving!")
+        print("Error saving favorite frats at: \(RMFileManagement.favoritedFratURL.path)")
       }
     }
   }
@@ -273,6 +273,7 @@ class Campus: NSObject {
       return favoritedFrats
     }
     else {
+      print("Error loading favorite frats from: \(RMFileManagement.favoritedFratURL.path)")
       return nil
     }
   }
@@ -283,32 +284,23 @@ extension Fraternity {
       let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
       var previewImage : UIImage?
       var profileImage : UIImage?
-      if loadImages {
-        // Get the PreviewImage
-        if let URLString = dict[RMDatabaseKey.PreviewImageKey] as? String {
-          if let previewImg = pullImage(fromSource: URLString) {
-            previewImage = previewImg
-          }
-          
-        }
-          // Get the ProfileImage
-        else if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
+        if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
           if let previewImg = pullImage(fromSource: URLString) {
             previewImage = previewImg
             profileImage = previewImg
           }
         }
-      }
       self.init(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
-      if loadImages {
+      if let _ = profileImage {
+        self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
+      }
+//      if loadImages {
 //        if let URLString = self.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
 //          if let calendarImg = pullImage(fromSource: URLString) {
 //            self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
 //          }
 //        }
-        if let _ = profileImage {
-          self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
-        }
+        
         // Get the CoverImage
         //                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
         //                    DispatchQueue.global().async {
@@ -317,7 +309,7 @@ extension Fraternity {
         //                      }
         //                    }
         //                  }
-              }
+//              }
       return
 
     }
@@ -378,29 +370,12 @@ func pullImage(fromSource : String, quality : Quality = Campus.shared.downloaded
   let fixedPath = urlSuffix(forFileWithName: fromSource, quality : quality)
   let urlEnding = String(fixedPath.split(separator: "/").last!)
   let localFileURL = RMFileManagement.fratImageURL.appendingPathComponent(urlEnding)
-//  if quality == .Low && FileManager.default.fileExists(atPath: mediumQualityURL.path){
-//    // Try to find a higher quality version, if not, stick with current URL
-//    localFileURL = mediumQualityURL
-//  }
-//  else if quality == .Low && FileManager.default.fileExists(atPath: highQualityURL.path) {
-//    localFileURL = highQualityURL
-//  }
-//  else if quality == .Medium && FileManager.default.fileExists(atPath: lowQualityURL.path) {
-//    // Make sure to delete lower quality versions
-//    do {
-//     try FileManager.default.removeItem(atPath: lowQualityURL.path)
-//    }
-//    catch let error {
-//     print(error.localizedDescription)
-//    }
-//  }
-  if let imageData = try? Data.init(contentsOf: localFileURL) {
-    if let image = UIImage.init(data: imageData) {
-      return image
-    }
+  if let imageData = try? Data.init(contentsOf: localFileURL),
+    let image = UIImage.init(data: imageData){
+    return image
   }
   //if (DEBUG) { print(fileName, separator: "", terminator: "") }
-  let urlAsString = RMNetwork.HTTP +  fixedPath
+  let urlAsString = RMNetwork.HTTP + fixedPath
   var image : UIImage? = nil
   // Try to create an URL from the string-- upon fail return nil
   if let url = URL(string: urlAsString) {

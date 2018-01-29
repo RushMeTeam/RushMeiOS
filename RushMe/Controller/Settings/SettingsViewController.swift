@@ -79,11 +79,13 @@ class SettingsViewController: UIViewController {
   @IBAction func clearCache(_ sender: UIButton) {
     
     var fileSize = 0.0
+    var fileNumber = 0
     let _ = FileManager.default.subpaths(atPath: RMFileManagement.fratImageURL.path)?.forEach({ (fileName) in
       fileSize += ((try? FileManager.default.attributesOfItem(atPath: RMFileManagement.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) ?? nil) ?? 0
+      fileNumber += 1
     })
-    let deleteAlert = UIAlertController.init(title: String(format: "Remove %.1f megabytes of images?", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
-    deleteAlert.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: { (action) in
+    let deleteAlert = UIAlertController.init(title: String(format: "This will free %.1f mb", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
+    deleteAlert.addAction(UIAlertAction.init(title: "Delete \(fileNumber) images", style: .destructive, handler: { (action) in
       self.clearCache()
     }))
     self.present(deleteAlert, animated: true) {

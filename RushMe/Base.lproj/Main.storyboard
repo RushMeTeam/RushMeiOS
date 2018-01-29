@@ -210,27 +210,35 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-GS-cEo">
-                                <rect key="frame" x="16" y="413.5" width="343" height="21"/>
+                                <rect key="frame" x="123.5" y="413" width="128" height="21"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="E95-8d-4xe"/>
                                     <constraint firstAttribute="height" constant="21" id="Psd-vl-sCw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kes-Gr-RoO">
+                                <rect key="frame" x="339" y="412" width="24" height="24"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="EventsIcon"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kxM-GT-KGc" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="2Nw-yZ-3PZ"/>
                             <constraint firstItem="0b7-GS-cEo" firstAttribute="top" secondItem="Lha-ll-f15" secondAttribute="bottom" id="2ex-sn-ptC"/>
-                            <constraint firstItem="0b7-GS-cEo" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" constant="16" id="6ZU-UT-9ny"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="top" secondItem="bsx-ba-2ZN" secondAttribute="bottom" id="6o9-9w-nBH"/>
                             <constraint firstItem="kxM-GT-KGc" firstAttribute="top" secondItem="0b7-GS-cEo" secondAttribute="bottom" constant="8" id="BV8-Qn-CDM"/>
                             <constraint firstAttribute="trailing" secondItem="kxM-GT-KGc" secondAttribute="trailing" id="GhZ-0x-ei2"/>
+                            <constraint firstAttribute="trailing" secondItem="kes-Gr-RoO" secondAttribute="trailing" constant="12" id="GmL-RY-DVu"/>
+                            <constraint firstItem="0b7-GS-cEo" firstAttribute="centerX" secondItem="IL7-ES-rFp" secondAttribute="centerX" id="N0F-2h-l4Y"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="RVM-MU-LAY"/>
-                            <constraint firstAttribute="trailing" secondItem="0b7-GS-cEo" secondAttribute="trailing" constant="16" id="UBr-bh-cSp"/>
                             <constraint firstAttribute="trailing" secondItem="Lha-ll-f15" secondAttribute="trailing" id="VEN-Mf-8W9"/>
+                            <constraint firstItem="kes-Gr-RoO" firstAttribute="centerY" secondItem="0b7-GS-cEo" secondAttribute="centerY" id="Vi7-rc-KFG"/>
                             <constraint firstItem="ldq-O9-vSK" firstAttribute="top" secondItem="kxM-GT-KGc" secondAttribute="bottom" id="n48-7V-Kfz"/>
+                            <constraint firstItem="kes-Gr-RoO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0b7-GS-cEo" secondAttribute="trailing" constant="8" id="rBR-nn-Wkn"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="height" secondItem="IL7-ES-rFp" secondAttribute="height" multiplier="0.5" constant="16" id="tiK-I3-8vq"/>
                         </constraints>
                     </view>
@@ -251,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uir-Sw-Kei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3796" y="2203"/>
+            <point key="canvasLocation" x="-3796" y="2202.5487256371816"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="72R-DI-RSe">
@@ -1478,7 +1486,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FZE-GN-qGH"/>
-        <segue reference="tmK-b0-YZV"/>
+        <segue reference="cAx-Qh-dZu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

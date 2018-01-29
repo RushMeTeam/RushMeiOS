@@ -18,27 +18,9 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    
-  }
-  
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    // Do nothing
-    //super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
-  }
-  
-  var imageBorderColor = UIColor.clear {
-    didSet {
-      UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-        self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
-      })
-    }
-  }
-  override func layoutSubviews() {
     if let iView = previewImageView {
       iView.layer.masksToBounds = true
-      iView.layer.cornerRadius = RMImage.CornerRadius
+      //iView.layer.cornerRadius = RMImage.CornerRadius
       iView.contentMode = UIViewContentMode.scaleAspectFill
       iView.layer.borderColor = imageBorderColor.cgColor
       iView.layer.borderWidth = 2
@@ -57,23 +39,23 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
       }
       iView.isUserInteractionEnabled = false
     }
-//    if let subLabel = subheadingLabel {
-//      subLabel.layer.masksToBounds = true
-////      subLabel.layer.cornerRadius = RMImage.CornerRadius/2.0
-////      if #available(iOS 11.0, *) {
-////        subLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
-////      } else {
-////        // Fallback on earlier versions
-////      }
-//    }
-//    if let bigLabel = titleLabel {
-//      bigLabel.layer.masksToBounds = true
-////      bigLabel.layer.cornerRadius = RMImage.CornerRadius/2.0
-////      if #available(iOS 11.0, *) {
-////        bigLabel.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
-////      } else {
-////        // Fallback on earlier versions
-////      }
-//    }
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    // Do nothing
+    //super.setSelected(selected, animated: animated)
+    
+    // Configure the view for the selected state
+  }
+  
+  var imageBorderColor = UIColor.clear {
+    didSet {
+      UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+        self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
+      })
+    }
+  }
+  override func layoutSubviews() {
+
   }
 }
