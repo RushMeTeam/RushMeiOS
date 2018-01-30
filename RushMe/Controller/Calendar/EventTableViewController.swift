@@ -59,6 +59,7 @@ class EventTableViewController: UITableViewController {
     }
     else {
       let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellIdentifier)!
+      cell.textLabel?.textColor = RMColor.AppColor
       cell.textLabel?.text = RMMessage.NoEvents
       cell.textLabel?.textAlignment = .center
       return cell

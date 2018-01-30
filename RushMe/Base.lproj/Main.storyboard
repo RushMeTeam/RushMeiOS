@@ -219,7 +219,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kes-Gr-RoO">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kes-Gr-RoO">
                                 <rect key="frame" x="339" y="412" width="24" height="24"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="EventsIcon"/>
@@ -415,7 +415,7 @@
                                             </imageView>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="Top Separator" translatesAutoresizingMaskIntoConstraints="NO" id="tFO-6y-tgh" userLabel="Top Separator">
                                                 <rect key="frame" x="0.0" y="255" width="375" height="1"/>
-                                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.33725490200000002" green="0.7843137255" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="gsH-yi-Vbo"/>
                                                 </constraints>
@@ -503,7 +503,7 @@
                                             </button>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="Bottom Separator" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-tb-6ML" userLabel="Bottom Separator">
                                                 <rect key="frame" x="0.0" y="564" width="375" height="1"/>
-                                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.33725490200000002" green="0.7843137255" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="tlI-0y-fII"/>
                                                 </constraints>
@@ -546,6 +546,7 @@
                                             <constraint firstItem="NcC-F8-fic" firstAttribute="top" secondItem="hV5-ZE-WZP" secondAttribute="top" constant="192" id="k6b-7m-BRd"/>
                                             <constraint firstItem="uNG-oH-356" firstAttribute="trailing" secondItem="hV5-ZE-WZP" secondAttribute="trailing" id="ny8-Gy-U8v"/>
                                             <constraint firstItem="uNG-oH-356" firstAttribute="top" secondItem="hV5-ZE-WZP" secondAttribute="top" id="pb2-Ax-pGB"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="S01-IN-MdK" secondAttribute="bottom" constant="8" id="shU-xD-K7p"/>
                                             <constraint firstItem="tFO-6y-tgh" firstAttribute="top" secondItem="uNG-oH-356" secondAttribute="bottom" constant="-1" id="vVc-Dc-31k"/>
                                             <constraint firstItem="egE-Bz-f5U" firstAttribute="leading" secondItem="NcC-F8-fic" secondAttribute="trailing" constant="8" id="zI8-Ef-Y6H"/>
                                         </constraints>
@@ -1486,7 +1487,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FZE-GN-qGH"/>
-        <segue reference="cAx-Qh-dZu"/>
+        <segue reference="tmK-b0-YZV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

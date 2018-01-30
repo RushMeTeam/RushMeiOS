@@ -20,7 +20,6 @@ provides-dynamic-lookup:
 - "pullFratsFromSQLDatabase"
 - "reloadTableView"
 - "segmentControlChanged"
-- "shouldPerformSegue"
 - "tableView"
 - "toggleViewControllers"
 - "viewDidLoad"
@@ -38,7 +37,6 @@ depends-top-level:
 - !private "/"
 - !private "=="
 - !private ">"
-- !private "??"
 - !private "Array"
 - "AssignmentPrecedence"
 - !private "AttractiveFratCellTableViewCell"
@@ -1069,7 +1067,6 @@ depends-member:
 - ["6RushMe20MasterViewControllerC", "searchBarTextDidBeginEditing"]
 - ["6RushMe20MasterViewControllerC", "searchBarTextDidEndEditing"]
 - ["6RushMe20MasterViewControllerC", "segmentControlChanged"]
-- ["6RushMe20MasterViewControllerC", "shouldPerformSegue"]
 - !private ["6RushMe20MasterViewControllerC", "splitViewController"]
 - ["6RushMe20MasterViewControllerC", "tableView"]
 - !private ["6RushMe20MasterViewControllerC", "title"]
@@ -1426,7 +1423,6 @@ depends-member:
 - !private ["So8NSObjectC", "setEditing"]
 - !private ["So8NSObjectC", "setProgress"]
 - !private ["So8NSObjectC", "shared"]
-- ["So8NSObjectC", "shouldPerformSegue"]
 - !private ["So8NSObjectC", "splitViewController"]
 - !private ["So8NSObjectC", "statusBarFrame"]
 - !private ["So8NSObjectC", "subheadingLabel"]
@@ -2536,7 +2532,6 @@ depends-member:
 - !private ["So11UIResponderC", "setEditing"]
 - !private ["So11UIResponderC", "setProgress"]
 - !private ["So11UIResponderC", "shared"]
-- ["So11UIResponderC", "shouldPerformSegue"]
 - !private ["So11UIResponderC", "splitViewController"]
 - !private ["So11UIResponderC", "statusBarFrame"]
 - !private ["So11UIResponderC", "subheadingLabel"]
@@ -2977,7 +2972,6 @@ depends-member:
 - ["So21UITableViewControllerC", "searchBarTextDidBeginEditing"]
 - ["So21UITableViewControllerC", "searchBarTextDidEndEditing"]
 - ["So21UITableViewControllerC", "segmentControlChanged"]
-- ["So21UITableViewControllerC", "shouldPerformSegue"]
 - !private ["So21UITableViewControllerC", "splitViewController"]
 - ["So21UITableViewControllerC", "tableView"]
 - !private ["So21UITableViewControllerC", "title"]
@@ -3348,7 +3342,6 @@ depends-member:
 - ["So16UIViewControllerC", "searchBarTextDidEndEditing"]
 - ["So16UIViewControllerC", "segmentControlChanged"]
 - !private ["So16UIViewControllerC", "selectedFraternity"]
-- ["So16UIViewControllerC", "shouldPerformSegue"]
 - !private ["So16UIViewControllerC", "splitViewController"]
 - ["So16UIViewControllerC", "tableView"]
 - !private ["So16UIViewControllerC", "tapGestureRecognizer"]
@@ -3851,4 +3844,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "b23040eef79732857760f3c4f2ce9fb0"
+interface-hash: "241ff7e1b6e42f73afebd2348552e1d2"

@@ -4,6 +4,33 @@
   'roots': [
     {
       'type': 'directory',
+      'name': "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "DeviceKit-Swift.h",
+          'external-contents': "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "DeviceKit-umbrella.h",
+          'external-contents': "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Target Support Files/DeviceKit/DeviceKit-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DeviceKit.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
       'name': "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers",
       'contents': [
         {

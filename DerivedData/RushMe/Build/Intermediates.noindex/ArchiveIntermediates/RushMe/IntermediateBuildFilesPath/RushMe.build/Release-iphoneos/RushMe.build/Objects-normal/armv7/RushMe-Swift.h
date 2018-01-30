@@ -535,12 +535,9 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 - (void)viewDidLoad;
 - (void)dataUpdate SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.dataUpdate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)pullFratsFromSQLDatabaseWithTypes:(NSArray<NSString *> * _Nonnull)types SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly, copy) NSArray<UIColor *> * _Nonnull colors SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.colors' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)animateRefreshView SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.animateRefreshView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)toggleViewControllers:(id _Nullable)_;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString * _Nonnull)identifier sender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)segmentControlChangedWithSender:(UISegmentedControl * _Nonnull)sender;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -603,6 +600,16 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 - (IBAction)clearCache:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface UIImageView (SWIFT_EXTENSION(RushMe))
+- (void)setImageByURLFromSource:(NSString * _Nonnull)imageURL SWIFT_DEPRECATED_OBJC("Swift method 'UIImageView.setImageByURL(fromSource:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
+
+@interface UIMotionEffect (SWIFT_EXTENSION(RushMe))
++ (UIMotionEffect * _Nonnull)twoAxesShiftWithStrength:(float)strength SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIMotionEffect.twoAxesShift(strength:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

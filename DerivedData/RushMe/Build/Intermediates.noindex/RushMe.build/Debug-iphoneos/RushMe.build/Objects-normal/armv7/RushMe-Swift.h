@@ -538,7 +538,6 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 - (void)toggleViewControllers:(id _Nullable)_;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString * _Nonnull)identifier sender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)segmentControlChangedWithSender:(UISegmentedControl * _Nonnull)sender;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;

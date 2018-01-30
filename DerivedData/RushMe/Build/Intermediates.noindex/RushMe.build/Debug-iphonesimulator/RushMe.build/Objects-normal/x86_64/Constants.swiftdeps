@@ -13,6 +13,7 @@ provides-top-level:
 - "RMPropertyKeys"
 - "RMFileManagement"
 - "RMDate"
+- "RMUserDevice"
 provides-nominal:
 - "6RushMe7RMImageV"
 - "6RushMe14RMImageQualityV"
@@ -26,6 +27,7 @@ provides-nominal:
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe16RMFileManagementV"
 - "6RushMe6RMDateV"
+- "6RushMe12RMUserDeviceV"
 provides-member:
 - ["6RushMe7RMImageV", ""]
 - ["6RushMe14RMImageQualityV", ""]
@@ -39,6 +41,7 @@ provides-member:
 - ["6RushMe14RMPropertyKeysV", ""]
 - ["6RushMe16RMFileManagementV", ""]
 - ["6RushMe6RMDateV", ""]
+- ["6RushMe12RMUserDeviceV", ""]
 provides-dynamic-lookup:
 depends-top-level:
 - "/"
@@ -46,6 +49,8 @@ depends-top-level:
 - "CGFloat"
 - "DEBUG"
 - "Date"
+- !private "Device"
+- "Dictionary"
 - "FileManager"
 - "RMAnimation"
 - "RMColor"
@@ -59,14 +64,19 @@ depends-top-level:
 - "RMNetwork"
 - "RMPropertyKeys"
 - "RMUser"
+- "RMUserDevice"
+- "String"
 - "StringLiteralType"
 - "UIColor"
+- !private "UIDevice"
 - "UIImage"
 depends-member:
 - ["Sa", "first"]
 - ["s23BidirectionalCollectionP", "first"]
 - ["s23BidirectionalCollectionP", "init"]
+- !private ["s7CVarArgP", "current"]
 - ["s7CVarArgP", "first"]
+- !private ["s7CVarArgP", "identifierForVendor"]
 - ["s7CVarArgP", "init"]
 - ["s7CVarArgP", "urls"]
 - ["s7CVarArgP", "white"]
@@ -74,34 +84,59 @@ depends-member:
 - ["s10CollectionP", "first"]
 - ["s10CollectionP", "init"]
 - ["s10ComparableP", "init"]
+- !private ["s10ComparableP", "timeIntervalSinceReferenceDate"]
 - ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
+- !private ["s28CustomDebugStringConvertibleP", "current"]
 - ["s28CustomDebugStringConvertibleP", "first"]
+- !private ["s28CustomDebugStringConvertibleP", "identifierForVendor"]
 - ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "timeIntervalSinceReferenceDate"]
 - ["s28CustomDebugStringConvertibleP", "urls"]
+- !private ["s28CustomDebugStringConvertibleP", "uuidString"]
 - ["s28CustomDebugStringConvertibleP", "white"]
 - ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
 - ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "timeIntervalSinceReferenceDate"]
 - ["s17CustomReflectableP", "first"]
 - ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "timeIntervalSinceReferenceDate"]
+- !private ["s17CustomReflectableP", "uuidString"]
 - ["s23CustomStringConvertibleP", "appendingPathComponent"]
+- !private ["s23CustomStringConvertibleP", "current"]
+- !private ["s23CustomStringConvertibleP", "description"]
 - ["s23CustomStringConvertibleP", "first"]
+- !private ["s23CustomStringConvertibleP", "identifierForVendor"]
 - ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "timeIntervalSinceReferenceDate"]
 - ["s23CustomStringConvertibleP", "urls"]
+- !private ["s23CustomStringConvertibleP", "uuidString"]
 - ["s23CustomStringConvertibleP", "white"]
 - ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - ["10Foundation4DateV", "init"]
+- !private ["10Foundation4DateV", "timeIntervalSinceReferenceDate"]
 - ["s9DecodableP", "appendingPathComponent"]
 - ["s9DecodableP", "first"]
 - ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "timeIntervalSinceReferenceDate"]
+- !private ["s9DecodableP", "uuidString"]
+- !private ["9DeviceKit0A0O", "description"]
+- !private ["9DeviceKit0A0O", "init"]
 - ["s9EncodableP", "appendingPathComponent"]
 - ["s9EncodableP", "first"]
 - ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "timeIntervalSinceReferenceDate"]
+- !private ["s9EncodableP", "uuidString"]
 - ["s9EquatableP", "appendingPathComponent"]
+- !private ["s9EquatableP", "current"]
+- !private ["s9EquatableP", "description"]
 - ["s9EquatableP", "documentDirectory"]
+- !private ["s9EquatableP", "identifierForVendor"]
 - ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "timeIntervalSinceReferenceDate"]
 - ["s9EquatableP", "urls"]
 - ["s9EquatableP", "userDomainMask"]
+- !private ["s9EquatableP", "uuidString"]
 - ["s9EquatableP", "white"]
 - ["s9EquatableP", "withAlphaComponent"]
 - ["s25ExpressibleByArrayLiteralP", "first"]
@@ -112,9 +147,13 @@ depends-member:
 - ["So11FileManagerC", "init"]
 - ["So11FileManagerC", "urls"]
 - ["s8HashableP", "appendingPathComponent"]
+- !private ["s8HashableP", "current"]
 - ["s8HashableP", "documentDirectory"]
+- !private ["s8HashableP", "identifierForVendor"]
 - ["s8HashableP", "init"]
+- !private ["s8HashableP", "timeIntervalSinceReferenceDate"]
 - ["s8HashableP", "urls"]
+- !private ["s8HashableP", "uuidString"]
 - ["s8HashableP", "white"]
 - ["s8HashableP", "withAlphaComponent"]
 - ["s25LosslessStringConvertibleP", "init"]
@@ -133,10 +172,14 @@ depends-member:
 - ["So21NSItemProviderWritingP", "white"]
 - ["So21NSItemProviderWritingP", "withAlphaComponent"]
 - ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSObjectC", "current"]
+- !private ["So8NSObjectC", "identifierForVendor"]
 - ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "urls"]
 - ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "withAlphaComponent"]
+- !private ["So16NSObjectProtocolP", "current"]
+- !private ["So16NSObjectProtocolP", "identifierForVendor"]
 - ["So16NSObjectProtocolP", "init"]
 - ["So16NSObjectProtocolP", "urls"]
 - ["So16NSObjectProtocolP", "white"]
@@ -211,6 +254,13 @@ depends-member:
 - ["6RushMe6RMUserV", "init"]
 - ["6RushMe6RMUserV", "minPassLength"]
 - ["6RushMe6RMUserV", "minUsernameLength"]
+- !private ["6RushMe12RMUserDeviceV", "Date"]
+- !private ["6RushMe12RMUserDeviceV", "Device"]
+- ["6RushMe12RMUserDeviceV", "Dictionary"]
+- ["6RushMe12RMUserDeviceV", "String"]
+- !private ["6RushMe12RMUserDeviceV", "UIDevice"]
+- ["6RushMe12RMUserDeviceV", "deviceInfo"]
+- ["6RushMe12RMUserDeviceV", "init"]
 - ["s22RandomAccessCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "init"]
@@ -218,6 +268,8 @@ depends-member:
 - ["s16RawRepresentableP", "userDomainMask"]
 - ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
 - ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "timeIntervalSinceReferenceDate"]
+- !private ["10Foundation20ReferenceConvertibleP", "uuidString"]
 - ["So11FileManagerC19SearchPathDirectoryO", "documentDirectory"]
 - ["So11FileManagerC20SearchPathDomainMaskV", "userDomainMask"]
 - ["s8SequenceP", "first"]
@@ -231,9 +283,12 @@ depends-member:
 - ["So7UIColorC", "init"]
 - ["So7UIColorC", "white"]
 - ["So7UIColorC", "withAlphaComponent"]
+- !private ["So8UIDeviceC", "current"]
+- !private ["So8UIDeviceC", "identifierForVendor"]
 - ["So7UIImageC", "init"]
 - ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - ["10Foundation3URLV", "appendingPathComponent"]
+- !private ["10Foundation4UUIDV", "uuidString"]
 - ["s14_ArrayProtocolP", "first"]
 - ["s23_BidirectionalIndexableP", "first"]
 - ["s23_BidirectionalIndexableP", "init"]
@@ -253,6 +308,8 @@ depends-member:
 - ["s10_IndexableP", "init"]
 - ["s14_IndexableBaseP", "first"]
 - ["s14_IndexableBaseP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "identifierForVendor"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "white"]
@@ -261,6 +318,8 @@ depends-member:
 - ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
 - ["s21_ObjectiveCBridgeableP", "first"]
 - ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "timeIntervalSinceReferenceDate"]
+- !private ["s21_ObjectiveCBridgeableP", "uuidString"]
 - ["s22_RandomAccessIndexableP", "first"]
 - ["s26_RangeReplaceableIndexableP", "first"]
 - ["s26_RangeReplaceableIndexableP", "init"]
@@ -277,6 +336,7 @@ depends-nominal:
 - "s23CustomStringConvertibleP"
 - "10Foundation4DateV"
 - "s9DecodableP"
+- !private "9DeviceKit0A0O"
 - "s9EncodableP"
 - "s9EquatableP"
 - "s25ExpressibleByArrayLiteralP"
@@ -311,6 +371,7 @@ depends-nominal:
 - "6RushMe9RMNetworkV"
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe6RMUserV"
+- "6RushMe12RMUserDeviceV"
 - "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
@@ -325,9 +386,11 @@ depends-nominal:
 - "s20TextOutputStreamableP"
 - "So29UIAccessibilityIdentificationP"
 - "So7UIColorC"
+- !private "So8UIDeviceC"
 - "So7UIImageC"
 - "So39UIItemProviderPresentationSizeProvidingP"
 - "10Foundation3URLV"
+- !private "10Foundation4UUIDV"
 - "s14_ArrayProtocolP"
 - "s23_BidirectionalIndexableP"
 - "s24_DestructorSafeContainerP"
@@ -351,6 +414,7 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/x86_64.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
@@ -368,6 +432,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
@@ -392,11 +457,13 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "564123983603cf23d64a63265dc0d321"
+interface-hash: "3aa9b801e361072bf557043decb592f4"

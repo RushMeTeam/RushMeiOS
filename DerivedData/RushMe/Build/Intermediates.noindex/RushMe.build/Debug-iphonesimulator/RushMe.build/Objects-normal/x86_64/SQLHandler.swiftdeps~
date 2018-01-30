@@ -20,6 +20,7 @@ depends-top-level:
 - !private "=="
 - !private "AssignmentPrecedence"
 - "Bool"
+- !private "Device"
 - "Dictionary"
 - "NSObject"
 - "OHMySQLQueryContext"
@@ -29,6 +30,7 @@ depends-top-level:
 - "RMNetwork"
 - "SQLHandler"
 - "String"
+- !private "UIDevice"
 - !private "UInt"
 - !private "UnicodeScalarType"
 - !private "print"
@@ -36,105 +38,141 @@ depends-top-level:
 depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Device"]
 - !private ["s7CVarArgP", "OHMySQLQueryContext"]
 - !private ["s7CVarArgP", "OHMySQLQueryRequest"]
 - !private ["s7CVarArgP", "OHMySQLStoreCoordinator"]
 - !private ["s7CVarArgP", "OHMySQLUser"]
+- !private ["s7CVarArgP", "UIDevice"]
 - !private ["s7CVarArgP", "connect"]
 - !private ["s7CVarArgP", "context"]
 - !private ["s7CVarArgP", "coordinator"]
+- !private ["s7CVarArgP", "current"]
 - !private ["s7CVarArgP", "disconnect"]
 - !private ["s7CVarArgP", "encoding"]
 - !private ["s7CVarArgP", "executeQueryRequestAndFetchResult"]
+- !private ["s7CVarArgP", "identifierForVendor"]
 - ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "sharedSQLHandler"]
 - !private ["s7CVarArgP", "storeCoordinator"]
+- !private ["s7CVarArgP", "systemVersion"]
 - !private ["s7CVarArgP", "user"]
 - ["s7CVarArgP", ""]
 - !private ["SC15CharsetEncodingO", "UTF8MB4"]
 - !private ["s10CollectionP", "init"]
 - !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "Device"]
 - !private ["s28CustomDebugStringConvertibleP", "OHMySQLQueryContext"]
 - !private ["s28CustomDebugStringConvertibleP", "OHMySQLQueryRequest"]
 - !private ["s28CustomDebugStringConvertibleP", "OHMySQLStoreCoordinator"]
 - !private ["s28CustomDebugStringConvertibleP", "OHMySQLUser"]
+- !private ["s28CustomDebugStringConvertibleP", "UIDevice"]
 - !private ["s28CustomDebugStringConvertibleP", "connect"]
 - !private ["s28CustomDebugStringConvertibleP", "context"]
 - !private ["s28CustomDebugStringConvertibleP", "coordinator"]
+- !private ["s28CustomDebugStringConvertibleP", "current"]
 - !private ["s28CustomDebugStringConvertibleP", "disconnect"]
 - !private ["s28CustomDebugStringConvertibleP", "encoding"]
 - !private ["s28CustomDebugStringConvertibleP", "executeQueryRequestAndFetchResult"]
+- !private ["s28CustomDebugStringConvertibleP", "identifierForVendor"]
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "sharedSQLHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "storeCoordinator"]
+- !private ["s28CustomDebugStringConvertibleP", "systemVersion"]
 - !private ["s28CustomDebugStringConvertibleP", "user"]
+- !private ["s28CustomDebugStringConvertibleP", "uuidString"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "uuidString"]
+- !private ["s23CustomStringConvertibleP", "Device"]
 - !private ["s23CustomStringConvertibleP", "OHMySQLQueryContext"]
 - !private ["s23CustomStringConvertibleP", "OHMySQLQueryRequest"]
 - !private ["s23CustomStringConvertibleP", "OHMySQLStoreCoordinator"]
 - !private ["s23CustomStringConvertibleP", "OHMySQLUser"]
+- !private ["s23CustomStringConvertibleP", "UIDevice"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "connect"]
 - !private ["s23CustomStringConvertibleP", "context"]
 - !private ["s23CustomStringConvertibleP", "coordinator"]
+- !private ["s23CustomStringConvertibleP", "current"]
+- !private ["s23CustomStringConvertibleP", "description"]
 - !private ["s23CustomStringConvertibleP", "disconnect"]
 - !private ["s23CustomStringConvertibleP", "encoding"]
 - !private ["s23CustomStringConvertibleP", "executeQueryRequestAndFetchResult"]
+- !private ["s23CustomStringConvertibleP", "identifierForVendor"]
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "sharedSQLHandler"]
 - !private ["s23CustomStringConvertibleP", "storeCoordinator"]
+- !private ["s23CustomStringConvertibleP", "systemVersion"]
 - !private ["s23CustomStringConvertibleP", "user"]
+- !private ["s23CustomStringConvertibleP", "uuidString"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "uuidString"]
+- !private ["9DeviceKit0A0O", "description"]
+- !private ["9DeviceKit0A0O", "init"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "uuidString"]
+- !private ["s9EquatableP", "Device"]
 - !private ["s9EquatableP", "OHMySQLQueryContext"]
 - !private ["s9EquatableP", "OHMySQLQueryRequest"]
 - !private ["s9EquatableP", "OHMySQLStoreCoordinator"]
 - !private ["s9EquatableP", "OHMySQLUser"]
+- !private ["s9EquatableP", "UIDevice"]
 - !private ["s9EquatableP", "UTF8MB4"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "connect"]
 - !private ["s9EquatableP", "context"]
 - !private ["s9EquatableP", "coordinator"]
+- !private ["s9EquatableP", "current"]
+- !private ["s9EquatableP", "description"]
 - !private ["s9EquatableP", "disconnect"]
 - !private ["s9EquatableP", "encoding"]
 - !private ["s9EquatableP", "executeQueryRequestAndFetchResult"]
+- !private ["s9EquatableP", "identifierForVendor"]
 - ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "print"]
 - !private ["s9EquatableP", "sharedSQLHandler"]
 - !private ["s9EquatableP", "storeCoordinator"]
+- !private ["s9EquatableP", "systemVersion"]
 - !private ["s9EquatableP", "user"]
+- !private ["s9EquatableP", "uuidString"]
 - ["s9EquatableP", ""]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "Device"]
 - !private ["s8HashableP", "OHMySQLQueryContext"]
 - !private ["s8HashableP", "OHMySQLQueryRequest"]
 - !private ["s8HashableP", "OHMySQLStoreCoordinator"]
 - !private ["s8HashableP", "OHMySQLUser"]
+- !private ["s8HashableP", "UIDevice"]
 - !private ["s8HashableP", "UTF8MB4"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "connect"]
 - !private ["s8HashableP", "context"]
 - !private ["s8HashableP", "coordinator"]
+- !private ["s8HashableP", "current"]
 - !private ["s8HashableP", "disconnect"]
 - !private ["s8HashableP", "encoding"]
 - !private ["s8HashableP", "executeQueryRequestAndFetchResult"]
+- !private ["s8HashableP", "identifierForVendor"]
 - ["s8HashableP", "init"]
 - !private ["s8HashableP", "print"]
 - !private ["s8HashableP", "sharedSQLHandler"]
 - !private ["s8HashableP", "storeCoordinator"]
+- !private ["s8HashableP", "systemVersion"]
 - !private ["s8HashableP", "user"]
+- !private ["s8HashableP", "uuidString"]
 - ["s8HashableP", ""]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
@@ -145,6 +183,7 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "Device"]
 - ["So8NSObjectC", "Dictionary"]
 - ["So8NSObjectC", "OHMySQLQueryContext"]
 - !private ["So8NSObjectC", "OHMySQLQueryRequest"]
@@ -152,13 +191,16 @@ depends-member:
 - ["So8NSObjectC", "OHMySQLUser"]
 - ["So8NSObjectC", "SQLHandler"]
 - ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "UIDevice"]
 - !private ["So8NSObjectC", "UInt"]
 - !private ["So8NSObjectC", "connect"]
 - ["So8NSObjectC", "context"]
 - ["So8NSObjectC", "coordinator"]
+- !private ["So8NSObjectC", "current"]
 - !private ["So8NSObjectC", "disconnect"]
 - !private ["So8NSObjectC", "encoding"]
 - !private ["So8NSObjectC", "executeQueryRequestAndFetchResult"]
+- !private ["So8NSObjectC", "identifierForVendor"]
 - ["So8NSObjectC", "init"]
 - ["So8NSObjectC", "isConnected"]
 - !private ["So8NSObjectC", "print"]
@@ -166,22 +208,28 @@ depends-member:
 - ["So8NSObjectC", "shared"]
 - !private ["So8NSObjectC", "sharedSQLHandler"]
 - !private ["So8NSObjectC", "storeCoordinator"]
+- !private ["So8NSObjectC", "systemVersion"]
 - ["So8NSObjectC", "user"]
 - ["So8NSObjectC", ""]
+- !private ["So16NSObjectProtocolP", "Device"]
 - !private ["So16NSObjectProtocolP", "OHMySQLQueryContext"]
 - !private ["So16NSObjectProtocolP", "OHMySQLQueryRequest"]
 - !private ["So16NSObjectProtocolP", "OHMySQLStoreCoordinator"]
 - !private ["So16NSObjectProtocolP", "OHMySQLUser"]
+- !private ["So16NSObjectProtocolP", "UIDevice"]
 - !private ["So16NSObjectProtocolP", "connect"]
 - !private ["So16NSObjectProtocolP", "context"]
 - !private ["So16NSObjectProtocolP", "coordinator"]
+- !private ["So16NSObjectProtocolP", "current"]
 - !private ["So16NSObjectProtocolP", "disconnect"]
 - !private ["So16NSObjectProtocolP", "encoding"]
 - !private ["So16NSObjectProtocolP", "executeQueryRequestAndFetchResult"]
+- !private ["So16NSObjectProtocolP", "identifierForVendor"]
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "print"]
 - !private ["So16NSObjectProtocolP", "sharedSQLHandler"]
 - !private ["So16NSObjectProtocolP", "storeCoordinator"]
+- !private ["So16NSObjectProtocolP", "systemVersion"]
 - !private ["So16NSObjectProtocolP", "user"]
 - ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "init"]
@@ -202,7 +250,9 @@ depends-member:
 - ["6RushMe9RMNetworkV", "userName"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s16RawRepresentableP", "UTF8MB4"]
+- !private ["10Foundation20ReferenceConvertibleP", "uuidString"]
 - ["6RushMe10SQLHandlerC", "Bool"]
+- !private ["6RushMe10SQLHandlerC", "Device"]
 - ["6RushMe10SQLHandlerC", "Dictionary"]
 - ["6RushMe10SQLHandlerC", "OHMySQLQueryContext"]
 - !private ["6RushMe10SQLHandlerC", "OHMySQLQueryRequest"]
@@ -210,6 +260,7 @@ depends-member:
 - ["6RushMe10SQLHandlerC", "OHMySQLUser"]
 - ["6RushMe10SQLHandlerC", "SQLHandler"]
 - ["6RushMe10SQLHandlerC", "String"]
+- !private ["6RushMe10SQLHandlerC", "UIDevice"]
 - !private ["6RushMe10SQLHandlerC", "UInt"]
 - ["6RushMe10SQLHandlerC", "context"]
 - ["6RushMe10SQLHandlerC", "coordinator"]
@@ -227,6 +278,10 @@ depends-member:
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
+- !private ["So8UIDeviceC", "current"]
+- !private ["So8UIDeviceC", "identifierForVendor"]
+- !private ["So8UIDeviceC", "systemVersion"]
+- !private ["10Foundation4UUIDV", "uuidString"]
 - !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
@@ -237,24 +292,30 @@ depends-member:
 - !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s10_IndexableP", "init"]
 - !private ["s14_IndexableBaseP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Device"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLQueryContext"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLQueryRequest"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLStoreCoordinator"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLUser"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIDevice"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "connect"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "context"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "coordinator"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "disconnect"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "encoding"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "executeQueryRequestAndFetchResult"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "identifierForVendor"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sharedSQLHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "storeCoordinator"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "systemVersion"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "user"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "uuidString"]
 - !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
@@ -269,6 +330,7 @@ depends-nominal:
 - !private "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - !private "s9DecodableP"
+- !private "9DeviceKit0A0O"
 - !private "s9EncodableP"
 - "s9EquatableP"
 - !private "s27ExpressibleByBooleanLiteralP"
@@ -295,6 +357,7 @@ depends-nominal:
 - "6RushMe9RMNetworkV"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
+- !private "10Foundation20ReferenceConvertibleP"
 - "6RushMe10SQLHandlerC"
 - !private "s8SequenceP"
 - !private "s12StaticStringV"
@@ -302,6 +365,8 @@ depends-nominal:
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
+- !private "So8UIDeviceC"
+- !private "10Foundation4UUIDV"
 - !private "s23_BidirectionalIndexableP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
@@ -319,6 +384,7 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/x86_64.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
@@ -336,6 +402,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
@@ -360,11 +427,13 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "12c2d4aa2d93486af589b1d6907d1202"
+interface-hash: "125fa2e009088b00840224d7eb24a064"

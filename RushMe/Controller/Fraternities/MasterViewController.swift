@@ -99,6 +99,7 @@ class MasterViewController : UITableViewController,
     progressView.frame.origin.y = UIApplication.shared.statusBarFrame.height + 
                                       navigationController!.navigationBar.frame.height - progressView.frame.height
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
+    self.handleRefresh(refreshControl: refreshControl!)
   }
   
   // MARK: - Data Handling
@@ -153,7 +154,6 @@ class MasterViewController : UITableViewController,
         }
         DispatchQueue.main.async {
           self.reloadTableView()
-          
           self.favoritesSegmentControl?.isHidden = false
           self.refreshControl!.isEnabled = true
           self.openBarButtonItem.isEnabled = true
@@ -179,7 +179,6 @@ class MasterViewController : UITableViewController,
           self.progressView.progress = 1
           self.progressView.alpha = 0
         }, completion: { (_) in
-          
         })
       })
     }
@@ -223,10 +222,6 @@ class MasterViewController : UITableViewController,
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    if let _ = refreshControl {
-      self.handleRefresh(refreshControl: refreshControl!)
-      refreshControl?.tintColor = RMColor.AppColor
-    }
     view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     refreshControl?.tintColor = RMColor.AppColor
@@ -267,9 +262,9 @@ class MasterViewController : UITableViewController,
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
-  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-    return !(self.refreshControl?.isRefreshing ?? true)
-  }
+//  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//    return allowSegues //!(self.refreshControl?.isRefreshing ?? true)
+//  }
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
   }

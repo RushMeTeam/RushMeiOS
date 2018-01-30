@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import DeviceKit
 
 let DEBUG = false
 
@@ -93,3 +94,20 @@ struct RMFileManagement {
 struct RMDate {
   static let Today = Date.init(timeIntervalSince1970: 1505036460)
 }
+
+struct RMUserDevice {
+//  print(UIDevice.current.identifierForVendor?.uuidString)
+//  print(UIDevice.current.systemVersion)
+//  print(Device().description)
+  static var deviceInfo : Dictionary<String, Any?> {
+    get {
+      return ["deviceuid" : UIDevice.current.identifierForVendor?.uuidString,
+              "requestdatetime" : Date.timeIntervalSinceReferenceDate,
+              "devicetype" : Device().description,
+              "devicesoftware" : UIDevice.current.systemVersion] as [String : Any]
+    }
+  }
+  
+}
+
+

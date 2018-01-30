@@ -44,6 +44,7 @@ class SQLHandler: NSObject {
     context = OHMySQLQueryContext()
     context!.storeCoordinator = coordinator!
     super.init()
+    
   }
   static var shared : SQLHandler {
     get {
@@ -56,6 +57,7 @@ class SQLHandler: NSObject {
       print("User initialization failed!")
       return nil
     }
+    
     var queryString = "SELECT "
     if let _ = aField { queryString += aField! }
       else { queryString += "*" }
@@ -63,7 +65,6 @@ class SQLHandler: NSObject {
     if let _ = whereClause { queryString += " WHERE " + whereClause! }
     //queryString += ";"
     let query = OHMySQLQueryRequest(queryString: queryString)
-    
     if let qContext = context {
       if let result = try? qContext.executeQueryRequestAndFetchResult(query) {
        return result
@@ -76,6 +77,11 @@ class SQLHandler: NSObject {
     print("Failed on determining mainQueryContext")
     return nil
   }
+  
+  
+  
+  
+  
   deinit {
    coordinator?.disconnect()
   }

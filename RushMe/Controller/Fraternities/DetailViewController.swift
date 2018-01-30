@@ -192,8 +192,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.underlyingView.bringSubview(toFront: mapView)
     self.underlyingView.bringSubview(toFront: openMapButton)
     // Do any additional setup after loading the view, typically from a nib.
-    configureView()
-    if let frat = selectedFraternity {
+    if let frat = self.selectedFraternity {
       if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
         return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
       }).last?.value {
@@ -201,13 +200,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         eventViewController!.provideDate = true
       }
       else {
-        eventViewController!.selectedEvents = nil
+        eventViewController?.selectedEvents = nil
       }
     }
     self.profileImageView.layer.zPosition = 10
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true
-    
     self.configureView()
   }
   
@@ -222,6 +220,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   func configureView() {
     if let frat = selectedFraternity {
       // Update the user interface for the detail item.
+      if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
+        self.coverImageView.setImageByURL(fromSource: coverImageURL)
+      }
+      if frat.previewImage == RMImage.NoImage {
+        self.profileImageView.isUserInteractionEnabled = false 
+      }
+      else {
+        self.profileImageView?.image = frat.previewImage
+      }
       self.titleLabel?.text = frat.name
       self.title = frat.name.greekLetters
       self.underProfileLabel?.text = frat.chapter + " Chapter"
@@ -252,48 +259,44 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
           
         }
       }
-      
-      if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
-        self.coverImageView.setImageByURL(fromSource: coverImageURL)
-      }
-      if frat.previewImage == RMImage.NoImage {
-        self.profileImageView.isUserInteractionEnabled = false 
-      }
-      else {
-        self.profileImageView?.image = frat.previewImage
-      }
       if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String {
-        
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.geocodeAddressString(address, completionHandler: {
-          (placemarks, error) in
-          guard
-            let placemarks = placemarks,
-            let location = placemarks.first?.location
+        DispatchQueue.global().async {
+          
+          let geoCoder = CLGeocoder()
+          
+          geoCoder.geocodeAddressString(address, completionHandler: {
+            (placemarks, error) in
+            guard
+              let placemarks = placemarks,
+              let location = placemarks.first?.location
+              
+              else {
+                // handle no location found
+                return
+            }
+            // Use your location
+            let annotation = MKPointAnnotation.init()
+            self.mapItem = MKMapItem.init(placemark: MKPlacemark.init(coordinate: location.coordinate))
+            self.mapItem?.name = frat.name
             
-            else {
-              // handle no location found
-              return
-          }
-          // Use your location
-          let annotation = MKPointAnnotation.init()
-          self.mapItem = MKMapItem.init(placemark: MKPlacemark.init(coordinate: location.coordinate))
-          self.mapItem?.name = frat.name
-          
-          annotation.coordinate = location.coordinate
-          annotation.title = frat.name
-          annotation.subtitle = address
-          
-          self.mapView.setCenter(annotation.coordinate, animated: false)
-          self.mapView.addAnnotation(annotation)
-        })
+            annotation.coordinate = location.coordinate
+            annotation.title = frat.name
+            annotation.subtitle = address
+            
+            self.mapView.setCenter(annotation.coordinate, animated: false)
+            self.mapView.addAnnotation(annotation)
+          })
+        }
       }
       else {
-        self.mapView?.isHidden = true
+        self.mapView?.removeFromSuperview()
         self.openMapButton?.isHidden = true
       }
+     
+      
+      
     }
+    
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
