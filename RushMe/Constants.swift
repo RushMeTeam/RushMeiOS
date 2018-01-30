@@ -38,11 +38,11 @@ struct RMAnimation {
 }
 // Networking parameters, used to access the server
 struct RMNetwork {
-  static let userName = "guest"
-  static let password = "guestaccess"
+  static let userName = "RushMePublic"
+  static let password = "fras@a&etHaS#7eyudrum+Hak?fresax"
   static let databaseName = "fratinfo"
-  static let IP = "34.225.179.240"
-  static let HTTP = "http://" + IP + "/"
+  static let IP = "rushmedbinstance.cko1kwfapaog.us-east-2.rds.amazonaws.com"
+  static let HTTP = "https://s3.us-east-2.amazonaws.com/rushmepublic/"
 }
 
 struct RMMessage {

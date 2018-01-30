@@ -2,8 +2,8 @@
 provides-top-level:
 - "Quality"
 - "Campus"
-- "url"
-- "urls"
+- "urlSuffix"
+- "urlSuffixes"
 - "pullImage"
 provides-nominal:
 - "6RushMe7QualityO"
@@ -71,13 +71,13 @@ depends-top-level:
 - "String"
 - "UIImage"
 - !private "UIImagePNGRepresentation"
-- "URL"
+- !private "URL"
 - !private "UnicodeScalarType"
 - !private "campusSharedInstance"
 - !private "print"
 - "pullImage"
-- "url"
-- "urls"
+- "urlSuffix"
+- "urlSuffixes"
 - !private "||"
 - !private "~="
 depends-member:
@@ -134,6 +134,7 @@ depends-member:
 - !private ["s7CVarArgP", "considerEventsBeforeToday"]
 - !private ["s7CVarArgP", "contains"]
 - !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "createDirectory"]
 - !private ["s7CVarArgP", "dayKey"]
 - !private ["s7CVarArgP", "default"]
 - !private ["s7CVarArgP", "downloadedImageQuality"]
@@ -286,6 +287,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "considerEventsBeforeToday"]
 - !private ["s28CustomDebugStringConvertibleP", "contains"]
 - !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "createDirectory"]
 - !private ["s28CustomDebugStringConvertibleP", "dayKey"]
 - !private ["s28CustomDebugStringConvertibleP", "default"]
 - !private ["s28CustomDebugStringConvertibleP", "downloadedImageQuality"]
@@ -390,6 +392,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "considerEventsBeforeToday"]
 - !private ["s23CustomStringConvertibleP", "contains"]
 - !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "createDirectory"]
 - !private ["s23CustomStringConvertibleP", "dayKey"]
 - !private ["s23CustomStringConvertibleP", "default"]
 - !private ["s23CustomStringConvertibleP", "downloadedImageQuality"]
@@ -521,6 +524,7 @@ depends-member:
 - !private ["s9EquatableP", "campusSharedInstance"]
 - !private ["s9EquatableP", "compare"]
 - !private ["s9EquatableP", "considerEventsBeforeToday"]
+- !private ["s9EquatableP", "createDirectory"]
 - !private ["s9EquatableP", "dayKey"]
 - !private ["s9EquatableP", "default"]
 - !private ["s9EquatableP", "downloadedImageQuality"]
@@ -601,6 +605,7 @@ depends-member:
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "dropLast"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "split"]
+- !private ["So11FileManagerC", "createDirectory"]
 - !private ["So11FileManagerC", "default"]
 - !private ["So11FileManagerC", "fileExists"]
 - !private ["s17FixedWidthIntegerP", "hashValue"]
@@ -653,6 +658,7 @@ depends-member:
 - !private ["s8HashableP", "campusSharedInstance"]
 - !private ["s8HashableP", "compare"]
 - !private ["s8HashableP", "considerEventsBeforeToday"]
+- !private ["s8HashableP", "createDirectory"]
 - !private ["s8HashableP", "dayKey"]
 - !private ["s8HashableP", "default"]
 - !private ["s8HashableP", "downloadedImageQuality"]
@@ -769,6 +775,7 @@ depends-member:
 - !private ["So8NSObjectC", "async"]
 - !private ["So8NSObjectC", "campusSharedInstance"]
 - ["So8NSObjectC", "considerEventsBeforeToday"]
+- !private ["So8NSObjectC", "createDirectory"]
 - !private ["So8NSObjectC", "dayKey"]
 - !private ["So8NSObjectC", "default"]
 - ["So8NSObjectC", "downloadedImageQuality"]
@@ -832,6 +839,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "async"]
 - !private ["So16NSObjectProtocolP", "campusSharedInstance"]
 - !private ["So16NSObjectProtocolP", "considerEventsBeforeToday"]
+- !private ["So16NSObjectProtocolP", "createDirectory"]
 - !private ["So16NSObjectProtocolP", "dayKey"]
 - !private ["So16NSObjectProtocolP", "default"]
 - !private ["So16NSObjectProtocolP", "downloadedImageQuality"]
@@ -1110,6 +1118,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "campusSharedInstance"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "considerEventsBeforeToday"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "createDirectory"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dayKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "downloadedImageQuality"]
@@ -1372,4 +1381,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "ea7f5248f0d5e33428dc3efd6fd19417"
+interface-hash: "770744116f967eae75b8a8a291dc7559"
