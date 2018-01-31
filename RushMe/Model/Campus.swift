@@ -227,7 +227,7 @@ class Campus: NSObject {
     // If asynchronous loading is enabled
     if (async) {
       // Dispatch a new relatively high priority thread to get the images
-      DispatchQueue.global(qos: .userInitiated).async {
+      DispatchQueue.global(qos: .default).async {
         let _ = self.pullEventsFromSQLDataBase(fratName: fratName)
       }
       return [Date : FratEvent]() // return an empty dictionary for the meantime
@@ -240,8 +240,7 @@ class Campus: NSObject {
     // Try to grab the fraternity (see if it exists)
     if let fraternity = self.fraternitiesDict[fratName] {
       // Pull all this house's events from the SQL database
-      if let fratEvents = SQLHandler.shared.select(fromTable : "events",
-                                                   whereClause: "house = '" + fratName + "'") {
+      if let fratEvents = SQLHandler.shared.select(fromTable: "events", conditions: "house = '" + fratName + "'") {
         for eventDict in fratEvents {
           if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
             if let _ = fratEventsByDay[fEvent.dayKey] {
@@ -256,12 +255,13 @@ class Campus: NSObject {
       }
       return fraternity.events
     }
+    print("Failed to return \(fratName)'s events")
     // Failed, provide no dates
     return [Date : FratEvent]()
   }
   // MARK: Save To and Load From File
   func saveFavorites() {
-    DispatchQueue.global().async {
+    DispatchQueue.global(qos: .background).async {
       let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
       if !isSuccessfulSave {
         print("Error saving favorite frats at: \(RMFileManagement.favoritedFratURL.path)")
@@ -387,7 +387,7 @@ func pullImage(fromSource : String, quality : Quality = Campus.shared.downloaded
       if let img = UIImage(data: data) {
         image = img
         if let imageData = UIImagePNGRepresentation(img) {
-          DispatchQueue.global().async {
+          DispatchQueue.global(qos: .background).async {
             do {
               try imageData.write(to: localFileURL)
             }

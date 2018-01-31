@@ -42,6 +42,7 @@ struct RMNetwork {
   static let userName = "RushMePublic"
   static let password = "fras@a&etHaS#7eyudrum+Hak?fresax"
   static let databaseName = "fratinfo"
+  static let userActionsTableName = "sqlrequests"//"useractions"
   static let IP = "rushmedbinstance.cko1kwfapaog.us-east-2.rds.amazonaws.com"
   static let HTTP = "https://s3.us-east-2.amazonaws.com/rushmepublic/"
 }
@@ -96,17 +97,19 @@ struct RMDate {
 }
 
 struct RMUserDevice {
-//  print(UIDevice.current.identifierForVendor?.uuidString)
-//  print(UIDevice.current.systemVersion)
-//  print(Device().description)
-  static var deviceInfo : Dictionary<String, Any?> {
+  static var deviceInfo : Dictionary<String, Any> {
     get {
-      return ["deviceuid" : UIDevice.current.identifierForVendor?.uuidString,
-              "requestdatetime" : Date.timeIntervalSinceReferenceDate,
+      return ["deviceuuid" : (UIDevice.current.identifierForVendor?.uuidString.hashValue ?? "ID Broken"),
+              "requesttime" : Int(Date.timeIntervalSinceReferenceDate),
               "devicetype" : Device().description,
-              "devicesoftware" : UIDevice.current.systemVersion] as [String : Any]
+              "devicesoftware" : UIDevice.current.systemVersion,
+              "appversion" : self.appversion]
     }
   }
+  fileprivate static let appversion =
+                    ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "") +
+                                                        "-" +
+                                          ((Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "")
   
 }
 

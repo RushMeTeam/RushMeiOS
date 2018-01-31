@@ -83,7 +83,6 @@ depends-top-level:
 - !private "UITableViewRowAnimation"
 - !private "UIView"
 - !private "UIViewAnimationOptions"
-- !private "UnicodeScalarType"
 - !private "attractiveFratCellIdentifier"
 - !private "fratCellIdentifier"
 - !private "print"
@@ -221,6 +220,7 @@ depends-member:
 - !private ["s7CVarArgP", "imageBorderColor"]
 - !private ["s7CVarArgP", "index"]
 - !private ["s7CVarArgP", "indexPathForSelectedRow"]
+- !private ["s7CVarArgP", "informAction"]
 - ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "isCollapsed"]
 - !private ["s7CVarArgP", "isConnected"]
@@ -384,6 +384,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "imageBorderColor"]
 - !private ["s28CustomDebugStringConvertibleP", "index"]
 - !private ["s28CustomDebugStringConvertibleP", "indexPathForSelectedRow"]
+- !private ["s28CustomDebugStringConvertibleP", "informAction"]
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isCollapsed"]
 - !private ["s28CustomDebugStringConvertibleP", "isConnected"]
@@ -551,6 +552,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "imageBorderColor"]
 - !private ["s23CustomStringConvertibleP", "index"]
 - !private ["s23CustomStringConvertibleP", "indexPathForSelectedRow"]
+- !private ["s23CustomStringConvertibleP", "informAction"]
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "isCollapsed"]
 - !private ["s23CustomStringConvertibleP", "isConnected"]
@@ -732,6 +734,7 @@ depends-member:
 - !private ["s9EquatableP", "image"]
 - !private ["s9EquatableP", "imageBorderColor"]
 - !private ["s9EquatableP", "indexPathForSelectedRow"]
+- !private ["s9EquatableP", "informAction"]
 - ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "isCollapsed"]
 - !private ["s9EquatableP", "isConnected"]
@@ -910,6 +913,7 @@ depends-member:
 - !private ["s8HashableP", "image"]
 - !private ["s8HashableP", "imageBorderColor"]
 - !private ["s8HashableP", "indexPathForSelectedRow"]
+- !private ["s8HashableP", "informAction"]
 - ["s8HashableP", "init"]
 - !private ["s8HashableP", "isCollapsed"]
 - !private ["s8HashableP", "isConnected"]
@@ -1369,6 +1373,7 @@ depends-member:
 - !private ["So8NSObjectC", "image"]
 - !private ["So8NSObjectC", "imageBorderColor"]
 - !private ["So8NSObjectC", "indexPathForSelectedRow"]
+- !private ["So8NSObjectC", "informAction"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "isCollapsed"]
 - !private ["So8NSObjectC", "isConnected"]
@@ -1509,6 +1514,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "image"]
 - !private ["So16NSObjectProtocolP", "imageBorderColor"]
 - !private ["So16NSObjectProtocolP", "indexPathForSelectedRow"]
+- !private ["So16NSObjectProtocolP", "informAction"]
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "isCollapsed"]
 - !private ["So16NSObjectProtocolP", "isConnected"]
@@ -1633,6 +1639,7 @@ depends-member:
 - !private ["s16RawRepresentableP", "transitionCrossDissolve"]
 - !private ["s16RawRepresentableP", "valueChanged"]
 - !private ["10Foundation20ReferenceConvertibleP", "row"]
+- !private ["6RushMe10SQLHandlerC", "informAction"]
 - !private ["6RushMe10SQLHandlerC", "isConnected"]
 - !private ["6RushMe10SQLHandlerC", "select"]
 - !private ["6RushMe10SQLHandlerC", "shared"]
@@ -3515,6 +3522,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "image"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "imageBorderColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "indexPathForSelectedRow"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "informAction"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isCollapsed"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isConnected"]
@@ -3796,6 +3804,7 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/x86_64.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
@@ -3813,6 +3822,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
@@ -3837,11 +3847,13 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
 interface-hash: "241ff7e1b6e42f73afebd2348552e1d2"

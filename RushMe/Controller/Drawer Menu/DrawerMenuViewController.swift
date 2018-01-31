@@ -49,6 +49,7 @@ class DrawerMenuViewController: UITableViewController {
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let id = segue.identifier {
+      
       var selectedButton : UITableViewCell?
       // Find the selected button by matching segue identifier
       // with button (a UITableCell) reuse identifier
@@ -64,6 +65,7 @@ class DrawerMenuViewController: UITableViewController {
         button.isUserInteractionEnabled = true
       }
       if let _ = selectedButton {
+        SQLHandler.shared.informAction(action: "User navigated to ", options: id)
         // Animate selected button to show selection
         selectedButton!.isSelected = true
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {

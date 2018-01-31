@@ -13,6 +13,7 @@ provides-top-level:
 - "RMPropertyKeys"
 - "RMFileManagement"
 - "RMDate"
+- "RMUserDevice"
 provides-nominal:
 - "6RushMe7RMImageV"
 - "6RushMe14RMImageQualityV"
@@ -26,6 +27,7 @@ provides-nominal:
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe16RMFileManagementV"
 - "6RushMe6RMDateV"
+- "6RushMe12RMUserDeviceV"
 provides-member:
 - ["6RushMe7RMImageV", ""]
 - ["6RushMe14RMImageQualityV", ""]
@@ -39,14 +41,22 @@ provides-member:
 - ["6RushMe14RMPropertyKeysV", ""]
 - ["6RushMe16RMFileManagementV", ""]
 - ["6RushMe6RMDateV", ""]
+- ["6RushMe12RMUserDeviceV", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "+"
 - "/"
+- "??"
 - "BooleanLiteralType"
+- "Bundle"
 - "CGFloat"
+- "CastingPrecedence"
 - "DEBUG"
 - "Date"
+- !private "Device"
+- "Dictionary"
 - "FileManager"
+- !private "Int"
 - "RMAnimation"
 - "RMColor"
 - "RMDatabaseKey"
@@ -59,92 +69,195 @@ depends-top-level:
 - "RMNetwork"
 - "RMPropertyKeys"
 - "RMUser"
+- "RMUserDevice"
+- "String"
 - "StringLiteralType"
 - "UIColor"
+- !private "UIDevice"
 - "UIImage"
+- "UnicodeScalarType"
 depends-member:
 - ["Sa", "first"]
 - ["s23BidirectionalCollectionP", "first"]
+- !private ["s23BidirectionalCollectionP", "hashValue"]
 - ["s23BidirectionalCollectionP", "init"]
+- !private ["s13BinaryIntegerP", "init"]
+- ["So6BundleC", "infoDictionary"]
+- ["So6BundleC", "main"]
+- !private ["s7CVarArgP", "current"]
 - ["s7CVarArgP", "first"]
+- !private ["s7CVarArgP", "hashValue"]
+- !private ["s7CVarArgP", "identifierForVendor"]
+- ["s7CVarArgP", "infoDictionary"]
 - ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "main"]
+- ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "systemVersion"]
 - ["s7CVarArgP", "urls"]
 - ["s7CVarArgP", "white"]
 - ["s7CVarArgP", "withAlphaComponent"]
 - ["s10CollectionP", "first"]
+- !private ["s10CollectionP", "hashValue"]
 - ["s10CollectionP", "init"]
+- ["s10CollectionP", "subscript"]
+- !private ["s10ComparableP", "hashValue"]
 - ["s10ComparableP", "init"]
+- !private ["s10ComparableP", "timeIntervalSinceReferenceDate"]
 - ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
+- !private ["s28CustomDebugStringConvertibleP", "current"]
 - ["s28CustomDebugStringConvertibleP", "first"]
+- !private ["s28CustomDebugStringConvertibleP", "hashValue"]
+- !private ["s28CustomDebugStringConvertibleP", "identifierForVendor"]
+- ["s28CustomDebugStringConvertibleP", "infoDictionary"]
 - ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "main"]
+- ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "systemVersion"]
+- !private ["s28CustomDebugStringConvertibleP", "timeIntervalSinceReferenceDate"]
 - ["s28CustomDebugStringConvertibleP", "urls"]
+- !private ["s28CustomDebugStringConvertibleP", "uuidString"]
 - ["s28CustomDebugStringConvertibleP", "white"]
 - ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
 - ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
+- !private ["s29CustomPlaygroundQuickLookableP", "hashValue"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "timeIntervalSinceReferenceDate"]
 - ["s17CustomReflectableP", "first"]
+- !private ["s17CustomReflectableP", "hashValue"]
 - ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "timeIntervalSinceReferenceDate"]
+- !private ["s17CustomReflectableP", "uuidString"]
 - ["s23CustomStringConvertibleP", "appendingPathComponent"]
+- !private ["s23CustomStringConvertibleP", "current"]
+- !private ["s23CustomStringConvertibleP", "description"]
 - ["s23CustomStringConvertibleP", "first"]
+- !private ["s23CustomStringConvertibleP", "hashValue"]
+- !private ["s23CustomStringConvertibleP", "identifierForVendor"]
+- ["s23CustomStringConvertibleP", "infoDictionary"]
 - ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "main"]
+- ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "systemVersion"]
+- !private ["s23CustomStringConvertibleP", "timeIntervalSinceReferenceDate"]
 - ["s23CustomStringConvertibleP", "urls"]
+- !private ["s23CustomStringConvertibleP", "uuidString"]
 - ["s23CustomStringConvertibleP", "white"]
 - ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - ["10Foundation4DateV", "init"]
+- !private ["10Foundation4DateV", "timeIntervalSinceReferenceDate"]
 - ["s9DecodableP", "appendingPathComponent"]
 - ["s9DecodableP", "first"]
+- !private ["s9DecodableP", "hashValue"]
 - ["s9DecodableP", "init"]
+- ["s9DecodableP", "subscript"]
+- !private ["s9DecodableP", "timeIntervalSinceReferenceDate"]
+- !private ["s9DecodableP", "uuidString"]
+- !private ["9DeviceKit0A0O", "description"]
+- !private ["9DeviceKit0A0O", "init"]
+- ["s10DictionaryV", "subscript"]
 - ["s9EncodableP", "appendingPathComponent"]
 - ["s9EncodableP", "first"]
+- !private ["s9EncodableP", "hashValue"]
 - ["s9EncodableP", "init"]
+- ["s9EncodableP", "subscript"]
+- !private ["s9EncodableP", "timeIntervalSinceReferenceDate"]
+- !private ["s9EncodableP", "uuidString"]
 - ["s9EquatableP", "appendingPathComponent"]
+- !private ["s9EquatableP", "current"]
+- !private ["s9EquatableP", "description"]
 - ["s9EquatableP", "documentDirectory"]
+- !private ["s9EquatableP", "hashValue"]
+- !private ["s9EquatableP", "identifierForVendor"]
+- ["s9EquatableP", "infoDictionary"]
 - ["s9EquatableP", "init"]
+- ["s9EquatableP", "main"]
+- !private ["s9EquatableP", "systemVersion"]
+- !private ["s9EquatableP", "timeIntervalSinceReferenceDate"]
 - ["s9EquatableP", "urls"]
 - ["s9EquatableP", "userDomainMask"]
+- !private ["s9EquatableP", "uuidString"]
 - ["s9EquatableP", "white"]
 - ["s9EquatableP", "withAlphaComponent"]
 - ["s25ExpressibleByArrayLiteralP", "first"]
 - ["s25ExpressibleByArrayLiteralP", "userDomainMask"]
+- ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "hashValue"]
 - ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "hashValue"]
 - ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "hashValue"]
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - ["So11FileManagerC", "init"]
 - ["So11FileManagerC", "urls"]
+- !private ["s17FixedWidthIntegerP", "init"]
 - ["s8HashableP", "appendingPathComponent"]
+- !private ["s8HashableP", "current"]
 - ["s8HashableP", "documentDirectory"]
+- !private ["s8HashableP", "hashValue"]
+- !private ["s8HashableP", "identifierForVendor"]
+- ["s8HashableP", "infoDictionary"]
 - ["s8HashableP", "init"]
+- ["s8HashableP", "main"]
+- !private ["s8HashableP", "systemVersion"]
+- !private ["s8HashableP", "timeIntervalSinceReferenceDate"]
 - ["s8HashableP", "urls"]
+- !private ["s8HashableP", "uuidString"]
 - ["s8HashableP", "white"]
 - ["s8HashableP", "withAlphaComponent"]
+- !private ["Si", "init"]
+- !private ["s25LosslessStringConvertibleP", "hashValue"]
 - ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "hashValue"]
 - ["s10MirrorPathP", "init"]
 - ["s17MutableCollectionP", "first"]
+- !private ["So8NSCodingP", "hashValue"]
 - ["So8NSCodingP", "init"]
 - ["So8NSCodingP", "white"]
 - ["So8NSCodingP", "withAlphaComponent"]
+- !private ["So9NSCopyingP", "hashValue"]
 - ["So9NSCopyingP", "init"]
 - ["So9NSCopyingP", "white"]
 - ["So9NSCopyingP", "withAlphaComponent"]
+- !private ["So21NSItemProviderReadingP", "hashValue"]
 - ["So21NSItemProviderReadingP", "init"]
 - ["So21NSItemProviderReadingP", "white"]
 - ["So21NSItemProviderReadingP", "withAlphaComponent"]
+- !private ["So21NSItemProviderWritingP", "hashValue"]
 - ["So21NSItemProviderWritingP", "init"]
 - ["So21NSItemProviderWritingP", "white"]
 - ["So21NSItemProviderWritingP", "withAlphaComponent"]
+- !private ["So16NSMutableCopyingP", "hashValue"]
 - ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSObjectC", "current"]
+- !private ["So8NSObjectC", "hashValue"]
+- !private ["So8NSObjectC", "identifierForVendor"]
+- ["So8NSObjectC", "infoDictionary"]
 - ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "main"]
+- !private ["So8NSObjectC", "systemVersion"]
 - ["So8NSObjectC", "urls"]
 - ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "withAlphaComponent"]
+- !private ["So16NSObjectProtocolP", "current"]
+- !private ["So16NSObjectProtocolP", "hashValue"]
+- !private ["So16NSObjectProtocolP", "identifierForVendor"]
+- ["So16NSObjectProtocolP", "infoDictionary"]
 - ["So16NSObjectProtocolP", "init"]
+- ["So16NSObjectProtocolP", "main"]
+- !private ["So16NSObjectProtocolP", "systemVersion"]
 - ["So16NSObjectProtocolP", "urls"]
 - ["So16NSObjectProtocolP", "white"]
 - ["So16NSObjectProtocolP", "withAlphaComponent"]
+- !private ["So14NSSecureCodingP", "hashValue"]
 - ["So14NSSecureCodingP", "init"]
 - ["So14NSSecureCodingP", "white"]
 - ["So14NSSecureCodingP", "withAlphaComponent"]
+- !private ["So8NSStringC", "hashValue"]
 - ["So8NSStringC", "init"]
+- !private ["s7NumericP", "init"]
+- !private ["So15OHSerializationP", "hashValue"]
 - ["So15OHSerializationP", "init"]
 - ["s9OptionSetP", "userDomainMask"]
 - ["6RushMe11RMAnimationV", "ColoringTime"]
@@ -204,6 +317,7 @@ depends-member:
 - ["6RushMe9RMNetworkV", "databaseName"]
 - ["6RushMe9RMNetworkV", "init"]
 - ["6RushMe9RMNetworkV", "password"]
+- ["6RushMe9RMNetworkV", "userActionsTableName"]
 - ["6RushMe9RMNetworkV", "userName"]
 - ["6RushMe14RMPropertyKeysV", "ConsiderEventsBeforeTodayKey"]
 - ["6RushMe14RMPropertyKeysV", "FavoriteFraternities"]
@@ -211,63 +325,117 @@ depends-member:
 - ["6RushMe6RMUserV", "init"]
 - ["6RushMe6RMUserV", "minPassLength"]
 - ["6RushMe6RMUserV", "minUsernameLength"]
+- ["6RushMe12RMUserDeviceV", "Bundle"]
+- !private ["6RushMe12RMUserDeviceV", "Date"]
+- !private ["6RushMe12RMUserDeviceV", "Device"]
+- ["6RushMe12RMUserDeviceV", "Dictionary"]
+- !private ["6RushMe12RMUserDeviceV", "Int"]
+- ["6RushMe12RMUserDeviceV", "String"]
+- !private ["6RushMe12RMUserDeviceV", "UIDevice"]
+- !private ["6RushMe12RMUserDeviceV", "appversion"]
+- ["6RushMe12RMUserDeviceV", "deviceInfo"]
+- ["6RushMe12RMUserDeviceV", "init"]
 - ["s22RandomAccessCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "first"]
+- !private ["s26RangeReplaceableCollectionP", "hashValue"]
 - ["s26RangeReplaceableCollectionP", "init"]
 - ["s16RawRepresentableP", "documentDirectory"]
 - ["s16RawRepresentableP", "userDomainMask"]
 - ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
 - ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "timeIntervalSinceReferenceDate"]
+- !private ["10Foundation20ReferenceConvertibleP", "uuidString"]
 - ["So11FileManagerC19SearchPathDirectoryO", "documentDirectory"]
 - ["So11FileManagerC20SearchPathDomainMaskV", "userDomainMask"]
 - ["s8SequenceP", "first"]
+- !private ["s8SequenceP", "hashValue"]
 - ["s8SequenceP", "init"]
+- ["s8SequenceP", "subscript"]
 - ["s10SetAlgebraP", "userDomainMask"]
+- !private ["s13SignedIntegerP", "init"]
+- !private ["s13SignedNumericP", "init"]
+- !private ["s10StrideableP", "init"]
+- !private ["SS", "hashValue"]
 - ["SS", "init"]
+- !private ["s14StringProtocolP", "hashValue"]
 - ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "hashValue"]
 - ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "hashValue"]
 - ["s20TextOutputStreamableP", "init"]
 - ["So29UIAccessibilityIdentificationP", "init"]
 - ["So7UIColorC", "init"]
 - ["So7UIColorC", "white"]
 - ["So7UIColorC", "withAlphaComponent"]
+- !private ["So8UIDeviceC", "current"]
+- !private ["So8UIDeviceC", "identifierForVendor"]
+- !private ["So8UIDeviceC", "systemVersion"]
 - ["So7UIImageC", "init"]
 - ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - ["10Foundation3URLV", "appendingPathComponent"]
+- !private ["10Foundation4UUIDV", "uuidString"]
 - ["s14_ArrayProtocolP", "first"]
 - ["s23_BidirectionalIndexableP", "first"]
+- !private ["s23_BidirectionalIndexableP", "hashValue"]
 - ["s23_BidirectionalIndexableP", "init"]
+- !private ["s18_BitwiseOperationsP", "init"]
 - ["s24_DestructorSafeContainerP", "first"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "hashValue"]
 - ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "hashValue"]
 - ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "hashValue"]
 - ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "hashValue"]
 - ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - ["s26_ExpressibleByColorLiteralP", "init"]
 - ["s26_ExpressibleByColorLiteralP", "white"]
 - ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
 - ["s34_ExpressibleByFileReferenceLiteralP", "appendingPathComponent"]
 - ["s26_ExpressibleByImageLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "hashValue"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "hashValue"]
 - ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - ["s10_IndexableP", "first"]
+- !private ["s10_IndexableP", "hashValue"]
 - ["s10_IndexableP", "init"]
+- ["s10_IndexableP", "subscript"]
 - ["s14_IndexableBaseP", "first"]
+- !private ["s14_IndexableBaseP", "hashValue"]
 - ["s14_IndexableBaseP", "init"]
+- ["s14_IndexableBaseP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "hashValue"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "identifierForVendor"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "infoDictionary"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "main"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "systemVersion"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "white"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
 - ["s17_MutableIndexableP", "first"]
 - ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
 - ["s21_ObjectiveCBridgeableP", "first"]
+- !private ["s21_ObjectiveCBridgeableP", "hashValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "timeIntervalSinceReferenceDate"]
+- !private ["s21_ObjectiveCBridgeableP", "uuidString"]
 - ["s22_RandomAccessIndexableP", "first"]
 - ["s26_RangeReplaceableIndexableP", "first"]
+- !private ["s26_RangeReplaceableIndexableP", "hashValue"]
 - ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s11_StrideableP", "init"]
+- !private ["s16_SwiftStringViewP", "hashValue"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - "Sa"
 - "s23BidirectionalCollectionP"
+- !private "s13BinaryIntegerP"
+- "So6BundleC"
 - "s7CVarArgP"
 - "s10CollectionP"
 - "s10ComparableP"
@@ -277,14 +445,20 @@ depends-nominal:
 - "s23CustomStringConvertibleP"
 - "10Foundation4DateV"
 - "s9DecodableP"
+- !private "9DeviceKit0A0O"
+- "s10DictionaryV"
 - "s9EncodableP"
 - "s9EquatableP"
 - "s25ExpressibleByArrayLiteralP"
+- "s30ExpressibleByDictionaryLiteralP"
 - "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
 - "s26ExpressibleByStringLiteralP"
 - "s33ExpressibleByUnicodeScalarLiteralP"
 - "So11FileManagerC"
+- !private "s17FixedWidthIntegerP"
 - "s8HashableP"
+- !private "Si"
 - "s25LosslessStringConvertibleP"
 - "s10MirrorPathP"
 - "s17MutableCollectionP"
@@ -297,6 +471,7 @@ depends-nominal:
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
 - "So8NSStringC"
+- !private "s7NumericP"
 - "So15OHSerializationP"
 - "s9OptionSetP"
 - "6RushMe11RMAnimationV"
@@ -311,6 +486,7 @@ depends-nominal:
 - "6RushMe9RMNetworkV"
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe6RMUserV"
+- "6RushMe12RMUserDeviceV"
 - "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
@@ -319,19 +495,26 @@ depends-nominal:
 - "So11FileManagerC20SearchPathDomainMaskV"
 - "s8SequenceP"
 - "s10SetAlgebraP"
+- !private "s13SignedIntegerP"
+- !private "s13SignedNumericP"
+- !private "s10StrideableP"
 - "SS"
 - "s14StringProtocolP"
 - "s16TextOutputStreamP"
 - "s20TextOutputStreamableP"
 - "So29UIAccessibilityIdentificationP"
 - "So7UIColorC"
+- !private "So8UIDeviceC"
 - "So7UIImageC"
 - "So39UIItemProviderPresentationSizeProvidingP"
 - "10Foundation3URLV"
+- !private "10Foundation4UUIDV"
 - "s14_ArrayProtocolP"
 - "s23_BidirectionalIndexableP"
+- !private "s18_BitwiseOperationsP"
 - "s24_DestructorSafeContainerP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - "s34_ExpressibleByBuiltinStringLiteralP"
 - "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
@@ -347,10 +530,12 @@ depends-nominal:
 - "s21_ObjectiveCBridgeableP"
 - "s22_RandomAccessIndexableP"
 - "s26_RangeReplaceableIndexableP"
+- !private "s11_StrideableP"
 - "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/arm64.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/arm64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
@@ -368,6 +553,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
@@ -392,11 +578,13 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "564123983603cf23d64a63265dc0d321"
+interface-hash: "0ef2ac97e98b8054edaef888ae590b37"

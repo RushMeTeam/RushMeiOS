@@ -224,13 +224,25 @@
 		<data>
 		rzyDYBAcvjf/5p6wL8KoaBYQSY4=
 		</data>
+		<key>Frameworks/DeviceKit.framework/DeviceKit</key>
+		<data>
+		ewe4VTj3v/to8QtiRH8Cm4JJuBo=
+		</data>
+		<key>Frameworks/DeviceKit.framework/Info.plist</key>
+		<data>
+		eoK/luZMyjT2Ym5FN+h2UMAGcGQ=
+		</data>
+		<key>Frameworks/DeviceKit.framework/_CodeSignature/CodeResources</key>
+		<data>
+		db0ZrTDkT5ar3GkhtjkoTdXn31I=
+		</data>
 		<key>Frameworks/OHMySQL.framework/Info.plist</key>
 		<data>
 		BstBeIf4RI0Ust/zIYz5v5IJsZg=
 		</data>
 		<key>Frameworks/OHMySQL.framework/OHMySQL</key>
 		<data>
-		N/Ifp6XDoGeR7W7WZl8RRd67VKA=
+		n1zI4TusZIEdI/MsxQYbvJidDkg=
 		</data>
 		<key>Frameworks/OHMySQL.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -246,7 +258,7 @@
 		</data>
 		<key>Frameworks/iCalKit.framework/iCalKit</key>
 		<data>
-		kQr39qsPejIX9mMBEfwd8tNg8D4=
+		TyEY1M0I3jByMQQtSxXiPxoqxxw=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -310,7 +322,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		NiXT9szXkx7fhJOImbN6hMfKkQ8=
+		mN6bEV0lCiM2sg8T3IZJlSSdmyk=
 		</data>
 		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
@@ -944,6 +956,39 @@
 			f0hFVaFG6qXNU5vC6mPZEs+uJMorj/6M8i52a5s2l9Q=
 			</data>
 		</dict>
+		<key>Frameworks/DeviceKit.framework/DeviceKit</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ewe4VTj3v/to8QtiRH8Cm4JJuBo=
+			</data>
+			<key>hash2</key>
+			<data>
+			4PNnu1U39286n8ajwGX+2yv4DSmReyGjS+o4ioy9XFs=
+			</data>
+		</dict>
+		<key>Frameworks/DeviceKit.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eoK/luZMyjT2Ym5FN+h2UMAGcGQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ilq/e28wiODb38JyE+HIs5DEamW+3LnoW+4m3E2Fddg=
+			</data>
+		</dict>
+		<key>Frameworks/DeviceKit.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			db0ZrTDkT5ar3GkhtjkoTdXn31I=
+			</data>
+			<key>hash2</key>
+			<data>
+			nRr5McqURCtHCM/3ha991WVXNrCU75PHC8hLrLBFxC8=
+			</data>
+		</dict>
 		<key>Frameworks/OHMySQL.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -959,11 +1004,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N/Ifp6XDoGeR7W7WZl8RRd67VKA=
+			n1zI4TusZIEdI/MsxQYbvJidDkg=
 			</data>
 			<key>hash2</key>
 			<data>
-			gVvqP3rwHOIz24mrJ/xw5xnUpBYEgBub1mckrOuG2Eg=
+			YS8PrQjmoyW2jHbi2D0bIAUKhB7IJjwENtY13C3TI1E=
 			</data>
 		</dict>
 		<key>Frameworks/OHMySQL.framework/_CodeSignature/CodeResources</key>
@@ -1003,11 +1048,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kQr39qsPejIX9mMBEfwd8tNg8D4=
+			TyEY1M0I3jByMQQtSxXiPxoqxxw=
 			</data>
 			<key>hash2</key>
 			<data>
-			kDIIxHUvcR1KuzcNNz9DiJrZ9ER1Xu6giwmOGCPGBTs=
+			vJFrT7ho+qGi7EokSLg3h1tfWeafR8KlGhAu1uSgaIE=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>

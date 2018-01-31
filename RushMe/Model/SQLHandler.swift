@@ -39,9 +39,10 @@ class SQLHandler: NSObject {
                        port: port,
                        socket: socket)
     coordinator = OHMySQLStoreCoordinator(user: user!)
-    coordinator!.encoding = .UTF8MB4
+    //coordinator!.encoding = .UTF8MB4
     coordinator!.connect()
     context = OHMySQLQueryContext()
+    
     context!.storeCoordinator = coordinator!
     super.init()
     
@@ -52,34 +53,37 @@ class SQLHandler: NSObject {
     }
   }
   
-  func select(aField : String? = nil, fromTable : String? = nil, whereClause : String? = nil) -> [Dictionary<String, Any>]? {
-    if user == nil {
-      print("User initialization failed!")
-      return nil
+  func select(fromTable : String, conditions : String? = nil) -> [Dictionary<String, Any>]? {
+    let query = OHMySQLQueryRequestFactory.select(fromTable, condition: conditions)
+    let qContext = self.context ?? OHMySQLQueryContext()
+    qContext.storeCoordinator = coordinator!
+    if let response = try? qContext.executeQueryRequestAndFetchResult(query) {
+      return response
+    }
+    else {
+     return nil
+    }
+  }
+  func informAction(action : String, options : String? = nil, additionalInfo : [String : Any]? = nil) {
+    DispatchQueue.global(qos: .background).async {
+      var report = RMUserDevice.deviceInfo
+      report["action"] = action
+      report["options"] = options
+      let query = OHMySQLQueryRequestFactory.insert(RMNetwork.userActionsTableName, set: report)
+      let qContext =  self.context ?? OHMySQLQueryContext()
+      qContext.storeCoordinator = self.coordinator!
+      do {
+        try qContext.executeQueryRequestAndFetchResult(query)
+      }
+      catch let querryError {
+        if querryError.localizedDescription != "The operation couldn’t be completed. (Foundation._GenericObjCError error 0.)" {
+          print("Insert Error: " + querryError.localizedDescription)
+        }
+      }
     }
     
-    var queryString = "SELECT "
-    if let _ = aField { queryString += aField! }
-      else { queryString += "*" }
-    if let _ = fromTable { queryString += " FROM " + fromTable! }
-    if let _ = whereClause { queryString += " WHERE " + whereClause! }
-    //queryString += ";"
-    let query = OHMySQLQueryRequest(queryString: queryString)
-    if let qContext = context {
-      if let result = try? qContext.executeQueryRequestAndFetchResult(query) {
-       return result
-      }
-      else {
-        print("Failed on fetching query: " + queryString)
-        return nil
-      }
-    }
-    print("Failed on determining mainQueryContext")
-    return nil
+    
   }
-  
-  
-  
   
   
   deinit {

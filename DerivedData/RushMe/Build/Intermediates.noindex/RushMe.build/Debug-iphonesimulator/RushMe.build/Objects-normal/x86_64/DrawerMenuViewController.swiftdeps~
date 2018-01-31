@@ -25,6 +25,7 @@ depends-top-level:
 - "DrawerMenuViewController"
 - !private "RMAnimation"
 - !private "RMColor"
+- !private "SQLHandler"
 - "StringLiteralType"
 - !private "UIColor"
 - "UIStoryboardSegue"
@@ -48,6 +49,7 @@ depends-member:
 - !private ["So15CALayerDelegateP", "reuseIdentifier"]
 - !private ["s7CVarArgP", "RMAnimation"]
 - !private ["s7CVarArgP", "RMColor"]
+- !private ["s7CVarArgP", "SQLHandler"]
 - !private ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UIView"]
 - !private ["s7CVarArgP", "animate"]
@@ -56,6 +58,7 @@ depends-member:
 - !private ["s7CVarArgP", "clear"]
 - !private ["s7CVarArgP", "fraternitiesButton"]
 - !private ["s7CVarArgP", "identifier"]
+- !private ["s7CVarArgP", "informAction"]
 - ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "isScrollEnabled"]
 - !private ["s7CVarArgP", "isSelected"]
@@ -64,6 +67,7 @@ depends-member:
 - !private ["s7CVarArgP", "pushFrontViewController"]
 - !private ["s7CVarArgP", "reuseIdentifier"]
 - !private ["s7CVarArgP", "revealViewController"]
+- !private ["s7CVarArgP", "shared"]
 - !private ["s7CVarArgP", "tableView"]
 - !private ["s7CVarArgP", "topCell"]
 - !private ["s7CVarArgP", "view"]
@@ -73,6 +77,7 @@ depends-member:
 - ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "RMAnimation"]
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
+- !private ["s28CustomDebugStringConvertibleP", "SQLHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UIView"]
 - !private ["s28CustomDebugStringConvertibleP", "animate"]
@@ -81,6 +86,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "clear"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesButton"]
 - !private ["s28CustomDebugStringConvertibleP", "identifier"]
+- !private ["s28CustomDebugStringConvertibleP", "informAction"]
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isScrollEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "isSelected"]
@@ -89,6 +95,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "pushFrontViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "reuseIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "revealViewController"]
+- !private ["s28CustomDebugStringConvertibleP", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "tableView"]
 - !private ["s28CustomDebugStringConvertibleP", "topCell"]
 - !private ["s28CustomDebugStringConvertibleP", "view"]
@@ -100,6 +107,7 @@ depends-member:
 - ["s17CustomReflectableP", "init"]
 - !private ["s23CustomStringConvertibleP", "RMAnimation"]
 - !private ["s23CustomStringConvertibleP", "RMColor"]
+- !private ["s23CustomStringConvertibleP", "SQLHandler"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UIView"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
@@ -109,6 +117,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "clear"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesButton"]
 - !private ["s23CustomStringConvertibleP", "identifier"]
+- !private ["s23CustomStringConvertibleP", "informAction"]
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "isScrollEnabled"]
 - !private ["s23CustomStringConvertibleP", "isSelected"]
@@ -117,6 +126,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "pushFrontViewController"]
 - !private ["s23CustomStringConvertibleP", "reuseIdentifier"]
 - !private ["s23CustomStringConvertibleP", "revealViewController"]
+- !private ["s23CustomStringConvertibleP", "shared"]
 - !private ["s23CustomStringConvertibleP", "tableView"]
 - !private ["s23CustomStringConvertibleP", "topCell"]
 - !private ["s23CustomStringConvertibleP", "view"]
@@ -127,6 +137,7 @@ depends-member:
 - ["6RushMe24DrawerMenuViewControllerC", "Bool"]
 - !private ["6RushMe24DrawerMenuViewControllerC", "RMAnimation"]
 - !private ["6RushMe24DrawerMenuViewControllerC", "RMColor"]
+- !private ["6RushMe24DrawerMenuViewControllerC", "SQLHandler"]
 - !private ["6RushMe24DrawerMenuViewControllerC", "UIColor"]
 - ["6RushMe24DrawerMenuViewControllerC", "UIStoryboardSegue"]
 - ["6RushMe24DrawerMenuViewControllerC", "UITableViewCell"]
@@ -152,6 +163,7 @@ depends-member:
 - ["s9EncodableP", "init"]
 - !private ["s9EquatableP", "RMAnimation"]
 - !private ["s9EquatableP", "RMColor"]
+- !private ["s9EquatableP", "SQLHandler"]
 - !private ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UIView"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
@@ -161,6 +173,7 @@ depends-member:
 - !private ["s9EquatableP", "clear"]
 - !private ["s9EquatableP", "fraternitiesButton"]
 - !private ["s9EquatableP", "identifier"]
+- !private ["s9EquatableP", "informAction"]
 - ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "isScrollEnabled"]
 - !private ["s9EquatableP", "isSelected"]
@@ -169,6 +182,7 @@ depends-member:
 - !private ["s9EquatableP", "pushFrontViewController"]
 - !private ["s9EquatableP", "reuseIdentifier"]
 - !private ["s9EquatableP", "revealViewController"]
+- !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "tableView"]
 - !private ["s9EquatableP", "topCell"]
 - !private ["s9EquatableP", "view"]
@@ -180,6 +194,7 @@ depends-member:
 - ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s8HashableP", "RMAnimation"]
 - !private ["s8HashableP", "RMColor"]
+- !private ["s8HashableP", "SQLHandler"]
 - !private ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UIView"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
@@ -189,6 +204,7 @@ depends-member:
 - !private ["s8HashableP", "clear"]
 - !private ["s8HashableP", "fraternitiesButton"]
 - !private ["s8HashableP", "identifier"]
+- !private ["s8HashableP", "informAction"]
 - ["s8HashableP", "init"]
 - !private ["s8HashableP", "isScrollEnabled"]
 - !private ["s8HashableP", "isSelected"]
@@ -197,6 +213,7 @@ depends-member:
 - !private ["s8HashableP", "pushFrontViewController"]
 - !private ["s8HashableP", "reuseIdentifier"]
 - !private ["s8HashableP", "revealViewController"]
+- !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "tableView"]
 - !private ["s8HashableP", "topCell"]
 - !private ["s8HashableP", "view"]
@@ -207,6 +224,7 @@ depends-member:
 - ["s10MirrorPathP", "init"]
 - !private ["So8NSCodingP", "RMAnimation"]
 - !private ["So8NSCodingP", "RMColor"]
+- !private ["So8NSCodingP", "SQLHandler"]
 - !private ["So8NSCodingP", "UIColor"]
 - !private ["So8NSCodingP", "UIView"]
 - !private ["So8NSCodingP", "animate"]
@@ -231,6 +249,7 @@ depends-member:
 - ["So9NSCopyingP", "init"]
 - !private ["So26NSExtensionRequestHandlingP", "RMAnimation"]
 - !private ["So26NSExtensionRequestHandlingP", "RMColor"]
+- !private ["So26NSExtensionRequestHandlingP", "SQLHandler"]
 - !private ["So26NSExtensionRequestHandlingP", "UIColor"]
 - !private ["So26NSExtensionRequestHandlingP", "UIView"]
 - !private ["So26NSExtensionRequestHandlingP", "buttons"]
@@ -252,6 +271,7 @@ depends-member:
 - ["So8NSObjectC", "Bool"]
 - !private ["So8NSObjectC", "RMAnimation"]
 - !private ["So8NSObjectC", "RMColor"]
+- !private ["So8NSObjectC", "SQLHandler"]
 - !private ["So8NSObjectC", "UIColor"]
 - ["So8NSObjectC", "UIStoryboardSegue"]
 - ["So8NSObjectC", "UITableViewCell"]
@@ -265,6 +285,7 @@ depends-member:
 - ["So8NSObjectC", "eventsButton"]
 - ["So8NSObjectC", "fraternitiesButton"]
 - !private ["So8NSObjectC", "identifier"]
+- !private ["So8NSObjectC", "informAction"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "isScrollEnabled"]
 - !private ["So8NSObjectC", "isSelected"]
@@ -276,6 +297,7 @@ depends-member:
 - !private ["So8NSObjectC", "reuseIdentifier"]
 - !private ["So8NSObjectC", "revealViewController"]
 - ["So8NSObjectC", "settingsButton"]
+- !private ["So8NSObjectC", "shared"]
 - !private ["So8NSObjectC", "tableView"]
 - ["So8NSObjectC", "topCell"]
 - !private ["So8NSObjectC", "view"]
@@ -283,6 +305,7 @@ depends-member:
 - ["So8NSObjectC", "viewWillAppear"]
 - !private ["So16NSObjectProtocolP", "RMAnimation"]
 - !private ["So16NSObjectProtocolP", "RMColor"]
+- !private ["So16NSObjectProtocolP", "SQLHandler"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UIView"]
 - !private ["So16NSObjectProtocolP", "animate"]
@@ -291,6 +314,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "clear"]
 - !private ["So16NSObjectProtocolP", "fraternitiesButton"]
 - !private ["So16NSObjectProtocolP", "identifier"]
+- !private ["So16NSObjectProtocolP", "informAction"]
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "isScrollEnabled"]
 - !private ["So16NSObjectProtocolP", "isSelected"]
@@ -299,6 +323,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "pushFrontViewController"]
 - !private ["So16NSObjectProtocolP", "reuseIdentifier"]
 - !private ["So16NSObjectProtocolP", "revealViewController"]
+- !private ["So16NSObjectProtocolP", "shared"]
 - !private ["So16NSObjectProtocolP", "tableView"]
 - !private ["So16NSObjectProtocolP", "topCell"]
 - !private ["So16NSObjectProtocolP", "view"]
@@ -312,6 +337,8 @@ depends-member:
 - !private ["6RushMe7RMColorV", "AppColor"]
 - !private ["6RushMe7RMColorV", "MenuButtonSelectedColor"]
 - ["s26RangeReplaceableCollectionP", "init"]
+- !private ["6RushMe10SQLHandlerC", "informAction"]
+- !private ["6RushMe10SQLHandlerC", "shared"]
 - !private ["So22SWRevealViewControllerC", "pushFrontViewController"]
 - ["s8SequenceP", "init"]
 - ["SS", "init"]
@@ -332,6 +359,7 @@ depends-member:
 - !private ["So12UIAppearanceP", "reuseIdentifier"]
 - !private ["So21UIAppearanceContainerP", "RMAnimation"]
 - !private ["So21UIAppearanceContainerP", "RMColor"]
+- !private ["So21UIAppearanceContainerP", "SQLHandler"]
 - !private ["So21UIAppearanceContainerP", "UIColor"]
 - !private ["So21UIAppearanceContainerP", "UIView"]
 - !private ["So21UIAppearanceContainerP", "animate"]
@@ -354,6 +382,7 @@ depends-member:
 - !private ["So7UIColorC", "clear"]
 - !private ["So18UIContentContainerP", "RMAnimation"]
 - !private ["So18UIContentContainerP", "RMColor"]
+- !private ["So18UIContentContainerP", "SQLHandler"]
 - !private ["So18UIContentContainerP", "UIColor"]
 - !private ["So18UIContentContainerP", "UIView"]
 - !private ["So18UIContentContainerP", "buttons"]
@@ -383,6 +412,7 @@ depends-member:
 - !private ["So13UIDynamicItemP", "reuseIdentifier"]
 - !private ["So18UIFocusEnvironmentP", "RMAnimation"]
 - !private ["So18UIFocusEnvironmentP", "RMColor"]
+- !private ["So18UIFocusEnvironmentP", "SQLHandler"]
 - !private ["So18UIFocusEnvironmentP", "UIColor"]
 - !private ["So18UIFocusEnvironmentP", "UIView"]
 - !private ["So18UIFocusEnvironmentP", "animate"]
@@ -414,6 +444,7 @@ depends-member:
 - !private ["So27UIGestureRecognizerDelegateP", "reuseIdentifier"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMAnimation"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "SQLHandler"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIView"]
 - !private ["So30UIPasteConfigurationSupportingP", "animate"]
@@ -436,6 +467,7 @@ depends-member:
 - ["So11UIResponderC", "Bool"]
 - !private ["So11UIResponderC", "RMAnimation"]
 - !private ["So11UIResponderC", "RMColor"]
+- !private ["So11UIResponderC", "SQLHandler"]
 - !private ["So11UIResponderC", "UIColor"]
 - ["So11UIResponderC", "UIStoryboardSegue"]
 - ["So11UIResponderC", "UITableViewCell"]
@@ -465,6 +497,7 @@ depends-member:
 - ["So11UIResponderC", "viewWillAppear"]
 - !private ["So30UIResponderStandardEditActionsP", "RMAnimation"]
 - !private ["So30UIResponderStandardEditActionsP", "RMColor"]
+- !private ["So30UIResponderStandardEditActionsP", "SQLHandler"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UIView"]
 - !private ["So30UIResponderStandardEditActionsP", "animate"]
@@ -488,6 +521,7 @@ depends-member:
 - !private ["So12UIScrollViewC", "isScrollEnabled"]
 - !private ["So20UIScrollViewDelegateP", "RMAnimation"]
 - !private ["So20UIScrollViewDelegateP", "RMColor"]
+- !private ["So20UIScrollViewDelegateP", "SQLHandler"]
 - !private ["So20UIScrollViewDelegateP", "UIColor"]
 - !private ["So20UIScrollViewDelegateP", "UIView"]
 - !private ["So20UIScrollViewDelegateP", "buttons"]
@@ -504,6 +538,7 @@ depends-member:
 - !private ["So35UISpringLoadedInteractionSupportingP", "isScrollEnabled"]
 - !private ["So16UIStateRestoringP", "RMAnimation"]
 - !private ["So16UIStateRestoringP", "RMColor"]
+- !private ["So16UIStateRestoringP", "SQLHandler"]
 - !private ["So16UIStateRestoringP", "UIColor"]
 - !private ["So16UIStateRestoringP", "UIView"]
 - !private ["So16UIStateRestoringP", "buttons"]
@@ -527,6 +562,7 @@ depends-member:
 - ["So21UITableViewControllerC", "Bool"]
 - !private ["So21UITableViewControllerC", "RMAnimation"]
 - !private ["So21UITableViewControllerC", "RMColor"]
+- !private ["So21UITableViewControllerC", "SQLHandler"]
 - !private ["So21UITableViewControllerC", "UIColor"]
 - ["So21UITableViewControllerC", "UIStoryboardSegue"]
 - ["So21UITableViewControllerC", "UITableViewCell"]
@@ -550,6 +586,7 @@ depends-member:
 - ["So21UITableViewControllerC", ""]
 - !private ["So21UITableViewDataSourceP", "RMAnimation"]
 - !private ["So21UITableViewDataSourceP", "RMColor"]
+- !private ["So21UITableViewDataSourceP", "SQLHandler"]
 - !private ["So21UITableViewDataSourceP", "UIColor"]
 - !private ["So21UITableViewDataSourceP", "UIView"]
 - !private ["So21UITableViewDataSourceP", "buttons"]
@@ -564,6 +601,7 @@ depends-member:
 - ["So21UITableViewDataSourceP", ""]
 - !private ["So19UITableViewDelegateP", "RMAnimation"]
 - !private ["So19UITableViewDelegateP", "RMColor"]
+- !private ["So19UITableViewDelegateP", "SQLHandler"]
 - !private ["So19UITableViewDelegateP", "UIColor"]
 - !private ["So19UITableViewDelegateP", "UIView"]
 - !private ["So19UITableViewDelegateP", "buttons"]
@@ -578,6 +616,7 @@ depends-member:
 - ["So19UITableViewDelegateP", ""]
 - !private ["So18UITraitEnvironmentP", "RMAnimation"]
 - !private ["So18UITraitEnvironmentP", "RMColor"]
+- !private ["So18UITraitEnvironmentP", "SQLHandler"]
 - !private ["So18UITraitEnvironmentP", "UIColor"]
 - !private ["So18UITraitEnvironmentP", "UIView"]
 - !private ["So18UITraitEnvironmentP", "animate"]
@@ -606,6 +645,7 @@ depends-member:
 - ["So16UIViewControllerC", "Bool"]
 - !private ["So16UIViewControllerC", "RMAnimation"]
 - !private ["So16UIViewControllerC", "RMColor"]
+- !private ["So16UIViewControllerC", "SQLHandler"]
 - !private ["So16UIViewControllerC", "UIColor"]
 - ["So16UIViewControllerC", "UIStoryboardSegue"]
 - ["So16UIViewControllerC", "UITableViewCell"]
@@ -646,6 +686,7 @@ depends-member:
 - ["s14_IndexableBaseP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMAnimation"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SQLHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "animate"]
@@ -654,6 +695,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "clear"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesButton"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "identifier"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "informAction"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isScrollEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isSelected"]
@@ -662,6 +704,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pushFrontViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "reuseIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealViewController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tableView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "topCell"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "view"]
@@ -707,6 +750,7 @@ depends-nominal:
 - !private "6RushMe11RMAnimationV"
 - !private "6RushMe7RMColorV"
 - "s26RangeReplaceableCollectionP"
+- !private "6RushMe10SQLHandlerC"
 - !private "So22SWRevealViewControllerC"
 - "s8SequenceP"
 - "SS"
@@ -759,6 +803,7 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/x86_64.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
@@ -776,6 +821,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
@@ -800,11 +846,13 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
 interface-hash: "6cc0a6f9df770f2fd42f3e6e8701141d"

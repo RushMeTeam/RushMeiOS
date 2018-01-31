@@ -58,7 +58,7 @@ class MasterViewController : UITableViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = RMMessage.AppName
-    
+    SQLHandler.shared.informAction(action: "App Loaded")
     // Remove the default shadow to keep with the simplistic theme
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       self.revealViewController().frontViewShadowOpacity = 0
@@ -114,13 +114,14 @@ class MasterViewController : UITableViewController,
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
       self.progressView.alpha = 1
+      
     }
     if !SQLHandler.shared.isConnected {
       return false
     }
     var dictArray = [Dictionary<String, Any>()]
     if types.count == 0{
-        if let arr = SQLHandler.shared.select(aField: "*", fromTable: "house_info") {
+        if let arr = SQLHandler.shared.select(fromTable: "house_info") {
           dictArray = arr
         }
     }
@@ -130,7 +131,7 @@ class MasterViewController : UITableViewController,
         querystring += type + ", "
       }
       querystring = String(querystring.dropLast(2))
-      if let arr = SQLHandler.shared.select(aField: querystring, fromTable: "house_info") {
+      if let arr = SQLHandler.shared.select(fromTable: "house_info") {
         dictArray = arr
       }
     }
@@ -238,6 +239,7 @@ class MasterViewController : UITableViewController,
         if (viewingFavorites) {
           fratName = Campus.shared.favoritedFrats[row]
         }
+        SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
         if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
           let controller = (segue.destination as! UINavigationController).topViewController
             as! DetailViewController
@@ -314,6 +316,7 @@ class MasterViewController : UITableViewController,
         cell.imageBorderColor = UIColor.clear
       }
     }
+    cell.layoutSubviews()
     return cell
   }
   // Row 0 should have a height of 36, all others should be 128
@@ -347,8 +350,9 @@ class MasterViewController : UITableViewController,
         Campus.shared.favoritedFrats.append(fratName)
         action.backgroundColor = RMColor.AppColor
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)  
+          cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
           cell.layoutSubviews()
+          SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
         }
         action.backgroundColor = RMColor.AppColor
       }
@@ -357,6 +361,7 @@ class MasterViewController : UITableViewController,
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
           cell.imageBorderColor = UIColor.white.withAlphaComponent(0.5)
           cell.layoutSubviews()
+          SQLHandler.shared.informAction(action: "Fraternity Unfavorited by Swipe", options: fratName)
         }
         Campus.shared.favoritedFrats.remove(at: fratIndex)
         if (self.viewingFavorites) {
@@ -367,7 +372,6 @@ class MasterViewController : UITableViewController,
         }
       }
       self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
-      
     })
     toggleFavorite.backgroundColor = bgColor
     return [toggleFavorite]
