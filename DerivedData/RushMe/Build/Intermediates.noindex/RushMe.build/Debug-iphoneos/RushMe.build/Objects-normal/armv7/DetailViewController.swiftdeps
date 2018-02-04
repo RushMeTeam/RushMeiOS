@@ -75,6 +75,7 @@ depends-top-level:
 - !private "RMDatabaseKey"
 - !private "RMDate"
 - !private "RMImage"
+- !private "SQLHandler"
 - "String"
 - !private "TernaryPrecedence"
 - "UIBarButtonItem"
@@ -198,6 +199,7 @@ depends-member:
 - !private ["s7CVarArgP", "RMDatabaseKey"]
 - !private ["s7CVarArgP", "RMDate"]
 - !private ["s7CVarArgP", "RMImage"]
+- !private ["s7CVarArgP", "SQLHandler"]
 - !private ["s7CVarArgP", "String"]
 - !private ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UIInterpolatingMotionEffect"]
@@ -245,6 +247,7 @@ depends-member:
 - !private ["s7CVarArgP", "greekLetters"]
 - !private ["s7CVarArgP", "image"]
 - !private ["s7CVarArgP", "index"]
+- !private ["s7CVarArgP", "informAction"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "instantiateViewController"]
 - !private ["s7CVarArgP", "isEditable"]
@@ -373,6 +376,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "RMDatabaseKey"]
 - !private ["s28CustomDebugStringConvertibleP", "RMDate"]
 - !private ["s28CustomDebugStringConvertibleP", "RMImage"]
+- !private ["s28CustomDebugStringConvertibleP", "SQLHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UIInterpolatingMotionEffect"]
@@ -421,6 +425,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "greekLetters"]
 - !private ["s28CustomDebugStringConvertibleP", "image"]
 - !private ["s28CustomDebugStringConvertibleP", "index"]
+- !private ["s28CustomDebugStringConvertibleP", "informAction"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "instantiateViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "isEditable"]
@@ -568,6 +573,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "RMDatabaseKey"]
 - !private ["s23CustomStringConvertibleP", "RMDate"]
 - !private ["s23CustomStringConvertibleP", "RMImage"]
+- !private ["s23CustomStringConvertibleP", "SQLHandler"]
 - !private ["s23CustomStringConvertibleP", "String"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UIInterpolatingMotionEffect"]
@@ -617,6 +623,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "greekLetters"]
 - !private ["s23CustomStringConvertibleP", "image"]
 - !private ["s23CustomStringConvertibleP", "index"]
+- !private ["s23CustomStringConvertibleP", "informAction"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "instantiateViewController"]
 - !private ["s23CustomStringConvertibleP", "isEditable"]
@@ -755,6 +762,7 @@ depends-member:
 - !private ["6RushMe20DetailViewControllerC", "RMDatabaseKey"]
 - !private ["6RushMe20DetailViewControllerC", "RMDate"]
 - !private ["6RushMe20DetailViewControllerC", "RMImage"]
+- !private ["6RushMe20DetailViewControllerC", "SQLHandler"]
 - !private ["6RushMe20DetailViewControllerC", "String"]
 - ["6RushMe20DetailViewControllerC", "UIBarButtonItem"]
 - ["6RushMe20DetailViewControllerC", "UIButton"]
@@ -874,6 +882,7 @@ depends-member:
 - !private ["s9EquatableP", "RMDatabaseKey"]
 - !private ["s9EquatableP", "RMDate"]
 - !private ["s9EquatableP", "RMImage"]
+- !private ["s9EquatableP", "SQLHandler"]
 - !private ["s9EquatableP", "String"]
 - !private ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UIInterpolatingMotionEffect"]
@@ -923,6 +932,7 @@ depends-member:
 - !private ["s9EquatableP", "greekLetters"]
 - !private ["s9EquatableP", "identity"]
 - !private ["s9EquatableP", "image"]
+- !private ["s9EquatableP", "informAction"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "instantiateViewController"]
 - !private ["s9EquatableP", "isEditable"]
@@ -1074,6 +1084,7 @@ depends-member:
 - !private ["s8HashableP", "RMDatabaseKey"]
 - !private ["s8HashableP", "RMDate"]
 - !private ["s8HashableP", "RMImage"]
+- !private ["s8HashableP", "SQLHandler"]
 - !private ["s8HashableP", "String"]
 - !private ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UIInterpolatingMotionEffect"]
@@ -1121,6 +1132,7 @@ depends-member:
 - !private ["s8HashableP", "gpaLabel"]
 - !private ["s8HashableP", "greekLetters"]
 - !private ["s8HashableP", "image"]
+- !private ["s8HashableP", "informAction"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "instantiateViewController"]
 - !private ["s8HashableP", "isEditable"]
@@ -1253,6 +1265,7 @@ depends-member:
 - !private ["So17MKMapViewDelegateP", "RMDatabaseKey"]
 - !private ["So17MKMapViewDelegateP", "RMDate"]
 - !private ["So17MKMapViewDelegateP", "RMImage"]
+- !private ["So17MKMapViewDelegateP", "SQLHandler"]
 - !private ["So17MKMapViewDelegateP", "String"]
 - !private ["So17MKMapViewDelegateP", "UIColor"]
 - !private ["So17MKMapViewDelegateP", "UIView"]
@@ -1344,6 +1357,7 @@ depends-member:
 - !private ["So8NSCodingP", "RMDatabaseKey"]
 - !private ["So8NSCodingP", "RMDate"]
 - !private ["So8NSCodingP", "RMImage"]
+- !private ["So8NSCodingP", "SQLHandler"]
 - !private ["So8NSCodingP", "String"]
 - !private ["So8NSCodingP", "UIColor"]
 - !private ["So8NSCodingP", "UIInterpolatingMotionEffect"]
@@ -1487,6 +1501,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "RMDatabaseKey"]
 - !private ["So26NSExtensionRequestHandlingP", "RMDate"]
 - !private ["So26NSExtensionRequestHandlingP", "RMImage"]
+- !private ["So26NSExtensionRequestHandlingP", "SQLHandler"]
 - !private ["So26NSExtensionRequestHandlingP", "String"]
 - !private ["So26NSExtensionRequestHandlingP", "UIColor"]
 - !private ["So26NSExtensionRequestHandlingP", "UIView"]
@@ -1592,6 +1607,7 @@ depends-member:
 - !private ["So8NSObjectC", "RMDatabaseKey"]
 - !private ["So8NSObjectC", "RMDate"]
 - !private ["So8NSObjectC", "RMImage"]
+- !private ["So8NSObjectC", "SQLHandler"]
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", "UIBarButtonItem"]
 - ["So8NSObjectC", "UIButton"]
@@ -1647,6 +1663,7 @@ depends-member:
 - ["So8NSObjectC", "gpaLabel"]
 - !private ["So8NSObjectC", "greekLetters"]
 - !private ["So8NSObjectC", "image"]
+- !private ["So8NSObjectC", "informAction"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "instantiateViewController"]
 - !private ["So8NSObjectC", "isEditable"]
@@ -1753,6 +1770,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "RMDatabaseKey"]
 - !private ["So16NSObjectProtocolP", "RMDate"]
 - !private ["So16NSObjectProtocolP", "RMImage"]
+- !private ["So16NSObjectProtocolP", "SQLHandler"]
 - !private ["So16NSObjectProtocolP", "String"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UIInterpolatingMotionEffect"]
@@ -1795,6 +1813,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "gpaLabel"]
 - !private ["So16NSObjectProtocolP", "greekLetters"]
 - !private ["So16NSObjectProtocolP", "image"]
+- !private ["So16NSObjectProtocolP", "informAction"]
 - !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "instantiateViewController"]
 - !private ["So16NSObjectProtocolP", "isEditable"]
@@ -1949,6 +1968,8 @@ depends-member:
 - !private ["s16RawRepresentableP", "tiltAlongHorizontalAxis"]
 - !private ["s16RawRepresentableP", "tiltAlongVerticalAxis"]
 - !private ["10Foundation20ReferenceConvertibleP", "compare"]
+- !private ["6RushMe10SQLHandlerC", "informAction"]
+- !private ["6RushMe10SQLHandlerC", "shared"]
 - !private ["s8SequenceP", "append"]
 - !private ["s8SequenceP", "contains"]
 - !private ["s8SequenceP", "dropLast"]
@@ -2073,6 +2094,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "RMDatabaseKey"]
 - !private ["So21UIAppearanceContainerP", "RMDate"]
 - !private ["So21UIAppearanceContainerP", "RMImage"]
+- !private ["So21UIAppearanceContainerP", "SQLHandler"]
 - !private ["So21UIAppearanceContainerP", "String"]
 - !private ["So21UIAppearanceContainerP", "UIColor"]
 - !private ["So21UIAppearanceContainerP", "UIView"]
@@ -2190,6 +2212,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "RMDatabaseKey"]
 - !private ["So18UIContentContainerP", "RMDate"]
 - !private ["So18UIContentContainerP", "RMImage"]
+- !private ["So18UIContentContainerP", "SQLHandler"]
 - !private ["So18UIContentContainerP", "String"]
 - !private ["So18UIContentContainerP", "UIColor"]
 - !private ["So18UIContentContainerP", "UIView"]
@@ -2343,6 +2366,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "RMDatabaseKey"]
 - !private ["So18UIFocusEnvironmentP", "RMDate"]
 - !private ["So18UIFocusEnvironmentP", "RMImage"]
+- !private ["So18UIFocusEnvironmentP", "SQLHandler"]
 - !private ["So18UIFocusEnvironmentP", "String"]
 - !private ["So18UIFocusEnvironmentP", "UIColor"]
 - !private ["So18UIFocusEnvironmentP", "UIView"]
@@ -2529,6 +2553,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "RMDatabaseKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMDate"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "SQLHandler"]
 - !private ["So30UIPasteConfigurationSupportingP", "String"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIView"]
@@ -2649,6 +2674,7 @@ depends-member:
 - !private ["So11UIResponderC", "RMDatabaseKey"]
 - !private ["So11UIResponderC", "RMDate"]
 - !private ["So11UIResponderC", "RMImage"]
+- !private ["So11UIResponderC", "SQLHandler"]
 - ["So11UIResponderC", "String"]
 - ["So11UIResponderC", "UIBarButtonItem"]
 - ["So11UIResponderC", "UIButton"]
@@ -2769,6 +2795,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "RMDatabaseKey"]
 - !private ["So30UIResponderStandardEditActionsP", "RMDate"]
 - !private ["So30UIResponderStandardEditActionsP", "RMImage"]
+- !private ["So30UIResponderStandardEditActionsP", "SQLHandler"]
 - !private ["So30UIResponderStandardEditActionsP", "String"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UIView"]
@@ -2885,6 +2912,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "RMDatabaseKey"]
 - !private ["So20UIScrollViewDelegateP", "RMDate"]
 - !private ["So20UIScrollViewDelegateP", "RMImage"]
+- !private ["So20UIScrollViewDelegateP", "SQLHandler"]
 - !private ["So20UIScrollViewDelegateP", "String"]
 - !private ["So20UIScrollViewDelegateP", "UIColor"]
 - !private ["So20UIScrollViewDelegateP", "UIView"]
@@ -2964,6 +2992,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "RMDatabaseKey"]
 - !private ["So16UIStateRestoringP", "RMDate"]
 - !private ["So16UIStateRestoringP", "RMImage"]
+- !private ["So16UIStateRestoringP", "SQLHandler"]
 - !private ["So16UIStateRestoringP", "String"]
 - !private ["So16UIStateRestoringP", "UIColor"]
 - !private ["So16UIStateRestoringP", "UIView"]
@@ -3084,6 +3113,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "RMDatabaseKey"]
 - !private ["So18UITraitEnvironmentP", "RMDate"]
 - !private ["So18UITraitEnvironmentP", "RMImage"]
+- !private ["So18UITraitEnvironmentP", "SQLHandler"]
 - !private ["So18UITraitEnvironmentP", "String"]
 - !private ["So18UITraitEnvironmentP", "UIColor"]
 - !private ["So18UITraitEnvironmentP", "UIView"]
@@ -3236,6 +3266,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "RMDatabaseKey"]
 - !private ["So16UIViewControllerC", "RMDate"]
 - !private ["So16UIViewControllerC", "RMImage"]
+- !private ["So16UIViewControllerC", "SQLHandler"]
 - !private ["So16UIViewControllerC", "String"]
 - ["So16UIViewControllerC", "UIBarButtonItem"]
 - ["So16UIViewControllerC", "UIButton"]
@@ -3431,6 +3462,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDatabaseKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SQLHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIInterpolatingMotionEffect"]
@@ -3473,6 +3505,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "gpaLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "greekLetters"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "image"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "informAction"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "instantiateViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isEditable"]
@@ -3694,6 +3727,7 @@ depends-nominal:
 - !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
 - !private "10Foundation20ReferenceConvertibleP"
+- !private "6RushMe10SQLHandlerC"
 - !private "s8SequenceP"
 - !private "s10SetAlgebraP"
 - !private "s13SignedNumericP"
@@ -3783,6 +3817,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/arm.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/arm.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
@@ -3795,6 +3830,7 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
@@ -3819,11 +3855,13 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
 interface-hash: "c5f259e8acbedb4a32db5ff5563d1124"

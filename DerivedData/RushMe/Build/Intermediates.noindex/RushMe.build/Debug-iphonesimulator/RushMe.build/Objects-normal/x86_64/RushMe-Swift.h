@@ -525,7 +525,6 @@ SWIFT_CLASS("_TtC6RushMe17MapViewController")
 SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 @interface MasterViewController : UITableViewController <UISearchBarDelegate>
 @property (nonatomic, copy) NSString * _Nonnull lastPullDescription SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.lastPullDescription' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSDictionary<NSAttributedStringKey, UIColor *> * _Nonnull attributedStringColor SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.attributedStringColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) UIProgressView * _Nonnull progressView SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.progressView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified openBarButtonItem;
 @property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");

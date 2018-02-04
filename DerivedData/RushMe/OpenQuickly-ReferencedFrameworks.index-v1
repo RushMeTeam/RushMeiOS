@@ -2,17 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>RushMe</string>
-	<string>EventKit</string>
-	<string>XCTest</string>
-	<string>QuartzCore</string>
 	<string>MapKit</string>
+	<string>Foundation</string>
+	<string>XCTest</string>
+	<string>RushMe</string>
+	<string>CoreGraphics</string>
 	<string>iCalKit</string>
 	<string>OHMySQL</string>
 	<string>CoreFoundation</string>
-	<string>CoreGraphics</string>
+	<string>QuartzCore</string>
 	<string>UIKit</string>
 	<string>DeviceKit</string>
-	<string>Foundation</string>
+	<string>EventKit</string>
 </array>
 </plist>

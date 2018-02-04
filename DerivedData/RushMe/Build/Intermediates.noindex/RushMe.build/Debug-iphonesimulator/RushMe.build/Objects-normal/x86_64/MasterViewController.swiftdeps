@@ -7,7 +7,6 @@ provides-nominal:
 provides-member:
 - ["6RushMe20MasterViewControllerC", ""]
 provides-dynamic-lookup:
-- "attributedStringColor"
 - "dataUpdate"
 - "didReceiveMemoryWarning"
 - "favoritesSegmentControl"
@@ -46,7 +45,7 @@ depends-top-level:
 - !private "Campus"
 - "CastingPrecedence"
 - !private "DetailViewController"
-- "Dictionary"
+- !private "Dictionary"
 - !private "DispatchQueue"
 - !private "DrawerMenuViewController"
 - !private "Float"
@@ -55,10 +54,10 @@ depends-top-level:
 - "Int"
 - "LOADIMAGES"
 - "MasterViewController"
-- "NSAttributedStringKey"
+- !private "NSAttributedStringKey"
 - !private "NSTextAlignment"
 - !private "RMAnimation"
-- "RMColor"
+- !private "RMColor"
 - !private "RMMessage"
 - !private "SQLHandler"
 - !private "SegmentCell"
@@ -162,10 +161,10 @@ depends-member:
 - !private ["s7CVarArgP", "Fraternity"]
 - !private ["s7CVarArgP", "Int"]
 - !private ["s7CVarArgP", "MasterViewController"]
-- ["s7CVarArgP", "NSAttributedStringKey"]
+- !private ["s7CVarArgP", "NSAttributedStringKey"]
 - !private ["s7CVarArgP", "NSTextAlignment"]
 - !private ["s7CVarArgP", "RMAnimation"]
-- ["s7CVarArgP", "RMColor"]
+- !private ["s7CVarArgP", "RMColor"]
 - !private ["s7CVarArgP", "RMMessage"]
 - !private ["s7CVarArgP", "SQLHandler"]
 - !private ["s7CVarArgP", "String"]
@@ -325,10 +324,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "Fraternity"]
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
 - !private ["s28CustomDebugStringConvertibleP", "MasterViewController"]
-- ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
+- !private ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s28CustomDebugStringConvertibleP", "NSTextAlignment"]
 - !private ["s28CustomDebugStringConvertibleP", "RMAnimation"]
-- ["s28CustomDebugStringConvertibleP", "RMColor"]
+- !private ["s28CustomDebugStringConvertibleP", "RMColor"]
 - !private ["s28CustomDebugStringConvertibleP", "RMMessage"]
 - !private ["s28CustomDebugStringConvertibleP", "SQLHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
@@ -493,10 +492,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "Fraternity"]
 - !private ["s23CustomStringConvertibleP", "Int"]
 - !private ["s23CustomStringConvertibleP", "MasterViewController"]
-- ["s23CustomStringConvertibleP", "NSAttributedStringKey"]
+- !private ["s23CustomStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s23CustomStringConvertibleP", "NSTextAlignment"]
 - !private ["s23CustomStringConvertibleP", "RMAnimation"]
-- ["s23CustomStringConvertibleP", "RMColor"]
+- !private ["s23CustomStringConvertibleP", "RMColor"]
 - !private ["s23CustomStringConvertibleP", "RMMessage"]
 - !private ["s23CustomStringConvertibleP", "SQLHandler"]
 - !private ["s23CustomStringConvertibleP", "String"]
@@ -676,10 +675,10 @@ depends-member:
 - !private ["s9EquatableP", "Fraternity"]
 - !private ["s9EquatableP", "Int"]
 - !private ["s9EquatableP", "MasterViewController"]
-- ["s9EquatableP", "NSAttributedStringKey"]
+- !private ["s9EquatableP", "NSAttributedStringKey"]
 - !private ["s9EquatableP", "NSTextAlignment"]
 - !private ["s9EquatableP", "RMAnimation"]
-- ["s9EquatableP", "RMColor"]
+- !private ["s9EquatableP", "RMColor"]
 - !private ["s9EquatableP", "RMMessage"]
 - !private ["s9EquatableP", "SQLHandler"]
 - !private ["s9EquatableP", "String"]
@@ -720,7 +719,7 @@ depends-member:
 - !private ["s9EquatableP", "endRefreshing"]
 - !private ["s9EquatableP", "favoritedFrats"]
 - !private ["s9EquatableP", "favoritesSegmentControl"]
-- ["s9EquatableP", "foregroundColor"]
+- !private ["s9EquatableP", "foregroundColor"]
 - !private ["s9EquatableP", "frame"]
 - !private ["s9EquatableP", "fratNames"]
 - !private ["s9EquatableP", "fraternitiesDict"]
@@ -856,10 +855,10 @@ depends-member:
 - !private ["s8HashableP", "Fraternity"]
 - !private ["s8HashableP", "Int"]
 - !private ["s8HashableP", "MasterViewController"]
-- ["s8HashableP", "NSAttributedStringKey"]
+- !private ["s8HashableP", "NSAttributedStringKey"]
 - !private ["s8HashableP", "NSTextAlignment"]
 - !private ["s8HashableP", "RMAnimation"]
-- ["s8HashableP", "RMColor"]
+- !private ["s8HashableP", "RMColor"]
 - !private ["s8HashableP", "RMMessage"]
 - !private ["s8HashableP", "SQLHandler"]
 - !private ["s8HashableP", "String"]
@@ -900,7 +899,7 @@ depends-member:
 - !private ["s8HashableP", "endRefreshing"]
 - !private ["s8HashableP", "favoritedFrats"]
 - !private ["s8HashableP", "favoritesSegmentControl"]
-- ["s8HashableP", "foregroundColor"]
+- !private ["s8HashableP", "foregroundColor"]
 - !private ["s8HashableP", "frame"]
 - !private ["s8HashableP", "fratNames"]
 - !private ["s8HashableP", "fraternitiesDict"]
@@ -1015,10 +1014,10 @@ depends-member:
 - ["6RushMe20MasterViewControllerC", "IndexPath"]
 - ["6RushMe20MasterViewControllerC", "Int"]
 - !private ["6RushMe20MasterViewControllerC", "MasterViewController"]
-- ["6RushMe20MasterViewControllerC", "NSAttributedStringKey"]
+- !private ["6RushMe20MasterViewControllerC", "NSAttributedStringKey"]
 - !private ["6RushMe20MasterViewControllerC", "NSTextAlignment"]
 - !private ["6RushMe20MasterViewControllerC", "RMAnimation"]
-- ["6RushMe20MasterViewControllerC", "RMColor"]
+- !private ["6RushMe20MasterViewControllerC", "RMColor"]
 - !private ["6RushMe20MasterViewControllerC", "RMMessage"]
 - !private ["6RushMe20MasterViewControllerC", "SQLHandler"]
 - !private ["6RushMe20MasterViewControllerC", "SegmentCell"]
@@ -1040,7 +1039,6 @@ depends-member:
 - !private ["6RushMe20MasterViewControllerC", "UIView"]
 - !private ["6RushMe20MasterViewControllerC", "UIViewAnimationOptions"]
 - !private ["6RushMe20MasterViewControllerC", "attractiveFratCellIdentifier"]
-- ["6RushMe20MasterViewControllerC", "attributedStringColor"]
 - !private ["6RushMe20MasterViewControllerC", "clearsSelectionOnViewWillAppear"]
 - ["6RushMe20MasterViewControllerC", "dataUpdate"]
 - ["6RushMe20MasterViewControllerC", "deinit"]
@@ -1088,7 +1086,7 @@ depends-member:
 - !private ["s17MutableCollectionP", "remove"]
 - !private ["s17MutableCollectionP", "row"]
 - !private ["s17MutableCollectionP", "subscript"]
-- ["SC21NSAttributedStringKeyV", "foregroundColor"]
+- !private ["SC21NSAttributedStringKeyV", "foregroundColor"]
 - !private ["So8NSCodingP", "Campus"]
 - !private ["So8NSCodingP", "Dictionary"]
 - !private ["So8NSCodingP", "DispatchQueue"]
@@ -1096,10 +1094,10 @@ depends-member:
 - !private ["So8NSCodingP", "Fraternity"]
 - !private ["So8NSCodingP", "Int"]
 - !private ["So8NSCodingP", "MasterViewController"]
-- ["So8NSCodingP", "NSAttributedStringKey"]
+- !private ["So8NSCodingP", "NSAttributedStringKey"]
 - !private ["So8NSCodingP", "NSTextAlignment"]
 - !private ["So8NSCodingP", "RMAnimation"]
-- ["So8NSCodingP", "RMColor"]
+- !private ["So8NSCodingP", "RMColor"]
 - !private ["So8NSCodingP", "RMMessage"]
 - !private ["So8NSCodingP", "SQLHandler"]
 - !private ["So8NSCodingP", "String"]
@@ -1221,10 +1219,10 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "Fraternity"]
 - !private ["So26NSExtensionRequestHandlingP", "Int"]
 - !private ["So26NSExtensionRequestHandlingP", "MasterViewController"]
-- ["So26NSExtensionRequestHandlingP", "NSAttributedStringKey"]
+- !private ["So26NSExtensionRequestHandlingP", "NSAttributedStringKey"]
 - !private ["So26NSExtensionRequestHandlingP", "NSTextAlignment"]
 - !private ["So26NSExtensionRequestHandlingP", "RMAnimation"]
-- ["So26NSExtensionRequestHandlingP", "RMColor"]
+- !private ["So26NSExtensionRequestHandlingP", "RMColor"]
 - !private ["So26NSExtensionRequestHandlingP", "RMMessage"]
 - !private ["So26NSExtensionRequestHandlingP", "SQLHandler"]
 - !private ["So26NSExtensionRequestHandlingP", "String"]
@@ -1312,10 +1310,10 @@ depends-member:
 - ["So8NSObjectC", "IndexPath"]
 - ["So8NSObjectC", "Int"]
 - !private ["So8NSObjectC", "MasterViewController"]
-- ["So8NSObjectC", "NSAttributedStringKey"]
+- !private ["So8NSObjectC", "NSAttributedStringKey"]
 - !private ["So8NSObjectC", "NSTextAlignment"]
 - !private ["So8NSObjectC", "RMAnimation"]
-- ["So8NSObjectC", "RMColor"]
+- !private ["So8NSObjectC", "RMColor"]
 - !private ["So8NSObjectC", "RMMessage"]
 - !private ["So8NSObjectC", "SQLHandler"]
 - !private ["So8NSObjectC", "SegmentCell"]
@@ -1344,7 +1342,6 @@ depends-member:
 - !private ["So8NSObjectC", "animate"]
 - !private ["So8NSObjectC", "async"]
 - !private ["So8NSObjectC", "attractiveFratCellIdentifier"]
-- ["So8NSObjectC", "attributedStringColor"]
 - !private ["So8NSObjectC", "backgroundColor"]
 - !private ["So8NSObjectC", "barTintColor"]
 - !private ["So8NSObjectC", "beginRefreshing"]
@@ -1460,10 +1457,10 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "Fraternity"]
 - !private ["So16NSObjectProtocolP", "Int"]
 - !private ["So16NSObjectProtocolP", "MasterViewController"]
-- ["So16NSObjectProtocolP", "NSAttributedStringKey"]
+- !private ["So16NSObjectProtocolP", "NSAttributedStringKey"]
 - !private ["So16NSObjectProtocolP", "NSTextAlignment"]
 - !private ["So16NSObjectProtocolP", "RMAnimation"]
-- ["So16NSObjectProtocolP", "RMColor"]
+- !private ["So16NSObjectProtocolP", "RMColor"]
 - !private ["So16NSObjectProtocolP", "RMMessage"]
 - !private ["So16NSObjectProtocolP", "SQLHandler"]
 - !private ["So16NSObjectProtocolP", "String"]
@@ -1610,7 +1607,7 @@ depends-member:
 - !private ["s9OptionSetP", "valueChanged"]
 - !private ["8Dispatch0A3QoSV0B6SClassO", "userInitiated"]
 - !private ["6RushMe11RMAnimationV", "ColoringTime"]
-- ["6RushMe7RMColorV", "AppColor"]
+- !private ["6RushMe7RMColorV", "AppColor"]
 - !private ["6RushMe7RMColorV", "SlideOutMenuShadowIsEnabled"]
 - !private ["6RushMe9RMMessageV", "AppName"]
 - !private ["6RushMe9RMMessageV", "Favorite"]
@@ -1632,7 +1629,7 @@ depends-member:
 - !private ["s26RangeReplaceableCollectionP", "remove"]
 - !private ["s26RangeReplaceableCollectionP", "subscript"]
 - !private ["s16RawRepresentableP", "center"]
-- ["s16RawRepresentableP", "foregroundColor"]
+- !private ["s16RawRepresentableP", "foregroundColor"]
 - !private ["s16RawRepresentableP", "left"]
 - !private ["s16RawRepresentableP", "none"]
 - !private ["s16RawRepresentableP", "normal"]
@@ -1768,10 +1765,10 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "Fraternity"]
 - !private ["So21UIAppearanceContainerP", "Int"]
 - !private ["So21UIAppearanceContainerP", "MasterViewController"]
-- ["So21UIAppearanceContainerP", "NSAttributedStringKey"]
+- !private ["So21UIAppearanceContainerP", "NSAttributedStringKey"]
 - !private ["So21UIAppearanceContainerP", "NSTextAlignment"]
 - !private ["So21UIAppearanceContainerP", "RMAnimation"]
-- ["So21UIAppearanceContainerP", "RMColor"]
+- !private ["So21UIAppearanceContainerP", "RMColor"]
 - !private ["So21UIAppearanceContainerP", "RMMessage"]
 - !private ["So21UIAppearanceContainerP", "SQLHandler"]
 - !private ["So21UIAppearanceContainerP", "String"]
@@ -1895,10 +1892,10 @@ depends-member:
 - !private ["So24UIBarPositioningDelegateP", "Fraternity"]
 - !private ["So24UIBarPositioningDelegateP", "Int"]
 - !private ["So24UIBarPositioningDelegateP", "MasterViewController"]
-- ["So24UIBarPositioningDelegateP", "NSAttributedStringKey"]
+- !private ["So24UIBarPositioningDelegateP", "NSAttributedStringKey"]
 - !private ["So24UIBarPositioningDelegateP", "NSTextAlignment"]
 - !private ["So24UIBarPositioningDelegateP", "RMAnimation"]
-- ["So24UIBarPositioningDelegateP", "RMColor"]
+- !private ["So24UIBarPositioningDelegateP", "RMColor"]
 - !private ["So24UIBarPositioningDelegateP", "RMMessage"]
 - !private ["So24UIBarPositioningDelegateP", "SQLHandler"]
 - !private ["So24UIBarPositioningDelegateP", "String"]
@@ -1955,10 +1952,10 @@ depends-member:
 - !private ["So18UIContentContainerP", "Fraternity"]
 - !private ["So18UIContentContainerP", "Int"]
 - !private ["So18UIContentContainerP", "MasterViewController"]
-- ["So18UIContentContainerP", "NSAttributedStringKey"]
+- !private ["So18UIContentContainerP", "NSAttributedStringKey"]
 - !private ["So18UIContentContainerP", "NSTextAlignment"]
 - !private ["So18UIContentContainerP", "RMAnimation"]
-- ["So18UIContentContainerP", "RMColor"]
+- !private ["So18UIContentContainerP", "RMColor"]
 - !private ["So18UIContentContainerP", "RMMessage"]
 - !private ["So18UIContentContainerP", "SQLHandler"]
 - !private ["So18UIContentContainerP", "String"]
@@ -2131,10 +2128,10 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "Fraternity"]
 - !private ["So18UIFocusEnvironmentP", "Int"]
 - !private ["So18UIFocusEnvironmentP", "MasterViewController"]
-- ["So18UIFocusEnvironmentP", "NSAttributedStringKey"]
+- !private ["So18UIFocusEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UIFocusEnvironmentP", "NSTextAlignment"]
 - !private ["So18UIFocusEnvironmentP", "RMAnimation"]
-- ["So18UIFocusEnvironmentP", "RMColor"]
+- !private ["So18UIFocusEnvironmentP", "RMColor"]
 - !private ["So18UIFocusEnvironmentP", "RMMessage"]
 - !private ["So18UIFocusEnvironmentP", "SQLHandler"]
 - !private ["So18UIFocusEnvironmentP", "String"]
@@ -2307,10 +2304,10 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "Fraternity"]
 - !private ["So30UIPasteConfigurationSupportingP", "Int"]
 - !private ["So30UIPasteConfigurationSupportingP", "MasterViewController"]
-- ["So30UIPasteConfigurationSupportingP", "NSAttributedStringKey"]
+- !private ["So30UIPasteConfigurationSupportingP", "NSAttributedStringKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSTextAlignment"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMAnimation"]
-- ["So30UIPasteConfigurationSupportingP", "RMColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMMessage"]
 - !private ["So30UIPasteConfigurationSupportingP", "SQLHandler"]
 - !private ["So30UIPasteConfigurationSupportingP", "String"]
@@ -2444,10 +2441,10 @@ depends-member:
 - ["So11UIResponderC", "IndexPath"]
 - ["So11UIResponderC", "Int"]
 - !private ["So11UIResponderC", "MasterViewController"]
-- ["So11UIResponderC", "NSAttributedStringKey"]
+- !private ["So11UIResponderC", "NSAttributedStringKey"]
 - !private ["So11UIResponderC", "NSTextAlignment"]
 - !private ["So11UIResponderC", "RMAnimation"]
-- ["So11UIResponderC", "RMColor"]
+- !private ["So11UIResponderC", "RMColor"]
 - !private ["So11UIResponderC", "RMMessage"]
 - !private ["So11UIResponderC", "SQLHandler"]
 - !private ["So11UIResponderC", "SegmentCell"]
@@ -2474,7 +2471,6 @@ depends-member:
 - !private ["So11UIResponderC", "alpha"]
 - !private ["So11UIResponderC", "animate"]
 - !private ["So11UIResponderC", "attractiveFratCellIdentifier"]
-- ["So11UIResponderC", "attributedStringColor"]
 - !private ["So11UIResponderC", "backgroundColor"]
 - !private ["So11UIResponderC", "barTintColor"]
 - !private ["So11UIResponderC", "beginRefreshing"]
@@ -2568,10 +2564,10 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "Fraternity"]
 - !private ["So30UIResponderStandardEditActionsP", "Int"]
 - !private ["So30UIResponderStandardEditActionsP", "MasterViewController"]
-- ["So30UIResponderStandardEditActionsP", "NSAttributedStringKey"]
+- !private ["So30UIResponderStandardEditActionsP", "NSAttributedStringKey"]
 - !private ["So30UIResponderStandardEditActionsP", "NSTextAlignment"]
 - !private ["So30UIResponderStandardEditActionsP", "RMAnimation"]
-- ["So30UIResponderStandardEditActionsP", "RMColor"]
+- !private ["So30UIResponderStandardEditActionsP", "RMColor"]
 - !private ["So30UIResponderStandardEditActionsP", "RMMessage"]
 - !private ["So30UIResponderStandardEditActionsP", "SQLHandler"]
 - !private ["So30UIResponderStandardEditActionsP", "String"]
@@ -2689,10 +2685,10 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "Fraternity"]
 - !private ["So20UIScrollViewDelegateP", "Int"]
 - !private ["So20UIScrollViewDelegateP", "MasterViewController"]
-- ["So20UIScrollViewDelegateP", "NSAttributedStringKey"]
+- !private ["So20UIScrollViewDelegateP", "NSAttributedStringKey"]
 - !private ["So20UIScrollViewDelegateP", "NSTextAlignment"]
 - !private ["So20UIScrollViewDelegateP", "RMAnimation"]
-- ["So20UIScrollViewDelegateP", "RMColor"]
+- !private ["So20UIScrollViewDelegateP", "RMColor"]
 - !private ["So20UIScrollViewDelegateP", "RMMessage"]
 - !private ["So20UIScrollViewDelegateP", "SQLHandler"]
 - !private ["So20UIScrollViewDelegateP", "String"]
@@ -2752,10 +2748,10 @@ depends-member:
 - !private ["So19UISearchBarDelegateP", "Fraternity"]
 - !private ["So19UISearchBarDelegateP", "Int"]
 - !private ["So19UISearchBarDelegateP", "MasterViewController"]
-- ["So19UISearchBarDelegateP", "NSAttributedStringKey"]
+- !private ["So19UISearchBarDelegateP", "NSAttributedStringKey"]
 - !private ["So19UISearchBarDelegateP", "NSTextAlignment"]
 - !private ["So19UISearchBarDelegateP", "RMAnimation"]
-- ["So19UISearchBarDelegateP", "RMColor"]
+- !private ["So19UISearchBarDelegateP", "RMColor"]
 - !private ["So19UISearchBarDelegateP", "RMMessage"]
 - !private ["So19UISearchBarDelegateP", "SQLHandler"]
 - !private ["So19UISearchBarDelegateP", "String"]
@@ -2826,10 +2822,10 @@ depends-member:
 - !private ["So16UIStateRestoringP", "Fraternity"]
 - !private ["So16UIStateRestoringP", "Int"]
 - !private ["So16UIStateRestoringP", "MasterViewController"]
-- ["So16UIStateRestoringP", "NSAttributedStringKey"]
+- !private ["So16UIStateRestoringP", "NSAttributedStringKey"]
 - !private ["So16UIStateRestoringP", "NSTextAlignment"]
 - !private ["So16UIStateRestoringP", "RMAnimation"]
-- ["So16UIStateRestoringP", "RMColor"]
+- !private ["So16UIStateRestoringP", "RMColor"]
 - !private ["So16UIStateRestoringP", "RMMessage"]
 - !private ["So16UIStateRestoringP", "SQLHandler"]
 - !private ["So16UIStateRestoringP", "String"]
@@ -2923,10 +2919,10 @@ depends-member:
 - ["So21UITableViewControllerC", "IndexPath"]
 - ["So21UITableViewControllerC", "Int"]
 - !private ["So21UITableViewControllerC", "MasterViewController"]
-- ["So21UITableViewControllerC", "NSAttributedStringKey"]
+- !private ["So21UITableViewControllerC", "NSAttributedStringKey"]
 - !private ["So21UITableViewControllerC", "NSTextAlignment"]
 - !private ["So21UITableViewControllerC", "RMAnimation"]
-- ["So21UITableViewControllerC", "RMColor"]
+- !private ["So21UITableViewControllerC", "RMColor"]
 - !private ["So21UITableViewControllerC", "RMMessage"]
 - !private ["So21UITableViewControllerC", "SQLHandler"]
 - !private ["So21UITableViewControllerC", "SegmentCell"]
@@ -2948,7 +2944,6 @@ depends-member:
 - !private ["So21UITableViewControllerC", "UIView"]
 - !private ["So21UITableViewControllerC", "UIViewAnimationOptions"]
 - !private ["So21UITableViewControllerC", "attractiveFratCellIdentifier"]
-- ["So21UITableViewControllerC", "attributedStringColor"]
 - !private ["So21UITableViewControllerC", "clearsSelectionOnViewWillAppear"]
 - ["So21UITableViewControllerC", "dataUpdate"]
 - ["So21UITableViewControllerC", "didReceiveMemoryWarning"]
@@ -2995,10 +2990,10 @@ depends-member:
 - !private ["So21UITableViewDataSourceP", "Fraternity"]
 - !private ["So21UITableViewDataSourceP", "Int"]
 - !private ["So21UITableViewDataSourceP", "MasterViewController"]
-- ["So21UITableViewDataSourceP", "NSAttributedStringKey"]
+- !private ["So21UITableViewDataSourceP", "NSAttributedStringKey"]
 - !private ["So21UITableViewDataSourceP", "NSTextAlignment"]
 - !private ["So21UITableViewDataSourceP", "RMAnimation"]
-- ["So21UITableViewDataSourceP", "RMColor"]
+- !private ["So21UITableViewDataSourceP", "RMColor"]
 - !private ["So21UITableViewDataSourceP", "RMMessage"]
 - !private ["So21UITableViewDataSourceP", "SQLHandler"]
 - !private ["So21UITableViewDataSourceP", "String"]
@@ -3057,10 +3052,10 @@ depends-member:
 - !private ["So19UITableViewDelegateP", "Fraternity"]
 - !private ["So19UITableViewDelegateP", "Int"]
 - !private ["So19UITableViewDelegateP", "MasterViewController"]
-- ["So19UITableViewDelegateP", "NSAttributedStringKey"]
+- !private ["So19UITableViewDelegateP", "NSAttributedStringKey"]
 - !private ["So19UITableViewDelegateP", "NSTextAlignment"]
 - !private ["So19UITableViewDelegateP", "RMAnimation"]
-- ["So19UITableViewDelegateP", "RMColor"]
+- !private ["So19UITableViewDelegateP", "RMColor"]
 - !private ["So19UITableViewDelegateP", "RMMessage"]
 - !private ["So19UITableViewDelegateP", "SQLHandler"]
 - !private ["So19UITableViewDelegateP", "String"]
@@ -3123,10 +3118,10 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "Fraternity"]
 - !private ["So18UITraitEnvironmentP", "Int"]
 - !private ["So18UITraitEnvironmentP", "MasterViewController"]
-- ["So18UITraitEnvironmentP", "NSAttributedStringKey"]
+- !private ["So18UITraitEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UITraitEnvironmentP", "NSTextAlignment"]
 - !private ["So18UITraitEnvironmentP", "RMAnimation"]
-- ["So18UITraitEnvironmentP", "RMColor"]
+- !private ["So18UITraitEnvironmentP", "RMColor"]
 - !private ["So18UITraitEnvironmentP", "RMMessage"]
 - !private ["So18UITraitEnvironmentP", "SQLHandler"]
 - !private ["So18UITraitEnvironmentP", "String"]
@@ -3284,10 +3279,10 @@ depends-member:
 - ["So16UIViewControllerC", "IndexPath"]
 - ["So16UIViewControllerC", "Int"]
 - !private ["So16UIViewControllerC", "MasterViewController"]
-- ["So16UIViewControllerC", "NSAttributedStringKey"]
+- !private ["So16UIViewControllerC", "NSAttributedStringKey"]
 - !private ["So16UIViewControllerC", "NSTextAlignment"]
 - !private ["So16UIViewControllerC", "RMAnimation"]
-- ["So16UIViewControllerC", "RMColor"]
+- !private ["So16UIViewControllerC", "RMColor"]
 - !private ["So16UIViewControllerC", "RMMessage"]
 - !private ["So16UIViewControllerC", "SQLHandler"]
 - !private ["So16UIViewControllerC", "SegmentCell"]
@@ -3309,7 +3304,6 @@ depends-member:
 - !private ["So16UIViewControllerC", "UIView"]
 - !private ["So16UIViewControllerC", "UIViewAnimationOptions"]
 - !private ["So16UIViewControllerC", "attractiveFratCellIdentifier"]
-- ["So16UIViewControllerC", "attributedStringColor"]
 - !private ["So16UIViewControllerC", "clearsSelectionOnViewWillAppear"]
 - ["So16UIViewControllerC", "dataUpdate"]
 - ["So16UIViewControllerC", "didReceiveMemoryWarning"]
@@ -3468,10 +3462,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Fraternity"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "MasterViewController"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedStringKey"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedStringKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSTextAlignment"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMAnimation"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMMessage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "SQLHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
@@ -3612,7 +3606,7 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "contains"]
 - !private ["s21_ObjectiveCBridgeableP", "count"]
 - !private ["s21_ObjectiveCBridgeableP", "dropLast"]
-- ["s21_ObjectiveCBridgeableP", "foregroundColor"]
+- !private ["s21_ObjectiveCBridgeableP", "foregroundColor"]
 - !private ["s21_ObjectiveCBridgeableP", "height"]
 - !private ["s21_ObjectiveCBridgeableP", "index"]
 - ["s21_ObjectiveCBridgeableP", "init"]
@@ -3637,7 +3631,7 @@ depends-member:
 - !private ["s26_RangeReplaceableIndexableP", "remove"]
 - !private ["s26_RangeReplaceableIndexableP", "subscript"]
 - !private ["s11_StrideableP", "init"]
-- ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
+- !private ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
 - !private ["s16_SwiftStringViewP", "dropLast"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
@@ -3686,7 +3680,7 @@ depends-nominal:
 - "6RushMe20MasterViewControllerC"
 - "s10MirrorPathP"
 - !private "s17MutableCollectionP"
-- "SC21NSAttributedStringKeyV"
+- !private "SC21NSAttributedStringKeyV"
 - "So8NSCodingP"
 - "So9NSCopyingP"
 - "So26NSExtensionRequestHandlingP"
@@ -3704,11 +3698,11 @@ depends-nominal:
 - !private "s9OptionSetP"
 - !private "8Dispatch0A3QoSV0B6SClassO"
 - !private "6RushMe11RMAnimationV"
-- "6RushMe7RMColorV"
+- !private "6RushMe7RMColorV"
 - !private "6RushMe9RMMessageV"
 - !private "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
-- "s16RawRepresentableP"
+- !private "s16RawRepresentableP"
 - !private "10Foundation20ReferenceConvertibleP"
 - !private "6RushMe10SQLHandlerC"
 - !private "So22SWRevealViewControllerC"
@@ -3799,7 +3793,7 @@ depends-nominal:
 - !private "s22_RandomAccessIndexableP"
 - "s26_RangeReplaceableIndexableP"
 - !private "s11_StrideableP"
-- "s20_SwiftNewtypeWrapperP"
+- !private "s20_SwiftNewtypeWrapperP"
 - "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
@@ -3856,4 +3850,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "241ff7e1b6e42f73afebd2348552e1d2"
+interface-hash: "7a8c0369b67d520699ca4825c9eb5169"

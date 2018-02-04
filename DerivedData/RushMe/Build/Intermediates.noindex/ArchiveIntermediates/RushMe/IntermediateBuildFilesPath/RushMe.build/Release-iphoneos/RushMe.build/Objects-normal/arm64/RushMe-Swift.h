@@ -570,7 +570,8 @@ SWIFT_CLASS("_TtC6RushMe10SQLHandler")
 @property (nonatomic, readonly) BOOL isConnected SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.isConnected' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SQLHandler * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
 + (SQLHandler * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)selectWithAField:(NSString * _Nullable)aField fromTable:(NSString * _Nullable)fromTable whereClause:(NSString * _Nullable)whereClause SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.select(aField:fromTable:whereClause:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)selectFromTable:(NSString * _Nonnull)fromTable conditions:(NSString * _Nullable)conditions SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.select(fromTable:conditions:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)informActionWithAction:(NSString * _Nonnull)action options:(NSString * _Nullable)options additionalInfo:(NSDictionary<NSString *, id> * _Nullable)additionalInfo SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.informAction(action:options:additionalInfo:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 

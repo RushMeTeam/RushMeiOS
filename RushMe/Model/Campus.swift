@@ -159,14 +159,17 @@ class Campus: NSObject {
       else {
         print("Failed to load Preferences")
       }
-      if let favorites = Campus.loadFavorites() {
-        self.favoritedFrats = favorites
-        self.firstLoad = false
+      DispatchQueue.global(qos: .default).async {
+        if let favorites = Campus.loadFavorites() {
+          self.favoritedFrats = favorites
+          self.firstLoad = false
+        }
+        else {
+          self.firstLoad = true
+          self.saveFavorites()
+        }
       }
-      else {
-        self.firstLoad = true
-        self.saveFavorites()
-      }
+      
     }
   }
   enum CampusError : Error {

@@ -26,7 +26,7 @@ class MasterViewController : UITableViewController,
   // MARK: Member Variables
   // The hard data used in the table
   var lastPullDescription = ""
-  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
+//  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
   let progressView = UIProgressView.init()
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
@@ -58,7 +58,7 @@ class MasterViewController : UITableViewController,
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = RMMessage.AppName
-    SQLHandler.shared.informAction(action: "App Loaded")
+    
     // Remove the default shadow to keep with the simplistic theme
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       self.revealViewController().frontViewShadowOpacity = 0
@@ -114,6 +114,7 @@ class MasterViewController : UITableViewController,
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
       self.progressView.alpha = 1
+      self.favoritesSegmentControl?.isEnabled = false
       
     }
     if !SQLHandler.shared.isConnected {
@@ -158,7 +159,7 @@ class MasterViewController : UITableViewController,
           self.favoritesSegmentControl?.isHidden = false
           self.refreshControl!.isEnabled = true
           self.openBarButtonItem.isEnabled = true
-          
+          self.favoritesSegmentControl?.isEnabled = true
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
             self.progressView.progress = 1
             self.progressView.alpha = 0
@@ -176,6 +177,7 @@ class MasterViewController : UITableViewController,
         self.refreshControl!.endRefreshing()
         self.reloadTableView()
         self.refreshControl!.isEnabled = true
+        self.favoritesSegmentControl?.isEnabled = true
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
           self.progressView.progress = 1
           self.progressView.alpha = 0

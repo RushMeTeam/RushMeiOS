@@ -45,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Set Root view and make it visible
     self.window!.rootViewController = swRevealView
     self.window!.makeKeyAndVisible()
-    
-    
+    SQLHandler.shared.informAction(action: "App Loaded")
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
