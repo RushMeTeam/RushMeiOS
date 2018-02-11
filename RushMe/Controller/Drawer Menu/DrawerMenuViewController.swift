@@ -19,12 +19,12 @@ fileprivate let eventsSegueIdentifier = "Events"
 // animation and user interaction
 class DrawerMenuViewController: UITableViewController {
   
-  @IBOutlet var eventsButton: UITableViewCell!
-  @IBOutlet var fraternitiesButton: UITableViewCell!
-  @IBOutlet var settingsButton: UITableViewCell!
-  @IBOutlet var calendarButton: UITableViewCell!
-  @IBOutlet var mapButton: UITableViewCell!
-  @IBOutlet var topCell: UITableViewCell!
+  @IBOutlet weak var eventsButton: UITableViewCell!
+  @IBOutlet weak var fraternitiesButton: UITableViewCell!
+  @IBOutlet weak var settingsButton: UITableViewCell!
+  @IBOutlet weak var calendarButton: UITableViewCell!
+  @IBOutlet weak var mapButton: UITableViewCell!
+  @IBOutlet weak var topCell: UITableViewCell!
   @IBOutlet var buttons: [UITableViewCell]!
   var masterVC : UIViewController?
   
@@ -75,7 +75,7 @@ class DrawerMenuViewController: UITableViewController {
         })
         if selectedButton == fraternitiesButton {
           // Particular segue for fraternities tab
-         self.revealViewController().pushFrontViewController(masterVC, animated: true) 
+         self.revealViewController().pushFrontViewController(self.masterVC!, animated: true)
         }
       }
     }

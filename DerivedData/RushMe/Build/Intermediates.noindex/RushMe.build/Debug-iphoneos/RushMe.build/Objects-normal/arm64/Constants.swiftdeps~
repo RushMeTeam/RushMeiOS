@@ -295,6 +295,7 @@ depends-member:
 - ["6RushMe7RMImageV", "FavoritesImageFilled"]
 - ["6RushMe7RMImageV", "FavoritesImageUnfilled"]
 - ["6RushMe7RMImageV", "IconImage"]
+- ["6RushMe7RMImageV", "LogoImage"]
 - ["6RushMe7RMImageV", "NoImage"]
 - ["6RushMe7RMImageV", "UIImage"]
 - ["6RushMe7RMImageV", "init"]
@@ -587,4 +588,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "0ef2ac97e98b8054edaef888ae590b37"
+interface-hash: "a3f09984337ff2f391362296c5d84cd1"

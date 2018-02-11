@@ -228,10 +228,9 @@ SWIFT_CLASS("_TtC6RushMe11AppDelegate")
 
 SWIFT_CLASS("_TtC6RushMe31AttractiveFratCellTableViewCell")
 @interface AttractiveFratCellTableViewCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified subheadingLabel;
-@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified previewImageView;
-@property (nonatomic, strong) CAGradientLayer * _Nullable gradientLayer SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.gradientLayer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified previewImageView;
+@property (nonatomic, weak) CAGradientLayer * _Nullable gradientLayer SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.gradientLayer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)awakeFromNib;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @property (nonatomic, strong) UIColor * _Nonnull imageBorderColor SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.imageBorderColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -319,19 +318,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _No
 
 SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @interface DetailViewController : UIViewController <MKMapViewDelegate, UIScrollViewDelegate>
-@property (nonatomic, strong) IBOutlet UIScrollView * _Null_unspecified scrollView;
-@property (nonatomic, strong) IBOutlet UIView * _Null_unspecified underlyingView;
-@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified coverImageView;
-@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified profileImageView;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified underProfileLabel;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
+@property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified underlyingView;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified coverImageView;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified profileImageView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified underProfileLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified memberCountLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified staticMemberLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified gpaLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified staticGPALabel;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified favoritesButton;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified eventView;
-@property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified blockTextView;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified blockTextView;
 @property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified openMapButton;
 @property (nonatomic, copy) IBOutletCollection(UIView) NSArray<UIView *> * _Null_unspecified toMakeClear;
@@ -355,12 +354,12 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 
 SWIFT_CLASS("_TtC6RushMe24DrawerMenuViewController")
 @interface DrawerMenuViewController : UITableViewController
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified eventsButton;
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified fraternitiesButton;
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified settingsButton;
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified calendarButton;
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified mapButton;
-@property (nonatomic, strong) IBOutlet UITableViewCell * _Null_unspecified topCell;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified eventsButton;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified fraternitiesButton;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified settingsButton;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified calendarButton;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified mapButton;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified topCell;
 @property (nonatomic, copy) IBOutletCollection(UITableViewCell) NSArray<UITableViewCell *> * _Null_unspecified buttons;
 @property (nonatomic, strong) UIViewController * _Nullable masterVC SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.masterVC' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
@@ -524,8 +523,6 @@ SWIFT_CLASS("_TtC6RushMe17MapViewController")
 
 SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 @interface MasterViewController : UITableViewController <UISearchBarDelegate>
-@property (nonatomic, copy) NSString * _Nonnull lastPullDescription SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.lastPullDescription' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSDictionary<NSAttributedStringKey, UIColor *> * _Nonnull attributedStringColor SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.attributedStringColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) UIProgressView * _Nonnull progressView SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.progressView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified openBarButtonItem;
 @property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");

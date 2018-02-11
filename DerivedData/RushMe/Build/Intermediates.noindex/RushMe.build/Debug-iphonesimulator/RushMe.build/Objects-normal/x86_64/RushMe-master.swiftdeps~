@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "9879e4e4bdb2b5368616265fae9c3470"
-build_time: [1517501062, 52370000]
+build_time: [1517501154, 386777000]
 inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/EventTableViewCell.swift": [1514245464, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/CollectionViewCells/CalendarLabelCollectionViewCell.swift": [1516899138, 0]
@@ -9,7 +9,7 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/DetailViewController.swift": [1517357161, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/CalendarViewController.swift": [1516899138, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/DrawerMenuViewController.swift": [1517357913, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/MasterViewController.swift": [1517498887, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/MasterViewController.swift": [1517501153, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Events/FullEventsListTableViewController.swift": [1517498252, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/AttractiveFratCellTableViewCell.swift": [1517272132, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/FratCell.swift": [1512357238, 0]

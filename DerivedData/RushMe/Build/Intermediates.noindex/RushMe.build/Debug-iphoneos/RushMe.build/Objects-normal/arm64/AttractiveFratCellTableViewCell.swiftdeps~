@@ -12,7 +12,6 @@ provides-dynamic-lookup:
 - "layoutSubviews"
 - "previewImageView"
 - "setSelected"
-- "subheadingLabel"
 - "titleLabel"
 depends-top-level:
 - !private "=="
@@ -50,7 +49,6 @@ depends-member:
 - ["6RushMe027AttractiveFratCellTableViewE0C", "layoutSubviews"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "previewImageView"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "setSelected"]
-- ["6RushMe027AttractiveFratCellTableViewE0C", "subheadingLabel"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "titleLabel"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["So15CAGradientLayerC", "colors"]
@@ -343,7 +341,6 @@ depends-member:
 - !private ["So8NSObjectC", "masksToBounds"]
 - ["So8NSObjectC", "previewImageView"]
 - ["So8NSObjectC", "setSelected"]
-- ["So8NSObjectC", "subheadingLabel"]
 - ["So8NSObjectC", "titleLabel"]
 - !private ["So8NSObjectC", "twoAxesShift"]
 - !private ["So8NSObjectC", "withAlphaComponent"]
@@ -617,7 +614,6 @@ depends-member:
 - ["So11UIResponderC", "layoutSubviews"]
 - ["So11UIResponderC", "previewImageView"]
 - ["So11UIResponderC", "setSelected"]
-- ["So11UIResponderC", "subheadingLabel"]
 - ["So11UIResponderC", "titleLabel"]
 - !private ["So30UIResponderStandardEditActionsP", "CAGradientLayer"]
 - !private ["So30UIResponderStandardEditActionsP", "RMAnimation"]
@@ -657,7 +653,6 @@ depends-member:
 - ["So15UITableViewCellC", "layoutSubviews"]
 - ["So15UITableViewCellC", "previewImageView"]
 - ["So15UITableViewCellC", "setSelected"]
-- ["So15UITableViewCellC", "subheadingLabel"]
 - ["So15UITableViewCellC", "titleLabel"]
 - ["So15UITableViewCellC", ""]
 - !private ["So18UITraitEnvironmentP", "CAGradientLayer"]
@@ -705,7 +700,6 @@ depends-member:
 - ["So6UIViewC", "layoutSubviews"]
 - ["So6UIViewC", "previewImageView"]
 - ["So6UIViewC", "setSelected"]
-- ["So6UIViewC", "subheadingLabel"]
 - ["So6UIViewC", "titleLabel"]
 - !private ["SC17UIViewContentModeO", "scaleAspectFill"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "CAGradientLayer"]
@@ -876,4 +870,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "4b8d9544e9bc782e5e518fa4f94aebaf"
+interface-hash: "f15b252e07b9659e5059d80f41cbbfac"

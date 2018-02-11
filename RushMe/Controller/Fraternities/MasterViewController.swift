@@ -25,7 +25,7 @@ class MasterViewController : UITableViewController,
   
   // MARK: Member Variables
   // The hard data used in the table
-  var lastPullDescription = ""
+//  var lastPullDescription = ""
 //  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
   let progressView = UIProgressView.init()
   // The menu button used to toggle the slide-out menu
@@ -57,18 +57,14 @@ class MasterViewController : UITableViewController,
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = RMMessage.AppName
+    self.title = ""
+  
     
-    // Remove the default shadow to keep with the simplistic theme
-    if (!RMColor.SlideOutMenuShadowIsEnabled) {
-      self.revealViewController().frontViewShadowOpacity = 0
-    }
-    self.revealViewController().rearViewRevealOverdraw = 0
     // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
     }
-    revealViewController().rearViewRevealWidth -= 16
+    
     // Make it look good
     //navigationController?.hidesBarsOnSwipe = true
     navigationController!.navigationBar.isTranslucent = false
@@ -91,6 +87,15 @@ class MasterViewController : UITableViewController,
     refreshControl!.beginRefreshing()
     // Add a progress view to indicate loading status
     navigationController!.view.addSubview(progressView)
+    let wrapperView = UIView()
+    let imageView = UIImageView.init(image: RMImage.LogoImage)
+    imageView.contentMode = .scaleAspectFit
+    imageView.tintColor = RMColor.AppColor
+    imageView.frame.size = CGSize.init(width: 44, height: 44)
+    wrapperView.addSubview(imageView)
+    imageView.center = wrapperView.center
+    self.navigationItem.titleView = wrapperView
+    self.navigationItem.rightBarButtonItem = UIBarButtonItem.init()
     progressView.frame = navigationController!.view.frame
     // The progress view should not be visible less it's loading
     progressView.trackTintColor = UIColor.clear
@@ -309,7 +314,7 @@ class MasterViewController : UITableViewController,
     let fratName = viewingFavorites ? Campus.shared.favoritedFrats[indexPath.row-1] : Campus.shared.fratNames[indexPath.row-1]
     if let frat = Campus.shared.fraternitiesDict[fratName]{
       cell.titleLabel?.text = frat.name
-      cell.subheadingLabel?.text = frat.chapter
+      //cell.subheadingLabel?.text = frat.chapter
       cell.previewImageView?.image = frat.previewImage
       if Campus.shared.favoritedFrats.contains(frat.name) {
         cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
@@ -361,7 +366,7 @@ class MasterViewController : UITableViewController,
       else {
         action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.imageBorderColor = UIColor.white.withAlphaComponent(0.5)
+          cell.imageBorderColor = UIColor.clear
           cell.layoutSubviews()
           SQLHandler.shared.informAction(action: "Fraternity Unfavorited by Swipe", options: fratName)
         }

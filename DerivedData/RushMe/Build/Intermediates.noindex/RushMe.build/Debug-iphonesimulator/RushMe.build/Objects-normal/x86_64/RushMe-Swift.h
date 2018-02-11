@@ -319,19 +319,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _No
 
 SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @interface DetailViewController : UIViewController <MKMapViewDelegate, UIScrollViewDelegate>
-@property (nonatomic, strong) IBOutlet UIScrollView * _Null_unspecified scrollView;
-@property (nonatomic, strong) IBOutlet UIView * _Null_unspecified underlyingView;
-@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified coverImageView;
-@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified profileImageView;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified underProfileLabel;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
+@property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified underlyingView;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified coverImageView;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified profileImageView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified underProfileLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified memberCountLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified staticMemberLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified gpaLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified staticGPALabel;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified favoritesButton;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified eventView;
-@property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified blockTextView;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified blockTextView;
 @property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified openMapButton;
 @property (nonatomic, copy) IBOutletCollection(UIView) NSArray<UIView *> * _Null_unspecified toMakeClear;

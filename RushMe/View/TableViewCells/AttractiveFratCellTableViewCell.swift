@@ -10,11 +10,11 @@ import UIKit
 
 class AttractiveFratCellTableViewCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
-  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet weak var titleLabel: UILabel!
   // Chapter designation (e.g. Theta)
-  @IBOutlet var subheadingLabel: UILabel!
-  @IBOutlet var previewImageView: UIImageView!
-  var gradientLayer : CAGradientLayer? = nil
+//  @IBOutlet var subheadingLabel: UILabel!
+  @IBOutlet weak var previewImageView: UIImageView!
+  weak var gradientLayer : CAGradientLayer? = nil
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

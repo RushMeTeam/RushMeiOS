@@ -12,19 +12,19 @@ import MapKit
 
 class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
   // MARK: IBOutlets
-  @IBOutlet var scrollView: UIScrollView!
-  @IBOutlet var underlyingView: UIView!
-  @IBOutlet var coverImageView: UIImageView!
-  @IBOutlet var profileImageView: UIImageView!
-  @IBOutlet var underProfileLabel: UILabel!
-  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var underlyingView: UIView!
+  @IBOutlet weak var coverImageView: UIImageView!
+  @IBOutlet weak var profileImageView: UIImageView!
+  @IBOutlet weak var underProfileLabel: UILabel!
+  @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var memberCountLabel: UILabel!
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
   @IBOutlet weak var favoritesButton: UIBarButtonItem!
   @IBOutlet weak var eventView: UIView!
-  @IBOutlet var blockTextView: UITextView!
+  @IBOutlet weak var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var openMapButton: UIButton!
   

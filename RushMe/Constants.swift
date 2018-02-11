@@ -16,6 +16,7 @@ let DEBUG = false
 struct RMImage {
   static let NoImage = UIImage(named: "defaultImage.png")!
   static let IconImage = UIImage(named: "appIcon.jpg")!
+  static let LogoImage = UIImage(named: "appIcon.jpg")!
   static let FavoritesImageUnfilled = UIImage(named: "FavoritesUnfilled")
   static let FavoritesImageFilled = UIImage(named: "FavoritesIcon")
   static let CornerRadius : CGFloat = 8
