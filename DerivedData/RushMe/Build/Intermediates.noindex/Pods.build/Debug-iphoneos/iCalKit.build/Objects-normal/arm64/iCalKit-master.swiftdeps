@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "6ad8773c883019c8632105f84160dff4"
-build_time: [1517357605, 769834000]
+build_time: [1518488255, 313208000]
 inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Alarm.swift": [1512357238, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Calendar.swift": [1512357238, 0]

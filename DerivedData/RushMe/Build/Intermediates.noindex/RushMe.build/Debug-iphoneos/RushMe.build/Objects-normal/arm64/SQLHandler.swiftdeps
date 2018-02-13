@@ -6,13 +6,6 @@ provides-nominal:
 provides-member:
 - ["6RushMe10SQLHandlerC", ""]
 provides-dynamic-lookup:
-- "context"
-- "coordinator"
-- "informAction"
-- "isConnected"
-- "select"
-- "shared"
-- "user"
 depends-top-level:
 - !private "!="
 - !private "&&"
@@ -22,7 +15,6 @@ depends-top-level:
 - "Bool"
 - "Dictionary"
 - !private "DispatchQueue"
-- "NSObject"
 - "OHMySQLQueryContext"
 - !private "OHMySQLQueryRequestFactory"
 - "OHMySQLStoreCoordinator"
@@ -37,84 +29,45 @@ depends-top-level:
 depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "DispatchQueue"]
-- !private ["s7CVarArgP", "OHMySQLQueryContext"]
-- !private ["s7CVarArgP", "OHMySQLQueryRequestFactory"]
-- !private ["s7CVarArgP", "OHMySQLStoreCoordinator"]
-- !private ["s7CVarArgP", "OHMySQLUser"]
-- !private ["s7CVarArgP", "RMNetwork"]
-- !private ["s7CVarArgP", "RMUserDevice"]
 - !private ["s7CVarArgP", "async"]
 - !private ["s7CVarArgP", "connect"]
-- !private ["s7CVarArgP", "context"]
-- !private ["s7CVarArgP", "coordinator"]
 - !private ["s7CVarArgP", "disconnect"]
 - !private ["s7CVarArgP", "executeQueryRequestAndFetchResult"]
 - !private ["s7CVarArgP", "global"]
-- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "insert"]
-- !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "select"]
-- !private ["s7CVarArgP", "sharedSQLHandler"]
 - !private ["s7CVarArgP", "storeCoordinator"]
 - !private ["s7CVarArgP", "subscript"]
-- !private ["s7CVarArgP", "user"]
-- ["s7CVarArgP", ""]
 - !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
-- !private ["s28CustomDebugStringConvertibleP", "OHMySQLQueryContext"]
-- !private ["s28CustomDebugStringConvertibleP", "OHMySQLQueryRequestFactory"]
-- !private ["s28CustomDebugStringConvertibleP", "OHMySQLStoreCoordinator"]
-- !private ["s28CustomDebugStringConvertibleP", "OHMySQLUser"]
-- !private ["s28CustomDebugStringConvertibleP", "RMNetwork"]
-- !private ["s28CustomDebugStringConvertibleP", "RMUserDevice"]
 - !private ["s28CustomDebugStringConvertibleP", "async"]
 - !private ["s28CustomDebugStringConvertibleP", "connect"]
-- !private ["s28CustomDebugStringConvertibleP", "context"]
-- !private ["s28CustomDebugStringConvertibleP", "coordinator"]
 - !private ["s28CustomDebugStringConvertibleP", "disconnect"]
 - !private ["s28CustomDebugStringConvertibleP", "executeQueryRequestAndFetchResult"]
 - !private ["s28CustomDebugStringConvertibleP", "global"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "insert"]
-- !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "select"]
-- !private ["s28CustomDebugStringConvertibleP", "sharedSQLHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "storeCoordinator"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
-- !private ["s28CustomDebugStringConvertibleP", "user"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "subscript"]
-- !private ["s23CustomStringConvertibleP", "DispatchQueue"]
-- !private ["s23CustomStringConvertibleP", "OHMySQLQueryContext"]
-- !private ["s23CustomStringConvertibleP", "OHMySQLQueryRequestFactory"]
-- !private ["s23CustomStringConvertibleP", "OHMySQLStoreCoordinator"]
-- !private ["s23CustomStringConvertibleP", "OHMySQLUser"]
-- !private ["s23CustomStringConvertibleP", "RMNetwork"]
-- !private ["s23CustomStringConvertibleP", "RMUserDevice"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "async"]
 - !private ["s23CustomStringConvertibleP", "connect"]
-- !private ["s23CustomStringConvertibleP", "context"]
-- !private ["s23CustomStringConvertibleP", "coordinator"]
 - !private ["s23CustomStringConvertibleP", "disconnect"]
 - !private ["s23CustomStringConvertibleP", "executeQueryRequestAndFetchResult"]
 - !private ["s23CustomStringConvertibleP", "global"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "insert"]
-- !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "select"]
-- !private ["s23CustomStringConvertibleP", "sharedSQLHandler"]
 - !private ["s23CustomStringConvertibleP", "storeCoordinator"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
-- !private ["s23CustomStringConvertibleP", "user"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "subscript"]
@@ -126,60 +79,34 @@ depends-member:
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "subscript"]
-- !private ["s9EquatableP", "DispatchQueue"]
-- !private ["s9EquatableP", "OHMySQLQueryContext"]
-- !private ["s9EquatableP", "OHMySQLQueryRequestFactory"]
-- !private ["s9EquatableP", "OHMySQLStoreCoordinator"]
-- !private ["s9EquatableP", "OHMySQLUser"]
-- !private ["s9EquatableP", "RMNetwork"]
-- !private ["s9EquatableP", "RMUserDevice"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "async"]
 - !private ["s9EquatableP", "background"]
 - !private ["s9EquatableP", "connect"]
-- !private ["s9EquatableP", "context"]
-- !private ["s9EquatableP", "coordinator"]
 - !private ["s9EquatableP", "disconnect"]
 - !private ["s9EquatableP", "executeQueryRequestAndFetchResult"]
 - !private ["s9EquatableP", "global"]
-- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "insert"]
-- !private ["s9EquatableP", "print"]
 - !private ["s9EquatableP", "select"]
-- !private ["s9EquatableP", "sharedSQLHandler"]
 - !private ["s9EquatableP", "storeCoordinator"]
-- !private ["s9EquatableP", "user"]
-- ["s9EquatableP", ""]
 - !private ["s5ErrorP", "localizedDescription"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["s8HashableP", "DispatchQueue"]
-- !private ["s8HashableP", "OHMySQLQueryContext"]
-- !private ["s8HashableP", "OHMySQLQueryRequestFactory"]
-- !private ["s8HashableP", "OHMySQLStoreCoordinator"]
-- !private ["s8HashableP", "OHMySQLUser"]
-- !private ["s8HashableP", "RMNetwork"]
-- !private ["s8HashableP", "RMUserDevice"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "async"]
 - !private ["s8HashableP", "background"]
 - !private ["s8HashableP", "connect"]
-- !private ["s8HashableP", "context"]
-- !private ["s8HashableP", "coordinator"]
 - !private ["s8HashableP", "disconnect"]
 - !private ["s8HashableP", "executeQueryRequestAndFetchResult"]
 - !private ["s8HashableP", "global"]
-- ["s8HashableP", "init"]
+- !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "insert"]
-- !private ["s8HashableP", "print"]
 - !private ["s8HashableP", "select"]
-- !private ["s8HashableP", "sharedSQLHandler"]
 - !private ["s8HashableP", "storeCoordinator"]
-- !private ["s8HashableP", "user"]
-- ["s8HashableP", ""]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "init"]
@@ -188,58 +115,24 @@ depends-member:
 - !private ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So16NSMutableCopyingP", "init"]
-- ["So8NSObjectC", "Bool"]
-- ["So8NSObjectC", "Dictionary"]
-- !private ["So8NSObjectC", "DispatchQueue"]
-- ["So8NSObjectC", "OHMySQLQueryContext"]
-- !private ["So8NSObjectC", "OHMySQLQueryRequestFactory"]
-- ["So8NSObjectC", "OHMySQLStoreCoordinator"]
-- ["So8NSObjectC", "OHMySQLUser"]
-- !private ["So8NSObjectC", "RMNetwork"]
-- !private ["So8NSObjectC", "RMUserDevice"]
-- ["So8NSObjectC", "SQLHandler"]
-- ["So8NSObjectC", "String"]
-- !private ["So8NSObjectC", "UInt"]
 - !private ["So8NSObjectC", "async"]
 - !private ["So8NSObjectC", "connect"]
-- ["So8NSObjectC", "context"]
-- ["So8NSObjectC", "coordinator"]
 - !private ["So8NSObjectC", "disconnect"]
 - !private ["So8NSObjectC", "executeQueryRequestAndFetchResult"]
 - !private ["So8NSObjectC", "global"]
-- ["So8NSObjectC", "informAction"]
-- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "insert"]
-- ["So8NSObjectC", "isConnected"]
-- !private ["So8NSObjectC", "print"]
-- ["So8NSObjectC", "select"]
-- ["So8NSObjectC", "shared"]
-- !private ["So8NSObjectC", "sharedSQLHandler"]
+- !private ["So8NSObjectC", "select"]
 - !private ["So8NSObjectC", "storeCoordinator"]
-- ["So8NSObjectC", "user"]
-- ["So8NSObjectC", ""]
-- !private ["So16NSObjectProtocolP", "DispatchQueue"]
-- !private ["So16NSObjectProtocolP", "OHMySQLQueryContext"]
-- !private ["So16NSObjectProtocolP", "OHMySQLQueryRequestFactory"]
-- !private ["So16NSObjectProtocolP", "OHMySQLStoreCoordinator"]
-- !private ["So16NSObjectProtocolP", "OHMySQLUser"]
-- !private ["So16NSObjectProtocolP", "RMNetwork"]
-- !private ["So16NSObjectProtocolP", "RMUserDevice"]
 - !private ["So16NSObjectProtocolP", "async"]
 - !private ["So16NSObjectProtocolP", "connect"]
-- !private ["So16NSObjectProtocolP", "context"]
-- !private ["So16NSObjectProtocolP", "coordinator"]
 - !private ["So16NSObjectProtocolP", "disconnect"]
 - !private ["So16NSObjectProtocolP", "executeQueryRequestAndFetchResult"]
 - !private ["So16NSObjectProtocolP", "global"]
-- ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "insert"]
-- !private ["So16NSObjectProtocolP", "print"]
 - !private ["So16NSObjectProtocolP", "select"]
-- !private ["So16NSObjectProtocolP", "sharedSQLHandler"]
 - !private ["So16NSObjectProtocolP", "storeCoordinator"]
-- !private ["So16NSObjectProtocolP", "user"]
-- ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "init"]
 - !private ["So8NSStringC", "init"]
 - !private ["So19OHMySQLQueryContextC", "executeQueryRequestAndFetchResult"]
@@ -287,7 +180,6 @@ depends-member:
 - ["6RushMe10SQLHandlerC", "user"]
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "subscript"]
-- !private ["s12StaticStringV", "init"]
 - !private ["SS", "init"]
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
@@ -304,28 +196,15 @@ depends-member:
 - !private ["s10_IndexableP", "subscript"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "subscript"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLQueryContext"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLQueryRequestFactory"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLStoreCoordinator"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "OHMySQLUser"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMNetwork"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMUserDevice"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "connect"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "context"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "coordinator"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "disconnect"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "executeQueryRequestAndFetchResult"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "global"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "insert"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "select"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "sharedSQLHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "storeCoordinator"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "user"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
@@ -334,26 +213,26 @@ depends-member:
 depends-nominal:
 - !private "s23BidirectionalCollectionP"
 - !private "Sb"
-- "s7CVarArgP"
+- !private "s7CVarArgP"
 - !private "s10CollectionP"
 - !private "s10ComparableP"
-- "s28CustomDebugStringConvertibleP"
+- !private "s28CustomDebugStringConvertibleP"
 - !private "s29CustomPlaygroundQuickLookableP"
 - !private "s17CustomReflectableP"
-- "s23CustomStringConvertibleP"
+- !private "s23CustomStringConvertibleP"
 - !private "s9DecodableP"
 - !private "s10DictionaryV"
 - !private "So14DispatchObjectC"
 - !private "So13DispatchQueueC"
 - !private "s9EncodableP"
-- "s9EquatableP"
+- !private "s9EquatableP"
 - !private "s5ErrorP"
 - !private "s27ExpressibleByBooleanLiteralP"
 - !private "s30ExpressibleByDictionaryLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
-- "s8HashableP"
+- !private "s8HashableP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "So8NSCodingP"
@@ -361,8 +240,8 @@ depends-nominal:
 - !private "So21NSItemProviderReadingP"
 - !private "So21NSItemProviderWritingP"
 - !private "So16NSMutableCopyingP"
-- "So8NSObjectC"
-- "So16NSObjectProtocolP"
+- !private "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
 - !private "So8NSStringC"
 - !private "So19OHMySQLQueryContextC"
@@ -377,7 +256,6 @@ depends-nominal:
 - !private "s26RangeReplaceableCollectionP"
 - "6RushMe10SQLHandlerC"
 - !private "s8SequenceP"
-- !private "s12StaticStringV"
 - !private "SS"
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
@@ -392,7 +270,7 @@ depends-nominal:
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - !private "s10_IndexableP"
 - !private "s14_IndexableBaseP"
-- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
 - !private "s26_RangeReplaceableIndexableP"
 - !private "s16_SwiftStringViewP"
@@ -451,4 +329,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "6433d333e1ec4a3ec7ec780490d880f8"
+interface-hash: "bdef3c5748f89bbc779d7f8692058ec6"

@@ -228,13 +228,11 @@ SWIFT_CLASS("_TtC6RushMe11AppDelegate")
 
 SWIFT_CLASS("_TtC6RushMe31AttractiveFratCellTableViewCell")
 @interface AttractiveFratCellTableViewCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified previewImageView;
-@property (nonatomic, weak) CAGradientLayer * _Nullable gradientLayer SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.gradientLayer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) CAGradientLayer * _Nullable gradientLayer SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.gradientLayer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)awakeFromNib;
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @property (nonatomic, strong) UIColor * _Nonnull imageBorderColor SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.imageBorderColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)layoutSubviews;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -404,18 +402,6 @@ SWIFT_CLASS("_TtC6RushMe24EventTableViewController")
 @end
 
 
-SWIFT_CLASS("_TtC6RushMe8FratCell")
-@interface FratCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
-@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified previewImageView;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified subheadingLabel;
-@property (nonatomic, strong) UIColor * _Nonnull imageBorderColor SWIFT_DEPRECATED_OBJC("Swift property 'FratCell.imageBorderColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)layoutSubviews;
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS("_TtC6RushMe9FratEvent")
 @interface FratEvent : NSObject
 @property (nonatomic, readonly, copy) NSCalendar * _Nonnull calendar SWIFT_DEPRECATED_OBJC("Swift property 'FratEvent.calendar' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -546,30 +532,6 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC6RushMe19RushCalendarManager")
-@interface RushCalendarManager : NSObject
-+ (NSURL * _Nullable)exportAsICSWithEvents:(NSSet<FratEvent *> * _Nonnull)events SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'RushCalendarManager.exportAsICS(events:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class OHMySQLUser;
-@class OHMySQLStoreCoordinator;
-@class OHMySQLQueryContext;
-
-SWIFT_CLASS("_TtC6RushMe10SQLHandler")
-@interface SQLHandler : NSObject
-@property (nonatomic, readonly, strong) OHMySQLUser * _Nullable user SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.user' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, strong) OHMySQLStoreCoordinator * _Nullable coordinator SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.coordinator' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, strong) OHMySQLQueryContext * _Nullable context SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.context' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) BOOL isConnected SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.isConnected' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SQLHandler * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (SQLHandler * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'SQLHandler.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (NSArray<NSDictionary<NSString *, id> *> * _Nullable)selectFromTable:(NSString * _Nonnull)fromTable conditions:(NSString * _Nullable)conditions SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.select(fromTable:conditions:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)informActionWithAction:(NSString * _Nonnull)action options:(NSString * _Nullable)options additionalInfo:(NSDictionary<NSString *, id> * _Nullable)additionalInfo SWIFT_DEPRECATED_OBJC("Swift method 'SQLHandler.informAction(action:options:additionalInfo:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 

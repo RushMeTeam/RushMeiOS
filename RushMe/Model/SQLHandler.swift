@@ -17,7 +17,7 @@ fileprivate let sharedSQLHandler = SQLHandler.init(userName: RMNetwork.userName,
                                        socket: nil)
 
 // Centralize requests made to an SQL server
-class SQLHandler: NSObject {
+class SQLHandler  {
   let user : OHMySQLUser?
   let coordinator : OHMySQLStoreCoordinator?
   let context : OHMySQLQueryContext?
@@ -40,11 +40,9 @@ class SQLHandler: NSObject {
                        socket: socket)
     coordinator = OHMySQLStoreCoordinator(user: user!)
     //coordinator!.encoding = .UTF8MB4
-    coordinator!.connect()
     context = OHMySQLQueryContext()
-    
+    coordinator!.connect()
     context!.storeCoordinator = coordinator!
-    super.init()
     
   }
   static var shared : SQLHandler {

@@ -295,6 +295,7 @@ depends-member:
 - ["6RushMe7RMImageV", "FavoritesImageFilled"]
 - ["6RushMe7RMImageV", "FavoritesImageUnfilled"]
 - ["6RushMe7RMImageV", "IconImage"]
+- ["6RushMe7RMImageV", "LogoImage"]
 - ["6RushMe7RMImageV", "NoImage"]
 - ["6RushMe7RMImageV", "UIImage"]
 - ["6RushMe7RMImageV", "init"]
@@ -317,7 +318,7 @@ depends-member:
 - ["6RushMe9RMNetworkV", "databaseName"]
 - ["6RushMe9RMNetworkV", "init"]
 - ["6RushMe9RMNetworkV", "password"]
-- ["6RushMe9RMNetworkV", "userInfoTableName"]
+- ["6RushMe9RMNetworkV", "userActionsTableName"]
 - ["6RushMe9RMNetworkV", "userName"]
 - ["6RushMe14RMPropertyKeysV", "ConsiderEventsBeforeTodayKey"]
 - ["6RushMe14RMPropertyKeysV", "FavoriteFraternities"]
@@ -587,4 +588,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "feca48bc3690e1752df6522e21fec3a7"
+interface-hash: "d34e7a4fedaae099dcf742423b5b931a"

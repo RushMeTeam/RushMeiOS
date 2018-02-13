@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EventKit
 
 fileprivate let reuseIdentifier = "CalendarCell"
 fileprivate let labelReuseIdentifier = "DayCell"

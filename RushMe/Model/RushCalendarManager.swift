@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import EventKit
 import iCalKit
 /*
  A shared group of calendars containing events -- shared
@@ -16,7 +15,7 @@ import iCalKit
  information from or modification of the variable.
  */
 
-fileprivate let eventStore = EKEventStore()
+//fileprivate let eventStore = EKEventStore()
 /*
  A static class used to export events into two locations:
           - iCal, the default calendar application on any device
@@ -27,7 +26,7 @@ fileprivate let eventStore = EKEventStore()
  exportToCalendar actually mutates the users' calendar (with
  permission) as to actually do the work.
  */
-class RushCalendarManager: NSObject {
+class RushCalendarManager {
 
   /*
   Export FratEvents to the device's default calendar application.

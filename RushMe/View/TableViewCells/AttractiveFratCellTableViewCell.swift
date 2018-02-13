@@ -10,11 +10,11 @@ import UIKit
 
 class AttractiveFratCellTableViewCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
-  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet var titleLabel: UILabel!
   // Chapter designation (e.g. Theta)
 //  @IBOutlet var subheadingLabel: UILabel!
   @IBOutlet weak var previewImageView: UIImageView!
-  weak var gradientLayer : CAGradientLayer? = nil
+  var gradientLayer : CAGradientLayer? = nil
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -41,21 +41,10 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     }
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    // Do nothing
-    //super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
-  }
   
   var imageBorderColor = UIColor.clear {
     didSet {
-      UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-        self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
-      })
+      self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
     }
-  }
-  override func layoutSubviews() {
-
   }
 }

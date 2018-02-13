@@ -159,7 +159,6 @@ depends-member:
 - !private ["s7CVarArgP", "eventViewController"]
 - !private ["s7CVarArgP", "eventsLabel"]
 - !private ["s7CVarArgP", "eventsToday"]
-- !private ["s7CVarArgP", "exportAsICS"]
 - !private ["s7CVarArgP", "favoritedEvents"]
 - !private ["s7CVarArgP", "fileURL"]
 - !private ["s7CVarArgP", "filter"]
@@ -378,7 +377,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "eventViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "eventsLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "eventsToday"]
-- !private ["s28CustomDebugStringConvertibleP", "exportAsICS"]
 - !private ["s28CustomDebugStringConvertibleP", "favoritedEvents"]
 - !private ["s28CustomDebugStringConvertibleP", "fileURL"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
@@ -525,7 +523,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "eventViewController"]
 - !private ["s23CustomStringConvertibleP", "eventsLabel"]
 - !private ["s23CustomStringConvertibleP", "eventsToday"]
-- !private ["s23CustomStringConvertibleP", "exportAsICS"]
 - !private ["s23CustomStringConvertibleP", "favoritedEvents"]
 - !private ["s23CustomStringConvertibleP", "fileURL"]
 - !private ["s23CustomStringConvertibleP", "filter"]
@@ -687,7 +684,6 @@ depends-member:
 - !private ["s9EquatableP", "eventViewController"]
 - !private ["s9EquatableP", "eventsLabel"]
 - !private ["s9EquatableP", "eventsToday"]
-- !private ["s9EquatableP", "exportAsICS"]
 - !private ["s9EquatableP", "favoritedEvents"]
 - !private ["s9EquatableP", "fileURL"]
 - !private ["s9EquatableP", "filter"]
@@ -833,7 +829,6 @@ depends-member:
 - !private ["s8HashableP", "eventViewController"]
 - !private ["s8HashableP", "eventsLabel"]
 - !private ["s8HashableP", "eventsToday"]
-- !private ["s8HashableP", "exportAsICS"]
 - !private ["s8HashableP", "favoritedEvents"]
 - !private ["s8HashableP", "fileURL"]
 - !private ["s8HashableP", "filter"]
@@ -1162,7 +1157,6 @@ depends-member:
 - ["So8NSObjectC", "eventViewController"]
 - !private ["So8NSObjectC", "eventsLabel"]
 - !private ["So8NSObjectC", "eventsToday"]
-- !private ["So8NSObjectC", "exportAsICS"]
 - ["So8NSObjectC", "exportEvents"]
 - !private ["So8NSObjectC", "favoritedEvents"]
 - ["So8NSObjectC", "fileURL"]
@@ -1271,7 +1265,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "eventViewController"]
 - !private ["So16NSObjectProtocolP", "eventsLabel"]
 - !private ["So16NSObjectProtocolP", "eventsToday"]
-- !private ["So16NSObjectProtocolP", "exportAsICS"]
 - !private ["So16NSObjectProtocolP", "favoritedEvents"]
 - !private ["So16NSObjectProtocolP", "fileURL"]
 - !private ["So16NSObjectProtocolP", "firstEvent"]
@@ -2699,7 +2692,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "eventViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "eventsLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "eventsToday"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "exportAsICS"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedEvents"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fileURL"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstEvent"]
@@ -3004,4 +2996,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "2b412f48d3a8ef1bec781eddb7188ced"
+interface-hash: "889d19d84649161f6bed32a3630876f9"

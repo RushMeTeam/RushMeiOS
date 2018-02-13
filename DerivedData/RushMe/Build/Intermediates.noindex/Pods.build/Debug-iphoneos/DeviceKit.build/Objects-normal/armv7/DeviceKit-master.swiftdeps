@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "a18e35e0c245b802f17efb5e0d7c9911"
-build_time: [1517496634, 926105000]
-inputs:
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/DeviceKit/Source/Device.generated.swift": [1517335136, 0]

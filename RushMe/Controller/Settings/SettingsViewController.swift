@@ -84,8 +84,8 @@ class SettingsViewController: UIViewController {
       fileSize += ((try? FileManager.default.attributesOfItem(atPath: RMFileManagement.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) ?? nil) ?? 0
       fileNumber += 1
     })
-    let deleteAlert = UIAlertController.init(title: String(format: "This will free %.1f mb", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
-    deleteAlert.addAction(UIAlertAction.init(title: "Delete \(fileNumber) images", style: .destructive, handler: { (action) in
+    let deleteAlert = UIAlertController.init(title: String(format: "Free %.1f mb", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
+    deleteAlert.addAction(UIAlertAction.init(title: "Delete \(fileNumber) image\((fileNumber > 1 ? "s" : ""))", style: .destructive, handler: { (action) in
       self.clearCache()
     }))
     self.present(deleteAlert, animated: true) {
@@ -97,7 +97,7 @@ class SettingsViewController: UIViewController {
     if FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
       do {
         try FileManager.default.removeItem(at: RMFileManagement.fratImageURL)
-        print("Cache cleared!")
+//        print("Cache cleared!")
       }
       catch let e {
         print(e.localizedDescription)

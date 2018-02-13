@@ -6,7 +6,7 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 import UIKit
 import DeviceKit
 
@@ -14,9 +14,9 @@ let DEBUG = false
 
 // Images used often by the app
 struct RMImage {
-  static let NoImage = UIImage(named: "defaultImage.png")!
-  static let IconImage = UIImage(named: "appIcon.jpg")!
-  static let LogoImage = UIImage(named: "appIcon.jpg")!
+  static let NoImage = UIImage(named: "defaultImage")!
+  static let IconImage = UIImage(named: "appIcon")!
+  static let LogoImage = UIImage(named: "RushMeLogoInverted")!
   static let FavoritesImageUnfilled = UIImage(named: "FavoritesUnfilled")
   static let FavoritesImageFilled = UIImage(named: "FavoritesIcon")
   static let CornerRadius : CGFloat = 8

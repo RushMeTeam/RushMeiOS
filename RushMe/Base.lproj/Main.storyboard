@@ -10,7 +10,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -400,7 +399,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="886"/>
                                 <subviews>
                                     <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-ZE-WZP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="773"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="777"/>
                                         <subviews>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="uNG-oH-356">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
@@ -452,7 +451,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybridFlyover" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSM-tO-GHT">
-                                                <rect key="frame" x="8" y="637" width="359" height="128"/>
+                                                <rect key="frame" x="8" y="641" width="359" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="FsS-3Z-dnh"/>
                                                 </constraints>
@@ -461,7 +460,7 @@
                                                 </connections>
                                             </mapView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S01-IN-MdK">
-                                                <rect key="frame" x="0.0" y="565" width="375" height="64"/>
+                                                <rect key="frame" x="0.0" y="569" width="375" height="64"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="k34-Ap-VMu"/>
@@ -489,7 +488,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoO-9X-JtN">
-                                                <rect key="frame" x="14" y="734" width="78" height="27"/>
+                                                <rect key="frame" x="14" y="738" width="78" height="27"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                 <state key="normal" title="Open in Maps">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -526,7 +525,7 @@
                                             <constraint firstItem="xWe-bl-VJ1" firstAttribute="leading" secondItem="PNY-Nv-RGm" secondAttribute="trailing" constant="8" id="Lcm-iV-sfF"/>
                                             <constraint firstItem="ULu-tb-6ML" firstAttribute="leading" secondItem="hV5-ZE-WZP" secondAttribute="leading" id="MIa-b4-YRw"/>
                                             <constraint firstItem="qjd-kf-2he" firstAttribute="trailing" secondItem="hV5-ZE-WZP" secondAttribute="trailing" constant="-16" id="MV5-Eg-5yy"/>
-                                            <constraint firstItem="S01-IN-MdK" firstAttribute="top" secondItem="PNY-Nv-RGm" secondAttribute="bottom" constant="8" id="QNc-kH-J3Z"/>
+                                            <constraint firstItem="S01-IN-MdK" firstAttribute="top" secondItem="PNY-Nv-RGm" secondAttribute="bottom" constant="12" id="QNc-kH-J3Z"/>
                                             <constraint firstItem="PNY-Nv-RGm" firstAttribute="top" secondItem="8vX-2H-ghf" secondAttribute="bottom" constant="8" id="TuT-Lv-s3s"/>
                                             <constraint firstItem="oSM-tO-GHT" firstAttribute="top" secondItem="S01-IN-MdK" secondAttribute="bottom" constant="8" id="Ucy-H0-q7c"/>
                                             <constraint firstItem="xWe-bl-VJ1" firstAttribute="width" secondItem="qjd-kf-2he" secondAttribute="width" id="Wn5-jX-Y3w"/>
@@ -539,7 +538,7 @@
                                             <constraint firstItem="egE-Bz-f5U" firstAttribute="top" secondItem="5ea-JF-DmV" secondAttribute="bottom" constant="4" id="dyO-tr-e05"/>
                                             <constraint firstItem="S01-IN-MdK" firstAttribute="leading" secondItem="hV5-ZE-WZP" secondAttribute="leading" id="eFQ-JY-Vb0"/>
                                             <constraint firstItem="8vX-2H-ghf" firstAttribute="centerX" secondItem="hV5-ZE-WZP" secondAttribute="centerX" id="eur-gj-UeM"/>
-                                            <constraint firstItem="S01-IN-MdK" firstAttribute="top" secondItem="ULu-tb-6ML" secondAttribute="bottom" id="fFD-VT-qZy"/>
+                                            <constraint firstItem="S01-IN-MdK" firstAttribute="top" secondItem="ULu-tb-6ML" secondAttribute="bottom" constant="4" id="fFD-VT-qZy"/>
                                             <constraint firstItem="oSM-tO-GHT" firstAttribute="bottom" secondItem="hV5-ZE-WZP" secondAttribute="bottom" constant="-8" id="iC1-kZ-u0u"/>
                                             <constraint firstItem="PNY-Nv-RGm" firstAttribute="leading" secondItem="hV5-ZE-WZP" secondAttribute="leading" constant="8" id="jNq-n0-fpC"/>
                                             <constraint firstAttribute="trailing" secondItem="tFO-6y-tgh" secondAttribute="trailing" id="jfV-g9-o1Y"/>
@@ -1345,57 +1344,8 @@
                                     <outlet property="segmentControl" destination="RuO-PJ-QTb" id="gYY-z2-UgT"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FratCell" rowHeight="96" id="WCw-Qf-5nD" customClass="FratCell" customModule="RushMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="375" height="96"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pm7-YY-uh3">
-                                            <rect key="frame" x="20" y="16" width="64" height="64"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="pm7-YY-uh3" secondAttribute="height" multiplier="1:1" id="NYM-Mi-scX"/>
-                                                <constraint firstAttribute="height" constant="64" id="wqI-3v-nb3"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The XYZ Fraternity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTQ-SR-Oc4">
-                                            <rect key="frame" x="92" y="16" width="267" height="24"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theta Chapter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odu-qg-6x8">
-                                            <rect key="frame" x="92" y="48" width="267" height="18"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="pm7-YY-uh3" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" constant="4" id="28e-lC-nCl"/>
-                                        <constraint firstItem="iTQ-SR-Oc4" firstAttribute="trailing" secondItem="37f-cq-3Eg" secondAttribute="trailingMargin" id="3Im-Rk-48p"/>
-                                        <constraint firstItem="iTQ-SR-Oc4" firstAttribute="top" secondItem="pm7-YY-uh3" secondAttribute="top" id="OmJ-sC-4aA"/>
-                                        <constraint firstItem="odu-qg-6x8" firstAttribute="top" secondItem="iTQ-SR-Oc4" secondAttribute="bottom" constant="8" id="fHe-5A-yyQ"/>
-                                        <constraint firstItem="odu-qg-6x8" firstAttribute="leading" secondItem="pm7-YY-uh3" secondAttribute="trailing" constant="8" id="gu0-8q-RTh"/>
-                                        <constraint firstItem="pm7-YY-uh3" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="pvu-Nj-ld7"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="odu-qg-6x8" secondAttribute="trailing" id="wkx-f8-4vg"/>
-                                        <constraint firstItem="iTQ-SR-Oc4" firstAttribute="leading" secondItem="pm7-YY-uh3" secondAttribute="trailing" constant="8" id="xB2-h1-UkO"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="previewImageView" destination="pm7-YY-uh3" id="LZ0-Dq-Pw6"/>
-                                    <outlet property="subheadingLabel" destination="odu-qg-6x8" id="bO1-BV-VUo"/>
-                                    <outlet property="titleLabel" destination="iTQ-SR-Oc4" id="iif-MK-4la"/>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA">
-                                        <segue key="commit" inheritsFrom="parent" id="xej-Vk-MkV"/>
-                                        <segue key="preview" inheritsFrom="commit" id="FZE-GN-qGH"/>
-                                    </segue>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="prettyFratCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="prettyFratCell" id="UWP-Hj-5Oy" customClass="AttractiveFratCellTableViewCell" customModule="RushMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="154" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWP-Hj-5Oy" id="iMq-dk-2Sa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -1471,12 +1421,12 @@
         <image name="FavoritesUnfilled" width="24" height="24"/>
         <image name="FraternitiesIcon" width="24" height="24"/>
         <image name="MapsIcon" width="48" height="48"/>
-        <image name="RushMeLogo" width="1597" height="1824"/>
+        <image name="RushMeLogo" width="768" height="877"/>
         <image name="SettingsIcon" width="24" height="24"/>
         <image name="defaultImage" width="2509" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FZE-GN-qGH"/>
+        <segue reference="sfy-B1-Nu5"/>
         <segue reference="tmK-b0-YZV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -20,6 +20,7 @@ depends-top-level:
 - !private "+="
 - !private "/"
 - !private "=="
+- !private ">"
 - !private "??"
 - "AssignmentPrecedence"
 - "Bool"
@@ -36,6 +37,7 @@ depends-top-level:
 - !private "RMFileManagement"
 - "SettingsViewController"
 - !private "String"
+- "TernaryPrecedence"
 - !private "UIAlertAction"
 - !private "UIAlertController"
 - "UIBarButtonItem"
@@ -44,6 +46,7 @@ depends-top-level:
 - "UISegmentedControl"
 - "UISwitch"
 - "UIViewController"
+- !private "UnicodeScalarType"
 - !private "print"
 depends-member:
 - !private ["Sa", "forEach"]

@@ -34,7 +34,6 @@ class MasterViewController : UITableViewController,
     didSet {
       self.tableView.setEditing(false, animated: true)
       self.reloadTableView()
-      
       refreshControl?.isEnabled = !viewingFavorites
       self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
     }
@@ -57,9 +56,7 @@ class MasterViewController : UITableViewController,
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = ""
   
-    
     // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
@@ -80,9 +77,6 @@ class MasterViewController : UITableViewController,
     openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
     // Refresh control 
     refreshControl = UIRefreshControl()
-    refreshControl!.tintAdjustmentMode = .normal
-    refreshControl!.tintColor = RMColor.AppColor.withAlphaComponent(0.8)
-    refreshControl!.alpha = 0.8
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl!.beginRefreshing()
     // Add a progress view to indicate loading status
@@ -91,7 +85,7 @@ class MasterViewController : UITableViewController,
     let imageView = UIImageView.init(image: RMImage.LogoImage)
     imageView.contentMode = .scaleAspectFit
     imageView.tintColor = RMColor.AppColor
-    imageView.frame.size = CGSize.init(width: 44, height: 44)
+    imageView.frame.size = CGSize.init(width: 44, height: 32)
     wrapperView.addSubview(imageView)
     imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
@@ -318,9 +312,6 @@ class MasterViewController : UITableViewController,
       cell.previewImageView?.image = frat.previewImage
       if Campus.shared.favoritedFrats.contains(frat.name) {
         cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
-      }
-      else {
-        cell.imageBorderColor = UIColor.clear
       }
     }
     cell.layoutSubviews()
