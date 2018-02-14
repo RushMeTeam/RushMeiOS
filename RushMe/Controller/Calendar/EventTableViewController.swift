@@ -18,7 +18,7 @@ class EventTableViewController: UITableViewController {
   // MARK: Member Variables
   var selectedEvents : [FratEvent]? = nil {
     didSet {
-      self.tableView.isScrollEnabled = selectedEvents != nil
+      self.tableView.isScrollEnabled = (selectedEvents?.count ?? 0) != 0
       self.tableView.reloadData()
     }
   }

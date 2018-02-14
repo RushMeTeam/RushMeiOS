@@ -259,12 +259,19 @@ SWIFT_CLASS("_TtC6RushMe31CalendarLabelCollectionViewCell")
 @end
 
 @class UICollectionView;
+@class UIView;
 @class EventTableViewController;
+@class UITapGestureRecognizer;
+@class UIPanGestureRecognizer;
 @class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 @interface CalendarViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified containerView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified seperatorView;
+@property (nonatomic) BOOL inEventView SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.inEventView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) CGFloat panCutoff SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.panCutoff' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) NSInteger eventCountThreshold SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventCountThreshold' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) FratEvent * _Nullable firstEvent SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.firstEvent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -278,6 +285,11 @@ SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 - (void)didReceiveMemoryWarning;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (IBAction)seperatorTap:(UITapGestureRecognizer * _Nonnull)sender;
+- (IBAction)eventCalendarPan:(UIPanGestureRecognizer * _Nonnull)sender;
+- (void)animateWithFinalState:(void (^ _Nonnull)(void))finalState SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.animate(finalState:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) void (^ _Nonnull topState)(void) SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.topState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) void (^ _Nonnull bottomState)(void) SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.bottomState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (void)collectionView:(UICollectionView * _Nonnull)collectionView didHighlightItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -307,11 +319,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _No
 @end
 
 @class UIScrollView;
-@class UIView;
 @class MKMapView;
 @class UIButton;
 @class MKMapItem;
-@class UITapGestureRecognizer;
 @class UIPinchGestureRecognizer;
 
 SWIFT_CLASS("_TtC6RushMe20DetailViewController")
@@ -560,6 +570,11 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 - (IBAction)clearCache:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface UIGestureRecognizer (SWIFT_EXTENSION(RushMe))
+- (void)cancel SWIFT_DEPRECATED_OBJC("Swift method 'UIGestureRecognizer.cancel()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 

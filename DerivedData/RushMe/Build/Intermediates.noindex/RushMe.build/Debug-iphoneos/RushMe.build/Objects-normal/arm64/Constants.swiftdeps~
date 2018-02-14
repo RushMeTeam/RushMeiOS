@@ -53,6 +53,7 @@ depends-top-level:
 - "CastingPrecedence"
 - "DEBUG"
 - "Date"
+- !private "Device"
 - "Dictionary"
 - "FileManager"
 - !private "Int"
@@ -129,6 +130,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "uuidString"]
 - ["s23CustomStringConvertibleP", "appendingPathComponent"]
 - !private ["s23CustomStringConvertibleP", "current"]
+- !private ["s23CustomStringConvertibleP", "description"]
 - ["s23CustomStringConvertibleP", "first"]
 - !private ["s23CustomStringConvertibleP", "hashValue"]
 - !private ["s23CustomStringConvertibleP", "identifierForVendor"]
@@ -151,6 +153,8 @@ depends-member:
 - ["s9DecodableP", "subscript"]
 - !private ["s9DecodableP", "timeIntervalSinceReferenceDate"]
 - !private ["s9DecodableP", "uuidString"]
+- !private ["9DeviceKit0A0O", "description"]
+- !private ["9DeviceKit0A0O", "init"]
 - ["s10DictionaryV", "subscript"]
 - ["s9EncodableP", "appendingPathComponent"]
 - ["s9EncodableP", "first"]
@@ -161,6 +165,7 @@ depends-member:
 - !private ["s9EncodableP", "uuidString"]
 - ["s9EquatableP", "appendingPathComponent"]
 - !private ["s9EquatableP", "current"]
+- !private ["s9EquatableP", "description"]
 - ["s9EquatableP", "documentDirectory"]
 - !private ["s9EquatableP", "hashValue"]
 - !private ["s9EquatableP", "identifierForVendor"]
@@ -323,6 +328,7 @@ depends-member:
 - ["6RushMe6RMUserV", "minUsernameLength"]
 - ["6RushMe12RMUserDeviceV", "Bundle"]
 - !private ["6RushMe12RMUserDeviceV", "Date"]
+- !private ["6RushMe12RMUserDeviceV", "Device"]
 - ["6RushMe12RMUserDeviceV", "Dictionary"]
 - !private ["6RushMe12RMUserDeviceV", "Int"]
 - ["6RushMe12RMUserDeviceV", "String"]
@@ -440,6 +446,7 @@ depends-nominal:
 - "s23CustomStringConvertibleP"
 - "10Foundation4DateV"
 - "s9DecodableP"
+- !private "9DeviceKit0A0O"
 - "s10DictionaryV"
 - "s9EncodableP"
 - "s9EquatableP"

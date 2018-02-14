@@ -56,7 +56,7 @@ class MasterViewController : UITableViewController,
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-  
+    self.title = "RushMe"
     // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
@@ -80,23 +80,33 @@ class MasterViewController : UITableViewController,
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl!.beginRefreshing()
     // Add a progress view to indicate loading status
-    navigationController!.view.addSubview(progressView)
+//    self.navigationController!.navigationBar.addSubview(progressView)
+    
     let wrapperView = UIView()
     let imageView = UIImageView.init(image: RMImage.LogoImage)
     imageView.contentMode = .scaleAspectFit
     imageView.tintColor = RMColor.AppColor
+    imageView.backgroundColor = UIColor.clear
+    wrapperView.backgroundColor = UIColor.clear
+    wrapperView.clipsToBounds = false
+    wrapperView.layer.masksToBounds = false
     imageView.frame.size = CGSize.init(width: 44, height: 32)
     wrapperView.addSubview(imageView)
+    imageView.addSubview(progressView)
     imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
     self.navigationItem.rightBarButtonItem = UIBarButtonItem.init()
-    progressView.frame = navigationController!.view.frame
+    progressView.frame.size.width = self.view.frame.width
     // The progress view should not be visible less it's loading
     progressView.trackTintColor = UIColor.clear
     progressView.tintColor = navigationController!.navigationBar.tintColor
     // Put the progress view at the bottom of the navigation bar
-    progressView.frame.origin.y = UIApplication.shared.statusBarFrame.height + 
-                                      navigationController!.navigationBar.frame.height - progressView.frame.height
+    progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController!.navigationBar.frame.height - progressView.frame.height// //+
+    progressView.frame.origin.x = -166
+//    print(progressView.frame.origin.x)
+//    print(imageView.frame.minX)
+//    print(wrapperView.frame.midX)
+//    print(self.view.frame.midX)
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
     self.handleRefresh(refreshControl: refreshControl!)
   }
@@ -112,6 +122,7 @@ class MasterViewController : UITableViewController,
     DispatchQueue.main.async {
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
+    
       self.progressView.alpha = 1
       self.favoritesSegmentControl?.isEnabled = false
       

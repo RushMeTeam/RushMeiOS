@@ -202,42 +202,53 @@
                                     <outlet property="delegate" destination="Zld-Hq-hiI" id="9uY-N0-5eD"/>
                                 </connections>
                             </collectionView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxM-GT-KGc">
-                                <rect key="frame" x="0.0" y="442.5" width="375" height="224.5"/>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxM-GT-KGc">
+                                <rect key="frame" x="0.0" y="461.5" width="375" height="205.5"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.8862745098" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="U0o-B8-cSe" kind="embed" id="cAx-Qh-dZu"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-GS-cEo">
-                                <rect key="frame" x="123.5" y="413" width="128" height="21"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l8W-C0-iVL" userLabel="SeperatorView">
+                                <rect key="frame" x="0.0" y="413.5" width="375" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b7-GS-cEo">
+                                        <rect key="frame" x="123.5" y="13.5" width="128" height="21"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="E95-8d-4xe"/>
+                                            <constraint firstAttribute="height" constant="21" id="Psd-vl-sCw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.8862745098" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="E95-8d-4xe"/>
-                                    <constraint firstAttribute="height" constant="21" id="Psd-vl-sCw"/>
+                                    <constraint firstItem="0b7-GS-cEo" firstAttribute="centerY" secondItem="l8W-C0-iVL" secondAttribute="centerY" id="ERF-Js-IzT"/>
+                                    <constraint firstAttribute="height" constant="48" id="bnb-wv-Qcd"/>
+                                    <constraint firstItem="0b7-GS-cEo" firstAttribute="centerX" secondItem="l8W-C0-iVL" secondAttribute="centerX" id="g9c-Og-KmH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kes-Gr-RoO">
-                                <rect key="frame" x="339" y="412" width="24" height="24"/>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="EventsIcon"/>
-                            </button>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="66L-f4-79j" appends="YES" id="vq6-ZZ-OUD"/>
+                                    <outletCollection property="gestureRecognizers" destination="8ld-AD-ZBb" appends="YES" id="bCQ-aS-geI"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kxM-GT-KGc" firstAttribute="top" secondItem="l8W-C0-iVL" secondAttribute="bottom" id="10l-dQ-KWJ"/>
+                            <constraint firstItem="Lha-ll-f15" firstAttribute="bottom" secondItem="l8W-C0-iVL" secondAttribute="top" id="1Q0-UC-o6R"/>
                             <constraint firstItem="kxM-GT-KGc" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="2Nw-yZ-3PZ"/>
-                            <constraint firstItem="0b7-GS-cEo" firstAttribute="top" secondItem="Lha-ll-f15" secondAttribute="bottom" id="2ex-sn-ptC"/>
+                            <constraint firstAttribute="trailing" secondItem="l8W-C0-iVL" secondAttribute="trailing" id="623-RO-0TB"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="top" secondItem="bsx-ba-2ZN" secondAttribute="bottom" id="6o9-9w-nBH"/>
-                            <constraint firstItem="kxM-GT-KGc" firstAttribute="top" secondItem="0b7-GS-cEo" secondAttribute="bottom" constant="8" id="BV8-Qn-CDM"/>
                             <constraint firstAttribute="trailing" secondItem="kxM-GT-KGc" secondAttribute="trailing" id="GhZ-0x-ei2"/>
-                            <constraint firstAttribute="trailing" secondItem="kes-Gr-RoO" secondAttribute="trailing" constant="12" id="GmL-RY-DVu"/>
-                            <constraint firstItem="0b7-GS-cEo" firstAttribute="centerX" secondItem="IL7-ES-rFp" secondAttribute="centerX" id="N0F-2h-l4Y"/>
+                            <constraint firstItem="l8W-C0-iVL" firstAttribute="width" secondItem="IL7-ES-rFp" secondAttribute="width" id="PyH-zN-JO7"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="RVM-MU-LAY"/>
                             <constraint firstAttribute="trailing" secondItem="Lha-ll-f15" secondAttribute="trailing" id="VEN-Mf-8W9"/>
-                            <constraint firstItem="kes-Gr-RoO" firstAttribute="centerY" secondItem="0b7-GS-cEo" secondAttribute="centerY" id="Vi7-rc-KFG"/>
+                            <constraint firstItem="l8W-C0-iVL" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="bGf-we-fDb"/>
                             <constraint firstItem="ldq-O9-vSK" firstAttribute="top" secondItem="kxM-GT-KGc" secondAttribute="bottom" id="n48-7V-Kfz"/>
-                            <constraint firstItem="kes-Gr-RoO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0b7-GS-cEo" secondAttribute="trailing" constant="8" id="rBR-nn-Wkn"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="height" secondItem="IL7-ES-rFp" secondAttribute="height" multiplier="0.5" constant="16" id="tiK-I3-8vq"/>
                         </constraints>
                     </view>
@@ -251,12 +262,25 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Lha-ll-f15" id="7zT-Zc-y75"/>
+                        <outlet property="containerView" destination="kxM-GT-KGc" id="qZM-6e-aNu"/>
                         <outlet property="dateLabel" destination="0b7-GS-cEo" id="Xkc-Zz-dPD"/>
                         <outlet property="drawerButton" destination="6TE-E1-YRs" id="oG5-rT-h3x"/>
+                        <outlet property="seperatorView" destination="l8W-C0-iVL" id="zFu-JE-WYC"/>
                         <outlet property="shareButton" destination="UGd-iU-rqp" id="CIM-bh-RjO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uir-Sw-Kei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="66L-f4-79j">
+                    <connections>
+                        <action selector="eventCalendarPan:" destination="Zld-Hq-hiI" id="UFg-Ar-mIu"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="8ld-AD-ZBb">
+                    <connections>
+                        <action selector="seperatorTap:" destination="Zld-Hq-hiI" id="mYe-Bx-bTh"/>
+                        <outlet property="delegate" destination="l8W-C0-iVL" id="krd-Hg-lEW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-3796" y="2202.5487256371816"/>
         </scene>
@@ -1427,7 +1451,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sfy-B1-Nu5"/>
-        <segue reference="tmK-b0-YZV"/>
+        <segue reference="cAx-Qh-dZu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

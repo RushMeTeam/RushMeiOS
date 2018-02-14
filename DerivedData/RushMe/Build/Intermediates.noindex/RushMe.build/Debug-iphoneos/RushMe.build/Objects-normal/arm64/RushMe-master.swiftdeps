@@ -1,13 +1,13 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "4111f715b829e5c8e8b590c78f2116e5"
-build_time: [1518490176, 501158000]
+build_time: [1518574916, 931498000]
 inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/EventTableViewCell.swift": [1514245464, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/CollectionViewCells/CalendarLabelCollectionViewCell.swift": [1516899138, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/EventTableViewController.swift": [1517273066, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/EventTableViewController.swift": [1518574168, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Maps/MapViewController.swift": [1516903549, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/DetailViewController.swift": [1518381069, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/CalendarViewController.swift": [1518483938, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/CalendarViewController.swift": [1518574914, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/DrawerMenuViewController.swift": [1518483966, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/MasterViewController.swift": [1518489691, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Events/FullEventsListTableViewController.swift": [1517498252, 0]
@@ -22,5 +22,5 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/RushCalendarManager.swift": [1518483938, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/About/AboutViewController.swift": [1514245464, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/ImageViewController.swift": [1514653425, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Settings/SettingsViewController.swift": [1518490174, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Settings/SettingsViewController.swift": [1518490296, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Campus.swift": [1518482043, 0]

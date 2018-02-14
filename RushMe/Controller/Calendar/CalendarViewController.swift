@@ -14,6 +14,23 @@ fileprivate let labelReuseIdentifier = "DayCell"
 class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   // MARK: Member Variables
   @IBOutlet weak var collectionView: UICollectionView!
+  
+  @IBOutlet weak var containerView: UIView!
+  
+  @IBOutlet weak var seperatorView: UIView!
+  var inEventView : Bool {
+    get {
+     return self.seperatorView.center.y <= self.collectionView.center.y
+    }
+    set {
+      self.animate(finalState: newValue ? self.topState : self.bottomState)
+    }
+  }
+  var panCutoff : CGFloat {
+    get {
+     return self.collectionView.center.y + 32
+    }
+  }
   var eventViewController : EventTableViewController? = nil
   let eventCountThreshold = 3
   var firstEvent : FratEvent? = nil
@@ -72,7 +89,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
-    
+    self.containerView.backgroundColor = UIColor.clear
+    self.seperatorView.layer.cornerRadius = RMImage.CornerRadius*2
+    if #available(iOS 11.0, *) {
+      self.seperatorView.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
+    } else {
+      // Fallback on earlier versions
+    }
     // Register cell classes
     //self.collectionView!.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     
@@ -127,6 +150,54 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 31+7
   }
+  @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
+    inEventView = !inEventView
+  }
+  @IBAction func eventCalendarPan(_ sender: UIPanGestureRecognizer) {
+    let yLoc = min(max(sender.location(in: self.view).y, self.seperatorView.frame.height/2), self.collectionView.frame.height+self.seperatorView.frame.height/2)
+    switch sender.state {
+    case .possible:
+      return
+    case .began:
+      return
+    case .changed:
+      seperatorView.center.y = yLoc
+      containerView.frame.origin.y = seperatorView.frame.maxY
+      containerView.frame.size.height = self.view.frame.maxY - seperatorView.frame.maxY
+    case .ended:
+      inEventView = yLoc <= panCutoff
+    case .cancelled:
+      return
+    case .failed:
+      return
+    }
+    
+  }
+  func animate(finalState : @escaping () -> ()) {
+    UIView.animate(withDuration: 0.4, delay: 0, options: [.allowUserInteraction,.beginFromCurrentState], animations: {
+      finalState()
+    }, completion: nil)
+  }
+  var topState : () -> () {
+    get {
+      return {
+        self.seperatorView.center.y = self.collectionView.center.y/2
+        self.containerView.frame.origin.y = self.seperatorView.frame.maxY
+        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.maxY
+      }
+    }
+  }
+  
+  var bottomState : () -> () {
+    get {
+      return {
+        self.seperatorView.center.y = self.collectionView.frame.height+self.seperatorView.frame.height/2
+        self.containerView.frame.origin.y = self.seperatorView.frame.maxY
+        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.maxY
+      }
+    }
+  }
+  
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
@@ -158,6 +229,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       cell.layer.cornerRadius = RMImage.CornerRadius
       cell.layer.masksToBounds = true
     }
+    let currentMonth = Calendar.current.component(Calendar.Component.month, from: currentDay)
+    let todaysMonth = Calendar.current.component(Calendar.Component.month, from: RMDate.Today)
+    if currentMonth != todaysMonth {
+     cell.dayLabel.textColor = UIColor.lightGray
+    }
+    else {
+     cell.dayLabel.textColor = UIColor.black
+    }
     cell.eventsToday = Campus.shared.favoritedEvents.filter({
       (event) in
       return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
@@ -183,12 +262,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   // MARK: - UICollectionViewDelegate
   
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+    inEventView = false
     if (indexPath.row < 7) {
       return
     }
     if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
-      eventViewController?.selectedEvents = collectionCell.eventsToday
-      
+      eventViewController!.selectedEvents = collectionCell.eventsToday
       if let todaysEvent = collectionCell.eventsToday?.first {
         self.dateLabel.text = DateFormatter.localizedString(from: todaysEvent.startDate, dateStyle: .long, timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, inSameDayAs: RMDate.Today) ? " (Today)" : "")
       }
@@ -211,3 +290,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
 }
 
+extension UIGestureRecognizer {
+  func cancel() {
+    isEnabled = false
+    isEnabled = true
+  }
+}

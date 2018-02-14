@@ -6,22 +6,18 @@ provides-nominal:
 provides-member:
 - ["6RushMe0A15CalendarManagerC", ""]
 provides-dynamic-lookup:
-- "exportAsICS"
 depends-top-level:
 - "AssignmentPrecedence"
 - !private "BooleanLiteralType"
 - !private "Calendar"
-- "EKEventStore"
 - !private "Event"
 - !private "FileManager"
 - "FratEvent"
-- "NSObject"
 - "RushCalendarManager"
 - "Set"
 - !private "String"
 - !private "StringLiteralType"
 - "URL"
-- !private "eventStore"
 - !private "print"
 depends-member:
 - !private ["Sa", "append"]
@@ -32,23 +28,17 @@ depends-member:
 - !private ["s23BidirectionalCollectionP", "first"]
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "write"]
-- !private ["s7CVarArgP", "Calendar"]
 - !private ["s7CVarArgP", "Encoding"]
-- !private ["s7CVarArgP", "Event"]
-- !private ["s7CVarArgP", "FileManager"]
-- !private ["s7CVarArgP", "String"]
 - !private ["s7CVarArgP", "append"]
 - !private ["s7CVarArgP", "default"]
 - !private ["s7CVarArgP", "endDate"]
 - !private ["s7CVarArgP", "first"]
-- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "location"]
 - !private ["s7CVarArgP", "name"]
-- !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "startDate"]
 - !private ["s7CVarArgP", "urls"]
 - !private ["s7CVarArgP", "write"]
-- ["s7CVarArgP", ""]
 - !private ["10Foundation8CalendarV", "init"]
 - !private ["7iCalKit8CalendarV", "init"]
 - !private ["7iCalKit8CalendarV", "toCal"]
@@ -66,24 +56,18 @@ depends-member:
 - !private ["s10ComparableP", "Encoding"]
 - !private ["s10ComparableP", "init"]
 - !private ["s10ComparableP", "write"]
-- !private ["s28CustomDebugStringConvertibleP", "Calendar"]
 - !private ["s28CustomDebugStringConvertibleP", "Encoding"]
-- !private ["s28CustomDebugStringConvertibleP", "Event"]
-- !private ["s28CustomDebugStringConvertibleP", "FileManager"]
-- !private ["s28CustomDebugStringConvertibleP", "String"]
 - !private ["s28CustomDebugStringConvertibleP", "append"]
 - !private ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
 - !private ["s28CustomDebugStringConvertibleP", "default"]
 - !private ["s28CustomDebugStringConvertibleP", "endDate"]
 - !private ["s28CustomDebugStringConvertibleP", "first"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "location"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
-- !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "startDate"]
 - !private ["s28CustomDebugStringConvertibleP", "urls"]
 - !private ["s28CustomDebugStringConvertibleP", "write"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "Encoding"]
 - !private ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -93,11 +77,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "first"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "write"]
-- !private ["s23CustomStringConvertibleP", "Calendar"]
 - !private ["s23CustomStringConvertibleP", "Encoding"]
-- !private ["s23CustomStringConvertibleP", "Event"]
-- !private ["s23CustomStringConvertibleP", "FileManager"]
-- !private ["s23CustomStringConvertibleP", "String"]
 - !private ["s23CustomStringConvertibleP", "append"]
 - !private ["s23CustomStringConvertibleP", "appendingPathComponent"]
 - !private ["s23CustomStringConvertibleP", "ascii"]
@@ -106,22 +86,19 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "dtstart"]
 - !private ["s23CustomStringConvertibleP", "endDate"]
 - !private ["s23CustomStringConvertibleP", "first"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "location"]
 - !private ["s23CustomStringConvertibleP", "name"]
-- !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "startDate"]
 - !private ["s23CustomStringConvertibleP", "summary"]
 - !private ["s23CustomStringConvertibleP", "urls"]
 - !private ["s23CustomStringConvertibleP", "write"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "Encoding"]
 - !private ["s9DecodableP", "append"]
 - !private ["s9DecodableP", "appendingPathComponent"]
 - !private ["s9DecodableP", "first"]
 - !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "write"]
-- ["So12EKEventStoreC", "init"]
 - !private ["s9EncodableP", "Encoding"]
 - !private ["s9EncodableP", "append"]
 - !private ["s9EncodableP", "appendingPathComponent"]
@@ -129,11 +106,7 @@ depends-member:
 - !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "write"]
 - !private ["SS10FoundationE8EncodingV", "ascii"]
-- !private ["s9EquatableP", "Calendar"]
 - !private ["s9EquatableP", "Encoding"]
-- !private ["s9EquatableP", "Event"]
-- !private ["s9EquatableP", "FileManager"]
-- !private ["s9EquatableP", "String"]
 - !private ["s9EquatableP", "appendingPathComponent"]
 - !private ["s9EquatableP", "ascii"]
 - !private ["s9EquatableP", "default"]
@@ -141,16 +114,14 @@ depends-member:
 - !private ["s9EquatableP", "dtend"]
 - !private ["s9EquatableP", "dtstart"]
 - !private ["s9EquatableP", "endDate"]
-- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "location"]
 - !private ["s9EquatableP", "name"]
-- !private ["s9EquatableP", "print"]
 - !private ["s9EquatableP", "startDate"]
 - !private ["s9EquatableP", "summary"]
 - !private ["s9EquatableP", "urls"]
 - !private ["s9EquatableP", "userDomainMask"]
 - !private ["s9EquatableP", "write"]
-- ["s9EquatableP", ""]
 - !private ["s5ErrorP", "localizedDescription"]
 - !private ["7iCalKit5EventV", "dtend"]
 - !private ["7iCalKit5EventV", "dtstart"]
@@ -177,24 +148,18 @@ depends-member:
 - !private ["6RushMe9FratEventC", "location"]
 - !private ["6RushMe9FratEventC", "name"]
 - !private ["6RushMe9FratEventC", "startDate"]
-- !private ["s8HashableP", "Calendar"]
 - !private ["s8HashableP", "Encoding"]
-- !private ["s8HashableP", "Event"]
-- !private ["s8HashableP", "FileManager"]
-- !private ["s8HashableP", "String"]
 - !private ["s8HashableP", "appendingPathComponent"]
 - !private ["s8HashableP", "ascii"]
 - !private ["s8HashableP", "default"]
 - !private ["s8HashableP", "documentDirectory"]
 - !private ["s8HashableP", "endDate"]
-- ["s8HashableP", "init"]
+- !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "location"]
 - !private ["s8HashableP", "name"]
-- !private ["s8HashableP", "print"]
 - !private ["s8HashableP", "startDate"]
 - !private ["s8HashableP", "urls"]
 - !private ["s8HashableP", "write"]
-- ["s8HashableP", ""]
 - !private ["7iCalKit10IcsElementP", "dtend"]
 - !private ["7iCalKit10IcsElementP", "dtstart"]
 - !private ["7iCalKit10IcsElementP", "init"]
@@ -220,38 +185,21 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "write"]
 - !private ["So16NSMutableCopyingP", "init"]
 - !private ["So16NSMutableCopyingP", "write"]
-- !private ["So8NSObjectC", "Calendar"]
-- !private ["So8NSObjectC", "Event"]
-- !private ["So8NSObjectC", "FileManager"]
-- ["So8NSObjectC", "FratEvent"]
-- ["So8NSObjectC", "Set"]
-- !private ["So8NSObjectC", "String"]
-- ["So8NSObjectC", "URL"]
 - !private ["So8NSObjectC", "default"]
 - !private ["So8NSObjectC", "endDate"]
-- ["So8NSObjectC", "exportAsICS"]
-- ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "location"]
 - !private ["So8NSObjectC", "name"]
-- !private ["So8NSObjectC", "print"]
 - !private ["So8NSObjectC", "startDate"]
 - !private ["So8NSObjectC", "urls"]
 - !private ["So8NSObjectC", "write"]
-- ["So8NSObjectC", ""]
-- !private ["So16NSObjectProtocolP", "Calendar"]
-- !private ["So16NSObjectProtocolP", "Event"]
-- !private ["So16NSObjectProtocolP", "FileManager"]
-- !private ["So16NSObjectProtocolP", "String"]
 - !private ["So16NSObjectProtocolP", "default"]
 - !private ["So16NSObjectProtocolP", "endDate"]
-- ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "location"]
 - !private ["So16NSObjectProtocolP", "name"]
-- !private ["So16NSObjectProtocolP", "print"]
 - !private ["So16NSObjectProtocolP", "startDate"]
 - !private ["So16NSObjectProtocolP", "urls"]
 - !private ["So16NSObjectProtocolP", "write"]
-- ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "init"]
 - !private ["So14NSSecureCodingP", "write"]
 - !private ["So8NSStringC", "init"]
@@ -343,20 +291,14 @@ depends-member:
 - !private ["s14_IndexableBaseP", "first"]
 - !private ["s14_IndexableBaseP", "init"]
 - !private ["s14_IndexableBaseP", "write"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "Calendar"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "Event"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "FileManager"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "endDate"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "location"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "write"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation14_MutableBoxingP", "init"]
 - !private ["s17_MutableIndexableP", "append"]
 - !private ["s17_MutableIndexableP", "first"]
@@ -381,21 +323,20 @@ depends-member:
 depends-nominal:
 - !private "Sa"
 - !private "s23BidirectionalCollectionP"
-- "s7CVarArgP"
+- !private "s7CVarArgP"
 - !private "10Foundation8CalendarV"
 - !private "7iCalKit8CalendarV"
 - !private "7iCalKit17CalendarComponentP"
 - !private "s10CollectionP"
 - !private "s10ComparableP"
-- "s28CustomDebugStringConvertibleP"
+- !private "s28CustomDebugStringConvertibleP"
 - !private "s29CustomPlaygroundQuickLookableP"
 - !private "s17CustomReflectableP"
-- "s23CustomStringConvertibleP"
+- !private "s23CustomStringConvertibleP"
 - !private "s9DecodableP"
-- "So12EKEventStoreC"
 - !private "s9EncodableP"
 - !private "SS10FoundationE8EncodingV"
-- "s9EquatableP"
+- !private "s9EquatableP"
 - !private "s5ErrorP"
 - !private "7iCalKit5EventV"
 - !private "s25ExpressibleByArrayLiteralP"
@@ -404,7 +345,7 @@ depends-nominal:
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "So11FileManagerC"
 - "6RushMe9FratEventC"
-- "s8HashableP"
+- !private "s8HashableP"
 - !private "7iCalKit10IcsElementP"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
@@ -414,8 +355,8 @@ depends-nominal:
 - !private "So21NSItemProviderReadingP"
 - !private "So21NSItemProviderWritingP"
 - !private "So16NSMutableCopyingP"
-- "So8NSObjectC"
-- "So16NSObjectProtocolP"
+- !private "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
 - !private "So8NSStringC"
 - !private "So15OHSerializationP"
@@ -446,7 +387,7 @@ depends-nominal:
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - !private "s10_IndexableP"
 - !private "s14_IndexableBaseP"
-- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
 - !private "10Foundation14_MutableBoxingP"
 - !private "s17_MutableIndexableP"
 - !private "s21_ObjectiveCBridgeableP"
@@ -508,4 +449,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "48b95799c423a029057f3014b05ae60d"
+interface-hash: "6e1e7e74b65cf5ed62f564a7e924d953"
