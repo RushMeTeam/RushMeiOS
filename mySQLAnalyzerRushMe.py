@@ -3,6 +3,7 @@ import plotly
 import plotly.plotly as py
 from plotly.graph_objs import *
 import random
+import math
 import networkx as nx
 numTopItemsToPrint = 3
 APIKEY = "3rK5IWtkAMtZ2QvpxVE3"
@@ -121,7 +122,7 @@ for frat in fraternities:
     fratInfo[frat[0]] = set()
 for uuid in uuids:
     #print(uuid)
-    query = "SELECT deviceuuid, requesttime, action, options FROM sqlrequests WHERE ((action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe') AND deviceuuid = " + str(uuid) + ") ORDER BY deviceuuid, requesttime"
+    query = "SELECT deviceuuid, requesttime, action, options FROM sqlrequests WHERE ((action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe') AND deviceuuid = " + str(uuid) + ") ORDER BY requesttime ASC"
     cursor.execute(query)
     favorites = set()
     for uuid, requesttime, action, fraternity in cursor:
@@ -132,28 +133,28 @@ for uuid in uuids:
             favorites.remove(fraternity)
     for favorite in favorites:
         fratInfo[favorite].add(int(uuid))
-    #print("User " + str(uuid) + " favorites",favorites)
+    print("User " + str(uuid) + " favorites",favorites)
 
 
 
 fratConnections = dict.fromkeys(fratInfo.keys(), dict())
-for frat in sorted(fratInfo):
+fratConnex = []
+for frat in fratInfo:
     for anotherFrat in sorted(fratInfo):
-        if frat != anotherFrat and len(fratInfo[frat]) > 0 and len(fratInfo[frat]) > 0:
-            #print(frat, anotherFrat, fratInfo[frat] & fratInfo[anotherFrat])
+        if frat != anotherFrat:
             fratConnections[frat][anotherFrat] = fratInfo[frat] & fratInfo[anotherFrat]
+            fratConnex.append((frat, anotherFrat, (fratInfo[frat] & fratInfo[anotherFrat])))
+print(fratConnex)
 topFrats = dict()
 for fraternity in sorted(fratConnections):
     for otherFrat in sorted(fratConnections[fraternity]):
+        
         if len(fratConnections[fraternity][otherFrat]) > 0 and fraternity != otherFrat:
             if fraternity < otherFrat:
                 key = (fraternity, otherFrat)
             else:
                 key = (otherFrat, fraternity)
-
-            topFrats[key] = len(fratConnections[fraternity][otherFrat])
-            #print((fratConnections[fraternity][otherFrat]), " === ", (fratConnections[otherFrat][fraternity]))
-            #print(key, len(fratConnections[key[0]][key[1]]))
+            topFrats[key] = max(len(fratConnections[fraternity][otherFrat]), len(fratConnections[otherFrat][fraternity]))
 print("Top Fraternity Like Overlap:")
 print(stringTopItems(topFrats, "{0:<24} {1} favoriters in common\n", 10))
 #for frat in topFrats:
@@ -172,21 +173,30 @@ data = [Bar(x=x, y=y, text=y, textposition = 'auto')]
 height = 10
 width = 20
 G = nx.Graph()#nx.random_geometric_graph(len(fratInfo.keys()), 0.125)
-for frat in fratConnections:
+fratNum = 0
+numFrats = len(fratConnections)
+for frat in sorted(fratConnections):
     G.add_node(frat)
-    G.node[frat]['pos'] = hash(frat[:-1:])/width, hash(frat)/height
+    fratTime = (fratNum/numFrats)*2*math.pi
+    G.node[frat]['pos'] = width*math.cos(fratTime)/2, height*math.sin(fratTime)/2
+    #G.node[frat]['pos'] = hash(frat[:-1:])/width, hash(frat)/height
     G.node[frat]['identity'] = frat
+    fratNum += 1
 #p=nx.single_source_shortest_path_length(G,ncenter)
 
-edge_trace = Scatter(x = [], y = [], line = Line(width = 0.5, color = '#29abe2'), hoverinfo='text', mode = 'lines+text')
-
-for fraternity, otherFrat in topFrats:
-    weight = topFrats[fraternity, otherFrat]
-    if weight > 1:
-        #print(fraternity, otherFrat, topFrats[fraternity, otherFrat])
+edge_trace = Scatter(x = [], y = [], text = [], line = Line(width = 0.5, color = '#29abe2'), hoverinfo='text', mode = 'lines')
+totalSharedUsers = 0
+edgeTraces = dict()
+for _, _, sharedUsers in fratConnex:
+    totalSharedUsers += len(sharedUsers)
+averageSharedUsers = totalSharedUsers/len(fratConnex)
+for fraternity, otherFrat, sharedUsers in fratConnex:
+    weight = len(sharedUsers)
+    if weight > averageSharedUsers:
         G.add_edge(fraternity, otherFrat)
-        G[fraternity][otherFrat]['text'] = str(topFrats[fraternity, otherFrat])
-
+        edge_trace['text'].append(str(weight))
+        
+        
 print(G.number_of_edges())
 pos = nx.get_node_attributes(G, 'pos')
 
@@ -203,17 +213,17 @@ for edge in G.edges():
     x1, y1 = G.node[edge[1]]['pos']
     edge_trace['x'] += [x0, x1, None]
     edge_trace['y'] += [y0, y1, None]
-
-node_trace = Scatter(x = [], y = [], text = [], mode = 'markers', hoverinfo='text')
+    edge_trace['text'].append(G.node[edge[0]])
+node_trace = Scatter(x = [], y = [], text = [], mode = 'markers+text', hoverinfo='none', textposition = 'top')
 
 for node in G.nodes():
     x, y = G.node[node]['pos']
     node_trace['x'].append(x)
     node_trace['y'].append(y)
+    node_trace['text'].append(node)
 for node, adjacencies in G.adjacency():
     node_info = node + ': '+str(len(adjacencies)) + " mutual rushees"
-    node_trace['text'].append(node_info)
-
+    edge_trace['text'].append(node_info)
 
 
 fig = Figure(data=Data([edge_trace, node_trace]),
@@ -230,6 +240,8 @@ fig = Figure(data=Data([edge_trace, node_trace]),
                     x=0.005, y=-0.002 ) ],
                 xaxis=XAxis(showgrid=False, zeroline=False, showticklabels=False),
                 yaxis=YAxis(showgrid=False, zeroline=False, showticklabels=False)))
-py.plot(fig, "NetworkPlot")
-
+if G.number_of_edges() > 0:
+    py.plot(fig, filename = "NetworkPlot")
+else:
+    print("Not enough edges to load...")
 connection.close()
