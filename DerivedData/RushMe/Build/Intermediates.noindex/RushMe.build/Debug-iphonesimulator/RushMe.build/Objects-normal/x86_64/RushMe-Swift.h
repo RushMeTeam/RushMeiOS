@@ -260,9 +260,10 @@ SWIFT_CLASS("_TtC6RushMe31CalendarLabelCollectionViewCell")
 
 @class UICollectionView;
 @class UIView;
-@class EventTableViewController;
-@class UITapGestureRecognizer;
+@class UISegmentedControl;
 @class UIPanGestureRecognizer;
+@class UITapGestureRecognizer;
+@class EventTableViewController;
 @class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
@@ -270,8 +271,11 @@ SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified containerView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified seperatorView;
+@property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified favoritesSegmentControl;
 @property (nonatomic) BOOL inEventView SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.inEventView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) CGFloat panCutoff SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.panCutoff' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, weak) IBOutlet UIPanGestureRecognizer * _Null_unspecified panGestureRecognizer;
+@property (nonatomic, weak) IBOutlet UITapGestureRecognizer * _Null_unspecified tapGestureRecognizer;
 @property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) NSInteger eventCountThreshold SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventCountThreshold' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) FratEvent * _Nullable firstEvent SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.firstEvent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -447,7 +451,6 @@ SWIFT_CLASS("_TtC6RushMe10Fraternity")
 - (void)registerWithCampus:(Campus * _Nonnull)campus SWIFT_DEPRECATED_OBJC("Swift method 'Fraternity.register(withCampus:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
-@class UISegmentedControl;
 @class UISearchController;
 
 SWIFT_CLASS("_TtC6RushMe33FullEventsListTableViewController")

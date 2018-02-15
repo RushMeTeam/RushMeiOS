@@ -103,10 +103,6 @@ class MasterViewController : UITableViewController,
     // Put the progress view at the bottom of the navigation bar
     progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController!.navigationBar.frame.height - progressView.frame.height// //+
     progressView.frame.origin.x = -166
-//    print(progressView.frame.origin.x)
-//    print(imageView.frame.minX)
-//    print(wrapperView.frame.midX)
-//    print(self.view.frame.midX)
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
     self.handleRefresh(refreshControl: refreshControl!)
   }
@@ -122,7 +118,6 @@ class MasterViewController : UITableViewController,
     DispatchQueue.main.async {
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
-    
       self.progressView.alpha = 1
       self.favoritesSegmentControl?.isEnabled = false
       

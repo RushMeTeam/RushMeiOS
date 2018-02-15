@@ -18,6 +18,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBOutlet weak var containerView: UIView!
   
   @IBOutlet weak var seperatorView: UIView!
+  
+  @IBOutlet weak var favoritesSegmentControl: UISegmentedControl!
+  
   var inEventView : Bool {
     get {
      return self.seperatorView.center.y <= self.collectionView.center.y
@@ -31,6 +34,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
      return self.collectionView.center.y + 32
     }
   }
+  @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
+  @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
+  
   var eventViewController : EventTableViewController? = nil
   let eventCountThreshold = 3
   var firstEvent : FratEvent? = nil
@@ -104,6 +110,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     if let tbView = self.childViewControllers.first as? EventTableViewController {
       eventViewController = tbView
     }
+    //self.collectionView.selectItem(at: IndexPath.init(row: 10, section: 0), animated: false, scrollPosition: .top)
+    
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -115,6 +123,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     self.firstEvent = Campus.shared.firstEvent
     
     shareButton.isEnabled = Campus.shared.favoritedEvents.count != 0
+    panGestureRecognizer.isEnabled = shareButton.isEnabled
+    tapGestureRecognizer.isEnabled = panGestureRecognizer.isEnabled
     if (Campus.shared.favoritedEvents.count != 0) {
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
@@ -130,6 +140,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
   
   /*
    // MARK: - Navigation
@@ -150,6 +161,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 31+7
   }
+  
+  @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
+    // TODO: Add favorites!
+  }
+  
   @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
     inEventView = !inEventView
   }
@@ -197,7 +213,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       }
     }
   }
-  
+
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
@@ -244,7 +260,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     if (cell.eventsToday!.count == 0){
       cell.eventsToday = nil
     }
-    
     cell.dayLabel.text = String(Calendar.current.dateComponents([.day], from: currentDay).day!)
     if let numberOfEventsToday = cell.eventsToday?.count {
       if (numberOfEventsToday <= eventCountThreshold) {
@@ -256,6 +271,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     else {
       cell.eventsLabel.isHidden = true
+    }
+    if indexPath.row == collectionView.numberOfItems(inSection: 0)-1 {
+      self.collectionView(self.collectionView, didHighlightItemAt: IndexPath.init(item: 7, section: 0))
     }
     return cell
   }
@@ -290,9 +308,3 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
 }
 
-extension UIGestureRecognizer {
-  func cancel() {
-    isEnabled = false
-    isEnabled = true
-  }
-}
