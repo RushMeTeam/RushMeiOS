@@ -5,10 +5,13 @@ from plotly.graph_objs import *
 import random
 import math
 import networkx as nx
+import jenkspy
 numTopItemsToPrint = 3
 APIKEY = "3rK5IWtkAMtZ2QvpxVE3"
 plotly.tools.set_credentials_file(username = "adamthk", api_key = APIKEY)
 plotly.tools.set_config_file(world_readable=True, sharing='public')
+
+plotEnabled = False
 
 def dictionaryAnalysis(d, total, stringToFormat):
     outString = ""
@@ -108,7 +111,7 @@ query = "SELECT options FROM sqlrequests WHERE action = 'Fraternity Selected' OR
 cursor.execute(query)
 fraternities = set(cursor)
 
-print(len(fraternities), "fraternities had user interactions.")
+print(len(fraternities), "fraternities had user interactions.\n")
 
 query = "SELECT deviceuuid FROM sqlrequests WHERE (action = 'Fraternity Selected' OR action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe')"
 cursor.execute(query)
@@ -133,89 +136,92 @@ for uuid in uuids:
             favorites.remove(fraternity)
     for favorite in favorites:
         fratInfo[favorite].add(int(uuid))
-    print("User " + str(uuid) + " favorites",favorites)
-
-
-
-fratConnections = dict.fromkeys(fratInfo.keys(), dict())
-fratConnex = []
+fratConnections = []
 for frat in fratInfo:
     for anotherFrat in sorted(fratInfo):
         if frat != anotherFrat:
-            fratConnections[frat][anotherFrat] = fratInfo[frat] & fratInfo[anotherFrat]
-            fratConnex.append((frat, anotherFrat, (fratInfo[frat] & fratInfo[anotherFrat])))
-print(fratConnex)
-topFrats = dict()
-for fraternity in sorted(fratConnections):
-    for otherFrat in sorted(fratConnections[fraternity]):
-        
-        if len(fratConnections[fraternity][otherFrat]) > 0 and fraternity != otherFrat:
-            if fraternity < otherFrat:
-                key = (fraternity, otherFrat)
-            else:
-                key = (otherFrat, fraternity)
-            topFrats[key] = max(len(fratConnections[fraternity][otherFrat]), len(fratConnections[otherFrat][fraternity]))
-print("Top Fraternity Like Overlap:")
-print(stringTopItems(topFrats, "{0:<24} {1} favoriters in common\n", 10))
-#for frat in topFrats:
-    #print(frat, topFrats[frat])
+            fratConnections.append((frat, anotherFrat, (fratInfo[frat] & fratInfo[anotherFrat])))
 print("Most Favorited:")
 x = []
 y = []
-for fratLikes in sorted(fratInfo.items()):
-    #print(fratLikes)
+for fratLikes in sorted(fratInfo.items(), key= lambda x : len(x[1]), reverse= True)[:10]:
+    print("\t{0:<24} {1}".format(fratLikes[0], len(fratLikes[1])))
     x.append(fratLikes[0])
     y.append(len(fratLikes[1]))
-data = [Bar(x=x, y=y, text=y, textposition = 'auto')]
-#py.plot(data, filename="coolio")
+fig1 = Figure(data=[Bar(x=x, 
+                        y=y, 
+                        text=y, 
+                        textposition = 'auto',  
+                        marker = dict(color = 'rgb(41, 171, 226)'))],
+              layout=Layout(
+                 title='<br>RushMe Net Favorites by Fraternity',
+                titlefont=dict(size=16),
+                showlegend=False,
+                hovermode='closest',
+                annotations=[ dict(
+                    text="Adam Kuniholm",
+                    showarrow=False,
+                    xref="paper", yref="paper",
+                    x=0.005, y=-0.002 ) ],
+                xaxis=XAxis(showgrid=False, zeroline=True, showticklabels=True),
+                yaxis=YAxis(showgrid=True, zeroline=False, showticklabels=False)))
 
-
+# ############################################################################################## #
+# ############################################################################################## #
 height = 10
 width = 20
-G = nx.Graph()#nx.random_geometric_graph(len(fratInfo.keys()), 0.125)
+colors = ["7CCCEE", "4FBAE8", "0472A2", "29AAE2"]
+squareLength = min(height, width)
+numFrats = len(fratInfo)
+# ############################################################################################## #
+totalSharedUsers = 0
+sharedUserArray = []
+for _, _, sharedUsers in fratConnections:
+    totalSharedUsers += len(sharedUsers)
+    sharedUserArray.append(len(sharedUsers))
+averageSharedUsers = totalSharedUsers/len(fratConnections)
+breaks = sorted(set(jenkspy.jenks_breaks(sharedUserArray, nb_class = 6)))
+# ############################################################################################## #
+# Create graph
+G = nx.Graph()
 fratNum = 0
-numFrats = len(fratConnections)
-for frat in sorted(fratConnections):
+# Add all nodes (fraternities) to model graph
+for frat in sorted(fratInfo):
     G.add_node(frat)
     fratTime = (fratNum/numFrats)*2*math.pi
-    G.node[frat]['pos'] = width*math.cos(fratTime)/2, height*math.sin(fratTime)/2
-    #G.node[frat]['pos'] = hash(frat[:-1:])/width, hash(frat)/height
-    G.node[frat]['identity'] = frat
+    G.node[frat]['pos'] = squareLength*math.cos(fratTime)/2, squareLength*math.sin(fratTime)/2
     fratNum += 1
-#p=nx.single_source_shortest_path_length(G,ncenter)
-
-edge_trace = Scatter(x = [], y = [], text = [], line = Line(width = 0.5, color = '#29abe2'), hoverinfo='text', mode = 'lines')
-totalSharedUsers = 0
-edgeTraces = dict()
-for _, _, sharedUsers in fratConnex:
-    totalSharedUsers += len(sharedUsers)
-averageSharedUsers = totalSharedUsers/len(fratConnex)
-for fraternity, otherFrat, sharedUsers in fratConnex:
-    weight = len(sharedUsers)
-    if weight > averageSharedUsers:
-        G.add_edge(fraternity, otherFrat)
-        edge_trace['text'].append(str(weight))
-        
-        
-print(G.number_of_edges())
+# Add all edges (shared rushees) to model graph
+for fraternity, otherFrat, sharedUsers in fratConnections:
+    connectionWeight = len(sharedUsers)
+    if connectionWeight > averageSharedUsers or len(breaks) < 10:
+        G.add_edge(fraternity, otherFrat, weight = connectionWeight)
+# ############################################################################################## #
+# Define edge traces 
+#        (to add visual differences between ranges of values)
+edge_traces = dict()
+for lowerBound in breaks:
+    edge_traces[lowerBound] = Scatter(x = [], 
+                                      y = [], 
+                                      text = [], 
+                                      line = Line(width = lowerBound/1.5, 
+                                                  color = colors[breaks.index(lowerBound)%len(colors)]), 
+                                      hoverinfo='text', 
+                                      mode = 'lines')
+# ############################################################################################## #
+# Define all edges visually
 pos = nx.get_node_attributes(G, 'pos')
-
-dmin=1
-ncenter=0
-for n in pos:
-    x,y=pos[n]
-    d=(x-0.5)**2+(y-0.5)**2
-    if d<dmin:
-        ncenter=n
-        dmin=d
 for edge in G.edges():
     x0, y0 = G.node[edge[0]]['pos']
     x1, y1 = G.node[edge[1]]['pos']
-    edge_trace['x'] += [x0, x1, None]
-    edge_trace['y'] += [y0, y1, None]
-    edge_trace['text'].append(G.node[edge[0]])
+    for lowerBound in sorted(edge_traces):
+        if lowerBound > G.edges[edge]['weight'] or lowerBound == breaks[-1]:
+            edge_traces[lowerBound]['x'] += [x0, x1, None]
+            edge_traces[lowerBound]['y'] += [y0, y1, None]
+            break
 node_trace = Scatter(x = [], y = [], text = [], mode = 'markers+text', hoverinfo='none', textposition = 'top')
-
+# ############################################################################################## #
+# Define all nodes visually
 for node in G.nodes():
     x, y = G.node[node]['pos']
     node_trace['x'].append(x)
@@ -223,10 +229,11 @@ for node in G.nodes():
     node_trace['text'].append(node)
 for node, adjacencies in G.adjacency():
     node_info = node + ': '+str(len(adjacencies)) + " mutual rushees"
-    edge_trace['text'].append(node_info)
-
-
-fig = Figure(data=Data([edge_trace, node_trace]),
+# ############################################################################################## #
+# Compile all visual node/edge traces
+allTraces = list(edge_traces.values())
+allTraces.append(node_trace)
+fig2 = Figure(data=Data(allTraces),
              layout=Layout(
                 title='<br>RushMe Favorites Network',
                 titlefont=dict(size=16),
@@ -240,8 +247,11 @@ fig = Figure(data=Data([edge_trace, node_trace]),
                     x=0.005, y=-0.002 ) ],
                 xaxis=XAxis(showgrid=False, zeroline=False, showticklabels=False),
                 yaxis=YAxis(showgrid=False, zeroline=False, showticklabels=False)))
-if G.number_of_edges() > 0:
-    py.plot(fig, filename = "NetworkPlot")
+# ############################################################################################## #
+# Finally, plot the node/edge traces
+if G.number_of_edges() > 0 and plotEnabled:
+    py.iplot(fig2, filename = "NetworkPlot")
+    py.iplot(fig1, filename="netLikeBarChart")
 else:
-    print("Not enough edges to load...")
+    print("Plots not plotted")
 connection.close()
