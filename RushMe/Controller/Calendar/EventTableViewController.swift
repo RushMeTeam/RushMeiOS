@@ -16,12 +16,21 @@ class EventTableViewController: UITableViewController {
   // Useful if date is not implied/indicated anywhere else
   var provideDate = false
   // MARK: Member Variables
+  
   var selectedEvents : [FratEvent]? = nil {
     didSet {
-      self.tableView.isScrollEnabled = (selectedEvents?.count ?? 0) != 0
-      self.tableView.reloadData()
+      self.tableView.isScrollEnabled = selectedEvents != nil && selectedEvents!.count > 0
+      UIView.animate(withDuration: 0.5) { 
+        self.tableView.reloadData()
+      }
+      if let _ = selectedEvents, selectedEvents!.count > 0 {
+          self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+      }
+      
+      
     }
   }
+  
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()

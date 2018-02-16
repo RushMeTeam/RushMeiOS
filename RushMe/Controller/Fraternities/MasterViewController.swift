@@ -40,7 +40,7 @@ class MasterViewController : UITableViewController,
   }
   weak var favoritesSegmentControl : UISegmentedControl?
 
-
+  
   func reloadTableView() {
     UIView.transition(with: tableView,
                       duration: RMAnimation.ColoringTime/2,
@@ -56,7 +56,6 @@ class MasterViewController : UITableViewController,
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.title = "RushMe"
     // Set up slideout menu
     if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
       VC.masterVC = self.splitViewController
@@ -71,10 +70,7 @@ class MasterViewController : UITableViewController,
     navigationController!.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
     // Menu button disabled until refresh complete
-    openBarButtonItem.isEnabled = false
     // Ensure the menu button toggles the menu
-    openBarButtonItem.target = self
-    openBarButtonItem.action = #selector(self.toggleViewControllers(_:))
     // Refresh control 
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -128,7 +124,7 @@ class MasterViewController : UITableViewController,
     var dictArray = [Dictionary<String, Any>()]
     if types.count == 0{
         if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-          dictArray = arr
+          dictArray = arr.shuffled()
         }
     }
     else {
@@ -138,7 +134,7 @@ class MasterViewController : UITableViewController,
       }
       querystring = String(querystring.dropLast(2))
       if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-        dictArray = arr
+        dictArray = arr.shuffled()
       }
     }
     if dictArray.count > Campus.shared.fratNames.count {
@@ -218,10 +214,10 @@ class MasterViewController : UITableViewController,
 //  }
   
   
-  // MARK: - Transitions
-  @objc func toggleViewControllers(_:Any?) {
+  @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
     self.revealViewController().revealToggle(self)
   }
+  // MARK: - Transitions
   // Not a very interesting function, makes sure selection from last time
   // is cleared
   // (i.e. it's not highlighted in the dark gray of a selected cell)
@@ -386,3 +382,28 @@ class MasterViewController : UITableViewController,
     dataUpdate()
   }
 }
+
+// Source:
+//    https://stackoverflow.com/questions/24026510/how-do-i-shuffle-an-array-in-swift
+extension MutableCollection {
+  /// Shuffles the contents of this collection.
+  mutating func shuffle() {
+    let c = count
+    guard c > 1 else { return }
+    for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+      let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+      let i = index(firstUnshuffled, offsetBy: d)
+      swapAt(firstUnshuffled, i)
+    }
+  }
+}
+
+extension Sequence {
+  /// Returns an array with the contents of this sequence, shuffled.
+  func shuffled() -> [Element] {
+    var result = Array(self)
+    result.shuffle()
+    return result
+  }
+} 
+

@@ -1436,7 +1436,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RushMe" largeTitleDisplayMode="always" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="hN2-4n-0qh"/>
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="BurgerIcon" id="hN2-4n-0qh">
+                            <connections>
+                                <action selector="toggleViewControllers:" destination="7bK-jq-Zjz" id="2gH-cI-mXB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="openBarButtonItem" destination="hN2-4n-0qh" id="cCV-AF-mIG"/>

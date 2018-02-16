@@ -77,7 +77,6 @@ class SettingsViewController: UIViewController {
 
   @IBOutlet var clearCacheButton: UIButton!
   @IBAction func clearCache(_ sender: UIButton) {
-    
     var fileSize = 0.0
     var fileNumber = 0
     let _ = FileManager.default.subpaths(atPath: RMFileManagement.fratImageURL.path)?.forEach({ (fileName) in

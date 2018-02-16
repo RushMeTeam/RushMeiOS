@@ -11,7 +11,7 @@ APIKEY = "3rK5IWtkAMtZ2QvpxVE3"
 plotly.tools.set_credentials_file(username = "adamthk", api_key = APIKEY)
 plotly.tools.set_config_file(world_readable=True, sharing='public')
 
-plotEnabled = False
+plotEnabled = True
 
 def dictionaryAnalysis(d, total, stringToFormat):
     outString = ""
@@ -250,8 +250,8 @@ fig2 = Figure(data=Data(allTraces),
 # ############################################################################################## #
 # Finally, plot the node/edge traces
 if G.number_of_edges() > 0 and plotEnabled:
-    py.iplot(fig2, filename = "NetworkPlot")
-    py.iplot(fig1, filename="netLikeBarChart")
+    py.plot(fig2, filename = "NetworkPlot")
+    py.plot(fig1, filename="netLikeBarChart")
 else:
     print("Plots not plotted")
 connection.close()

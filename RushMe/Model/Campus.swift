@@ -34,7 +34,7 @@ class Campus: NSObject {
   var favoritedFrats = [String]() {
     didSet {
       self.saveFavorites()
-      self.firstEvent_ = nil
+      self.firstFavoritedEvent_ = nil
       self.eventsByDay_ = nil
       self.favoritedEvents_ = nil
       self.favoritedEventsByDay_ = nil
@@ -99,12 +99,24 @@ class Campus: NSObject {
     }
   }
   private var fratEventsByDay = [String : [FratEvent]]()
-  private var allEvents = Set<FratEvent>()
+  private(set) var allEvents = Set<FratEvent>()
+  private var firstFavoritedEvent_ : FratEvent? = nil
+  var firstFavoritedEvent : FratEvent? {
+    get {
+      if firstFavoritedEvent_ == nil {
+        firstFavoritedEvent_ = favoritedEvents.min(by: {
+          (thisEvent, thatEvent) in
+          return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
+        })
+      }
+      return firstFavoritedEvent_
+    }
+  }
   private var firstEvent_ : FratEvent? = nil
   var firstEvent : FratEvent? {
     get {
       if firstEvent_ == nil {
-        firstEvent_ = favoritedEvents.min(by: {
+        firstEvent_ = allEvents.min(by: {
           (thisEvent, thatEvent) in
           return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
         })
@@ -113,12 +125,13 @@ class Campus: NSObject {
     }
   }
   
+  
   // The default quality at which an image should be downloaded
   var downloadedImageQuality : Quality = .Medium
   var considerEventsBeforeToday = true {
     willSet {
       if newValue != self.considerEventsBeforeToday {
-        self.firstEvent_ = nil
+        self.firstFavoritedEvent_ = nil
         self.eventsByDay_ = nil
         self.favoritedEvents_ = nil
         self.favoritedEventsByDay_ = nil 
@@ -182,7 +195,7 @@ class Campus: NSObject {
     else {
       self.fraternitiesDict[frat.name] = frat
       self.fratNames.append(frat.name)
-      DispatchQueue.global().async {
+      DispatchQueue.global(qos: .background).async {
         let _ = self.getEvents(forFratWithName: frat.name)
       }
     }
