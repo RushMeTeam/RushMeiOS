@@ -165,6 +165,7 @@ class Campus: NSObject {
   fileprivate convenience init(loadFromFile : Bool) {
     self.init()
     if loadFromFile {
+      // TODO: Refactor storing of user preferences
       if let preferencesObject = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.userInfoURL.path) as? Dictionary<String, Any>,
         let considerEventsBeforeTodayValue = preferencesObject[RMPropertyKeys.ConsiderEventsBeforeTodayKey] as? Bool {
         self.considerEventsBeforeToday = considerEventsBeforeTodayValue
@@ -278,7 +279,7 @@ class Campus: NSObject {
   // MARK: Save To and Load From File
   func saveFavorites() {
     DispatchQueue.global(qos: .background).async {
-      let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Campus.shared.favoritedFrats, toFile: RMFileManagement.favoritedFratURL.path)
+      let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Array(Campus.shared.favoritedFrats), toFile: RMFileManagement.favoritedFratURL.path)
       if !isSuccessfulSave {
         print("Error saving favorite frats at: \(RMFileManagement.favoritedFratURL.path)")
       }

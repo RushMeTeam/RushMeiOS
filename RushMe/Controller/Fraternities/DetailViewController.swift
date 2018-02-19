@@ -10,6 +10,8 @@
 import UIKit
 import MapKit
 
+
+// TODO: Allow users to swipe between fraternities
 class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
   // MARK: IBOutlets
   @IBOutlet weak var scrollView: UIScrollView!

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <array>
 	<string>MapKit</string>
-	<string>QuartzCore</string>
-	<string>XCTest</string>
 	<string>RushMe</string>
+	<string>XCTest</string>
+	<string>QuartzCore</string>
 	<string>CoreGraphics</string>
 	<string>iCalKit</string>
 	<string>OHMySQL</string>

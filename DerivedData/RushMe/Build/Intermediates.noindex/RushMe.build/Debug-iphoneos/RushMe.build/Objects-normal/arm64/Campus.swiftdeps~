@@ -84,10 +84,9 @@ depends-top-level:
 - !private "~="
 depends-member:
 - !private ["Sa", "append"]
-- !private ["Sa", "contains"]
 - !private ["Sa", "count"]
 - !private ["Sa", "filter"]
-- ["Sa", "init"]
+- !private ["Sa", "init"]
 - !private ["Sa", "isEmpty"]
 - !private ["Sa", "last"]
 - !private ["Sa", "sort"]
@@ -95,11 +94,10 @@ depends-member:
 - !private ["Sa", "subscript"]
 - !private ["s10ArraySliceV", "startDate"]
 - !private ["s23BidirectionalCollectionP", "append"]
-- !private ["s23BidirectionalCollectionP", "contains"]
 - !private ["s23BidirectionalCollectionP", "count"]
 - !private ["s23BidirectionalCollectionP", "dropLast"]
 - !private ["s23BidirectionalCollectionP", "filter"]
-- ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "isEmpty"]
 - !private ["s23BidirectionalCollectionP", "last"]
 - !private ["s23BidirectionalCollectionP", "sort"]
@@ -110,6 +108,7 @@ depends-member:
 - !private ["s23BidirectionalCollectionP", "write"]
 - !private ["s13BinaryIntegerP", "hashValue"]
 - !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "Array"]
 - !private ["s7CVarArgP", "Campus"]
 - !private ["s7CVarArgP", "CampusError"]
 - !private ["s7CVarArgP", "ComparisonResult"]
@@ -182,6 +181,7 @@ depends-member:
 - !private ["s7CVarArgP", "unarchiveObject"]
 - !private ["s7CVarArgP", "values"]
 - ["s7CVarArgP", ""]
+- !private ["6RushMe6CampusC", "Array"]
 - ["6RushMe6CampusC", "Bool"]
 - ["6RushMe6CampusC", "Campus"]
 - ["6RushMe6CampusC", "CampusError"]
@@ -262,6 +262,7 @@ depends-member:
 - !private ["s10ComparableP", "init"]
 - !private ["s10ComparableP", "split"]
 - !private ["SC16ComparisonResultO", "orderedAscending"]
+- !private ["s28CustomDebugStringConvertibleP", "Array"]
 - !private ["s28CustomDebugStringConvertibleP", "Campus"]
 - !private ["s28CustomDebugStringConvertibleP", "CampusError"]
 - !private ["s28CustomDebugStringConvertibleP", "ComparisonResult"]
@@ -365,6 +366,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s17CustomReflectableP", "values"]
 - !private ["s17CustomReflectableP", "write"]
+- !private ["s23CustomStringConvertibleP", "Array"]
 - !private ["s23CustomStringConvertibleP", "Campus"]
 - !private ["s23CustomStringConvertibleP", "CampusError"]
 - !private ["s23CustomStringConvertibleP", "ComparisonResult"]
@@ -495,6 +497,7 @@ depends-member:
 - !private ["s9EncodableP", "subscript"]
 - !private ["s9EncodableP", "values"]
 - !private ["s9EncodableP", "write"]
+- !private ["s9EquatableP", "Array"]
 - !private ["s9EquatableP", "Campus"]
 - !private ["s9EquatableP", "CampusError"]
 - !private ["s9EquatableP", "ComparisonResult"]
@@ -526,6 +529,7 @@ depends-member:
 - !private ["s9EquatableP", "campusSharedInstance"]
 - !private ["s9EquatableP", "compare"]
 - !private ["s9EquatableP", "considerEventsBeforeToday"]
+- !private ["s9EquatableP", "contains"]
 - !private ["s9EquatableP", "createDirectory"]
 - !private ["s9EquatableP", "dayKey"]
 - !private ["s9EquatableP", "default"]
@@ -552,6 +556,7 @@ depends-member:
 - ["s9EquatableP", "hashValue"]
 - ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "insert"]
+- !private ["s9EquatableP", "isEmpty"]
 - !private ["s9EquatableP", "loadFavorites"]
 - !private ["s9EquatableP", "min"]
 - !private ["s9EquatableP", "name"]
@@ -627,6 +632,7 @@ depends-member:
 - !private ["6RushMe10FraternityC", "pullImage"]
 - ["6RushMe10FraternityC", "register"]
 - !private ["6RushMe10FraternityC", "setProperty"]
+- !private ["s8HashableP", "Array"]
 - !private ["s8HashableP", "Campus"]
 - !private ["s8HashableP", "CampusError"]
 - !private ["s8HashableP", "ComparisonResult"]
@@ -658,6 +664,7 @@ depends-member:
 - !private ["s8HashableP", "campusSharedInstance"]
 - !private ["s8HashableP", "compare"]
 - !private ["s8HashableP", "considerEventsBeforeToday"]
+- !private ["s8HashableP", "contains"]
 - !private ["s8HashableP", "createDirectory"]
 - !private ["s8HashableP", "dayKey"]
 - !private ["s8HashableP", "default"]
@@ -684,6 +691,7 @@ depends-member:
 - ["s8HashableP", "hashValue"]
 - ["s8HashableP", "init"]
 - !private ["s8HashableP", "insert"]
+- !private ["s8HashableP", "isEmpty"]
 - !private ["s8HashableP", "loadFavorites"]
 - !private ["s8HashableP", "min"]
 - !private ["s8HashableP", "name"]
@@ -714,10 +722,9 @@ depends-member:
 - !private ["s10MirrorPathP", "split"]
 - !private ["s25MutableBidirectionalSliceV", "startDate"]
 - !private ["s17MutableCollectionP", "append"]
-- !private ["s17MutableCollectionP", "contains"]
 - !private ["s17MutableCollectionP", "count"]
 - !private ["s17MutableCollectionP", "filter"]
-- ["s17MutableCollectionP", "init"]
+- !private ["s17MutableCollectionP", "init"]
 - !private ["s17MutableCollectionP", "isEmpty"]
 - !private ["s17MutableCollectionP", "last"]
 - !private ["s17MutableCollectionP", "sort"]
@@ -746,6 +753,7 @@ depends-member:
 - !private ["So16NSMutableCopyingP", "dropLast"]
 - !private ["So16NSMutableCopyingP", "init"]
 - !private ["So16NSMutableCopyingP", "split"]
+- !private ["So8NSObjectC", "Array"]
 - ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "Campus"]
 - !private ["So8NSObjectC", "CampusError"]
@@ -814,6 +822,7 @@ depends-member:
 - !private ["So8NSObjectC", "startDate"]
 - !private ["So8NSObjectC", "unarchiveObject"]
 - ["So8NSObjectC", ""]
+- !private ["So16NSObjectProtocolP", "Array"]
 - !private ["So16NSObjectProtocolP", "Campus"]
 - !private ["So16NSObjectProtocolP", "CampusError"]
 - !private ["So16NSObjectProtocolP", "ComparisonResult"]
@@ -907,10 +916,9 @@ depends-member:
 - !private ["6RushMe9RMNetworkV", "HTTP"]
 - !private ["6RushMe14RMPropertyKeysV", "ConsiderEventsBeforeTodayKey"]
 - !private ["s22RandomAccessCollectionP", "append"]
-- !private ["s22RandomAccessCollectionP", "contains"]
 - !private ["s22RandomAccessCollectionP", "count"]
 - !private ["s22RandomAccessCollectionP", "filter"]
-- ["s22RandomAccessCollectionP", "init"]
+- !private ["s22RandomAccessCollectionP", "init"]
 - !private ["s22RandomAccessCollectionP", "isEmpty"]
 - !private ["s22RandomAccessCollectionP", "last"]
 - !private ["s22RandomAccessCollectionP", "sort"]
@@ -919,11 +927,10 @@ depends-member:
 - !private ["s22RandomAccessCollectionP", "subscript"]
 - !private ["s22RandomAccessCollectionP", "write"]
 - !private ["s26RangeReplaceableCollectionP", "append"]
-- !private ["s26RangeReplaceableCollectionP", "contains"]
 - !private ["s26RangeReplaceableCollectionP", "count"]
 - !private ["s26RangeReplaceableCollectionP", "dropLast"]
 - !private ["s26RangeReplaceableCollectionP", "filter"]
-- ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "isEmpty"]
 - !private ["s26RangeReplaceableCollectionP", "last"]
 - !private ["s26RangeReplaceableCollectionP", "sort"]
@@ -966,13 +973,17 @@ depends-member:
 - !private ["s8SequenceP", "subscript"]
 - !private ["s8SequenceP", "values"]
 - !private ["s8SequenceP", "write"]
+- !private ["s3SetV", "contains"]
 - !private ["s3SetV", "filter"]
 - ["s3SetV", "init"]
 - !private ["s3SetV", "insert"]
+- !private ["s3SetV", "isEmpty"]
 - !private ["s3SetV", "min"]
+- !private ["s10SetAlgebraP", "contains"]
 - !private ["s10SetAlgebraP", "filter"]
 - ["s10SetAlgebraP", "init"]
 - !private ["s10SetAlgebraP", "insert"]
+- !private ["s10SetAlgebraP", "isEmpty"]
 - !private ["s10SetAlgebraP", "min"]
 - !private ["s13SignedIntegerP", "hashValue"]
 - !private ["s13SignedNumericP", "hashValue"]
@@ -996,10 +1007,9 @@ depends-member:
 - !private ["10Foundation3URLV", "init"]
 - !private ["10Foundation3URLV", "path"]
 - !private ["s14_ArrayProtocolP", "append"]
-- !private ["s14_ArrayProtocolP", "contains"]
 - !private ["s14_ArrayProtocolP", "count"]
 - !private ["s14_ArrayProtocolP", "filter"]
-- ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "init"]
 - !private ["s14_ArrayProtocolP", "isEmpty"]
 - !private ["s14_ArrayProtocolP", "last"]
 - !private ["s14_ArrayProtocolP", "sort"]
@@ -1007,11 +1017,10 @@ depends-member:
 - !private ["s14_ArrayProtocolP", "startDate"]
 - !private ["s14_ArrayProtocolP", "subscript"]
 - !private ["s23_BidirectionalIndexableP", "append"]
-- !private ["s23_BidirectionalIndexableP", "contains"]
 - !private ["s23_BidirectionalIndexableP", "count"]
 - !private ["s23_BidirectionalIndexableP", "dropLast"]
 - !private ["s23_BidirectionalIndexableP", "filter"]
-- ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s23_BidirectionalIndexableP", "isEmpty"]
 - !private ["s23_BidirectionalIndexableP", "last"]
 - !private ["s23_BidirectionalIndexableP", "sort"]
@@ -1022,10 +1031,9 @@ depends-member:
 - !private ["s23_BidirectionalIndexableP", "write"]
 - !private ["s18_BitwiseOperationsP", "hashValue"]
 - !private ["s24_DestructorSafeContainerP", "append"]
-- !private ["s24_DestructorSafeContainerP", "contains"]
 - !private ["s24_DestructorSafeContainerP", "count"]
 - !private ["s24_DestructorSafeContainerP", "filter"]
-- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "init"]
 - !private ["s24_DestructorSafeContainerP", "isEmpty"]
 - !private ["s24_DestructorSafeContainerP", "last"]
 - !private ["s24_DestructorSafeContainerP", "sort"]
@@ -1091,6 +1099,7 @@ depends-member:
 - !private ["s14_IndexableBaseP", "subscript"]
 - !private ["s14_IndexableBaseP", "values"]
 - !private ["s14_IndexableBaseP", "write"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Array"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Campus"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CampusError"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "ComparisonResult"]
@@ -1151,10 +1160,9 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "unarchiveObject"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s17_MutableIndexableP", "append"]
-- !private ["s17_MutableIndexableP", "contains"]
 - !private ["s17_MutableIndexableP", "count"]
 - !private ["s17_MutableIndexableP", "filter"]
-- ["s17_MutableIndexableP", "init"]
+- !private ["s17_MutableIndexableP", "init"]
 - !private ["s17_MutableIndexableP", "isEmpty"]
 - !private ["s17_MutableIndexableP", "last"]
 - !private ["s17_MutableIndexableP", "sort"]
@@ -1184,10 +1192,9 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "values"]
 - !private ["s21_ObjectiveCBridgeableP", "write"]
 - !private ["s22_RandomAccessIndexableP", "append"]
-- !private ["s22_RandomAccessIndexableP", "contains"]
 - !private ["s22_RandomAccessIndexableP", "count"]
 - !private ["s22_RandomAccessIndexableP", "filter"]
-- ["s22_RandomAccessIndexableP", "init"]
+- !private ["s22_RandomAccessIndexableP", "init"]
 - !private ["s22_RandomAccessIndexableP", "isEmpty"]
 - !private ["s22_RandomAccessIndexableP", "last"]
 - !private ["s22_RandomAccessIndexableP", "sort"]
@@ -1196,11 +1203,10 @@ depends-member:
 - !private ["s22_RandomAccessIndexableP", "subscript"]
 - !private ["s22_RandomAccessIndexableP", "write"]
 - !private ["s26_RangeReplaceableIndexableP", "append"]
-- !private ["s26_RangeReplaceableIndexableP", "contains"]
 - !private ["s26_RangeReplaceableIndexableP", "count"]
 - !private ["s26_RangeReplaceableIndexableP", "dropLast"]
 - !private ["s26_RangeReplaceableIndexableP", "filter"]
-- ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s26_RangeReplaceableIndexableP", "isEmpty"]
 - !private ["s26_RangeReplaceableIndexableP", "last"]
 - !private ["s26_RangeReplaceableIndexableP", "sort"]
@@ -1214,9 +1220,9 @@ depends-member:
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "split"]
 depends-nominal:
-- "Sa"
+- !private "Sa"
 - !private "s10ArraySliceV"
-- "s23BidirectionalCollectionP"
+- !private "s23BidirectionalCollectionP"
 - !private "s13BinaryIntegerP"
 - !private "Sb"
 - "s7CVarArgP"
@@ -1255,7 +1261,7 @@ depends-nominal:
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "s25MutableBidirectionalSliceV"
-- "s17MutableCollectionP"
+- !private "s17MutableCollectionP"
 - !private "s24MutableRandomAccessSliceV"
 - !private "s12MutableSliceV"
 - !private "So7NSCoderC"
@@ -1281,8 +1287,8 @@ depends-nominal:
 - !private "6RushMe14RMImageQualityV"
 - !private "6RushMe9RMNetworkV"
 - !private "6RushMe14RMPropertyKeysV"
-- "s22RandomAccessCollectionP"
-- "s26RangeReplaceableCollectionP"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
 - !private "s21RangeReplaceableSliceV"
 - "s16RawRepresentableP"
 - !private "10Foundation20ReferenceConvertibleP"
@@ -1301,10 +1307,10 @@ depends-nominal:
 - !private "So7UIImageC"
 - !private "So39UIItemProviderPresentationSizeProvidingP"
 - !private "10Foundation3URLV"
-- "s14_ArrayProtocolP"
-- "s23_BidirectionalIndexableP"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
 - !private "s18_BitwiseOperationsP"
-- "s24_DestructorSafeContainerP"
+- !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
@@ -1319,10 +1325,10 @@ depends-nominal:
 - "s10_IndexableP"
 - "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
-- "s17_MutableIndexableP"
+- !private "s17_MutableIndexableP"
 - "s21_ObjectiveCBridgeableP"
-- "s22_RandomAccessIndexableP"
-- "s26_RangeReplaceableIndexableP"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
 - !private "s11_StrideableP"
 - !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
@@ -1380,4 +1386,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "3a732519c5ccce88cced3e4d887efa7b"
+interface-hash: "6e27dd420eb50594de82e69e29fd00f7"

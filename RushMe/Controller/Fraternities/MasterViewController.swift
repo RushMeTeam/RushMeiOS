@@ -32,6 +32,7 @@ class MasterViewController : UITableViewController,
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   var viewingFavorites : Bool  {
     set {
+      // TODO: Allow users to set the order of their favorites
       self.tableView.setEditing(false, animated: true)
       self.reloadTableView()
       refreshControl?.isEnabled = !viewingFavorites
@@ -57,6 +58,7 @@ class MasterViewController : UITableViewController,
         return shuffledFrats!
       }
       else {
+        // TODO: Allow no-shuffling option
         shuffledFrats = Campus.shared.fratNames.shuffled()
         return shuffledFrats!
       }
@@ -421,9 +423,6 @@ extension Sequence {
     var result = Array(self)
     result.shuffle()
     return result
-  }
-  func conditionallyShuffled() {
-    
   }
 } 
 
