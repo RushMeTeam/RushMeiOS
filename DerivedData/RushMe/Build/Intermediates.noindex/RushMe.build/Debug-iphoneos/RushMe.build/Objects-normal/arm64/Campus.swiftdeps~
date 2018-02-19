@@ -17,12 +17,14 @@ provides-member:
 - ["6RushMe10FraternityC", "init"]
 - ["6RushMe10FraternityC", "register"]
 provides-dynamic-lookup:
+- "allEvents"
 - "considerEventsBeforeToday"
 - "eventsByDay"
 - "favoritedEvents"
 - "favoritedEventsByDay"
 - "favoritedFrats"
 - "firstEvent"
+- "firstFavoritedEvent"
 - "firstLoad"
 - "fratNames"
 - "fraternitiesDict"
@@ -149,6 +151,7 @@ depends-member:
 - !private ["s7CVarArgP", "fileExists"]
 - !private ["s7CVarArgP", "filter"]
 - !private ["s7CVarArgP", "firstEvent_"]
+- !private ["s7CVarArgP", "firstFavoritedEvent_"]
 - !private ["s7CVarArgP", "firstLoad"]
 - !private ["s7CVarArgP", "frat"]
 - !private ["s7CVarArgP", "fratEventsByDay"]
@@ -199,7 +202,7 @@ depends-member:
 - ["6RushMe6CampusC", "Set"]
 - ["6RushMe6CampusC", "String"]
 - !private ["6RushMe6CampusC", "add"]
-- !private ["6RushMe6CampusC", "allEvents"]
+- ["6RushMe6CampusC", "allEvents"]
 - !private ["6RushMe6CampusC", "campusSharedInstance"]
 - ["6RushMe6CampusC", "considerEventsBeforeToday"]
 - ["6RushMe6CampusC", "deinit"]
@@ -213,6 +216,8 @@ depends-member:
 - ["6RushMe6CampusC", "favoritedFrats"]
 - ["6RushMe6CampusC", "firstEvent"]
 - !private ["6RushMe6CampusC", "firstEvent_"]
+- ["6RushMe6CampusC", "firstFavoritedEvent"]
+- !private ["6RushMe6CampusC", "firstFavoritedEvent_"]
 - ["6RushMe6CampusC", "firstLoad"]
 - !private ["6RushMe6CampusC", "fratEventsByDay"]
 - ["6RushMe6CampusC", "fratNames"]
@@ -300,6 +305,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "fileExists"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "firstEvent_"]
+- !private ["s28CustomDebugStringConvertibleP", "firstFavoritedEvent_"]
 - !private ["s28CustomDebugStringConvertibleP", "firstLoad"]
 - !private ["s28CustomDebugStringConvertibleP", "frat"]
 - !private ["s28CustomDebugStringConvertibleP", "fratEventsByDay"]
@@ -403,6 +409,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "fileExists"]
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "firstEvent_"]
+- !private ["s23CustomStringConvertibleP", "firstFavoritedEvent_"]
 - !private ["s23CustomStringConvertibleP", "firstLoad"]
 - !private ["s23CustomStringConvertibleP", "frat"]
 - !private ["s23CustomStringConvertibleP", "fratEventsByDay"]
@@ -534,6 +541,7 @@ depends-member:
 - !private ["s9EquatableP", "fileExists"]
 - !private ["s9EquatableP", "filter"]
 - !private ["s9EquatableP", "firstEvent_"]
+- !private ["s9EquatableP", "firstFavoritedEvent_"]
 - !private ["s9EquatableP", "firstLoad"]
 - !private ["s9EquatableP", "frat"]
 - !private ["s9EquatableP", "fratEventsByDay"]
@@ -665,6 +673,7 @@ depends-member:
 - !private ["s8HashableP", "fileExists"]
 - !private ["s8HashableP", "filter"]
 - !private ["s8HashableP", "firstEvent_"]
+- !private ["s8HashableP", "firstFavoritedEvent_"]
 - !private ["s8HashableP", "firstLoad"]
 - !private ["s8HashableP", "frat"]
 - !private ["s8HashableP", "fratEventsByDay"]
@@ -780,6 +789,8 @@ depends-member:
 - !private ["So8NSObjectC", "fileExists"]
 - ["So8NSObjectC", "firstEvent"]
 - ["So8NSObjectC", "firstEvent_"]
+- ["So8NSObjectC", "firstFavoritedEvent"]
+- ["So8NSObjectC", "firstFavoritedEvent_"]
 - ["So8NSObjectC", "firstLoad"]
 - !private ["So8NSObjectC", "frat"]
 - ["So8NSObjectC", "fratEventsByDay"]
@@ -840,6 +851,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritedFrats"]
 - !private ["So16NSObjectProtocolP", "fileExists"]
 - !private ["So16NSObjectProtocolP", "firstEvent_"]
+- !private ["So16NSObjectProtocolP", "firstFavoritedEvent_"]
 - !private ["So16NSObjectProtocolP", "firstLoad"]
 - !private ["So16NSObjectProtocolP", "frat"]
 - !private ["So16NSObjectProtocolP", "fratEventsByDay"]
@@ -1116,6 +1128,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fileExists"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstEvent_"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "firstFavoritedEvent_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstLoad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "frat"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fratEventsByDay"]
@@ -1367,4 +1380,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "770744116f967eae75b8a8a291dc7559"
+interface-hash: "3a732519c5ccce88cced3e4d887efa7b"

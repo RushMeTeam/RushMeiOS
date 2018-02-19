@@ -12,6 +12,7 @@ plotly.tools.set_credentials_file(username = "adamthk", api_key = APIKEY)
 plotly.tools.set_config_file(world_readable=True, sharing='public')
 
 plotEnabled = True
+selectedFraternities = {}
 
 def dictionaryAnalysis(d, total, stringToFormat):
     outString = ""
@@ -139,19 +140,26 @@ for uuid in uuids:
 fratConnections = []
 for frat in fratInfo:
     for anotherFrat in sorted(fratInfo):
-        if frat != anotherFrat:
+        if frat != anotherFrat and (len(selectedFraternities) == 0 or (frat in selectedFraternities) or (anotherFrat in selectedFraternities)):
             fratConnections.append((frat, anotherFrat, (fratInfo[frat] & fratInfo[anotherFrat])))
 print("Most Favorited:")
 x = []
 y = []
+totalFavorites = 0
 for fratLikes in sorted(fratInfo.items(), key= lambda x : len(x[1]), reverse= True)[:10]:
     print("\t{0:<24} {1}".format(fratLikes[0], len(fratLikes[1])))
+    numberFavorites = len(fratLikes[1])
     x.append(fratLikes[0])
     y.append(len(fratLikes[1]))
-fig1 = Figure(data=[Bar(x=x, 
-                        y=y, 
-                        text=y, 
-                        textposition = 'auto',  
+    totalFavorites += numberFavorites
+for i in range(len(y)):
+    y[i] = str(float(y[i])*100/float(totalFavorites)) + "%"
+
+
+fig1 = Figure(data=[Bar(x=x,
+                        y=y,
+                        text=y,
+                        textposition = 'auto',
                         marker = dict(color = 'rgb(41, 171, 226)'))],
               layout=Layout(
                  title='<br>RushMe Net Favorites by Fraternity',
@@ -159,7 +167,7 @@ fig1 = Figure(data=[Bar(x=x,
                 showlegend=False,
                 hovermode='closest',
                 annotations=[ dict(
-                    text="Adam Kuniholm",
+                    text="by Adam Kuniholm (for RPI IFC E-Board only)",
                     showarrow=False,
                     xref="paper", yref="paper",
                     x=0.005, y=-0.002 ) ],
@@ -197,16 +205,16 @@ for fraternity, otherFrat, sharedUsers in fratConnections:
     if connectionWeight > averageSharedUsers or len(breaks) < 10:
         G.add_edge(fraternity, otherFrat, weight = connectionWeight)
 # ############################################################################################## #
-# Define edge traces 
+# Define edge traces
 #        (to add visual differences between ranges of values)
 edge_traces = dict()
 for lowerBound in breaks:
-    edge_traces[lowerBound] = Scatter(x = [], 
-                                      y = [], 
-                                      text = [], 
-                                      line = Line(width = lowerBound/1.5, 
-                                                  color = colors[breaks.index(lowerBound)%len(colors)]), 
-                                      hoverinfo='text', 
+    edge_traces[lowerBound] = Scatter(x = [],
+                                      y = [],
+                                      text = [],
+                                      line = Line(width = breaks.index(lowerBound),
+                                                  color = colors[breaks.index(lowerBound)%len(colors)]),
+                                      hoverinfo='text',
                                       mode = 'lines')
 # ############################################################################################## #
 # Define all edges visually
@@ -241,7 +249,7 @@ fig2 = Figure(data=Data(allTraces),
                 hovermode='closest',
                 margin=dict(b=20,l=5,r=5,t=40),
                 annotations=[ dict(
-                    text="Python code: <a href='https://plot.ly/ipython-notebooks/network-graphs/'> https://plot.ly/ipython-notebooks/network-graphs/</a>",
+                    text="by Adam Kuniholm (for RPI IFC E-Board only)",
                     showarrow=False,
                     xref="paper", yref="paper",
                     x=0.005, y=-0.002 ) ],
@@ -250,8 +258,12 @@ fig2 = Figure(data=Data(allTraces),
 # ############################################################################################## #
 # Finally, plot the node/edge traces
 if G.number_of_edges() > 0 and plotEnabled:
-    py.plot(fig2, filename = "NetworkPlot")
-    py.plot(fig1, filename="netLikeBarChart")
+    py.plot(fig2, filename = "NetworkPlot", auto_open = False)
+    py.plot(fig1, filename="netLikeBarChart", auto_open = False)
 else:
     print("Plots not plotted")
+
+#import plotly.tools as tls
+#print(tls.get_embed('https://plot.ly/~chris/1638'))
+
 connection.close()

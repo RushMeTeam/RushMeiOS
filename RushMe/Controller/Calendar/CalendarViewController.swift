@@ -37,7 +37,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   let eventCountThreshold = 9
   var viewingFavorites : Bool {
     get {
-     return Campus.shared.hasFavorites  && self.favoritesSegmentControl.selectedSegmentIndex == 1 
+     return Campus.shared.hasFavorites && favoritesSegmentControl.selectedSegmentIndex == 1
+    }
+    set {
+      favoritesSegmentControl.selectedSegmentIndex = 0
+      collectionView.reloadData()
     }
   }
   var firstEvent : FratEvent? { 
@@ -141,12 +145,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
+    viewingFavorites = Campus.shared.hasFavorites
     DispatchQueue.global().async {
       self.fileURL =
         RushCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
     shareButton.isEnabled = flatDataSource.count != 0
-    favoritesSegmentControl.selectedSegmentIndex = Campus.shared.hasFavorites ? 1 : 0
+    
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     panGestureRecognizer.isEnabled = shareButton.isEnabled
     tapGestureRecognizer.isEnabled = panGestureRecognizer.isEnabled
@@ -160,7 +165,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       navigationController?.navigationBar.tintColor = UIColor.lightGray
       drawerButton.tintColor = RMColor.AppColor
     }
-    self.collectionView.reloadData()
     
   }
   override func didReceiveMemoryWarning() {
@@ -304,9 +308,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     else {
       cell.eventsLabel.isHidden = true
     }
-    if selectedIndexPath == nil && indexPath.row == collectionView.numberOfItems(inSection: 0)-1 {
-      self.collectionView(self.collectionView, didHighlightItemAt: IndexPath.init(item: 7, section: 0))
-    }
+
     return cell
   }
   // MARK: - UICollectionViewDelegate

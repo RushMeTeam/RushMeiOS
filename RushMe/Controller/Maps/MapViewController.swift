@@ -69,7 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     self.favoritesControl.isEnabled = false
     var loadList = Campus.shared.favoritedFrats
     if fromAllFrats {
-      loadList = Array(Campus.shared.fraternitiesDict.keys)
+      loadList = Set(Campus.shared.fraternitiesDict.keys)
     }
     self.mapView.removeAnnotations(mapView.annotations)
     for fratName in loadList {

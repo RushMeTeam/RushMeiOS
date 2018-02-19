@@ -42,9 +42,20 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   }
   
   
-  var imageBorderColor = UIColor.clear {
+  private(set) var imageBorderColor = UIColor.clear {
     didSet {
       self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
+      self.layoutSubviews()
+    }
+  }
+  var isAccentuated : Bool = false {
+    didSet {
+      if isAccentuated {
+       self.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
+      }
+      else {
+       self.imageBorderColor = UIColor.white.withAlphaComponent(0.2)
+      }
     }
   }
 }

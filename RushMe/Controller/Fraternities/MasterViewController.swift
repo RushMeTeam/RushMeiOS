@@ -30,16 +30,39 @@ class MasterViewController : UITableViewController,
   let progressView = UIProgressView.init()
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
-  var viewingFavorites = false {
-    didSet {
+  var viewingFavorites : Bool  {
+    set {
       self.tableView.setEditing(false, animated: true)
       self.reloadTableView()
       refreshControl?.isEnabled = !viewingFavorites
       self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
     }
+    get {
+      return self.favoritesSegmentControl != nil && self.favoritesSegmentControl!.selectedSegmentIndex == 1
+    }
+  }
+  var shuffledFrats : [String]? = nil {
+    willSet {
+      if newValue == nil {
+       self.reloadTableView()
+      }
+    }
+  }
+  var dataKeys : [String] {
+    get {
+      if viewingFavorites {
+       return Array(Campus.shared.favoritedFrats)
+      }
+      else if let _ = shuffledFrats, !self.refreshControl!.isRefreshing {
+        return shuffledFrats!
+      }
+      else {
+        shuffledFrats = Campus.shared.fratNames.shuffled()
+        return shuffledFrats!
+      }
+    }
   }
   weak var favoritesSegmentControl : UISegmentedControl?
-
   
   func reloadTableView() {
     UIView.transition(with: tableView,
@@ -116,7 +139,7 @@ class MasterViewController : UITableViewController,
       self.progressView.setProgress(0.05, animated: false)
       self.progressView.alpha = 1
       self.favoritesSegmentControl?.isEnabled = false
-      
+      self.shuffledFrats = nil
     }
     if !SQLHandler.shared.isConnected {
       return false
@@ -124,7 +147,7 @@ class MasterViewController : UITableViewController,
     var dictArray = [Dictionary<String, Any>()]
     if types.count == 0{
         if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-          dictArray = arr.shuffled()
+          dictArray = arr
         }
     }
     else {
@@ -146,7 +169,7 @@ class MasterViewController : UITableViewController,
           Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           fratCount += 1
           DispatchQueue.main.async {
-            self.reloadTableView()
+            //self.reloadTableView()
             // Don't allow refresh during refresh
             self.refreshControl!.isEnabled = false
             // Every other fraternity loaded should be indicated
@@ -238,10 +261,10 @@ class MasterViewController : UITableViewController,
       // row-1 because first cell is the segment control
       let row = indexPath.row - 1
       if segue.identifier == "showDetail" {
-        var fratName = Campus.shared.fratNames[row]
-        if (viewingFavorites) {
-          fratName = Campus.shared.favoritedFrats[row]
-        }
+        let fratName = dataKeys[row]
+//        if (viewingFavorites) {
+//          fratName = Campus.shared.favoritedFrats[row]
+//        }
         SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
         if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
           let controller = (segue.destination as! UINavigationController).topViewController
@@ -297,7 +320,7 @@ class MasterViewController : UITableViewController,
       favoritesSegmentControl = cell.segmentControl
       return cell
     }
-    if ((viewingFavorites && Campus.shared.favoritedFrats.count == 0) || 
+    if ((viewingFavorites && !Campus.shared.hasFavorites) ||
       !viewingFavorites && Campus.shared.fratNames.count == 0) {
       let cell = UITableViewCell()
       cell.selectionStyle = .none
@@ -307,14 +330,12 @@ class MasterViewController : UITableViewController,
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
-    let fratName = viewingFavorites ? Campus.shared.favoritedFrats[indexPath.row-1] : Campus.shared.fratNames[indexPath.row-1]
+    let fratName = dataKeys[indexPath.row-1]
     if let frat = Campus.shared.fraternitiesDict[fratName]{
       cell.titleLabel?.text = frat.name
       //cell.subheadingLabel?.text = frat.chapter
       cell.previewImageView?.image = frat.previewImage
-      if Campus.shared.favoritedFrats.contains(frat.name) {
-        cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
-      }
+      cell.isAccentuated = Campus.shared.favoritedFrats.contains(frat.name)
     }
     cell.layoutSubviews()
     return cell
@@ -334,24 +355,21 @@ class MasterViewController : UITableViewController,
     }
   }
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let fratName = viewingFavorites ? Campus.shared.favoritedFrats[indexPath.row-1] : Campus.shared.fratNames[indexPath.row-1]
+    let fratName = dataKeys[indexPath.row-1]
     var title = RMMessage.Favorite
     var bgColor = RMColor.AppColor
-    var fratIndex = Int(999)
-    if let index = Campus.shared.favoritedFrats.index(of: fratName) {
+    if Campus.shared.favoritedFrats.contains(fratName) {
       title = RMMessage.Unfavorite
-      fratIndex = index
       bgColor = bgColor.withAlphaComponent(0.5)
     }
     let toggleFavorite = UITableViewRowAction(style: .normal, title: title, handler: {
       action, cellIndex in
       if (title == RMMessage.Favorite) {
         let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
-        Campus.shared.favoritedFrats.append(fratName)
+        Campus.shared.favoritedFrats.insert(fratName)
         action.backgroundColor = RMColor.AppColor
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
-          cell.layoutSubviews()
+          cell.isAccentuated = true
           SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
         }
         action.backgroundColor = RMColor.AppColor
@@ -359,11 +377,10 @@ class MasterViewController : UITableViewController,
       else {
         action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
         if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.imageBorderColor = UIColor.clear
-          cell.layoutSubviews()
-          SQLHandler.shared.informAction(action: "Fraternity Unfavorited by Swipe", options: fratName)
+          cell.isAccentuated = false
+          SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
         }
-        Campus.shared.favoritedFrats.remove(at: fratIndex)
+        Campus.shared.favoritedFrats.remove(fratName)
         if (self.viewingFavorites) {
           self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
         }
@@ -404,6 +421,9 @@ extension Sequence {
     var result = Array(self)
     result.shuffle()
     return result
+  }
+  func conditionallyShuffled() {
+    
   }
 } 
 

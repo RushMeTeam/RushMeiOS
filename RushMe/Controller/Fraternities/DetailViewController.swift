@@ -50,7 +50,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: frat.name)
       }
       else {
-        Campus.shared.favoritedFrats.append(frat.name)
+        Campus.shared.favoritedFrats.insert(frat.name)
         favoritesButton.image = RMImage.FavoritesImageFilled
         self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
         SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: frat.name)
@@ -116,9 +116,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       if (senderView != self.profileImageView) {
         self.setViews(toAlpha: 1 - overTime, except: senderView)
       }
-      
       sender.scale = 1
-      
     }
     else {
       self.scrollView.isScrollEnabled = true

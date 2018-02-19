@@ -31,7 +31,7 @@ enum Quality : Int {
 class Campus: NSObject {
   // MARK: Member Variables
   // The user's favorite fraternities
-  var favoritedFrats = [String]() {
+  var favoritedFrats = Set<String>() {
     didSet {
       self.saveFavorites()
       self.firstFavoritedEvent_ = nil
@@ -44,9 +44,9 @@ class Campus: NSObject {
     return !favoritedFrats.isEmpty
   }
   // The name of every fraternity, in download order
-  var fratNames = [String]()
+  private(set) var fratNames = Set<String>()
   // Refer to each fraternity by its name, in no order
-  var fraternitiesDict = [String : Fraternity]()
+  private(set) var fraternitiesDict = [String : Fraternity]()
   // FratEvents, unordered
   private var favoritedEvents_ : Set<FratEvent>? = nil
   var favoritedEvents : Set<FratEvent> {
@@ -194,7 +194,7 @@ class Campus: NSObject {
     }
     else {
       self.fraternitiesDict[frat.name] = frat
-      self.fratNames.append(frat.name)
+      self.fratNames.insert(frat.name)
       DispatchQueue.global(qos: .background).async {
         let _ = self.getEvents(forFratWithName: frat.name)
       }
@@ -284,9 +284,9 @@ class Campus: NSObject {
       }
     }
   }
-  static private func loadFavorites() -> [String]? {
+  static private func loadFavorites() -> Set<String>? {
     if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.favoritedFratURL.path) as? [String] {
-      return favoritedFrats
+      return Set<String>(favoritedFrats)
     }
     else {
       print("Error loading favorite frats from: \(RMFileManagement.favoritedFratURL.path)")
