@@ -8,7 +8,7 @@ provides-member:
 provides-dynamic-lookup:
 - "buttons"
 - "calendarButton"
-- "eventsButton"
+- "feedButton"
 - "fraternitiesButton"
 - "mapButton"
 - "masterVC"
@@ -34,7 +34,7 @@ depends-top-level:
 - !private "UIView"
 - "UIViewController"
 - !private "calendarSegueIdentifier"
-- !private "eventsSegueIdentifier"
+- !private "feedSegueIdentifier"
 - !private "fraternitiesSegueIdentifier"
 - !private "mapSegueIdentifier"
 - !private "settingsSegueIdentifier"
@@ -58,7 +58,6 @@ depends-member:
 - !private ["s7CVarArgP", "clear"]
 - !private ["s7CVarArgP", "fraternitiesButton"]
 - !private ["s7CVarArgP", "identifier"]
-- !private ["s7CVarArgP", "informAction"]
 - ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "isScrollEnabled"]
 - !private ["s7CVarArgP", "isSelected"]
@@ -67,7 +66,6 @@ depends-member:
 - !private ["s7CVarArgP", "pushFrontViewController"]
 - !private ["s7CVarArgP", "reuseIdentifier"]
 - !private ["s7CVarArgP", "revealViewController"]
-- !private ["s7CVarArgP", "shared"]
 - !private ["s7CVarArgP", "tableView"]
 - !private ["s7CVarArgP", "topCell"]
 - !private ["s7CVarArgP", "view"]
@@ -86,7 +84,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "clear"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesButton"]
 - !private ["s28CustomDebugStringConvertibleP", "identifier"]
-- !private ["s28CustomDebugStringConvertibleP", "informAction"]
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isScrollEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "isSelected"]
@@ -95,7 +92,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "pushFrontViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "reuseIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "revealViewController"]
-- !private ["s28CustomDebugStringConvertibleP", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "tableView"]
 - !private ["s28CustomDebugStringConvertibleP", "topCell"]
 - !private ["s28CustomDebugStringConvertibleP", "view"]
@@ -117,7 +113,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "clear"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesButton"]
 - !private ["s23CustomStringConvertibleP", "identifier"]
-- !private ["s23CustomStringConvertibleP", "informAction"]
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "isScrollEnabled"]
 - !private ["s23CustomStringConvertibleP", "isSelected"]
@@ -126,7 +121,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "pushFrontViewController"]
 - !private ["s23CustomStringConvertibleP", "reuseIdentifier"]
 - !private ["s23CustomStringConvertibleP", "revealViewController"]
-- !private ["s23CustomStringConvertibleP", "shared"]
 - !private ["s23CustomStringConvertibleP", "tableView"]
 - !private ["s23CustomStringConvertibleP", "topCell"]
 - !private ["s23CustomStringConvertibleP", "view"]
@@ -146,7 +140,7 @@ depends-member:
 - ["6RushMe24DrawerMenuViewControllerC", "buttons"]
 - ["6RushMe24DrawerMenuViewControllerC", "calendarButton"]
 - ["6RushMe24DrawerMenuViewControllerC", "deinit"]
-- ["6RushMe24DrawerMenuViewControllerC", "eventsButton"]
+- ["6RushMe24DrawerMenuViewControllerC", "feedButton"]
 - ["6RushMe24DrawerMenuViewControllerC", "fraternitiesButton"]
 - ["6RushMe24DrawerMenuViewControllerC", "init"]
 - ["6RushMe24DrawerMenuViewControllerC", "mapButton"]
@@ -173,7 +167,6 @@ depends-member:
 - !private ["s9EquatableP", "clear"]
 - !private ["s9EquatableP", "fraternitiesButton"]
 - !private ["s9EquatableP", "identifier"]
-- !private ["s9EquatableP", "informAction"]
 - ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "isScrollEnabled"]
 - !private ["s9EquatableP", "isSelected"]
@@ -182,7 +175,6 @@ depends-member:
 - !private ["s9EquatableP", "pushFrontViewController"]
 - !private ["s9EquatableP", "reuseIdentifier"]
 - !private ["s9EquatableP", "revealViewController"]
-- !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "tableView"]
 - !private ["s9EquatableP", "topCell"]
 - !private ["s9EquatableP", "view"]
@@ -204,7 +196,6 @@ depends-member:
 - !private ["s8HashableP", "clear"]
 - !private ["s8HashableP", "fraternitiesButton"]
 - !private ["s8HashableP", "identifier"]
-- !private ["s8HashableP", "informAction"]
 - ["s8HashableP", "init"]
 - !private ["s8HashableP", "isScrollEnabled"]
 - !private ["s8HashableP", "isSelected"]
@@ -213,7 +204,6 @@ depends-member:
 - !private ["s8HashableP", "pushFrontViewController"]
 - !private ["s8HashableP", "reuseIdentifier"]
 - !private ["s8HashableP", "revealViewController"]
-- !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "tableView"]
 - !private ["s8HashableP", "topCell"]
 - !private ["s8HashableP", "view"]
@@ -282,10 +272,9 @@ depends-member:
 - ["So8NSObjectC", "buttons"]
 - ["So8NSObjectC", "calendarButton"]
 - !private ["So8NSObjectC", "clear"]
-- ["So8NSObjectC", "eventsButton"]
+- ["So8NSObjectC", "feedButton"]
 - ["So8NSObjectC", "fraternitiesButton"]
 - !private ["So8NSObjectC", "identifier"]
-- !private ["So8NSObjectC", "informAction"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "isScrollEnabled"]
 - !private ["So8NSObjectC", "isSelected"]
@@ -297,7 +286,6 @@ depends-member:
 - !private ["So8NSObjectC", "reuseIdentifier"]
 - !private ["So8NSObjectC", "revealViewController"]
 - ["So8NSObjectC", "settingsButton"]
-- !private ["So8NSObjectC", "shared"]
 - !private ["So8NSObjectC", "tableView"]
 - ["So8NSObjectC", "topCell"]
 - !private ["So8NSObjectC", "view"]
@@ -314,7 +302,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "clear"]
 - !private ["So16NSObjectProtocolP", "fraternitiesButton"]
 - !private ["So16NSObjectProtocolP", "identifier"]
-- !private ["So16NSObjectProtocolP", "informAction"]
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "isScrollEnabled"]
 - !private ["So16NSObjectProtocolP", "isSelected"]
@@ -323,7 +310,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "pushFrontViewController"]
 - !private ["So16NSObjectProtocolP", "reuseIdentifier"]
 - !private ["So16NSObjectProtocolP", "revealViewController"]
-- !private ["So16NSObjectProtocolP", "shared"]
 - !private ["So16NSObjectProtocolP", "tableView"]
 - !private ["So16NSObjectProtocolP", "topCell"]
 - !private ["So16NSObjectProtocolP", "view"]
@@ -477,7 +463,7 @@ depends-member:
 - !private ["So11UIResponderC", "backgroundColor"]
 - ["So11UIResponderC", "buttons"]
 - ["So11UIResponderC", "calendarButton"]
-- ["So11UIResponderC", "eventsButton"]
+- ["So11UIResponderC", "feedButton"]
 - ["So11UIResponderC", "fraternitiesButton"]
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "isScrollEnabled"]
@@ -570,7 +556,7 @@ depends-member:
 - ["So21UITableViewControllerC", "UIViewController"]
 - ["So21UITableViewControllerC", "buttons"]
 - ["So21UITableViewControllerC", "calendarButton"]
-- ["So21UITableViewControllerC", "eventsButton"]
+- ["So21UITableViewControllerC", "feedButton"]
 - ["So21UITableViewControllerC", "fraternitiesButton"]
 - ["So21UITableViewControllerC", "init"]
 - ["So21UITableViewControllerC", "mapButton"]
@@ -653,7 +639,7 @@ depends-member:
 - ["So16UIViewControllerC", "UIViewController"]
 - ["So16UIViewControllerC", "buttons"]
 - ["So16UIViewControllerC", "calendarButton"]
-- ["So16UIViewControllerC", "eventsButton"]
+- ["So16UIViewControllerC", "feedButton"]
 - ["So16UIViewControllerC", "fraternitiesButton"]
 - ["So16UIViewControllerC", "init"]
 - ["So16UIViewControllerC", "mapButton"]
@@ -695,7 +681,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "clear"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesButton"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "identifier"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "informAction"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isScrollEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isSelected"]
@@ -704,7 +689,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pushFrontViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "reuseIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "revealViewController"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tableView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "topCell"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "view"]
@@ -855,4 +839,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "f258472dcc54a9e7096600505f974881"
+interface-hash: "ab5f46a690f23e90299e8a4afaa94091"

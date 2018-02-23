@@ -375,7 +375,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 
 SWIFT_CLASS("_TtC6RushMe24DrawerMenuViewController")
 @interface DrawerMenuViewController : UITableViewController
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified eventsButton;
+@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified feedButton;
 @property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified fraternitiesButton;
 @property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified settingsButton;
 @property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified calendarButton;
@@ -425,6 +425,22 @@ SWIFT_CLASS("_TtC6RushMe24EventTableViewController")
 @end
 
 
+SWIFT_CLASS("_TtC6RushMe23FeedTableViewController")
+@interface FeedTableViewController : UITableViewController
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified drawerButton;
+- (IBAction)toggleMenu:(UIBarButtonItem * _Nonnull)sender;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (void)viewWillAppear:(BOOL)animated;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC6RushMe9FratEvent")
 @interface FratEvent : NSObject
 @property (nonatomic, readonly, copy) NSCalendar * _Nonnull calendar SWIFT_DEPRECATED_OBJC("Swift property 'FratEvent.calendar' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -458,32 +474,6 @@ SWIFT_CLASS("_TtC6RushMe10Fraternity")
 @interface Fraternity (SWIFT_EXTENSION(RushMe))
 - (nullable instancetype)initFromDict:(NSDictionary<NSString *, id> * _Nonnull)dict loadImages:(BOOL)loadImages SWIFT_DEPRECATED_OBJC("Swift initializer 'Fraternity.init(fromDict:loadImages:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)registerWithCampus:(Campus * _Nonnull)campus SWIFT_DEPRECATED_OBJC("Swift method 'Fraternity.register(withCampus:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@end
-
-@class UISearchController;
-
-SWIFT_CLASS("_TtC6RushMe33FullEventsListTableViewController")
-@interface FullEventsListTableViewController : UITableViewController <UISearchResultsUpdating>
-@property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified drawerButton;
-@property (nonatomic, weak) UISegmentedControl * _Nullable favoritesSegmentControl SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.favoritesSegmentControl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSArray<NSArray<FratEvent *> *> * _Nonnull dataSource SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.dataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) BOOL emptyDataSource SWIFT_DEPRECATED_OBJC("Swift property 'FullEventsListTableViewController.emptyDataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)reloadTableView SWIFT_DEPRECATED_OBJC("Swift method 'FullEventsListTableViewController.reloadTableView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
-- (void)didReceiveMemoryWarning;
-- (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
-- (void)segmentControlChangedWithSender:(UISegmentedControl * _Nonnull)sender;
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<NSString *> * _Nullable)sectionIndexTitlesForTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UIVisualEffectView;
@@ -560,6 +550,20 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 @end
 
 
+SWIFT_CLASS("_TtC6RushMe17PollTableViewCell")
+@interface PollTableViewCell : UITableViewCell
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull options SWIFT_DEPRECATED_OBJC("Swift property 'PollTableViewCell.options' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified pollFraternityLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified pollTitleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified pollImageView;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified pollDescriptionTextView;
+- (void)awakeFromNib;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC6RushMe11SegmentCell")
 @interface SegmentCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UISegmentedControl * _Null_unspecified segmentControl;
@@ -581,7 +585,8 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
-@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified clearCacheButton;
+@property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified fraternitiesAlphabeticalSwitch;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified clearCacheButton;
 - (IBAction)clearCache:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

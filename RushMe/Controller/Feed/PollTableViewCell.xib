@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PollCell" rowHeight="140" id="KGk-i7-Jjw" customClass="PollTableViewCell" customModule="RushMe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="T8j-xC-9oL">
+                        <rect key="frame" x="16" y="11" width="64" height="64"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="BNE-Cw-c55"/>
+                            <constraint firstAttribute="height" constant="64" id="ZMW-fs-7CN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poll XYZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mad-JS-fB1">
+                        <rect key="frame" x="88" y="11" width="216" height="21"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                        </accessibility>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fraternity XYZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6n-ee-HTx">
+                        <rect key="frame" x="88" y="36" width="216" height="14"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                        </accessibility>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="When should we do dormstorming?" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ3-7i-KAs">
+                        <rect key="frame" x="16" y="83" width="288" height="48.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="H6P-2s-C83"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="j6n-ee-HTx" firstAttribute="top" secondItem="Mad-JS-fB1" secondAttribute="bottom" constant="4" id="425-ou-dac"/>
+                    <constraint firstItem="j6n-ee-HTx" firstAttribute="leading" secondItem="T8j-xC-9oL" secondAttribute="trailing" constant="8" id="65I-TI-RxD"/>
+                    <constraint firstItem="yJ3-7i-KAs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Mrc-70-sfO"/>
+                    <constraint firstAttribute="trailing" secondItem="Mad-JS-fB1" secondAttribute="trailing" constant="16" id="NGZ-h1-kGc"/>
+                    <constraint firstAttribute="trailing" secondItem="yJ3-7i-KAs" secondAttribute="trailing" constant="16" id="Pd1-eg-edc"/>
+                    <constraint firstItem="Mad-JS-fB1" firstAttribute="top" secondItem="T8j-xC-9oL" secondAttribute="top" id="Wpj-uH-aOg"/>
+                    <constraint firstItem="Mad-JS-fB1" firstAttribute="leading" secondItem="T8j-xC-9oL" secondAttribute="trailing" constant="8" id="YaY-SD-xa2"/>
+                    <constraint firstItem="T8j-xC-9oL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aOm-1B-QWb"/>
+                    <constraint firstItem="T8j-xC-9oL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="dQr-IM-SGT"/>
+                    <constraint firstAttribute="trailing" secondItem="j6n-ee-HTx" secondAttribute="trailing" constant="16" id="fSj-Jd-cwv"/>
+                    <constraint firstItem="yJ3-7i-KAs" firstAttribute="top" secondItem="T8j-xC-9oL" secondAttribute="bottom" constant="8" id="y5c-Mg-r9N"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yJ3-7i-KAs" secondAttribute="bottom" constant="8" id="zEP-pL-6S7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="pollDescriptionTextView" destination="yJ3-7i-KAs" id="OhM-lb-vg7"/>
+                <outlet property="pollFraternityLabel" destination="j6n-ee-HTx" id="QcF-FM-Fyg"/>
+                <outlet property="pollImageView" destination="T8j-xC-9oL" id="Mwj-M7-Tao"/>
+                <outlet property="pollTitleLabel" destination="Mad-JS-fB1" id="g6u-dl-24x"/>
+            </connections>
+            <point key="canvasLocation" x="71" y="77"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="defaultImage" width="2509" height="1667"/>
+    </resources>
+</document>

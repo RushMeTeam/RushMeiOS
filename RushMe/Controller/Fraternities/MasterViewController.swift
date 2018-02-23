@@ -54,6 +54,9 @@ class MasterViewController : UITableViewController,
       if viewingFavorites {
        return Array(Campus.shared.favoritedFrats)
       }
+      else if !RMUserPreferences.shuffleEnabled {
+       return Array(Campus.shared.fratNames).sorted()
+      }
       else if let _ = shuffledFrats, !self.refreshControl!.isRefreshing {
         return shuffledFrats!
       }
@@ -159,7 +162,7 @@ class MasterViewController : UITableViewController,
       }
       querystring = String(querystring.dropLast(2))
       if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-        dictArray = arr.shuffled()
+        dictArray = arr
       }
     }
     if dictArray.count > Campus.shared.fratNames.count {
@@ -192,7 +195,6 @@ class MasterViewController : UITableViewController,
           }, completion: { (_) in
             self.refreshControl!.endRefreshing()
           })
-          
         }
       }
     }

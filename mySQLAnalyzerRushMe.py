@@ -12,7 +12,7 @@ plotly.tools.set_credentials_file(username = "adamthk", api_key = APIKEY)
 plotly.tools.set_config_file(world_readable=True, sharing='public')
 
 plotEnabled = True
-selectedFraternities = {}
+selectedFraternities = {"Rensselaer Society of Engineers", "Alpha Chi Rho", "Delta Phi"}
 
 def dictionaryAnalysis(d, total, stringToFormat):
     outString = ""
@@ -258,8 +258,20 @@ fig2 = Figure(data=Data(allTraces),
 # ############################################################################################## #
 # Finally, plot the node/edge traces
 if G.number_of_edges() > 0 and plotEnabled:
-    py.plot(fig2, filename = "NetworkPlot", auto_open = False)
     py.plot(fig1, filename="netLikeBarChart", auto_open = False)
+    if len(selectedFraternities) > 0:
+        filename = ""
+        newTitle = ""
+        for frat in selectedFraternities:
+            filename += frat.replace(" ", "")
+            newTitle += frat + "-"
+        filename += "NetworkPlot"
+        title = "Favorites Network"
+        fig2.update(dict(layout = dict(title = "Selected Fraternities Favorites Network")))
+        py.plot(fig2, filename = filename, auto_open = True)
+    else:
+        py.plot(fig2, filename = "NetworkPlot", auto_open = False)
+
 else:
     print("Plots not plotted")
 

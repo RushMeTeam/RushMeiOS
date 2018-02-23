@@ -10,6 +10,7 @@ provides-top-level:
 - "RMFratPropertyKeys"
 - "RMDatabaseKey"
 - "RMUser"
+- "RMUserPreferences"
 - "RMPropertyKeys"
 - "RMFileManagement"
 - "RMDate"
@@ -24,6 +25,7 @@ provides-nominal:
 - "6RushMe18RMFratPropertyKeysV"
 - "6RushMe13RMDatabaseKeyV"
 - "6RushMe6RMUserV"
+- "6RushMe17RMUserPreferencesV"
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe16RMFileManagementV"
 - "6RushMe6RMDateV"
@@ -38,6 +40,7 @@ provides-member:
 - ["6RushMe18RMFratPropertyKeysV", ""]
 - ["6RushMe13RMDatabaseKeyV", ""]
 - ["6RushMe6RMUserV", ""]
+- ["6RushMe17RMUserPreferencesV", ""]
 - ["6RushMe14RMPropertyKeysV", ""]
 - ["6RushMe16RMFileManagementV", ""]
 - ["6RushMe6RMDateV", ""]
@@ -47,6 +50,8 @@ depends-top-level:
 - "+"
 - "/"
 - "??"
+- "AssignmentPrecedence"
+- "Bool"
 - "BooleanLiteralType"
 - "Bundle"
 - "CGFloat"
@@ -70,6 +75,7 @@ depends-top-level:
 - "RMPropertyKeys"
 - "RMUser"
 - "RMUserDevice"
+- "RMUserPreferences"
 - "String"
 - "StringLiteralType"
 - "UIColor"
@@ -336,6 +342,10 @@ depends-member:
 - !private ["6RushMe12RMUserDeviceV", "appversion"]
 - ["6RushMe12RMUserDeviceV", "deviceInfo"]
 - ["6RushMe12RMUserDeviceV", "init"]
+- ["6RushMe17RMUserPreferencesV", "Bool"]
+- ["6RushMe17RMUserPreferencesV", "init"]
+- ["6RushMe17RMUserPreferencesV", "shuffleEnabled"]
+- !private ["6RushMe17RMUserPreferencesV", "shuffleEnabled_"]
 - ["s22RandomAccessCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "first"]
 - !private ["s26RangeReplaceableCollectionP", "hashValue"]
@@ -488,6 +498,7 @@ depends-nominal:
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe6RMUserV"
 - "6RushMe12RMUserDeviceV"
+- "6RushMe17RMUserPreferencesV"
 - "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
@@ -588,4 +599,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "a74d732ed3145323f8af0479e2bcc86b"
+interface-hash: "aba79535607e38fdabfcfaf9f4fdb897"

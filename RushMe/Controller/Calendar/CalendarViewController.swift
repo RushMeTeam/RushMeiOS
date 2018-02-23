@@ -95,7 +95,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     else {
       // TODO: Fix this so it exports the correct events (favorites or otherwise)
-      self.fileURL = RushCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+      self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
     if let url = self.fileURL {
       let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
@@ -148,7 +148,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     viewingFavorites = Campus.shared.hasFavorites
     DispatchQueue.global().async {
       self.fileURL =
-        RushCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+        RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
     shareButton.isEnabled = flatDataSource.count != 0
     

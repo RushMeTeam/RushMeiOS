@@ -74,11 +74,28 @@ struct RMDatabaseKey {
   static let ProfileImageKey = "profile_image"
   static let CoverImageKey = "cover_image"
   static let CalendarImageKey = "calendar_image"
-  
 }
 struct RMUser {
   static let minPassLength = 6 
   static let minUsernameLength = 6
+}
+// TODO: Make user preferences save (should include display events before today!)
+struct RMUserPreferences {
+  static private var shuffleEnabled_ : Bool? = nil
+  static var shuffleEnabled : Bool {
+    set {
+     self.shuffleEnabled_ = self.shuffleEnabled
+    }
+    get {
+      return shuffleEnabled_ ?? true
+    }
+  }
+//  private static func loadPreferences() {
+//
+//  }
+//  private static func savePreferences() {
+//
+//  }
 }
 
 struct RMPropertyKeys {

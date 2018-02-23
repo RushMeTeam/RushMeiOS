@@ -66,6 +66,7 @@ class SettingsViewController: UIViewController {
      Campus.shared.downloadedImageQuality = .High
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
+    RMUserPreferences.shuffleEnabled = !fraternitiesAlphabeticalSwitch.isOn
   }
 
   
@@ -74,8 +75,9 @@ class SettingsViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-
-  @IBOutlet var clearCacheButton: UIButton!
+  @IBOutlet weak var fraternitiesAlphabeticalSwitch: UISwitch!
+  
+  @IBOutlet weak var clearCacheButton: UIButton!
   @IBAction func clearCache(_ sender: UIButton) {
     var fileSize = 0.0
     var fileNumber = 0

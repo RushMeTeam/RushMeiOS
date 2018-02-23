@@ -11,13 +11,13 @@ fileprivate let fraternitiesSegueIdentifier = "Fraternities"
 fileprivate let settingsSegueIdentifier = "Settings"
 fileprivate let calendarSegueIdentifier = "Calendar"
 fileprivate let mapSegueIdentifier = "Maps"
-fileprivate let eventsSegueIdentifier = "Events"
+fileprivate let feedSegueIdentifier = "Feed"
 
 // The DrawerMenuViewController handles all sidebar navigation, managing all
 // animation and user interaction
 class DrawerMenuViewController: UITableViewController {
   
-  @IBOutlet weak var eventsButton: UITableViewCell!
+  @IBOutlet weak var feedButton: UITableViewCell!
   @IBOutlet weak var fraternitiesButton: UITableViewCell!
   @IBOutlet weak var settingsButton: UITableViewCell!
   @IBOutlet weak var calendarButton: UITableViewCell!
@@ -47,7 +47,6 @@ class DrawerMenuViewController: UITableViewController {
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let id = segue.identifier {
-      
       var selectedButton : UITableViewCell?
       // Find the selected button by matching segue identifier
       // with button (a UITableCell) reuse identifier
