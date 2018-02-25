@@ -63,6 +63,20 @@ struct RMFratPropertyKeys {
  static let fratMapAnnotation = "Annotation"
 }
 
+struct RMDatabaseFormat {
+  private static var dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+  static var dateFormatter : DateFormatter {
+    get {
+      let formatter = DateFormatter()
+      formatter.dateFormat = dateFormat
+      return formatter
+    }
+  }
+  static func date(fromSQLDateTime inputString: String) -> Date? {
+   return self.dateFormatter.date(from: inputString)
+  }
+}
+
 struct RMDatabaseKey {
   static let NameKey = "name"
   static let ChapterKey = "chapter"

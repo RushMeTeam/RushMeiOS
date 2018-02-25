@@ -31,6 +31,7 @@ class FeedTableViewController: UITableViewController {
     tableView.register(UINib.init(nibName: "PollTableViewCell", bundle: nil), forCellReuseIdentifier: pollCellIdentifier)
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    print(Campus.shared.fraternitiesDict["Chi Phi"]!.posts)
   }
   
   override func didReceiveMemoryWarning() {

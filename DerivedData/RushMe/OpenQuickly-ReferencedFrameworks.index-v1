@@ -3,13 +3,13 @@
 <plist version="1.0">
 <array>
 	<string>XCTest</string>
+	<string>QuartzCore</string>
 	<string>MapKit</string>
 	<string>RushMe</string>
-	<string>QuartzCore</string>
 	<string>CoreGraphics</string>
 	<string>iCalKit</string>
-	<string>OHMySQL</string>
 	<string>CoreFoundation</string>
+	<string>OHMySQL</string>
 	<string>UIKit</string>
 	<string>DeviceKit</string>
 	<string>Foundation</string>

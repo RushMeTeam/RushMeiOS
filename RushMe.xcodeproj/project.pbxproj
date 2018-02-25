@@ -20,7 +20,7 @@
 		DB05F7601F894A910090DEC3 /* RushMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75F1F894A910090DEC3 /* RushMeTests.swift */; };
 		DB05F76B1F894A910090DEC3 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
 		DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
-		DB0B732A203FAE4E00FFA951 /* RMPolls.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B7329203FAE4E00FFA951 /* RMPolls.swift */; };
+		DB0B732A203FAE4E00FFA951 /* RMPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B7329203FAE4E00FFA951 /* RMPoll.swift */; };
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */; };
 		DB2338A91FD4F53300FB7118 /* RMCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RMCalendarManager.swift */; };
@@ -148,7 +148,7 @@
 		DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RushMeUITests.swift; sourceTree = "<group>"; };
 		DB05F76C1F894A910090DEC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB05F7781F894AFB0090DEC3 /* Fraternity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fraternity.swift; sourceTree = "<group>"; };
-		DB0B7329203FAE4E00FFA951 /* RMPolls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPolls.swift; sourceTree = "<group>"; };
+		DB0B7329203FAE4E00FFA951 /* RMPoll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPoll.swift; sourceTree = "<group>"; };
 		DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
@@ -380,7 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2338A81FD4F53300FB7118 /* RMCalendarManager.swift */,
-				DB0B7329203FAE4E00FFA951 /* RMPolls.swift */,
+				DB0B7329203FAE4E00FFA951 /* RMPoll.swift */,
 				DB8997EA1FABFBA9006A5246 /* Campus.swift */,
 				DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */,
 				DB05F7781F894AFB0090DEC3 /* Fraternity.swift */,
@@ -772,7 +772,7 @@
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
 				DB3B2ABF1FAB9380004AD27F /* FratEvent.swift in Sources */,
 				DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */,
-				DB0B732A203FAE4E00FFA951 /* RMPolls.swift in Sources */,
+				DB0B732A203FAE4E00FFA951 /* RMPoll.swift in Sources */,
 				DB2338A91FD4F53300FB7118 /* RMCalendarManager.swift in Sources */,
 				DBF60528203FA25700101FEF /* FeedTableViewController.swift in Sources */,
 				DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */,

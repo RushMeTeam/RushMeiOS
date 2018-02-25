@@ -476,6 +476,8 @@ SWIFT_CLASS("_TtC6RushMe10Fraternity")
 - (void)registerWithCampus:(Campus * _Nonnull)campus SWIFT_DEPRECATED_OBJC("Swift method 'Fraternity.register(withCampus:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
+
+
 @class UIVisualEffectView;
 
 SWIFT_CLASS("_TtC6RushMe19ImageViewController")
@@ -552,12 +554,13 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 
 SWIFT_CLASS("_TtC6RushMe17PollTableViewCell")
 @interface PollTableViewCell : UITableViewCell
-@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull options SWIFT_DEPRECATED_OBJC("Swift property 'PollTableViewCell.options' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull options SWIFT_DEPRECATED_OBJC("Swift property 'PollTableViewCell.options' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified pollFraternityLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified pollTitleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified pollImageView;
 @property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified pollDescriptionTextView;
 - (void)awakeFromNib;
+- (void)selected:(UIButton * _Nonnull)pollChoice;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
