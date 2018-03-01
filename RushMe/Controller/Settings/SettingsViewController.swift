@@ -51,8 +51,11 @@ class SettingsViewController: UIViewController {
     if Campus.shared.downloadedImageQuality == .Low {
       qualityPicker.selectedSegmentIndex = 0
     }
+    fraternitiesAlphabeticalSwitch.isOn = RMUserPreferences.shuffleEnabled
     clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path)
   }
+  
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     // Update settings to match UI
@@ -66,7 +69,7 @@ class SettingsViewController: UIViewController {
      Campus.shared.downloadedImageQuality = .High
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
-    RMUserPreferences.shuffleEnabled = !fraternitiesAlphabeticalSwitch.isOn
+    RMUserPreferences.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn
   }
 
   

@@ -37,23 +37,31 @@ extension Fraternity {
     get {
       
       if let postDictArray = SQLHandler.shared.select(fromTable: "feedposts", conditions: "author = '\(name)'") {
+        var foundPosts = [RMPost]()
         for postDict in postDictArray {
-          if let postId = postDict["postid"] as? Int, let title = postDict["title"] as? String,
-            let dateTimeString = postDict["posttime"] as? String,
-            // TODO: FIX DOWNCAST!!!
-            let postDate = RMDatabaseFormat.date(fromSQLDateTime: dateTimeString),
+          if let postId = postDict["postid"] as? Int, 
+            let title = postDict["title"] as? String,
+            let author = postDict["author"] as? String,
+            let timeInterval = postDict["posttime"] as? TimeInterval,
             let optionsDictArray = SQLHandler.shared.select(fromTable: "postoptions", conditions: "postid = \(postId)" ){
-            print(postId, title)
+            let postDate = Date(timeIntervalSinceReferenceDate: timeInterval)
+            var options = [String]()
             for option in optionsDictArray {
-             print("\t\(option["postoption"]!)")
+              options.append(option["postoption"] as! String)
             }
-            
+            if options.isEmpty {
+             foundPosts.append(RMPost.init(author: author, title: title, postDate: postDate)) 
+            }
+            else {
+             foundPosts.append(RMPoll.init(author: author, title: title, postDate: postDate, options: options)) 
+            }
           }
         }
+        return foundPosts
       }
-      var foundPosts = [RMPost]()
       
-      return foundPosts
+      
+      return [RMPost]()
       
     }
   }

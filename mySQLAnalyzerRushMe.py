@@ -12,7 +12,7 @@ plotly.tools.set_credentials_file(username = "adamthk", api_key = APIKEY)
 plotly.tools.set_config_file(world_readable=True, sharing='public')
 
 plotEnabled = True
-selectedFraternities = {"Rensselaer Society of Engineers", "Alpha Chi Rho", "Delta Phi"}
+selectedFraternities = {}#{"Rensselaer Society of Engineers", "Alpha Chi Rho", "Delta Phi"}
 
 def dictionaryAnalysis(d, total, stringToFormat):
     outString = ""

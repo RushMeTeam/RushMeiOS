@@ -6,6 +6,7 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 import UIKit
+import DeviceKit
 // Master view controller, a subclass of UITableViewController,
 // provides the main list of fraternities from which a user can
 // select in order to find detail.
@@ -116,7 +117,16 @@ class MasterViewController : UITableViewController,
     wrapperView.layer.masksToBounds = false
     imageView.frame.size = CGSize.init(width: 44, height: 32)
     wrapperView.addSubview(imageView)
-    imageView.addSubview(progressView)
+    var addProgressBar = true
+    let deviceIDs = ["Plus", "5", "SE"]
+    for deviceID in deviceIDs {
+      if Device().description.contains(deviceID) {
+        addProgressBar = false
+      }
+    }
+    if addProgressBar {
+      imageView.addSubview(progressView)
+    }
     imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
     self.navigationItem.rightBarButtonItem = UIBarButtonItem.init()
@@ -173,13 +183,19 @@ class MasterViewController : UITableViewController,
         for fraternityDict in dictArray {
           Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           fratCount += 1
-          DispatchQueue.main.async {
-            //self.reloadTableView()
+          DispatchQueue.main.async {            
+            self.reloadTableView()
             // Don't allow refresh during refresh
             self.refreshControl!.isEnabled = false
             // Every other fraternity loaded should be indicated
             if fratCount%2 == 0 {
               self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
+            }
+            if RMUserPreferences.shuffleEnabled && fratCount % 4 == 0 {
+             self.reloadTableView() 
+            }
+            else if !RMUserPreferences.shuffleEnabled {
+              self.reloadTableView()
             }
           }
         }

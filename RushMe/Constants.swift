@@ -32,7 +32,7 @@ struct RMColor {
   static let AppColor = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
   static let NavigationItemsColor = AppColor
   static let SlideOutMenuShadowIsEnabled = false
-  static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.25)
+  static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.15)
 }
 // Variables used to tune animations
 struct RMAnimation {
@@ -96,12 +96,10 @@ struct RMUser {
 // TODO: Make user preferences save (should include display events before today!)
 struct RMUserPreferences {
   static private var shuffleEnabled_ : Bool? = nil
-  static var shuffleEnabled : Bool {
-    set {
+  static private var shuffleEnabledDefault = false
+  static var shuffleEnabled : Bool = shuffleEnabled_ ?? shuffleEnabledDefault {
+    didSet {
      self.shuffleEnabled_ = self.shuffleEnabled
-    }
-    get {
-      return shuffleEnabled_ ?? true
     }
   }
 //  private static func loadPreferences() {

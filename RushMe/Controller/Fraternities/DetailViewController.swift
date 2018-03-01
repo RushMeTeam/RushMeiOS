@@ -29,7 +29,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var openMapButton: UIButton!
-  
   @IBOutlet var toMakeClear: [UIView]!
   // MARK: Member Variables
   var eventViewController : EventTableViewController? = nil

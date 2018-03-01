@@ -41,6 +41,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     set {
       favoritesSegmentControl.selectedSegmentIndex = 0
+      self.favoriteSegmentControlValueChanged(favoritesSegmentControl)
       collectionView.reloadData()
     }
   }
@@ -62,8 +63,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
   }
   var selectedIndexPath : IndexPath? = nil 
+
+  
   func events(forIndexPath indexPath : IndexPath) -> [FratEvent] {
-    if (indexPath.row < 7) {
+    if (indexPath.row < 7 || firstEvent == nil) {
       return []
     }
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
@@ -145,7 +148,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    viewingFavorites = Campus.shared.hasFavorites
+    viewingFavorites = Campus.shared.hasFavorites && self.firstEvent != nil
     DispatchQueue.global().async {
       self.fileURL =
         RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
@@ -194,10 +197,20 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
   
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
-    // TODO: Add favorites!
     self.collectionView.reloadData()
     if let indexPath = selectedIndexPath {
-      self.eventViewController?.selectedEvents = events(forIndexPath: indexPath)
+      let eventsToday = events(forIndexPath: indexPath)
+      if let todaysEvent = eventsToday.first {
+        self.dateLabel.text = 
+          DateFormatter.localizedString(from: todaysEvent.startDate, 
+                                        dateStyle: .long, 
+                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, 
+                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
+      }
+      else {
+       self.dateLabel.text = "" 
+      }
+      self.eventViewController?.selectedEvents = eventsToday
     }
     
   }
@@ -254,11 +267,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
     cell.setupView()
-    if (dataSource.count == 0) {
+    if (firstEvent == nil) {
       cell.eventsLabel?.isHidden = true
+      cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
       if (indexPath.row < 7) {
         cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
-        cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
       }
       else {
         cell.dayLabel?.text = String(indexPath.row-6)

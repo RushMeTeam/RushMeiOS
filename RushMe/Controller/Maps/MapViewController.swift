@@ -10,13 +10,13 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-  @IBOutlet var mapView: MKMapView!
+  @IBOutlet weak var mapView: MKMapView!
 //  @IBOutlet var stepper: UIStepper!
   
   private let geoCoder = CLGeocoder()
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   
-  @IBOutlet var favoritesControl: UISegmentedControl!
+  @IBOutlet weak var favoritesControl: UISegmentedControl!
   
   @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
     let allFrats = sender.selectedSegmentIndex == 0

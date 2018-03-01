@@ -10,14 +10,33 @@ import UIKit
 
 fileprivate let pollCellIdentifier = "PollCell"
 
-class FeedTableViewController: UITableViewController {
+
+
+class FeedTableViewController: UITableViewController, RMPollDelegate {
+  
+  
   
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
     self.revealViewController().revealToggle(self)
   }
-  
+  var dataSource_ : [RMPost]? = nil
+  var dataSource : [RMPost] {
+    get {
+      if let _ = dataSource_ {
+        return dataSource_! 
+      }
+      else {
+        var pollList = [RMPost]()
+        for fratName in Campus.shared.fratNames {
+          pollList.append(contentsOf: Campus.shared.fraternitiesDict[fratName]!.posts)
+        }
+        dataSource_ = pollList
+        return pollList
+      }
+    }
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController!.navigationBar.isTranslucent = false
@@ -31,7 +50,7 @@ class FeedTableViewController: UITableViewController {
     tableView.register(UINib.init(nibName: "PollTableViewCell", bundle: nil), forCellReuseIdentifier: pollCellIdentifier)
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    print(Campus.shared.fraternitiesDict["Chi Phi"]!.posts)
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -52,26 +71,25 @@ class FeedTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return 3
+    return dataSource.count
   }
   
   
-   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCell(withIdentifier: pollCellIdentifier, for: indexPath) as? PollTableViewCell {
-     return cell
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: pollCellIdentifier, for: indexPath) as! PostTableViewCell 
+    if let poll = dataSource[indexPath.row] as? RMPoll {
+     cell.set(poll: poll, withDelegate: self) 
     }
     else {
-      
-      let cell = tableView.dequeueReusableCell(withIdentifier: pollCellIdentifier) as! PollTableViewCell
-      return cell
+     cell.set(post: dataSource[indexPath.row]) 
     }
     
-   
-   // Configure the cell...
-   
-   }
- 
+    return cell
+  }
   
+  func voteCast(forOption option : String, inPoll poll: RMPoll) {
+    print(option + " for " + poll.title)
+  }
   /*
    // Override to support conditional editing of the table view.
    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

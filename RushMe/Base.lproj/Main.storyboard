@@ -238,44 +238,49 @@
                                     <outletCollection property="gestureRecognizers" destination="8ld-AD-ZBb" appends="YES" id="bCQ-aS-geI"/>
                                 </connections>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozc-Cr-Zd6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gg8-Rn-EVc">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" id="f0V-m6-Isx">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" id="G27-8N-IT0">
-                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="All Fraternities"/>
-                                                <segment title="Favorites"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="favoriteSegmentControlValueChanged:" destination="Zld-Hq-hiI" eventType="valueChanged" id="Fhj-PP-reU"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-ad-8GQ">
+                                        <rect key="frame" x="8" y="9" width="359" height="29"/>
+                                        <segments>
+                                            <segment title="All"/>
+                                            <segment title="Favorites"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="favoriteSegmentControlValueChanged:" destination="Zld-Hq-hiI" eventType="valueChanged" id="SDE-Tw-RpA"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7cE-eC-DE9"/>
+                                    <constraint firstAttribute="trailing" secondItem="aZg-ad-8GQ" secondAttribute="trailing" constant="8" id="JTB-Zl-Hqn"/>
+                                    <constraint firstItem="aZg-ad-8GQ" firstAttribute="leading" secondItem="gg8-Rn-EVc" secondAttribute="leading" constant="8" id="MKu-vS-slz"/>
+                                    <constraint firstItem="aZg-ad-8GQ" firstAttribute="top" secondItem="gg8-Rn-EVc" secondAttribute="top" constant="9" id="ige-xM-kN7"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kxM-GT-KGc" firstAttribute="top" secondItem="l8W-C0-iVL" secondAttribute="bottom" id="10l-dQ-KWJ"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="bottom" secondItem="l8W-C0-iVL" secondAttribute="top" id="1Q0-UC-o6R"/>
                             <constraint firstItem="kxM-GT-KGc" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="2Nw-yZ-3PZ"/>
-                            <constraint firstItem="ozc-Cr-Zd6" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="2m2-PY-eNL"/>
                             <constraint firstAttribute="trailing" secondItem="l8W-C0-iVL" secondAttribute="trailing" id="623-RO-0TB"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="top" secondItem="bsx-ba-2ZN" secondAttribute="bottom" id="6o9-9w-nBH"/>
                             <constraint firstAttribute="trailing" secondItem="kxM-GT-KGc" secondAttribute="trailing" id="GhZ-0x-ei2"/>
                             <constraint firstItem="l8W-C0-iVL" firstAttribute="width" secondItem="IL7-ES-rFp" secondAttribute="width" id="PyH-zN-JO7"/>
+                            <constraint firstItem="ldq-O9-vSK" firstAttribute="top" secondItem="gg8-Rn-EVc" secondAttribute="bottom" id="R4j-Mg-VnO"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="RVM-MU-LAY"/>
                             <constraint firstAttribute="trailing" secondItem="Lha-ll-f15" secondAttribute="trailing" id="VEN-Mf-8W9"/>
                             <constraint firstItem="l8W-C0-iVL" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="bGf-we-fDb"/>
-                            <constraint firstAttribute="trailing" secondItem="ozc-Cr-Zd6" secondAttribute="trailing" id="hfR-ZY-Hsp"/>
-                            <constraint firstItem="ldq-O9-vSK" firstAttribute="top" secondItem="ozc-Cr-Zd6" secondAttribute="bottom" id="mF1-Er-DSn"/>
+                            <constraint firstAttribute="trailing" secondItem="gg8-Rn-EVc" secondAttribute="trailing" id="cQ4-5Y-hhG"/>
                             <constraint firstItem="ldq-O9-vSK" firstAttribute="top" secondItem="kxM-GT-KGc" secondAttribute="bottom" id="n48-7V-Kfz"/>
                             <constraint firstItem="Lha-ll-f15" firstAttribute="height" secondItem="IL7-ES-rFp" secondAttribute="height" multiplier="0.5" constant="16" id="tiK-I3-8vq"/>
+                            <constraint firstItem="gg8-Rn-EVc" firstAttribute="leading" secondItem="IL7-ES-rFp" secondAttribute="leading" id="z1I-w1-4OQ"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Calendar" id="Zs3-a2-Pmt">
                         <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="6TE-E1-YRs"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="UGd-iU-rqp">
@@ -284,12 +289,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Lha-ll-f15" id="7zT-Zc-y75"/>
                         <outlet property="containerView" destination="kxM-GT-KGc" id="qZM-6e-aNu"/>
                         <outlet property="dateLabel" destination="0b7-GS-cEo" id="Xkc-Zz-dPD"/>
                         <outlet property="drawerButton" destination="6TE-E1-YRs" id="oG5-rT-h3x"/>
-                        <outlet property="favoritesSegmentControl" destination="G27-8N-IT0" id="o1B-Ch-fWj"/>
+                        <outlet property="favoritesSegmentControl" destination="aZg-ad-8GQ" id="aI2-Fh-Qrc"/>
                         <outlet property="panGestureRecognizer" destination="66L-f4-79j" id="LVE-L8-qGP"/>
                         <outlet property="seperatorView" destination="l8W-C0-iVL" id="zFu-JE-WYC"/>
                         <outlet property="shareButton" destination="UGd-iU-rqp" id="CIM-bh-RjO"/>
@@ -775,39 +781,39 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybridFlyover" translatesAutoresizingMaskIntoConstraints="NO" id="QFy-K2-1IP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGu-Ah-hyH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEk-PG-zaf">
                                 <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5U6-46-7Ia">
+                                        <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                        <segments>
+                                            <segment title="All"/>
+                                            <segment title="Favorites"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="favoritesControlSelected:" destination="pqG-g4-aqb" eventType="valueChanged" id="Ev1-qg-DBr"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="NGo-hi-j2s"/>
+                                    <constraint firstItem="5U6-46-7Ia" firstAttribute="leading" secondItem="CEk-PG-zaf" secondAttribute="leading" constant="8" id="79L-Ej-KZ4"/>
+                                    <constraint firstItem="5U6-46-7Ia" firstAttribute="top" secondItem="CEk-PG-zaf" secondAttribute="top" constant="8" id="NMV-ff-Fpv"/>
+                                    <constraint firstAttribute="height" constant="44" id="RbK-ln-Mnc"/>
+                                    <constraint firstAttribute="trailing" secondItem="5U6-46-7Ia" secondAttribute="trailing" constant="8" id="aTn-aZ-tX6"/>
+                                    <constraint firstAttribute="bottom" secondItem="5U6-46-7Ia" secondAttribute="bottom" constant="8" id="wBW-wP-yst"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem style="plain" id="jL2-Ed-OPf">
-                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="VQF-K3-ibA">
-                                            <rect key="frame" x="16" y="7.5" width="343" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="All"/>
-                                                <segment title="Favorites"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="favoritesControlSelected:" destination="pqG-g4-aqb" eventType="valueChanged" id="lKw-7m-bze"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GPT-wh-GAP" firstAttribute="top" secondItem="QFy-K2-1IP" secondAttribute="bottom" id="Bg7-H3-9Ly"/>
+                            <constraint firstAttribute="trailing" secondItem="CEk-PG-zaf" secondAttribute="trailing" id="O5v-dE-NFT"/>
                             <constraint firstItem="QFy-K2-1IP" firstAttribute="top" secondItem="JnI-PI-ydK" secondAttribute="bottom" id="Ofs-QM-OK3"/>
+                            <constraint firstItem="CEk-PG-zaf" firstAttribute="leading" secondItem="a4G-PY-kn0" secondAttribute="leading" id="Sve-2N-0cO"/>
                             <constraint firstItem="QFy-K2-1IP" firstAttribute="leading" secondItem="a4G-PY-kn0" secondAttribute="leading" id="kRi-OT-2xh"/>
                             <constraint firstAttribute="trailing" secondItem="QFy-K2-1IP" secondAttribute="trailing" id="l4m-Rb-tqq"/>
-                            <constraint firstItem="GPT-wh-GAP" firstAttribute="top" secondItem="iGu-Ah-hyH" secondAttribute="bottom" id="lzk-5C-I0L"/>
-                            <constraint firstAttribute="trailing" secondItem="iGu-Ah-hyH" secondAttribute="trailing" id="q6L-Du-pxy"/>
-                            <constraint firstItem="iGu-Ah-hyH" firstAttribute="leading" secondItem="a4G-PY-kn0" secondAttribute="leading" id="sfS-NJ-3tW"/>
-                            <constraint firstItem="iGu-Ah-hyH" firstAttribute="width" secondItem="QFy-K2-1IP" secondAttribute="width" id="zWp-m4-ugQ"/>
+                            <constraint firstItem="GPT-wh-GAP" firstAttribute="top" secondItem="CEk-PG-zaf" secondAttribute="bottom" id="lXS-cm-gAn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="Moe-Lb-fFS">
@@ -815,7 +821,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="drawerButton" destination="upV-Wa-RQ0" id="Df6-Hp-BL8"/>
-                        <outlet property="favoritesControl" destination="VQF-K3-ibA" id="to1-P8-OYg"/>
+                        <outlet property="favoritesControl" destination="5U6-46-7Ia" id="0Tb-rw-2rQ"/>
                         <outlet property="mapView" destination="QFy-K2-1IP" id="Uef-cG-STa"/>
                     </connections>
                 </viewController>
@@ -939,7 +945,7 @@
                                                         <constraint firstAttribute="width" constant="32" id="Wjh-z5-uMQ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE0-EO-t6g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed (Coming Soon)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE0-EO-t6g">
                                                     <rect key="frame" x="48" y="14" width="194" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -955,9 +961,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="btP-7a-Cwp" kind="custom" identifier="Feed" customClass="SWRevealViewControllerSeguePushController" id="axe-4E-OYf"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Calendar" rowHeight="48" id="NAq-GP-pGL">
                                         <rect key="frame" x="0.0" y="352" width="250" height="48"/>
@@ -1156,15 +1159,15 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaT-le-GEJ">
-                                <rect key="frame" x="146" y="621" width="82" height="30"/>
-                                <state key="normal" title="Clear cache">
+                                <rect key="frame" x="145" y="621" width="84" height="30"/>
+                                <state key="normal" title="Clear Cache">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="clearCache:" destination="TB9-1Y-2V2" eventType="touchUpInside" id="5XU-GN-LEQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display fraternities alphabetically" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZY-uD-KFa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shuffle fraternities (alpha)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZY-uD-KFa">
                                 <rect key="frame" x="16" y="101" width="286" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1387,7 +1390,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sfy-B1-Nu5"/>
-        <segue reference="tmK-b0-YZV"/>
+        <segue reference="cAx-Qh-dZu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
