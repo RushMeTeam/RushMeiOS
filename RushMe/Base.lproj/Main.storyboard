@@ -961,6 +961,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="btP-7a-Cwp" kind="custom" identifier="Feed" customClass="SWRevealViewControllerSeguePushController" id="s2D-eD-Mcg"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Calendar" rowHeight="48" id="NAq-GP-pGL">
                                         <rect key="frame" x="0.0" y="352" width="250" height="48"/>
