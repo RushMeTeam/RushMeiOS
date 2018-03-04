@@ -12,4 +12,6 @@ class CalendarLabelCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet var dayLabel: UILabel!
   var eventsToday : [FratEvent]?
+  
 }
+

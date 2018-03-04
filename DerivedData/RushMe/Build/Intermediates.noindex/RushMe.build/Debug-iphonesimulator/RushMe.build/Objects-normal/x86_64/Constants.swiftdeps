@@ -381,7 +381,8 @@ depends-member:
 - ["6RushMe17RMUserPreferencesV", "Bool"]
 - ["6RushMe17RMUserPreferencesV", "init"]
 - ["6RushMe17RMUserPreferencesV", "shuffleEnabled"]
-- !private ["6RushMe17RMUserPreferencesV", "shuffleEnabled_"]
+- ["6RushMe17RMUserPreferencesV", "shuffleEnabledDefault"]
+- ["6RushMe17RMUserPreferencesV", "shuffleEnabled_"]
 - ["s22RandomAccessCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "first"]
 - !private ["s26RangeReplaceableCollectionP", "hashValue"]
@@ -640,4 +641,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "f7dd99e624e83b3fdf489eb31fc685df"
+interface-hash: "1a23ce3d64b607f8a1c5759c6b8d0f98"

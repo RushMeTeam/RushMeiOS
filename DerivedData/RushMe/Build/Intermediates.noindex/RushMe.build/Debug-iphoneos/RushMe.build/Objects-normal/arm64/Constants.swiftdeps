@@ -8,8 +8,10 @@ provides-top-level:
 - "RMNetwork"
 - "RMMessage"
 - "RMFratPropertyKeys"
+- "RMDatabaseFormat"
 - "RMDatabaseKey"
 - "RMUser"
+- "RMUserPreferences"
 - "RMPropertyKeys"
 - "RMFileManagement"
 - "RMDate"
@@ -22,8 +24,10 @@ provides-nominal:
 - "6RushMe9RMNetworkV"
 - "6RushMe9RMMessageV"
 - "6RushMe18RMFratPropertyKeysV"
+- "6RushMe16RMDatabaseFormatV"
 - "6RushMe13RMDatabaseKeyV"
 - "6RushMe6RMUserV"
+- "6RushMe17RMUserPreferencesV"
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe16RMFileManagementV"
 - "6RushMe6RMDateV"
@@ -36,8 +40,10 @@ provides-member:
 - ["6RushMe9RMNetworkV", ""]
 - ["6RushMe9RMMessageV", ""]
 - ["6RushMe18RMFratPropertyKeysV", ""]
+- ["6RushMe16RMDatabaseFormatV", ""]
 - ["6RushMe13RMDatabaseKeyV", ""]
 - ["6RushMe6RMUserV", ""]
+- ["6RushMe17RMUserPreferencesV", ""]
 - ["6RushMe14RMPropertyKeysV", ""]
 - ["6RushMe16RMFileManagementV", ""]
 - ["6RushMe6RMDateV", ""]
@@ -47,18 +53,22 @@ depends-top-level:
 - "+"
 - "/"
 - "??"
+- "AssignmentPrecedence"
+- "Bool"
 - "BooleanLiteralType"
 - "Bundle"
 - "CGFloat"
 - "CastingPrecedence"
 - "DEBUG"
 - "Date"
+- "DateFormatter"
 - !private "Device"
 - "Dictionary"
 - "FileManager"
 - !private "Int"
 - "RMAnimation"
 - "RMColor"
+- "RMDatabaseFormat"
 - "RMDatabaseKey"
 - "RMDate"
 - "RMFileManagement"
@@ -70,6 +80,7 @@ depends-top-level:
 - "RMPropertyKeys"
 - "RMUser"
 - "RMUserDevice"
+- "RMUserPreferences"
 - "String"
 - "StringLiteralType"
 - "UIColor"
@@ -85,6 +96,8 @@ depends-member:
 - ["So6BundleC", "infoDictionary"]
 - ["So6BundleC", "main"]
 - !private ["s7CVarArgP", "current"]
+- !private ["s7CVarArgP", "date"]
+- !private ["s7CVarArgP", "dateFormat"]
 - ["s7CVarArgP", "first"]
 - !private ["s7CVarArgP", "hashValue"]
 - !private ["s7CVarArgP", "identifierForVendor"]
@@ -105,6 +118,8 @@ depends-member:
 - !private ["s10ComparableP", "timeIntervalSinceReferenceDate"]
 - ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
 - !private ["s28CustomDebugStringConvertibleP", "current"]
+- !private ["s28CustomDebugStringConvertibleP", "date"]
+- !private ["s28CustomDebugStringConvertibleP", "dateFormat"]
 - ["s28CustomDebugStringConvertibleP", "first"]
 - !private ["s28CustomDebugStringConvertibleP", "hashValue"]
 - !private ["s28CustomDebugStringConvertibleP", "identifierForVendor"]
@@ -130,6 +145,8 @@ depends-member:
 - !private ["s17CustomReflectableP", "uuidString"]
 - ["s23CustomStringConvertibleP", "appendingPathComponent"]
 - !private ["s23CustomStringConvertibleP", "current"]
+- !private ["s23CustomStringConvertibleP", "date"]
+- !private ["s23CustomStringConvertibleP", "dateFormat"]
 - !private ["s23CustomStringConvertibleP", "description"]
 - ["s23CustomStringConvertibleP", "first"]
 - !private ["s23CustomStringConvertibleP", "hashValue"]
@@ -146,6 +163,9 @@ depends-member:
 - ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - ["10Foundation4DateV", "init"]
 - !private ["10Foundation4DateV", "timeIntervalSinceReferenceDate"]
+- !private ["So13DateFormatterC", "date"]
+- !private ["So13DateFormatterC", "dateFormat"]
+- !private ["So13DateFormatterC", "init"]
 - ["s9DecodableP", "appendingPathComponent"]
 - ["s9DecodableP", "first"]
 - !private ["s9DecodableP", "hashValue"]
@@ -165,6 +185,8 @@ depends-member:
 - !private ["s9EncodableP", "uuidString"]
 - ["s9EquatableP", "appendingPathComponent"]
 - !private ["s9EquatableP", "current"]
+- !private ["s9EquatableP", "date"]
+- !private ["s9EquatableP", "dateFormat"]
 - !private ["s9EquatableP", "description"]
 - ["s9EquatableP", "documentDirectory"]
 - !private ["s9EquatableP", "hashValue"]
@@ -192,8 +214,13 @@ depends-member:
 - ["So11FileManagerC", "init"]
 - ["So11FileManagerC", "urls"]
 - !private ["s17FixedWidthIntegerP", "init"]
+- !private ["So9FormatterC", "date"]
+- !private ["So9FormatterC", "dateFormat"]
+- !private ["So9FormatterC", "init"]
 - ["s8HashableP", "appendingPathComponent"]
 - !private ["s8HashableP", "current"]
+- !private ["s8HashableP", "date"]
+- !private ["s8HashableP", "dateFormat"]
 - ["s8HashableP", "documentDirectory"]
 - !private ["s8HashableP", "hashValue"]
 - !private ["s8HashableP", "identifierForVendor"]
@@ -212,10 +239,14 @@ depends-member:
 - !private ["s10MirrorPathP", "hashValue"]
 - ["s10MirrorPathP", "init"]
 - ["s17MutableCollectionP", "first"]
+- !private ["So8NSCodingP", "date"]
+- !private ["So8NSCodingP", "dateFormat"]
 - !private ["So8NSCodingP", "hashValue"]
 - ["So8NSCodingP", "init"]
 - ["So8NSCodingP", "white"]
 - ["So8NSCodingP", "withAlphaComponent"]
+- !private ["So9NSCopyingP", "date"]
+- !private ["So9NSCopyingP", "dateFormat"]
 - !private ["So9NSCopyingP", "hashValue"]
 - ["So9NSCopyingP", "init"]
 - ["So9NSCopyingP", "white"]
@@ -231,6 +262,8 @@ depends-member:
 - !private ["So16NSMutableCopyingP", "hashValue"]
 - ["So16NSMutableCopyingP", "init"]
 - !private ["So8NSObjectC", "current"]
+- !private ["So8NSObjectC", "date"]
+- !private ["So8NSObjectC", "dateFormat"]
 - !private ["So8NSObjectC", "hashValue"]
 - !private ["So8NSObjectC", "identifierForVendor"]
 - ["So8NSObjectC", "infoDictionary"]
@@ -241,6 +274,8 @@ depends-member:
 - ["So8NSObjectC", "white"]
 - ["So8NSObjectC", "withAlphaComponent"]
 - !private ["So16NSObjectProtocolP", "current"]
+- !private ["So16NSObjectProtocolP", "date"]
+- !private ["So16NSObjectProtocolP", "dateFormat"]
 - !private ["So16NSObjectProtocolP", "hashValue"]
 - !private ["So16NSObjectProtocolP", "identifierForVendor"]
 - ["So16NSObjectProtocolP", "infoDictionary"]
@@ -268,6 +303,13 @@ depends-member:
 - ["6RushMe7RMColorV", "SlideOutMenuShadowIsEnabled"]
 - ["6RushMe7RMColorV", "UIColor"]
 - ["6RushMe7RMColorV", "init"]
+- ["6RushMe16RMDatabaseFormatV", "Date"]
+- ["6RushMe16RMDatabaseFormatV", "DateFormatter"]
+- ["6RushMe16RMDatabaseFormatV", "String"]
+- ["6RushMe16RMDatabaseFormatV", "date"]
+- !private ["6RushMe16RMDatabaseFormatV", "dateFormat"]
+- ["6RushMe16RMDatabaseFormatV", "dateFormatter"]
+- ["6RushMe16RMDatabaseFormatV", "init"]
 - ["6RushMe13RMDatabaseKeyV", "AddressKey"]
 - ["6RushMe13RMDatabaseKeyV", "CalendarImageKey"]
 - ["6RushMe13RMDatabaseKeyV", "ChapterKey"]
@@ -336,6 +378,11 @@ depends-member:
 - !private ["6RushMe12RMUserDeviceV", "appversion"]
 - ["6RushMe12RMUserDeviceV", "deviceInfo"]
 - ["6RushMe12RMUserDeviceV", "init"]
+- ["6RushMe17RMUserPreferencesV", "Bool"]
+- ["6RushMe17RMUserPreferencesV", "init"]
+- ["6RushMe17RMUserPreferencesV", "shuffleEnabled"]
+- ["6RushMe17RMUserPreferencesV", "shuffleEnabledDefault"]
+- ["6RushMe17RMUserPreferencesV", "shuffleEnabled_"]
 - ["s22RandomAccessCollectionP", "first"]
 - ["s26RangeReplaceableCollectionP", "first"]
 - !private ["s26RangeReplaceableCollectionP", "hashValue"]
@@ -408,6 +455,8 @@ depends-member:
 - ["s14_IndexableBaseP", "init"]
 - ["s14_IndexableBaseP", "subscript"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "date"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dateFormat"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "hashValue"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "identifierForVendor"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "infoDictionary"]
@@ -445,6 +494,7 @@ depends-nominal:
 - "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
 - "10Foundation4DateV"
+- !private "So13DateFormatterC"
 - "s9DecodableP"
 - !private "9DeviceKit0A0O"
 - "s10DictionaryV"
@@ -458,6 +508,7 @@ depends-nominal:
 - "s33ExpressibleByUnicodeScalarLiteralP"
 - "So11FileManagerC"
 - !private "s17FixedWidthIntegerP"
+- !private "So9FormatterC"
 - "s8HashableP"
 - !private "Si"
 - "s25LosslessStringConvertibleP"
@@ -477,6 +528,7 @@ depends-nominal:
 - "s9OptionSetP"
 - "6RushMe11RMAnimationV"
 - "6RushMe7RMColorV"
+- "6RushMe16RMDatabaseFormatV"
 - "6RushMe13RMDatabaseKeyV"
 - "6RushMe6RMDateV"
 - "6RushMe16RMFileManagementV"
@@ -488,6 +540,7 @@ depends-nominal:
 - "6RushMe14RMPropertyKeysV"
 - "6RushMe6RMUserV"
 - "6RushMe12RMUserDeviceV"
+- "6RushMe17RMUserPreferencesV"
 - "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
@@ -588,4 +641,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "a74d732ed3145323f8af0479e2bcc86b"
+interface-hash: "4c205d813f18a4604928571219b5928d"

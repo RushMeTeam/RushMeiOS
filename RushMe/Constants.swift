@@ -50,7 +50,7 @@ struct RMNetwork {
 
 struct RMMessage {
   static let AppName = "RushMe"
-  static let NoEvents = "No Events!"
+  static let NoEvents = "No events"
   static let NoFavorites = "No Favorites!"
   static let LoadingFrats = "Wandering Campus..."
   static let LoadingFratsFirstTime = "Setting up Campus for the first time..."

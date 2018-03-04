@@ -86,6 +86,7 @@ class PostTableViewCell: UITableViewCell {
     self.pollDelegate = newDelegate
     self.post = poll
   }
+  
   @IBOutlet weak var postFraternityLabel: UILabel!
   @IBOutlet weak var postTitleLabel: UILabel!
   @IBOutlet weak var postImageView: UIImageView!

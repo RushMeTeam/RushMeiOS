@@ -26,7 +26,7 @@ class EventTableViewController: UITableViewController {
       if let _ = selectedEvents, selectedEvents!.count > 0 {
           self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
       }
-      
+  
       
     }
   }
@@ -76,12 +76,7 @@ class EventTableViewController: UITableViewController {
   }
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    if let events = selectedEvents {
-      return events.count
-    }
-    else {
-      return 1
-    }
+    return max((selectedEvents?.count ?? 1), 1)
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 64

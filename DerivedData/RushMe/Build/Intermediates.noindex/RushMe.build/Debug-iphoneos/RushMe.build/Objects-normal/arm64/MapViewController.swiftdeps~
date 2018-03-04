@@ -43,6 +43,7 @@ depends-top-level:
 - !private "RMColor"
 - !private "RMDatabaseKey"
 - !private "RMFratPropertyKeys"
+- !private "Set"
 - !private "String"
 - "UIBarButtonItem"
 - "UISegmentedControl"
@@ -84,6 +85,7 @@ depends-member:
 - !private ["s7CVarArgP", "RMColor"]
 - !private ["s7CVarArgP", "RMDatabaseKey"]
 - !private ["s7CVarArgP", "RMFratPropertyKeys"]
+- !private ["s7CVarArgP", "Set"]
 - !private ["s7CVarArgP", "action"]
 - !private ["s7CVarArgP", "addAnnotation"]
 - !private ["s7CVarArgP", "addGestureRecognizer"]
@@ -162,6 +164,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
 - !private ["s28CustomDebugStringConvertibleP", "RMDatabaseKey"]
 - !private ["s28CustomDebugStringConvertibleP", "RMFratPropertyKeys"]
+- !private ["s28CustomDebugStringConvertibleP", "Set"]
 - !private ["s28CustomDebugStringConvertibleP", "action"]
 - !private ["s28CustomDebugStringConvertibleP", "addAnnotation"]
 - !private ["s28CustomDebugStringConvertibleP", "addGestureRecognizer"]
@@ -238,6 +241,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "RMColor"]
 - !private ["s23CustomStringConvertibleP", "RMDatabaseKey"]
 - !private ["s23CustomStringConvertibleP", "RMFratPropertyKeys"]
+- !private ["s23CustomStringConvertibleP", "Set"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "action"]
 - !private ["s23CustomStringConvertibleP", "addAnnotation"]
@@ -323,6 +327,7 @@ depends-member:
 - !private ["s9EquatableP", "RMColor"]
 - !private ["s9EquatableP", "RMDatabaseKey"]
 - !private ["s9EquatableP", "RMFratPropertyKeys"]
+- !private ["s9EquatableP", "Set"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "action"]
 - !private ["s9EquatableP", "addAnnotation"]
@@ -379,6 +384,7 @@ depends-member:
 - !private ["s5ErrorP", "localizedDescription"]
 - !private ["s25ExpressibleByArrayLiteralP", "count"]
 - !private ["s25ExpressibleByArrayLiteralP", "first"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "count"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "keys"]
@@ -406,6 +412,7 @@ depends-member:
 - !private ["s8HashableP", "RMColor"]
 - !private ["s8HashableP", "RMDatabaseKey"]
 - !private ["s8HashableP", "RMFratPropertyKeys"]
+- !private ["s8HashableP", "Set"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "action"]
 - !private ["s8HashableP", "addAnnotation"]
@@ -487,6 +494,7 @@ depends-member:
 - !private ["So17MKMapViewDelegateP", "RMColor"]
 - !private ["So17MKMapViewDelegateP", "RMDatabaseKey"]
 - !private ["So17MKMapViewDelegateP", "RMFratPropertyKeys"]
+- !private ["So17MKMapViewDelegateP", "Set"]
 - !private ["So17MKMapViewDelegateP", "center"]
 - !private ["So17MKMapViewDelegateP", "drawerButton"]
 - !private ["So17MKMapViewDelegateP", "favoritesControl"]
@@ -526,6 +534,7 @@ depends-member:
 - !private ["6RushMe17MapViewControllerC", "RMColor"]
 - !private ["6RushMe17MapViewControllerC", "RMDatabaseKey"]
 - !private ["6RushMe17MapViewControllerC", "RMFratPropertyKeys"]
+- !private ["6RushMe17MapViewControllerC", "Set"]
 - !private ["6RushMe17MapViewControllerC", "String"]
 - ["6RushMe17MapViewControllerC", "UIBarButtonItem"]
 - ["6RushMe17MapViewControllerC", "UISegmentedControl"]
@@ -568,6 +577,7 @@ depends-member:
 - !private ["So8NSCodingP", "RMColor"]
 - !private ["So8NSCodingP", "RMDatabaseKey"]
 - !private ["So8NSCodingP", "RMFratPropertyKeys"]
+- !private ["So8NSCodingP", "Set"]
 - !private ["So8NSCodingP", "action"]
 - !private ["So8NSCodingP", "addAnnotation"]
 - !private ["So8NSCodingP", "addGestureRecognizer"]
@@ -624,6 +634,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "RMColor"]
 - !private ["So26NSExtensionRequestHandlingP", "RMDatabaseKey"]
 - !private ["So26NSExtensionRequestHandlingP", "RMFratPropertyKeys"]
+- !private ["So26NSExtensionRequestHandlingP", "Set"]
 - !private ["So26NSExtensionRequestHandlingP", "center"]
 - !private ["So26NSExtensionRequestHandlingP", "didReceiveMemoryWarning"]
 - !private ["So26NSExtensionRequestHandlingP", "drawerButton"]
@@ -669,6 +680,7 @@ depends-member:
 - !private ["So8NSObjectC", "RMColor"]
 - !private ["So8NSObjectC", "RMDatabaseKey"]
 - !private ["So8NSObjectC", "RMFratPropertyKeys"]
+- !private ["So8NSObjectC", "Set"]
 - !private ["So8NSObjectC", "String"]
 - ["So8NSObjectC", "UIBarButtonItem"]
 - ["So8NSObjectC", "UISegmentedControl"]
@@ -735,6 +747,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "RMColor"]
 - !private ["So16NSObjectProtocolP", "RMDatabaseKey"]
 - !private ["So16NSObjectProtocolP", "RMFratPropertyKeys"]
+- !private ["So16NSObjectProtocolP", "Set"]
 - !private ["So16NSObjectProtocolP", "action"]
 - !private ["So16NSObjectProtocolP", "addAnnotation"]
 - !private ["So16NSObjectProtocolP", "addGestureRecognizer"]
@@ -814,6 +827,8 @@ depends-member:
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "keys"]
 - !private ["s8SequenceP", "subscript"]
+- !private ["s3SetV", "init"]
+- !private ["s10SetAlgebraP", "init"]
 - ["s13SignedNumericP", "init"]
 - ["s10StrideableP", "init"]
 - !private ["SS", "greekLetters"]
@@ -861,6 +876,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "RMColor"]
 - !private ["So21UIAppearanceContainerP", "RMDatabaseKey"]
 - !private ["So21UIAppearanceContainerP", "RMFratPropertyKeys"]
+- !private ["So21UIAppearanceContainerP", "Set"]
 - !private ["So21UIAppearanceContainerP", "addAnnotation"]
 - !private ["So21UIAppearanceContainerP", "addGestureRecognizer"]
 - !private ["So21UIAppearanceContainerP", "alpha"]
@@ -914,6 +930,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "RMColor"]
 - !private ["So18UIContentContainerP", "RMDatabaseKey"]
 - !private ["So18UIContentContainerP", "RMFratPropertyKeys"]
+- !private ["So18UIContentContainerP", "Set"]
 - !private ["So18UIContentContainerP", "center"]
 - !private ["So18UIContentContainerP", "didReceiveMemoryWarning"]
 - !private ["So18UIContentContainerP", "drawerButton"]
@@ -974,6 +991,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "RMColor"]
 - !private ["So18UIFocusEnvironmentP", "RMDatabaseKey"]
 - !private ["So18UIFocusEnvironmentP", "RMFratPropertyKeys"]
+- !private ["So18UIFocusEnvironmentP", "Set"]
 - !private ["So18UIFocusEnvironmentP", "addAnnotation"]
 - !private ["So18UIFocusEnvironmentP", "addGestureRecognizer"]
 - !private ["So18UIFocusEnvironmentP", "alpha"]
@@ -1035,6 +1053,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMDatabaseKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMFratPropertyKeys"]
+- !private ["So30UIPasteConfigurationSupportingP", "Set"]
 - !private ["So30UIPasteConfigurationSupportingP", "addAnnotation"]
 - !private ["So30UIPasteConfigurationSupportingP", "addGestureRecognizer"]
 - !private ["So30UIPasteConfigurationSupportingP", "alpha"]
@@ -1085,6 +1104,7 @@ depends-member:
 - !private ["So11UIResponderC", "RMColor"]
 - !private ["So11UIResponderC", "RMDatabaseKey"]
 - !private ["So11UIResponderC", "RMFratPropertyKeys"]
+- !private ["So11UIResponderC", "Set"]
 - !private ["So11UIResponderC", "String"]
 - ["So11UIResponderC", "UIBarButtonItem"]
 - ["So11UIResponderC", "UISegmentedControl"]
@@ -1136,6 +1156,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "RMColor"]
 - !private ["So30UIResponderStandardEditActionsP", "RMDatabaseKey"]
 - !private ["So30UIResponderStandardEditActionsP", "RMFratPropertyKeys"]
+- !private ["So30UIResponderStandardEditActionsP", "Set"]
 - !private ["So30UIResponderStandardEditActionsP", "addAnnotation"]
 - !private ["So30UIResponderStandardEditActionsP", "addGestureRecognizer"]
 - !private ["So30UIResponderStandardEditActionsP", "alpha"]
@@ -1189,6 +1210,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "RMColor"]
 - !private ["So16UIStateRestoringP", "RMDatabaseKey"]
 - !private ["So16UIStateRestoringP", "RMFratPropertyKeys"]
+- !private ["So16UIStateRestoringP", "Set"]
 - !private ["So16UIStateRestoringP", "center"]
 - !private ["So16UIStateRestoringP", "didReceiveMemoryWarning"]
 - !private ["So16UIStateRestoringP", "drawerButton"]
@@ -1225,6 +1247,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "RMColor"]
 - !private ["So18UITraitEnvironmentP", "RMDatabaseKey"]
 - !private ["So18UITraitEnvironmentP", "RMFratPropertyKeys"]
+- !private ["So18UITraitEnvironmentP", "Set"]
 - !private ["So18UITraitEnvironmentP", "addAnnotation"]
 - !private ["So18UITraitEnvironmentP", "addGestureRecognizer"]
 - !private ["So18UITraitEnvironmentP", "alpha"]
@@ -1286,6 +1309,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "RMColor"]
 - !private ["So16UIViewControllerC", "RMDatabaseKey"]
 - !private ["So16UIViewControllerC", "RMFratPropertyKeys"]
+- !private ["So16UIViewControllerC", "Set"]
 - !private ["So16UIViewControllerC", "String"]
 - ["So16UIViewControllerC", "UIBarButtonItem"]
 - ["So16UIViewControllerC", "UISegmentedControl"]
@@ -1375,6 +1399,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDatabaseKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFratPropertyKeys"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Set"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "action"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addAnnotation"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addGestureRecognizer"]
@@ -1514,6 +1539,8 @@ depends-nominal:
 - !private "s16RawRepresentableP"
 - !private "So22SWRevealViewControllerC"
 - !private "s8SequenceP"
+- !private "s3SetV"
+- !private "s10SetAlgebraP"
 - "s13SignedNumericP"
 - "s10StrideableP"
 - !private "SS"
@@ -1623,4 +1650,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "8c3ef9c9cf28bb308e6656b1507f98de"
+interface-hash: "5cd02bf30d179fc866d3ea6fd5b28844"

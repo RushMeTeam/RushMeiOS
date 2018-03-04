@@ -17,7 +17,6 @@ provides-dynamic-lookup:
 - "viewDidLoad"
 - "viewWillDisappear"
 depends-top-level:
-- !private "!"
 - !private "!="
 - !private "+="
 - !private "/"

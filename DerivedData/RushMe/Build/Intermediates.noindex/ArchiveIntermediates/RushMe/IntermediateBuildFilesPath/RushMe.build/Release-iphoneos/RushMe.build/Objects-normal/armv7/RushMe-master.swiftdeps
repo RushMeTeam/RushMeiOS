@@ -1,10 +1,11 @@
 version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
 options: "512b11c10dc0332036c965737c8d3339"
-build_time: [1518491319, 157926000]
+build_time: [1520201188, 112347000]
 inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/EventTableViewCell.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/CollectionViewCells/CalendarLabelCollectionViewCell.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/EventTableViewController.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Feed/PostTableViewCell.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Maps/MapViewController.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/DetailViewController.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/CalendarViewController.swift": [9223372036, 854775807]
@@ -19,7 +20,9 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/SQLHandler.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/FratEvent.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/SegmentCell.swift": [9223372036, 854775807]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/RushCalendarManager.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/RMPoll.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/RMCalendarManager.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Feed/FeedTableViewController.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/About/AboutViewController.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/ImageViewController.swift": [9223372036, 854775807]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Settings/SettingsViewController.swift": [9223372036, 854775807]

@@ -17,6 +17,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var seperatorView: UIView!
   @IBOutlet weak var favoritesSegmentControl: UISegmentedControl!
+  
+  @IBOutlet weak var toolbarView: UIView!
+  
   var inEventView : Bool {
     get {
      return self.seperatorView.center.y <= self.collectionView.center.y
@@ -62,7 +65,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         Campus.shared.allEvents
     }
   }
-  var selectedIndexPath : IndexPath? = nil 
+  var favoritesShouldBeEnabled : Bool {
+    get {
+     return Campus.shared.favoritedEvents.count != 0
+    }
+  }
+  var selectedIndexPath : IndexPath? = nil
 
   
   func events(forIndexPath indexPath : IndexPath) -> [FratEvent] {
@@ -148,17 +156,16 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    viewingFavorites = Campus.shared.hasFavorites && self.firstEvent != nil
+    viewingFavorites = favoritesShouldBeEnabled
     DispatchQueue.global().async {
       self.fileURL =
         RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
+    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     shareButton.isEnabled = flatDataSource.count != 0
-    
-    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     panGestureRecognizer.isEnabled = shareButton.isEnabled
     tapGestureRecognizer.isEnabled = panGestureRecognizer.isEnabled
-    if (flatDataSource.count != 0) {
+    if let _ = firstEvent {
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
       navigationController?.navigationBar.tintColor = RMColor.AppColor
@@ -212,6 +219,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       }
       self.eventViewController?.selectedEvents = eventsToday
     }
+    else {
+     self.eventViewController?.selectedEvents = nil
+    }
+    
     
   }
   
@@ -228,7 +239,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     case .changed:
       seperatorView.center.y = yLoc
       containerView.frame.origin.y = seperatorView.frame.maxY
-      containerView.frame.size.height = self.view.frame.maxY - seperatorView.frame.maxY
+      containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
     case .ended:
       inEventView = yLoc <= panCutoff
     case .cancelled:
@@ -237,6 +248,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       return
     }
     
+  }
+  var eventTableViewControllerBottom : CGFloat {
+    get {
+      return toolbarView.frame.minY
+    }
   }
   func animate(finalState : @escaping () -> ()) {
     UIView.animate(withDuration: 0.4, delay: 0, options: [.allowUserInteraction,.beginFromCurrentState], animations: {
@@ -248,7 +264,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       return {
         self.seperatorView.center.y = self.collectionView.center.y/2
         self.containerView.frame.origin.y = self.seperatorView.frame.maxY
-        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.maxY
+        self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
       }
     }
   }
@@ -258,15 +274,37 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       return {
         self.seperatorView.center.y = self.collectionView.frame.height+self.seperatorView.frame.height/2
         self.containerView.frame.origin.y = self.seperatorView.frame.maxY
-        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.maxY
+        self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
       }
     }
   }
 
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    inEventView = false
+    selectedIndexPath = indexPath
+    eventViewController!.selectedEvents = events(forIndexPath: indexPath)
+    if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
+      if let todaysEvent = collectionCell.eventsToday?.first {
+        self.dateLabel.text =
+          DateFormatter.localizedString(from: todaysEvent.startDate,
+                                        dateStyle: .long,
+                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
+                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
+        //collectionCell.backgroundColor = UIColor.blue
+        
+      }
+      else {
+        dateLabel?.text = " "
+      }
+    }
+    else {
+      eventViewController!.selectedEvents = nil
+    }
+  }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
-    cell.setupView()
+    cell.isSelected = false
     if (firstEvent == nil) {
       cell.eventsLabel?.isHidden = true
       cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
@@ -292,21 +330,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     cell.eventsToday = eventsToday.count == 0 ? nil : eventsToday
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
     if Calendar.current.isDate(currentDay, inSameDayAs: RMDate.Today) {
-      cell.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
-      cell.layer.cornerRadius = RMImage.CornerRadius
-      cell.layer.masksToBounds = true
+      cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!, attributes: [.underlineStyle: NSUnderlineStyle.styleSingle])
     }
     else {
-     cell.backgroundColor = UIColor.clear 
+     cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!)
     }
     let currentMonth = Calendar.current.component(Calendar.Component.month, from: currentDay)
     let todaysMonth = Calendar.current.component(Calendar.Component.month, from: RMDate.Today)
-    if currentMonth != todaysMonth {
-     cell.dayLabel.textColor = UIColor.lightGray
-    }
-    else {
-     cell.dayLabel.textColor = UIColor.black
-    }
+    cell.dayTextColor = currentMonth == todaysMonth ? UIColor.black : UIColor.lightGray
+    
     
     cell.dayLabel.text = String(Calendar.current.dateComponents([.day], from: currentDay).day!)
     if let numberOfEventsToday = cell.eventsToday?.count {
@@ -327,26 +359,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   // MARK: - UICollectionViewDelegate
   
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-    inEventView = false
-    selectedIndexPath = indexPath
-    eventViewController!.selectedEvents = events(forIndexPath: indexPath)
-    if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
-      if let todaysEvent = collectionCell.eventsToday?.first {
-        self.dateLabel.text = 
-          DateFormatter.localizedString(from: todaysEvent.startDate, 
-                                        dateStyle: .long, 
-                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, 
-                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
-        //collectionCell.backgroundColor = UIColor.blue
-        
-      }
-      else {
-        dateLabel?.text = " "
-      }
-    }
-    else {
-      eventViewController!.selectedEvents = nil
-    } 
+    
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
