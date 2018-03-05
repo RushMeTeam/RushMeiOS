@@ -6,6 +6,7 @@ import random
 import math
 #import networkx as nx
 import jenkspy
+import datetime
 import pygal
 from pygal import Config
 from pygal.style import Style
@@ -18,6 +19,15 @@ connection = mysql.connector.connect(user = 'RushMePublic',
                                      host = 'rushmedbinstance.cko1kwfapaog.us-east-2.rds.amazonaws.com',
                                      database = 'fratinfo')
 cursor = connection.cursor()
+
+def getFraternities():
+    query = "SELECT options FROM sqlrequests WHERE action = 'Fraternity Selected' OR action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited'"
+    cursor.execute(query)
+    fratNames = set()
+    for fratName in set(cursor):
+        fratNames.add(fratName[0])
+    return fratNames       
+
 
 @app.route('/')
 def createPage():
@@ -189,16 +199,20 @@ def createPage():
     ##else:
         ##print("Plots not plotted")   
     ##connection.close()
+    # 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0
     """ render svg on html """
     return """
     <html>
         <body>
-            <h1>RushMe Favorites</h1>
+            <h1 style="color: rgb(41, 171, 226)">RushMe Data Analytics </h1><h3>Last Updated """ + str(datetime.datetime.now()).split(".")[0] +  """</h3>
             <figure>
             <embed type="image/svg+xml" src="/deviceGraph/" />
             </figure>
             <figure>
             <embed type="image/svg+xml" src="/favoritesGraph/" />
+            </figure>
+            <figure>
+            <embed type="image/svg+xml" src="/grossPopularityGraph/" />
             </figure>
             <figure>
             <embed type="image/svg+xml" src="/overlapGraph/" />
@@ -217,7 +231,6 @@ def deviceGraph():
     actions = dict()
     connectedDeviceSoftwareTypes = dict()
     bar_chart = pygal.Pie(title = "RushMe User Device Characteristics")
-        
         #print(deviceuuid)
     bar_chart.x_labels = ['Device Characteristics']
     for deviceKey, number in dict(cursor).items():
@@ -228,7 +241,20 @@ def deviceGraph():
     #print(dictionaryAnalysis(actions, numberOfRequests, "\t{:.1f}% of requests of type {}\n"))
     #print(dictionaryAnalysis(softwareTypes, numberOfRequests, "\t{:.1f}% of requests from iOS {}\n"))
     return Response(response=bar_chart.render(), content_type='image/svg+xml')   
-
+@app.route('/grossPopularityGraph/')
+def grossPopularityGraph():
+    fraternities = getFraternities()
+    query = "SELECT options, count(*) FROM sqlrequests WHERE options IS NOT NULL GROUP BY options"
+    cursor.execute(query)
+    
+    requests = dict(cursor)
+    bar_chart = pygal.Pie(title = "RushMe Gross Traffic Graph")
+    bar_chart.x_labels = ['Number of Requests']
+    for options in requests:
+        if options in fraternities:
+            bar_chart.add(options, requests[options])
+    return Response(response=bar_chart.render(), content_type='image/svg+xml') 
+    
 @app.route('/popularityGraph/')
 def popularityGraph():
     query = "SELECT options FROM sqlrequests WHERE action = 'Fraternity Selected' OR action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited'"
@@ -238,55 +264,78 @@ def popularityGraph():
 
 @app.route('/favoritesGraph/')
 def favoritesGraph():
-    query = "SELECT options FROM sqlrequests WHERE action = 'Fraternity Selected' OR action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited'"
-    cursor.execute(query)
-    fraternities = set(cursor)    
+    fraternities = getFraternities() 
     """ render svg graph """
-    bar_chart = pygal.Bar(title = u'RushMe Favorites', x_label_rotation = 30)
-    bar_chart.value_formatter = lambda x: "{0:0.1f}%".format(x)
-    bar_chart.style = Style(foreground = '#29abe2', colors = ("#7CCCEE", "#4FBAE8", "#0472A2", "#29AAE2"))
-    query = "SELECT deviceuuid FROM sqlrequests WHERE (action = 'Fraternity Selected' OR action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe')"
+    bar_chart = pygal.StackedBar(title = u'RushMe Net Favorites', x_label_rotation = 30)
+    #bar_chart.value_formatter = lambda x: "{0:0.1f}%".format(x)
+    #bar_chart.style = Style(foreground = '#29abe2', colors = ("#7CCCEE", "#4FBAE8", "#0472A2", "#29AAE2"))
+    #query = "SELECT deviceuuid FROM sqlrequests WHERE (action = 'Fraternity Selected' OR action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe')"
+    #cursor.execute(query)
+    #uuids = set()
+    #for uuid in cursor:
+        #uuids.add(int(uuid[0]))
+    #uuids = sorted(uuids)
+    #userInfo = dict()
+    #fratInfo = dict()
+    ##fratUnfavorites = dict()
+    #for frat in fraternities:
+        #fratInfo[frat] = set()
+        ##fratUnfavorites[frat] = set()
+        
+    query = "SELECT deviceuuid, options FROM sqlrequests WHERE action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' GROUP BY deviceuuid"
     cursor.execute(query)
-    uuids = set()
-    for uuid in cursor:
-        uuids.add(int(uuid[0]))
-    uuids = sorted(uuids)
-    userInfo = dict()
-    fratInfo = dict()
-    for frat in fraternities:
-        fratInfo[frat[0]] = set()
-    for uuid in uuids:
+    for deviceuuid, options in cursor:
+        print(deviceuuid, options)
+    return "Not yet"    
+    #for uuid in uuids:
         #print(uuid)
-        query = "SELECT deviceuuid, requesttime, action, options FROM sqlrequests WHERE ((action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe') AND deviceuuid = " + str(uuid) + ") ORDER BY requesttime ASC"
-        cursor.execute(query)
-        favorites = set()
-        for uuid, requesttime, action, fraternity in cursor:
-            #print(uuid, requesttime, action, fraternity)
-            if "Favorited" in action and "Unfavorited" not in action:
-                favorites.add(fraternity)
-            if "Unfavorited" in action and fraternity in favorites:
-                favorites.remove(fraternity)
-        for favorite in favorites:
-            fratInfo[favorite].add(int(uuid))
-    fratConnections = []
-    for frat in fratInfo:
-        for anotherFrat in sorted(fratInfo):
-            if frat != anotherFrat:
-                fratConnections.append((frat, anotherFrat, (fratInfo[frat] & fratInfo[anotherFrat])))
-    #print("Most Favorited:")
-    x = []
-    y = []
-    totalFavorites = 0
-    for fratLikes in sorted(fratInfo.items(), key= lambda x : len(x[1]), reverse= True)[:15]:
-        #print("\t{0:<24} {1}".format(fratLikes[0], len(fratLikes[1])))
-        numberFavorites = len(fratLikes[1])
-        x.append(fratLikes[0])
-        y.append(len(fratLikes[1]))
-        totalFavorites += numberFavorites
-    for i in range(len(y)):
-        y[i] = float(y[i])*100/float(totalFavorites)
-    bar_chart.add('Favorites',y)
-    bar_chart.x_labels = x
+        #query = "SELECT deviceuuid, requesttime, action, options FROM sqlrequests WHERE ((action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe') AND deviceuuid = " + str(uuid) + ") ORDER BY requesttime ASC"
+        #cursor.execute(query)
+        #favorites = set()
+        ##unfavorites = set()
+        #for uuid, requesttime, action, fraternity in cursor:
+            ##print(uuid, requesttime, action, fraternity)
+            #if "Favorited" in action and "Unfavorited" not in action:
+                #favorites.add(fraternity)
+                ##if fraternity in unfavorites:
+                    ##unfavorites.remove(fraternity)
+            #if "Unfavorited" in action:
+                #if fraternity in favorites:
+                    #favorites.remove(fraternity)
+                ##unfavorites.add(fraternity)
+        #for favorite in favorites:
+            #fratInfo[favorite].add(int(uuid))
+        ##for unfavorite in unfavorites:
+            ##fratUnfavorites[unfavorite].add(int(uuid))
+    #fratConnections = []
+    ##for frat in fratInfo:
+        ##for anotherFrat in sorted(fratInfo):
+            ##if frat != anotherFrat:
+                ##fratConnections.append((frat, anotherFrat, (fratInfo[frat] & fratInfo[anotherFrat])))
+    ##print("Most Favorited:")
+    #x = []
+    #x_ = []
+    #y = []
+    #y_ = []
+    #totalFavorites = 0
+    #totalUnfavorites = 0
+    #for fratLikes in sorted(fratInfo.items(), key= lambda x : len(x[1]), reverse= True)[:15]:
+        ##print("\t{0:<24} {1}".format(fratLikes[0], len(fratLikes[1])))
+        #numFavorites = len(fratLikes[1])
+        #x.append(fratLikes[0])
+        #y.append(numFavorites)
+        #totalFavorites += numFavorites
+    ##for fratUnfavorites in sorted(fratInfo.items(), key= lambda x : len(x[1]), reverse= True)[:15]:
+        ##numUnfavorites = len(fratInfo[fratLikes[0]])
+        ##x_.append(fratLikes[0])
+        ##y_.append(-1*numUnfavorites)
+        ##totalUnfavorites += numUnfavorites
+    #for i in range(len(y)):
+        #y[i] = float(y[i])*100/float(totalFavorites)
+        ##y_[i] = float(y[i])*100/float(totalUnfavorites)
+    #bar_chart.add('Favorites',y)
+    ##bar_chart.add('Unfavorites', y_)
+    #bar_chart.x_labels = x
     #xLabels = []
     #for frat, anotherFrat, sharedUsers in fratConnections:
         #xLabels += frat
@@ -298,7 +347,7 @@ def favoritesGraph():
 
 @app.route('/overlapGraph/')
 def overlapGraph():
-    return "Not yet implemented"
+    return "OverlapGraph not yet implemented"
 
 
 
