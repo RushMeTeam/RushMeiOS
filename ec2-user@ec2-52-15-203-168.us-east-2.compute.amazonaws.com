@@ -206,7 +206,7 @@ def createPage():
         <body>
             <h1 style="color: rgb(41, 171, 226)">RushMe Data Analytics </h1><h3>Last Updated """ + str(datetime.datetime.now()).split(".")[0] +  """</h3>
             <figure>
-            <embed type="image/svg+xml" src="/popularityGraph/" />
+            <embed type="image/svg+xml" src="/deviceGraph/" />
             </figure>
             <figure>
             <embed type="image/svg+xml" src="/favoritesGraph/" />
@@ -215,18 +215,14 @@ def createPage():
             <embed type="image/svg+xml" src="/grossPopularityGraph/" />
             </figure>
             <figure>
-            <embed type="image/svg+xml" src="/deviceGraph/" />
+            <embed type="image/svg+xml" src="/popularityGraph/" />
             </figure>
         </body>
     </html>'
     """
 @app.route('/deviceGraph/')
 def deviceGraph():
-    query = """
-            SELECT DISTINCT CONCAT(CONCAT(devicetype, ' | '), deviceSoftware) device, count(devicetype) count 
-            FROM sqlrequests 
-            WHERE devicetype NOT LIKE '%Simulator%' 
-            GROUP BY device ORDER BY count DESC"""
+    query = "SELECT DISTINCT CONCAT(CONCAT(devicetype, ' | '), deviceSoftware) device, count(devicetype) count FROM sqlrequests WHERE devicetype NOT LIKE '%Simulator%' GROUP BY device ORDER BY count DESC"
     cursor.execute(query)
     numberOfRequests = 0
     deviceTypes = dict()
@@ -248,7 +244,7 @@ def deviceGraph():
 @app.route('/grossPopularityGraph/')
 def grossPopularityGraph():
     fraternities = getFraternities()
-    query = "SELECT options, count(*) traffic FROM sqlrequests WHERE options IS NOT NULL GROUP BY options ORDER BY traffic DESC"
+    query = "SELECT options, count(*) FROM sqlrequests WHERE options IS NOT NULL GROUP BY options"
     cursor.execute(query)
     
     requests = dict(cursor)
@@ -264,10 +260,10 @@ def popularityGraph():
     bar_chart = pygal.StackedBar(title = u'RushMe Net Favorites', x_label_rotation = 30)
     bar_chart.style = Style(foreground = '#29abe2', colors = ("#7CCCEE", 'red'))  
     bar_chart.value_formatter = lambda x: "{0:0.1f}%".format(x*100)
-    query = "SELECT options, count(*) FROM sqlrequests WHERE action = 'Fraternity Favorited' GROUP BY options, deviceuuid"
+    query = "SELECT options, count(*) FROM sqlrequests WHERE action = 'Fraternity Favorited' GROUP BY options"
     cursor.execute(query)
     favorites = dict(cursor)
-    query = "SELECT options, count(*) FROM sqlrequests WHERE action = 'Fraternity Unfavorited' GROUP BY options, deviceuuid"
+    query = "SELECT options, count(*) FROM sqlrequests WHERE action = 'Fraternity Unfavorited' GROUP BY options"
     cursor.execute(query)
     unfavorites = dict(cursor)  
     grossDict = dict()
@@ -284,13 +280,11 @@ def popularityGraph():
     fratNames = []
     favs = []
     unfavs = []
-    maxVol = 0
-    for frat, (numFavs, numUnfavs) in sorted(grossDict.items(), key= lambda x : (x[1][0]+x[1][1])/(x[1][0]-x[1][1]), reverse= True)[:15]:
-        maxVol = max(maxVol, numFavs-numUnfavs)
-    for frat, (numFavs, numUnfavs) in sorted(grossDict.items(), key= lambda x : (x[1][0]+x[1][1])/(x[1][0]-x[1][1]), reverse= True)[:15]:
+    for frat, (numFavs, numUnfavs) in sorted(grossDict.items(), key= lambda x : x[1][0]-x[1][1], reverse= True)[:15]:
         fratNames.append(frat)
-        favs.append(numFavs/maxVol)
-        unfavs.append(numUnfavs/maxVol)        
+        total = max(numFavs - numUnfavs, 1)
+        favs.append(numFavs/total)
+        unfavs.append(numUnfavs/total)
     bar_chart.add('Favorites', favs)
     bar_chart.add('Unfavorites', unfavs)
     bar_chart.x_labels = fratNames
@@ -322,11 +316,11 @@ def favoritesGraph():
                 WHERE (action = 'Fraternity Favorited' OR action = 'Fraternity Unfavorited' OR action = 'Fraternity Favorited by Swipe' OR action = 'Fraternity Unfavorited by Swipe')
                 ORDER BY requesttime
             """
-    bar_chart.value_formatter = lambda x: "{0:0.1f}%".format(x*100)
+    bar_chart.value_formatter = lambda x: "{0:0.1f}%".format(x)
     bar_chart.style = Style(foreground = '#29abe2', colors = ("#7CCCEE", "#4FBAE8", "#0472A2", "#29AAE2"))    
     cursor.execute(query)
     for requesttime, deviceuuid, frat, action in cursor:
-        #print(deviceuuid, frat, action, requesttime)
+        print(deviceuuid, frat, action, requesttime)
         if frat not in fratInfo:
             fratInfo[frat] = set()
         if "Unfavorite" not in action:
