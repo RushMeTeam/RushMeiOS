@@ -89,7 +89,9 @@ class Campus: NSObject {
         for daysEvents in eventsByDay {
           let favoritedEventsToday = daysEvents.filter({ (event) -> Bool in
             return favoritedFrats.contains(event.frat.name)
-          })
+          }).sorted { (first, second) -> Bool in
+            return first.startDate < second.startDate
+          }
           if !favoritedEventsToday.isEmpty {
             favoritedEventsByDay_!.append(favoritedEventsToday)
           }

@@ -12,17 +12,54 @@ fileprivate let reuseIdentifier = "CalendarCell"
 fileprivate let labelReuseIdentifier = "DayCell"
 
 class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  // MARK: Member Variables
+  // MARK: Constants
+  var eventViewController : EventTableViewController? = nil
+  fileprivate let eventCountThreshold = 9
+  // MARK: View IBOutlets
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var seperatorView: UIView!
   @IBOutlet weak var favoritesSegmentControl: UISegmentedControl!
-  
   @IBOutlet weak var toolbarView: UIView!
+  // MARK: Recognizer IBOutlets
+  @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
+  @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
   
+  // MARK: Data Source Calculated Fields
+  var firstEvent : FratEvent? {
+    get {
+      return viewingFavorites ?
+        Campus.shared.firstFavoritedEvent :
+        Campus.shared.firstEvent
+    }
+  }
+  var dataSource : [[FratEvent]] {
+    return viewingFavorites ? Campus.shared.eventsByDay : Campus.shared.favoritedEventsByDay
+  }
+  var flatDataSource : Set<FratEvent> {
+    get {
+      return viewingFavorites ?
+        Campus.shared.favoritedEvents :
+        Campus.shared.allEvents
+    }
+  }
+  func events(forIndexPath indexPath : IndexPath) -> [FratEvent] {
+    if (indexPath.row < 7 || firstEvent == nil) {
+      return []
+    }
+    let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
+    let todaysEvents = flatDataSource.filter({
+      (event) in
+      return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
+    })
+    return todaysEvents.sorted(by: { (first, second) -> Bool in
+      return first.startDate < second.startDate
+    })
+  }
+  // MARK: Visual Calculated Fields
   var inEventView : Bool {
     get {
-     return self.seperatorView.center.y <= self.collectionView.center.y
+      return self.seperatorView.center.y <= self.collectionView.center.y
     }
     set {
       self.animate(finalState: newValue ? self.topState : self.bottomState)
@@ -30,14 +67,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
   var panCutoff : CGFloat {
     get {
-     return self.collectionView.center.y + 32
+      return self.collectionView.center.y + 32
     }
   }
-  @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
-  @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
-  
-  var eventViewController : EventTableViewController? = nil
-  let eventCountThreshold = 9
   var viewingFavorites : Bool {
     get {
      return Campus.shared.hasFavorites && favoritesSegmentControl.selectedSegmentIndex == 1
@@ -48,46 +80,91 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       collectionView.reloadData()
     }
   }
-  var firstEvent : FratEvent? { 
-    get {
-      return viewingFavorites ? 
-        Campus.shared.firstFavoritedEvent : 
-        Campus.shared.firstEvent
-    }
-  }
-  var dataSource : [[FratEvent]] {
-    return viewingFavorites ? Campus.shared.eventsByDay : Campus.shared.favoritedEventsByDay
-  }
-  var flatDataSource : Set<FratEvent> {
-    get {
-      return viewingFavorites ? 
-        Campus.shared.favoritedEvents : 
-        Campus.shared.allEvents
-    }
-  }
   var favoritesShouldBeEnabled : Bool {
     get {
      return Campus.shared.favoritedEvents.count != 0
     }
   }
-  var selectedIndexPath : IndexPath? = nil
-
-  
-  func events(forIndexPath indexPath : IndexPath) -> [FratEvent] {
-    if (indexPath.row < 7 || firstEvent == nil) {
-      return []
+  var selectedIndexPath : IndexPath? {
+    get {
+     return collectionView.indexPathsForSelectedItems?.first
     }
-    let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
-    return flatDataSource.filter({
-      (event) in
-      return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
-    })
   }
-  
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
   @IBOutlet weak var dateLabel: UILabel!
+  // MARK: ViewDidLoad and ViewWillAppear
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    if (self.revealViewController() != nil) {
+      // Allow drawer button to toggle the lefthand drawer menu
+      drawerButton.target = self.revealViewController()
+      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
+      // Allow drag to open drawer, tap out to close
+      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+    }
+    navigationController?.navigationBar.isTranslucent = false
+    //navigationController?.navigationBar.alpha = 1
+    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = false
+    self.containerView.backgroundColor = UIColor.clear
+    self.seperatorView.layer.cornerRadius = RMImage.CornerRadius*2
+    if #available(iOS 11.0, *) {
+      self.seperatorView.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
+    } else {
+      // Fallback on earlier versions
+    }
+    // Do any additional setup after loading the view.
+    if let tbView = self.childViewControllers.first as? EventTableViewController {
+      eventViewController = tbView
+    }
+    // TODO: Implement Day Selection
+//    collectionView.allowsMultipleSelection = true
+  
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.fileURL = nil
+    viewingFavorites = favoritesShouldBeEnabled
+    DispatchQueue.global().async {
+      self.fileURL =
+        RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+    }
+    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
+    shareButton.isEnabled = flatDataSource.count != 0
+    panGestureRecognizer.isEnabled = shareButton.isEnabled
+    tapGestureRecognizer.isEnabled = panGestureRecognizer.isEnabled
+    if let _ = firstEvent {
+      self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+      navigationController?.navigationBar.tintColor = RMColor.AppColor
+    } else {
+      self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
+      navigationController?.navigationBar.tintColor = UIColor.lightGray
+      drawerButton.tintColor = RMColor.AppColor
+    }
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  
+  /*
+   // MARK: - Navigation
+   
+   // In a storyboard-based application, you will often want to do a little preparation before navigation
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   // Get the new view controller using [segue destinationViewController].
+   // Pass the selected object to the new view controller.
+   }
+   */
+  
   var fileURL : URL? = nil
   // MARK: Sharing
   // Shown when share button is selected
@@ -125,88 +202,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       print("Error in calendar share button!")
     }
   }
-  // MARK: ViewDidLoad and ViewWillAppear
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    if (self.revealViewController() != nil) {
-      // Allow drawer button to toggle the lefthand drawer menu
-      drawerButton.target = self.revealViewController()
-      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-      // Allow drag to open drawer, tap out to close
-      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    }
-    navigationController?.navigationBar.isTranslucent = false
-    //navigationController?.navigationBar.alpha = 1
-    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    self.containerView.backgroundColor = UIColor.clear
-    self.seperatorView.layer.cornerRadius = RMImage.CornerRadius*2
-    if #available(iOS 11.0, *) {
-      self.seperatorView.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
-    } else {
-      // Fallback on earlier versions
-    }
-    // Do any additional setup after loading the view.
-    if let tbView = self.childViewControllers.first as? EventTableViewController {
-      eventViewController = tbView
-    }
-  }
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    self.fileURL = nil
-    viewingFavorites = favoritesShouldBeEnabled
-    DispatchQueue.global().async {
-      self.fileURL =
-        RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
-    }
-    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
-    shareButton.isEnabled = flatDataSource.count != 0
-    panGestureRecognizer.isEnabled = shareButton.isEnabled
-    tapGestureRecognizer.isEnabled = panGestureRecognizer.isEnabled
-    if let _ = firstEvent {
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-      navigationController?.navigationBar.tintColor = RMColor.AppColor
-    } else {
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
-      navigationController?.navigationBar.tintColor = UIColor.lightGray
-      drawerButton.tintColor = RMColor.AppColor
-    }
-    
-  }
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+
   
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using [segue destinationViewController].
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
-  // MARK: UICollectionViewDataSource
-  
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 31+7
-  }
-  
+  // MARK: Button Actions
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
     self.collectionView.reloadData()
+    dateLabel.text = ""
     if let indexPath = selectedIndexPath {
       let eventsToday = events(forIndexPath: indexPath)
+      
       if let todaysEvent = eventsToday.first {
         self.dateLabel.text = 
           DateFormatter.localizedString(from: todaysEvent.startDate, 
@@ -225,6 +229,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     
   }
+  // MARK : Gesture Recognizers
   
   @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
     inEventView = !inEventView
@@ -247,8 +252,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     case .failed:
       return
     }
-    
   }
+  
+  // MARK: Animation Calculated Fields
+  
   var eventTableViewControllerBottom : CGFloat {
     get {
       return toolbarView.frame.minY
@@ -279,27 +286,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
   }
 
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    inEventView = false
-    selectedIndexPath = indexPath
-    eventViewController!.selectedEvents = events(forIndexPath: indexPath)
-    if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
-      if let todaysEvent = collectionCell.eventsToday?.first {
-        self.dateLabel.text =
-          DateFormatter.localizedString(from: todaysEvent.startDate,
-                                        dateStyle: .long,
-                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
-                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
-        //collectionCell.backgroundColor = UIColor.blue
-        
-      }
-      else {
-        dateLabel?.text = " "
-      }
-    }
-    else {
-      eventViewController!.selectedEvents = nil
-    }
+  // MARK: UICollectionViewDataSource
+  
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 31+7
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -356,11 +349,37 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     return cell
   }
+  
+  
   // MARK: - UICollectionViewDelegate
   
-  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-    
+  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    return indexPath.row > 6 && firstEvent != nil
   }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    inEventView = false
+    
+    if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
+      eventViewController!.selectedEvents = events(forIndexPath: indexPath)
+      if let todaysEvent = collectionCell.eventsToday?.first {
+        self.dateLabel.text =
+          DateFormatter.localizedString(from: todaysEvent.startDate,
+                                        dateStyle: .long,
+                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
+                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
+        //collectionCell.backgroundColor = UIColor.blue
+        
+      }
+      else {
+        dateLabel?.text = " "
+      }
+    }
+    else {
+      eventViewController!.selectedEvents = nil
+    }
+  }
+  
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let cellWidth = collectionView.frame.width/8.0

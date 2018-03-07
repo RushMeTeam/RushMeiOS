@@ -3,8 +3,8 @@
 <plist version="1.0">
 <array>
 	<string>XCTest</string>
-	<string>MapKit</string>
 	<string>QuartzCore</string>
+	<string>MapKit</string>
 	<string>RushMe</string>
 	<string>CoreGraphics</string>
 	<string>iCalKit</string>

@@ -264,44 +264,41 @@ SWIFT_CLASS("_TtC6RushMe31CalendarLabelCollectionViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class EventTableViewController;
 @class UICollectionView;
 @class UIView;
 @class UISegmentedControl;
 @class UIPanGestureRecognizer;
 @class UITapGestureRecognizer;
-@class EventTableViewController;
 @class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 @interface CalendarViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified containerView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified seperatorView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified favoritesSegmentControl;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified toolbarView;
-@property (nonatomic) BOOL inEventView SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.inEventView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) CGFloat panCutoff SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.panCutoff' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UIPanGestureRecognizer * _Null_unspecified panGestureRecognizer;
 @property (nonatomic, weak) IBOutlet UITapGestureRecognizer * _Null_unspecified tapGestureRecognizer;
-@property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) NSInteger eventCountThreshold SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventCountThreshold' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) FratEvent * _Nullable firstEvent SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.firstEvent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSArray<NSArray<FratEvent *> *> * _Nonnull dataSource SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.dataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSSet<FratEvent *> * _Nonnull flatDataSource SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.flatDataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) BOOL favoritesShouldBeEnabled SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.favoritesShouldBeEnabled' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSIndexPath * _Nullable selectedIndexPath SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.selectedIndexPath' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (NSArray<FratEvent *> * _Nonnull)eventsForIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.events(forIndexPath:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL inEventView SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.inEventView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) CGFloat panCutoff SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.panCutoff' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) BOOL favoritesShouldBeEnabled SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.favoritesShouldBeEnabled' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSIndexPath * _Nullable selectedIndexPath SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.selectedIndexPath' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified drawerButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified shareButton;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dateLabel;
-@property (nonatomic, copy) NSURL * _Nullable fileURL SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.fileURL' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (IBAction)exportEvents:(UIBarButtonItem * _Nonnull)sender;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, copy) NSURL * _Nullable fileURL SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.fileURL' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (IBAction)exportEvents:(UIBarButtonItem * _Nonnull)sender;
 - (IBAction)favoriteSegmentControlValueChanged:(UISegmentedControl * _Nonnull)sender;
 - (IBAction)seperatorTap:(UITapGestureRecognizer * _Nonnull)sender;
 - (IBAction)eventCalendarPan:(UIPanGestureRecognizer * _Nonnull)sender;
@@ -309,9 +306,11 @@ SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 - (void)animateWithFinalState:(void (^ _Nonnull)(void))finalState SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.animate(finalState:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) void (^ _Nonnull topState)(void) SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.topState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) void (^ _Nonnull bottomState)(void) SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.bottomState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didHighlightItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView shouldSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;

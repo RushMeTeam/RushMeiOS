@@ -22,7 +22,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     super.awakeFromNib()
     self.eventsLabel?.textColor = RMColor.AppColor
     self.circleLayer.fillColor = RMColor.AppColor.cgColor
-    self.layer.addSublayer(circleLayer)
+    //self.layer.addSublayer(circleLayer)
+    eventsLabel.layer.addSublayer(circleLayer)
     circleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
     self.bringSubview(toFront: eventsLabel)
@@ -39,8 +40,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
   private var circleLayer : CAShapeLayer = CAShapeLayer()
   var path : UIBezierPath {
     get {
-      let p = UIBezierPath.init(ovalIn: self.dayLabel.frame)
-      return p
+      return UIBezierPath.init(ovalIn: dayLabel.bounds)
     }
   }
 
