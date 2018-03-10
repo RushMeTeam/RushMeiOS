@@ -125,7 +125,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       eventViewController = tbView
     }
     // TODO: Implement Day Selection
-//    collectionView.allowsMultipleSelection = true
+    collectionView.allowsMultipleSelection = false
+    
   
   }
   override func viewWillAppear(_ animated: Bool) {
@@ -149,6 +150,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
       navigationController?.navigationBar.tintColor = UIColor.lightGray
       drawerButton.tintColor = RMColor.AppColor
+    }
+  }
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
+      collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
     }
   }
   
@@ -211,19 +218,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
     let indexPaths = collectionView.indexPathsForSelectedItems!
     collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
-//    dateLabel.text = ""
     if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
-      for indexPath in indexPaths {
-        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top) 
-      }
       if let lastSelectedPath = indexPaths.last {
-       eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath) 
+        eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath)
+        collectionView.selectItem(at: lastSelectedPath, animated: false, scrollPosition: .top)
       }
-      else {
-        
-        collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top) 
-      }
-//      collectionView.selectItem(at: IndexPath.init(row: 7, section: 0), animated: false, scrollPosition: .top)
+//      else {
+//        collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
+//      }
       
     }
 //    if let indexPath = selectedIndexPath {
@@ -372,9 +374,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   
   // MARK: - UICollectionViewDelegate
-//  func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-//    return false
-//  }
+  func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+    return true
+  }
 //  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
 //    return indexPath.row > 6 && firstEvent != nil
 //  }

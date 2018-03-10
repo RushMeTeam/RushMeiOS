@@ -22,12 +22,12 @@ fileprivate let attractiveFratCellIdentifier = "prettyFratCell"
 
 
 class MasterViewController : UITableViewController,
-                             UISearchBarDelegate {
+UISearchBarDelegate {
   
   // MARK: Member Variables
   // The hard data used in the table
-//  var lastPullDescription = ""
-//  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
+  //  var lastPullDescription = ""
+  //  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
   let progressView = UIProgressView.init()
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
@@ -46,17 +46,17 @@ class MasterViewController : UITableViewController,
   var shuffledFrats : [String]? = nil {
     willSet {
       if newValue == nil {
-       self.reloadTableView()
+        self.reloadTableView()
       }
     }
   }
   var dataKeys : [String] {
     get {
       if viewingFavorites {
-       return Array(Campus.shared.favoritedFrats)
+        return Array(Campus.shared.favoritedFrats)
       }
       else if !RMUserPreferences.shuffleEnabled {
-       return Array(Campus.shared.fratNames).sorted()
+        return Array(Campus.shared.fratNames).sorted()
       }
       else if let _ = shuffledFrats, !self.refreshControl!.isRefreshing {
         return shuffledFrats!
@@ -105,7 +105,7 @@ class MasterViewController : UITableViewController,
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     refreshControl!.beginRefreshing()
     // Add a progress view to indicate loading status
-//    self.navigationController!.navigationBar.addSubview(progressView)
+    //    self.navigationController!.navigationBar.addSubview(progressView)
     
     let wrapperView = UIView()
     let imageView = UIImageView.init(image: RMImage.LogoImage)
@@ -144,7 +144,7 @@ class MasterViewController : UITableViewController,
   // MARK: - Data Handling
   func dataUpdate() {
     if !self.pullFratsFromSQLDatabase() {
-     print("Failed to load!") 
+      print("Failed to load!")
     }
   }
   // MARK: Data Request
@@ -161,9 +161,9 @@ class MasterViewController : UITableViewController,
     }
     var dictArray = [Dictionary<String, Any>()]
     if types.count == 0{
-        if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-          dictArray = arr
-        }
+      if let arr = SQLHandler.shared.select(fromTable: "house_info") {
+        dictArray = arr
+      }
     }
     else {
       var querystring = ""
@@ -192,7 +192,7 @@ class MasterViewController : UITableViewController,
               self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
             }
             if RMUserPreferences.shuffleEnabled && fratCount % 4 == 0 {
-             self.reloadTableView() 
+              self.reloadTableView()
             }
             else if !RMUserPreferences.shuffleEnabled {
               self.reloadTableView()
@@ -231,30 +231,30 @@ class MasterViewController : UITableViewController,
     }
     return true
   }
-//  let colors  = [UIColor.white, RMColor.AppColor, RMColor.AppColor, UIColor.cyan, UIColor.red] //[UIColor.red, RMColor.AppColor, RMColor.AppColor, UIColor.purple, UIColor.cyan, RMColor.AppColor, RMColor.AppColor, UIColor.orange, RMColor.AppColor, UIColor.magenta, RMColor.AppColor]
-//  
-//  func animateRefreshView() {
-//    struct Counter {
-//     static var index = 0
-//    }
-//    DispatchQueue.main.async {
-//      UIView.animate(withDuration: 0.5, animations: {
-//        self.refreshControl!.backgroundColor = self.colors[Counter.index%self.colors.count]
-//        self.refreshControl!.tintColor = self.colors[(Counter.index%self.colors.count)%self.colors.count]
-//      }, completion: { (completed) in
-//        Counter.index += 1
-//        if self.refreshControl!.isRefreshing {
-//          self.animateRefreshView()
-//        }
-//        else {
-//          UIView.animate(withDuration: 0.8, animations: {
-//            self.refreshControl!.backgroundColor = UIColor.white
-//            self.refreshControl!.tintColor = RMColor.AppColor
-//          })
-//        }
-//      })
-//    }
-//  }
+  //  let colors  = [UIColor.white, RMColor.AppColor, RMColor.AppColor, UIColor.cyan, UIColor.red] //[UIColor.red, RMColor.AppColor, RMColor.AppColor, UIColor.purple, UIColor.cyan, RMColor.AppColor, RMColor.AppColor, UIColor.orange, RMColor.AppColor, UIColor.magenta, RMColor.AppColor]
+  //
+  //  func animateRefreshView() {
+  //    struct Counter {
+  //     static var index = 0
+  //    }
+  //    DispatchQueue.main.async {
+  //      UIView.animate(withDuration: 0.5, animations: {
+  //        self.refreshControl!.backgroundColor = self.colors[Counter.index%self.colors.count]
+  //        self.refreshControl!.tintColor = self.colors[(Counter.index%self.colors.count)%self.colors.count]
+  //      }, completion: { (completed) in
+  //        Counter.index += 1
+  //        if self.refreshControl!.isRefreshing {
+  //          self.animateRefreshView()
+  //        }
+  //        else {
+  //          UIView.animate(withDuration: 0.8, animations: {
+  //            self.refreshControl!.backgroundColor = UIColor.white
+  //            self.refreshControl!.tintColor = RMColor.AppColor
+  //          })
+  //        }
+  //      })
+  //    }
+  //  }
   
   
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
@@ -282,9 +282,9 @@ class MasterViewController : UITableViewController,
       let row = indexPath.row - 1
       if segue.identifier == "showDetail" {
         let fratName = dataKeys[row]
-//        if (viewingFavorites) {
-//          fratName = Campus.shared.favoritedFrats[row]
-//        }
+        //        if (viewingFavorites) {
+        //          fratName = Campus.shared.favoritedFrats[row]
+        //        }
         SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
         if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
           let controller = (segue.destination as! UINavigationController).topViewController
@@ -294,25 +294,25 @@ class MasterViewController : UITableViewController,
           let _ = Campus.shared.getEvents(forFratWithName : fratName)
         }
       }
-//      // Determine which object user selected
-//      else {
-//        var fratName = Campus.shared.fratNames[row]
-//        if (viewingFavorites) {
-//          fratName = Campus.shared.favoritedFrats[row]
-//        }
-//        if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-//          let controller = (segue.destination as! UINavigationController).topViewController
-//            as! DetailViewController
-//          controller.selectedFraternity = selectedFraternity
-//        }
-//      }
+      //      // Determine which object user selected
+      //      else {
+      //        var fratName = Campus.shared.fratNames[row]
+      //        if (viewingFavorites) {
+      //          fratName = Campus.shared.favoritedFrats[row]
+      //        }
+      //        if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
+      //          let controller = (segue.destination as! UINavigationController).topViewController
+      //            as! DetailViewController
+      //          controller.selectedFraternity = selectedFraternity
+      //        }
+      //      }
     }
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
-//  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//    return allowSegues //!(self.refreshControl?.isRefreshing ?? true)
-//  }
+  //  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+  //    return allowSegues //!(self.refreshControl?.isRefreshing ?? true)
+  //  }
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
   }
@@ -368,7 +368,7 @@ class MasterViewController : UITableViewController,
     // Can only do the sliding to favorite if in iOS 11 or up
     // TODO: Decide if slide to favorite is possible in iOS 10.*
     if #available(iOS 11, *) {
-     return !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
+      return !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
     }
     else {
       return false
@@ -384,34 +384,41 @@ class MasterViewController : UITableViewController,
     }
     let toggleFavorite = UITableViewRowAction(style: .normal, title: title, handler: {
       action, cellIndex in
-      if (title == RMMessage.Favorite) {
-        let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
-        Campus.shared.favoritedFrats.insert(fratName)
-        action.backgroundColor = RMColor.AppColor
-        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.isAccentuated = true
-          SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
-        }
-        action.backgroundColor = RMColor.AppColor
-      }
-      else {
-        action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
-        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.isAccentuated = false
-          SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
-        }
-        Campus.shared.favoritedFrats.remove(fratName)
-        if (self.viewingFavorites) {
-          self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
-        }
-        else {
-         action.backgroundColor = RMColor.AppColor 
-        }
-      }
-      self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+      self.setFavorite(withAction: action, forCell: cellIndex, forFrat: fratName)
     })
+    toggleFavorite.title = Campus.shared.favoritedFrats.contains(fratName) ? RMMessage.Unfavorite : RMMessage.Favorite
     toggleFavorite.backgroundColor = bgColor
     return [toggleFavorite]
+  }
+  
+  func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
+    if (action.title == RMMessage.Favorite) {
+      let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
+      Campus.shared.favoritedFrats.insert(fratName)
+      action.backgroundColor = RMColor.AppColor
+      if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+        cell.isAccentuated = true
+        SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
+      }
+      action.backgroundColor = RMColor.AppColor
+      self.tableView.reloadRows(at: [cellIndex], with: .automatic)
+    }
+    else {
+      action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
+      if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+        cell.isAccentuated = false
+        SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
+      }
+      Campus.shared.favoritedFrats.remove(fratName)
+      if (self.viewingFavorites) {
+        self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
+      }
+      else {
+        action.backgroundColor = RMColor.AppColor
+        self.tableView.reloadRows(at: [cellIndex], with: .right)
+      }
+    }
+    self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
   }
   
   // MARK: - Refresh Control
