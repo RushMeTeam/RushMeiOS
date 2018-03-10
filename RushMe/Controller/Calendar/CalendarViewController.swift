@@ -28,9 +28,10 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   // MARK: Data Source Calculated Fields
   var firstEvent : FratEvent? {
     get {
-      return viewingFavorites ?
-        Campus.shared.firstFavoritedEvent :
-        Campus.shared.firstEvent
+      return Campus.shared.firstEvent
+//      return viewingFavorites ?
+//        Campus.shared.firstFavoritedEvent :
+//        Campus.shared.firstEvent
     }
   }
   var dataSource : [[FratEvent]] {
@@ -78,6 +79,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       favoritesSegmentControl.selectedSegmentIndex = 0
       self.favoriteSegmentControlValueChanged(favoritesSegmentControl)
       collectionView.reloadData()
+      
     }
   }
   var favoritesShouldBeEnabled : Bool {
@@ -90,6 +92,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
      return collectionView.indexPathsForSelectedItems?.first
     }
   }
+  lazy var zeroIndexPath = IndexPath.init(item: 7, section: 0)
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -206,26 +209,41 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   // MARK: Button Actions
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
-    self.collectionView.reloadData()
-    dateLabel.text = ""
-    if let indexPath = selectedIndexPath {
-      let eventsToday = events(forIndexPath: indexPath)
-      
-      if let todaysEvent = eventsToday.first {
-        self.dateLabel.text = 
-          DateFormatter.localizedString(from: todaysEvent.startDate, 
-                                        dateStyle: .long, 
-                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, 
-                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
+    let indexPaths = collectionView.indexPathsForSelectedItems!
+    collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+//    dateLabel.text = ""
+    if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
+      for indexPath in indexPaths {
+        collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top) 
+      }
+      if let lastSelectedPath = indexPaths.last {
+       eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath) 
       }
       else {
-       self.dateLabel.text = "" 
+        
+        collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top) 
       }
-      self.eventViewController?.selectedEvents = eventsToday
+//      collectionView.selectItem(at: IndexPath.init(row: 7, section: 0), animated: false, scrollPosition: .top)
+      
     }
-    else {
-     self.eventViewController?.selectedEvents = nil
-    }
+//    if let indexPath = selectedIndexPath {
+//      let eventsToday = events(forIndexPath: indexPath)
+//      
+//      if let todaysEvent = eventsToday.first {
+//        self.dateLabel.text = 
+//          DateFormatter.localizedString(from: todaysEvent.startDate, 
+//                                        dateStyle: .long, 
+//                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, 
+//                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
+//      }
+//      else {
+//       self.dateLabel.text = "" 
+//      }
+//      self.eventViewController?.selectedEvents = eventsToday
+//    }
+//    else {
+//     self.eventViewController?.selectedEvents = nil
+//    }
     
     
   }
@@ -235,7 +253,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     inEventView = !inEventView
   }
   @IBAction func eventCalendarPan(_ sender: UIPanGestureRecognizer) {
-    let yLoc = min(max(sender.location(in: self.view).y, self.seperatorView.frame.height/2), self.collectionView.frame.height+self.seperatorView.frame.height/2)
+    let yLoc = min(
+                max(sender.location(in: self.view).y, self.seperatorView.frame.height/2), 
+                self.collectionView.frame.height+self.seperatorView.frame.height/2)
     switch sender.state {
     case .possible:
       return
@@ -352,16 +372,18 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   
   // MARK: - UICollectionViewDelegate
-  
-  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    return indexPath.row > 6 && firstEvent != nil
-  }
+//  func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+//    return false
+//  }
+//  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//    return indexPath.row > 6 && firstEvent != nil
+//  }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     inEventView = false
-    
+    eventViewController!.selectedEvents = events(forIndexPath: indexPath)
     if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
-      eventViewController!.selectedEvents = events(forIndexPath: indexPath)
+      
       if let todaysEvent = collectionCell.eventsToday?.first {
         self.dateLabel.text =
           DateFormatter.localizedString(from: todaysEvent.startDate,

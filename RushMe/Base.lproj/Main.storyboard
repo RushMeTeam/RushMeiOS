@@ -204,7 +204,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="Zld-Hq-hiI" id="cnx-Fv-kWU"/>
-                                    <outlet property="delegate" destination="Zld-Hq-hiI" id="9uY-N0-5eD"/>
+                                    <outlet property="delegate" destination="Zld-Hq-hiI" id="O8Z-gl-iaT"/>
                                 </connections>
                             </collectionView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxM-GT-KGc">
