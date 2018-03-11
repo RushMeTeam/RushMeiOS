@@ -1277,13 +1277,13 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController storyboardIdentifier="masterVC" definesPresentationContext="YES" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="128" sectionHeaderHeight="1" sectionFooterHeight="22" id="r7i-6Z-zg0">
+                    <tableView key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="128" sectionHeaderHeight="44" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SegmentedControlCell" rowHeight="36" id="ymL-Bw-9Vt" customClass="SegmentCell" customModule="RushMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1" width="375" height="36"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="36"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ymL-Bw-9Vt" id="wj9-8X-TMa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
@@ -1309,7 +1309,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="prettyFratCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="prettyFratCell" id="UWP-Hj-5Oy" customClass="AttractiveFratCellTableViewCell" customModule="RushMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="37" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWP-Hj-5Oy" id="iMq-dk-2Sa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
@@ -1355,11 +1355,6 @@
                                 <action selector="toggleViewControllers:" destination="7bK-jq-Zjz" id="2gH-cI-mXB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="SearchIcon" id="Qd0-D9-0ou">
-                            <connections>
-                                <action selector="toggleSearch:" destination="7bK-jq-Zjz" id="gb5-EB-TfH"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
@@ -1398,7 +1393,6 @@
         <image name="FraternitiesIcon" width="24" height="24"/>
         <image name="MapsIcon" width="48" height="48"/>
         <image name="RushMeLogo" width="768" height="877"/>
-        <image name="SearchIcon" width="36" height="36"/>
         <image name="SettingsIcon" width="24" height="24"/>
         <image name="defaultImage" width="2509" height="1667"/>
     </resources>

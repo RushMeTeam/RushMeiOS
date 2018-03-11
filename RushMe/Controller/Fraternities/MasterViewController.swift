@@ -144,6 +144,8 @@ class MasterViewController : UITableViewController,
     searchController.searchBar.placeholder = "Search Fraternities"
     //searchController.hidesNavigationBarDuringPresentation = true
     searchController.searchResultsUpdater = self
+    tableView.tableHeaderView = searchController.searchBar
+    searchController.searchBar.barTintColor = UIColor.white
     
     //searchController.isActive = false
     searchController.searchBar.isTranslucent = false
@@ -176,8 +178,6 @@ class MasterViewController : UITableViewController,
     }
     imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
-    //self.navigationItem.rightBarButtonItem = UIBarButtonItem.init()
-    searchController.searchBar.searchFieldBackgroundPositionAdjustment = UIOffset.zero
     searchController.hidesNavigationBarDuringPresentation = false
     progressView.frame.size.width = self.view.frame.width
     // The progress view should not be visible less it's loading
@@ -305,24 +305,6 @@ class MasterViewController : UITableViewController,
 //    }
 //  }
   
-  @IBAction func toggleSearch(_ sender: UIBarButtonItem) {
-    
-    if #available(iOS 11.0, *) {
-      let searchEnabled = navigationItem.searchController != nil
-      if searchEnabled {
-       navigationItem.searchController!.isActive = false 
-      }
-      navigationItem.searchController = searchEnabled ? nil : searchController
-      if !searchEnabled {
-       navigationItem.searchController!.isActive = true 
-      }
-      searchController.hidesNavigationBarDuringPresentation = false
-      //tableView.tableHeaderView = searchController.searchBar
-      
-    } else {
-      // Fallback on earlier versions
-    }
-  }
   
   
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
@@ -337,7 +319,6 @@ class MasterViewController : UITableViewController,
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    
     view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     refreshControl?.tintColor = RMColor.AppColor
@@ -355,9 +336,6 @@ class MasterViewController : UITableViewController,
       let row = indexPath.row - 1
       if segue.identifier == "showDetail" {
         let fratName = dataKeys[row]
-//        if (viewingFavorites) {
-//          fratName = Campus.shared.favoritedFrats[row]
-//        }
         SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
         if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
           let controller = (segue.destination as! UINavigationController).topViewController
@@ -367,18 +345,6 @@ class MasterViewController : UITableViewController,
           let _ = Campus.shared.getEvents(forFratWithName : fratName)
         }
       }
-//      // Determine which object user selected
-//      else {
-//        var fratName = Campus.shared.fratNames[row]
-//        if (viewingFavorites) {
-//          fratName = Campus.shared.favoritedFrats[row]
-//        }
-//        if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-//          let controller = (segue.destination as! UINavigationController).topViewController
-//            as! DetailViewController
-//          controller.selectedFraternity = selectedFraternity
-//        }
-//      }
     }
   }
   // Should not perform any segues while refreshing 
