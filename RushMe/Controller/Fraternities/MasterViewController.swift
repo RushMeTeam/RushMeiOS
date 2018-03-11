@@ -22,13 +22,33 @@ fileprivate let attractiveFratCellIdentifier = "prettyFratCell"
 
 
 class MasterViewController : UITableViewController,
-                             UISearchBarDelegate {
+                             UISearchBarDelegate,
+                             UISearchControllerDelegate,
+                             UISearchResultsUpdating{
+  func updateSearchResults(for searchController: UISearchController) {
+    //[self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, -self.scrollView.contentInset.top) animated:YES];
+    self.tableView.setContentOffset(CGPoint.init(x: 0, y: tableView.contentInset.top), animated: true)
+    self.reloadTableView()
+  }
+  
+  var searchBarIsEmpty : Bool {
+    get {
+     return searchController.searchBar.text?.isEmpty ?? true 
+    }
+  }
+  var isSearching : Bool {
+    get {
+     return searchController.isActive && !searchBarIsEmpty 
+    }
+  }
+  
   
   // MARK: Member Variables
   // The hard data used in the table
 //  var lastPullDescription = ""
 //  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
-  let progressView = UIProgressView.init()
+  let progressView = UIProgressView()
+  let searchController = UISearchController.init(searchResultsController: nil)
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   var viewingFavorites : Bool  {
@@ -52,7 +72,13 @@ class MasterViewController : UITableViewController,
   }
   var dataKeys : [String] {
     get {
-      if viewingFavorites {
+      if isSearching {
+        return Array(viewingFavorites ? Campus.shared.favoritedFrats : Campus.shared.fratNames).filter({ (fratName) -> Bool in
+          return fratName.lowercased().contains(searchController.searchBar.text!.lowercased())
+
+        }) 
+      }
+      else if viewingFavorites {
        return Array(Campus.shared.favoritedFrats)
       }
       else if !RMUserPreferences.shuffleEnabled {
@@ -74,8 +100,13 @@ class MasterViewController : UITableViewController,
     UIView.transition(with: tableView,
                       duration: RMAnimation.ColoringTime/2,
                       options: UIViewAnimationOptions.transitionCrossDissolve,
-                      animations: { self.tableView.reloadData() })
+                      animations: { 
+                        self.tableView.reloadData() 
+                        
+    })
+   //self.tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .automatic)
   }
+  
   
   
   override func didReceiveMemoryWarning() {
@@ -91,22 +122,38 @@ class MasterViewController : UITableViewController,
     }
     
     // Make it look good
-    //navigationController?.hidesBarsOnSwipe = true
+    
+    // Menu button disabled until refresh complete
+    // Ensure the menu button toggles the menu
+    // Refresh control 
+    refreshControl = UIRefreshControl()
+    refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    //refreshControl!.beginRefreshing()
+    self.handleRefresh(refreshControl: refreshControl!)
+    // Add a progress view to indicate loading status
+//    self.navigationController!.navigationBar.addSubview(progressView)
+    // Setup the Search Controller
+    navigationController!.hidesBarsOnSwipe = false
     navigationController!.navigationBar.isTranslucent = false
     navigationController!.navigationBar.backgroundColor = UIColor.white
     navigationController!.navigationBar.tintColor = RMColor.AppColor
     navigationController!.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
     navigationController!.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
-    // Menu button disabled until refresh complete
-    // Ensure the menu button toggles the menu
-    // Refresh control 
-    refreshControl = UIRefreshControl()
-    refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-    refreshControl!.beginRefreshing()
-    // Add a progress view to indicate loading status
-//    self.navigationController!.navigationBar.addSubview(progressView)
+    definesPresentationContext = true
+    searchController.searchBar.placeholder = "Search Fraternities"
+    //searchController.hidesNavigationBarDuringPresentation = true
+    searchController.searchResultsUpdater = self
     
+    //searchController.isActive = false
+    searchController.searchBar.isTranslucent = false
+    searchController.searchBar.tintColor = RMColor.AppColor
+    searchController.delegate = self
+    searchController.obscuresBackgroundDuringPresentation = false
+    extendedLayoutIncludesOpaqueBars = true
+    
+  
+    // Set up Title View(s) and Progress Bar
     let wrapperView = UIView()
     let imageView = UIImageView.init(image: RMImage.LogoImage)
     imageView.contentMode = .scaleAspectFit
@@ -129,7 +176,9 @@ class MasterViewController : UITableViewController,
     }
     imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
-    self.navigationItem.rightBarButtonItem = UIBarButtonItem.init()
+    //self.navigationItem.rightBarButtonItem = UIBarButtonItem.init()
+    searchController.searchBar.searchFieldBackgroundPositionAdjustment = UIOffset.zero
+    searchController.hidesNavigationBarDuringPresentation = false
     progressView.frame.size.width = self.view.frame.width
     // The progress view should not be visible less it's loading
     progressView.trackTintColor = UIColor.clear
@@ -138,7 +187,8 @@ class MasterViewController : UITableViewController,
     progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController!.navigationBar.frame.height - progressView.frame.height// //+
     progressView.frame.origin.x = -166
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
-    self.handleRefresh(refreshControl: refreshControl!)
+    view.sendSubview(toBack: tableView)
+    self.navigationController?.setToolbarHidden(true, animated: true)
   }
   
   // MARK: - Data Handling
@@ -184,7 +234,6 @@ class MasterViewController : UITableViewController,
           Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           fratCount += 1
           DispatchQueue.main.async {            
-            self.reloadTableView()
             // Don't allow refresh during refresh
             self.refreshControl!.isEnabled = false
             // Every other fraternity loaded should be indicated
@@ -256,6 +305,25 @@ class MasterViewController : UITableViewController,
 //    }
 //  }
   
+  @IBAction func toggleSearch(_ sender: UIBarButtonItem) {
+    
+    if #available(iOS 11.0, *) {
+      let searchEnabled = navigationItem.searchController != nil
+      if searchEnabled {
+       navigationItem.searchController!.isActive = false 
+      }
+      navigationItem.searchController = searchEnabled ? nil : searchController
+      if !searchEnabled {
+       navigationItem.searchController!.isActive = true 
+      }
+      searchController.hidesNavigationBarDuringPresentation = false
+      //tableView.tableHeaderView = searchController.searchBar
+      
+    } else {
+      // Fallback on earlier versions
+    }
+  }
+  
   
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
     self.revealViewController().revealToggle(self)
@@ -269,11 +337,16 @@ class MasterViewController : UITableViewController,
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
+    
     view.addGestureRecognizer(revealViewController().panGestureRecognizer())
     view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     refreshControl?.tintColor = RMColor.AppColor
     favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
+  override func viewDidAppear(_ animated: Bool) {
+    
+  }
+
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
@@ -325,10 +398,7 @@ class MasterViewController : UITableViewController,
   // Should always be the number of objects to display
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    if (viewingFavorites) {
-      return Campus.shared.favoritedFrats.count+1
-    }
-    return Campus.shared.fratNames.count+1
+    return dataKeys.count + 1
   }
   
   override func tableView(_ tableView: UITableView,
