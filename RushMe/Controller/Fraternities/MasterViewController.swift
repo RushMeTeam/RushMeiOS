@@ -30,7 +30,17 @@ class MasterViewController : UITableViewController,
     self.tableView.setContentOffset(CGPoint.init(x: 0, y: tableView.contentInset.top), animated: true)
     self.reloadTableView()
   }
-  
+  func willPresentSearchController(_ searchController: UISearchController) {
+    revealViewController().panGestureRecognizer().isEnabled = false
+  }
+  func didDismissSearchController(_ searchController: UISearchController) {
+    revealViewController().panGestureRecognizer().isEnabled = true
+  }
+  var drawerExtended : Bool {
+    get {
+     return revealViewController().frontViewPosition == .right 
+    }
+  }
   var searchBarIsEmpty : Bool {
     get {
      return searchController.searchBar.text?.isEmpty ?? true 
@@ -303,12 +313,13 @@ class MasterViewController : UITableViewController,
 //        }
 //      })
 //    }
-//  }
-  
+//  }  
   
   
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
+    searchController.dismiss(animated: true, completion: nil)
     self.revealViewController().revealToggle(self)
+    
   }
   // MARK: - Transitions
   // Not a very interesting function, makes sure selection from last time
@@ -323,9 +334,6 @@ class MasterViewController : UITableViewController,
     view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     refreshControl?.tintColor = RMColor.AppColor
     favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || viewingFavorites
-  }
-  override func viewDidAppear(_ animated: Bool) {
-    
   }
 
   

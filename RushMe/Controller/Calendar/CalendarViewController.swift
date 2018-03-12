@@ -132,7 +132,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     super.viewWillAppear(animated)
     self.fileURL = nil
     viewingFavorites = favoritesShouldBeEnabled
-    DispatchQueue.global().async {
+    DispatchQueue.global(qos: .userInitiated).async {
       self.fileURL =
         RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
@@ -219,10 +219,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       if let lastSelectedPath = indexPaths.last {
        eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath) 
       }
-      else {
-        
-        collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top) 
-      }
+//      else {
+//        collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top) 
+//      }
 //      collectionView.selectItem(at: IndexPath.init(row: 7, section: 0), animated: false, scrollPosition: .top)
       
     }
