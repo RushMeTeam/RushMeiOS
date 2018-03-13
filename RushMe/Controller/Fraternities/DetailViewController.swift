@@ -10,7 +10,6 @@
 import UIKit
 import MapKit
 
-
 // TODO: Allow users to swipe between fraternities
 class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
   // MARK: IBOutlets
@@ -30,10 +29,30 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var openMapButton: UIButton!
   @IBOutlet var toMakeClear: [UIView]!
+  
+  var openInMapsAction : UIAlertAction {
+    get {
+      return UIAlertAction(title: "Open in Maps", style: .default, handler: { (_) in
+        MKMapItem.openMaps(with: [self.mapItem!], launchOptions: nil)
+      }) 
+    }
+  }
+  var getDirectionsInMapsAction : UIAlertAction {
+    get {
+      return UIAlertAction(title: "Get Directions", style: .default, handler: { (_) in
+        MKMapItem.openMaps(with: [self.mapItem!], launchOptions: [MKLaunchOptionsDirectionsModeKey : true])
+      }) 
+    }
+  }
+  var cancelAction : UIAlertAction {
+    get {
+     return UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    }
+  }
   // MARK: Member Variables
-  var eventViewController : EventTableViewController? = nil
+  weak var eventViewController : EventTableViewController? = nil
   var mapItem : MKMapItem?
-  var selectedFraternity: Fraternity? {
+  var selectedFraternity: Fraternity? = nil {
     didSet {
       if let frat = selectedFraternity {
         eventViewController?.selectedEvents = Array(frat.events.values)
@@ -133,7 +152,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }  
   @IBAction func openInMaps(_ sender: UIButton) {
-    if let _ = mapItem { MKMapItem.openMaps(with: [mapItem!], launchOptions: nil) }
+    if let _ = mapItem { 
+      let addressAlert = UIAlertController.init(title: selectedFraternity?.name, message: selectedFraternity?.getProperty(named: RMDatabaseKey.AddressKey) as? String, preferredStyle: .actionSheet)
+      addressAlert.view.tintColor = RMColor.AppColor
+      addressAlert.addAction(openInMapsAction)
+      addressAlert.addAction(getDirectionsInMapsAction)
+      addressAlert.addAction(cancelAction)
+      self.present(addressAlert, animated: true, completion: nil)
+    }
   }
   // MARK: Set View Alphas
   func setViews(toAlpha : CGFloat, except exceptedView : UIView? = nil) {
@@ -149,56 +175,62 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       view.alpha = toAlpha
     }
   }
+  override func awakeFromNib() {
+    
+  }
+  
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.bringSubview(toFront: coverImageView)
     self.view.bringSubview(toFront: profileImageView)
-    
     coverImageView.layer.masksToBounds = true
-    coverImageView.clipsToBounds = false
+    //coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     profileImageView.layer.masksToBounds = false
     profileImageView.clipsToBounds = true
-    profileImageView.contentMode = UIViewContentMode.scaleAspectFill
+    //profileImageView.contentMode = UIViewContentMode.scaleAspectFill
+  
     profileImageView.layer.cornerRadius = RMImage.CornerRadius
     profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
     profileImageView.layer.borderWidth = 1
     profileImageView.setNeedsDisplay()
-    
     if let tbView = self.childViewControllers.first as? EventTableViewController {
       eventViewController = tbView
     }
     mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
-    mapView.showsBuildings = true
-    mapView.showsCompass = false
-    mapView.isZoomEnabled = false
-    mapView.isScrollEnabled = false
-    blockTextView.isScrollEnabled = false
-    blockTextView.isEditable = false
-    scrollView.isScrollEnabled = true
+    //blockTextView.isScrollEnabled = false
+    //blockTextView.isEditable = false
+    //scrollView.isScrollEnabled = true
     eventViewController!.view.layer.masksToBounds = true
     mapView.layer.cornerRadius = 5
     mapView.layer.masksToBounds = true
-    openMapButton.tintColor = UIColor.white
-    openMapButton.layer.cornerRadius = 5
-    openMapButton.layer.masksToBounds = true
+    //openMapButton.tintColor = UIColor.white
+    //openMapButton.layer.cornerRadius = 5
+    //openMapButton.layer.masksToBounds = true
     //openMapButton.addSubview(visualEffectView)
     //openMapButton.sendSubview(toBack: visualEffectView)
     self.underlyingView.bringSubview(toFront: mapView)
     self.underlyingView.bringSubview(toFront: openMapButton)
     // Do any additional setup after loading the view, typically from a nib.
-    if let frat = self.selectedFraternity {
-      if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
-        return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
-      }).last?.value {
-        eventViewController!.selectedEvents = [event]
-        eventViewController!.provideDate = true
-      }
-      else {
-        eventViewController?.selectedEvents = nil
+    DispatchQueue.global(qos: .utility).async {
+      if let frat = self.selectedFraternity {
+        if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
+          return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
+        }).last?.value {
+          DispatchQueue.main.async {
+            self.eventViewController!.selectedEvents = [event]
+            self.eventViewController!.provideDate = true
+          }
+        }
+        else {
+          DispatchQueue.main.async {
+            self.eventViewController!.selectedEvents = nil
+          }
+        }
       }
     }
+    
     self.profileImageView.layer.zPosition = 10
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true

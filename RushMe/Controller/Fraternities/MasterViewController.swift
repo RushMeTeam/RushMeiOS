@@ -30,7 +30,7 @@ class MasterViewController : UITableViewController,
     // As the user types, update the results to match
     self.reloadTableView()
     // Scroll to the top of the table
-    self.tableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: true)
+    self.tableView.scrollToTop(animated: true)
   }
   func willPresentSearchController(_ searchController: UISearchController) {
     // Disable drawer menu swipe while searching
@@ -127,7 +127,7 @@ class MasterViewController : UITableViewController,
     UIView.transition(with: tableView, duration: RMAnimation.ColoringTime/2, options: .transitionCrossDissolve, animations: { 
       self.tableView.reloadData()
     }) { (_) in
-      self.tableView.setContentOffset(CGPoint.init(x: 0, y: self.tableView.contentInset.top), animated: true)
+      
     }
    //self.tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .automatic)
   }
@@ -216,6 +216,7 @@ class MasterViewController : UITableViewController,
     DispatchQueue.main.async {
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
+      self.revealViewController().panGestureRecognizer().isEnabled = false
       self.progressView.alpha = 1
       self.favoritesSegmentControl?.isEnabled = false
       // Reset shuffledFrats
@@ -262,6 +263,7 @@ class MasterViewController : UITableViewController,
           self.refreshControl!.isEnabled = true
           self.openBarButtonItem.isEnabled = true
           self.favoritesSegmentControl?.isEnabled = true
+          self.revealViewController().panGestureRecognizer().isEnabled = true
           // Set the progressView to 100% complete state
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
             self.progressView.progress = 1
@@ -279,6 +281,7 @@ class MasterViewController : UITableViewController,
         self.refreshControl!.endRefreshing()
         self.reloadTableView()
         self.refreshControl!.isEnabled = true
+        self.revealViewController().panGestureRecognizer().isEnabled = false
         self.favoritesSegmentControl?.isEnabled = true
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
           self.progressView.progress = 1
@@ -339,17 +342,19 @@ class MasterViewController : UITableViewController,
       // row-1 because first cell is the segment control
       let row = indexPath.row - 1
       if segue.identifier == "showDetail" {
-        let fratName = dataKeys[row]
-        SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
-        if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-          let controller = (segue.destination as! UINavigationController).topViewController
-            as! DetailViewController
-          // Send the detail controller the fraternity we're about to display
-          controller.selectedFraternity = selectedFraternity
-          let _ = Campus.shared.getEvents(forFratWithName : fratName)
+          let fratName = self.dataKeys[row]
+          SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
+          if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
+            let controller = (segue.destination as! UINavigationController).topViewController
+              as! DetailViewController
+            
+            // Send the detail controller the fraternity we're about to display
+            controller.selectedFraternity = selectedFraternity
+            //let _ = Campus.shared.getEvents(forFratWithName : fratName)
+          }
         }
+        
       }
-    }
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
@@ -484,4 +489,9 @@ extension Sequence {
     return result
   }
 } 
+extension UIScrollView {
+  func scrollToTop(animated : Bool) {
+    self.setContentOffset(CGPoint.init(x: 0, y: self.contentInset.top), animated: animated)
+  }
+}
 
