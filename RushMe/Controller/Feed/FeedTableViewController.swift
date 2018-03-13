@@ -13,10 +13,6 @@ fileprivate let pollCellIdentifier = "PollCell"
 
 
 class FeedTableViewController: UITableViewController, RMPollDelegate {
-  
-  
-  
-  
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
     self.revealViewController().revealToggle(self)
