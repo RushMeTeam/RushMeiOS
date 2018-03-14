@@ -413,11 +413,12 @@ class MasterViewController : UITableViewController,
     // Can only do the sliding to favorite if using iOS 11 or newer
     // TODO: Decide if slide to favorite is possible in iOS 10.*
     if #available(iOS 11, *) {
-     return !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
+     return indexPath.row != 0 && !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
     }
     else {
       return false
     }
+    
   }
   // Swipe to favorite and unfavorite
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

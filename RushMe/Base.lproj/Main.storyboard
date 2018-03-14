@@ -453,7 +453,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5113" y="3052"/>
+            <point key="canvasLocation" x="-5054" y="3051"/>
         </scene>
         <!--The XYZ Fraternity-->
         <scene sceneID="yUG-lL-AsK">
@@ -788,10 +788,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEk-PG-zaf">
-                                <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="523" width="375" height="80"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5U6-46-7Ia">
-                                        <rect key="frame" x="8" y="8" width="359" height="29"/>
+                                        <rect key="frame" x="8" y="44" width="359" height="29"/>
                                         <segments>
                                             <segment title="All"/>
                                             <segment title="Favorites"/>
@@ -800,14 +800,32 @@
                                             <action selector="favoritesControlSelected:" destination="pqG-g4-aqb" eventType="valueChanged" id="Ev1-qg-DBr"/>
                                         </connections>
                                     </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vA-T2-EXU">
+                                        <rect key="frame" x="8" y="8" width="323" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at7-2J-3La">
+                                        <rect key="frame" x="335" y="5.5" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="fLX-bg-LVF"/>
+                                            <constraint firstAttribute="width" constant="32" id="nqi-Vt-4Lm"/>
+                                        </constraints>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="2vA-T2-EXU" firstAttribute="leading" secondItem="5U6-46-7Ia" secondAttribute="leading" id="1jg-AH-aeg"/>
                                     <constraint firstItem="5U6-46-7Ia" firstAttribute="leading" secondItem="CEk-PG-zaf" secondAttribute="leading" constant="8" id="79L-Ej-KZ4"/>
-                                    <constraint firstItem="5U6-46-7Ia" firstAttribute="top" secondItem="CEk-PG-zaf" secondAttribute="top" constant="8" id="NMV-ff-Fpv"/>
-                                    <constraint firstAttribute="height" constant="44" id="RbK-ln-Mnc"/>
+                                    <constraint firstItem="5U6-46-7Ia" firstAttribute="top" secondItem="2vA-T2-EXU" secondAttribute="bottom" constant="8" id="ClO-Uw-Xkr"/>
+                                    <constraint firstItem="2vA-T2-EXU" firstAttribute="height" secondItem="5U6-46-7Ia" secondAttribute="height" id="Gg5-Al-1t2"/>
                                     <constraint firstAttribute="trailing" secondItem="5U6-46-7Ia" secondAttribute="trailing" constant="8" id="aTn-aZ-tX6"/>
+                                    <constraint firstItem="at7-2J-3La" firstAttribute="trailing" secondItem="5U6-46-7Ia" secondAttribute="trailing" id="cZy-Dl-q2g"/>
+                                    <constraint firstItem="2vA-T2-EXU" firstAttribute="top" secondItem="CEk-PG-zaf" secondAttribute="top" constant="8" id="fKw-Cs-dH0"/>
+                                    <constraint firstItem="at7-2J-3La" firstAttribute="leading" secondItem="2vA-T2-EXU" secondAttribute="trailing" constant="4" id="ovc-ui-xkI"/>
                                     <constraint firstAttribute="bottom" secondItem="5U6-46-7Ia" secondAttribute="bottom" constant="8" id="wBW-wP-yst"/>
+                                    <constraint firstItem="at7-2J-3La" firstAttribute="centerY" secondItem="2vA-T2-EXU" secondAttribute="centerY" id="xMW-yI-WPj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -824,10 +842,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="Moe-Lb-fFS">
                         <barButtonItem key="leftBarButtonItem" image="BurgerIcon" id="upV-Wa-RQ0"/>
+                        <barButtonItem key="rightBarButtonItem" image="CenterMapIcon" id="M8Z-5N-Xd9">
+                            <connections>
+                                <action selector="centerMap:" destination="pqG-g4-aqb" id="jCn-KY-uj0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="drawerButton" destination="upV-Wa-RQ0" id="Df6-Hp-BL8"/>
                         <outlet property="favoritesControl" destination="5U6-46-7Ia" id="0Tb-rw-2rQ"/>
+                        <outlet property="fratNameLabel" destination="2vA-T2-EXU" id="I4B-fK-hPu"/>
+                        <outlet property="informationButton" destination="at7-2J-3La" id="4Pn-zQ-Qsa"/>
                         <outlet property="mapView" destination="QFy-K2-1IP" id="Uef-cG-STa"/>
                     </connections>
                 </viewController>
@@ -1266,8 +1291,8 @@
                 <splitViewController storyboardIdentifier="splitVC" id="H1p-Uh-vWS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
-                        <segue destination="vC3-pB-5Vb" kind="relationship" relationship="masterViewController" id="ezN-37-8Up"/>
-                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="detailViewController" id="89H-kS-W8m"/>
+                        <segue destination="vC3-pB-5Vb" kind="relationship" relationship="masterViewController" id="LCO-6q-Deo"/>
+                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="detailViewController" id="5l2-TI-Ybv"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
@@ -1364,7 +1389,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5114.3999999999996" y="3891.9040479760124"/>
+            <point key="canvasLocation" x="-5055" y="3892"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -1388,6 +1413,7 @@
     </scenes>
     <resources>
         <image name="BurgerIcon" width="24" height="24"/>
+        <image name="CenterMapIcon" width="24" height="24"/>
         <image name="DirectionsIcon" width="24" height="24"/>
         <image name="EventsIcon" width="24" height="24"/>
         <image name="FavoritesUnfilled" width="24" height="24"/>
@@ -1399,8 +1425,8 @@
         <image name="defaultImage" width="2509" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sfy-B1-Nu5"/>
-        <segue reference="tmK-b0-YZV"/>
+        <segue reference="LCO-6q-Deo"/>
+        <segue reference="cAx-Qh-dZu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
