@@ -62,18 +62,18 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   // MARK: IBActions
   @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
-    if let frat = self.selectedFraternity {
-      if let index = Campus.shared.favoritedFrats.index(of: frat.name) {
-        Campus.shared.favoritedFrats.remove(at: index)
+    if let fratName = selectedFraternity?.name {
+      if let index = Campus.shared.favoritedFrats.index(of: fratName) {
+        Campus.shared.removeFavorite(named: fratName)
         favoritesButton.image = RMImage.FavoritesImageUnfilled
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
-        SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: frat.name)
+        //SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: fratName)
       }
       else {
-        Campus.shared.favoritedFrats.insert(frat.name)
+        Campus.shared.addFavorite(named: fratName)
         favoritesButton.image = RMImage.FavoritesImageFilled
         self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
-        SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: frat.name)
+        //SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: fratName)
       }
     }
   }

@@ -1345,23 +1345,36 @@
                                             <rect key="frame" x="6" y="2" width="363" height="124"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The XYZ Fraternity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5b-8n-ovp">
-                                            <rect key="frame" x="12" y="96" width="159.5" height="24"/>
+                                            <rect key="frame" x="12" y="96" width="325" height="24"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLF-D8-r5f">
+                                            <rect key="frame" x="341" y="96" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="ENC-Ge-Ug3"/>
+                                                <constraint firstAttribute="width" constant="24" id="kG4-SK-Ju5"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="favoriteButtonHit:" destination="UWP-Hj-5Oy" eventType="touchUpInside" id="l8Q-1y-glO"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Oim-ep-0rs" firstAttribute="width" secondItem="iMq-dk-2Sa" secondAttribute="width" constant="-12" id="JSK-HL-1uV"/>
                                         <constraint firstItem="Oim-ep-0rs" firstAttribute="top" secondItem="iMq-dk-2Sa" secondAttribute="top" constant="2" id="O6y-el-XDu"/>
                                         <constraint firstItem="S5b-8n-ovp" firstAttribute="bottom" secondItem="Oim-ep-0rs" secondAttribute="bottom" constant="-6" id="PE1-HV-WVE"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="S5b-8n-ovp" secondAttribute="trailing" constant="16" id="SdT-6f-AM4"/>
                                         <constraint firstItem="S5b-8n-ovp" firstAttribute="leading" secondItem="Oim-ep-0rs" secondAttribute="leading" constant="6" id="Uqw-yk-7Sk"/>
                                         <constraint firstItem="Oim-ep-0rs" firstAttribute="leading" secondItem="iMq-dk-2Sa" secondAttribute="leading" constant="6" id="WuH-vh-mR8"/>
                                         <constraint firstItem="Oim-ep-0rs" firstAttribute="height" secondItem="iMq-dk-2Sa" secondAttribute="height" constant="-4" id="eZO-6R-ILG"/>
+                                        <constraint firstItem="nLF-D8-r5f" firstAttribute="centerY" secondItem="S5b-8n-ovp" secondAttribute="centerY" id="gge-mM-IUQ"/>
+                                        <constraint firstItem="nLF-D8-r5f" firstAttribute="trailing" secondItem="Oim-ep-0rs" secondAttribute="trailing" constant="-4" id="n09-AJ-uID"/>
+                                        <constraint firstItem="nLF-D8-r5f" firstAttribute="leading" secondItem="S5b-8n-ovp" secondAttribute="trailing" constant="4" id="vsP-Dv-dmj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="nLF-D8-r5f" id="DKq-Vl-qgr"/>
                                     <outlet property="previewImageView" destination="Oim-ep-0rs" id="qLD-p0-jFm"/>
                                     <outlet property="titleLabel" destination="S5b-8n-ovp" id="Kpg-aJ-waH"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="sfy-B1-Nu5"/>
@@ -1389,7 +1402,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5055" y="3892"/>
+            <point key="canvasLocation" x="-5055.1999999999998" y="3891.9040479760124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -1425,7 +1438,7 @@
         <image name="defaultImage" width="2509" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LCO-6q-Deo"/>
+        <segue reference="sfy-B1-Nu5"/>
         <segue reference="cAx-Qh-dZu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

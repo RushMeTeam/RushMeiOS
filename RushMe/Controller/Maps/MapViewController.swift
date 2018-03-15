@@ -25,6 +25,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
         mapView.selectAnnotation(onlyAnnotation, animated: true)
     }
+    else {
+     fratNameLabel.text = "" 
+    }
   }
   //
   //  @IBAction func stepperSelected(_ sender: UIStepper) {

@@ -24,7 +24,10 @@ fileprivate let attractiveFratCellIdentifier = "prettyFratCell"
 class MasterViewController : UITableViewController,
                              UISearchBarDelegate,
                              UISearchControllerDelegate,
-                             UISearchResultsUpdating{
+                             UISearchResultsUpdating,
+FraternityCellDelegate {
+  
+  
   // MARK: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating
   func updateSearchResults(for searchController: UISearchController) {
     // As the user types, update the results to match
@@ -364,6 +367,18 @@ class MasterViewController : UITableViewController,
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
   }
+  // MARK: FraternityCellDelegate
+  func cell(withFratName fratName: String, favoriteStatusToValue isFavorited : Bool) {
+    guard Campus.shared.fratNames.contains(fratName) else {
+     return 
+    }
+    if isFavorited {
+      Campus.shared.addFavorite(named: fratName) 
+    }
+    else {
+      Campus.shared.removeFavorite(named: fratName)
+    }
+  }
   
   // MARK: - Table View
   
@@ -395,6 +410,7 @@ class MasterViewController : UITableViewController,
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
+    cell.delegate = self
     let fratName = dataKeys[indexPath.row-1]
     if let frat = Campus.shared.fraternitiesDict[fratName]{
       cell.titleLabel?.text = frat.name
@@ -402,7 +418,7 @@ class MasterViewController : UITableViewController,
       cell.previewImageView?.image = frat.previewImage
       cell.isAccentuated = Campus.shared.favoritedFrats.contains(frat.name)
     }
-    cell.layoutSubviews()
+    cell.setNeedsLayout()
     return cell
   }
   // Row 0 (segment control cell) should have a height of 36, all others should be 128
@@ -412,54 +428,55 @@ class MasterViewController : UITableViewController,
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Can only do the sliding to favorite if using iOS 11 or newer
     // TODO: Decide if slide to favorite is possible in iOS 10.*
-    if #available(iOS 11, *) {
-     return indexPath.row != 0 && !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
-    }
-    else {
-      return false
-    }
-    
+//    if #available(iOS 11, *) {
+//     return indexPath.row != 0 && !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
+//    }
+//    else {
+//      return false
+//    }
+    return false
   }
   // Swipe to favorite and unfavorite
-  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let fratName = dataKeys[indexPath.row-1]
-    var title = RMMessage.Favorite
-    var bgColor = RMColor.AppColor
-    if Campus.shared.favoritedFrats.contains(fratName) {
-      title = RMMessage.Unfavorite
-      bgColor = bgColor.withAlphaComponent(0.5)
-    }
-    let toggleFavorite = UITableViewRowAction(style: .normal, title: title, handler: {
-      action, cellIndex in
-      if (title == RMMessage.Favorite) {
-        let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
-        Campus.shared.favoritedFrats.insert(fratName)
-        action.backgroundColor = RMColor.AppColor
-        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.isAccentuated = true
-          SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
-        }
-        action.backgroundColor = RMColor.AppColor
-      }
-      else {
-        action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
-        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
-          cell.isAccentuated = false
-          SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
-        }
-        Campus.shared.favoritedFrats.remove(fratName)
-        if (self.viewingFavorites) {
-          self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
-        }
-        else {
-         action.backgroundColor = RMColor.AppColor 
-        }
-      }
-      self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
-    })
-    toggleFavorite.backgroundColor = bgColor
-    return [toggleFavorite]
-  }
+//  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//    let fratName = dataKeys[indexPath.row-1]
+//    var title = RMMessage.Favorite
+//    var bgColor = RMColor.AppColor
+//    if Campus.shared.favoritedFrats.contains(fratName) {
+//      title = RMMessage.Unfavorite
+//      bgColor = bgColor.withAlphaComponent(0.5)
+//    }
+//    let toggleFavorite = UITableViewRowAction(style: .normal, title: title, handler: {
+//      action, cellIndex in
+//      if (title == RMMessage.Favorite) {
+//        let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
+//        
+//        Campus.shared.favoritedFrats.insert(fratName)
+//        action.backgroundColor = RMColor.AppColor
+//        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+//          cell.isAccentuated = true
+//          //SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
+//        }
+//        action.backgroundColor = RMColor.AppColor
+//      }
+//      else {
+//        action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
+//        if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+//          cell.isAccentuated = false
+//          //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
+//        }
+//        Campus.shared.favoritedFrats.remove(fratName)
+//        if (self.viewingFavorites) {
+//          self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
+//        }
+//        else {
+//         action.backgroundColor = RMColor.AppColor 
+//        }
+//      }
+//      self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+//    })
+//    toggleFavorite.backgroundColor = bgColor
+//    return [toggleFavorite]
+//  }
   
   // MARK: - Refresh Control
   @objc func handleRefresh(refreshControl : UIRefreshControl) {
