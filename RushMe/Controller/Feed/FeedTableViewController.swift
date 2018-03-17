@@ -15,7 +15,7 @@ fileprivate let pollCellIdentifier = "PollCell"
 class FeedTableViewController: UITableViewController, RMPollDelegate {
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
-    self.revealViewController().revealToggle(self)
+    //self.revealViewController().revealToggle(self)
   }
   var dataSource_ : [RMPost]? = nil
   var dataSource : [RMPost] {
@@ -55,8 +55,6 @@ class FeedTableViewController: UITableViewController, RMPollDelegate {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
   }
   
   // MARK: - Table view data source

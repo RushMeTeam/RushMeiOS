@@ -37,17 +37,11 @@ FraternityCellDelegate {
   }
   func willPresentSearchController(_ searchController: UISearchController) {
     // Disable drawer menu swipe while searching
-    revealViewController().panGestureRecognizer().isEnabled = false
+   // revealViewController().panGestureRecognizer().isEnabled = false
   }
   func didDismissSearchController(_ searchController: UISearchController) {
     // Enable drawer menu swipe when not searching
-    revealViewController().panGestureRecognizer().isEnabled = true
-  }
-  // Is the lefthand menu extended?
-  var drawerExtended : Bool {
-    get {
-     return revealViewController().frontViewPosition == .right 
-    }
+    //revealViewController().panGestureRecognizer().isEnabled = true
   }
   // Is the search bar empty?
   var searchBarIsEmpty : Bool {
@@ -142,13 +136,10 @@ FraternityCellDelegate {
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Set up slideout menu
-    if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
-      VC.masterVC = self.splitViewController
-    }
     // Refresh control 
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    refreshControl!.tintColor = RMColor.AppColor
     self.handleRefresh(refreshControl: refreshControl!)
     // Setup the Search Bar (backend)
     searchController.searchResultsUpdater = self
@@ -166,6 +157,8 @@ FraternityCellDelegate {
     // Set Search Bar placeholder text, for when a search has not been entered
     searchController.searchBar.placeholder = "Search Fraternities"
     // Set up Navigation bar (visual)
+    //navigationItem.backBarButtonItem = nil
+    
     navigationController!.navigationBar.backgroundColor = UIColor.white
     navigationController!.navigationBar.tintColor = RMColor.AppColor
     navigationController!.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
@@ -219,7 +212,7 @@ FraternityCellDelegate {
     DispatchQueue.main.async {
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
-      self.revealViewController().panGestureRecognizer().isEnabled = false
+      //self.revealViewController().panGestureRecognizer().isEnabled = false
       self.progressView.alpha = 1
       self.favoritesSegmentControl?.isEnabled = false
       // Reset shuffledFrats
@@ -266,7 +259,7 @@ FraternityCellDelegate {
           self.refreshControl!.isEnabled = true
           self.openBarButtonItem.isEnabled = true
           self.favoritesSegmentControl?.isEnabled = true
-          self.revealViewController().panGestureRecognizer().isEnabled = true
+         // self.revealViewController().panGestureRecognizer().isEnabled = true
           // Set the progressView to 100% complete state
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
             self.progressView.progress = 1
@@ -284,7 +277,7 @@ FraternityCellDelegate {
         self.refreshControl!.endRefreshing()
         self.reloadTableView()
         self.refreshControl!.isEnabled = true
-        self.revealViewController().panGestureRecognizer().isEnabled = false
+        //self.revealViewController().panGestureRecognizer().isEnabled = false
         self.favoritesSegmentControl?.isEnabled = true
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
           self.progressView.progress = 1
@@ -324,17 +317,18 @@ FraternityCellDelegate {
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
     // If we're searching, cancel the search if we select the menu
     searchController.dismiss(animated: true, completion: nil)
-    self.revealViewController().revealToggle(self)
+    //self.revealViewController().revealToggle(self)
   }
+  
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    refreshControl?.tintColor = RMColor.AppColor
+    if isViewLoaded {
+     self.reloadTableView() 
+    }
     favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
 

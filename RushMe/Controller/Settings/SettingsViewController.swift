@@ -21,17 +21,20 @@ class SettingsViewController: UIViewController {
   @IBAction func displayPastEventsSwitch(_ sender: UISwitch) {
     Campus.shared.considerEventsBeforeToday = sender.isOn
   }
+
+  @IBAction func disappear(_ sender: Any) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if (self.revealViewController() != nil) {
+    //if (self.revealViewController() != nil) {
       // Allow drawer button to toggle the lefthand drawer menu
-      drawerButton.target = self.revealViewController()
-      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
       // Allow drag to open drawer, tap out to close
-      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    }
+//      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+    //}
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     navigationController?.navigationBar.tintColor = RMColor.AppColor

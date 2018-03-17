@@ -68,7 +68,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
   var panCutoff : CGFloat {
     get {
-      return self.collectionView.center.y + 32
+      return self.view.frame.maxY
     }
   }
   var viewingFavorites : Bool {
@@ -100,19 +100,21 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   // MARK: ViewDidLoad and ViewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
-    if (self.revealViewController() != nil) {
-      // Allow drawer button to toggle the lefthand drawer menu
-      drawerButton.target = self.revealViewController()
-      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-      // Allow drag to open drawer, tap out to close
-      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    }
+//    if (self.revealViewController() != nil) {
+//      // Allow drawer button to toggle the lefthand drawer menu
+//      drawerButton.target = self.revealViewController()
+//      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
+//      // Allow drag to open drawer, tap out to close
+//      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+//    }
     navigationController?.navigationBar.isTranslucent = false
     //navigationController?.navigationBar.alpha = 1
     navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
+    self.view.sendSubview(toBack: collectionView)
+    
     self.containerView.backgroundColor = UIColor.clear
     self.seperatorView.layer.cornerRadius = RMImage.CornerRadius*2
     if #available(iOS 11.0, *) {
@@ -254,7 +256,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBAction func eventCalendarPan(_ sender: UIPanGestureRecognizer) {
     let yLoc = min(
                 max(sender.location(in: self.view).y, self.seperatorView.frame.height/2), 
-                self.collectionView.frame.height+self.seperatorView.frame.height/2)
+                self.collectionView.frame.maxY+self.seperatorView.frame.height/2)
     switch sender.state {
     case .possible:
       return
@@ -277,7 +279,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   var eventTableViewControllerBottom : CGFloat {
     get {
-      return toolbarView.frame.minY
+      return self.view.frame.maxY
     }
   }
   func animate(finalState : @escaping () -> ()) {
@@ -288,7 +290,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   var topState : () -> () {
     get {
       return {
-        self.seperatorView.center.y = self.collectionView.center.y/2
+        self.seperatorView.center.y = self.collectionView.frame.minY
         self.containerView.frame.origin.y = self.seperatorView.frame.maxY
         self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
       }
@@ -298,7 +300,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   var bottomState : () -> () {
     get {
       return {
-        self.seperatorView.center.y = self.collectionView.frame.height+self.seperatorView.frame.height/2
+        self.seperatorView.center.y = self.collectionView.frame.maxY+self.seperatorView.frame.height/2
         self.containerView.frame.origin.y = self.seperatorView.frame.maxY
         self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
       }

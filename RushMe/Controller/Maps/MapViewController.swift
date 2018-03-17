@@ -38,14 +38,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    if (self.revealViewController() != nil) {
-      // Allow drawer button to toggle the lefthand drawer menu
-      drawerButton.target = self.revealViewController()
-      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-      // Allow drag to open drawer, tap out to close
-      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    }
+//    if (self.revealViewController() != nil) {
+//      // Allow drawer button to toggle the lefthand drawer menu
+//      drawerButton.target = self.revealViewController()
+//      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
+//      // Allow drag to open drawer, tap out to close
+//      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+//      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+//    }
     //navigationController?.navigationBar.isTranslucent = false
     //navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     //navigationController?.navigationBar.tintColor = RMColor.AppColor
@@ -57,7 +57,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //self.mapView.showsUserLocation = true
     self.mapView.delegate = self
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
-    
+    self.mapView.setCenter(self.center, animated: false)
+    self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
+    self.loadAnnotations(fromAllFrats: true, animated: false)
   }
   
   override func didReceiveMemoryWarning() {
@@ -67,10 +69,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
   
   override func viewWillAppear(_ animated: Bool) {
     //    mapView.region.center =  self.center
-    self.mapView.setCenter(self.center, animated: false)
-    self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
+    
     super.viewWillAppear(animated)
-    self.loadAnnotations(fromAllFrats: true, animated: false)
+    
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
@@ -176,13 +177,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated) 
   }
   
-  func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-    self.favoritesControl.isEnabled = false
-  }
-  func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
-    
-  }
+//  func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+//    self.favoritesControl.isEnabled = false
+//  }
+//  func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+//    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
+//    
+//  }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
     if let selectedFrat = mapView.selectedAnnotations.first ,

@@ -16,42 +16,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     // Create the window
-    
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    self.window!.backgroundColor = UIColor.white
-    
-//    // Instantiate from storyboard
-    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-    let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
-//    let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
-//    let masterNav = UINavigationController(rootViewController: masterVC)
-//    let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
-//    let detailNav = UINavigationController(rootViewController: detailVC)
-//    // Add Master and Detail to the SplitView
-//    splitVC.viewControllers = [masterNav, detailNav]
+//    [UIApplication sharedApplication].delegate.window.backgroundColor = [UIColor myColor];
+    UIApplication.shared.keyWindow?.backgroundColor = .white
+  
+  //  self.window = UIWindow(frame: UIScreen.main.bounds)
+//    self.window!.backgroundColor = UIColor.white
+//    
+////    // Instantiate from storyboard
+//    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+//    let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
+////    let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
+////    let masterNav = UINavigationController(rootViewController: masterVC)
+////    let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+////    let detailNav = UINavigationController(rootViewController: detailVC)
+////    // Add Master and Detail to the SplitView
+////    splitVC.viewControllers = [masterNav, detailNav]
+////
+////    // Override point for customization after application launch.
+////    let navController = splitVC.viewControllers[splitVC.viewControllers.count-1] as! UINavigationController
+////    navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
+////    splitVC.delegate = self
+////
+//    // SWRevealViewController
+//    let navDrawerView = mainStoryBoard.instantiateViewController(withIdentifier: "menuDrawerViewController")
+//    let swRevealView = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
+//    swRevealView.setFront(splitVC, animated: true)
+//    swRevealView.setRear(navDrawerView, animated: true)
 //
-//    // Override point for customization after application launch.
-//    let navController = splitVC.viewControllers[splitVC.viewControllers.count-1] as! UINavigationController
-//    navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-//    splitVC.delegate = self
-//
-    // SWRevealViewController
-    let navDrawerView = mainStoryBoard.instantiateViewController(withIdentifier: "menuDrawerViewController")
-    let swRevealView = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
-    swRevealView.setFront(splitVC, animated: true)
-    swRevealView.setRear(navDrawerView, animated: true)
-
-    
-    // Set Root view and make it visible
-    self.window!.rootViewController = swRevealView
-    self.window!.makeKeyAndVisible()
-    // Remove the default shadow to keep with the simplistic theme
-    if (!RMColor.SlideOutMenuShadowIsEnabled) {
-      swRevealView.frontViewShadowOpacity = 0
-    }
-    swRevealView.rearViewRevealOverdraw = 0
-    swRevealView.rearViewRevealWidth -= 16
-    
+//    
+//    // Set Root view and make it visible
+//    self.window!.rootViewController = swRevealView
+//    self.window!.makeKeyAndVisible()
+//    // Remove the default shadow to keep with the simplistic theme
+//    if (!RMColor.SlideOutMenuShadowIsEnabled) {
+//      swRevealView.frontViewShadowOpacity = 0
+//    }
+//    swRevealView.rearViewRevealOverdraw = 0
+//    swRevealView.rearViewRevealWidth -= 16
+//    
     SQLHandler.shared.informAction(action: "App Loaded")
     return true
   }

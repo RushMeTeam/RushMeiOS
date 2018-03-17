@@ -72,7 +72,7 @@ class DrawerMenuViewController: UITableViewController {
         })
         if selectedButton == fraternitiesButton {
           // Particular segue for fraternities tab
-         self.revealViewController().pushFrontViewController(self.masterVC!, animated: true)
+         //self.revealViewController().pushFrontViewController(self.masterVC!, animated: true)
         }
       }
     }
