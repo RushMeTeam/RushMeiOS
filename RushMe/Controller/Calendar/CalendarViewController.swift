@@ -133,15 +133,13 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    viewingFavorites = favoritesShouldBeEnabled
+    //viewingFavorites = favoritesShouldBeEnabled
     DispatchQueue.global(qos: .userInitiated).async {
       self.fileURL =
         RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
     favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     shareButton.isEnabled = flatDataSource.count != 0
-    panGestureRecognizer.isEnabled = shareButton.isEnabled
-    tapGestureRecognizer.isEnabled = panGestureRecognizer.isEnabled
     if let _ = firstEvent {
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]

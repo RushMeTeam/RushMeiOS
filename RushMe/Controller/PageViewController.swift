@@ -11,9 +11,14 @@ import UIKit
 class PageViewController: UIPageViewController, 
                           UIPageViewControllerDelegate, 
                           UIPageViewControllerDataSource,
-                          UIScrollViewDelegate{
+                          UIScrollViewDelegate,
+RMPageControlDelegate{
+  func selectedIndex(_ index: Int) {
+    self.setViewControllers([orderedViewControllers[index]], direction: .forward, animated: true, completion: nil)
+  }
   
-  var pageControl : UIPageControl?
+  
+  var pageControl : RMPageControl?
   lazy var orderedViewControllers: [UIViewController] = 
     [self.getViewController(forIdentifier: "mapVC"), self.getViewController(forIdentifier: "splitVC"), self.getViewController(forIdentifier: "calendarVC")]
   var viewControllerIdentifiers = ["mapVC", "splitVC", "calendarVC"]
@@ -36,7 +41,8 @@ class PageViewController: UIPageViewController,
     return orderedViewControllers[index+1]
   }
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    pageControl!.currentPage = orderedViewControllers.index(of: pageViewController.viewControllers![0])!
+    //pageControl!.currentPage = orderedViewControllers.index(of: pageViewController.viewControllers![0])!
+    pageControl?.selectIndex(orderedViewControllers.index(of: pageViewController.viewControllers![0])!)
   }
   
   
@@ -52,19 +58,17 @@ class PageViewController: UIPageViewController,
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor.white
+    self.view.backgroundColor = .black//UIColor.white
     self.dataSource = self
     self.delegate = self
     setViewControllers([orderedViewControllers[1]], direction: .forward, 
                        animated: true, 
                        completion: nil)
-    pageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.maxY - 48, width: UIScreen.main.bounds.width, height: 48))
-    pageControl!.numberOfPages = orderedViewControllers.count
-    pageControl!.currentPage = 1
-    pageControl!.tintColor = .black
-    pageControl!.pageIndicatorTintColor = RMColor.AppColor
-    pageControl!.currentPageIndicatorTintColor = UIColor.white
-    view.addSubview(pageControl!)
+    pageControl = RMPageControl.init(categories: [.map, .fraternities, .calendar])
+      //RMPageControl.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.maxY - 48, width: UIScreen.main.bounds.width, height: 48))
+    pageControl!.delegate = self
+    pageControl!.selectIndex(1)
+    //view.addSubview(pageControl!.stackView)
     
     // Do any additional setup after loading the view.
   }
@@ -74,6 +78,15 @@ class PageViewController: UIPageViewController,
     // Dispose of any resources that can be recreated.
   }
   
+  func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    return orderedViewControllers.count
+  }
+  func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    if presentedViewController == nil {
+     return 1 
+    }
+    return orderedViewControllers.index(of: self.presentedViewController!) ?? 1
+  }
   
   /*
    // MARK: - Navigation
