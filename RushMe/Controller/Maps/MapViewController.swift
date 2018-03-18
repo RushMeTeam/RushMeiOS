@@ -9,7 +9,14 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
+  func updateData() {
+    self.viewWillAppear(false)
+    if mapView.annotations.count == 0 {
+      self.loadAnnotations(fromAllFrats: favoritesControl.selectedSegmentIndex == 0, animated: false) 
+    }
+  }
+  
   @IBOutlet weak var mapView: MKMapView!
   //  @IBOutlet var stepper: UIStepper!
   @IBOutlet weak var informationButton: UIButton!
@@ -50,7 +57,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     //navigationController?.navigationBar.tintColor = RMColor.AppColor
 //    self.navigationController?.navigationBar.alpha = 0.7
-    self.navigationController?.navigationBar.isTranslucent = false
+    //self.navigationController?.navigationBar.isTranslucent = false
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     // Do any additional setup after loading the view.
@@ -59,7 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    self.loadAnnotations(fromAllFrats: true, animated: false)
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -71,7 +78,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //    mapView.region.center =  self.center
     
     super.viewWillAppear(animated)
-    
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
@@ -110,7 +116,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         })
       }
     }
-    self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
+    //self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

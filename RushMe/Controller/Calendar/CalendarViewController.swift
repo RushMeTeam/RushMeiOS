@@ -11,7 +11,15 @@ import UIKit
 fileprivate let reuseIdentifier = "CalendarCell"
 fileprivate let labelReuseIdentifier = "DayCell"
 
-class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CalendarViewController: UIViewController, 
+                              UICollectionViewDelegate, 
+                              UICollectionViewDataSource, 
+                              UICollectionViewDelegateFlowLayout,
+                              ScrollableItem {
+  func updateData() {
+    self.collectionView.reloadData()
+  }
+  
   // MARK: Constants
   var eventViewController : EventTableViewController? = nil
   fileprivate let eventCountThreshold = 9
@@ -108,7 +116,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
 //      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
 //      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
 //    }
-    navigationController?.navigationBar.isTranslucent = false
+    //navigationController?.navigationBar.isTranslucent = false
     //navigationController?.navigationBar.alpha = 1
     navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
@@ -126,6 +134,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     if let tbView = self.childViewControllers.first as? EventTableViewController {
       eventViewController = tbView
     }
+    
     // TODO: Implement Day Selection
 //    collectionView.allowsMultipleSelection = true
   
@@ -148,8 +157,21 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
       navigationController?.navigationBar.tintColor = UIColor.lightGray
-      drawerButton.tintColor = RMColor.AppColor
+      
+      //drawerButton.tintColor = RMColor.AppColor
     }
+   
+    UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
+      self.view.alpha = 0.2
+    }) { (_) in
+      
+      UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
+        self.view.alpha = 1
+      })
+      
+    }
+    
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -288,7 +310,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
   var topState : () -> () {
     get {
       return {
-        self.seperatorView.center.y = self.collectionView.frame.minY
+        self.seperatorView.center.y = self.collectionView.frame.midY/2
         self.containerView.frame.origin.y = self.seperatorView.frame.maxY
         self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
       }
@@ -319,7 +341,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     cell.isSelected = false
     if (firstEvent == nil) {
       cell.eventsLabel?.isHidden = true
-      cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
+      cell.dayLabel?.textColor = UIColor.gray
+     // cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
       if (indexPath.row < 7) {
         cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
       }
@@ -328,6 +351,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
       }
       return cell
     }
+    
     if (indexPath.row < 7) {
       let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! CalendarLabelCollectionViewCell
       let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (firstEvent!.startDate))!

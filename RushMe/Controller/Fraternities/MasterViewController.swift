@@ -146,7 +146,7 @@ FraternityCellDelegate {
     searchController.delegate = self
     // Setup the Search Bar (visual)
     navigationController?.hidesBarsOnSwipe = false
-    navigationController?.navigationBar.isTranslucent = true
+    
     tableView.tableHeaderView = searchController.searchBar
     searchController.searchBar.isTranslucent = false
     searchController.searchBar.tintColor = RMColor.AppColor
@@ -159,23 +159,40 @@ FraternityCellDelegate {
     // Set up Navigation bar (visual)
     //navigationItem.backBarButtonItem = nil
     
-    navigationController?.navigationBar.backgroundColor = UIColor.white
-    navigationController?.navigationBar.tintColor = RMColor.AppColor
-    navigationController?.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
-    navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
+    
     definesPresentationContext = true
     // Set up Title View(s) and Progress Bar (visual)
-    let wrapperView = UIView()
-    let imageView = UIImageView.init(image: RMImage.LogoImage)
-    imageView.contentMode = .scaleAspectFit
-    imageView.tintColor = RMColor.AppColor
-    imageView.backgroundColor = UIColor.clear
-    wrapperView.backgroundColor = UIColor.clear
-    wrapperView.clipsToBounds = false
-    wrapperView.layer.masksToBounds = false
-    imageView.frame.size = CGSize.init(width: 44, height: 32)
-    wrapperView.addSubview(imageView)
+//    let wrapperView = UIView()
+//    let imageView = UIImageView.init(image: RMImage.LogoImage)
+//    imageView.contentMode = .scaleAspectFit
+//    imageView.tintColor = RMColor.AppColor
+//    imageView.backgroundColor = UIColor.clear
+//    wrapperView.backgroundColor = UIColor.clear
+//    wrapperView.clipsToBounds = false
+//    wrapperView.layer.masksToBounds = false
+//    imageView.frame.size = CGSize.init(width: 44, height: 32)
+//    wrapperView.addSubview(imageView)
+//    var addProgressBar = true
+//    // TODO: Fix Progress Bar accross all devices!
+//    let deviceIDs = ["Plus", "5", "SE"]
+//    for deviceID in deviceIDs {
+//      if Device().description.contains(deviceID) {
+//        addProgressBar = false
+//      }
+//    }
+//    if addProgressBar {
+//      imageView.addSubview(progressView)
+//    }
+//    imageView.center = wrapperView.center
+//    self.navigationItem.titleView = wrapperView
+//    searchController.hidesNavigationBarDuringPresentation = false
+//    progressView.frame.size.width = self.view.frame.width
+//    // The progress view should not be visible less it's loading
+//    progressView.trackTintColor = UIColor.clear
+//    progressView.tintColor = navigationController?.navigationBar.tintColor
+//    // Put the progress view at the bottom of the navigation bar
+//    progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController?.navigationBar.frame.height - progressView.frame.height// //+
+//    progressView.frame.origin.x = -166
     var addProgressBar = true
     // TODO: Fix Progress Bar accross all devices!
     let deviceIDs = ["Plus", "5", "SE"]
@@ -185,17 +202,15 @@ FraternityCellDelegate {
       }
     }
     if addProgressBar {
-      imageView.addSubview(progressView)
+      //imageView.addSubview(progressView)
     }
-    imageView.center = wrapperView.center
-    self.navigationItem.titleView = wrapperView
     searchController.hidesNavigationBarDuringPresentation = false
     progressView.frame.size.width = self.view.frame.width
     // The progress view should not be visible less it's loading
     progressView.trackTintColor = UIColor.clear
     progressView.tintColor = navigationController?.navigationBar.tintColor
     // Put the progress view at the bottom of the navigation bar
-    progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController?.navigationBar.frame.height - progressView.frame.height// //+
+    //progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController?.navigationBar.frame.height - progressView.frame.height// //+
     progressView.frame.origin.x = -166
     favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
     
