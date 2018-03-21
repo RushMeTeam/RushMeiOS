@@ -25,9 +25,8 @@ class MasterViewController : UITableViewController,
                              UISearchBarDelegate,
                              UISearchControllerDelegate,
                              UISearchResultsUpdating,
-FraternityCellDelegate {
-  
-  
+                             FraternityCellDelegate
+{
   // MARK: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating
   func updateSearchResults(for searchController: UISearchController) {
     // As the user types, update the results to match

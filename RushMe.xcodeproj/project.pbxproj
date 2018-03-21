@@ -313,12 +313,10 @@
 				DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */,
 				DB5789811FDC6C5C0083CB6C /* About */,
 				DBD1404B1F92848700945D9B /* Fraternities */,
-				DBF60526203FA23900101FEF /* Feed */,
 				DB346C2A1FB103B4003E59AE /* Calendar */,
-				DB5789851FDCAA8A0083CB6C /* Events */,
 				DB5789801FDC6C170083CB6C /* Maps */,
 				DB5789821FDC6C630083CB6C /* Settings */,
-				DBD140491F92845100945D9B /* Drawer Menu */,
+				DB9F5A72205F259D00F03B3B /* Deprecated */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -370,6 +368,16 @@
 				DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		DB9F5A72205F259D00F03B3B /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				DB5789851FDCAA8A0083CB6C /* Events */,
+				DBF60526203FA23900101FEF /* Feed */,
+				DBD140491F92845100945D9B /* Drawer Menu */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		DBD140471F92840700945D9B /* TableViewCells */ = {

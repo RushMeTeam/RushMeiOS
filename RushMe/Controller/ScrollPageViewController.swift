@@ -8,6 +8,9 @@
 
 import UIKit
 import DeviceKit
+
+
+
 protocol ScrollableItem {
   func updateData() 
 }
@@ -18,6 +21,23 @@ UIScrollViewDelegate {
   @IBOutlet var pageControl: UIPageControl!
   var numberOfPages : Int = 3
   lazy var pages : [UIView?] = [UIView.init()]
+  
+  lazy var scrollIndicator    : CAShapeLayer = CAShapeLayer()
+  var path : UIBezierPath {
+    get {
+      return UIBezierPath.init(roundedRect: CGRect.init(x: 0.9*scrollView.contentOffset.x / scrollView.contentSize.width, 
+                                                        y: self.view.frame.maxY, 
+                                                        width: self.view.frame.width / CGFloat(numberOfPages), 
+                                                        height: 10), 
+                               cornerRadius: 3)
+    }
+  }
+  var startingPageIndex : Int = 1 {
+    didSet {
+      loadView()
+      pageControl.currentPage = startingPageIndex
+    }
+  }
   lazy var orderedViewControllers: [UIViewController] = 
     [self.getViewController(forIdentifier: "mapVC"), 
      self.getViewController(forIdentifier: "splitVC"), self.getViewController(forIdentifier: "calendarVC")]
@@ -31,12 +51,17 @@ UIScrollViewDelegate {
     super.viewDidLayoutSubviews()
     _ = setupInitialPages
   }
+  override func awakeFromNib() {
+    
+    
+    // TODO: Finish Scroll Indicator!
+  }
   
   @IBAction func presentSettings(_ sender: UIBarButtonItem) {
     present(getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
   }
   @objc func presentAbout() {
-    print("opened aboutVC")
+    //print("opened aboutVC")
     present(getViewController(forIdentifier: "aboutVC"), animated: true, completion: nil) 
   }
   
@@ -46,6 +71,7 @@ UIScrollViewDelegate {
     loadPage(1)
     loadPage(2)
     loadPage(0)
+    goToPage(page: startingPageIndex, animated: false)
   }()
   
   fileprivate func adjustScrollView() {
@@ -67,6 +93,7 @@ UIScrollViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     scrollView.delegate = self
+    
     navigationController?.navigationBar.isTranslucent = true
     navigationController?.navigationBar.backgroundColor = UIColor.white.withAlphaComponent(0.5)
     navigationController?.navigationBar.alpha = 0.5
@@ -93,9 +120,9 @@ UIScrollViewDelegate {
     // Do any additional setup after loading the view.
     pages = [UIView?](repeating: nil, count : numberOfPages)
     pageControl.numberOfPages = numberOfPages
-    pageControl.currentPage = 1
-    self.scrollView.setContentOffset(CGPoint.init(x: self.view.frame.width, y: 0), animated: false)
-    //self.goToPage(page: 1, animated: true)
+    pageControl.currentPage = startingPageIndex
+    
+    self.scrollView.layer.addSublayer(scrollIndicator)
   }
   
   override func didReceiveMemoryWarning() {
@@ -139,7 +166,11 @@ UIScrollViewDelegate {
     loadPage(Int(page))
     loadPage(Int(page) + 1)
   }
-  fileprivate func goToPage(page: Int, animated: Bool) {
+  // Originally fileprivate
+  func goToPage(page: Int, animated: Bool) {
+    guard page >= 0 && page < numberOfPages else {
+      return 
+    }
     loadCurrentPages(page: page)
     var bounds = scrollView.bounds
     bounds.origin.x = bounds.width * CGFloat(page)
@@ -155,15 +186,15 @@ UIScrollViewDelegate {
     if let viewController = orderedViewControllers[Int(page)].childViewControllers.first, 
       let updatableItem = viewController as? ScrollableItem {
       updatableItem.updateData()
-//      UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
-//        viewController.view.alpha = 0.8
-//        
-//      }) { (_) in
-//        UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
-//          viewController.view.alpha = 1
-//        })
-//        
-//      }
+      //      UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
+      //        viewController.view.alpha = 0.8
+      //        
+      //      }) { (_) in
+      //        UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
+      //          viewController.view.alpha = 1
+      //        })
+      //        
+      //      }
     }
     loadCurrentPages(page: pageControl.currentPage)
   }

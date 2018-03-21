@@ -16,7 +16,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
       self.loadAnnotations(fromAllFrats: favoritesControl.selectedSegmentIndex == 0, animated: false) 
     }
   }
-  
   @IBOutlet weak var mapView: MKMapView!
   //  @IBOutlet var stepper: UIStepper!
   @IBOutlet weak var informationButton: UIButton!
