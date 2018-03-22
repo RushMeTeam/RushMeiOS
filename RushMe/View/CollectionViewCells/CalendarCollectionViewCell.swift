@@ -26,6 +26,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     //eventsLabel.layer.addSublayer(circleLayer)
     circleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
+    self.eventsLabel.text = ""
+    self.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     self.bringSubview(toFront: eventsLabel)
   }
   override var isSelected: Bool {

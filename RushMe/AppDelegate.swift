@@ -8,50 +8,66 @@
 
 import UIKit
 import OHMySQL
+
+enum ShortCutIdentifier : String {
+  case Fraternities
+  case Maps
+  case Calendar
+  init?(identifier : String) {
+    if let id = identifier.components(separatedBy: ".").last {
+      self.init(rawValue: id)
+    }
+    else {
+      return nil 
+    }
+  }
+}
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
-
+  
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     // Create the window
+    //    [UIApplication sharedApplication].delegate.window.backgroundColor = [UIColor myColor];
+    UIApplication.shared.keyWindow?.backgroundColor = .white
     
-    self.window = UIWindow(frame: UIScreen.main.bounds)
-    self.window!.backgroundColor = UIColor.white
-    
-//    // Instantiate from storyboard
-    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-    let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
-//    let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
-//    let masterNav = UINavigationController(rootViewController: masterVC)
-//    let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
-//    let detailNav = UINavigationController(rootViewController: detailVC)
-//    // Add Master and Detail to the SplitView
-//    splitVC.viewControllers = [masterNav, detailNav]
-//
-//    // Override point for customization after application launch.
-//    let navController = splitVC.viewControllers[splitVC.viewControllers.count-1] as! UINavigationController
-//    navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-//    splitVC.delegate = self
-//
-    // SWRevealViewController
-    let navDrawerView = mainStoryBoard.instantiateViewController(withIdentifier: "menuDrawerViewController")
-    let swRevealView = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
-    swRevealView.setFront(splitVC, animated: true)
-    swRevealView.setRear(navDrawerView, animated: true)
-
-    
-    // Set Root view and make it visible
-    self.window!.rootViewController = swRevealView
-    self.window!.makeKeyAndVisible()
-    // Remove the default shadow to keep with the simplistic theme
-    if (!RMColor.SlideOutMenuShadowIsEnabled) {
-      swRevealView.frontViewShadowOpacity = 0
-    }
-    swRevealView.rearViewRevealOverdraw = 0
-    swRevealView.rearViewRevealWidth -= 16
-    
+    //  self.window = UIWindow(frame: UIScreen.main.bounds)
+    //    self.window!.backgroundColor = UIColor.white
+    //    
+    ////    // Instantiate from storyboard
+    //    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+    //    let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
+    ////    let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
+    ////    let masterNav = UINavigationController(rootViewController: masterVC)
+    ////    let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+    ////    let detailNav = UINavigationController(rootViewController: detailVC)
+    ////    // Add Master and Detail to the SplitView
+    ////    splitVC.viewControllers = [masterNav, detailNav]
+    ////
+    ////    // Override point for customization after application launch.
+    ////    let navController = splitVC.viewControllers[splitVC.viewControllers.count-1] as! UINavigationController
+    ////    navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
+    ////    splitVC.delegate = self
+    ////
+    //    // SWRevealViewController
+    //    let navDrawerView = mainStoryBoard.instantiateViewController(withIdentifier: "menuDrawerViewController")
+    //    let swRevealView = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
+    //    swRevealView.setFront(splitVC, animated: true)
+    //    swRevealView.setRear(navDrawerView, animated: true)
+    //
+    //    
+    //    // Set Root view and make it visible
+    //    self.window!.rootViewController = swRevealView
+    //    self.window!.makeKeyAndVisible()
+    //    // Remove the default shadow to keep with the simplistic theme
+    //    if (!RMColor.SlideOutMenuShadowIsEnabled) {
+    //      swRevealView.frontViewShadowOpacity = 0
+    //    }
+    //    swRevealView.rearViewRevealOverdraw = 0
+    //    swRevealView.rearViewRevealWidth -= 16
+    //    
     SQLHandler.shared.informAction(action: "App Loaded")
     return true
   }
@@ -60,39 +76,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     
   }
-
+  
   func applicationDidEnterBackground(_ application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     SQLHandler.shared.informAction(action: "App Entered Background")
   }
-
+  
   func applicationWillEnterForeground(_ application: UIApplication) {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     SQLHandler.shared.informAction(action: "App Entered Foreground")
   }
-
+  
   func applicationDidBecomeActive(_ application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   }
-
+  
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
-  // MARK: - Split view
-
-  func splitViewController(_ splitViewController: UISplitViewController,
-                           collapseSecondary secondaryViewController:UIViewController,
-                           onto primaryViewController:UIViewController) -> Bool {
-      guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-      guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-      if topAsDetailController.selectedFraternity == nil {
-          // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-          return true
+  
+  func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    //    completionHandler(shouldPerformActionFor(shortcutItem: shortcutItem))
+    let shortcutType = shortcutItem.type
+    guard let shortcutIdentifier = ShortCutIdentifier(identifier: shortcutType) else {
+      print("Could not initialize shortcutIdentifier!")
+      completionHandler(false)
+      return
+    }
+    if let scrollVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "scrollVC") as? ScrollPageViewController {
+      switch shortcutIdentifier {
+      case .Fraternities:
+        //scrollVC.goToPage(page: 1, animated: false)
+        scrollVC.startingPageIndex = 1
+      case .Maps:
+        //scrollVC.goToPage(page: 0, animated: false)
+        scrollVC.startingPageIndex = 0
+      case .Calendar:
+        //scrollVC.goToPage(page: 2, animated: false)
+        scrollVC.startingPageIndex = 2
       }
-      return false
+      completionHandler(true)
+    }
   }
-
+  
+  //  private func shouldPerformActionFor(shortcutItem: UIApplicationShortcutItem) -> Bool {
+  //    
+  //    return true
+  //  }
+  
 }
 

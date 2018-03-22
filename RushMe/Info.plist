@@ -21,7 +21,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.6</string>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>9</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.social-networking</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -31,6 +31,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>RushMe needs your permission to add these events to your calendar</string>
 	<key>UILaunchStoryboardName</key>
@@ -65,6 +67,45 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>EventsIcon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Calendar</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Calendar</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict/>
+			<key>version</key>
+			<string>${APP_VERSION}</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>MapsIcon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Maps</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Maps</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict/>
+			<key>version</key>
+			<string>${APP_VERSION}</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>FraternitiesIcon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Fraternities</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).Fraternities</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict/>
+			<key>version</key>
+			<string>${APP_VERSION}</string>
+		</dict>
 	</array>
 </dict>
 </plist>

@@ -79,6 +79,8 @@
 		DB8997F41FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8997F51FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D52621FF5C438003A80C1 /* SegmentCell.swift */; };
+		DB9F5A6D205DC2C600F03B3B /* RMPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */; };
+		DB9F5A6F205EE87900F03B3B /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */; };
 		DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
@@ -165,6 +167,8 @@
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB8997F21FAC0320006A5246 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		DB8D52621FF5C438003A80C1 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
+		DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPageControl.swift; sourceTree = "<group>"; };
+		DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
 		DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -305,14 +309,14 @@
 		DB346C2B1FB103CA003E59AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */,
+				DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */,
 				DB5789811FDC6C5C0083CB6C /* About */,
 				DBD1404B1F92848700945D9B /* Fraternities */,
-				DBF60526203FA23900101FEF /* Feed */,
 				DB346C2A1FB103B4003E59AE /* Calendar */,
-				DB5789851FDCAA8A0083CB6C /* Events */,
 				DB5789801FDC6C170083CB6C /* Maps */,
 				DB5789821FDC6C630083CB6C /* Settings */,
-				DBD140491F92845100945D9B /* Drawer Menu */,
+				DB9F5A72205F259D00F03B3B /* Deprecated */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -364,6 +368,16 @@
 				DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		DB9F5A72205F259D00F03B3B /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				DB5789851FDCAA8A0083CB6C /* Events */,
+				DBF60526203FA23900101FEF /* Feed */,
+				DBD140491F92845100945D9B /* Drawer Menu */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		DBD140471F92840700945D9B /* TableViewCells */ = {
@@ -759,6 +773,7 @@
 				DBF6052B203FA65F00101FEF /* PostTableViewCell.swift in Sources */,
 				DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */,
 				DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */,
+				DB9F5A6F205EE87900F03B3B /* ScrollPageViewController.swift in Sources */,
 				DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */,
 				DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */,
 				DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */,
@@ -767,6 +782,7 @@
 				DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
+				DB9F5A6D205DC2C600F03B3B /* RMPageControl.swift in Sources */,
 				DBF07A221F8AA576001645D5 /* Constants.swift in Sources */,
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
