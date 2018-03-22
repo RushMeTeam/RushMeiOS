@@ -17,6 +17,7 @@ provides-member:
 - ["6RushMe10FraternityC", "init"]
 - ["6RushMe10FraternityC", "register"]
 provides-dynamic-lookup:
+- "addFavorite"
 - "allEvents"
 - "considerEventsBeforeToday"
 - "eventsByDay"
@@ -31,6 +32,7 @@ provides-dynamic-lookup:
 - "getEvents"
 - "hasFavorites"
 - "register"
+- "removeFavorite"
 - "saveFavorites"
 - "shared"
 depends-top-level:
@@ -71,6 +73,7 @@ depends-top-level:
 - !private "SQLHandler"
 - "Set"
 - "String"
+- !private "StringLiteralType"
 - "UIImage"
 - !private "UIImagePNGRepresentation"
 - !private "URL"
@@ -170,6 +173,7 @@ depends-member:
 - !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "pullEventsFromSQLDataBase"]
 - !private ["s7CVarArgP", "pullImage"]
+- !private ["s7CVarArgP", "remove"]
 - !private ["s7CVarArgP", "saveFavorites"]
 - !private ["s7CVarArgP", "setProperty"]
 - !private ["s7CVarArgP", "shared"]
@@ -202,6 +206,7 @@ depends-member:
 - ["6RushMe6CampusC", "Set"]
 - ["6RushMe6CampusC", "String"]
 - !private ["6RushMe6CampusC", "add"]
+- ["6RushMe6CampusC", "addFavorite"]
 - ["6RushMe6CampusC", "allEvents"]
 - !private ["6RushMe6CampusC", "campusSharedInstance"]
 - ["6RushMe6CampusC", "considerEventsBeforeToday"]
@@ -229,6 +234,7 @@ depends-member:
 - !private ["6RushMe6CampusC", "preferences"]
 - !private ["6RushMe6CampusC", "print"]
 - !private ["6RushMe6CampusC", "pullEventsFromSQLDataBase"]
+- ["6RushMe6CampusC", "removeFavorite"]
 - ["6RushMe6CampusC", "saveFavorites"]
 - ["6RushMe6CampusC", "shared"]
 - ["6RushMe6CampusC0C5ErrorO", "RuntimeError"]
@@ -249,6 +255,7 @@ depends-member:
 - !private ["s10CollectionP", "isEmpty"]
 - !private ["s10CollectionP", "last"]
 - !private ["s10CollectionP", "min"]
+- !private ["s10CollectionP", "remove"]
 - !private ["s10CollectionP", "sort"]
 - !private ["s10CollectionP", "sorted"]
 - !private ["s10CollectionP", "split"]
@@ -326,6 +333,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "pullEventsFromSQLDataBase"]
 - !private ["s28CustomDebugStringConvertibleP", "pullImage"]
+- !private ["s28CustomDebugStringConvertibleP", "remove"]
 - !private ["s28CustomDebugStringConvertibleP", "saveFavorites"]
 - !private ["s28CustomDebugStringConvertibleP", "setProperty"]
 - !private ["s28CustomDebugStringConvertibleP", "shared"]
@@ -359,6 +367,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "isEmpty"]
 - !private ["s17CustomReflectableP", "last"]
 - !private ["s17CustomReflectableP", "min"]
+- !private ["s17CustomReflectableP", "remove"]
 - !private ["s17CustomReflectableP", "sort"]
 - !private ["s17CustomReflectableP", "sorted"]
 - !private ["s17CustomReflectableP", "split"]
@@ -432,6 +441,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "pullEventsFromSQLDataBase"]
 - !private ["s23CustomStringConvertibleP", "pullImage"]
+- !private ["s23CustomStringConvertibleP", "remove"]
 - !private ["s23CustomStringConvertibleP", "saveFavorites"]
 - !private ["s23CustomStringConvertibleP", "setProperty"]
 - !private ["s23CustomStringConvertibleP", "shared"]
@@ -462,6 +472,7 @@ depends-member:
 - !private ["s9DecodableP", "last"]
 - !private ["s9DecodableP", "min"]
 - !private ["s9DecodableP", "path"]
+- !private ["s9DecodableP", "remove"]
 - !private ["s9DecodableP", "sort"]
 - !private ["s9DecodableP", "sorted"]
 - !private ["s9DecodableP", "split"]
@@ -491,6 +502,7 @@ depends-member:
 - !private ["s9EncodableP", "last"]
 - !private ["s9EncodableP", "min"]
 - !private ["s9EncodableP", "path"]
+- !private ["s9EncodableP", "remove"]
 - !private ["s9EncodableP", "sort"]
 - !private ["s9EncodableP", "sorted"]
 - !private ["s9EncodableP", "split"]
@@ -567,6 +579,7 @@ depends-member:
 - !private ["s9EquatableP", "pullEventsFromSQLDataBase"]
 - !private ["s9EquatableP", "pullImage"]
 - ["s9EquatableP", "rawValue"]
+- !private ["s9EquatableP", "remove"]
 - !private ["s9EquatableP", "saveFavorites"]
 - !private ["s9EquatableP", "setProperty"]
 - !private ["s9EquatableP", "shared"]
@@ -591,6 +604,7 @@ depends-member:
 - !private ["s25ExpressibleByArrayLiteralP", "isEmpty"]
 - !private ["s25ExpressibleByArrayLiteralP", "last"]
 - !private ["s25ExpressibleByArrayLiteralP", "min"]
+- !private ["s25ExpressibleByArrayLiteralP", "remove"]
 - !private ["s25ExpressibleByArrayLiteralP", "sort"]
 - !private ["s25ExpressibleByArrayLiteralP", "sorted"]
 - !private ["s25ExpressibleByArrayLiteralP", "startDate"]
@@ -702,6 +716,7 @@ depends-member:
 - !private ["s8HashableP", "pullEventsFromSQLDataBase"]
 - !private ["s8HashableP", "pullImage"]
 - ["s8HashableP", "rawValue"]
+- !private ["s8HashableP", "remove"]
 - !private ["s8HashableP", "saveFavorites"]
 - !private ["s8HashableP", "setProperty"]
 - !private ["s8HashableP", "shared"]
@@ -776,6 +791,7 @@ depends-member:
 - ["So8NSObjectC", "String"]
 - !private ["So8NSObjectC", "UIImage"]
 - ["So8NSObjectC", "add"]
+- ["So8NSObjectC", "addFavorite"]
 - ["So8NSObjectC", "allEvents"]
 - !private ["So8NSObjectC", "archiveRootObject"]
 - !private ["So8NSObjectC", "async"]
@@ -815,6 +831,7 @@ depends-member:
 - ["So8NSObjectC", "pullEventsFromSQLDataBase"]
 - !private ["So8NSObjectC", "pullImage"]
 - ["So8NSObjectC", "register"]
+- ["So8NSObjectC", "removeFavorite"]
 - ["So8NSObjectC", "saveFavorites"]
 - !private ["So8NSObjectC", "setProperty"]
 - ["So8NSObjectC", "shared"]
@@ -954,6 +971,7 @@ depends-member:
 - !private ["10Foundation20ReferenceConvertibleP", "init"]
 - !private ["10Foundation20ReferenceConvertibleP", "path"]
 - !private ["10Foundation20ReferenceConvertibleP", "write"]
+- !private ["6RushMe10SQLHandlerC", "informAction"]
 - !private ["6RushMe10SQLHandlerC", "select"]
 - !private ["6RushMe10SQLHandlerC", "shared"]
 - !private ["s8SequenceP", "append"]
@@ -966,6 +984,7 @@ depends-member:
 - !private ["s8SequenceP", "isEmpty"]
 - !private ["s8SequenceP", "last"]
 - !private ["s8SequenceP", "min"]
+- !private ["s8SequenceP", "remove"]
 - !private ["s8SequenceP", "sort"]
 - !private ["s8SequenceP", "sorted"]
 - !private ["s8SequenceP", "split"]
@@ -979,12 +998,14 @@ depends-member:
 - !private ["s3SetV", "insert"]
 - !private ["s3SetV", "isEmpty"]
 - !private ["s3SetV", "min"]
+- !private ["s3SetV", "remove"]
 - !private ["s10SetAlgebraP", "contains"]
 - !private ["s10SetAlgebraP", "filter"]
 - ["s10SetAlgebraP", "init"]
 - !private ["s10SetAlgebraP", "insert"]
 - !private ["s10SetAlgebraP", "isEmpty"]
 - !private ["s10SetAlgebraP", "min"]
+- !private ["s10SetAlgebraP", "remove"]
 - !private ["s13SignedIntegerP", "hashValue"]
 - !private ["s13SignedNumericP", "hashValue"]
 - !private ["s10StrideableP", "hashValue"]
@@ -1075,6 +1096,7 @@ depends-member:
 - !private ["s10_IndexableP", "isEmpty"]
 - !private ["s10_IndexableP", "last"]
 - !private ["s10_IndexableP", "min"]
+- !private ["s10_IndexableP", "remove"]
 - !private ["s10_IndexableP", "sort"]
 - !private ["s10_IndexableP", "sorted"]
 - !private ["s10_IndexableP", "split"]
@@ -1092,6 +1114,7 @@ depends-member:
 - !private ["s14_IndexableBaseP", "isEmpty"]
 - !private ["s14_IndexableBaseP", "last"]
 - !private ["s14_IndexableBaseP", "min"]
+- !private ["s14_IndexableBaseP", "remove"]
 - !private ["s14_IndexableBaseP", "sort"]
 - !private ["s14_IndexableBaseP", "sorted"]
 - !private ["s14_IndexableBaseP", "split"]
@@ -1185,6 +1208,7 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "last"]
 - !private ["s21_ObjectiveCBridgeableP", "min"]
 - !private ["s21_ObjectiveCBridgeableP", "path"]
+- !private ["s21_ObjectiveCBridgeableP", "remove"]
 - !private ["s21_ObjectiveCBridgeableP", "sort"]
 - !private ["s21_ObjectiveCBridgeableP", "sorted"]
 - !private ["s21_ObjectiveCBridgeableP", "split"]
@@ -1386,4 +1410,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "6e27dd420eb50594de82e69e29fd00f7"
+interface-hash: "b7977e7fc4f9a1f9a63f7500f1203369"

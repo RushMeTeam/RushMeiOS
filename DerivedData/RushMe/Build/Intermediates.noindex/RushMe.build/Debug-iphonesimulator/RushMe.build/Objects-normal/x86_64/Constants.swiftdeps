@@ -315,6 +315,7 @@ depends-member:
 - ["6RushMe13RMDatabaseKeyV", "ChapterKey"]
 - ["6RushMe13RMDatabaseKeyV", "CoverImageKey"]
 - ["6RushMe13RMDatabaseKeyV", "DescriptionKey"]
+- ["6RushMe13RMDatabaseKeyV", "FraternityInfoRelation"]
 - ["6RushMe13RMDatabaseKeyV", "MemberCountKey"]
 - ["6RushMe13RMDatabaseKeyV", "NameKey"]
 - ["6RushMe13RMDatabaseKeyV", "PreviewImageKey"]
@@ -641,4 +642,4 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "4c205d813f18a4604928571219b5928d"
+interface-hash: "e5391e3991a12d306c09b19096b647f1"

@@ -209,9 +209,6 @@ def createPage():
             <embed type="image/svg+xml" src="/popularityGraph/" />
             </figure>
             <figure>
-            <embed type="image/svg+xml" src="/favoritesGraph/" />
-            </figure>
-            <figure>
             <embed type="image/svg+xml" src="/grossPopularityGraph/" />
             </figure>
             <figure>
@@ -226,7 +223,8 @@ def deviceGraph():
             SELECT DISTINCT CONCAT(CONCAT(devicetype, ' | '), deviceSoftware) device, count(devicetype) count 
             FROM sqlrequests 
             WHERE devicetype NOT LIKE '%Simulator%' 
-            GROUP BY device ORDER BY count DESC"""
+            GROUP BY device ORDER BY count DESC
+            """
     cursor.execute(query)
     numberOfRequests = 0
     deviceTypes = dict()
@@ -262,7 +260,7 @@ def grossPopularityGraph():
 @app.route('/popularityGraph/')
 def popularityGraph():
     bar_chart = pygal.StackedBar(title = u'RushMe Net Favorites', x_label_rotation = 30)
-    bar_chart.style = Style(foreground = '#29abe2', colors = ("#7CCCEE", 'red'))  
+    bar_chart.style = Style(foreground = '#29abe2', colors = ('green', 'red', "#7CCCEE"))  
     bar_chart.value_formatter = lambda x: "{0:0.1f}%".format(x*100)
     query = "SELECT options, count(*) FROM sqlrequests WHERE action = 'Fraternity Favorited' GROUP BY options, deviceuuid"
     cursor.execute(query)
@@ -272,10 +270,10 @@ def popularityGraph():
     unfavorites = dict(cursor)  
     grossDict = dict()
     for frat, num in favorites.items():
-        print(frat, num)
+        #print(frat, num)
         grossDict[frat] = (num, 0)
     for frat, num in unfavorites.items():
-        print(frat, -1*num)
+        #print(frat, -1*num)
         leftVal = 0
         if frat in grossDict:
             leftVal = grossDict[frat][0]
@@ -284,15 +282,19 @@ def popularityGraph():
     fratNames = []
     favs = []
     unfavs = []
+    net = []
     maxVol = 0
     for frat, (numFavs, numUnfavs) in sorted(grossDict.items(), key= lambda x : (x[1][0]+x[1][1])/(x[1][0]-x[1][1]), reverse= True)[:15]:
         maxVol = max(maxVol, numFavs-numUnfavs)
     for frat, (numFavs, numUnfavs) in sorted(grossDict.items(), key= lambda x : (x[1][0]+x[1][1])/(x[1][0]-x[1][1]), reverse= True)[:15]:
         fratNames.append(frat)
         favs.append(numFavs/maxVol)
-        unfavs.append(numUnfavs/maxVol)        
+        unfavs.append(numUnfavs/maxVol)
+        net.append((numFavs + numUnfavs)/maxVol)
+        
     bar_chart.add('Favorites', favs)
     bar_chart.add('Unfavorites', unfavs)
+    bar_chart.add('Net', net)
     bar_chart.x_labels = fratNames
     return Response(response=bar_chart.render(), content_type='image/svg+xml') 
 

@@ -31,7 +31,7 @@ enum Quality : Int {
 class Campus: NSObject {
   // MARK: Member Variables
   // The user's favorite fraternities
-  var favoritedFrats = Set<String>() {
+  private(set) var favoritedFrats = Set<String>() {
     didSet {
       self.saveFavorites()
       self.firstFavoritedEvent_ = nil
@@ -40,6 +40,20 @@ class Campus: NSObject {
       self.favoritedEventsByDay_ = nil
     }
   }
+  func addFavorite(named newFavorite : String) {
+    if fratNames.contains(newFavorite) {
+      if favoritedFrats.insert(newFavorite).inserted {
+        SQLHandler.shared.informAction(action: "Fraternity Favorited", options: newFavorite)
+      }
+    }
+  }
+  func removeFavorite(named oldFavorite : String) {
+    if favoritedFrats.contains(oldFavorite) {
+      favoritedFrats.remove(oldFavorite)
+      SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: oldFavorite)
+    }
+  }
+  
   var hasFavorites : Bool {
     return !favoritedFrats.isEmpty
   }
@@ -303,34 +317,34 @@ extension Fraternity {
       let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
       var previewImage : UIImage?
       var profileImage : UIImage?
-        if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
-          if let previewImg = pullImage(fromSource: URLString) {
-            previewImage = previewImg
-            profileImage = previewImg
-          }
+      if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
+        if let previewImg = pullImage(fromSource: URLString) {
+          previewImage = previewImg
+          profileImage = previewImg
         }
+      }
       self.init(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
       if let _ = profileImage {
         self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
       }
-//      if loadImages {
-//        if let URLString = self.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
-//          if let calendarImg = pullImage(fromSource: URLString) {
-//            self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
-//          }
-//        }
-        
-        // Get the CoverImage
-        //                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
-        //                    DispatchQueue.global().async {
-        //                      if let coverImg = Campus.shared.pullImage(fromSource: URLString) {
-        //                        frat.setProperty(named: RMDatabaseKey.CoverImageKey, to: coverImg)
-        //                      }
-        //                    }
-        //                  }
-//              }
+      //      if loadImages {
+      //        if let URLString = self.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
+      //          if let calendarImg = pullImage(fromSource: URLString) {
+      //            self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
+      //          }
+      //        }
+      
+      // Get the CoverImage
+      //                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
+      //                    DispatchQueue.global().async {
+      //                      if let coverImg = Campus.shared.pullImage(fromSource: URLString) {
+      //                        frat.setProperty(named: RMDatabaseKey.CoverImageKey, to: coverImg)
+      //                      }
+      //                    }
+      //                  }
+      //              }
       return
-
+      
     }
     
     return nil
@@ -340,7 +354,7 @@ extension Fraternity {
       try campus.add(fraternity: self)
     }
     catch let e {
-     print(e.localizedDescription)
+      print(e.localizedDescription)
     }
   }
   
@@ -374,7 +388,7 @@ func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.sh
 }
 
 func urlSuffixes(forFilesWithName filename : String) -> [String] {
- return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
+  return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
 }
 
 func pullImage(fromSource : String, quality : Quality = Campus.shared.downloadedImageQuality) -> UIImage? {
@@ -383,7 +397,7 @@ func pullImage(fromSource : String, quality : Quality = Campus.shared.downloaded
       try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
     }
     catch let e {
-     print(e.localizedDescription)
+      print(e.localizedDescription)
     }
   }
   let fixedPath = urlSuffix(forFileWithName: fromSource, quality : quality)

@@ -88,6 +88,7 @@ struct RMDatabaseKey {
   static let ProfileImageKey = "profile_image"
   static let CoverImageKey = "cover_image"
   static let CalendarImageKey = "calendar_image"
+  static let FraternityInfoRelation = "house_info"
 }
 struct RMUser {
   static let minPassLength = 6 

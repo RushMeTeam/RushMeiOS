@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol FraternityCellDelegate {
+  func cell(withFratName : String, favoriteStatusToValue : Bool)
+}
+
 class AttractiveFratCellTableViewCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
   @IBOutlet var titleLabel: UILabel!
   // Chapter designation (e.g. Theta)
-//  @IBOutlet var subheadingLabel: UILabel!
+  //  @IBOutlet var subheadingLabel: UILabel!
+  @IBOutlet weak var favoriteButton: UIButton!
   @IBOutlet weak var previewImageView: UIImageView!
+  var delegate : FraternityCellDelegate? = nil
   var gradientLayer : CAGradientLayer? = nil
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -36,11 +42,18 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
         iView.layer.insertSublayer(gradientLayer, at: 0)
         self.gradientLayer = gradientLayer
         self.titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+        self.favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
       }
       iView.isUserInteractionEnabled = false
+      favoriteButton.imageView?.contentMode = .scaleAspectFit
     }
   }
   
+  @IBAction func favoriteButtonHit(_ sender: UIButton) {
+    isAccentuated = !isAccentuated
+    delegate?.cell(withFratName: titleLabel.text ?? "", favoriteStatusToValue: isAccentuated)
+    
+  }
   
   private(set) var imageBorderColor = UIColor.clear {
     didSet {
@@ -50,12 +63,8 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   }
   var isAccentuated : Bool = false {
     didSet {
-      if isAccentuated {
-       self.imageBorderColor = RMColor.AppColor.withAlphaComponent(0.7)
-      }
-      else {
-       self.imageBorderColor = UIColor.white.withAlphaComponent(0.2)
-      }
+      favoriteButton.setBackgroundImage(isAccentuated ? RMImage.FavoritesImageFilled : RMImage.FavoritesImageUnfilled, for: .normal)
+      imageBorderColor =  UIColor.white.withAlphaComponent(0.2) //isAccentuated ? RMColor.AppColor.withAlphaComponent(0.7) :
     }
   }
 }
