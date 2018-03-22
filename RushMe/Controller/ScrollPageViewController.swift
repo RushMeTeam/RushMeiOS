@@ -19,7 +19,11 @@ class ScrollPageViewController: UIViewController,
 UIScrollViewDelegate {
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet var pageControl: UIPageControl!
-  var numberOfPages : Int = 3
+  var numberOfPages : Int {
+    get {
+      return orderedViewControllers.count 
+    }
+  }
   lazy var pages : [UIView?] = [UIView.init()]
   
   lazy var scrollIndicator    : CAShapeLayer = CAShapeLayer()
@@ -32,18 +36,37 @@ UIScrollViewDelegate {
                                cornerRadius: 3)
     }
   }
+  var currentPage : Int = 1 {
+    willSet {
+      let correctedNewValue = min(numberOfPages - 1, max(newValue, 0))
+      if correctedNewValue != currentPage {
+        pageControl.currentPage = newValue
+        // Update information!!!
+        if let viewController = self.orderedViewControllers[correctedNewValue].childViewControllers.first, 
+          let updatableItem = viewController as? ScrollableItem {
+          updatableItem.updateData()
+        }
+        self.loadCurrentPages(page: self.pageControl.currentPage)
+      }
+    }
+  }
+  
   var startingPageIndex : Int = 1 {
     didSet {
       loadView()
       pageControl.currentPage = startingPageIndex
+      transitioning = true
+      goToPage(page: startingPageIndex, animated: true)
+      transitioning = false
     }
   }
-  lazy var orderedViewControllers: [UIViewController] = 
-    [self.getViewController(forIdentifier: "mapVC"), 
-     self.getViewController(forIdentifier: "splitVC"), self.getViewController(forIdentifier: "calendarVC")]
+  var orderedViewControllers: [UIViewController] = 
+    [ScrollPageViewController.getViewController(forIdentifier: "mapVC"), 
+     ScrollPageViewController.getViewController(forIdentifier: "splitVC"), 
+     ScrollPageViewController.getViewController(forIdentifier: "calendarVC")]
   var viewControllerIdentifiers = ["mapVC", "splitVC", "calendarVC"]
   
-  func getViewController(forIdentifier identifier : String) -> UIViewController {
+  static func getViewController(forIdentifier identifier : String) -> UIViewController {
     return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) 
   }
   var transitioning = false
@@ -52,17 +75,15 @@ UIScrollViewDelegate {
     _ = setupInitialPages
   }
   override func awakeFromNib() {
-    
-    
     // TODO: Finish Scroll Indicator!
   }
   
   @IBAction func presentSettings(_ sender: UIBarButtonItem) {
-    present(getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
+    present(ScrollPageViewController.getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
   }
   @objc func presentAbout() {
     //print("opened aboutVC")
-    present(getViewController(forIdentifier: "aboutVC"), animated: true, completion: nil) 
+    present(ScrollPageViewController.getViewController(forIdentifier: "aboutVC"), animated: true, completion: nil) 
   }
   
   
@@ -71,7 +92,9 @@ UIScrollViewDelegate {
     loadPage(1)
     loadPage(2)
     loadPage(0)
+    transitioning = true
     goToPage(page: startingPageIndex, animated: false)
+    transitioning = false
   }()
   
   fileprivate func adjustScrollView() {
@@ -123,6 +146,7 @@ UIScrollViewDelegate {
     pageControl.currentPage = startingPageIndex
     
     self.scrollView.layer.addSublayer(scrollIndicator)
+    goToPage(page: startingPageIndex, animated: false)
   }
   
   override func didReceiveMemoryWarning() {
@@ -131,10 +155,10 @@ UIScrollViewDelegate {
   }
   
   fileprivate func loadPage(_ page : Int) {
-    guard page < numberOfPages && page > -1 else {
+    guard page < numberOfPages && page >= 0 else {
+      print("Attemped to load illegal page number", page)
       return 
     }
-    
     if pages[page] == nil {
       let newViewController = orderedViewControllers[page]
       //newView.backgroundColor = page == 0 ? .blue : .green
@@ -159,6 +183,7 @@ UIScrollViewDelegate {
   }
   fileprivate func loadCurrentPages(page: Int) {
     guard (page > 0 && page + 1 < numberOfPages) || transitioning else {
+      print("Attemped to load multiple illegal pages surrounding page number", page)
       return
     }
     pages = [UIView?](repeating: nil, count: numberOfPages)
@@ -166,37 +191,24 @@ UIScrollViewDelegate {
     loadPage(Int(page))
     loadPage(Int(page) + 1)
   }
+  
   // Originally fileprivate
   func goToPage(page: Int, animated: Bool) {
     guard page >= 0 && page < numberOfPages else {
+      print("Attemped to goTo illegal page number", page)
       return 
     }
     loadCurrentPages(page: page)
     var bounds = scrollView.bounds
     bounds.origin.x = bounds.width * CGFloat(page)
     bounds.origin.y = 0
-    
     scrollView.scrollRectToVisible(bounds, animated: animated)
+    currentPage = page
   }
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     let pageWidth = scrollView.frame.width
     let page = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1
-    pageControl.currentPage = Int(page)
-    // Update information!!!
-    if let viewController = orderedViewControllers[Int(page)].childViewControllers.first, 
-      let updatableItem = viewController as? ScrollableItem {
-      updatableItem.updateData()
-      //      UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
-      //        viewController.view.alpha = 0.8
-      //        
-      //      }) { (_) in
-      //        UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
-      //          viewController.view.alpha = 1
-      //        })
-      //        
-      //      }
-    }
-    loadCurrentPages(page: pageControl.currentPage)
+    currentPage = Int(page)
   }
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     //    let currentPageIndex = pageControl.currentPage

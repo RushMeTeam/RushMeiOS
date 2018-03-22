@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     ////    // Instantiate from storyboard
     //    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
     //    let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
-    ////    let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
+    ////  let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
     ////    let masterNav = UINavigationController(rootViewController: masterVC)
     ////    let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
     ////    let detailNav = UINavigationController(rootViewController: detailVC)

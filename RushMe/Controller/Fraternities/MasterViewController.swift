@@ -356,7 +356,7 @@ class MasterViewController : UITableViewController,
           let fratName = self.dataKeys[row]
           SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-            let controller = (segue.destination as! UINavigationController).topViewController
+            let controller = segue.destination //(segue.destination as! UINavigationController).topViewController
               as! DetailViewController
             
             // Send the detail controller the fraternity we're about to display
@@ -444,6 +444,13 @@ class MasterViewController : UITableViewController,
 //    }
     return false
   }
+  // If not using Storyboard
+//  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    if let detailViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as? DetailViewController {
+//      detailViewController.selectedFraternity = Campus.shared.fraternitiesDict[dataKeys[indexPath.row-1]]
+//      splitViewController?.showDetailViewController(detailViewController, sender: nil)
+//    }
+//  }
   // Swipe to favorite and unfavorite
 //  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //    let fratName = dataKeys[indexPath.row-1]

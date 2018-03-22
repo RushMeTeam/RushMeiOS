@@ -70,6 +70,7 @@
 		DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */; };
 		DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */; };
 		DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
+		DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
 		DB8997EB1FABFBA9006A5246 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EA1FABFBA9006A5246 /* Campus.swift */; };
 		DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */; };
@@ -162,6 +163,7 @@
 		DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullEventsListTableViewController.swift; sourceTree = "<group>"; };
 		DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */,
+				DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */,
 				DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */,
 				DB5789811FDC6C5C0083CB6C /* About */,
 				DBD1404B1F92848700945D9B /* Fraternities */,
@@ -778,6 +781,7 @@
 				DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */,
 				DB1956E31F8AFB4400E2803F /* DrawerMenuViewController.swift in Sources */,
 				DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */,
+				DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */,
 				DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */,
 				DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,

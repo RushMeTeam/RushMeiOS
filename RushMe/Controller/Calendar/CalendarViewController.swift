@@ -76,7 +76,7 @@ class CalendarViewController: UIViewController,
   }
   var panCutoff : CGFloat {
     get {
-      return self.view.frame.maxY
+      return self.collectionView.frame.midY
     }
   }
   var viewingFavorites : Bool {
@@ -275,7 +275,7 @@ class CalendarViewController: UIViewController,
   }
   @IBAction func eventCalendarPan(_ sender: UIPanGestureRecognizer) {
     let yLoc = min(
-                max(sender.location(in: self.view).y, self.seperatorView.frame.height/2), 
+                max(sender.location(in: self.view).y, self.collectionView.frame.minY + self.seperatorView.frame.height/2), 
                 self.collectionView.frame.maxY+self.seperatorView.frame.height/2)
     switch sender.state {
     case .possible:
