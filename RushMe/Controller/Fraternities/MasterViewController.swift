@@ -22,9 +22,7 @@ fileprivate let attractiveFratCellIdentifier = "prettyFratCell"
 
 
 class MasterViewController : UITableViewController,
-<<<<<<< HEAD
-UISearchBarDelegate {
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
+UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate {
   
   
   // MARK: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating
@@ -36,17 +34,11 @@ UISearchBarDelegate {
   }
   func willPresentSearchController(_ searchController: UISearchController) {
     // Disable drawer menu swipe while searching
-    revealViewController().panGestureRecognizer().isEnabled = false
+    //revealViewController().panGestureRecognizer().isEnabled = false
   }
   func didDismissSearchController(_ searchController: UISearchController) {
     // Enable drawer menu swipe when not searching
-    revealViewController().panGestureRecognizer().isEnabled = true
-  }
-  // Is the lefthand menu extended?
-  var drawerExtended : Bool {
-    get {
-     return revealViewController().frontViewPosition == .right 
-    }
+    //revealViewController().panGestureRecognizer().isEnabled = true
   }
   // Is the search bar empty?
   var searchBarIsEmpty : Bool {
@@ -62,14 +54,9 @@ UISearchBarDelegate {
   }
   // MARK: Member Variables
   // The hard data used in the table
-<<<<<<< HEAD
-  //  var lastPullDescription = ""
-  //  let attributedStringColor = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
-  let progressView = UIProgressView.init()
-=======
+
   let progressView = UIProgressView()
   let searchController = UISearchController.init(searchResultsController: nil)
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
   // The menu button used to toggle the slide-out menu
   @IBOutlet var openBarButtonItem: UIBarButtonItem!
   // Is the tableView presenting all fraternities, or just favorites?
@@ -99,10 +86,9 @@ UISearchBarDelegate {
   // The keys that the tableView uses to display the desired fraternities
   var dataKeys : [String] {
     get {
-<<<<<<< HEAD
       if viewingFavorites {
         return Array(Campus.shared.favoritedFrats)
-=======
+      }
       // If we're searching, use the contents of the search bar to determine 
       // which fraternities to display
       if isSearching {
@@ -114,7 +100,6 @@ UISearchBarDelegate {
       // Display favorites only
       else if viewingFavorites {
        return Array(Campus.shared.favoritedFrats)
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
       }
       // Display all fraternities, sorted by name
       else if !RMUserPreferences.shuffleEnabled {
@@ -153,9 +138,9 @@ UISearchBarDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Set up slideout menu
-    if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
-      VC.masterVC = self.splitViewController
-    }
+//    if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
+//      VC.masterVC = self.splitViewController
+//    }
     // Refresh control 
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -181,7 +166,6 @@ UISearchBarDelegate {
     navigationController!.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
     navigationController!.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
-<<<<<<< HEAD
     // Menu button disabled until refresh complete
     // Ensure the menu button toggles the menu
     // Refresh control 
@@ -191,10 +175,8 @@ UISearchBarDelegate {
     // Add a progress view to indicate loading status
     //    self.navigationController!.navigationBar.addSubview(progressView)
     
-=======
     definesPresentationContext = true
     // Set up Title View(s) and Progress Bar (visual)
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
     let wrapperView = UIView()
     let imageView = UIImageView.init(image: RMImage.LogoImage)
     imageView.contentMode = .scaleAspectFit
@@ -233,11 +215,7 @@ UISearchBarDelegate {
   // MARK: - Data Handling
   func dataUpdate() {
     if !self.pullFratsFromSQLDatabase() {
-<<<<<<< HEAD
-      print("Failed to load!")
-=======
      print("Failed to make SQL Database Connection") 
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
     }
   }
   // MARK: Data Request
@@ -245,7 +223,7 @@ UISearchBarDelegate {
     DispatchQueue.main.async {
       // Reset progress view to indicate loading has commenced
       self.progressView.setProgress(0.05, animated: false)
-      self.revealViewController().panGestureRecognizer().isEnabled = false
+      //self.revealViewController().panGestureRecognizer().isEnabled = false
       self.progressView.alpha = 1
       self.favoritesSegmentControl?.isEnabled = false
       // Reset shuffledFrats
@@ -256,25 +234,8 @@ UISearchBarDelegate {
     }
     // The list of fraternity dictionaries
     var dictArray = [Dictionary<String, Any>()]
-<<<<<<< HEAD
-    if types.count == 0{
-      if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-        dictArray = arr
-      }
-    }
-    else {
-      var querystring = ""
-      for type in types {
-        querystring += type + ", "
-      }
-      querystring = String(querystring.dropLast(2))
-      if let arr = SQLHandler.shared.select(fromTable: "house_info") {
-        dictArray = arr
-      }
-=======
     if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation) {
       dictArray = arr
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
     }
     if dictArray.count > Campus.shared.fratNames.count {
       DispatchQueue.global(qos: .userInitiated).async {
@@ -294,13 +255,9 @@ UISearchBarDelegate {
               self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
             }
             if RMUserPreferences.shuffleEnabled && fratCount % 4 == 0 {
-<<<<<<< HEAD
-              self.reloadTableView()
-=======
               // Every 4 fraternities, update the tableView 
               // (only when in shuffled-- prevents whacky stuttering)
              self.reloadTableView() 
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
             }
             else if !RMUserPreferences.shuffleEnabled {
               self.reloadTableView()
@@ -313,7 +270,7 @@ UISearchBarDelegate {
           self.refreshControl!.isEnabled = true
           self.openBarButtonItem.isEnabled = true
           self.favoritesSegmentControl?.isEnabled = true
-          self.revealViewController().panGestureRecognizer().isEnabled = true
+          //self.revealViewController().panGestureRecognizer().isEnabled = true
           // Set the progressView to 100% complete state
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
             self.progressView.progress = 1
@@ -331,7 +288,7 @@ UISearchBarDelegate {
         self.refreshControl!.endRefreshing()
         self.reloadTableView()
         self.refreshControl!.isEnabled = true
-        self.revealViewController().panGestureRecognizer().isEnabled = false
+       // self.revealViewController().panGestureRecognizer().isEnabled = false
         self.favoritesSegmentControl?.isEnabled = true
         UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
           self.progressView.progress = 1
@@ -342,32 +299,7 @@ UISearchBarDelegate {
     }
     return true
   }
-<<<<<<< HEAD
-  //  let colors  = [UIColor.white, RMColor.AppColor, RMColor.AppColor, UIColor.cyan, UIColor.red] //[UIColor.red, RMColor.AppColor, RMColor.AppColor, UIColor.purple, UIColor.cyan, RMColor.AppColor, RMColor.AppColor, UIColor.orange, RMColor.AppColor, UIColor.magenta, RMColor.AppColor]
-  //
-  //  func animateRefreshView() {
-  //    struct Counter {
-  //     static var index = 0
-  //    }
-  //    DispatchQueue.main.async {
-  //      UIView.animate(withDuration: 0.5, animations: {
-  //        self.refreshControl!.backgroundColor = self.colors[Counter.index%self.colors.count]
-  //        self.refreshControl!.tintColor = self.colors[(Counter.index%self.colors.count)%self.colors.count]
-  //      }, completion: { (completed) in
-  //        Counter.index += 1
-  //        if self.refreshControl!.isRefreshing {
-  //          self.animateRefreshView()
-  //        }
-  //        else {
-  //          UIView.animate(withDuration: 0.8, animations: {
-  //            self.refreshControl!.backgroundColor = UIColor.white
-  //            self.refreshControl!.tintColor = RMColor.AppColor
-  //          })
-  //        }
-  //      })
-  //    }
-  //  }
-=======
+
 //  let colors  = [UIColor.white, RMColor.AppColor, RMColor.AppColor, UIColor.cyan, UIColor.red] //[UIColor.red, RMColor.AppColor, RMColor.AppColor, UIColor.purple, UIColor.cyan, RMColor.AppColor, RMColor.AppColor, UIColor.orange, RMColor.AppColor, UIColor.magenta, RMColor.AppColor]
 //  
 //  func animateRefreshView() {
@@ -392,13 +324,12 @@ UISearchBarDelegate {
 //      })
 //    }
 //  }  
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
   
   
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
     // If we're searching, cancel the search if we select the menu
     searchController.dismiss(animated: true, completion: nil)
-    self.revealViewController().revealToggle(self)
+    //self.revealViewController().revealToggle(self)
   }
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
@@ -406,8 +337,8 @@ UISearchBarDelegate {
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+    //view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+    //view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     refreshControl?.tintColor = RMColor.AppColor
     favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
@@ -419,19 +350,6 @@ UISearchBarDelegate {
       // row-1 because first cell is the segment control
       let row = indexPath.row - 1
       if segue.identifier == "showDetail" {
-<<<<<<< HEAD
-        let fratName = dataKeys[row]
-        //        if (viewingFavorites) {
-        //          fratName = Campus.shared.favoritedFrats[row]
-        //        }
-        SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
-        if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-          let controller = (segue.destination as! UINavigationController).topViewController
-            as! DetailViewController
-          // Send the detail controller the fraternity we're about to display
-          controller.selectedFraternity = selectedFraternity
-          let _ = Campus.shared.getEvents(forFratWithName : fratName)
-=======
           let fratName = self.dataKeys[row]
           SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
@@ -442,26 +360,9 @@ UISearchBarDelegate {
             controller.selectedFraternity = selectedFraternity
             //let _ = Campus.shared.getEvents(forFratWithName : fratName)
           }
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
         }
         
       }
-<<<<<<< HEAD
-      //      // Determine which object user selected
-      //      else {
-      //        var fratName = Campus.shared.fratNames[row]
-      //        if (viewingFavorites) {
-      //          fratName = Campus.shared.favoritedFrats[row]
-      //        }
-      //        if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-      //          let controller = (segue.destination as! UINavigationController).topViewController
-      //            as! DetailViewController
-      //          controller.selectedFraternity = selectedFraternity
-      //        }
-      //      }
-    }
-=======
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
@@ -532,30 +433,7 @@ UISearchBarDelegate {
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Can only do the sliding to favorite if using iOS 11 or newer
     // TODO: Decide if slide to favorite is possible in iOS 10.*
-<<<<<<< HEAD
-    if #available(iOS 11, *) {
-      return !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
-    }
-    else {
-      return false
-    }
-  }
-  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let fratName = dataKeys[indexPath.row-1]
-    var title = RMMessage.Favorite
-    var bgColor = RMColor.AppColor
-    if Campus.shared.favoritedFrats.contains(fratName) {
-      title = RMMessage.Unfavorite
-      bgColor = bgColor.withAlphaComponent(0.5)
-    }
-    let toggleFavorite = UITableViewRowAction(style: .normal, title: title, handler: {
-      action, cellIndex in
-      self.setFavorite(withAction: action, forCell: cellIndex, forFrat: fratName)
-    })
-    toggleFavorite.title = Campus.shared.favoritedFrats.contains(fratName) ? RMMessage.Unfavorite : RMMessage.Favorite
-    toggleFavorite.backgroundColor = bgColor
-    return [toggleFavorite]
-=======
+
 //    if #available(iOS 11, *) {
 //     return indexPath.row != 0 && !self.refreshControl!.isRefreshing && Campus.shared.fratNames.count != 0
 //    }
@@ -563,7 +441,6 @@ UISearchBarDelegate {
 //      return false
 //    }
     return false
->>>>>>> 47f825a0fb2828e2074fb8b90c4027a8a02e47a7
   }
   // If not using Storyboard
 //  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -617,7 +494,7 @@ UISearchBarDelegate {
   func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
     if (action.title == RMMessage.Favorite) {
       let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
-      Campus.shared.favoritedFrats.insert(fratName)
+      Campus.shared.addFavorite(named: fratName)
       action.backgroundColor = RMColor.AppColor
       if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = true
@@ -632,7 +509,7 @@ UISearchBarDelegate {
         cell.isAccentuated = false
         SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
       }
-      Campus.shared.favoritedFrats.remove(fratName)
+      Campus.shared.removeFavorite(named: fratName)
       if (self.viewingFavorites) {
         self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
       }

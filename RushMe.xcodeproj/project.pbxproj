@@ -80,6 +80,7 @@
 		DB8997F41FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8997F51FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D52621FF5C438003A80C1 /* SegmentCell.swift */; };
+		DB9ACA002064428600BD4DCF /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */; };
 		DB9F5A6D205DC2C600F03B3B /* RMPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */; };
 		DB9F5A6F205EE87900F03B3B /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */; };
 		DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
@@ -169,6 +170,7 @@
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB8997F21FAC0320006A5246 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		DB8D52621FF5C438003A80C1 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
+		DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
 		DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPageControl.swift; sourceTree = "<group>"; };
 		DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
 		DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				DB05F74A1F894A910090DEC3 /* MasterViewController.swift */,
 				DB05F74C1F894A910090DEC3 /* DetailViewController.swift */,
 				DB394E971FD10AFE004BF952 /* ImageViewController.swift */,
+				DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */,
 			);
 			path = Fraternities;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */,
 				DB47437E2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift in Sources */,
 				DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */,
+				DB9ACA002064428600BD4DCF /* ImagePageViewController.swift in Sources */,
 				DBF6052B203FA65F00101FEF /* PostTableViewCell.swift in Sources */,
 				DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */,
 				DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */,
