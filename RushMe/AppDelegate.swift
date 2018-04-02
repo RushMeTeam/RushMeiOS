@@ -9,6 +9,7 @@
 import UIKit
 import OHMySQL
 
+
 enum ShortCutIdentifier : String {
   case Fraternities
   case Maps
@@ -62,12 +63,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     //    self.window!.rootViewController = swRevealView
     //    self.window!.makeKeyAndVisible()
     //    // Remove the default shadow to keep with the simplistic theme
-    //    if (!RMColor.SlideOutMenuShadowIsEnabled) {
-    //      swRevealView.frontViewShadowOpacity = 0
-    //    }
-    //    swRevealView.rearViewRevealOverdraw = 0
-    //    swRevealView.rearViewRevealWidth -= 16
     //    
+    //    
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+    let scrollPageVC = mainStoryboard.instantiateViewController(withIdentifier: "scrollVC") as! ScrollPageViewController
+    let scrollPageVCNav = UINavigationController.init(rootViewController: scrollPageVC)
+    let swRevealVC = mainStoryboard.instantiateViewController(withIdentifier: "swRevealVC") as! SWRevealViewController
+    let drawerMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
+    self.window!.rootViewController = swRevealVC
+    self.window!.makeKeyAndVisible()
+    swRevealVC.setFront(scrollPageVCNav, animated: false)
+    swRevealVC.setRear(drawerMenuVC, animated: false)
+    swRevealVC.delegate = scrollPageVC
+    if (!RMColor.SlideOutMenuShadowIsEnabled) {
+      swRevealVC.frontViewShadowOpacity = 0
+    }
+    swRevealVC.rearViewRevealOverdraw = 0
+    swRevealVC.rearViewRevealWidth = 64
+    drawerMenuVC.pageDelegate = scrollPageVC
+    
     SQLHandler.shared.informAction(action: "App Loaded")
     return true
   }
@@ -108,13 +123,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
       switch shortcutIdentifier {
       case .Fraternities:
         //scrollVC.goToPage(page: 1, animated: false)
-        scrollVC.startingPageIndex = 1
+        ScrollPageViewController.startingPageIndex = 1
       case .Maps:
         //scrollVC.goToPage(page: 0, animated: false)
-        scrollVC.startingPageIndex = 0
+        ScrollPageViewController.startingPageIndex = 0
       case .Calendar:
         //scrollVC.goToPage(page: 2, animated: false)
-        scrollVC.startingPageIndex = 2
+        ScrollPageViewController.startingPageIndex = 2
       }
       completionHandler(true)
     }

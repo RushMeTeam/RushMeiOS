@@ -234,6 +234,7 @@ def deviceGraph():
     connectedDeviceSoftwareTypes = dict()
     bar_chart = pygal.Pie(title = "RushMe User Device Characteristics")
         #print(deviceuuid)
+    bar_chart.value_formatter = lambda x: "{0} requests".format(x)
     bar_chart.x_labels = ['Device Characteristics']
     for deviceKey, number in dict(cursor).items():
         bar_chart.add(deviceKey, number)

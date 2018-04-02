@@ -22,7 +22,42 @@ fileprivate let attractiveFratCellIdentifier = "prettyFratCell"
 
 
 class MasterViewController : UITableViewController,
-UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate {
+UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
+UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+  var detailVC : DetailViewController {
+    get {
+      return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+    }
+  }
+  
+  func getFrat(after : String) -> String? {
+    let index = dataKeys.index(of: after)
+    return (index != nil && index! < dataKeys.count-1) ? dataKeys[index!+1] : nil
+  }
+  func getFrat(before : String) -> String? {
+    let index = dataKeys.index(of: before)
+    return (index != nil && index! > 0) ? dataKeys[index!-1] : nil
+  }
+  func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity?.name,
+      let newFrat = getFrat(before: selectedFrat) {
+      let newVC = detailVC
+      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFrat]
+      return newVC
+    }
+    return nil
+  }
+  func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity?.name,
+      let newFrat = getFrat(after: selectedFrat) {
+      let newVC = detailVC
+      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFrat]
+      return newVC
+    }
+    return nil
+  }
+  
+  
   
   
   // MARK: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating
@@ -58,7 +93,7 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
   let progressView = UIProgressView()
   let searchController = UISearchController.init(searchResultsController: nil)
   // The menu button used to toggle the slide-out menu
-  @IBOutlet var openBarButtonItem: UIBarButtonItem!
+  //@IBOutlet var openBarButtonItem: UIBarButtonItem!
   // Is the tableView presenting all fraternities, or just favorites?
   var viewingFavorites : Bool  {
     // Setting viewingFavorites configures the tableView to view the user's favorites
@@ -130,6 +165,9 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
    //self.tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .automatic)
   }
   
+  @objc func returnToMaster() {
+   print("ooh") 
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -137,11 +175,14 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     // Set up slideout menu
 //    if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
 //      VC.masterVC = self.splitViewController
 //    }
     // Refresh control 
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     self.handleRefresh(refreshControl: refreshControl!)
@@ -149,23 +190,20 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
     searchController.searchResultsUpdater = self
     searchController.delegate = self
     // Setup the Search Bar (visual)
-    navigationController!.hidesBarsOnSwipe = false
-    navigationController!.navigationBar.isTranslucent = false
-    tableView.tableHeaderView = searchController.searchBar
+    //tableView.tableHeaderView = searchController.searchBar
+    //navigationItem.titleView = searchController.searchBar
+    //searchController.searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
     searchController.searchBar.isTranslucent = false
     searchController.searchBar.tintColor = RMColor.AppColor
     searchController.searchBar.barTintColor = UIColor.white
     searchController.obscuresBackgroundDuringPresentation = false
-    extendedLayoutIncludesOpaqueBars = true
     view.sendSubview(toBack: tableView)
     // Set Search Bar placeholder text, for when a search has not been entered
     searchController.searchBar.placeholder = "Search Fraternities"
     // Set up Navigation bar (visual)
-    navigationController!.navigationBar.backgroundColor = UIColor.white
-    navigationController!.navigationBar.tintColor = RMColor.AppColor
-    navigationController!.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
-    navigationController!.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
+    //navigationController!.navigationBar.backgroundColor = UIColor.white
+    //navigationController!.navigationBar.tintColor = RMColor.AppColor
+    //navigationController!.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
     // Menu button disabled until refresh complete
     // Ensure the menu button toggles the menu
     // Refresh control 
@@ -175,18 +213,19 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
     // Add a progress view to indicate loading status
     //    self.navigationController!.navigationBar.addSubview(progressView)
     
-    definesPresentationContext = true
+    //definesPresentationContext = true
     // Set up Title View(s) and Progress Bar (visual)
     let wrapperView = UIView()
+    wrapperView.frame.size.height = 44
     let imageView = UIImageView.init(image: RMImage.LogoImage)
-    imageView.contentMode = .scaleAspectFit
-    imageView.tintColor = RMColor.AppColor
-    imageView.backgroundColor = UIColor.clear
+//    imageView.contentMode = .scaleAspectFit
+//    imageView.tintColor = RMColor.AppColor
+//    imageView.backgroundColor = UIColor.clear
     wrapperView.backgroundColor = UIColor.clear
     wrapperView.clipsToBounds = false
     wrapperView.layer.masksToBounds = false
-    imageView.frame.size = CGSize.init(width: 44, height: 32)
-    wrapperView.addSubview(imageView)
+    //imageView.frame.size = CGSize.init(width: 44, height: 32)
+   // wrapperView.addSubview(imageView)
     var addProgressBar = true
     // TODO: Fix Progress Bar accross all devices!
     let deviceIDs = ["Plus", "5", "SE"]
@@ -198,13 +237,17 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
     if addProgressBar {
       imageView.addSubview(progressView)
     }
-    imageView.center = wrapperView.center
+    wrapperView.addSubview(searchController.searchBar)
+    searchController.searchBar.center = wrapperView.center
+    
+//    imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
+    navigationItem.titleView?.isUserInteractionEnabled = true
     searchController.hidesNavigationBarDuringPresentation = false
     progressView.frame.size.width = self.view.frame.width
     // The progress view should not be visible less it's loading
     progressView.trackTintColor = UIColor.clear
-    progressView.tintColor = navigationController!.navigationBar.tintColor
+    progressView.tintColor = navigationController?.navigationBar.tintColor
     // Put the progress view at the bottom of the navigation bar
     progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController!.navigationBar.frame.height - progressView.frame.height// //+
     progressView.frame.origin.x = -166
@@ -268,7 +311,8 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
           self.reloadTableView()
           self.favoritesSegmentControl?.isHidden = false
           self.refreshControl!.isEnabled = true
-          self.openBarButtonItem.isEnabled = true
+          //self.openBarButtonItem.isEnabled = true
+        
           self.favoritesSegmentControl?.isEnabled = true
           //self.revealViewController().panGestureRecognizer().isEnabled = true
           // Set the progressView to 100% complete state
@@ -342,7 +386,10 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
     refreshControl?.tintColor = RMColor.AppColor
     favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
-
+ 
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.performSegue(withIdentifier: "showDetail", sender: nil)
+  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
@@ -353,11 +400,18 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
           let fratName = self.dataKeys[row]
           SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-            let controller = segue.destination //(segue.destination as! UINavigationController).topViewController
-              as! DetailViewController
+            let controller = segue.destination as! UIPageViewController//(segue.destination as! UINavigationController).topViewController
+              //as! DetailViewController
+            controller.dataSource = self
+            controller.delegate = self
+            
+            let dVC = detailVC
+            //self.navigationController?.isToolbarHidden = false
+            //dVC.navigationController?.setToolbarItems([UIBarButtonItem.init(image: UIImage.init(named: "FeedIcon"), style: .plain, target: self, action: #selector(self.returnToMaster))], animated: false)
+            dVC.selectedFraternity = selectedFraternity
+            controller.setViewControllers([dVC], direction: .forward, animated: false, completion: nil)
             
             // Send the detail controller the fraternity we're about to display
-            controller.selectedFraternity = selectedFraternity
             //let _ = Campus.shared.getEvents(forFratWithName : fratName)
           }
         }

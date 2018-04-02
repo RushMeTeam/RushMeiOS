@@ -9,7 +9,12 @@
 import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
-  var image : UIImage = RMImage.NoImage
+  var image : UIImage = RMImage.NoImage {
+    willSet {
+      self.loadViewIfNeeded()
+      self.imageView.image = newValue 
+    }
+  }
   @IBOutlet var imageView: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
   var visualEffectView : UIVisualEffectView?

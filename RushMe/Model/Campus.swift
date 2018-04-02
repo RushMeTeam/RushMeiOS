@@ -70,7 +70,7 @@ class Campus: NSObject {
           return self.favoritedFrats.contains(event.frat.name) && (considerEventsBeforeToday || event.startDate.compare(RMDate.Today) != .orderedAscending)
         })
       }
-      return favoritedEvents_!
+      return favoritedEvents_ ?? self.favoritedEvents
     }
   }
   private var eventsByDay_ : [[FratEvent]]? = nil

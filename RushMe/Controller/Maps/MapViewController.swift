@@ -11,9 +11,10 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   func updateData() {
-    self.viewWillAppear(false)
-    if mapView.annotations.count == 0 {
-      self.loadAnnotations(fromAllFrats: favoritesControl.selectedSegmentIndex == 0, animated: false) 
+    DispatchQueue.main.async {
+      self.loadViewIfNeeded()
+      self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
+      self.viewWillAppear(false)
     }
   }
   @IBOutlet weak var mapView: MKMapView!
@@ -22,12 +23,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   
   @IBOutlet weak var fratNameLabel: UILabel!
   private let geoCoder = CLGeocoder()
-  @IBOutlet weak var drawerButton: UIBarButtonItem!
   
   @IBOutlet weak var favoritesControl: UISegmentedControl!
   
   @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
-    self.loadAnnotations(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true)
+    self.loadAnnotationsIfNecessary(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true)
     if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
         mapView.selectAnnotation(onlyAnnotation, animated: true)
     }
@@ -44,6 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+  
 //    if (self.revealViewController() != nil) {
 //      // Allow drawer button to toggle the lefthand drawer menu
 //      drawerButton.target = self.revealViewController()
@@ -77,21 +78,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
     //    mapView.region.center =  self.center
     
     super.viewWillAppear(animated)
+    
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
-  func loadAnnotations(fromAllFrats: Bool = true, animated : Bool = true) {
+  func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true) {
     self.favoritesControl.isEnabled = false
     var loadList = Campus.shared.favoritedFrats
     if fromAllFrats {
       loadList = Set(Campus.shared.fraternitiesDict.keys)
     }
-    self.mapView.removeAnnotations(mapView.annotations)
+    var annotations = [MKAnnotation]()
     for fratName in loadList {
       let frat = Campus.shared.fraternitiesDict[fratName]!
       if let annotation = frat.getProperty(named: RMFratPropertyKeys.fratMapAnnotation) as? MKAnnotation {
-        self.mapView.addAnnotation(annotation)
+        annotations.append(annotation)
       }
+      
       else if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address, completionHandler: {
@@ -102,7 +105,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
             annotation.title = frat.name
             annotation.subtitle = address
             
-            self.mapView.addAnnotation(annotation)
+            annotations.append(annotation)
             frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
           }
           else if let _ = error {
@@ -114,7 +117,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
           }
         })
       }
+      
+      
     }
+    if mapView.annotations.isEmpty || annotations.count > mapView.annotations.count {
+      self.mapView.removeAnnotations(mapView.annotations)
+      self.mapView.addAnnotations(annotations)
+    }
+    self.mapView.isScrollEnabled = !mapView.annotations.isEmpty
     //self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }

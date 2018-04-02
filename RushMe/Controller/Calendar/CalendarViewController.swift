@@ -12,12 +12,15 @@ fileprivate let reuseIdentifier = "CalendarCell"
 fileprivate let labelReuseIdentifier = "DayCell"
 
 class CalendarViewController: UIViewController, 
-                              UICollectionViewDelegate, 
-                              UICollectionViewDataSource, 
-                              UICollectionViewDelegateFlowLayout,
-                              ScrollableItem {
+  UICollectionViewDelegate, 
+  UICollectionViewDataSource, 
+  UICollectionViewDelegateFlowLayout,
+ScrollableItem {
   func updateData() {
-    self.collectionView.reloadData()
+    DispatchQueue.main.async {
+      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+      self.viewWillAppear(true)
+    }
   }
   
   // MARK: Constants
@@ -37,9 +40,9 @@ class CalendarViewController: UIViewController,
   var firstEvent : FratEvent? {
     get {
       return Campus.shared.firstEvent
-//      return viewingFavorites ?
-//        Campus.shared.firstFavoritedEvent :
-//        Campus.shared.firstEvent
+      //      return viewingFavorites ?
+      //        Campus.shared.firstFavoritedEvent :
+      //        Campus.shared.firstEvent
     }
   }
   var dataSource : [[FratEvent]] {
@@ -81,7 +84,7 @@ class CalendarViewController: UIViewController,
   }
   var viewingFavorites : Bool {
     get {
-     return Campus.shared.hasFavorites && favoritesSegmentControl.selectedSegmentIndex == 1
+      return Campus.shared.hasFavorites && favoritesSegmentControl.selectedSegmentIndex == 1
     }
     set {
       favoritesSegmentControl.selectedSegmentIndex = 0
@@ -92,12 +95,12 @@ class CalendarViewController: UIViewController,
   }
   var favoritesShouldBeEnabled : Bool {
     get {
-     return Campus.shared.favoritedEvents.count != 0
+      return Campus.shared.favoritedEvents.count != 0
     }
   }
   var selectedIndexPath : IndexPath? {
     get {
-     return collectionView.indexPathsForSelectedItems?.first
+      return collectionView.indexPathsForSelectedItems?.first
     }
   }
   lazy var zeroIndexPath = IndexPath.init(item: 7, section: 0)
@@ -108,14 +111,14 @@ class CalendarViewController: UIViewController,
   // MARK: ViewDidLoad and ViewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if (self.revealViewController() != nil) {
-//      // Allow drawer button to toggle the lefthand drawer menu
-//      drawerButton.target = self.revealViewController()
-//      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-//      // Allow drag to open drawer, tap out to close
-//      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-//      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-//    }
+    //    if (self.revealViewController() != nil) {
+    //      // Allow drawer button to toggle the lefthand drawer menu
+    //      drawerButton.target = self.revealViewController()
+    //      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
+    //      // Allow drag to open drawer, tap out to close
+    //      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
+    //      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
+    //    }
     //navigationController?.navigationBar.isTranslucent = false
     //navigationController?.navigationBar.alpha = 1
     navigationController?.navigationBar.backgroundColor = RMColor.AppColor
@@ -138,7 +141,7 @@ class CalendarViewController: UIViewController,
     // TODO: Implement Day Selection
     collectionView.allowsMultipleSelection = false
     
-  
+    
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -161,17 +164,6 @@ class CalendarViewController: UIViewController,
       
       //drawerButton.tintColor = RMColor.AppColor
     }
-   
-    UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
-      self.view.alpha = 0.2
-    }) { (_) in
-      
-      UIView.animate(withDuration: RMAnimation.ColoringTime/3, animations: { 
-        self.view.alpha = 1
-      })
-      
-    }
-    
     
   }
   override func viewDidLayoutSubviews() {
@@ -234,7 +226,7 @@ class CalendarViewController: UIViewController,
       print("Error in calendar share button!")
     }
   }
-
+  
   
   // MARK: Button Actions
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
@@ -245,31 +237,9 @@ class CalendarViewController: UIViewController,
         eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath)
         collectionView.selectItem(at: lastSelectedPath, animated: false, scrollPosition: .top)
       }
-//      else {
-//        collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
-//      }
-
       
     }
     
-//    if let indexPath = selectedIndexPath {
-//      let eventsToday = events(forIndexPath: indexPath)
-//      
-//      if let todaysEvent = eventsToday.first {
-//        self.dateLabel.text = 
-//          DateFormatter.localizedString(from: todaysEvent.startDate, 
-//                                        dateStyle: .long, 
-//                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate, 
-//                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
-//      }
-//      else {
-//       self.dateLabel.text = "" 
-//      }
-//      self.eventViewController?.selectedEvents = eventsToday
-//    }
-//    else {
-//     self.eventViewController?.selectedEvents = nil
-//    }
     
     
   }
@@ -280,8 +250,8 @@ class CalendarViewController: UIViewController,
   }
   @IBAction func eventCalendarPan(_ sender: UIPanGestureRecognizer) {
     let yLoc = min(
-                max(sender.location(in: self.view).y, self.collectionView.frame.minY + self.seperatorView.frame.height/2), 
-                self.collectionView.frame.maxY+self.seperatorView.frame.height/2)
+      max(sender.location(in: self.view).y, self.collectionView.frame.minY + self.seperatorView.frame.height/2), 
+      self.collectionView.frame.maxY+self.seperatorView.frame.height/2)
     switch sender.state {
     case .possible:
       return
@@ -331,7 +301,7 @@ class CalendarViewController: UIViewController,
       }
     }
   }
-
+  
   // MARK: UICollectionViewDataSource
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -347,7 +317,7 @@ class CalendarViewController: UIViewController,
     if (firstEvent == nil) {
       cell.eventsLabel?.isHidden = true
       cell.dayLabel?.textColor = UIColor.gray
-     // cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
+      // cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
       if (indexPath.row < 7) {
         cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
       }
@@ -374,7 +344,7 @@ class CalendarViewController: UIViewController,
       cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!, attributes: [.underlineStyle: NSUnderlineStyle.styleSingle])
     }
     else {
-     cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!)
+      cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!)
     }
     let currentMonth = Calendar.current.component(Calendar.Component.month, from: currentDay)
     let todaysMonth = Calendar.current.component(Calendar.Component.month, from: RMDate.Today)
@@ -394,7 +364,7 @@ class CalendarViewController: UIViewController,
     else {
       cell.eventsLabel.isHidden = true
     }
-
+    
     return cell
   }
   
@@ -403,9 +373,9 @@ class CalendarViewController: UIViewController,
   func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
     return true
   }
-//  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//    return indexPath.row > 6 && firstEvent != nil
-//  }
+  //  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+  //    return indexPath.row > 6 && firstEvent != nil
+  //  }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     inEventView = false

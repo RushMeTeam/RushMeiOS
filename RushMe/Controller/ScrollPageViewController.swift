@@ -16,55 +16,50 @@ protocol ScrollableItem {
 }
 
 class ScrollPageViewController: UIViewController,
-UIScrollViewDelegate {
-  @IBOutlet var scrollView: UIScrollView!
+                                UIScrollViewDelegate,
+                                UISplitViewControllerDelegate,
+                                ScrollViewDelegateForwarder,
+                                SWRevealViewControllerDelegate{
+  
+  
+  @IBOutlet var viewControllerScrollView: UIScrollView!
   @IBOutlet var pageControl: UIPageControl!
   var numberOfPages : Int {
     get {
       return orderedViewControllers.count 
     }
   }
-  lazy var pages : [UIView?] = [UIView.init()]
+  lazy var pages : [UIView?] = [UIView?].init(repeating: nil, count: self.orderedViewControllers.count)
   
   lazy var scrollIndicator    : CAShapeLayer = CAShapeLayer()
-  var path : UIBezierPath {
-    get {
-      return UIBezierPath.init(roundedRect: CGRect.init(x: 0.9*scrollView.contentOffset.x / scrollView.contentSize.width, 
-                                                        y: self.view.frame.maxY, 
-                                                        width: self.view.frame.width / CGFloat(numberOfPages), 
-                                                        height: 10), 
-                               cornerRadius: 3)
-    }
-  }
   var currentPage : Int = 1 {
-    willSet {
-      let correctedNewValue = min(numberOfPages - 1, max(newValue, 0))
-      if correctedNewValue != currentPage {
-        pageControl.currentPage = newValue
-        // Update information!!!
-        if let viewController = self.orderedViewControllers[correctedNewValue].childViewControllers.first, 
-          let updatableItem = viewController as? ScrollableItem {
-          updatableItem.updateData()
-        }
-        self.loadCurrentPages(page: self.pageControl.currentPage)
+    didSet {
+      if let currentVC = currentViewController as? ScrollableItem {
+        currentVC.updateData()
       }
     }
   }
-  
-  var startingPageIndex : Int = 1 {
-    didSet {
-      loadView()
-      pageControl.currentPage = startingPageIndex
-      transitioning = true
-      goToPage(page: startingPageIndex, animated: true)
-      transitioning = false
+  var currentViewController : UIViewController? {
+    get {
+      return (currentPage >= 0 && currentPage < orderedViewControllers.count) ? orderedViewControllers[currentPage] : nil
     }
   }
-  var orderedViewControllers: [UIViewController] = 
-    [ScrollPageViewController.getViewController(forIdentifier: "mapVC"), 
-     ScrollPageViewController.getViewController(forIdentifier: "splitVC"), 
-     ScrollPageViewController.getViewController(forIdentifier: "calendarVC")]
-  var viewControllerIdentifiers = ["mapVC", "splitVC", "calendarVC"]
+  
+  static var startingPageIndex : Int = 0 //{
+//    didSet {
+//      loadView()
+//      
+//      pageControl.currentPage = startingPageIndex
+//      transitioning = true
+//      goToPage(page: startingPageIndex, animated: true)
+//      transitioning = false
+//    }
+//  }
+  lazy var orderedViewControllers: [UIViewController] = 
+    [ScrollPageViewController.getViewController(forIdentifier: "splitVC"),
+     ScrollPageViewController.getViewController(forIdentifier: "calendarVC"),
+     ScrollPageViewController.getViewController(forIdentifier: "mapVC"),
+     ScrollPageViewController.getViewController(forIdentifier: "settingsViewController") as! SettingsViewController]
   
   static func getViewController(forIdentifier identifier : String) -> UIViewController {
     return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) 
@@ -76,10 +71,12 @@ UIScrollViewDelegate {
   }
   override func awakeFromNib() {
     // TODO: Finish Scroll Indicator!
+  
   }
   
-  @IBAction func presentSettings(_ sender: UIBarButtonItem) {
-    present(ScrollPageViewController.getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
+  @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
+    //present(ScrollPageViewController.getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
+    self.revealViewController().revealToggle(animated: true)
   }
   @objc func presentAbout() {
     //print("opened aboutVC")
@@ -93,13 +90,13 @@ UIScrollViewDelegate {
     loadPage(2)
     loadPage(0)
     transitioning = true
-    goToPage(page: startingPageIndex, animated: false)
+    goToPage(page: ScrollPageViewController.startingPageIndex, animated: false)
     transitioning = false
   }()
   
   fileprivate func adjustScrollView() {
-    scrollView.contentSize = CGSize.init(width: scrollView.frame.width * CGFloat(numberOfPages), 
-                                         height: scrollView.frame.height - topLayoutGuide.length)
+    viewControllerScrollView.contentSize = CGSize.init(width: viewControllerScrollView.frame.width, 
+                                         height: viewControllerScrollView.frame.height * CGFloat(numberOfPages) - topLayoutGuide.length)
   }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -115,15 +112,23 @@ UIScrollViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    scrollView.delegate = self
     
-    navigationController?.navigationBar.isTranslucent = true
-    navigationController?.navigationBar.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-    navigationController?.navigationBar.alpha = 0.5
+    viewControllerScrollView.delegate = self
+    viewControllerScrollView.isScrollEnabled = false
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     navigationController?.navigationBar.tintColor = RMColor.AppColor
-    navigationController?.navigationBar.barTintColor = UIColor.white//RMColor.AppColor
     navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
+    view.backgroundColor = .white
+    viewControllerScrollView.backgroundColor = .white
+    navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.backgroundColor = .white//UIColor.white.withAlphaComponent(0.5)
+    navigationController?.navigationBar.barTintColor = .white//.white //RMColor.AppColor
+    navigationController?.navigationBar.layer.backgroundColor = UIColor.white.cgColor
+    navigationController?.navigationBar.layer.shadowColor = UIColor.white.cgColor
     let wrapperView = UIView()
     let imageView = UIImageView.init(image: RMImage.LogoImage)
     imageView.contentMode = .scaleAspectFit
@@ -143,10 +148,8 @@ UIScrollViewDelegate {
     // Do any additional setup after loading the view.
     pages = [UIView?](repeating: nil, count : numberOfPages)
     pageControl.numberOfPages = numberOfPages
-    pageControl.currentPage = startingPageIndex
-    
-    self.scrollView.layer.addSublayer(scrollIndicator)
-    goToPage(page: startingPageIndex, animated: false)
+    pageControl.currentPage = ScrollPageViewController.startingPageIndex
+    goToPage(page: ScrollPageViewController.startingPageIndex, animated: false)
   }
   
   override func didReceiveMemoryWarning() {
@@ -156,61 +159,77 @@ UIScrollViewDelegate {
   
   fileprivate func loadPage(_ page : Int) {
     guard page < numberOfPages && page >= 0 else {
-      print("Attemped to load illegal page number", page)
+      //print("Attemped to load illegal page number", page)
       return 
     }
     if pages[page] == nil {
       let newViewController = orderedViewControllers[page]
-      //newView.backgroundColor = page == 0 ? .blue : .green
-      var newFrame = scrollView.frame
-      newFrame.origin.x = newFrame.width * CGFloat(page)
-      newFrame.origin.y = -self.topLayoutGuide.length
-      newFrame.size.height += self.topLayoutGuide.length
+      var newFrame = viewControllerScrollView.frame
+      newFrame.origin.x = 0
+      newFrame.origin.y = newFrame.height * CGFloat(page)
       let canvasView = UIView.init(frame: newFrame)
       newViewController.willMove(toParentViewController: self)
       self.addChildViewController(newViewController)
       newViewController.didMove(toParentViewController: self)
-      scrollView.addSubview(canvasView)
+      viewControllerScrollView.addSubview(canvasView)
       newViewController.view!.translatesAutoresizingMaskIntoConstraints = false
       canvasView.addSubview(newViewController.view!)
       NSLayoutConstraint.activate([newViewController.view!.leadingAnchor.constraint(equalTo: canvasView.leadingAnchor),
                                    newViewController.view!.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
                                    newViewController.view!.topAnchor.constraint(equalTo: canvasView.topAnchor),
-                                   newViewController.view!.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)
-        ])
+                                   newViewController.view!.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)])
       pages[page] = canvasView
     }
   }
   fileprivate func loadCurrentPages(page: Int) {
     guard (page > 0 && page + 1 < numberOfPages) || transitioning else {
-      print("Attemped to load multiple illegal pages surrounding page number", page)
+      //print("Attemped to load multiple illegal pages surrounding page number", page)
       return
     }
     pages = [UIView?](repeating: nil, count: numberOfPages)
     loadPage(Int(page) - 1)
     loadPage(Int(page))
     loadPage(Int(page) + 1)
+    
   }
   
   // Originally fileprivate
   func goToPage(page: Int, animated: Bool) {
     guard page >= 0 && page < numberOfPages else {
-      print("Attemped to goTo illegal page number", page)
+      //print("Attemped to goTo illegal page number", page)
       return 
     }
     loadCurrentPages(page: page)
-    var bounds = scrollView.bounds
-    bounds.origin.x = bounds.width * CGFloat(page)
-    bounds.origin.y = 0
-    scrollView.scrollRectToVisible(bounds, animated: animated)
+    var bounds = viewControllerScrollView.bounds
+    bounds.origin.x = 0
+    bounds.origin.y = bounds.height * CGFloat(page)
+    transitioning = true
+    viewControllerScrollView.scrollRectToVisible(bounds, animated: animated)
+    transitioning = false
     currentPage = page
   }
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    let pageWidth = scrollView.frame.width
-    let page = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1
+    let pageWidth = scrollView.frame.height
+    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
+    currentPage = Int(page)
+  }
+//  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//    
+//  }
+  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    let pageWidth = scrollView.frame.height
+    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
+    currentPage = Int(page)
+  }
+  func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+    let pageWidth = scrollView.frame.height
+    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
     currentPage = Int(page)
   }
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    if scrollView != viewControllerScrollView {
+      viewControllerScrollView.setContentOffset(scrollView.contentOffset.applying(CGAffineTransform.init(scaleX: 1, y: self.viewControllerScrollView.frame.height/scrollView.frame.height)) , animated: false)
+    }
     //    let currentPageIndex = pageControl.currentPage
     //    let leftPageIndex = pageControl.currentPage - 1
     //    let rightpageIndex = pageControl.currentPage + 1
@@ -218,11 +237,42 @@ UIScrollViewDelegate {
     //      print(scrollView.contentOffset.x, currentPage.center.x)
     //      currentPage.alpha = 3*abs(currentPage.center.x - scrollView.contentOffset.x)/self.view.frame.width
     //    }
+    //    transform.m34 = -1.0 / 500.0
+    //    
+    //    let rotation = *0.5*CGFloat.pi
+    //    transform = CATransform3DRotate(transform, rotation, 0.0, 1.0, 0.0)
+    
+    //pageView.layer.anchorPoint = CGPoint(x: (pageView.bounds.midX-pageView.frame.midX/CGFloat(currentPage))/pageView.bounds.width, y:0.5)
+    //pageView.layer.setAffineTransform(transform)
+    //    pageView.layer.contentsScale = 0.9
+    
+    
+//    let pageView = orderedViewControllers[currentPage].view!
+//    let scale = abs(((pageView.bounds.maxX-(scrollView.contentOffset.x)/CGFloat(currentPage)))/pageView.bounds.width)
+//    let transform = CGAffineTransform.init(scaleX: scale, y: scale)
+//
+//    for page in pages {
+//      if page != pageView {
+//       page?.layer.setAffineTransform(CGAffineTransform.identity)
+//      }
+//    }
+    
+    
   }
-  
+
   
   @IBAction func goToPage(_ sender: UIPageControl) {
     goToPage(page: sender.currentPage, animated: true) 
+  }
+  // MARK: SWRevealViewControllerDelegate
+  func revealControllerPanGestureShouldBegin(_ revealController: SWRevealViewController!) -> Bool {
+    return true
+  }
+  func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
+    viewControllerScrollView.isUserInteractionEnabled = position != .right
+    if position == .left, let cVC = currentViewController as? ScrollableItem {
+     cVC.updateData()
+    }
   }
   /*
    // MARK: - Navigation

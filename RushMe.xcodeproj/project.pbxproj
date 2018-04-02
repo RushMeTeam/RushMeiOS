@@ -30,7 +30,6 @@
 		DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
 		DB3B2ABF1FAB9380004AD27F /* FratEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */; };
 		DB457D611FCB649000410149 /* RushMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75F1F894A910090DEC3 /* RushMeTests.swift */; };
-		DB457D641FCB649A00410149 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB05F76C1F894A910090DEC3 /* Info.plist */; };
 		DB457D671FCB649F00410149 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7611F894A910090DEC3 /* Info.plist */; };
 		DB457D6A1FCB682900410149 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
 		DB457D6B1FCB682900410149 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
@@ -313,6 +312,7 @@
 		DB346C2B1FB103CA003E59AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DBD140491F92845100945D9B /* Drawer Menu */,
 				DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */,
 				DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */,
 				DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */,
@@ -380,7 +380,6 @@
 			children = (
 				DB5789851FDCAA8A0083CB6C /* Events */,
 				DBF60526203FA23900101FEF /* Feed */,
-				DBD140491F92845100945D9B /* Drawer Menu */,
 			);
 			path = Deprecated;
 			sourceTree = "<group>";
@@ -529,7 +528,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "4 1/2 Frat Boys";
 				TargetAttributes = {
 					DB05F7441F894A910090DEC3 = {
@@ -583,7 +582,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBF6052C203FA65F00101FEF /* PollTableViewCell.xib in Resources */,
-				DB457D641FCB649A00410149 /* Info.plist in Resources */,
 				DBF60523203F99CB00101FEF /* Feed.storyboard in Resources */,
 				DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */,
 				DB457D671FCB649F00410149 /* Info.plist in Resources */,
@@ -912,6 +910,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -919,6 +918,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -969,6 +969,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -976,6 +977,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
