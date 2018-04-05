@@ -140,16 +140,21 @@ ScrollableItem {
     
     // TODO: Implement Day Selection
     collectionView.allowsMultipleSelection = false
+    Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler: handleNewFrat(oldValue:newValue:))
     
-    
+  }
+  func handleNewFrat(oldValue : Set<String>?, newValue : Set<String>) {
+    DispatchQueue.main.async {
+      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0)) 
+    }
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
+    
     //viewingFavorites = favoritesShouldBeEnabled
     DispatchQueue.global(qos: .userInitiated).async {
-      self.fileURL =
-        RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+      self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
     }
     favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     shareButton.isEnabled = flatDataSource.count != 0

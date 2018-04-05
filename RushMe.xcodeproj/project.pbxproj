@@ -70,6 +70,7 @@
 		DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */; };
 		DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */; };
+		DB79BB1520730F9F00411AB1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BB1420730F9F00411AB1 /* Observable.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
 		DB8997EB1FABFBA9006A5246 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EA1FABFBA9006A5246 /* Campus.swift */; };
 		DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */; };
@@ -164,6 +165,7 @@
 		DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullEventsListTableViewController.swift; sourceTree = "<group>"; };
 		DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		DB79BB1420730F9F00411AB1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -272,7 +274,6 @@
 				DB346C311FB10630003E59AE /* View */,
 				DB346C2B1FB103CA003E59AE /* Controller */,
 				DB05F74E1F894A910090DEC3 /* Main.storyboard */,
-				DBF60522203F99CB00101FEF /* Feed.storyboard */,
 				DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */,
 				DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */,
 				DB346C2C1FB1042B003E59AE /* Images */,
@@ -400,6 +401,7 @@
 				DB2338A81FD4F53300FB7118 /* RMCalendarManager.swift */,
 				DB0B7329203FAE4E00FFA951 /* RMPoll.swift */,
 				DB8997EA1FABFBA9006A5246 /* Campus.swift */,
+				DB79BB1420730F9F00411AB1 /* Observable.swift */,
 				DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */,
 				DB05F7781F894AFB0090DEC3 /* Fraternity.swift */,
 				DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */,
@@ -448,6 +450,7 @@
 		DBF60526203FA23900101FEF /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				DBF60522203F99CB00101FEF /* Feed.storyboard */,
 				DBF60527203FA25700101FEF /* FeedTableViewController.swift */,
 				DBF60529203FA65F00101FEF /* PostTableViewCell.swift */,
 				DBF6052A203FA65F00101FEF /* PollTableViewCell.xib */,
@@ -798,6 +801,7 @@
 				DB2338A91FD4F53300FB7118 /* RMCalendarManager.swift in Sources */,
 				DBF60528203FA25700101FEF /* FeedTableViewController.swift in Sources */,
 				DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */,
+				DB79BB1520730F9F00411AB1 /* Observable.swift in Sources */,
 				DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */,
 				DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */,
 				DB8997EB1FABFBA9006A5246 /* Campus.swift in Sources */,

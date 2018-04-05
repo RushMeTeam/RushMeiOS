@@ -69,7 +69,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   // MARK: IBActions
   @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
     if let fratName = selectedFraternity?.name {
-      if let index = Campus.shared.favoritedFrats.index(of: fratName) {
+      if let _ = Campus.shared.favoritedFrats.index(of: fratName) {
         Campus.shared.removeFavorite(named: fratName)
         favoritesButton.image = RMImage.FavoritesImageUnfilled
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
@@ -95,12 +95,18 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
                     sender.view?.transform = CGAffineTransform.identity
     }, completion: { _ in
     })
-    if let imageVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController, 
-      let image = coverImagePageViewController.currentPageImage {
+    if let imageVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController {
+      if profileImageView.frame.contains(sender.location(in: view)),
+        let image = profileImageView.image{
         imageVC.image = image
-      self.present(imageVC, animated: true, completion: {
+      }
+      else if let image = coverImagePageViewController.currentPageImage {
+        imageVC.image = image
+      }
+      _ = imageVC.image != RMImage.NoImage ? self.present(imageVC, animated: true, completion: {
         self.scrollView.setContentOffset(CGPoint.zero, animated: true)
-      })
+        }) : nil
+      
     }
 }
 @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {

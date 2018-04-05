@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,29 +21,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RushMeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-7Q-iQm">
-                                <rect key="frame" x="91" y="205.5" width="192" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RushMeLogoInverted" translatesAutoresizingMaskIntoConstraints="NO" id="kLT-7Q-iQm">
+                                <rect key="frame" x="171.5" y="26" width="32" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="9pg-8H-AsV"/>
-                                    <constraint firstAttribute="width" constant="192" id="wcR-6y-h6d"/>
+                                    <constraint firstAttribute="height" constant="32" id="9pg-8H-AsV"/>
+                                    <constraint firstAttribute="width" constant="32" id="wcR-6y-h6d"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqt-an-Wxo">
                                 <rect key="frame" x="170" y="630" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8a-Xt-yTb">
+                                <rect key="frame" x="16" y="30" width="24" height="24"/>
+                                <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="BurgerIcon"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="90f-TO-7vH"/>
-                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-64" id="KZq-bu-ODt"/>
+                            <constraint firstItem="Uqt-an-Wxo" firstAttribute="centerX" secondItem="kLT-7Q-iQm" secondAttribute="centerX" id="8UC-25-LN6"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Uqt-an-Wxo" secondAttribute="bottom" constant="16" id="NPE-Lp-mu5"/>
+                            <constraint firstItem="h8a-Xt-yTb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="16" id="U0S-cv-SuL"/>
                             <constraint firstItem="Uqt-an-Wxo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iW8-Pb-ITc"/>
-                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uss-64-93o"/>
+                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerY" secondItem="h8a-Xt-yTb" secondAttribute="centerY" id="tBe-aS-iyC"/>
+                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="6" id="wgs-d4-jfo"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,6 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RushMeLogo" width="768" height="877"/>
+        <image name="BurgerIcon" width="24" height="24"/>
+        <image name="RushMeLogoInverted" width="1597" height="1824"/>
     </resources>
 </document>

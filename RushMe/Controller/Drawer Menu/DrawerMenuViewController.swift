@@ -23,13 +23,13 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   
   @IBOutlet weak var rushMeLogo: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
-  let buttonIcons = [UIImage(named: "FraternitiesIcon"), 
+  let buttonIcons = [UIImage(named: "MapsIcon"),
+                     UIImage(named: "FraternitiesIcon"), 
                      UIImage(named: "EventsIcon"),
-                     UIImage(named: "MapsIcon"),
                      UIImage(named: "SettingsIcon")]
   lazy var buttons = [UIButton?](repeating: nil, count: buttonIcons.count)
   lazy var canvasViews : [UIView?] = [UIView?](repeating: nil, count: buttonIcons.count)
-  private(set) var currentPage : Int = 0
+  private(set) var currentPage : Int = 1
   func set(newCurrentPage : Int) {
     if newCurrentPage >= 0, newCurrentPage < buttons.count {
       currentPage = newCurrentPage
@@ -63,16 +63,16 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
       if canvasViews[bNum] == nil {
         let newButton = UIButton()
         buttons[bNum] = newButton
-        newButton.addTarget(self, action: #selector(buttonHit(sender:)), for: .touchUpInside)
+        //newButton.addTarget(self, action: #selector(buttonHit(sender:)), for: .touchUpInside)
 
         newButton.setImage(buttonIcons[bNum], for: .normal)  
+        newButton.tintColor = .white
         var newFrame = scrollView.frame
         newFrame.size.height = scrollView.bounds.height
         newFrame.size.width = scrollView.bounds.width
         newFrame.origin.x = 0
         newFrame.origin.y = newFrame.size.height*CGFloat(bNum)
         let canvasView = UIView(frame: newFrame)
-        
         scrollView.addSubview(canvasView)
         newButton.translatesAutoresizingMaskIntoConstraints = false
         canvasView.addSubview(newButton)
@@ -114,16 +114,30 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-    super.viewWillTransition(to: size, with: coordinator)
+    //super.viewWillTransition(to: size, with: coordinator)
     coordinator.animate(alongsideTransition: nil) { (_) in
+      for canvasView in self.canvasViews {
+       canvasView?.removeFromSuperview() 
+      }
       self.canvasViews = [UIView?](repeating: nil, count: self.buttonIcons.count)
       self.adjustScrollView()
       self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.scrollView.frame.height * CGFloat(self.currentPage))
-      UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
-        self.rushMeLogo.alpha = (size.height < size.width) ? 0 : 1
-      }, completion: { (_) in
-        self.rushMeLogo.isHidden = size.height < size.width
-      })
+      if self.isViewLoaded {
+        if size.height < size.width {
+          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
+            self.rushMeLogo.alpha = 0
+          }, completion: { (_) in
+            self.rushMeLogo.isHidden = true
+          })
+        }
+        else {
+          self.rushMeLogo.alpha = 0
+          self.rushMeLogo.isHidden = false
+          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
+            self.rushMeLogo.alpha = 1
+          }, completion: nil)
+        }
+      }
       
     }
     super.viewWillTransition(to: size, with: coordinator)

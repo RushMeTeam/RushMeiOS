@@ -17,6 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
       self.viewWillAppear(false)
     }
   }
+
   @IBOutlet weak var mapView: MKMapView!
   //  @IBOutlet var stepper: UIStepper!
   @IBOutlet weak var informationButton: UIButton!
@@ -27,7 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   @IBOutlet weak var favoritesControl: UISegmentedControl!
   
   @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
-    self.loadAnnotationsIfNecessary(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true)
+    self.loadAnnotationsIfNecessary(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true, forced: true)
     if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
         mapView.selectAnnotation(onlyAnnotation, animated: true)
     }
@@ -35,54 +36,37 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
      fratNameLabel.text = "" 
     }
   }
-  //
-  //  @IBAction func stepperSelected(_ sender: UIStepper) {
-  //    // Iterate through all annotations
-  //    self.mapView.showAnnotations([self.mapView.annotations[Int(sender.value)%self.mapView.annotations.count]], animated: true)
-  //  }
+
   let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(42.729109), longitude: CLLocationDegrees(-73.677621))
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-  
-//    if (self.revealViewController() != nil) {
-//      // Allow drawer button to toggle the lefthand drawer menu
-//      drawerButton.target = self.revealViewController()
-//      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-//      // Allow drag to open drawer, tap out to close
-//      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-//      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-//    }
-    //navigationController?.navigationBar.isTranslucent = false
-    //navigationController?.navigationBar.backgroundColor = RMColor.AppColor
-    //navigationController?.navigationBar.tintColor = RMColor.AppColor
-//    self.navigationController?.navigationBar.alpha = 0.7
-    //self.navigationController?.navigationBar.isTranslucent = false
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     // Do any additional setup after loading the view.
-    //self.mapView.showsUserLocation = true
     self.mapView.delegate = self
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handleProgress(oldValue:newValue:))
   }
-  
+  func handleProgress(oldValue : Float?, newValue : Float) {
+    if newValue == 1 {
+     self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: true) 
+    }
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    //    mapView.region.center =  self.center
-    
     super.viewWillAppear(animated)
     
-    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
+    favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
-  func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true) {
+  func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
     self.favoritesControl.isEnabled = false
     var loadList = Campus.shared.favoritedFrats
     if fromAllFrats {
@@ -120,20 +104,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
       
       
     }
-    if mapView.annotations.isEmpty || annotations.count > mapView.annotations.count {
+    if mapView.annotations.isEmpty || annotations.count > mapView.annotations.count || forced {
       self.mapView.removeAnnotations(mapView.annotations)
       self.mapView.addAnnotations(annotations)
     }
     self.mapView.isScrollEnabled = !mapView.annotations.isEmpty
-    //self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
+    self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     if let fratName = view.annotation?.title {
       fratNameLabel.text = fratName 
-      //informationButton.isHidden = false
+      informationButton.isHidden = false
     }
     else {
+      informationButton.isHidden = true
      fratNameLabel.text = "" 
     }
   }
@@ -141,6 +126,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
     fratNameLabel.text = ""
     informationButton.isHidden = true
   }
+  
+  @IBAction func goToFraternity(_ sender: UIButton) {
+    if let fratName = fratNameLabel.text, let superVC = self.parent as? ScrollPageViewController
+    {
+      superVC.open(fraternityNamed : fratName)
+    }
+  }
+  
   
 //  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //    let identifier = "Fraternity"

@@ -25,7 +25,7 @@ class MasterViewController : UITableViewController,
 UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
 UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   var detailVC : DetailViewController {
-    get {
+    get { 
       return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
     }
   }
@@ -104,10 +104,10 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       self.tableView.setEditing(false, animated: true)
       self.reloadTableView()
       refreshControl?.isEnabled = !viewingFavorites
-      self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+      self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
     }
     get {
-      return self.favoritesSegmentControl != nil && self.favoritesSegmentControl!.selectedSegmentIndex == 1
+      return favoritesSegmentControl.selectedSegmentIndex == 1
     }
   }
   // The last shuffled list of fraternity names
@@ -129,7 +129,6 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       if isSearching {
         return Array(viewingFavorites ? Campus.shared.favoritedFrats : Campus.shared.fratNames).filter({ (fratName) -> Bool in
           return fratName.lowercased().contains(searchController.searchBar.text!.lowercased())
-
         }) 
       }
       // Display favorites only
@@ -154,20 +153,19 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   }
   // The first tableViewCell holds a segmentControl that allows
   // the user to select between all and favorite fraternities
-  weak var favoritesSegmentControl : UISegmentedControl?
+  lazy var favoritesSegmentControl : UISegmentedControl = UISegmentedControl()
   // Reload the tableView, with animations
   func reloadTableView() {
-    UIView.transition(with: tableView, duration: RMAnimation.ColoringTime/2, options: .transitionCrossDissolve, animations: { 
-      self.tableView.reloadData()
-    }) { (_) in
-      
+    DispatchQueue.main.async {
+      UIView.transition(with: self.tableView, duration: RMAnimation.ColoringTime/2, options: .transitionCrossDissolve, animations: { 
+        self.tableView.reloadData()
+      }) { (_) in
+      }
     }
+    
    //self.tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .automatic)
   }
-  
-  @objc func returnToMaster() {
-   print("ooh") 
-  }
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -237,9 +235,24 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     if addProgressBar {
       imageView.addSubview(progressView)
     }
-    wrapperView.addSubview(searchController.searchBar)
-    searchController.searchBar.center = wrapperView.center
+    //wrapperView.addSubview(searchController.searchBar)
+    //searchController.searchBar.center = wrapperView.center
+    let tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.width, height: 88))
+    tableHeaderView.backgroundColor = .white
+    //self.tableView.tableHeaderView = UIView()
+    searchController.searchBar.frame = CGRect.init(x: 0, y: 0, width: tableHeaderView.frame.width, height: 52)
+    searchController.searchBar.backgroundImage = UIImage()
     
+    favoritesSegmentControl.frame = CGRect(x: 6, y: searchController.searchBar.frame.maxY+4, width: tableHeaderView.frame.width-12, height: 28)
+    favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
+    favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
+    favoritesSegmentControl.selectedSegmentIndex = 0
+    favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
+    
+    tableHeaderView.addSubview(searchController.searchBar)
+    tableHeaderView.addSubview(favoritesSegmentControl)
+    tableView.tableHeaderView = tableHeaderView
+  
 //    imageView.center = wrapperView.center
     self.navigationItem.titleView = wrapperView
     navigationItem.titleView?.isUserInteractionEnabled = true
@@ -251,98 +264,103 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     // Put the progress view at the bottom of the navigation bar
     progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController!.navigationBar.frame.height - progressView.frame.height// //+
     progressView.frame.origin.x = -166
-    favoritesSegmentControl?.isEnabled = favoritesSegmentControl!.isEnabled && SQLHandler.shared.isConnected
-    
+    Campus.shared.loadingObservable.addObserver(forOwner: self, handler: handleNewLoading(oldValue:newValue:))
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
+    Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler : handleNewFraternity(oldValue:newValue:))
   }
   
   // MARK: - Data Handling
   func dataUpdate() {
-    if !self.pullFratsFromSQLDatabase() {
-     print("Failed to make SQL Database Connection") 
+    if viewingFavorites {
+     tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .fade)
     }
+    Campus.shared.pullFratsFromSQLDatabase()
   }
+  
+  
   // MARK: Data Request
-  @objc func pullFratsFromSQLDatabase() -> Bool {
-    DispatchQueue.main.async {
-      // Reset progress view to indicate loading has commenced
-      self.progressView.setProgress(0.05, animated: false)
-      //self.revealViewController().panGestureRecognizer().isEnabled = false
-      self.progressView.alpha = 1
-      self.favoritesSegmentControl?.isEnabled = false
-      // Reset shuffledFrats
-      self.shuffledFrats = nil
-    }
-    if !SQLHandler.shared.isConnected {
-      return false
-    }
-    // The list of fraternity dictionaries
-    var dictArray = [Dictionary<String, Any>()]
-    if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation) {
-      dictArray = arr
-    }
-    if dictArray.count > Campus.shared.fratNames.count {
-      DispatchQueue.global(qos: .userInitiated).async {
-        // Keep track of progress
-        var fratCount = 0
-        // Iterate through fraternities
-        for fraternityDict in dictArray {
-          // Initialize the fraternity from a dictionary
-          // If successful, register with the shared Campus
-          Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
-          fratCount += 1
-          DispatchQueue.main.async {            
-            // Don't allow refresh during refresh
-            self.refreshControl!.isEnabled = false
-            // Every other fraternity loaded should be indicated
-            if fratCount%2 == 0 {
-              self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
-            }
-            if RMUserPreferences.shuffleEnabled && fratCount % 4 == 0 {
-              // Every 4 fraternities, update the tableView 
-              // (only when in shuffled-- prevents whacky stuttering)
-             self.reloadTableView() 
-            }
-            else if !RMUserPreferences.shuffleEnabled {
-              self.reloadTableView()
-            }
-          }
-        }
-        DispatchQueue.main.async {
-          self.reloadTableView()
-          self.favoritesSegmentControl?.isHidden = false
-          self.refreshControl!.isEnabled = true
-          //self.openBarButtonItem.isEnabled = true
-        
-          self.favoritesSegmentControl?.isEnabled = true
-          //self.revealViewController().panGestureRecognizer().isEnabled = true
-          // Set the progressView to 100% complete state
-          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-            self.progressView.progress = 1
-            self.progressView.alpha = 0
-          }, completion: { (_) in
-            self.refreshControl!.endRefreshing()
-          })
-        }
-      }
-    }
-    else {
-      // Do a little refresh to indicate a check was made
-      // TODO: Make a timing constant for the 0.3
-      Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { (timer) in
-        self.refreshControl!.endRefreshing()
-        self.reloadTableView()
-        self.refreshControl!.isEnabled = true
-       // self.revealViewController().panGestureRecognizer().isEnabled = false
-        self.favoritesSegmentControl?.isEnabled = true
-        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-          self.progressView.progress = 1
-          self.progressView.alpha = 0
-        }, completion: { (_) in
-        })
-      })
-    }
-    return true
-  }
+//  @objc func pullFratsFromSQLDatabase() -> Bool {
+//    return true
+//    DispatchQueue.main.async {
+//      // Reset progress view to indicate loading has commenced
+//      self.progressView.setProgress(0.05, animated: false)
+//      //self.revealViewController().panGestureRecognizer().isEnabled = false
+//      self.progressView.alpha = 1
+//      self.favoritesSegmentControl?.isEnabled = false
+//      // Reset shuffledFrats
+//      self.shuffledFrats = nil
+//    }
+//    if !SQLHandler.shared.isConnected {
+//      return false
+//    }
+//    // The list of fraternity dictionaries
+//    var dictArray = [Dictionary<String, Any>()]
+//    if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation) {
+//      dictArray = arr
+//    }
+//    if dictArray.count > Campus.shared.fratNames.count {
+//      DispatchQueue.global(qos: .userInitiated).async {
+//        // Keep track of progress
+//        var fratCount = 0
+//        // Iterate through fraternities
+//        for fraternityDict in dictArray {
+//          // Initialize the fraternity from a dictionary
+//          // If successful, register with the shared Campus
+//          Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
+//          fratCount += 1
+//          DispatchQueue.main.async {            
+//            // Don't allow refresh during refresh
+//            self.refreshControl!.isEnabled = false
+//            // Every other fraternity loaded should be indicated
+//            if fratCount%2 == 0 {
+//              self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
+//            }
+//            if RMUserPreferences.shuffleEnabled && fratCount % 4 == 0 {
+//              // Every 4 fraternities, update the tableView 
+//              // (only when in shuffled-- prevents whacky stuttering)
+//              self.reloadTableView() 
+//            }
+//            else if !RMUserPreferences.shuffleEnabled {
+//              self.reloadTableView()
+//            }
+//          }
+//        }
+//        DispatchQueue.main.async {
+//          self.reloadTableView()
+//          self.favoritesSegmentControl?.isHidden = false
+//          self.refreshControl!.isEnabled = true
+//          //self.openBarButtonItem.isEnabled = true
+//          
+//          self.favoritesSegmentControl?.isEnabled = true
+//          //self.revealViewController().panGestureRecognizer().isEnabled = true
+//          // Set the progressView to 100% complete state
+//          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+//            self.progressView.progress = 1
+//            self.progressView.alpha = 0
+//          }, completion: { (_) in
+//            self.refreshControl!.endRefreshing()
+//          })
+//        }
+//      }
+//    }
+//    else {
+//      // Do a little refresh to indicate a check was made
+//      // TODO: Make a timing constant for the 0.3
+//      Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { (timer) in
+//        self.refreshControl!.endRefreshing()
+//        self.reloadTableView()
+//        self.refreshControl!.isEnabled = true
+//        // self.revealViewController().panGestureRecognizer().isEnabled = false
+//        self.favoritesSegmentControl?.isEnabled = true
+//        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+//          self.progressView.progress = 1
+//          self.progressView.alpha = 0
+//        }, completion: { (_) in
+//        })
+//      })
+//    }
+//    return true
+//  }
 
 //  let colors  = [UIColor.white, RMColor.AppColor, RMColor.AppColor, UIColor.cyan, UIColor.red] //[UIColor.red, RMColor.AppColor, RMColor.AppColor, UIColor.purple, UIColor.cyan, RMColor.AppColor, RMColor.AppColor, UIColor.orange, RMColor.AppColor, UIColor.magenta, RMColor.AppColor]
 //  
@@ -375,44 +393,55 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     searchController.dismiss(animated: true, completion: nil)
     //self.revealViewController().revealToggle(self)
   }
+  func handleNewFraternity(oldValue : Set<String>?, newValue : Set<String>) {
+    DispatchQueue.main.async {
+      self.searchController.searchBar.placeholder = "Search \(newValue.count) Fraternities"
+      self.searchController.searchBar.layoutIfNeeded()
+      self.reloadTableView()
+    }
+  }
+  func handleNewLoading(oldValue : Bool?, newValue: Bool) {
+    DispatchQueue.main.async {
+      _ = newValue ? self.refreshControl?.beginRefreshing() : self.refreshControl?.endRefreshing()
+    }
+  }
+  
+  func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
+    DispatchQueue.main.async {
+      self.progressView.isHidden = newValue == 1
+      self.progressView.setProgress(newValue, animated: true)
+    } 
+  }
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+   
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    //view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    //view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    refreshControl?.tintColor = RMColor.AppColor
-    favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || viewingFavorites
+    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.performSegue(withIdentifier: "showDetail", sender: nil)
+    //self.performSegue(withIdentifier: "showDetail", sender: nil)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
     if let indexPath = tableView.indexPathForSelectedRow {
       // row-1 because first cell is the segment control
-      let row = indexPath.row - 1
+      let row = indexPath.row
       if segue.identifier == "showDetail" {
           let fratName = self.dataKeys[row]
           SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-            let controller = segue.destination as! UIPageViewController//(segue.destination as! UINavigationController).topViewController
-              //as! DetailViewController
+            let controller = segue.destination.childViewControllers.first as! UIPageViewController
             controller.dataSource = self
             controller.delegate = self
-            
+            controller.view.backgroundColor = .white
             let dVC = detailVC
-            //self.navigationController?.isToolbarHidden = false
-            //dVC.navigationController?.setToolbarItems([UIBarButtonItem.init(image: UIImage.init(named: "FeedIcon"), style: .plain, target: self, action: #selector(self.returnToMaster))], animated: false)
             dVC.selectedFraternity = selectedFraternity
             controller.setViewControllers([dVC], direction: .forward, animated: false, completion: nil)
-            
-            // Send the detail controller the fraternity we're about to display
-            //let _ = Campus.shared.getEvents(forFratWithName : fratName)
           }
         }
         
@@ -420,9 +449,9 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
-  //  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-  //    return allowSegues //!(self.refreshControl?.isRefreshing ?? true)
-  //  }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+      return !(self.refreshControl?.isRefreshing ?? true)
+    }
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
   }
@@ -447,19 +476,12 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   // Should always be the number of objects to display
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    return dataKeys.count + 1
+    return dataKeys.count
   }
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if indexPath.row == 0 {
-      let cell = tableView.dequeueReusableCell(withIdentifier: segmentCellIdentifier) as! SegmentCell
-      cell.segmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
-      cell.segmentControl.isEnabled = Campus.shared.hasFavorites
-      favoritesSegmentControl = cell.segmentControl
-      return cell
-    }
-    else if ((viewingFavorites && !Campus.shared.hasFavorites) ||
+    if ((viewingFavorites && !Campus.shared.hasFavorites) ||
       !viewingFavorites && Campus.shared.fratNames.count == 0) {
       let cell = UITableViewCell()
       cell.selectionStyle = .none
@@ -470,7 +492,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
     cell.delegate = self
-    let fratName = dataKeys[indexPath.row-1]
+    let fratName = dataKeys[indexPath.row]
     if let frat = Campus.shared.fraternitiesDict[fratName]{
       cell.titleLabel?.text = frat.name
       //cell.subheadingLabel?.text = frat.chapter
@@ -482,7 +504,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   }
   // Row 0 (segment control cell) should have a height of 36, all others should be 128
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return indexPath.row == 0 ? 36 : 128
+    return 128 //indexPath.row == 0 ? 36 : 128
   }
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     // Can only do the sliding to favorite if using iOS 11 or newer
@@ -572,7 +594,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
         self.tableView.reloadRows(at: [cellIndex], with: .right)
       }
     }
-    self.favoritesSegmentControl?.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+    self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
   }
   
   // MARK: - Refresh Control

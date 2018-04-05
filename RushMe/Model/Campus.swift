@@ -10,7 +10,7 @@ import UIKit
 // Create a shared instance of the Campus class which
 // cannot be deinstantiated or instantiated, except by
 // the App itself
-fileprivate let campusSharedInstance = Campus(loadFromFile: true)
+let campusSharedInstance = Campus(loadFromFile: true)
 // Describe three quality metrics
 enum Quality : Int {
   case High = 3
@@ -28,11 +28,20 @@ enum Quality : Int {
  Inheritance from NSObject provides future capabilities, namely
  saving.
  */
+protocol CampusDelegate {
+  func addedNew(favorite : String)
+  func addedNew(fraternity : Fraternity)
+  func addedNew(event : FratEvent)
+  func removed(favorite : String)
+  func finishedAll()
+}
+
+
 class Campus: NSObject {
   // MARK: Member Variables
   // The user's favorite fraternities
   private(set) var favoritedFrats = Set<String>() {
-    didSet {
+    willSet {
       self.saveFavorites()
       self.firstFavoritedEvent_ = nil
       self.eventsByDay_ = nil
@@ -58,7 +67,12 @@ class Campus: NSObject {
     return !favoritedFrats.isEmpty
   }
   // The name of every fraternity, in download order
-  private(set) var fratNames = Set<String>()
+  private(set) var fratNamesObservable = Observable<Set<String>>(Set<String>())
+  @objc private(set) var fratNames = Set<String>() {
+    willSet {
+     fratNamesObservable.value = newValue
+    }
+  }
   // Refer to each fraternity by its name, in no order
   private(set) var fraternitiesDict = [String : Fraternity]()
   // FratEvents, unordered
@@ -172,11 +186,48 @@ class Campus: NSObject {
   }
   
   // MARK: Shared Instance (singleton)
-  static var shared : Campus {
+  @objc static var shared : Campus {
     get {
-      return campusSharedInstance
+     return campusSharedInstance 
     }
   }
+  private(set) var loadingObservable = Observable<Bool>(false)
+  private(set) var loading = false {
+    willSet {
+      print("loading set to", loading)
+     loadingObservable.value = newValue 
+    }
+  }
+  private(set) var percentageCompletionObservable = Observable<Float>(0)
+  private(set) var percentageCompletion : Float = 0 {
+    willSet {
+     percentageCompletionObservable.value = newValue
+    }
+  }
+  var lastDictArray : [Dictionary<String,Any>]? = nil 
+  func pullFratsFromSQLDatabase() {
+    if !loading {
+      self.loading = true
+      DispatchQueue.global(qos: .userInitiated).async {
+        var dictArray = [Dictionary<String, Any>()]
+        if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
+          self.lastDictArray == nil || arr.count > self.lastDictArray!.count {
+          dictArray = arr
+          self.lastDictArray = dictArray
+        }
+        var numberFraternitiesCompleted = 0
+        for fraternityDict in dictArray {
+          Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
+          numberFraternitiesCompleted += 1
+          self.percentageCompletion = Float(numberFraternitiesCompleted) / Float(dictArray.count)
+        }
+        self.loading = false
+      } 
+    }
+    
+    
+  }
+  
   // Allows fraternity favorites to be loaded from a file
   fileprivate convenience init(loadFromFile : Bool) {
     self.init()
@@ -218,6 +269,7 @@ class Campus: NSObject {
     }
     
   }
+  
   // Remove any FratEvents that are not from favorited frats
   //  func filterEventsForFavorites()  {
   //    let favoriteSet = Set.init(favoritedFrats)
@@ -253,7 +305,7 @@ class Campus: NSObject {
   // Note that if the events for this fraternity have already been loaded,
   // The function simply returns those events
   @objc func getEvents(forFratWithName fratName : String, async : Bool = false) -> [Date: FratEvent] {
-    if let events = campusSharedInstance.fraternitiesDict[fratName]?.events {
+    if let events = Campus.shared.fraternitiesDict[fratName]?.events {
       // If is fraternity's list of events is already saturated, return
       if events.count > 0 { return events }
     }
@@ -311,6 +363,7 @@ class Campus: NSObject {
     }
   }
 }
+
 extension Fraternity {
   convenience init?(fromDict dict : Dictionary<String, Any>, loadImages : Bool = true) {
     if let name = dict[RMDatabaseKey.NameKey] as? String,
@@ -360,6 +413,7 @@ extension Fraternity {
   
   
 }
+
 
 func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.shared.downloadedImageQuality) -> String {
   var fileName = ""
@@ -437,4 +491,5 @@ func pullImage(fromSource : String, quality : Quality = Campus.shared.downloaded
   // May be nil!
   return image
 }
+
 

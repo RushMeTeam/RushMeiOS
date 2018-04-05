@@ -45,21 +45,12 @@ class ScrollPageViewController: UIViewController,
     }
   }
   
-  static var startingPageIndex : Int = 0 //{
-//    didSet {
-//      loadView()
-//      
-//      pageControl.currentPage = startingPageIndex
-//      transitioning = true
-//      goToPage(page: startingPageIndex, animated: true)
-//      transitioning = false
-//    }
-//  }
+  static var startingPageIndex : Int = 1
   lazy var orderedViewControllers: [UIViewController] = 
-    [ScrollPageViewController.getViewController(forIdentifier: "splitVC"),
+    [ScrollPageViewController.getViewController(forIdentifier: "mapVC"),
+     ScrollPageViewController.getViewController(forIdentifier: "splitVC"),
      ScrollPageViewController.getViewController(forIdentifier: "calendarVC"),
-     ScrollPageViewController.getViewController(forIdentifier: "mapVC"),
-     ScrollPageViewController.getViewController(forIdentifier: "settingsViewController") as! SettingsViewController]
+     ScrollPageViewController.getViewController(forIdentifier: "settingsViewController")]
   
   static func getViewController(forIdentifier identifier : String) -> UIViewController {
     return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier) 
@@ -74,6 +65,20 @@ class ScrollPageViewController: UIViewController,
   
   }
   
+  func open(fraternityNamed fratName : String) {
+   
+   for childVC in orderedViewControllers[1].childViewControllers {
+      if let _ = childVC as? UINavigationController,
+        let tableVC = childVC.childViewControllers.first as? MasterViewController,
+        let row =  tableVC.dataKeys.index(of: fratName) {
+        tableVC.viewingFavorites = false
+        tableVC.tableView.selectRow(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
+        tableVC.performSegue(withIdentifier: "showDetail", sender: self)
+        goToPage(page: 1, animated: true)
+      }
+    }
+  }
+  
   @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
     //present(ScrollPageViewController.getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
     self.revealViewController().revealToggle(animated: true)
@@ -86,9 +91,7 @@ class ScrollPageViewController: UIViewController,
   
   lazy var setupInitialPages : Void = {
     adjustScrollView()
-    loadPage(1)
-    loadPage(2)
-    loadPage(0)
+    loadAllPages()
     transitioning = true
     goToPage(page: ScrollPageViewController.startingPageIndex, animated: false)
     transitioning = false
@@ -97,6 +100,7 @@ class ScrollPageViewController: UIViewController,
   fileprivate func adjustScrollView() {
     viewControllerScrollView.contentSize = CGSize.init(width: viewControllerScrollView.frame.width, 
                                          height: viewControllerScrollView.frame.height * CGFloat(numberOfPages) - topLayoutGuide.length)
+    
   }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -104,7 +108,7 @@ class ScrollPageViewController: UIViewController,
     coordinator.animate(alongsideTransition: nil) { (_) in
       self.adjustScrollView()
       self.pages = [UIView?](repeatElement(nil, count: self.numberOfPages))
-      self.goToPage(page: self.pageControl.currentPage, animated: false)
+      self.goToPage(page: self.currentPage, animated: false)
       self.transitioning = false
     }
     super.viewWillTransition(to: size, with: coordinator)
@@ -112,7 +116,6 @@ class ScrollPageViewController: UIViewController,
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     viewControllerScrollView.delegate = self
     viewControllerScrollView.isScrollEnabled = false
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -163,22 +166,26 @@ class ScrollPageViewController: UIViewController,
       return 
     }
     if pages[page] == nil {
-      let newViewController = orderedViewControllers[page]
-      var newFrame = viewControllerScrollView.frame
-      newFrame.origin.x = 0
-      newFrame.origin.y = newFrame.height * CGFloat(page)
-      let canvasView = UIView.init(frame: newFrame)
-      newViewController.willMove(toParentViewController: self)
-      self.addChildViewController(newViewController)
-      newViewController.didMove(toParentViewController: self)
-      viewControllerScrollView.addSubview(canvasView)
-      newViewController.view!.translatesAutoresizingMaskIntoConstraints = false
-      canvasView.addSubview(newViewController.view!)
-      NSLayoutConstraint.activate([newViewController.view!.leadingAnchor.constraint(equalTo: canvasView.leadingAnchor),
-                                   newViewController.view!.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
-                                   newViewController.view!.topAnchor.constraint(equalTo: canvasView.topAnchor),
-                                   newViewController.view!.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)])
-      pages[page] = canvasView
+      DispatchQueue.global(qos: .userInitiated).async {
+        let newViewController = self.orderedViewControllers[page]
+        DispatchQueue.main.async {
+        var newFrame = self.viewControllerScrollView.frame
+        newFrame.origin.x = 0
+        newFrame.origin.y = newFrame.height * CGFloat(page)
+        let canvasView = UIView.init(frame: newFrame)
+          newViewController.willMove(toParentViewController: self)
+          self.addChildViewController(newViewController)
+          newViewController.didMove(toParentViewController: self)
+          self.viewControllerScrollView.addSubview(canvasView)
+          newViewController.view!.translatesAutoresizingMaskIntoConstraints = false
+          canvasView.addSubview(newViewController.view!)
+          NSLayoutConstraint.activate([newViewController.view!.leadingAnchor.constraint(equalTo: canvasView.leadingAnchor),
+                                       newViewController.view!.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
+                                       newViewController.view!.topAnchor.constraint(equalTo: canvasView.topAnchor),
+                                       newViewController.view!.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)])
+          self.pages[page] = canvasView
+        }
+      }
     }
   }
   fileprivate func loadCurrentPages(page: Int) {
@@ -191,6 +198,11 @@ class ScrollPageViewController: UIViewController,
     loadPage(Int(page))
     loadPage(Int(page) + 1)
     
+  }
+  func loadAllPages() {
+    for pageNum in 0..<orderedViewControllers.count {
+     self.loadPage(pageNum) 
+    }
   }
   
   // Originally fileprivate

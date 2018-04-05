@@ -1,4 +1,4 @@
-//
+////
 //  AppDelegate.swift
 //  RushMe
 //
@@ -84,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     drawerMenuVC.pageDelegate = scrollPageVC
     
     SQLHandler.shared.informAction(action: "App Loaded")
+    Campus.shared.pullFratsFromSQLDatabase()
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
