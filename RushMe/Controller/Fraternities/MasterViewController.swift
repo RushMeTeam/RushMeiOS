@@ -178,7 +178,8 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 //    if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
 //      VC.masterVC = self.splitViewController
 //    }
-    // Refresh control 
+    // Refresh control
+    navigationController?.setNavigationBarHidden(false, animated: true)
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController?.navigationBar.shadowImage = UIImage()
     refreshControl = UIRefreshControl()
@@ -415,7 +416,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-   
+    navigationController?.setNavigationBarHidden(true, animated: true)
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
@@ -439,12 +440,14 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
             controller.dataSource = self
             controller.delegate = self
             controller.view.backgroundColor = .white
+            //navigationItem.leftItemsSupplementBackButton = true
+            //controller.navigationItem.leftItemsSupplementBackButton = true
+            navigationController?.setNavigationBarHidden(false, animated: true)
             let dVC = detailVC
             dVC.selectedFraternity = selectedFraternity
             controller.setViewControllers([dVC], direction: .forward, animated: false, completion: nil)
           }
         }
-        
       }
   }
   // Should not perform any segues while refreshing 

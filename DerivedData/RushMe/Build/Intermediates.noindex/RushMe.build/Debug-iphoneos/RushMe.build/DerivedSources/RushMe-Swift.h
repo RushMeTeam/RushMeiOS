@@ -180,6 +180,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreLocation;
 #endif
 
+#import "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 #if __has_warning("-Wpragma-clang-attribute")
@@ -206,7 +208,7 @@ SWIFT_CLASS("_TtC6RushMe19AboutViewController")
 
 @class UIWindow;
 @class UIApplication;
-@class UISplitViewController;
+@class UIApplicationShortcutItem;
 
 SWIFT_CLASS("_TtC6RushMe11AppDelegate")
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
@@ -217,11 +219,12 @@ SWIFT_CLASS("_TtC6RushMe11AppDelegate")
 - (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
 - (void)applicationDidBecomeActive:(UIApplication * _Nonnull)application;
 - (void)applicationWillTerminate:(UIApplication * _Nonnull)application;
-- (BOOL)splitViewController:(UISplitViewController * _Nonnull)splitViewController collapseSecondaryViewController:(UIViewController * _Nonnull)secondaryViewController ontoPrimaryViewController:(UIViewController * _Nonnull)primaryViewController SWIFT_WARN_UNUSED_RESULT;
+- (void)application:(UIApplication * _Nonnull)application performActionForShortcutItem:(UIApplicationShortcutItem * _Nonnull)shortcutItem completionHandler:(void (^ _Nonnull)(BOOL))completionHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UILabel;
+@class UIButton;
 @class UIImageView;
 @class CAGradientLayer;
 @class UIColor;
@@ -229,9 +232,11 @@ SWIFT_CLASS("_TtC6RushMe11AppDelegate")
 SWIFT_CLASS("_TtC6RushMe31AttractiveFratCellTableViewCell")
 @interface AttractiveFratCellTableViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified titleLabel;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified favoriteButton;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified previewImageView;
 @property (nonatomic, strong) CAGradientLayer * _Nullable gradientLayer SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.gradientLayer' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)awakeFromNib;
+- (IBAction)favoriteButtonHit:(UIButton * _Nonnull)sender;
 @property (nonatomic, readonly, strong) UIColor * _Nonnull imageBorderColor SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.imageBorderColor' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic) BOOL isAccentuated SWIFT_DEPRECATED_OBJC("Swift property 'AttractiveFratCellTableViewCell.isAccentuated' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
@@ -260,48 +265,50 @@ SWIFT_CLASS("_TtC6RushMe31CalendarLabelCollectionViewCell")
 @interface CalendarLabelCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified dayLabel;
 @property (nonatomic, copy) NSArray<FratEvent *> * _Nullable eventsToday SWIFT_DEPRECATED_OBJC("Swift property 'CalendarLabelCollectionViewCell.eventsToday' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class EventTableViewController;
 @class UICollectionView;
 @class UIView;
 @class UISegmentedControl;
 @class UIPanGestureRecognizer;
 @class UITapGestureRecognizer;
-@class EventTableViewController;
 @class UICollectionViewLayout;
 
 SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 @interface CalendarViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+- (void)updateData SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.updateData()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified containerView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified seperatorView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified favoritesSegmentControl;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified toolbarView;
-@property (nonatomic) BOOL inEventView SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.inEventView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) CGFloat panCutoff SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.panCutoff' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UIPanGestureRecognizer * _Null_unspecified panGestureRecognizer;
 @property (nonatomic, weak) IBOutlet UITapGestureRecognizer * _Null_unspecified tapGestureRecognizer;
-@property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) NSInteger eventCountThreshold SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.eventCountThreshold' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) FratEvent * _Nullable firstEvent SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.firstEvent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSArray<NSArray<FratEvent *> *> * _Nonnull dataSource SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.dataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSSet<FratEvent *> * _Nonnull flatDataSource SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.flatDataSource' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) BOOL favoritesShouldBeEnabled SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.favoritesShouldBeEnabled' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, copy) NSIndexPath * _Nullable selectedIndexPath SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.selectedIndexPath' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (NSArray<FratEvent *> * _Nonnull)eventsForIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.events(forIndexPath:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL inEventView SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.inEventView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) CGFloat panCutoff SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.panCutoff' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) BOOL favoritesShouldBeEnabled SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.favoritesShouldBeEnabled' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSIndexPath * _Nullable selectedIndexPath SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.selectedIndexPath' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSIndexPath * _Nonnull zeroIndexPath SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.zeroIndexPath' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified drawerButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified shareButton;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dateLabel;
+- (void)viewDidLoad;
+- (void)handleNewFratWithOldValue:(NSSet<NSString *> * _Nullable)oldValue newValue:(NSSet<NSString *> * _Nonnull)newValue SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.handleNewFrat(oldValue:newValue:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidLayoutSubviews;
+- (void)didReceiveMemoryWarning;
 @property (nonatomic, copy) NSURL * _Nullable fileURL SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.fileURL' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (IBAction)exportEvents:(UIBarButtonItem * _Nonnull)sender;
-- (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)didReceiveMemoryWarning;
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (IBAction)favoriteSegmentControlValueChanged:(UISegmentedControl * _Nonnull)sender;
 - (IBAction)seperatorTap:(UITapGestureRecognizer * _Nonnull)sender;
 - (IBAction)eventCalendarPan:(UIPanGestureRecognizer * _Nonnull)sender;
@@ -309,9 +316,11 @@ SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 - (void)animateWithFinalState:(void (^ _Nonnull)(void))finalState SWIFT_DEPRECATED_OBJC("Swift method 'CalendarViewController.animate(finalState:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) void (^ _Nonnull topState)(void) SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.topState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) void (^ _Nonnull bottomState)(void) SWIFT_DEPRECATED_OBJC("Swift property 'CalendarViewController.bottomState' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)collectionView:(UICollectionView * _Nonnull)collectionView didHighlightItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (BOOL)collectionView:(UICollectionView * _Nonnull)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -321,9 +330,11 @@ SWIFT_CLASS("_TtC6RushMe22CalendarViewController")
 
 SWIFT_CLASS("_TtC6RushMe6Campus")
 @interface Campus : NSObject
-@property (nonatomic, copy) NSSet<NSString *> * _Nonnull favoritedFrats SWIFT_DEPRECATED_OBJC("Swift property 'Campus.favoritedFrats' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSSet<NSString *> * _Nonnull favoritedFrats SWIFT_DEPRECATED_OBJC("Swift property 'Campus.favoritedFrats' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)addFavoriteWithNamed:(NSString * _Nonnull)newFavorite SWIFT_DEPRECATED_OBJC("Swift method 'Campus.addFavorite(named:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)removeFavoriteWithNamed:(NSString * _Nonnull)oldFavorite SWIFT_DEPRECATED_OBJC("Swift method 'Campus.removeFavorite(named:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) BOOL hasFavorites SWIFT_DEPRECATED_OBJC("Swift property 'Campus.hasFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, copy) NSSet<NSString *> * _Nonnull fratNames SWIFT_DEPRECATED_OBJC("Swift property 'Campus.fratNames' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSSet<NSString *> * _Nonnull fratNames;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, Fraternity *> * _Nonnull fraternitiesDict SWIFT_DEPRECATED_OBJC("Swift property 'Campus.fraternitiesDict' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSSet<FratEvent *> * _Nonnull favoritedEvents SWIFT_DEPRECATED_OBJC("Swift property 'Campus.favoritedEvents' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSArray<NSArray<FratEvent *> *> * _Nonnull eventsByDay SWIFT_DEPRECATED_OBJC("Swift property 'Campus.eventsByDay' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -333,8 +344,12 @@ SWIFT_CLASS("_TtC6RushMe6Campus")
 @property (nonatomic, readonly, strong) FratEvent * _Nullable firstEvent SWIFT_DEPRECATED_OBJC("Swift property 'Campus.firstEvent' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic) BOOL considerEventsBeforeToday SWIFT_DEPRECATED_OBJC("Swift property 'Campus.considerEventsBeforeToday' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) BOOL firstLoad SWIFT_DEPRECATED_OBJC("Swift property 'Campus.firstLoad' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _Nonnull shared SWIFT_DEPRECATED_OBJC("Swift property 'Campus.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
-+ (Campus * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'Campus.shared' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _Nonnull shared;)
++ (Campus * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly) BOOL loading SWIFT_DEPRECATED_OBJC("Swift property 'Campus.loading' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) float percentageCompletion SWIFT_DEPRECATED_OBJC("Swift property 'Campus.percentageCompletion' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<NSDictionary<NSString *, id> *> * _Nullable lastDictArray SWIFT_DEPRECATED_OBJC("Swift property 'Campus.lastDictArray' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)pullFratsFromSQLDatabase SWIFT_DEPRECATED_OBJC("Swift method 'Campus.pullFratsFromSQLDatabase()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (NSDictionary<NSDate *, FratEvent *> * _Nonnull)getEventsForFratWithName:(NSString * _Nonnull)fratName async:(BOOL)async SWIFT_WARN_UNUSED_RESULT;
 - (void)saveFavorites SWIFT_DEPRECATED_OBJC("Swift method 'Campus.saveFavorites()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -342,7 +357,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Campus * _No
 
 @class UIScrollView;
 @class MKMapView;
-@class UIButton;
+@class ImagePageViewController;
+@class UIAlertAction;
 @class MKMapItem;
 @class UIPinchGestureRecognizer;
 
@@ -350,7 +366,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @interface DetailViewController : UIViewController <MKMapViewDelegate, UIScrollViewDelegate>
 @property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
 @property (nonatomic, weak) IBOutlet UIView * _Null_unspecified underlyingView;
-@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified coverImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified coverImageView;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified profileImageView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified underProfileLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
@@ -364,7 +380,11 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 @property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified openMapButton;
 @property (nonatomic, copy) IBOutletCollection(UIView) NSArray<UIView *> * _Null_unspecified toMakeClear;
-@property (nonatomic, strong) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) ImagePageViewController * _Nonnull coverImagePageViewController SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.coverImagePageViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) UIAlertAction * _Nonnull openInMapsAction SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.openInMapsAction' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) UIAlertAction * _Nonnull getDirectionsInMapsAction SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.getDirectionsInMapsAction' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) UIAlertAction * _Nonnull cancelAction SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.cancelAction' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, weak) EventTableViewController * _Nullable eventViewController SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.eventViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) MKMapItem * _Nullable mapItem SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.mapItem' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) Fraternity * _Nullable selectedFraternity SWIFT_DEPRECATED_OBJC("Swift property 'DetailViewController.selectedFraternity' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (IBAction)favoritesButtonHit:(UIBarButtonItem * _Nonnull)sender;
@@ -372,6 +392,7 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 - (IBAction)coverImagePinched:(UIPinchGestureRecognizer * _Nonnull)sender;
 - (IBAction)openInMaps:(UIButton * _Nonnull)sender;
 - (void)setViewsToAlpha:(CGFloat)toAlpha except:(UIView * _Nullable)exceptedView SWIFT_DEPRECATED_OBJC("Swift method 'DetailViewController.setViews(toAlpha:except:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)awakeFromNib;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)configureView SWIFT_DEPRECATED_OBJC("Swift method 'DetailViewController.configureView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -380,22 +401,26 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIStoryboardSegue;
+@class UIGestureRecognizer;
+@protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS("_TtC6RushMe24DrawerMenuViewController")
-@interface DrawerMenuViewController : UITableViewController
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified feedButton;
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified fraternitiesButton;
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified settingsButton;
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified calendarButton;
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified mapButton;
-@property (nonatomic, weak) IBOutlet UITableViewCell * _Null_unspecified topCell;
-@property (nonatomic, copy) IBOutletCollection(UITableViewCell) NSArray<UITableViewCell *> * _Null_unspecified buttons;
-@property (nonatomic, strong) UIViewController * _Nullable masterVC SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.masterVC' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@interface DrawerMenuViewController : UIViewController <UIScrollViewDelegate>
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified rushMeLogo;
+@property (nonatomic, weak) IBOutlet UIScrollView * _Null_unspecified scrollView;
+@property (nonatomic, readonly) NSInteger currentPage SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.currentPage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)setWithNewCurrentPage:(NSInteger)newCurrentPage SWIFT_DEPRECATED_OBJC("Swift method 'DrawerMenuViewController.set(newCurrentPage:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
+- (void)buttonHitWithSender:(UIButton * _Nonnull)sender;
+- (void)scrollButtonsWithSender:(UIGestureRecognizer * _Nonnull)sender;
+- (void)awakeFromNib;
+- (void)adjustScrollView SWIFT_DEPRECATED_OBJC("Swift method 'DrawerMenuViewController.adjustScrollView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidAppear:(BOOL)animated;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -487,6 +512,32 @@ SWIFT_CLASS("_TtC6RushMe10Fraternity")
 
 
 
+@class UIPageControl;
+@class CAShapeLayer;
+
+SWIFT_CLASS("_TtC6RushMe23ImagePageViewController")
+@interface ImagePageViewController : UIViewController <UIScrollViewDelegate>
+@property (nonatomic, strong) IBOutlet UIScrollView * _Null_unspecified scrollView;
+@property (nonatomic, strong) IBOutlet UIPageControl * _Null_unspecified pageControl;
+@property (nonatomic, readonly) NSInteger numberOfPages SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.numberOfPages' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) CAShapeLayer * _Nonnull scrollIndicator SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.scrollIndicator' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) NSInteger currentPageIndex SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.currentPageIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) UIImage * _Nullable currentPageImage SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.currentPageImage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) UIViewContentMode contentMode SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.contentMode' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) NSInteger startingPageIndex SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.startingPageIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull imageNames SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.imageNames' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL transitioning SWIFT_DEPRECATED_OBJC("Swift property 'ImagePageViewController.transitioning' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)viewDidLayoutSubviews;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (void)goToPageWithPage:(NSInteger)page animated:(BOOL)animated SWIFT_DEPRECATED_OBJC("Swift method 'ImagePageViewController.goToPage(page:animated:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+- (IBAction)goToPage:(UIPageControl * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIVisualEffectView;
 
 SWIFT_CLASS("_TtC6RushMe19ImageViewController")
@@ -506,54 +557,74 @@ SWIFT_CLASS("_TtC6RushMe19ImageViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@protocol MKAnnotation;
-@class MKClusterAnnotation;
+@class MKAnnotationView;
+@class UIStoryboardSegue;
 
 SWIFT_CLASS("_TtC6RushMe17MapViewController")
 @interface MapViewController : UIViewController <MKMapViewDelegate>
+- (void)updateData SWIFT_DEPRECATED_OBJC("Swift method 'MapViewController.updateData()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
-@property (nonatomic, weak) IBOutlet UIBarButtonItem * _Null_unspecified drawerButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified informationButton;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified fratNameLabel;
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified favoritesControl;
 - (IBAction)favoritesControlSelected:(UISegmentedControl * _Nonnull)sender;
 @property (nonatomic, readonly) CLLocationCoordinate2D center SWIFT_DEPRECATED_OBJC("Swift property 'MapViewController.center' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)loadAnnotationsFromAllFrats:(BOOL)fromAllFrats animated:(BOOL)animated SWIFT_DEPRECATED_OBJC("Swift method 'MapViewController.loadAnnotations(fromAllFrats:animated:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (MKClusterAnnotation * _Nonnull)mapView:(MKMapView * _Nonnull)mapView clusterAnnotationForMemberAnnotations:(NSArray<id <MKAnnotation>> * _Nonnull)memberAnnotations SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=11.0);
-- (void)mapViewWillStartLoadingMap:(MKMapView * _Nonnull)mapView;
-- (void)mapViewDidFinishLoadingMap:(MKMapView * _Nonnull)mapView;
+- (void)loadAnnotationsIfNecessaryFromAllFrats:(BOOL)fromAllFrats animated:(BOOL)animated forced:(BOOL)forced SWIFT_DEPRECATED_OBJC("Swift method 'MapViewController.loadAnnotationsIfNecessary(fromAllFrats:animated:forced:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)mapView:(MKMapView * _Nonnull)mapView didSelectAnnotationView:(MKAnnotationView * _Nonnull)view;
+- (void)mapView:(MKMapView * _Nonnull)mapView didDeselectAnnotationView:(MKAnnotationView * _Nonnull)view;
+- (IBAction)goToFraternity:(UIButton * _Nonnull)sender;
+- (IBAction)centerMap:(UIBarButtonItem * _Nonnull)sender;
+- (void)centerMapWithAnimated:(BOOL)animated SWIFT_DEPRECATED_OBJC("Swift method 'MapViewController.centerMap(animated:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIPageViewController;
+@class UISearchController;
 @class UIProgressView;
 @class UITableViewRowAction;
 @class UIRefreshControl;
 
 SWIFT_CLASS("_TtC6RushMe20MasterViewController")
-@interface MasterViewController : UITableViewController <UISearchBarDelegate>
+@interface MasterViewController : UITableViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
+@property (nonatomic, readonly, strong) DetailViewController * _Nonnull detailVC SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.detailVC' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSString * _Nullable)getFratAfter:(NSString * _Nonnull)after SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.getFrat(after:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (NSString * _Nullable)getFratBefore:(NSString * _Nonnull)before SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.getFrat(before:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (UIViewController * _Nullable)pageViewController:(UIPageViewController * _Nonnull)pageViewController viewControllerBeforeViewController:(UIViewController * _Nonnull)viewController SWIFT_WARN_UNUSED_RESULT;
+- (UIViewController * _Nullable)pageViewController:(UIPageViewController * _Nonnull)pageViewController viewControllerAfterViewController:(UIViewController * _Nonnull)viewController SWIFT_WARN_UNUSED_RESULT;
+- (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
+- (void)willPresentSearchController:(UISearchController * _Nonnull)searchController;
+- (void)didDismissSearchController:(UISearchController * _Nonnull)searchController;
+@property (nonatomic, readonly) BOOL searchBarIsEmpty SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.searchBarIsEmpty' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) BOOL isSearching SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.isSearching' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, strong) UIProgressView * _Nonnull progressView SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.progressView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, strong) IBOutlet UIBarButtonItem * _Null_unspecified openBarButtonItem;
+@property (nonatomic, readonly, strong) UISearchController * _Nonnull searchController SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.searchController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic) BOOL viewingFavorites SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.viewingFavorites' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable shuffledFrats SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.shuffledFrats' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull dataKeys SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.dataKeys' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, weak) UISegmentedControl * _Nullable favoritesSegmentControl SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.favoritesSegmentControl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) UISegmentedControl * _Nonnull favoritesSegmentControl SWIFT_DEPRECATED_OBJC("Swift property 'MasterViewController.favoritesSegmentControl' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)reloadTableView SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.reloadTableView()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)didReceiveMemoryWarning;
 - (void)viewDidLoad;
 - (void)dataUpdate SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.dataUpdate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (BOOL)pullFratsFromSQLDatabaseWithTypes:(NSArray<NSString *> * _Nonnull)types SWIFT_WARN_UNUSED_RESULT;
 - (IBAction)toggleViewControllers:(UIBarButtonItem * _Nonnull)sender;
+- (void)handleNewFraternityWithOldValue:(NSSet<NSString *> * _Nullable)oldValue newValue:(NSSet<NSString *> * _Nonnull)newValue SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.handleNewFraternity(oldValue:newValue:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewWillAppear:(BOOL)animated;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString * _Nonnull)identifier sender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)segmentControlChangedWithSender:(UISegmentedControl * _Nonnull)sender;
+- (void)cellWithFratName:(NSString * _Nonnull)fratName favoriteStatusToValue:(BOOL)isFavorited SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.cell(withFratName:favoriteStatusToValue:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)tableView:(UITableView * _Nonnull)tableView canEditRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<UITableViewRowAction *> * _Nullable)tableView:(UITableView * _Nonnull)tableView editActionsForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)setFavoriteWithAction:(UITableViewRowAction * _Nonnull)action forCell:(NSIndexPath * _Nonnull)cellIndex forFrat:(NSString * _Nonnull)fratName SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.setFavorite(withAction:forCell:forFrat:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)handleRefreshWithRefreshControl:(UIRefreshControl * _Nonnull)refreshControl;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
@@ -578,6 +649,53 @@ SWIFT_CLASS("_TtC6RushMe17PostTableViewCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIStackView;
+
+SWIFT_CLASS("_TtC6RushMe13RMPageControl")
+@interface RMPageControl : NSObject
+@property (nonatomic, strong) UIStackView * _Nonnull stackView SWIFT_DEPRECATED_OBJC("Swift property 'RMPageControl.stackView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)selectIndex:(NSInteger)index SWIFT_DEPRECATED_OBJC("Swift method 'RMPageControl.selectIndex(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)selectedWithSender:(UIButton * _Nonnull)sender;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+@class SWRevealViewController;
+
+SWIFT_CLASS("_TtC6RushMe24ScrollPageViewController")
+@interface ScrollPageViewController : UIViewController <UIScrollViewDelegate, UISplitViewControllerDelegate, SWRevealViewControllerDelegate>
+@property (nonatomic, strong) IBOutlet UIScrollView * _Null_unspecified viewControllerScrollView;
+@property (nonatomic, strong) IBOutlet UIPageControl * _Null_unspecified pageControl;
+@property (nonatomic, readonly) NSInteger numberOfPages SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.numberOfPages' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) CAShapeLayer * _Nonnull scrollIndicator SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.scrollIndicator' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) NSInteger currentPage SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.currentPage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) UIViewController * _Nullable currentViewController SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.currentViewController' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSInteger startingPageIndex SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.startingPageIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");)
++ (NSInteger)startingPageIndex SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.startingPageIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (void)setStartingPageIndex:(NSInteger)value SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.startingPageIndex' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, copy) NSArray<UIViewController *> * _Nonnull orderedViewControllers SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.orderedViewControllers' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
++ (UIViewController * _Nonnull)getViewControllerForIdentifier:(NSString * _Nonnull)identifier SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'ScrollPageViewController.getViewController(forIdentifier:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic) BOOL transitioning SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.transitioning' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)viewDidLayoutSubviews;
+- (void)awakeFromNib;
+- (void)openWithFraternityNamed:(NSString * _Nonnull)fratName SWIFT_DEPRECATED_OBJC("Swift method 'ScrollPageViewController.open(fraternityNamed:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (IBAction)presentDrawer:(UIBarButtonItem * _Nullable)sender;
+- (void)presentAbout;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (void)loadAllPages SWIFT_DEPRECATED_OBJC("Swift method 'ScrollPageViewController.loadAllPages()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)goToPageWithPage:(NSInteger)page animated:(BOOL)animated SWIFT_DEPRECATED_OBJC("Swift method 'ScrollPageViewController.goToPage(page:animated:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidScrollToTop:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (IBAction)goToPage:(UIPageControl * _Nonnull)sender;
+- (BOOL)revealControllerPanGestureShouldBegin:(SWRevealViewController * _Null_unspecified)revealController SWIFT_WARN_UNUSED_RESULT;
+- (void)revealController:(SWRevealViewController * _Null_unspecified)revealController didMoveToPosition:(FrontViewPosition)position;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC6RushMe11SegmentCell")
 @interface SegmentCell : UITableViewCell
@@ -597,12 +715,23 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 @property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified displayPastEventsSwitch;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dateLabel;
 - (IBAction)displayPastEventsSwitch:(UISwitch * _Nonnull)sender;
+- (IBAction)disappear:(id _Nonnull)sender;
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 @property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified fraternitiesAlphabeticalSwitch;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified clearCacheButton;
 - (IBAction)clearCache:(UIButton * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6RushMe19SplitViewController")
+@interface SplitViewController : UISplitViewController <UISplitViewControllerDelegate>
+- (void)viewDidLoad;
+- (BOOL)splitViewController:(UISplitViewController * _Nonnull)splitViewController collapseSecondaryViewController:(UIViewController * _Nonnull)secondaryViewController ontoPrimaryViewController:(UIViewController * _Nonnull)primaryViewController SWIFT_WARN_UNUSED_RESULT;
+- (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -615,6 +744,11 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 
 @interface UIMotionEffect (SWIFT_EXTENSION(RushMe))
 + (UIMotionEffect * _Nonnull)twoAxesShiftWithStrength:(float)strength SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'UIMotionEffect.twoAxesShift(strength:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@end
+
+
+@interface UIScrollView (SWIFT_EXTENSION(RushMe))
+- (void)scrollToTopWithAnimated:(BOOL)animated SWIFT_DEPRECATED_OBJC("Swift method 'UIScrollView.scrollToTop(animated:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @end
 
 SWIFT_MODULE_NAMESPACE_POP

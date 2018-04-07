@@ -1,6 +1,0 @@
-version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
-options: "a7d985b035cbd17e6983bf0957f81078"
-build_time: [1519348335, 78237000]
-inputs:
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/DeviceKit/Source/Device.generated.swift": [1517335136, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/FeedTableViewController.swift": [1519348332, 0]

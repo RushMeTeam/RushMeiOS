@@ -4,8 +4,8 @@
 <array>
 	<string>XCTest</string>
 	<string>MapKit</string>
-	<string>QuartzCore</string>
 	<string>RushMe</string>
+	<string>QuartzCore</string>
 	<string>CoreGraphics</string>
 	<string>iCalKit</string>
 	<string>OHMySQL</string>
