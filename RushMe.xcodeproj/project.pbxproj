@@ -79,6 +79,7 @@
 		DB8997F31FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8997F41FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
 		DB8997F51FAC0320006A5246 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
+		DB8CA199207D9CF20011E25A /* RMGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8CA198207D9CF20011E25A /* RMGeocoder.swift */; };
 		DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D52621FF5C438003A80C1 /* SegmentCell.swift */; };
 		DB9ACA002064428600BD4DCF /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */; };
 		DB9F5A6D205DC2C600F03B3B /* RMPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */; };
@@ -170,6 +171,7 @@
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
 		DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB8997F21FAC0320006A5246 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		DB8CA198207D9CF20011E25A /* RMGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGeocoder.swift; sourceTree = "<group>"; };
 		DB8D52621FF5C438003A80C1 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
 		DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewController.swift; sourceTree = "<group>"; };
 		DB9F5A6C205DC2C600F03B3B /* RMPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPageControl.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */,
+				DB8CA198207D9CF20011E25A /* RMGeocoder.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
 				DB9F5A6D205DC2C600F03B3B /* RMPageControl.swift in Sources */,
+				DB8CA199207D9CF20011E25A /* RMGeocoder.swift in Sources */,
 				DBF07A221F8AA576001645D5 /* Constants.swift in Sources */,
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,

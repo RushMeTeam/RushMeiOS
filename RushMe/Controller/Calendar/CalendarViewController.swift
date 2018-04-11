@@ -19,6 +19,10 @@ ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
       self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+      self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
+      if !Campus.shared.hasFavorites {
+        self.favoritesSegmentControl.selectedSegmentIndex = 0
+      }
       self.viewWillAppear(true)
     }
   }
@@ -111,16 +115,6 @@ ScrollableItem {
   // MARK: ViewDidLoad and ViewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
-    //    if (self.revealViewController() != nil) {
-    //      // Allow drawer button to toggle the lefthand drawer menu
-    //      drawerButton.target = self.revealViewController()
-    //      drawerButton.action = #selector(self.revealViewController().revealToggle(_:))
-    //      // Allow drag to open drawer, tap out to close
-    //      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
-    //      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
-    //    }
-    //navigationController?.navigationBar.isTranslucent = false
-    //navigationController?.navigationBar.alpha = 1
     navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
@@ -140,22 +134,21 @@ ScrollableItem {
     
     // TODO: Implement Day Selection
     collectionView.allowsMultipleSelection = false
-    Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler: handleNewFrat(oldValue:newValue:))
+    //Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler: handleNewFrat(oldValue:newValue:))
     
   }
-  func handleNewFrat(oldValue : Set<String>?, newValue : Set<String>) {
-    DispatchQueue.main.async {
-      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0)) 
-    }
-  }
+//  func handleNewFrat(oldValue : Set<String>?, newValue : Set<String>) {
+//    DispatchQueue.main.async {
+//      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0)) 
+//    }
+//  }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    
     //viewingFavorites = favoritesShouldBeEnabled
-    DispatchQueue.global(qos: .userInitiated).async {
-      self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
-    }
+//    DispatchQueue.global(qos: .userInitiated).async {
+//      self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+//    }
     favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     shareButton.isEnabled = flatDataSource.count != 0
     if let _ = firstEvent {
@@ -386,7 +379,6 @@ ScrollableItem {
     inEventView = false
     eventViewController!.selectedEvents = events(forIndexPath: indexPath)
     if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
-      
       if let todaysEvent = collectionCell.eventsToday?.first {
         self.dateLabel.text =
           DateFormatter.localizedString(from: todaysEvent.startDate,
@@ -394,7 +386,8 @@ ScrollableItem {
                                         timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
                                                                                      inSameDayAs: RMDate.Today) ? " (Today)" : "")
         //collectionCell.backgroundColor = UIColor.blue
-        
+
+        UISelectionFeedbackGenerator().selectionChanged()
       }
       else {
         dateLabel?.text = " "

@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     //    // Remove the default shadow to keep with the simplistic theme
     //    
     //    
+    Campus.shared.pullFratsFromSQLDatabase()
     self.window = UIWindow(frame: UIScreen.main.bounds)
     let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
     let scrollPageVC = mainStoryboard.instantiateViewController(withIdentifier: "scrollVC") as! ScrollPageViewController
@@ -82,9 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     swRevealVC.rearViewRevealOverdraw = 0
     swRevealVC.rearViewRevealWidth = 64
     drawerMenuVC.pageDelegate = scrollPageVC
-    
+    window!.backgroundColor = .white
     SQLHandler.shared.informAction(action: "App Loaded")
-    Campus.shared.pullFratsFromSQLDatabase()
+    
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {

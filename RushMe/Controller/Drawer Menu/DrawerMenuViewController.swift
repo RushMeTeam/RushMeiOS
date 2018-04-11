@@ -29,6 +29,19 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
                      UIImage(named: "SettingsIcon")]
   lazy var buttons = [UIButton?](repeating: nil, count: buttonIcons.count)
   lazy var canvasViews : [UIView?] = [UIView?](repeating: nil, count: buttonIcons.count)
+  var currentCalculatedPage : Int = 1 {
+    willSet {
+      if newValue != currentCalculatedPage && newValue != currentPage {
+       UISelectionFeedbackGenerator().selectionChanged() 
+      }
+    }
+  }
+      
+    
+  func calculateCurrentPage(forOffset offset : CGPoint) -> Int {
+    let pageWidth = scrollView.frame.height
+    return Int(floor(1-((offset.y)/pageWidth)))
+  }
   private(set) var currentPage : Int = 1
   func set(newCurrentPage : Int) {
     if newCurrentPage >= 0, newCurrentPage < buttons.count {
@@ -39,6 +52,7 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   override func viewDidLoad() {
     scrollView.bounces = false
     view.addGestureRecognizer(scrollView.panGestureRecognizer)
+   
   }
   
   @objc func buttonHit(sender : UIButton) {
@@ -64,7 +78,6 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
         let newButton = UIButton()
         buttons[bNum] = newButton
         //newButton.addTarget(self, action: #selector(buttonHit(sender:)), for: .touchUpInside)
-
         newButton.setImage(buttonIcons[bNum], for: .normal)  
         newButton.tintColor = .white
         var newFrame = scrollView.frame
@@ -82,11 +95,18 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
                                      newButton.topAnchor.constraint(equalTo: canvasView.topAnchor)])
         canvasViews[bNum] = canvasView
       }
+      else {
+       canvasViews[bNum]?.layoutSubviews() 
+      }
     }
+    scrollView.delegate = nil
     scrollView.contentSize = CGSize.init(width: scrollView.bounds.width/2, height: CGFloat(buttonIcons.count)*scrollView.frame.height)
+    scrollView.delegate = self
+    scrollView.contentOffset = CGPoint.init(x: 0, y: scrollView.frame.height * CGFloat(currentPage))
     
   }
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    currentCalculatedPage = calculateCurrentPage(forOffset: scrollView.contentOffset)
     pageDelegate?.scrollViewDidScroll(scrollView)
   }
   
@@ -105,12 +125,12 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
   }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     loadViewIfNeeded()
     adjustScrollView()
-    scrollView.contentOffset = CGPoint.init(x: 0, y: scrollView.frame.height * CGFloat(currentPage))
   }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -121,7 +141,7 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
       }
       self.canvasViews = [UIView?](repeating: nil, count: self.buttonIcons.count)
       self.adjustScrollView()
-      self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.scrollView.frame.height * CGFloat(self.currentPage))
+      //self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.scrollView.frame.height * CGFloat(self.currentPage))
       if self.isViewLoaded {
         if size.height < size.width {
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 

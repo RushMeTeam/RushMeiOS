@@ -136,11 +136,11 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
        return Array(Campus.shared.favoritedFrats)
       }
       // Display all fraternities, sorted by name
-      else if !RMUserPreferences.shuffleEnabled {
+      else if !RMUserPreferences.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
         return Array(Campus.shared.fratNames).sorted()
       }
       // Display all fraternities, shuffled
-      else if let _ = shuffledFrats, !self.refreshControl!.isRefreshing {
+      else if let _ = shuffledFrats {
         return shuffledFrats!
       }
       // Shuffle, then display all fraternities
@@ -173,13 +173,6 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Set up slideout menu
-//    if let VC = self.revealViewController().rearViewController as? DrawerMenuViewController {
-//      VC.masterVC = self.splitViewController
-//    }
-    // Refresh control
-    navigationController?.setNavigationBarHidden(false, animated: true)
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController?.navigationBar.shadowImage = UIImage()
     refreshControl = UIRefreshControl()
@@ -196,6 +189,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     searchController.searchBar.tintColor = RMColor.AppColor
     searchController.searchBar.barTintColor = UIColor.white
     searchController.obscuresBackgroundDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
     view.sendSubview(toBack: tableView)
     // Set Search Bar placeholder text, for when a search has not been entered
     searchController.searchBar.placeholder = "Search Fraternities"
@@ -207,8 +201,8 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     // Ensure the menu button toggles the menu
     // Refresh control 
     refreshControl = UIRefreshControl()
+    
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-    refreshControl!.beginRefreshing()
     // Add a progress view to indicate loading status
     //    self.navigationController!.navigationBar.addSubview(progressView)
     
@@ -217,9 +211,6 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     let wrapperView = UIView()
     wrapperView.frame.size.height = 44
     let imageView = UIImageView.init(image: RMImage.LogoImage)
-//    imageView.contentMode = .scaleAspectFit
-//    imageView.tintColor = RMColor.AppColor
-//    imageView.backgroundColor = UIColor.clear
     wrapperView.backgroundColor = UIColor.clear
     wrapperView.clipsToBounds = false
     wrapperView.layer.masksToBounds = false
@@ -238,23 +229,33 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     }
     //wrapperView.addSubview(searchController.searchBar)
     //searchController.searchBar.center = wrapperView.center
-    let tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.width, height: 88))
+    let tableHeaderView = UIView()//.init(frame: CGRect.init(x: 0, y: 0, width: self.tableView.frame.width, height: 88))
+    
     tableHeaderView.backgroundColor = .white
     //self.tableView.tableHeaderView = UIView()
-    searchController.searchBar.frame = CGRect.init(x: 0, y: 0, width: tableHeaderView.frame.width, height: 52)
+    //searchController.searchBar.frame = CGRect.init(x: 0, y: 0, width: tableHeaderView.frame.width, height: 52)
     searchController.searchBar.backgroundImage = UIImage()
     
-    favoritesSegmentControl.frame = CGRect(x: 6, y: searchController.searchBar.frame.maxY+4, width: tableHeaderView.frame.width-12, height: 28)
+    //favoritesSegmentControl.frame = CGRect(x: 6, y: searchController.searchBar.frame.maxY+4, width: tableHeaderView.frame.width-12, height: 28)
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
-    
+    //searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
+    favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
+    tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.tableHeaderView = tableHeaderView
     tableHeaderView.addSubview(searchController.searchBar)
     tableHeaderView.addSubview(favoritesSegmentControl)
-    tableView.tableHeaderView = tableHeaderView
-  
-//    imageView.center = wrapperView.center
+    NSLayoutConstraint.activate([tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                 tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+                                 tableHeaderView.heightAnchor.constraint(greaterThanOrEqualToConstant: 88),
+                                 favoritesSegmentControl.topAnchor.constraint(equalTo: searchController.searchBar.bottomAnchor, constant: 4),
+                                 favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 6),
+                                 favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -6),
+                                 favoritesSegmentControl.heightAnchor.constraint(equalToConstant: 28),
+                                 tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 4)])
+
     self.navigationItem.titleView = wrapperView
     navigationItem.titleView?.isUserInteractionEnabled = true
     searchController.hidesNavigationBarDuringPresentation = false
@@ -265,15 +266,18 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     // Put the progress view at the bottom of the navigation bar
     progressView.frame.origin.y = wrapperView.frame.maxY + 37//36//UIApplication.shared.statusBarFrame.height//navigationController!.navigationBar.frame.height - progressView.frame.height// //+
     progressView.frame.origin.x = -166
-    Campus.shared.loadingObservable.addObserver(forOwner: self, handler: handleNewLoading(oldValue:newValue:))
+    //Campus.shared.loadingObservable.addObserver(forOwner: self, handler: handleNewLoading(oldValue:newValue:))
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
     Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler : handleNewFraternity(oldValue:newValue:))
+  
   }
   
   // MARK: - Data Handling
   func dataUpdate() {
-    if viewingFavorites {
-     tableView.reloadSections(IndexSet.init(integersIn: 0...0), with: .fade)
+    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites    
+    if let _ = shuffledFrats {
+     shuffledFrats!.shuffle()
+      self.reloadTableView()
     }
     Campus.shared.pullFratsFromSQLDatabase()
   }
@@ -402,15 +406,20 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     }
   }
   func handleNewLoading(oldValue : Bool?, newValue: Bool) {
-    DispatchQueue.main.async {
-      _ = newValue ? self.refreshControl?.beginRefreshing() : self.refreshControl?.endRefreshing()
-    }
+//    DispatchQueue.main.async {
+//      _ = newValue ? self.refreshControl?.beginRefreshing() : self.refreshControl?.endRefreshing()
+//    }
   }
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
       self.progressView.isHidden = newValue == 1
       self.progressView.setProgress(newValue, animated: true)
+      if newValue == 1 {
+        
+        self.refreshControl?.endRefreshing() 
+        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities")
+      }
     } 
   }
   // MARK: - Transitions
@@ -424,24 +433,20 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   }
  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //self.performSegue(withIdentifier: "showDetail", sender: nil)
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
     if let indexPath = tableView.indexPathForSelectedRow {
-      // row-1 because first cell is the segment control
       let row = indexPath.row
       if segue.identifier == "showDetail" {
           let fratName = self.dataKeys[row]
-          SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
+            SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
             let controller = segue.destination.childViewControllers.first as! UIPageViewController
             controller.dataSource = self
             controller.delegate = self
             controller.view.backgroundColor = .white
-            //navigationItem.leftItemsSupplementBackButton = true
-            //controller.navigationItem.leftItemsSupplementBackButton = true
             navigationController?.setNavigationBarHidden(false, animated: true)
             let dVC = detailVC
             dVC.selectedFraternity = selectedFraternity
@@ -469,6 +474,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     else {
       Campus.shared.removeFavorite(named: fratName)
     }
+    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
   
   // MARK: - Table View

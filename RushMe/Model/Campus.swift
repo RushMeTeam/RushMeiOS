@@ -10,7 +10,7 @@ import UIKit
 // Create a shared instance of the Campus class which
 // cannot be deinstantiated or instantiated, except by
 // the App itself
-let campusSharedInstance = Campus(loadFromFile: true)
+//let campusSharedInstance = 
 // Describe three quality metrics
 enum Quality : Int {
   case High = 3
@@ -186,15 +186,10 @@ class Campus: NSObject {
   }
   
   // MARK: Shared Instance (singleton)
-  @objc static var shared : Campus {
-    get {
-     return campusSharedInstance 
-    }
-  }
+  @objc static let shared : Campus = Campus(loadFromFile: true)
   private(set) var loadingObservable = Observable<Bool>(false)
   private(set) var loading = false {
     willSet {
-      print("loading set to", loading)
      loadingObservable.value = newValue 
     }
   }
@@ -222,6 +217,7 @@ class Campus: NSObject {
           self.percentageCompletion = Float(numberFraternitiesCompleted) / Float(dictArray.count)
         }
         self.loading = false
+        RMGeocoder.geocode(selectedFraternities: Array(Campus.shared.fratNames))
       } 
     }
     

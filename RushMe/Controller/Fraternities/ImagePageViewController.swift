@@ -20,14 +20,13 @@ UIScrollViewDelegate {
   }
   lazy var pages : [UIView?] = [UIView.init()]
   
-  lazy var scrollIndicator: CAShapeLayer = CAShapeLayer()
   var currentPageIndex : Int = 0 {
     willSet {
       let correctedNewValue = min(numberOfPages - 1, max(newValue, 0))
       if correctedNewValue != currentPageIndex {
         pageControl.currentPage = newValue
         // Update information!!!
-        self.loadCurrentPages(page: self.pageControl.currentPage)
+        loadCurrentPages(page: self.pageControl.currentPage)
       }
     }
   }
@@ -46,10 +45,9 @@ UIScrollViewDelegate {
     }
   }
   
-  
   var startingPageIndex : Int = 1 {
     didSet {
-      loadView()
+      loadViewIfNeeded()
       pageControl.currentPage = startingPageIndex
       transitioning = true
       goToPage(page: startingPageIndex, animated: true)
@@ -85,25 +83,21 @@ UIScrollViewDelegate {
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransition(to: size, with: coordinator)
     coordinator.animate(alongsideTransition: nil) { (_) in
-      self.adjustScrollView()
       self.pages = [UIView?](repeatElement(nil, count: self.numberOfPages))
+      self.adjustScrollView()
       self.goToPage(page: self.pageControl.currentPage, animated: false)
+      
       self.transitioning = false
     }
-    super.viewWillTransition(to: size, with: coordinator)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     scrollView.delegate = self
     pageControl.hidesForSinglePage = true
-    
-    
     pages = [UIView?](repeating: nil, count : numberOfPages)
     pageControl.numberOfPages = numberOfPages
     pageControl.currentPage = startingPageIndex
-    
-    self.scrollView.layer.addSublayer(scrollIndicator)
     goToPage(page: startingPageIndex, animated: false)
   }
   
@@ -118,13 +112,15 @@ UIScrollViewDelegate {
       return 
     }
     if pages[page] == nil {
-      let newView = UIImageView.init()
+      let newView = UIImageView()
+      newView.contentMode = contentMode
       //newView.backgroundColor = page == 0 ? .blue : .green
       var newFrame = scrollView.frame
       newFrame.origin.x = newFrame.width * CGFloat(page)
       newFrame.origin.y = -self.topLayoutGuide.length
       newFrame.size.height += self.topLayoutGuide.length
       let canvasView = UIView.init(frame: newFrame)
+      scrollView.translatesAutoresizingMaskIntoConstraints = false
       scrollView.addSubview(canvasView)
       newView.translatesAutoresizingMaskIntoConstraints = false
       canvasView.addSubview(newView)
@@ -133,9 +129,11 @@ UIScrollViewDelegate {
                                    newView.topAnchor.constraint(equalTo: canvasView.topAnchor),
                                    newView.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)
         ])
-      newView.contentMode = contentMode
       newView.setImageByURL(fromSource: imageNames[page])
       pages[page] = canvasView
+    }
+    else {
+     pages[page]!.layoutIfNeeded()
     }
   }
   fileprivate func loadCurrentPages(page: Int) {
@@ -143,7 +141,6 @@ UIScrollViewDelegate {
       //print("Attemped to load multiple illegal pages surrounding page number", page)
       return
     }
-    pages = [UIView?](repeating: nil, count: numberOfPages)
     loadPage(Int(page) - 1)
     loadPage(Int(page))
     loadPage(Int(page) + 1)

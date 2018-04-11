@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ESl-Ik-nOi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ESl-Ik-nOi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -43,7 +43,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.20000000000000001" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hy7-tH-iGk" userLabel="HighlightView">
-                                <rect key="frame" x="0.0" y="301.5" width="128" height="64"/>
+                                <rect key="frame" x="0.0" y="302" width="128" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -85,6 +85,7 @@
                             <constraint firstItem="HPz-Z9-q8j" firstAttribute="centerY" secondItem="UHp-z6-nln" secondAttribute="centerY" id="tdV-UN-mYp"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="128" height="667"/>
                     <size key="freeformSize" width="128" height="667"/>
                     <connections>
                         <outlet property="rushMeLogo" destination="h88-Nz-pbh" id="Gqh-sM-VYS"/>
@@ -167,7 +168,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="pageControl" destination="5RB-ug-RsE" id="UE0-as-eDk"/>
                         <outlet property="viewControllerScrollView" destination="YSY-zM-Lp9" id="OFC-LG-5zp"/>
@@ -531,9 +531,9 @@
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
                 <navigationController title="Master" navigationBarHidden="YES" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -541,6 +541,7 @@
                         <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="VvR-aN-r2x"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5054" y="3051"/>
         </scene>
@@ -548,6 +549,7 @@
         <scene sceneID="c6C-Ox-J46">
             <objects>
                 <pageViewController storyboardIdentifier="detailPageVC" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="r8X-mU-zrS" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="Mzp-xq-oMQ"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8I-Aq-BmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -563,11 +565,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jTc-Oc-AYk"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Me9-k4-qFh" userLabel="Detail View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="886"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgl-UO-Qmw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="886"/>
                                 <subviews>
                                     <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-ZE-WZP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="777"/>
@@ -639,13 +641,13 @@
                                                     <segue destination="U0o-B8-cSe" kind="embed" id="tmK-b0-YZV"/>
                                                 </connections>
                                             </containerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNY-Nv-RGm">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GPA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNY-Nv-RGm">
                                                 <rect key="frame" x="8" y="536" width="36" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWe-bl-VJ1">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWe-bl-VJ1">
                                                 <rect key="frame" x="52" y="536" width="24" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -754,6 +756,7 @@
                             <constraint firstItem="jgl-UO-Qmw" firstAttribute="centerX" secondItem="Me9-k4-qFh" secondAttribute="centerX" id="uhu-sF-Ukf"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="mOI-FS-AaM">
                         <barButtonItem key="backBarButtonItem" title="Fraternities" id="BI9-vG-QVV"/>
@@ -964,8 +967,8 @@
         <!--Navigation Controller-->
         <scene sceneID="oZY-gF-bXO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NXk-GR-Fbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController modalPresentationStyle="currentContext" id="D03-Rx-fMO" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VNC-EY-Bno">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -974,6 +977,7 @@
                         <segue destination="r8X-mU-zrS" kind="relationship" relationship="rootViewController" id="gFd-KG-Mtk"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXk-GR-Fbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4234" y="3051"/>
         </scene>
@@ -1083,6 +1087,7 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="Zdf-7t-Un8"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -1165,13 +1170,13 @@
                                     <action selector="clearCache:" destination="jXg-Dh-xt4" eventType="touchUpInside" id="IxO-QH-0no"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shuffle fraternities (alpha)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0U-cS-hli">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shuffle fraternities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0U-cS-hli">
                                 <rect key="frame" x="16" y="57" width="286" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eFM-qC-j2x">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFM-qC-j2x">
                                 <rect key="frame" x="310" y="52" width="51" height="31"/>
                                 <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="onTintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

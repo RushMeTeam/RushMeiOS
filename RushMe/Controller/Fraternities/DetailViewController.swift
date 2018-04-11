@@ -193,6 +193,7 @@ override func awakeFromNib() {
 // MARK: ViewDidLoad
 override func viewDidLoad() {
   super.viewDidLoad()
+  
   self.view.bringSubview(toFront: coverImageView)
   self.view.bringSubview(toFront: profileImageView)
   coverImageView.layer.masksToBounds = true
@@ -247,7 +248,6 @@ override func viewDidLoad() {
   self.coverImageView.clipsToBounds = true
   self.configureView()
 }
-
 override func viewWillAppear(_ animated: Bool) {
   super.viewWillAppear(animated)
   self.profileImageView.transform = CGAffineTransform.identity
@@ -339,6 +339,7 @@ func configureView() {
     
     
   }
+  
   
 }
 override func didReceiveMemoryWarning() {

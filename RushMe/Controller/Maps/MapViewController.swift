@@ -11,12 +11,23 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   func updateData() {
-    DispatchQueue.main.async {
       self.loadViewIfNeeded()
       self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
+      self.favoritesControl.isEnabled = Campus.shared.hasFavorites
+      if !Campus.shared.hasFavorites {
+        self.favoritesControl.selectedSegmentIndex = 0
+      }
       self.viewWillAppear(false)
-    }
   }
+  lazy var indicator : UIActivityIndicatorView = UIActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: 128, height: 128))
+  lazy var overView : UIVisualEffectView = {
+    let newView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .light))
+    newView.frame = view.bounds
+    indicator.center = newView.center
+    newView.contentView.addSubview(indicator)
+    indicator.startAnimating()
+    return newView
+  }()
 
   @IBOutlet weak var mapView: MKMapView!
   //  @IBOutlet var stepper: UIStepper!
@@ -48,11 +59,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handleProgress(oldValue:newValue:))
+    _ = Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handleProgress(oldValue:newValue:))
+    handleGeocoding(oldValue: nil, newValue: RMGeocoder.observableLocations.addObserver(forOwner: self, handler: handleGeocoding(oldValue:newValue:)))
+  
+    
+  }
+  func handleGeocoding(oldValue : [String:CLLocation]?, newValue: [String: CLLocation]) {
+    
+    let safeOldValue = oldValue ?? [String:CLLocation].init()
+    print(newValue.count)
+    let changedFrats = Set(newValue.keys).symmetricDifference(Set<String>(safeOldValue.keys))
+      for fratName in changedFrats {
+        let frat = Campus.shared.fraternitiesDict[fratName]!
+          
+          let annotation = MKPointAnnotation()
+          annotation.coordinate = newValue[fratName]!.coordinate
+          annotation.title = frat.name
+          annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
+          frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
+          mapView.addAnnotation(annotation)
+        }
+  
   }
   func handleProgress(oldValue : Float?, newValue : Float) {
     if newValue == 1 {
-     self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: true) 
+      DispatchQueue.main.async {
+        //self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: true) 
+      }
     }
   }
   override func didReceiveMemoryWarning() {
@@ -62,55 +95,31 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
     favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
   func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
     self.favoritesControl.isEnabled = false
+    self.indicator.startAnimating()
+    self.view.addSubview(self.overView)
     var loadList = Campus.shared.favoritedFrats
     if fromAllFrats {
       loadList = Set(Campus.shared.fraternitiesDict.keys)
     }
+    let geocoder = CLGeocoder()
     var annotations = [MKAnnotation]()
-    for fratName in loadList {
-      let frat = Campus.shared.fraternitiesDict[fratName]!
-      if let annotation = frat.getProperty(named: RMFratPropertyKeys.fratMapAnnotation) as? MKAnnotation {
-        annotations.append(annotation)
-      }
-      
-      else if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address, completionHandler: {
-          (placemarks, error) in
-          if let location = placemarks?.first?.location {
-            let annotation = MKPointAnnotation.init()
-            annotation.coordinate = location.coordinate
-            annotation.title = frat.name
-            annotation.subtitle = address
-            
-            annotations.append(annotation)
-            frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
-          }
-          else if let _ = error {
-            print(error!.localizedDescription)
-          }
-          else {
-            // handle no location found
-            print("No location found for " + frat.name + " with address " + address)
-          }
-        })
-      }
-      
-      
-    }
-    if mapView.annotations.isEmpty || annotations.count > mapView.annotations.count || forced {
-      self.mapView.removeAnnotations(mapView.annotations)
+    
+    if self.mapView.annotations.isEmpty || annotations.count > self.mapView.annotations.count || forced {
+      self.mapView.removeAnnotations(self.mapView.annotations)
       self.mapView.addAnnotations(annotations)
     }
-    self.mapView.isScrollEnabled = !mapView.annotations.isEmpty
+    self.mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites
+    overView.removeFromSuperview()
+    print("removed")
+   
+    
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     if let fratName = view.annotation?.title {

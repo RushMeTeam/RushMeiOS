@@ -12,13 +12,10 @@ class Observable<ValueType> {
   typealias ChangeHandler = (_ oldValue : ValueType?, _ newValue : ValueType) -> ()
   var value : ValueType {
     willSet {
-      DispatchQueue.global(qos: .utility).async {
-        for (_, handlers) in self.observers {
-          for handler in handlers {
-            DispatchQueue.main.async {
-              handler(self.value, newValue) 
-            }
-          }
+      for (_, handlers) in self.observers {
+        for handler in handlers {
+          handler(self.value, newValue) 
+          
         }
       }
     }
@@ -38,13 +35,14 @@ class Observable<ValueType> {
     return nil
   }
   
-  func addObserver(forOwner owner : AnyObject, handler : @escaping ChangeHandler) {
+  func addObserver(forOwner owner : AnyObject, handler : @escaping ChangeHandler) -> ValueType {
     if let index = self.index(ofOwner: owner) {
      self.observers[index].handlers.append(handler) 
     }
     else {
       self.observers.append((owner: owner, handlers: [handler]))
     }
+    return self.value
   }
   
 }

@@ -9,13 +9,6 @@
 import UIKit
 import OHMySQL
 
-fileprivate let sharedSQLHandler = SQLHandler.init(userName: RMNetwork.userName,
-                                       password: RMNetwork.password,
-                                       serverIP: RMNetwork.IP,
-                                       dbName: RMNetwork.databaseName,
-                                       port: 3306,
-                                       socket: nil)
-
 // Centralize requests made to an SQL server
 class SQLHandler  {
   let user : OHMySQLUser?
@@ -45,13 +38,15 @@ class SQLHandler  {
     context!.storeCoordinator = coordinator!
     
   }
-  static var shared : SQLHandler {
-    get {
-      return sharedSQLHandler 
-    }
-  }
+  static let shared : SQLHandler = SQLHandler.init(userName: RMNetwork.userName,
+                                                                      password: RMNetwork.password,
+                                                                      serverIP: RMNetwork.IP,
+                                                                      dbName: RMNetwork.databaseName,
+                                                                      port: 3306,
+                                                                      socket: nil)
   
   func select(fromTable : String, conditions : String? = nil) -> [Dictionary<String, Any>]? {
+    
     let query = OHMySQLQueryRequestFactory.select(fromTable, condition: conditions)
     let qContext = self.context ?? OHMySQLQueryContext()
     qContext.storeCoordinator = coordinator!

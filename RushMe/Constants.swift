@@ -97,7 +97,7 @@ struct RMUser {
 // TODO: Make user preferences save (should include display events before today!)
 struct RMUserPreferences {
   static private var shuffleEnabled_ : Bool? = nil
-  static private var shuffleEnabledDefault = false
+  static private var shuffleEnabledDefault = true
   static var shuffleEnabled : Bool = shuffleEnabled_ ?? shuffleEnabledDefault {
     didSet {
      self.shuffleEnabled_ = self.shuffleEnabled
