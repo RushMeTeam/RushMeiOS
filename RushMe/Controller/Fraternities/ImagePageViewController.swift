@@ -129,11 +129,8 @@ UIScrollViewDelegate {
                                    newView.topAnchor.constraint(equalTo: canvasView.topAnchor),
                                    newView.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)
         ])
-      newView.setImageByURL(fromSource: imageNames[page])
       pages[page] = canvasView
-    }
-    else {
-     pages[page]!.layoutIfNeeded()
+      newView.setImageByURL(fromSource: imageNames[page])
     }
   }
   fileprivate func loadCurrentPages(page: Int) {

@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import OHMySQL
-
-
 enum ShortCutIdentifier : String {
   case Fraternities
   case Maps
@@ -25,7 +22,7 @@ enum ShortCutIdentifier : String {
 }
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
-  
+  var scrollPageVC : ScrollPageViewController!
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -67,8 +64,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     //    
     Campus.shared.pullFratsFromSQLDatabase()
     self.window = UIWindow(frame: UIScreen.main.bounds)
+    if #available(iOS 11, *) {
+      window!.layer.masksToBounds = true
+      window!.layer.cornerRadius = 5
+      window!.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    
     let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-    let scrollPageVC = mainStoryboard.instantiateViewController(withIdentifier: "scrollVC") as! ScrollPageViewController
+    self.scrollPageVC = mainStoryboard.instantiateViewController(withIdentifier: "scrollVC") as! ScrollPageViewController
     let scrollPageVCNav = UINavigationController.init(rootViewController: scrollPageVC)
     let swRevealVC = mainStoryboard.instantiateViewController(withIdentifier: "swRevealVC") as! SWRevealViewController
     let drawerMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
@@ -83,9 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     swRevealVC.rearViewRevealOverdraw = 0
     swRevealVC.rearViewRevealWidth = 64
     drawerMenuVC.pageDelegate = scrollPageVC
-    window!.backgroundColor = .white
-    SQLHandler.shared.informAction(action: "App Loaded")
-    
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
@@ -121,20 +121,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
       completionHandler(false)
       return
     }
-    if let scrollVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "scrollVC") as? ScrollPageViewController {
-      switch shortcutIdentifier {
-      case .Fraternities:
-        //scrollVC.goToPage(page: 1, animated: false)
+    switch shortcutIdentifier {
+    case .Fraternities:
+      if let _ = scrollPageVC, scrollPageVC.isViewLoaded {
+        scrollPageVC?.goToPage(page: 1, animated: false)
+      }
+      else {
         ScrollPageViewController.startingPageIndex = 1
-      case .Maps:
-        //scrollVC.goToPage(page: 0, animated: false)
+      }
+    case .Maps:
+      if let _ = scrollPageVC, scrollPageVC.isViewLoaded {
+        scrollPageVC?.goToPage(page: 0, animated: false)
+      }
+      else {
         ScrollPageViewController.startingPageIndex = 0
-      case .Calendar:
-        //scrollVC.goToPage(page: 2, animated: false)
+      }
+    case .Calendar:
+      if let _ = scrollPageVC, scrollPageVC.isViewLoaded {
+        scrollPageVC?.goToPage(page: 2, animated: false)
+      }
+      else {
         ScrollPageViewController.startingPageIndex = 2
       }
-      completionHandler(true)
+      
     }
+    completionHandler(true)
+    
+    
+   
   }
   
   //  private func shouldPerformActionFor(shortcutItem: UIApplicationShortcutItem) -> Bool {

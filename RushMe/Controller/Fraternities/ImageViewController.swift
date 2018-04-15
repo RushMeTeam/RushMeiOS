@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate {
-  var image : UIImage = RMImage.NoImage {
+  var image : UIImage = UIImage() {
     willSet {
       self.loadViewIfNeeded()
       self.imageView.image = newValue 
@@ -20,10 +20,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   var visualEffectView : UIVisualEffectView?
   override func viewDidLoad() {
     super.viewDidLoad()
-    visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
-    visualEffectView!.frame = self.view.frame
-    self.view.addSubview(visualEffectView!)
-    self.view.sendSubview(toBack: visualEffectView!)
+    
     self.view.backgroundColor = UIColor.clear
     self.scrollView.maximumZoomScale = 3
     self.scrollView.minimumZoomScale = 1
@@ -41,6 +38,10 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     self.imageView?.image = image
     self.imageView?.layer.masksToBounds = true
     self.imageView?.layer.cornerRadius = RMImage.CornerRadius
+    visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+    visualEffectView!.frame = self.view.frame
+    self.view.addSubview(visualEffectView!)
+    self.view.sendSubview(toBack: visualEffectView!)
   }
   
   override func didReceiveMemoryWarning() {

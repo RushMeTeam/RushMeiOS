@@ -17,7 +17,7 @@ class Fraternity : NSObject {
   let chapter : String
   // The previewImage is the image seen when the user scrolls through a list of fraternities
   // e.g. a picture of the house, possibly the profile image
-  var previewImage : UIImage
+  var previewImage : UIImage?
   // All the Fraternity's associated rush events are stored in events
   var events = [Date : FratEvent]()
   // All data in the Fraternity object is stored again in properties

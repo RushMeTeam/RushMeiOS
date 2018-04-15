@@ -6,7 +6,7 @@ use_frameworks!
 target 'RushMe' do
   pod 'iCalKit', :git => 'https://github.com/kiliankoe/iCalKit.git'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-
+#   pod 'NVActivityIndicatorView'
   pod 'OHMySQL'
   pod 'DeviceKit', '~> 1.3.0'
 #  pod 'Firebase'

@@ -77,11 +77,13 @@ class ScrollPageViewController: UIViewController,
       if let _ = childVC as? UINavigationController,
         let tableVC = childVC.childViewControllers.first as? MasterViewController,
         let row =  tableVC.dataKeys.index(of: fratName) {
+        print(childVC)
         escapeDetailIfNecessary()
         tableVC.viewingFavorites = false
         tableVC.tableView.selectRow(at: IndexPath.init(row: row, section: 0), animated: false, scrollPosition: .top)
         tableVC.performSegue(withIdentifier: "showDetail", sender: self)
         goToPage(page: 1, animated: true)
+        return
       }
     }
   }
@@ -90,7 +92,6 @@ class ScrollPageViewController: UIViewController,
   }
   
   @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
-    //present(ScrollPageViewController.getViewController(forIdentifier: "settingsVC"), animated: true, completion: nil)
     self.revealViewController().revealToggle(animated: true)
   }
   @objc func presentAbout() {
@@ -99,12 +100,60 @@ class ScrollPageViewController: UIViewController,
   }
   
   
-  lazy var setupInitialPages : Void = {
+  private(set) lazy var setupInitialPages : Void = {
     adjustScrollView()
     loadAllPages()
     transitioning = true
     goToPage(page: ScrollPageViewController.startingPageIndex, animated: false)
     transitioning = false
+  }()
+  private(set) lazy var progressBar : UIProgressView = {
+    let bar = UIProgressView()
+    bar.tintColor = RMColor.AppColor
+    bar.trackTintColor = .clear
+    bar.progress = 0
+    return bar
+  }()
+  private(set) lazy var titleImageView : UIImageView = {
+    let imageView = UIImageView.init(image: RMImage.LogoImage)
+    imageView.contentMode = .scaleAspectFit
+    imageView.tintColor = RMColor.AppColor
+    imageView.backgroundColor = .clear
+    imageView.frame = CGRect.init(x: 0, y: 0, width: 32, height: 44)
+    return imageView
+  }()
+  
+  private(set) lazy var setupNavigationBar : Void = {
+    guard let _ = navigationController else {
+     return 
+    }
+    navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController!.navigationBar.shadowImage = UIImage()
+    navigationController!.navigationBar.tintColor = RMColor.AppColor
+    navigationController!.navigationBar.titleTextAttributes =
+      [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
+    navigationController!.navigationBar.isTranslucent = false
+   // navigationController?.navigationBar.backgroundColor = .white//UIColor.white.withAlphaComponent(0.5)
+    navigationController!.navigationBar.barTintColor = .white//.white //RMColor.AppColor
+    navigationController!.navigationBar.layer.backgroundColor = UIColor.white.cgColor
+    navigationController!.navigationBar.layer.shadowColor = UIColor.white.cgColor
+    // Set up Title View
+    navigationItem.titleView = UIView()
+        // TODO: Allow navigation to "About" 
+    titleImageView.translatesAutoresizingMaskIntoConstraints = false
+    progressBar.translatesAutoresizingMaskIntoConstraints = false
+    progressBar.progress = 0
+    navigationItem.titleView!.addSubview(titleImageView)
+    navigationItem.titleView!.addSubview(progressBar)
+    NSLayoutConstraint.activate([titleImageView.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor),
+                                 titleImageView.rightAnchor.constraint(equalTo: navigationController!.navigationBar.rightAnchor),
+                                 titleImageView.heightAnchor.constraint(equalToConstant: min(32, navigationController!.navigationBar.frame.height)),
+                                 titleImageView.centerYAnchor.constraint(equalTo: navigationItem.titleView!.centerYAnchor),
+                                 progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor),
+                                 progressBar.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor),
+                                 progressBar.rightAnchor.constraint(equalTo: navigationController!.navigationBar.rightAnchor)
+                                 ])
+
   }()
   
   fileprivate func adjustScrollView() {
@@ -126,43 +175,35 @@ class ScrollPageViewController: UIViewController,
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    _ = setupNavigationBar
     viewControllerScrollView.delegate = self
     viewControllerScrollView.isScrollEnabled = false
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    navigationController?.navigationBar.shadowImage = UIImage()
+    viewControllerScrollView.backgroundColor = .white
+    
     self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    navigationController?.navigationBar.tintColor = RMColor.AppColor
-    navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.AppColor]
+    
     view.backgroundColor = .white
-    viewControllerScrollView.backgroundColor = .white
-    navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.backgroundColor = .white//UIColor.white.withAlphaComponent(0.5)
-    navigationController?.navigationBar.barTintColor = .white//.white //RMColor.AppColor
-    navigationController?.navigationBar.layer.backgroundColor = UIColor.white.cgColor
-    navigationController?.navigationBar.layer.shadowColor = UIColor.white.cgColor
-    let wrapperView = UIView()
-    let imageView = UIImageView.init(image: RMImage.LogoImage)
-    imageView.contentMode = .scaleAspectFit
-    imageView.tintColor = RMColor.AppColor
-    imageView.backgroundColor = UIColor.clear
-    wrapperView.backgroundColor = UIColor.clear
-    wrapperView.clipsToBounds = false
-    wrapperView.layer.masksToBounds = false
-    imageView.frame.size = CGSize.init(width: 44, height: 32)
-    wrapperView.addSubview(imageView)
-    imageView.center = wrapperView.center
-    self.navigationItem.titleView = wrapperView
-    // TODO: Allow navigation to "About" 
-    //    self.navigationItem.titleView!.isUserInteractionEnabled = true
-    //    let aboutTapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(presentAbout))
-    //    self.navigationItem.titleView!.addGestureRecognizer(aboutTapGestureRecognizer)
     // Do any additional setup after loading the view.
     pages = [UIView?](repeating: nil, count : numberOfPages)
     pageControl.numberOfPages = numberOfPages
     pageControl.currentPage = ScrollPageViewController.startingPageIndex
     goToPage(page: ScrollPageViewController.startingPageIndex, animated: false)
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handlePercentageCompletion(oldValue:newValue:))
+  }
+  private func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
+    DispatchQueue.main.async {
+      self.progressBar.setProgress(max(newValue, 0.05), animated: true) 
+      if newValue == 1 {
+        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
+          self.progressBar.alpha = 0
+        }, completion: { (_) in
+          self.progressBar.progress = 0
+          self.progressBar.alpha = 1
+          (self.orderedViewControllers[2] as? CalendarViewController)?.updateData()
+        })
+      }
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -233,11 +274,7 @@ class ScrollPageViewController: UIViewController,
     currentPage = Int(page)
     
   }
-//  func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//    
-//  }
   func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-    
     currentPage = currentCalculatedPage
   }
   func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {

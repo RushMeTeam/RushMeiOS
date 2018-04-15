@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol FraternityCellDelegate {
-  func cell(withFratName : String, favoriteStatusToValue : Bool)
-}
 
 class AttractiveFratCellTableViewCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
@@ -24,36 +21,40 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    if let iView = previewImageView {
-      iView.layer.masksToBounds = true
-      //iView.layer.cornerRadius = RMImage.CornerRadius
-      iView.contentMode = UIViewContentMode.scaleAspectFill
-      iView.layer.borderColor = imageBorderColor.cgColor
-      iView.layer.borderWidth = 2
-      // If there is no preview image
-      if (iView.image == nil){
-        iView.image = RMImage.NoImage
-      }
-      if gradientLayer == nil {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = iView.frame
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
-        gradientLayer.locations = [0.5, 1.0]
-        iView.layer.insertSublayer(gradientLayer, at: 0)
-        self.gradientLayer = gradientLayer
-        self.titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
-        self.favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
-      }
-      iView.isUserInteractionEnabled = false
-      favoriteButton.imageView?.contentMode = .scaleAspectFit
+    
+    previewImageView.layer.masksToBounds = true
+    //iView.layer.cornerRadius = RMImage.CornerRadius
+    previewImageView.contentMode = UIViewContentMode.scaleAspectFill
+    previewImageView.layer.cornerRadius = 5
+    self.titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    self.favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    previewImageView.isUserInteractionEnabled = false
+    favoriteButton.imageView?.contentMode = .scaleAspectFit
+    for layer in previewImageView.layer.sublayers ?? [] {
+      layer.removeFromSuperlayer()
     }
+    previewImageView.layer.sublayers = nil
+    gradientLayer?.removeFromSuperlayer()
+    gradientLayer = CAGradientLayer()
+    gradientLayer!.drawsAsynchronously = true
+    gradientLayer!.locations = [0.8, 1.0]
+    gradientLayer!.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
+    previewImageView!.layer.insertSublayer(gradientLayer!, at: 0)   
+    
+    
   }
-  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    gradientLayer!.frame = previewImageView.bounds
+    
+    gradientLayer?.layoutIfNeeded()
+  }
   @IBAction func favoriteButtonHit(_ sender: UIButton) {
     isAccentuated = !isAccentuated
     delegate?.cell(withFratName: titleLabel.text ?? "", favoriteStatusToValue: isAccentuated)
     
   }
+
   
   private(set) var imageBorderColor = UIColor.clear {
     didSet {
@@ -63,8 +64,8 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   }
   var isAccentuated : Bool = false {
     didSet {
-      favoriteButton.setBackgroundImage(isAccentuated ? RMImage.FavoritesImageFilled : RMImage.FavoritesImageUnfilled, for: .normal)
-      imageBorderColor =  UIColor.white.withAlphaComponent(0.2) //isAccentuated ? RMColor.AppColor.withAlphaComponent(0.7) :
+      favoriteButton.setImage(isAccentuated ? RMImage.FavoritesImageFilled : RMImage.FavoritesImageUnfilled, for: .normal)
+      //imageBorderColor =  UIColor.white.withAlphaComponent(0.2) //isAccentuated ? RMColor.AppColor.withAlphaComponent(0.7) :
     }
   }
 }

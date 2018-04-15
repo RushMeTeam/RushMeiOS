@@ -187,10 +187,10 @@ class Campus: NSObject {
   
   // MARK: Shared Instance (singleton)
   @objc static let shared : Campus = Campus(loadFromFile: true)
-  private(set) var loadingObservable = Observable<Bool>(false)
-  private(set) var loading = false {
-    willSet {
-     loadingObservable.value = newValue 
+  
+  var isLoading : Bool {
+    get {
+     return percentageCompletion != 0 && percentageCompletion != 1
     }
   }
   private(set) var percentageCompletionObservable = Observable<Float>(0)
@@ -201,8 +201,7 @@ class Campus: NSObject {
   }
   var lastDictArray : [Dictionary<String,Any>]? = nil 
   func pullFratsFromSQLDatabase() {
-    if !loading {
-      self.loading = true
+    if !isLoading {
       DispatchQueue.global(qos: .userInitiated).async {
         var dictArray = [Dictionary<String, Any>()]
         if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
@@ -210,15 +209,22 @@ class Campus: NSObject {
           dictArray = arr
           self.lastDictArray = dictArray
         }
+        self.percentageCompletion = 0.2
         var numberFraternitiesCompleted = 0
         for fraternityDict in dictArray {
           Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           numberFraternitiesCompleted += 1
-          self.percentageCompletion = Float(numberFraternitiesCompleted) / Float(dictArray.count)
+          self.percentageCompletion = 0.2 + 0.8*Float(numberFraternitiesCompleted) / Float(dictArray.count)
         }
-        self.loading = false
-        RMGeocoder.geocode(selectedFraternities: Array(Campus.shared.fratNames))
+        self.percentageCompletion = 1
+//        print("got here")
+        DispatchQueue.main.sync {
+          RMGeocoder.geocode(selectedFraternities: Array(Campus.shared.fratNames))
+        }
       } 
+    }
+    else {
+     print("(Tried to refresh when loading)") 
     }
     
     
@@ -366,32 +372,17 @@ extension Fraternity {
       let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
       var previewImage : UIImage?
       var profileImage : UIImage?
-      if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
-        if let previewImg = pullImage(fromSource: URLString) {
-          previewImage = previewImg
-          profileImage = previewImg
-        }
-      }
+//      if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
+//        if let previewImg = pullImage(fromSource: URLString) {
+//          previewImage = previewImg
+//          profileImage = previewImg
+//        }
+//      }
+      
       self.init(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
       if let _ = profileImage {
         self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
       }
-      //      if loadImages {
-      //        if let URLString = self.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
-      //          if let calendarImg = pullImage(fromSource: URLString) {
-      //            self.setProperty(named: RMDatabaseKey.CalendarImageKey, to: calendarImg)
-      //          }
-      //        }
-      
-      // Get the CoverImage
-      //                  if let URLString = dict[RMDatabaseKey.CoverImageKey] as? String {
-      //                    DispatchQueue.global().async {
-      //                      if let coverImg = Campus.shared.pullImage(fromSource: URLString) {
-      //                        frat.setProperty(named: RMDatabaseKey.CoverImageKey, to: coverImg)
-      //                      }
-      //                    }
-      //                  }
-      //              }
       return
       
     }

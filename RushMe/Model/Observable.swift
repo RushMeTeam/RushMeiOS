@@ -35,14 +35,17 @@ class Observable<ValueType> {
     return nil
   }
   
-  func addObserver(forOwner owner : AnyObject, handler : @escaping ChangeHandler) -> ValueType {
+  func addObserver(forOwner owner : AnyObject, handler : @escaping ChangeHandler) {
     if let index = self.index(ofOwner: owner) {
      self.observers[index].handlers.append(handler) 
     }
     else {
       self.observers.append((owner: owner, handlers: [handler]))
     }
-    return self.value
+  }
+  func addObserverWithReturn(toOwner owner : AnyObject, handler : @escaping ChangeHandler) -> ValueType {
+    addObserver(forOwner: owner, handler: handler)
+    return value
   }
   
 }

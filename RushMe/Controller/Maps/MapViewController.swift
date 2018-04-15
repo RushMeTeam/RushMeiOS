@@ -33,19 +33,36 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   //  @IBOutlet var stepper: UIStepper!
   @IBOutlet weak var informationButton: UIButton!
   
-  @IBOutlet weak var fratNameLabel: UILabel!
-  private let geoCoder = CLGeocoder()
+  @IBOutlet weak var fratNameButton: UIButton!
   
   @IBOutlet weak var favoritesControl: UISegmentedControl!
   
+  var viewingFavorites : Bool {
+    get {
+     return favoritesControl.selectedSegmentIndex == 1 
+    }
+  }
+  private(set) var fratAnnotations = [MKAnnotation]()
+  
   @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
     self.loadAnnotationsIfNecessary(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true, forced: true)
-    if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
-        mapView.selectAnnotation(onlyAnnotation, animated: true)
+    fratNameButton.setTitle(nil, for: .normal)
+    if viewingFavorites {
+      let notFavorited = mapView.annotations.filter { (annotation) -> Bool in
+        return annotation.title == nil || !Campus.shared.favoritedFrats.contains(annotation.title!!)
+      }
+      mapView.removeAnnotations(notFavorited)
+    } else {
+      mapView.addAnnotations(fratAnnotations)
     }
-    else {
-     fratNameLabel.text = "" 
-    }
+    mapView.showAnnotations(mapView.annotations, animated: true)
+    
+//    if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
+//        mapView.selectAnnotation(onlyAnnotation, animated: true)
+//    }
+//    else {
+//     fratNameLabel.text = "" 
+//    }
   }
 
   let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(42.729109), longitude: CLLocationDegrees(-73.677621))
@@ -55,38 +72,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
     // Do any additional setup after loading the view.
+    self.fratNameButton.title
+    self.mapView.layer.cornerRadius = 5
+    self.mapView.layer.masksToBounds = true
     self.mapView.delegate = self
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    _ = Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handleProgress(oldValue:newValue:))
-    handleGeocoding(oldValue: nil, newValue: RMGeocoder.observableLocations.addObserver(forOwner: self, handler: handleGeocoding(oldValue:newValue:)))
-  
-    
+    RMGeocoder.observableLocations.addObserver(forOwner: self, handler: handleGeocoding(oldValue:newValue:))
   }
   func handleGeocoding(oldValue : [String:CLLocation]?, newValue: [String: CLLocation]) {
-    
     let safeOldValue = oldValue ?? [String:CLLocation].init()
-    print(newValue.count)
     let changedFrats = Set(newValue.keys).symmetricDifference(Set<String>(safeOldValue.keys))
-      for fratName in changedFrats {
-        let frat = Campus.shared.fraternitiesDict[fratName]!
-          
-          let annotation = MKPointAnnotation()
-          annotation.coordinate = newValue[fratName]!.coordinate
-          annotation.title = frat.name
-          annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
-          frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
-          mapView.addAnnotation(annotation)
-        }
-  
-  }
-  func handleProgress(oldValue : Float?, newValue : Float) {
-    if newValue == 1 {
-      DispatchQueue.main.async {
-        //self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: true) 
-      }
+    for fratName in changedFrats {
+      let frat = Campus.shared.fraternitiesDict[fratName]!
+      let annotation = MKPointAnnotation()
+      annotation.coordinate = newValue[fratName]!.coordinate
+      annotation.title = frat.name
+      annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
+      frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
+      mapView.addAnnotation(annotation)
+      
     }
+    fratAnnotations = mapView.annotations
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -99,45 +107,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   }
   // TODO : Fix favorites annotations BUG
   func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
-    self.favoritesControl.isEnabled = false
     self.indicator.startAnimating()
-    self.view.addSubview(self.overView)
-    var loadList = Campus.shared.favoritedFrats
-    if fromAllFrats {
-      loadList = Set(Campus.shared.fraternitiesDict.keys)
-    }
-    let geocoder = CLGeocoder()
-    var annotations = [MKAnnotation]()
-    
-    if self.mapView.annotations.isEmpty || annotations.count > self.mapView.annotations.count || forced {
-      self.mapView.removeAnnotations(self.mapView.annotations)
-      self.mapView.addAnnotations(annotations)
-    }
+   
     self.mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
-    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
-    overView.removeFromSuperview()
-    print("removed")
-   
-    
+    self.favoritesControl.isEnabled = Campus.shared.hasFavorites || favoritesControl.selectedSegmentIndex == 1
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     if let fratName = view.annotation?.title {
-      fratNameLabel.text = fratName 
+      fratNameButton.setTitle(fratName?.greekLetters, for: .normal) 
       informationButton.isHidden = false
     }
     else {
       informationButton.isHidden = true
-     fratNameLabel.text = "" 
+     fratNameButton.setTitle(nil, for: .normal)
     }
   }
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    fratNameLabel.text = ""
+    fratNameButton.setTitle(nil, for: .normal)
     informationButton.isHidden = true
   }
   
-  @IBAction func goToFraternity(_ sender: UIButton) {
-    if let fratName = fratNameLabel.text, let superVC = self.parent as? ScrollPageViewController
+  @IBAction func goToFraternity(_ sender: Any) {
+    if let fratName = mapView.selectedAnnotations.first?.title as? String, let superVC = self.parent as? ScrollPageViewController
     {
       superVC.open(fraternityNamed : fratName)
     }
@@ -201,21 +193,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
 //    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
 //    
 //  }
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    super.prepare(for: segue, sender: sender)
-    if let selectedFrat = mapView.selectedAnnotations.first ,
-      let fratName = selectedFrat.title as? String,segue.identifier == "showDetail" {
-      SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
-      if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-        let controller = (segue.destination as! UINavigationController).topViewController
-          as! DetailViewController
-        
-        // Send the detail controller the fraternity we're about to display
-        controller.selectedFraternity = selectedFraternity
-        //let _ = Campus.shared.getEvents(forFratWithName : fratName)
-      }
-    }
-  }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    super.prepare(for: segue, sender: sender)
+//    if let selectedFrat = mapView.selectedAnnotations.first ,
+//      let fratName = selectedFrat.title as? String,segue.identifier == "showDetail" {
+//      SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
+//      if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
+//        let controller = (segue.destination as! UINavigationController).topViewController
+//          as! DetailViewController
+//        controller.selectedFraternity = selectedFraternity
+//      }
+//    }
+//  }
   
   /*
    // MARK: - Navigation

@@ -15,10 +15,11 @@ class CalendarViewController: UIViewController,
   UICollectionViewDelegate, 
   UICollectionViewDataSource, 
   UICollectionViewDelegateFlowLayout,
-ScrollableItem {
+  ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
       self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+      
       self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
       if !Campus.shared.hasFavorites {
         self.favoritesSegmentControl.selectedSegmentIndex = 0
@@ -35,7 +36,6 @@ ScrollableItem {
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var seperatorView: UIView!
   @IBOutlet weak var favoritesSegmentControl: UISegmentedControl!
-  @IBOutlet weak var toolbarView: UIView!
   // MARK: Recognizer IBOutlets
   @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
   @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
@@ -169,6 +169,8 @@ ScrollableItem {
     if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
       collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
     }
+    containerView.layer.masksToBounds = true
+    containerView.layer.cornerRadius = 5
   }
   
   override func didReceiveMemoryWarning() {
@@ -256,9 +258,10 @@ ScrollableItem {
     case .began:
       return
     case .changed:
-      seperatorView.center.y = yLoc
-      containerView.frame.origin.y = seperatorView.frame.maxY
-      containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
+      seperatorView.frame.origin.y = yLoc - 16
+      //containerView.frame.origin.y = seperatorView.frame.maxY
+      seperatorView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.origin.y
+      //containerView.frame.size.height = seperatorView.bounds.maxY - self.containerView.frame.minY
     case .ended:
       inEventView = yLoc <= panCutoff
     case .cancelled:
@@ -283,9 +286,8 @@ ScrollableItem {
   var topState : () -> () {
     get {
       return {
-        self.seperatorView.center.y = self.collectionView.frame.midY/2
-        self.containerView.frame.origin.y = self.seperatorView.frame.maxY
-        self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
+        self.seperatorView.frame.origin.y = self.collectionView.frame.midY/2
+        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.origin.y
       }
     }
   }
@@ -293,9 +295,8 @@ ScrollableItem {
   var bottomState : () -> () {
     get {
       return {
-        self.seperatorView.center.y = self.collectionView.frame.maxY+self.seperatorView.frame.height/2
-        self.containerView.frame.origin.y = self.seperatorView.frame.maxY
-        self.containerView.frame.size.height = self.eventTableViewControllerBottom - self.containerView.frame.origin.y
+        self.seperatorView.frame.origin.y = self.collectionView.frame.maxY-16
+        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.origin.y
       }
     }
   }

@@ -11,14 +11,25 @@ import OHMySQL
 
 // Centralize requests made to an SQL server
 class SQLHandler  {
-  let user : OHMySQLUser?
-  let coordinator : OHMySQLStoreCoordinator?
-  let context : OHMySQLQueryContext?
-  var isConnected : Bool {
+  let user : OHMySQLUser!
+  let coordinator : OHMySQLStoreCoordinator
+  private(set) lazy var parentContext : OHMySQLQueryContext = {
+    let context = OHMySQLQueryContext() 
+    context.storeCoordinator = coordinator
+    return context
+  }()
+  var newContext : OHMySQLQueryContext {
     get {
-     return user != nil && coordinator != nil
+      let context = OHMySQLQueryContext.init(parentQueryContext: parentContext)
+      context.storeCoordinator = coordinator
+      return context
     }
   }
+//  var isConnected : Bool {
+//    get {
+//     return user != nil && coordinator != nil
+//    }
+//  }
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
   fileprivate init(userName: String,
                    password: String,
@@ -31,12 +42,13 @@ class SQLHandler  {
                        dbName: dbName,
                        port: port,
                        socket: socket)
-    coordinator = OHMySQLStoreCoordinator(user: user!)
+    coordinator = OHMySQLStoreCoordinator(user: user)
     //coordinator!.encoding = .UTF8MB4
-    context = OHMySQLQueryContext()
-    coordinator!.connect()
-    context!.storeCoordinator = coordinator!
-    
+    parentContext.storeCoordinator = coordinator
+//    self.coordinator.connect() 
+    if !coordinator.isConnected {
+      self.coordinator.connect()
+    }
   }
   static let shared : SQLHandler = SQLHandler.init(userName: RMNetwork.userName,
                                                                       password: RMNetwork.password,
@@ -46,10 +58,9 @@ class SQLHandler  {
                                                                       socket: nil)
   
   func select(fromTable : String, conditions : String? = nil) -> [Dictionary<String, Any>]? {
-    
     let query = OHMySQLQueryRequestFactory.select(fromTable, condition: conditions)
-    let qContext = self.context ?? OHMySQLQueryContext()
-    qContext.storeCoordinator = coordinator!
+    let qContext = parentContext
+    qContext.storeCoordinator = coordinator
     if let response = try? qContext.executeQueryRequestAndFetchResult(query) {
       return response
     }
@@ -58,13 +69,14 @@ class SQLHandler  {
     }
   }
   func informAction(action : String, options : String? = nil, additionalInfo : [String : Any]? = nil) {
+
     DispatchQueue.global(qos: .background).async {
       var report = RMUserDevice.deviceInfo
       report["action"] = action
       report["options"] = options
       let query = OHMySQLQueryRequestFactory.insert(RMNetwork.userActionsTableName, set: report)
-      let qContext =  self.context ?? OHMySQLQueryContext()
-      qContext.storeCoordinator = self.coordinator!
+      let qContext =  self.parentContext
+      qContext.storeCoordinator = self.coordinator
       do {
         try qContext.executeQueryRequestAndFetchResult(query)
       }
@@ -80,7 +92,7 @@ class SQLHandler  {
   
   
   deinit {
-   coordinator?.disconnect()
+   coordinator.disconnect()
   }
   
 }
