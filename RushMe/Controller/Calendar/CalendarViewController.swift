@@ -15,11 +15,11 @@ class CalendarViewController: UIViewController,
   UICollectionViewDelegate, 
   UICollectionViewDataSource, 
   UICollectionViewDelegateFlowLayout,
-  ScrollableItem {
+ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
       self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
-      
+      self.scrollView.scrollToTop(animated: true)
       self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
       if !Campus.shared.hasFavorites {
         self.favoritesSegmentControl.selectedSegmentIndex = 0
@@ -34,10 +34,11 @@ class CalendarViewController: UIViewController,
   // MARK: View IBOutlets
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var containerView: UIView!
-  @IBOutlet weak var seperatorView: UIView!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var bottomView: UIView!
+  
   @IBOutlet weak var favoritesSegmentControl: UISegmentedControl!
   // MARK: Recognizer IBOutlets
-  @IBOutlet weak var panGestureRecognizer: UIPanGestureRecognizer!
   @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
   
   // MARK: Data Source Calculated Fields
@@ -75,17 +76,20 @@ class CalendarViewController: UIViewController,
   // MARK: Visual Calculated Fields
   var inEventView : Bool {
     get {
-      return self.seperatorView.center.y <= self.collectionView.center.y
+      return scrollView.contentOffset.y > collectionView.frame.midX
     }
     set {
-      self.animate(finalState: newValue ? self.topState : self.bottomState)
+      if inEventView {
+        // TODO: Figure out why taps are very off and are cancelling
+        // touches in other views...
+        scrollView.scrollToTop(animated: true)
+      }
+      else {
+        self.scrollView.scrollRectToVisible(bottomView.frame, animated: true) 
+      }
     }
   }
-  var panCutoff : CGFloat {
-    get {
-      return self.collectionView.frame.midY
-    }
-  }
+  
   var viewingFavorites : Bool {
     get {
       return Campus.shared.hasFavorites && favoritesSegmentControl.selectedSegmentIndex == 1
@@ -120,13 +124,8 @@ class CalendarViewController: UIViewController,
     // self.clearsSelectionOnViewWillAppear = false
     self.view.sendSubview(toBack: collectionView)
     
-    self.containerView.backgroundColor = UIColor.clear
-    self.seperatorView.layer.cornerRadius = RMImage.CornerRadius*2
-    if #available(iOS 11.0, *) {
-      self.seperatorView.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMinXMinYCorner]
-    } else {
-      // Fallback on earlier versions
-    }
+    
+    
     // Do any additional setup after loading the view.
     if let tbView = self.childViewControllers.first as? EventTableViewController {
       eventViewController = tbView
@@ -135,20 +134,10 @@ class CalendarViewController: UIViewController,
     // TODO: Implement Day Selection
     collectionView.allowsMultipleSelection = false
     //Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler: handleNewFrat(oldValue:newValue:))
-    
   }
-//  func handleNewFrat(oldValue : Set<String>?, newValue : Set<String>) {
-//    DispatchQueue.main.async {
-//      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0)) 
-//    }
-//  }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    //viewingFavorites = favoritesShouldBeEnabled
-//    DispatchQueue.global(qos: .userInitiated).async {
-//      self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
-//    }
     favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     shareButton.isEnabled = flatDataSource.count != 0
     if let _ = firstEvent {
@@ -169,8 +158,15 @@ class CalendarViewController: UIViewController,
     if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
       collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
     }
+    scrollView.canCancelContentTouches = true
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 5
+    scrollView.refreshControl = UIRefreshControl()
+    scrollView.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+  }
+  @objc func handleRefresh() {
+    collectionView.reloadPreservingSelection(animated: true)
+    scrollView.refreshControl?.endRefreshing()
   }
   
   override func didReceiveMemoryWarning() {
@@ -193,38 +189,41 @@ class CalendarViewController: UIViewController,
   // MARK: Sharing
   // Shown when share button is selected
   @IBAction func exportEvents(_ sender: UIBarButtonItem) {
-    let overlayView = UIView(frame: self.view.frame)
-    overlayView.center = self.view.center
-    overlayView.alpha = 0
-    overlayView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-    overlayView.center.y -= 64
-    UIView.animate(withDuration: RMAnimation.ColoringTime) {
-      overlayView.alpha = 1
-    }
-    self.view.addSubview(overlayView)
-    if let _ = self.fileURL {
-      // Do nothing-- already loaded
-    }
-    else {
-      // TODO: Fix this so it exports the correct events (favorites or otherwise)
-      self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
-    }
-    if let url = self.fileURL {
-      let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
-                                                applicationActivities: nil)
-      activityVC.popoverPresentationController?.sourceView = sender.customView
-      self.present(activityVC, animated: true, completion: {
-        sender.isEnabled = true
-        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-          overlayView.alpha = 0
-        }, completion: { (completed) in
-          overlayView.removeFromSuperview()
+    DispatchQueue.main.async {
+      let overlayView = UIView(frame: self.view.frame)
+      overlayView.center = self.view.center
+      overlayView.alpha = 0
+      overlayView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+      overlayView.center.y -= 64
+      UIView.animate(withDuration: RMAnimation.ColoringTime) {
+        overlayView.alpha = 1
+      }
+      self.view.addSubview(overlayView)
+      if let _ = self.fileURL {
+        // Do nothing-- already loaded
+      }
+      else {
+        // TODO: Fix this so it exports the correct events (favorites or otherwise)
+        self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+      }
+      if let url = self.fileURL {
+        let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
+                                                  applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = sender.customView
+        self.present(activityVC, animated: true, completion: {
+          sender.isEnabled = true
+          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+            overlayView.alpha = 0
+          }, completion: { (completed) in
+            overlayView.removeFromSuperview()
+          })
         })
-      })
+      }
+      else {
+        print("Error in calendar share button!")
+      }
     }
-    else {
-      print("Error in calendar share button!")
-    }
+    
   }
   
   
@@ -246,60 +245,13 @@ class CalendarViewController: UIViewController,
   // MARK : Gesture Recognizers
   
   @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
-    inEventView = !inEventView
-  }
-  @IBAction func eventCalendarPan(_ sender: UIPanGestureRecognizer) {
-    let yLoc = min(
-      max(sender.location(in: self.view).y, self.collectionView.frame.minY + self.seperatorView.frame.height/2), 
-      self.collectionView.frame.maxY+self.seperatorView.frame.height/2)
-    switch sender.state {
-    case .possible:
-      return
-    case .began:
-      return
-    case .changed:
-      seperatorView.frame.origin.y = yLoc - 16
-      //containerView.frame.origin.y = seperatorView.frame.maxY
-      seperatorView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.origin.y
-      //containerView.frame.size.height = seperatorView.bounds.maxY - self.containerView.frame.minY
-    case .ended:
-      inEventView = yLoc <= panCutoff
-    case .cancelled:
-      return
-    case .failed:
-      return
+    if sender.location(in: collectionView).y > collectionView.frame.height {
+      inEventView = !inEventView          
     }
   }
+  
   
   // MARK: Animation Calculated Fields
-  
-  var eventTableViewControllerBottom : CGFloat {
-    get {
-      return self.view.frame.maxY
-    }
-  }
-  func animate(finalState : @escaping () -> ()) {
-    UIView.animate(withDuration: 0.4, delay: 0, options: [.allowUserInteraction,.beginFromCurrentState], animations: {
-      finalState()
-    }, completion: nil)
-  }
-  var topState : () -> () {
-    get {
-      return {
-        self.seperatorView.frame.origin.y = self.collectionView.frame.midY/2
-        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.origin.y
-      }
-    }
-  }
-  
-  var bottomState : () -> () {
-    get {
-      return {
-        self.seperatorView.frame.origin.y = self.collectionView.frame.maxY-16
-        self.containerView.frame.size.height = self.view.frame.maxY - self.seperatorView.frame.origin.y
-      }
-    }
-  }
   
   // MARK: UICollectionViewDataSource
   
@@ -377,7 +329,6 @@ class CalendarViewController: UIViewController,
   //  }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    inEventView = false
     eventViewController!.selectedEvents = events(forIndexPath: indexPath)
     if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
       if let todaysEvent = collectionCell.eventsToday?.first {
@@ -387,7 +338,7 @@ class CalendarViewController: UIViewController,
                                         timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
                                                                                      inSameDayAs: RMDate.Today) ? " (Today)" : "")
         //collectionCell.backgroundColor = UIColor.blue
-
+        
         UISelectionFeedbackGenerator().selectionChanged()
       }
       else {
@@ -407,6 +358,16 @@ class CalendarViewController: UIViewController,
       cellHeight = collectionView.frame.height/8.0
     }
     return CGSize(width: cellWidth, height: cellHeight)
+  }
+}
+
+extension UICollectionView {
+  func reloadPreservingSelection(animated : Bool) {
+    let selectedIP = self.indexPathsForSelectedItems
+    self.reloadSections(IndexSet.init(integersIn: 0...0)) 
+    if let reselectIndexPath = selectedIP?.first {
+      self.selectItem(at: reselectIndexPath, animated: animated, scrollPosition: .top)
+    } 
   }
 }
 

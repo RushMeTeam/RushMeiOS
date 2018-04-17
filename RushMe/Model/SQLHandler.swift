@@ -61,11 +61,12 @@ class SQLHandler  {
     let query = OHMySQLQueryRequestFactory.select(fromTable, condition: conditions)
     let qContext = parentContext
     qContext.storeCoordinator = coordinator
-    if let response = try? qContext.executeQueryRequestAndFetchResult(query) {
-      return response
+    do {
+      return try qContext.executeQueryRequestAndFetchResult(query)
     }
-    else {
-     return nil
+    catch let e {
+      print(e.localizedDescription)
+      return nil 
     }
   }
   func informAction(action : String, options : String? = nil, additionalInfo : [String : Any]? = nil) {
