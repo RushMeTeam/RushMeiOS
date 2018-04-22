@@ -33,6 +33,7 @@
 		DB5789841FDCAA7F0083CB6C /* FullEventsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */; };
 		DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */; };
+		DB7940DD2088EFC900747DCF /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7940DC2088EFC900747DCF /* AsyncImageView.swift */; };
 		DB79BB1520730F9F00411AB1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BB1420730F9F00411AB1 /* Observable.swift */; };
 		DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */; };
 		DB8997EB1FABFBA9006A5246 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EA1FABFBA9006A5246 /* Campus.swift */; };
@@ -123,6 +124,7 @@
 		DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullEventsListTableViewController.swift; sourceTree = "<group>"; };
 		DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		DB7940DC2088EFC900747DCF /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		DB79BB1420730F9F00411AB1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		DB7E1DDE1F93C239002C6B80 /* SQLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLHandler.swift; sourceTree = "<group>"; };
 		DB8997EA1FABFBA9006A5246 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Campus.swift; path = RushMe/Model/Campus.swift; sourceTree = SOURCE_ROOT; };
@@ -338,6 +340,7 @@
 		DB9F5A72205F259D00F03B3B /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				DB7940DC2088EFC900747DCF /* AsyncImageView.swift */,
 				DB5789851FDCAA8A0083CB6C /* Events */,
 				DBF60526203FA23900101FEF /* Feed */,
 			);
@@ -743,6 +746,7 @@
 				DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */,
 				DB9ACA002064428600BD4DCF /* ImagePageViewController.swift in Sources */,
 				DBF6052B203FA65F00101FEF /* PostTableViewCell.swift in Sources */,
+				DB7940DD2088EFC900747DCF /* AsyncImageView.swift in Sources */,
 				DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */,
 				DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */,
 				DB9F5A6F205EE87900F03B3B /* ScrollPageViewController.swift in Sources */,

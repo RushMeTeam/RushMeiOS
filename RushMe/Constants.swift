@@ -43,7 +43,7 @@ struct RMNetwork {
   static let userName = "RushMePublic"
   static let password = "fras@a&etHaS#7eyudrum+Hak?fresax"
   static let databaseName = "fratinfo"
-  static let userActionsTableName = "sqlrequests"//"useractions"
+  static let userActionsTableName = "sqlrequests"
   static let IP = "rushmedbinstance.cko1kwfapaog.us-east-2.rds.amazonaws.com"
   static let HTTP = "https://s3.us-east-2.amazonaws.com/rushmepublic/"
 }
@@ -89,6 +89,7 @@ struct RMDatabaseKey {
   static let CoverImageKey = "cover_image"
   static let CalendarImageKey = "calendar_image"
   static let FraternityInfoRelation = "house_info"
+  static let EventInfoRelation = "events"
 }
 struct RMUser {
   static let minPassLength = 6 
@@ -119,8 +120,10 @@ struct RMPropertyKeys {
 struct RMFileManagement {
   static let Path = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
   static let favoritedFratURL = Path.appendingPathComponent("favoritedFrats")
+  static let userActionsURL = Path.appendingPathComponent("userActions")
   static let userInfoURL = Path.appendingPathComponent("userInfo")
   static let fratImageURL = Path.appendingPathComponent("images")
+  static let locationsURL = Path.appendingPathComponent("locations")
 }
 
 struct RMDate {
@@ -128,13 +131,21 @@ struct RMDate {
 }
 
 struct RMUserDevice {
-  static var deviceInfo : Dictionary<String, Any> {
+  static var dateFormatter : DateFormatter {
     get {
-      return ["deviceuuid" : (UIDevice.current.identifierForVendor?.uuidString.hashValue ?? "ID Broken"),
-              "requesttime" : Int(Date.timeIntervalSinceReferenceDate),
+     let dF = DateFormatter.init()
+      dF.dateFormat = "yyyy-MM-dd HH:mm:ss.ZZZZ"
+      return dF
+    }
+  }
+  var deviceInfo : Dictionary<String, Any> {
+    get {
+      
+      return ["deviceuuid" : (UIDevice.current.identifierForVendor?.uuidString ?? "ID Broken"),
+              "requesttime" : Date(),
               "devicetype" : Device().description,
               "devicesoftware" : UIDevice.current.systemVersion,
-              "appversion" : self.appversion]
+              "appversion" : RMUserDevice.appversion]
     }
   }
   fileprivate static let appversion =
@@ -143,6 +154,7 @@ struct RMUserDevice {
                                           ((Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "")
   
 }
+
 
 
 

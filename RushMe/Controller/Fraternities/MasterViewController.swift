@@ -60,6 +60,11 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     }
     return nil
   }
+  func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    if completed, let fratName = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity?.name {
+      SQLHandler.shared.inform(action: .FraternitySelected, options: fratName) 
+    }
+  }
   
   
   
@@ -376,11 +381,12 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
-      
       self.searchController.searchBar.placeholder = "Search \(Campus.shared.fratNames.count) Fraternities"
       self.searchController.searchBar.layoutIfNeeded()
       self.reloadTableView()
-      self.refreshControl?.endRefreshing() 
+      if newValue != 0 {
+       self.refreshControl?.endRefreshing()  
+      }
       if newValue == 1 {
         self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities")
       }
@@ -407,7 +413,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       if segue.identifier == "showDetail" {
           let fratName = self.dataKeys[row]
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-            SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
+            SQLHandler.shared.inform(action: .FraternitySelected, options: fratName)
             let controller = segue.destination.childViewControllers.first as! UIPageViewController
             controller.dataSource = self
             controller.delegate = self
@@ -470,6 +476,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     if let frat = Campus.shared.fraternitiesDict[fratName]{
       cell.titleLabel.text = frat.name
       //cell.subheadingLabel?.text = frat.chapter
+      //cell.previewImageView.url = RMurl.init(fromString: frat.getProperty(named:RMDatabaseKey.ProfileImageKey) as! String).networkPath
       cell.previewImageView.setImageByURL(fromSource: frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String)
       //cell.previewImageView.image = frat.previewImage
       cell.isAccentuated = Campus.shared.favoritedFrats.contains(frat.name)
@@ -477,6 +484,22 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     cell.layoutIfNeeded()
     return cell
   }
+ 
+  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    if scrollView.panGestureRecognizer.velocity(in: view).y < view.bounds.height/2, scrollView.contentOffset.y.truncatingRemainder(dividingBy: 30) == 0 {
+      loadVisibleImages()
+    }
+  }
+  
+  func loadVisibleImages() {
+//    tableView.indexPathsForVisibleRows?.forEach({ (indexPath) in
+//      if let frat = Campus.shared.fraternitiesDict[dataKeys[indexPath.row]], let url = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? String {
+//        (tableView.cellForRow(at: indexPath) as? AttractiveFratCellTableViewCell)?.previewImageView.setImageByURL(fromSource: url, animated: true)
+//        
+//      }
+//    })
+  }
+  
   // Row 0 (segment control cell) should have a height of 36, all others should be 128
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 196 //indexPath.row == 0 ? 36 : 128
@@ -493,7 +516,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       action.backgroundColor = RMColor.AppColor
       if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = true
-        SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
+        //SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
       }
       action.backgroundColor = RMColor.AppColor
       self.tableView.reloadRows(at: [cellIndex], with: .automatic)
@@ -502,7 +525,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
       if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = false
-        SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
+        //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
       }
       Campus.shared.removeFavorite(named: fratName)
       if (self.viewingFavorites) {

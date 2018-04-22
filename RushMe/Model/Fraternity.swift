@@ -55,7 +55,7 @@ class Fraternity : NSObject {
   func setProperty(named : String, to : Any) {
     properties[named] = to
   }
-  func add(eventDescribedBy dict : Dictionary<String, Any>, ownedBy : Fraternity) -> FratEvent? {
+  func add(eventDescribedBy dict : Dictionary<String, Any>) -> FratEvent? {
     //house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
     let houseName = dict["house"] as! String
@@ -69,7 +69,7 @@ class Fraternity : NSObject {
     let endTime = dict["end_time"] as? String
     if let event = FratEvent(withName: eventName,
                              onDate: eventDate,
-                             ownedByFraternity: ownedBy,
+                             ownedByFraternity: self,
                              startingAt: startTime,
                              endingAt: endTime,
                              atLocation: location) {

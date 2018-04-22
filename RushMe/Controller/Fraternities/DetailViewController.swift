@@ -364,9 +364,8 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
     super.init()
     self.colors = gradientSet[currentGradient]
   }
-  override convenience init(layer: Any) {
-    self.init()
-    
+  override init(layer: Any) {
+    super.init(layer: layer)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -388,8 +387,12 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     if let animation = anim as? CABasicAnimation, let animColors = animation.toValue as? [CGColor],
       animColors == [UIColor.clear.cgColor, UIColor.clear.cgColor]{
+      if flag {
+       self.removeFromSuperlayer() 
+      }
       return
     }
+    
     if flag {
       self.colors = gradientSet[currentGradient]
       animateGradient()
@@ -413,48 +416,52 @@ extension UIImageView {
      return self.image != nil
     }
   }
-  func setImageByURL(fromSource imageURL : String, animated: Bool = true) {
-  
+  func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
+    let imageURL = RMurl(fromString: sourceString)
+    self.layer.drawsAsynchronously = true
     let animatedGradient = AnimatableGradientLayer()
     animatedGradient.frame = self.bounds
     if animated {
-      self.layer.insertSublayer(animatedGradient, at: UInt32(layer.sublayers?.count ?? 0))
-     // self.layer.addSublayer(animatedGradient)
+      self.layer.addSublayer(animatedGradient)
       animatedGradient.animateGradient()
     }
-      
-//    let indicatorView = NVActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height), type: NVActivityIndicatorType.ballBeat, color: RMColor.AppColor)
-//    indicatorView.translatesAutoresizingMaskIntoConstraints = false
-//    if animated {
-//      self.addSubview(indicatorView)
-//      NSLayoutConstraint.activate([indicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//                                   indicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//                                   indicatorView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.25),
-//                                   indicatorView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25)])
-//      indicatorView.startAnimating() 
-//    }
-    
-    // Set an imageView's image asynchronously, allowing rest of page to be loaded
-    DispatchQueue.global(qos: .background).async {
-      // Try to load the image
-      if let downloadedImage = pullImage(fromSource: imageURL) {
+    DispatchQueue.global(qos: .default).async {
+      if let image = pullImage(fromSource: imageURL) {
         DispatchQueue.main.async {
-          // Image loaded, set it in main thread
-          
-          self.image = downloadedImage
-          animatedGradient.removeFromSuperlayerAnimated()
-          self.isUserInteractionEnabled = true
+          self.image = image
+          for layer in self.layer.sublayers! {
+            (layer as? AnimatableGradientLayer)?.removeFromSuperlayerAnimated()
+          }
         }
       }
       else {
-        DispatchQueue.main.async {
-          // Image could not be loaded, set image to default image
-          //self.image = RMImage.NoImage
-          self.image = nil
-          self.backgroundColor = .groupTableViewBackground
-          animatedGradient.removeFromSuperlayerAnimated()
-          self.isUserInteractionEnabled = false
-        }
+        URLSession.init(configuration: .default).dataTask(with: imageURL.networkPath, completionHandler: { (data, _, error) in
+          if data != nil, let imageFromData = UIImage.init(data: data!) {
+            if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
+              do {
+                try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
+              }
+              catch let e {
+                print(e.localizedDescription)
+              }
+            }
+            self.image = imageFromData
+            
+            imageFromData.storeOnDisk(at: imageURL.localPath)
+          }
+          else {
+            DispatchQueue.main.async {
+              self.image = nil 
+            }
+            
+          }
+                      DispatchQueue.main.async {
+                        for layer in self.layer.sublayers! {
+                          (layer as? AnimatableGradientLayer)?.removeFromSuperlayerAnimated()
+                        }
+                      }
+        }).resume()
+        
       }
     }
   }
