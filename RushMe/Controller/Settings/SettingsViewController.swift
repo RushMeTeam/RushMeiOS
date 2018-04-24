@@ -45,13 +45,13 @@ class SettingsViewController: UIViewController {
     // Update UI to match current settings
     dateLabel.text = DateFormatter.localizedString(from: RMDate.Today, dateStyle: .medium, timeStyle: .short)
     displayPastEventsSwitch.isOn = Campus.shared.considerEventsBeforeToday
-    if Campus.shared.downloadedImageQuality == .High {
+    if Campus.downloadedImageQuality == .High {
      qualityPicker.selectedSegmentIndex = 2
     }
-    if Campus.shared.downloadedImageQuality == .Medium {
+    if Campus.downloadedImageQuality == .Medium {
       qualityPicker.selectedSegmentIndex = 1
     }
-    if Campus.shared.downloadedImageQuality == .Low {
+    if Campus.downloadedImageQuality == .Low {
       qualityPicker.selectedSegmentIndex = 0
     }
     fraternitiesAlphabeticalSwitch.isOn = RMUserPreferences.shuffleEnabled
@@ -63,13 +63,13 @@ class SettingsViewController: UIViewController {
     super.viewWillDisappear(animated)
     // Update settings to match UI
     if qualityPicker?.selectedSegmentIndex == 0 {
-     Campus.shared.downloadedImageQuality = .Low
+     Campus.downloadedImageQuality = .Low
     }
     else if qualityPicker?.selectedSegmentIndex == 1 {
-     Campus.shared.downloadedImageQuality = .Medium
+     Campus.downloadedImageQuality = .Medium
     }
     else if qualityPicker?.selectedSegmentIndex == 2 {
-     Campus.shared.downloadedImageQuality = .High
+     Campus.downloadedImageQuality = .High
     }
     Campus.shared.considerEventsBeforeToday = displayPastEventsSwitch!.isOn
     RMUserPreferences.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn

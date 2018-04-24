@@ -21,7 +21,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    
+    //contentView.layer.masksToBounds = true
     previewImageView.layer.masksToBounds = true
     //iView.layer.cornerRadius = RMImage.CornerRadius
     previewImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -33,6 +33,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     for layer in previewImageView.layer.sublayers ?? [] {
       layer.removeFromSuperlayer()
     }
+    previewImageView.image = nil
     previewImageView.layer.sublayers = nil
     gradientLayer?.removeFromSuperlayer()
     gradientLayer = CAGradientLayer()
@@ -46,8 +47,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   override func layoutSubviews() {
     super.layoutSubviews()
     gradientLayer!.frame = previewImageView.bounds
-    
-    gradientLayer?.layoutIfNeeded()
+    gradientLayer!.layoutIfNeeded()
   }
   @IBAction func favoriteButtonHit(_ sender: UIButton) {
     isAccentuated = !isAccentuated
@@ -69,3 +69,4 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     }
   }
 }
+

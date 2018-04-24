@@ -92,6 +92,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
       annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
       frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
       mapView.addAnnotation(annotation)
+      mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
       
     }
     fratAnnotations = mapView.annotations

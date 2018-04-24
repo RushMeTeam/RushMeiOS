@@ -52,14 +52,14 @@ class Campus: NSObject {
   func addFavorite(named newFavorite : String) {
     if fratNames.contains(newFavorite) {
       if favoritedFrats.insert(newFavorite).inserted {
-        SQLHandler.shared.informAction(action: "Fraternity Favorited", options: newFavorite)
+        SQLHandler.shared.inform(action: .FraternityFavorited, options: newFavorite)
       }
     }
   }
   func removeFavorite(named oldFavorite : String) {
     if favoritedFrats.contains(oldFavorite) {
       favoritedFrats.remove(oldFavorite)
-      SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: oldFavorite)
+      SQLHandler.shared.inform(action: .FraternityUnfavorited, options: oldFavorite)
     }
   }
   
@@ -157,7 +157,7 @@ class Campus: NSObject {
   
   
   // The default quality at which an image should be downloaded
-  var downloadedImageQuality : Quality = .Medium
+  static var downloadedImageQuality : Quality = .Medium
   var considerEventsBeforeToday = true {
     willSet {
       if newValue != self.considerEventsBeforeToday {
@@ -202,22 +202,35 @@ class Campus: NSObject {
   var lastDictArray : [Dictionary<String,Any>]? = nil 
   func pullFratsFromSQLDatabase() {
     if !isLoading {
+      self.percentageCompletion = 0.2
       DispatchQueue.global(qos: .userInitiated).async {
         var dictArray = [Dictionary<String, Any>()]
-        if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
-          self.lastDictArray == nil || arr.count > self.lastDictArray!.count {
-          dictArray = arr
+        var eventArray = [Dictionary<String, Any>()]
+        if let fratArray = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
+          self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
+          let eventArr = SQLHandler.shared.select(fromTable: RMDatabaseKey.EventInfoRelation) {
+          dictArray = fratArray
+          eventArray = eventArr
           self.lastDictArray = dictArray
         }
-        self.percentageCompletion = 0.2
         var numberFraternitiesCompleted = 0
         for fraternityDict in dictArray {
-          Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
+          _ = Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
           numberFraternitiesCompleted += 1
           self.percentageCompletion = 0.2 + 0.8*Float(numberFraternitiesCompleted) / Float(dictArray.count)
         }
+        for eventDict in eventArray {
+          if let fratName = eventDict["house"] as? String, let fEvent = self.fraternitiesDict[fratName]?.add(eventDescribedBy: eventDict){
+            if let _ = self.fratEventsByDay[fEvent.dayKey] {
+              self.fratEventsByDay[fEvent.dayKey]!.append(fEvent)
+            }
+            else {
+              self.fratEventsByDay[fEvent.dayKey] = [fEvent] 
+            }
+            self.allEvents.insert(fEvent)
+          }
+        }
         self.percentageCompletion = 1
-//        print("got here")
         DispatchQueue.main.sync {
           RMGeocoder.geocode(selectedFraternities: Array(Campus.shared.fratNames))
         }
@@ -265,9 +278,9 @@ class Campus: NSObject {
     else {
       self.fraternitiesDict[frat.name] = frat
       self.fratNames.insert(frat.name)
-      DispatchQueue.global(qos: .background).async {
-        let _ = self.getEvents(forFratWithName: frat.name)
-      }
+      //DispatchQueue.global(qos: .background).async {
+        //let _ = self.getEvents(forFratWithName: frat.name)
+      //}
     }
     
   }
@@ -325,24 +338,16 @@ class Campus: NSObject {
   
   private func pullEventsFromSQLDataBase(fratName : String) -> [Date : FratEvent] {
     // Try to grab the fraternity (see if it exists)
-    if let fraternity = self.fraternitiesDict[fratName] {
-      // Pull all this house's events from the SQL database
-      if let fratEvents = SQLHandler.shared.select(fromTable: "events", conditions: "house = '" + fratName + "'") {
-        for eventDict in fratEvents {
-          if let fEvent = fraternity.add(eventDescribedBy: eventDict, ownedBy: fraternity) {
-            if let _ = fratEventsByDay[fEvent.dayKey] {
-              fratEventsByDay[fEvent.dayKey]!.append(fEvent)
-            }
-            else {
-              fratEventsByDay[fEvent.dayKey] = [fEvent] 
-            }
-            self.allEvents.insert(fEvent)
-          }
-        }
-      }
-      return fraternity.events
-    }
-    print("Failed to return \(fratName)'s events")
+//    if let fraternity = self.fraternitiesDict[fratName] {
+//      // Pull all this house's events from the SQL database
+//      if let fratEvents = SQLHandler.shared.select(fromTable: "events", conditions: "house = '" + fratName + "'") {
+//        for eventDict in fratEvents {
+//          
+//        }
+//      }
+//      return fraternity.events
+//    }
+//    print("Failed to return \(fratName)'s events")
     // Failed, provide no dates
     return [Date : FratEvent]()
   }
@@ -370,8 +375,8 @@ extension Fraternity {
   convenience init?(fromDict dict : Dictionary<String, Any>, loadImages : Bool = true) {
     if let name = dict[RMDatabaseKey.NameKey] as? String,
       let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
-      var previewImage : UIImage?
-      var profileImage : UIImage?
+//      var previewImage : UIImage?
+//      var profileImage : UIImage?
 //      if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
 //        if let previewImg = pullImage(fromSource: URLString) {
 //          previewImage = previewImg
@@ -379,30 +384,31 @@ extension Fraternity {
 //        }
 //      }
       
-      self.init(name: name, chapter: chapter, previewImage: previewImage, properties: dict)
-      if let _ = profileImage {
-        self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
-      }
+      self.init(name: name, chapter: chapter, previewImage: nil, properties: dict)
+//      if let _ = profileImage {
+//        self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
+//      }
       return
       
     }
     
     return nil
   }
-  func register(withCampus campus : Campus) {
+  func register(withCampus campus : Campus) -> Fraternity {
     do {
       try campus.add(fraternity: self)
     }
     catch let e {
       print(e.localizedDescription)
     }
+    return self
   }
   
   
 }
 
 
-func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.shared.downloadedImageQuality) -> String {
+func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.downloadedImageQuality) -> String {
   var fileName = ""
   // Images are scaled to three different sizes:
   //    - high (i.e. full)
@@ -432,51 +438,74 @@ func urlSuffixes(forFilesWithName filename : String) -> [String] {
   return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
 }
 
-func pullImage(fromSource : String, quality : Quality = Campus.shared.downloadedImageQuality) -> UIImage? {
-  if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
-    do {
-      try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
-    }
-    catch let e {
-      print(e.localizedDescription)
+struct RMurl {
+  let stringRepresentation : String
+  init(fromString : String) {
+    self.stringRepresentation = fromString
+  }
+  var fixedPath : String {
+    get {
+      return urlSuffix(forFileWithName: stringRepresentation, quality : Campus.downloadedImageQuality)
     }
   }
-  let fixedPath = urlSuffix(forFileWithName: fromSource, quality : quality)
-  let urlEnding = String(fixedPath.split(separator: "/").last!)
-  let localFileURL = RMFileManagement.fratImageURL.appendingPathComponent(urlEnding)
-  if let imageData = try? Data.init(contentsOf: localFileURL),
+  var localPath : URL {
+    get {
+      let urlEnding = String(fixedPath.split(separator: "/").last!)
+      return RMFileManagement.fratImageURL.appendingPathComponent(urlEnding)
+    }
+  }
+  var networkPath : URL {
+    return URL(string: RMNetwork.HTTP + fixedPath)!
+  }
+  
+}
+
+func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.downloadedImageQuality, fallBackToNetwork : Bool = false) -> UIImage? {
+  if let imageData = try? Data.init(contentsOf: sourceURL.localPath),
     let image = UIImage.init(data: imageData){
     return image
   }
-  //if (DEBUG) { print(fileName, separator: "", terminator: "") }
-  let urlAsString = RMNetwork.HTTP + fixedPath
-  var image : UIImage? = nil
-  // Try to create an URL from the string-- upon fail return nil
-  if let url = URL(string: urlAsString) {
+  else if !fallBackToNetwork {
+   return nil 
+  }
+  // Try to retreive the image-- upon fail return nil
+  if let data = try? Data.init(contentsOf: sourceURL.networkPath){
     //if (DEBUG) { print(".", separator: "", terminator: "") }
-    // Try to retreive the image-- upon fail return nil
-    if let data = try? Data.init(contentsOf: url){
-      //if (DEBUG) { print(".", separator: "", terminator: "") }
-      // Try to downcase the retreived data to an image
-      if let img = UIImage(data: data) {
-        image = img
-        if let imageData = UIImagePNGRepresentation(img) {
-          DispatchQueue.global(qos: .background).async {
-            do {
-              try imageData.write(to: localFileURL)
-            }
-            catch let e {
-              print(e.localizedDescription)
-            }
-          }
-        }
-        //if (DEBUG) { print(".Done", separator: "", terminator: "") }
+    // Try to downcase the retreived data to an image
+    if let image = UIImage(data: data) {
+      DispatchQueue.global(qos: .background).async {
+        image.storeOnDisk(at: sourceURL.localPath)
+      }
+      return image
+      
+      //if (DEBUG) { print(".Done", separator: "", terminator: "") }
+    }
+  }
+  
+  //if (DEBUG) { print("") }
+  // May be nil!
+  return nil
+}
+
+extension UIImage {
+  func storeOnDisk(at url : URL) {
+    if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
+      do {
+        try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
+      }
+      catch let e {
+        print(e.localizedDescription)
+      }
+    }
+    if let imageData = UIImagePNGRepresentation(self) {
+      do {
+        try imageData.write(to: url)
+      }
+      catch let e {
+        print("StoreOnDisk Error:", e.localizedDescription)
       }
     }
   }
-  //if (DEBUG) { print("") }
-  // May be nil!
-  return image
 }
 
 
