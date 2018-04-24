@@ -473,7 +473,9 @@ func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.download
     //if (DEBUG) { print(".", separator: "", terminator: "") }
     // Try to downcase the retreived data to an image
     if let image = UIImage(data: data) {
-      image.storeOnDisk(at: sourceURL.localPath)
+      DispatchQueue.global(qos: .background).async {
+        image.storeOnDisk(at: sourceURL.localPath)
+      }
       return image
       
       //if (DEBUG) { print(".Done", separator: "", terminator: "") }
@@ -487,14 +489,20 @@ func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.download
 
 extension UIImage {
   func storeOnDisk(at url : URL) {
-    DispatchQueue.global(qos: .background).async {
-      if let imageData = UIImagePNGRepresentation(self) {
-        do {
-          try imageData.write(to: url)
-        }
-        catch let e {
-          print(e.localizedDescription)
-        }
+    if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
+      do {
+        try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
+      }
+      catch let e {
+        print(e.localizedDescription)
+      }
+    }
+    if let imageData = UIImagePNGRepresentation(self) {
+      do {
+        try imageData.write(to: url)
+      }
+      catch let e {
+        print("StoreOnDisk Error:", e.localizedDescription)
       }
     }
   }

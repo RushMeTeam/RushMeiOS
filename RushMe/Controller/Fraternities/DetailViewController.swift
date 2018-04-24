@@ -349,9 +349,10 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
       let gAnim = CABasicAnimation(keyPath: "colors")
       gAnim.delegate = self
       gAnim.fillMode = kCAFillModeForwards
-      gAnim.isRemovedOnCompletion = false
+      gAnim.isRemovedOnCompletion = true
       gAnim.duration = 1.5
       gAnim.toValue = gradientSet[currentGradient]
+      gAnim.repeatCount = 10
       return gAnim
     }
   }
@@ -366,6 +367,7 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
   }
   override init(layer: Any) {
     super.init(layer: layer)
+    self.add(gradientAnimation, forKey: "colors")
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -385,18 +387,22 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
     self.add(gradientAnimation, forKey: "colorChange") 
   }
   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-    if let animation = anim as? CABasicAnimation, let animColors = animation.toValue as? [CGColor],
-      animColors == [UIColor.clear.cgColor, UIColor.clear.cgColor]{
-      if flag {
-       self.removeFromSuperlayer() 
-      }
-      return
-    }
-    
     if flag {
-      self.colors = gradientSet[currentGradient]
-      animateGradient()
+     self.removeFromSuperlayer()
     }
+    //self.removeFromSuperlayerAnimated()
+//    if let animation = anim as? CABasicAnimation, let animColors = animation.toValue as? [CGColor],
+//      animColors == [UIColor.clear.cgColor, UIColor.clear.cgColor]{
+//      if flag {
+//       self.removeFromSuperlayer() 
+//      }
+//      return
+//    }
+//    
+//    if flag {
+//      self.colors = gradientSet[currentGradient]
+//      animateGradient()
+//    }
   }
   func removeFromSuperlayerAnimated() {
     self.removeAllAnimations()
@@ -411,56 +417,18 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
 
 
 extension UIImageView {
-  var isEmpty : Bool {
-    get {
-     return self.image != nil
-    }
-  }
   func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
-    let imageURL = RMurl(fromString: sourceString)
     self.layer.drawsAsynchronously = true
-    let animatedGradient = AnimatableGradientLayer()
-    animatedGradient.frame = self.bounds
-    if animated {
-      self.layer.addSublayer(animatedGradient)
-      animatedGradient.animateGradient()
-    }
-    DispatchQueue.global(qos: .default).async {
-      if let image = pullImage(fromSource: imageURL) {
-        DispatchQueue.main.async {
+    self.image = nil
+    //let gradient = AnimatableGradientLayer.init(layer: self.layer)
+    //gradient.animateGradient()
+    //self.layer.insertSublayer(gradient, at: 0)
+    DispatchQueue.global(qos: .userInteractive).async {
+      let image = pullImage(fromSource: RMurl(fromString: sourceString), fallBackToNetwork: true)
+      DispatchQueue.main.async {
+        UIView.transition(with: self, duration: 0.15, options: .transitionCrossDissolve, animations: { 
           self.image = image
-          for layer in self.layer.sublayers! {
-            (layer as? AnimatableGradientLayer)?.removeFromSuperlayerAnimated()
-          }
-        }
-      }
-      else {
-        URLSession.init(configuration: .default).dataTask(with: imageURL.networkPath, completionHandler: { (data, _, error) in
-          if data != nil, let imageFromData = UIImage.init(data: data!) {
-            if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
-              do {
-                try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
-              }
-              catch let e {
-                print(e.localizedDescription)
-              }
-            }
-            self.image = imageFromData
-            
-            imageFromData.storeOnDisk(at: imageURL.localPath)
-          }
-          else {
-            DispatchQueue.main.async {
-              self.image = nil 
-            }
-            
-          }
-                      DispatchQueue.main.async {
-                        for layer in self.layer.sublayers! {
-                          (layer as? AnimatableGradientLayer)?.removeFromSuperlayerAnimated()
-                        }
-                      }
-        }).resume()
+        }, completion: nil)
         
       }
     }

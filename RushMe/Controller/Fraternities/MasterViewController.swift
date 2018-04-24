@@ -484,21 +484,6 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     cell.layoutIfNeeded()
     return cell
   }
- 
-  override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    if scrollView.panGestureRecognizer.velocity(in: view).y < view.bounds.height/2, scrollView.contentOffset.y.truncatingRemainder(dividingBy: 30) == 0 {
-      loadVisibleImages()
-    }
-  }
-  
-  func loadVisibleImages() {
-//    tableView.indexPathsForVisibleRows?.forEach({ (indexPath) in
-//      if let frat = Campus.shared.fraternitiesDict[dataKeys[indexPath.row]], let url = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? String {
-//        (tableView.cellForRow(at: indexPath) as? AttractiveFratCellTableViewCell)?.previewImageView.setImageByURL(fromSource: url, animated: true)
-//        
-//      }
-//    })
-  }
   
   // Row 0 (segment control cell) should have a height of 36, all others should be 128
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
