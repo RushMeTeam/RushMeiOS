@@ -62,7 +62,8 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   }
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
     if completed, let fratName = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity?.name {
-      SQLHandler.shared.inform(action: .FraternitySelected, options: fratName) 
+      SQLHandler.inform(action: .FraternitySelected, options: fratName) 
+      pageViewController.title = fratName.greekLetters
     }
   }
   
@@ -172,7 +173,9 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       }
     }
   }
-
+  override func viewDidLayoutSubviews() {
+    _ = self.setupTableHeaderView
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -204,11 +207,8 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     // Ensure the menu button toggles the menu
     // Refresh control 
     refreshControl = UIRefreshControl()
-    //refreshControl!.beginRefreshing()
     
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-
-    
 
     //Campus.shared.loadingObservable.addObserver(forOwner: self, handler: handleNewLoading(oldValue:newValue:))
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
@@ -218,16 +218,11 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   lazy var setupTableHeaderView : Void = {
     let tableHeaderView = UIView()
     tableHeaderView.backgroundColor = .white
-    //self.tableView.tableHeaderView = UIView()
-    //searchController.searchBar.frame = CGRect.init(x: 0, y: 0, width: tableHeaderView.frame.width, height: 52)
     searchController.searchBar.backgroundImage = UIImage()
-    
-    //favoritesSegmentControl.frame = CGRect(x: 6, y: searchController.searchBar.frame.maxY+4, width: tableHeaderView.frame.width-12, height: 28)
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
-    //searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
     searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
     tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
@@ -247,19 +242,17 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
                                  tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 4)])
+    tableHeaderView.layoutSubviews()
+    tableView.layoutSubviews()
     
   }()
-  
+    
   // MARK: - Data Handling
   func dataUpdate() {
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites 
-    
-    if let _ = shuffledFrats {
-      shuffledFrats!.shuffle()
-    }
+    shuffledFrats?.shuffle()
     Campus.shared.pullFratsFromSQLDatabase()
-    self.reloadTableView()
-    
+    reloadTableView()
   }
   
   
@@ -376,20 +369,19 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
     // If we're searching, cancel the search if we select the menu
     searchController.dismiss(animated: true, completion: nil)
-    //self.revealViewController().revealToggle(self)
   }
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
       self.searchController.searchBar.placeholder = "Search \(Campus.shared.fratNames.count) Fraternities"
-      self.searchController.searchBar.layoutIfNeeded()
-      self.reloadTableView()
+      self.searchController.searchBar.layoutIfNeeded() 
       if newValue != 0 {
        self.refreshControl?.endRefreshing()  
       }
       if newValue == 1 {
         self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities")
       }
+      self.reloadTableView()
     } 
   }
   // MARK: - Transitions
@@ -399,33 +391,37 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    _ = setupTableHeaderView
+    
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
- 
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  }
+  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
-    if let indexPath = tableView.indexPathForSelectedRow {
-      let row = indexPath.row
-      if segue.identifier == "showDetail" {
+    if segue.identifier == "showDetail" || segue.identifier == "peekDetail" {
+      let cell = sender as? UITableViewCell ?? UITableViewCell()
+      if let row = tableView.indexPathsForSelectedRows?.first?.row ?? tableView.indexPath(for: cell)?.row { 
+        
           let fratName = self.dataKeys[row]
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-            SQLHandler.shared.inform(action: .FraternitySelected, options: fratName)
+            SQLHandler.inform(action: .FraternitySelected, options: fratName)
             let controller = segue.destination.childViewControllers.first as! UIPageViewController
+            controller.title = fratName.greekLetters
             controller.dataSource = self
             controller.delegate = self
             controller.view.backgroundColor = .white
-            navigationController?.setNavigationBarHidden(false, animated: true)
             let dVC = detailVC
             dVC.selectedFraternity = selectedFraternity
-            controller.setViewControllers([dVC], direction: .forward, animated: false, completion: nil)
+            controller.setViewControllers([dVC], direction: .forward, animated: false) { (_) in
+              _ = segue.identifier == "showDetail" ? 
+                      self.navigationController?.setNavigationBarHidden(false, animated: true) 
+                    : nil 
+            }
           }
         }
       }
   }
+  
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -455,9 +451,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   
   // Should always be the number of objects to display
   override func tableView(_ tableView: UITableView,
-                          numberOfRowsInSection section: Int) -> Int {
-    return dataKeys.count
-  }
+                          numberOfRowsInSection section: Int) -> Int { return dataKeys.count }
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -465,9 +459,9 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       !viewingFavorites && Campus.shared.fratNames.count == 0) {
       let cell = UITableViewCell()
       cell.selectionStyle = .none
-      cell.textLabel?.textAlignment = NSTextAlignment.center
-      cell.textLabel?.text = viewingFavorites ? RMMessage.NoFavorites : ""
-      cell.textLabel?.textColor = RMColor.AppColor
+      cell.textLabel!.textAlignment = NSTextAlignment.center
+      cell.textLabel!.text = viewingFavorites ? RMMessage.NoFavorites : ""
+      cell.textLabel!.textColor = RMColor.AppColor
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
@@ -475,13 +469,9 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     let fratName = dataKeys[indexPath.row]
     if let frat = Campus.shared.fraternitiesDict[fratName]{
       cell.titleLabel.text = frat.name
-      //cell.subheadingLabel?.text = frat.chapter
-      //cell.previewImageView.url = RMurl.init(fromString: frat.getProperty(named:RMDatabaseKey.ProfileImageKey) as! String).networkPath
       cell.previewImageView.setImageByURL(fromSource: frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String)
-      //cell.previewImageView.image = frat.previewImage
       cell.isAccentuated = Campus.shared.favoritedFrats.contains(frat.name)
     }
-    cell.layoutIfNeeded()
     return cell
   }
   
@@ -499,26 +489,26 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
       let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
       Campus.shared.addFavorite(named: fratName)
       action.backgroundColor = RMColor.AppColor
-      if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+      if let cell = tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = true
         //SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
       }
       action.backgroundColor = RMColor.AppColor
-      self.tableView.reloadRows(at: [cellIndex], with: .automatic)
+      tableView.reloadRows(at: [cellIndex], with: .automatic)
     }
     else {
       action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
-      if let cell = self.tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+      if let cell = tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = false
         //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
       }
       Campus.shared.removeFavorite(named: fratName)
-      if (self.viewingFavorites) {
-        self.tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
+      if (viewingFavorites) {
+        tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
       }
       else {
         action.backgroundColor = RMColor.AppColor
-        self.tableView.reloadRows(at: [cellIndex], with: .right)
+        tableView.reloadRows(at: [cellIndex], with: .right)
       }
     }
     self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
@@ -538,7 +528,7 @@ extension MutableCollection {
     let c = count
     guard c > 1 else { return }
     for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-      let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+      let d : Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
       let i = index(firstUnshuffled, offsetBy: d)
       swapAt(firstUnshuffled, i)
     }

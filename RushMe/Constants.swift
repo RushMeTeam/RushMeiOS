@@ -44,8 +44,8 @@ struct RMNetwork {
   static let password = "fras@a&etHaS#7eyudrum+Hak?fresax"
   static let databaseName = "fratinfo"
   static let userActionsTableName = "sqlrequests"
-  static let IP = "rushmedbinstance.cko1kwfapaog.us-east-2.rds.amazonaws.com"
-  static let HTTP = "https://s3.us-east-2.amazonaws.com/rushmepublic/"
+  static let web = URL.init(string: "http://ec2-18-188-8-243.us-east-2.compute.amazonaws.com/request.php")!
+  static let S3 = URL.init(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
 }
 
 struct RMMessage {
@@ -64,7 +64,7 @@ struct RMFratPropertyKeys {
 }
 
 struct RMDatabaseFormat {
-  private static var dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+  private static var dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
   static var dateFormatter : DateFormatter {
     get {
       let formatter = DateFormatter()
@@ -104,12 +104,6 @@ struct RMUserPreferences {
      self.shuffleEnabled_ = self.shuffleEnabled
     }
   }
-//  private static func loadPreferences() {
-//
-//  }
-//  private static func savePreferences() {
-//
-//  }
 }
 
 struct RMPropertyKeys {
@@ -140,15 +134,14 @@ struct RMUserDevice {
   }
   var deviceInfo : Dictionary<String, Any> {
     get {
-      
-      return ["deviceuuid" : (UIDevice.current.identifierForVendor?.uuidString ?? "ID Broken"),
-              "requesttime" : Date(),
-              "devicetype" : Device().description,
-              "devicesoftware" : UIDevice.current.systemVersion,
-              "appversion" : RMUserDevice.appversion]
+      return ["duuid" : (UIDevice.current.identifierForVendor?.uuidString ?? "ID Broken"),
+              "rtime" : RMDatabaseFormat.dateFormatter.string(from: Date()),
+              "dtype" : Device().description,
+              "dsoft" : UIDevice.current.systemVersion,
+              "appv" : RMUserDevice.appVersion]
     }
   }
-  fileprivate static let appversion =
+  fileprivate static let appVersion =
                     ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "") +
                                                         "-" +
                                           ((Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "")

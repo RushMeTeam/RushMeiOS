@@ -25,10 +25,13 @@ class SettingsViewController: UIViewController {
   @IBAction func disappear(_ sender: Any) {
     //self.dismiss(animated: true, completion: nil)
   }
+  @IBOutlet weak var appVersionLabel: UILabel!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let buildVersion = (RMUserDevice().deviceInfo["appv"] as! String).split(separator: "-")
+    appVersionLabel.text = "RushMe Version \(buildVersion[0]) Build \(buildVersion[1])"
     //if (self.revealViewController() != nil) {
       // Allow drawer button to toggle the lefthand drawer menu
       // Allow drag to open drawer, tap out to close

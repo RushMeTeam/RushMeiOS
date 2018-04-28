@@ -599,13 +599,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RushMe/Pods-RushMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/OHMySQL/OHMySQL.framework",
 				"${BUILT_PRODUCTS_DIR}/iCalKit/iCalKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHMySQL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCalKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,13 +634,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RushMe-RushMeUITests/Pods-RushMe-RushMeUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/OHMySQL/OHMySQL.framework",
 				"${BUILT_PRODUCTS_DIR}/iCalKit/iCalKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHMySQL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCalKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

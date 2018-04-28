@@ -10,7 +10,7 @@ import UIKit
 import DeviceKit
 
 class ImagePageViewController: UIViewController,
-UIScrollViewDelegate {
+UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
   @IBOutlet var scrollView: UIScrollView!
   @IBOutlet var pageControl: UIPageControl!
   var numberOfPages : Int {
@@ -19,7 +19,11 @@ UIScrollViewDelegate {
     }
   }
   lazy var pages : [UIView?] = [UIView.init()]
-  
+  var newImageViewController : ImageViewController? {
+    get {
+      return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
+    }
+  }
   var currentPageIndex : Int = 0 {
     willSet {
       let correctedNewValue = min(numberOfPages - 1, max(newValue, 0))
@@ -42,6 +46,27 @@ UIScrollViewDelegate {
          imageView.contentMode = contentMode 
         }
       }
+    }
+  }
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    for page in pages {
+      if let view = page?.subviews.first as? UIImageView, view.point(inside: location, with: nil), let imageVC = newImageViewController,
+        let image = view.image {
+        imageVC.image = image
+        return imageVC
+      }
+    }
+    return nil
+  }
+  
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+    //    if profileImageView.point(inside: location, with: nil), let imageVC = newImageViewController,
+    //      let image = profileImageView.image {
+    //      imageVC.image = image
+    //      return imageVC
+    //    }
+    (viewControllerToCommit as? ImageViewController)?.addVisualEffectView()
+    present(viewControllerToCommit, animated: true) { 
     }
   }
   
@@ -131,6 +156,7 @@ UIScrollViewDelegate {
         ])
       pages[page] = canvasView
       newView.setImageByURL(fromSource: imageNames[page])
+      registerForPreviewing(with: self, sourceView: canvasView)
     }
   }
   fileprivate func loadCurrentPages(page: Int) {

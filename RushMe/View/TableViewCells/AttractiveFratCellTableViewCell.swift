@@ -11,7 +11,7 @@ import UIKit
 
 class AttractiveFratCellTableViewCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
-  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet weak var titleLabel: UILabel!
   // Chapter designation (e.g. Theta)
   //  @IBOutlet var subheadingLabel: UILabel!
   @IBOutlet weak var favoriteButton: UIButton!
@@ -26,8 +26,8 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     //iView.layer.cornerRadius = RMImage.CornerRadius
     previewImageView.contentMode = UIViewContentMode.scaleAspectFill
     previewImageView.layer.cornerRadius = 5
-    self.titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
-    self.favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     previewImageView.isUserInteractionEnabled = false
     favoriteButton.imageView?.contentMode = .scaleAspectFit
     for layer in previewImageView.layer.sublayers ?? [] {
@@ -58,8 +58,8 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   
   private(set) var imageBorderColor = UIColor.clear {
     didSet {
-      self.previewImageView.layer.borderColor = self.imageBorderColor.cgColor
-      self.layoutSubviews()
+      previewImageView.layer.borderColor = self.imageBorderColor.cgColor
+      layoutSubviews()
     }
   }
   var isAccentuated : Bool = false {

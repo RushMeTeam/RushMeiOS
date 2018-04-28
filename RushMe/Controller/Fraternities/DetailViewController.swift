@@ -11,7 +11,9 @@ import UIKit
 import MapKit
 
 // TODO: Allow users to swipe between fraternities
-class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate {
+class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDelegate, UIViewControllerPreviewingDelegate {
+  
+  
   // MARK: IBOutlets
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var underlyingView: UIView!
@@ -34,7 +36,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       return (self.childViewControllers.first as! ImagePageViewController)
     }
   }
-  
+  var newImageViewController : ImageViewController? {
+    get {
+     return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
+    }
+  }
   
   var openInMapsAction : UIAlertAction {
     get {
@@ -60,20 +66,46 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }
   // MARK: IBActions
-  @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem) {
+  @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem? = nil) {
     if let fratName = selectedFraternity?.name {
-      if let _ = Campus.shared.favoritedFrats.index(of: fratName) {
+      if Campus.shared.favoritedFrats.contains(fratName) {
         Campus.shared.removeFavorite(named: fratName)
         favoritesButton.image = RMImage.FavoritesImageUnfilled
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
-        //SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: fratName)
       }
       else {
         Campus.shared.addFavorite(named: fratName)
         favoritesButton.image = RMImage.FavoritesImageFilled
         self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
-        //SQLHandler.shared.informAction(action: "Fraternity Unfavorited in DetailVC", options: fratName)
       }
+    }
+  }
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    if profileImageView.point(inside: location, with: nil), let imageVC = newImageViewController,
+      let image = profileImageView.image {
+      imageVC.image = image
+     return imageVC
+    }
+    return nil
+  }
+  
+  func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//    if profileImageView.point(inside: location, with: nil), let imageVC = newImageViewController,
+//      let image = profileImageView.image {
+//      imageVC.image = image
+//      return imageVC
+//    }
+    (viewControllerToCommit as? ImageViewController)?.addVisualEffectView()
+    present(viewControllerToCommit, animated: true) { 
+    }
+  }
+  
+  override var previewActionItems: [UIPreviewActionItem] {
+    get {
+     return [
+      UIPreviewAction.init(title: Campus.shared.favoritedFrats.contains(self.selectedFraternity?.name ?? "") ? "Unfavorite" : "Favorite", style: .default) { (action, targetVC) in
+        self.favoritesButtonHit()
+      }]
     }
   }
   // Would like to add 3D touch support
@@ -87,7 +119,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
                    animations: {
                     sender.view?.transform = CGAffineTransform.identity
     }, completion: { _ in })
-    if let imageVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController {
+    if let imageVC = newImageViewController {
       if profileImageView.frame.contains(sender.location(in: view)),
         let image = profileImageView.image {
         imageVC.image = image
@@ -96,8 +128,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         imageVC.image = image
       }
       if imageVC.image.size != .zero && imageVC.image != RMImage.NoImage  {
-        self.present(imageVC, animated: true, completion: nil)
+        imageVC.addVisualEffectView()
+        present(imageVC, animated: true, completion: nil)
       }
+      
+
+      
       
     }
   }
@@ -109,8 +145,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       let currScale = senderView.frame.size.width/senderView.bounds.size.width
       var newScale = currScale*sender.scale
       var maxScale : CGFloat = 2
-      if (sender.view == self.profileImageView) {
-        maxScale = (self.view.bounds.width*0.9)/senderView.bounds.width
+      if (sender.view == profileImageView) {
+        maxScale = (view.bounds.width*0.9)/senderView.bounds.width
       }
       let minScale : CGFloat = 1
       newScale = max(newScale, minScale) // MIN SCALE
@@ -238,6 +274,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true
     self.configureView()
+    registerForPreviewing(with: self, sourceView: profileImageView)
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -252,72 +289,49 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       // Update the user interface for the detail item.
       if let calendarImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
         //self.coverImageView.setImageByURL(fromSource: coverImageURL)
-        (self.childViewControllers.first as? ImagePageViewController)?.imageNames = [calendarImageURL] 
+        (childViewControllers.first as? ImagePageViewController)?.imageNames = [calendarImageURL] 
       }
       if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CoverImageKey) as? String {
-        (self.childViewControllers.first as? ImagePageViewController)?.imageNames.append(coverImageURL)
+        (childViewControllers.first as? ImagePageViewController)?.imageNames.append(coverImageURL)
       }
       if let profileImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? String {
        profileImageView.setImageByURL(fromSource: profileImageURL) 
       }
-      self.titleLabel?.text = frat.name
-      self.title = frat.name.greekLetters
-      self.underProfileLabel?.text = frat.chapter + " Chapter"
-      self.gpaLabel?.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
-      if let _ = self.gpaLabel?.text {
-        self.gpaLabel!.text = String(describing: self.gpaLabel!.text!.dropLast())
-      }
+      titleLabel.text = frat.name
+      title = frat.name.greekLetters
+      underProfileLabel.text = frat.chapter + " Chapter"
+      gpaLabel.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
       if let memberCount = frat.getProperty(named: RMDatabaseKey.MemberCountKey) as? Int {
-        self.memberCountLabel?.text = String(describing: memberCount)
+        self.memberCountLabel.text = String(describing: memberCount)
       }
-      
       if Campus.shared.favoritedFrats.contains(frat.name) {
         self.favoritesButton.image = RMImage.FavoritesImageFilled
-        self.profileImageView?.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
+        self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
       }
       else {
         self.favoritesButton.image = RMImage.FavoritesImageUnfilled
-        self.profileImageView?.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
+        self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {
         if let textView = blockTextView {
           textView.text = desc
           textView.sizeToFit()
-          scrollView?.isScrollEnabled = true
-          scrollView?.contentSize = textView.contentSize
-          //underlyingView?.frame.size = textView.contentSize
-          self.view.layoutSubviews()
+          scrollView.isScrollEnabled = true
+          scrollView.contentSize = textView.contentSize
+          view.layoutSubviews()
           
         }
       }
-      if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String {
-        DispatchQueue.global().async {
-          
-          let geoCoder = CLGeocoder()
-          
-          geoCoder.geocodeAddressString(address, completionHandler: {
-            (placemarks, error) in
-            guard
-              let placemarks = placemarks,
-              let location = placemarks.first?.location
-              
-              else {
-                // handle no location found
-                return
-            }
-            // Use your location
-            let annotation = MKPointAnnotation.init()
-            self.mapItem = MKMapItem.init(placemark: MKPlacemark.init(coordinate: location.coordinate))
-            self.mapItem?.name = frat.name
-            
-            annotation.coordinate = location.coordinate
-            annotation.title = frat.name
-            annotation.subtitle = address
-            
-            self.mapView.setCenter(annotation.coordinate, animated: false)
-            self.mapView.addAnnotation(annotation)
-          })
-        }
+      if let location = RMGeocoder.locations[frat.name] {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
+        annotation.title = frat.name
+        annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
+        frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
+        mapView.addAnnotation(annotation)
+        mapView.setCenter(annotation.coordinate, animated: false)
+        mapItem = MKMapItem(placemark: MKPlacemark.init(coordinate: location.coordinate))
+        mapItem!.name = frat.name
       }
       else {
         self.mapView?.removeFromSuperview()
@@ -369,67 +383,42 @@ class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
     super.init(layer: layer)
     self.add(gradientAnimation, forKey: "colors")
   }
-  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
   func animateGradient() {
     if currentGradient < gradientSet.count - 1 {
       currentGradient += 1
     } else {
       currentGradient = 0
     }
-    
-    
-    
-    
-    self.add(gradientAnimation, forKey: "colorChange") 
+    add(gradientAnimation, forKey: "colorChange") 
   }
   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     if flag {
      self.removeFromSuperlayer()
     }
-    //self.removeFromSuperlayerAnimated()
-//    if let animation = anim as? CABasicAnimation, let animColors = animation.toValue as? [CGColor],
-//      animColors == [UIColor.clear.cgColor, UIColor.clear.cgColor]{
-//      if flag {
-//       self.removeFromSuperlayer() 
-//      }
-//      return
-//    }
-//    
-//    if flag {
-//      self.colors = gradientSet[currentGradient]
-//      animateGradient()
-//    }
   }
   func removeFromSuperlayerAnimated() {
-    self.removeAllAnimations()
+    removeAllAnimations()
     let gA = gradientAnimation
     gA.duration = 0.5
     gA.toValue = [UIColor.clear.cgColor, UIColor.clear.cgColor]
-    self.add(gA, forKey: "colorChange")
-    
+    add(gA, forKey: "colorChange")
   }
-  
 }
 
 
 extension UIImageView {
   func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
-    self.layer.drawsAsynchronously = true
-    self.image = nil
-    //let gradient = AnimatableGradientLayer.init(layer: self.layer)
-    //gradient.animateGradient()
-    //self.layer.insertSublayer(gradient, at: 0)
+    layer.drawsAsynchronously = true
+    image = nil
     DispatchQueue.global(qos: .userInteractive).async {
       let image = pullImage(fromSource: RMurl(fromString: sourceString), fallBackToNetwork: true)
       DispatchQueue.main.async {
         UIView.transition(with: self, duration: 0.15, options: .transitionCrossDissolve, animations: { 
           self.image = image
         }, completion: nil)
-        
       }
     }
   }
