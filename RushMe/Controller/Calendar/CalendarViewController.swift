@@ -291,17 +291,9 @@ ScrollableItem {
     let eventsToday = events(forIndexPath: indexPath)
     cell.eventsToday = eventsToday.count == 0 ? nil : eventsToday
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
-    if Calendar.current.isDate(currentDay, inSameDayAs: RMDate.Today) {
-      cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!, attributes: [.underlineStyle: NSUnderlineStyle.styleSingle])
-    }
-    else {
-      cell.dayLabel.attributedText = NSAttributedString.init(string: cell.dayLabel.text!)
-    }
     let currentMonth = Calendar.current.component(Calendar.Component.month, from: currentDay)
     let todaysMonth = Calendar.current.component(Calendar.Component.month, from: RMDate.Today)
     cell.dayTextColor = currentMonth == todaysMonth ? UIColor.black : UIColor.lightGray
-    
-    
     cell.dayLabel.text = String(Calendar.current.dateComponents([.day], from: currentDay).day!)
     if let numberOfEventsToday = cell.eventsToday?.count {
       cell.eventsLabel.isHidden = false

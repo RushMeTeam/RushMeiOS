@@ -86,6 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     swRevealVC.rearViewRevealOverdraw = 0
     swRevealVC.rearViewRevealWidth = 64
     drawerMenuVC.pageDelegate = scrollPageVC
+    UINavigationBar.appearance().tintColor = RMColor.AppColor
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
@@ -94,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     let task = application.beginBackgroundTask(withName: "Upload User Info") { 
       print("Doing background task")
     } 
-    SQLHandler.shared.inform(action: .AppWillEnterBackground)
+    SQLHandler.inform(action: .AppWillEnterBackground)
     application.endBackgroundTask(task)
   }
   

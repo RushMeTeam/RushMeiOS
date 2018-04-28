@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OHMySQL
 
 enum RMAction : String {
   typealias RawValue = String
@@ -22,29 +21,12 @@ enum RMAction : String {
 
 // Centralize requests made to an SQL server
 class SQLHandler  {
-  let user : OHMySQLUser!
-  let coordinator : OHMySQLStoreCoordinator
-  private(set) lazy var parentContext : OHMySQLQueryContext = {
-    let context = OHMySQLQueryContext() 
-    context.storeCoordinator = coordinator
-    return context
-  }()
-  var newContext : OHMySQLQueryContext {
-    get {
-      let context = OHMySQLQueryContext.init(parentQueryContext: parentContext)
-      context.storeCoordinator = coordinator
-      return context
-    }
-  }
-  var pastActionsFromFile : Array<Dictionary<String, Any>> {
+  static var pastActionsFromFile : Array<Dictionary<String, Any>> {
     set {
       DispatchQueue.global(qos: .background).async {
         if !NSKeyedArchiver.archiveRootObject(newValue, toFile: RMFileManagement.userActionsURL.path) {
           print("Error in Saving Actions!")
         }
-//        else {
-//          print("Successful Action Save!")
-//        }
       }
     }
     get {
@@ -52,117 +34,80 @@ class SQLHandler  {
        return actions 
       }
       else {
-        self.pastActionsFromFile = Array<Dictionary<String, Any>>()
+        self.pastActionsFromFile = [Dictionary<String, Any>]()
       }
       return []
     }
   }
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
-  fileprivate init(userName: String,
-                   password: String,
-                   serverIP: String,
-                   dbName: String,
-                   port: UInt,
-                   socket: String?) {
-    user = OHMySQLUser(userName: userName, password: password,
-                       serverName: serverIP,
-                       dbName: dbName,
-                       port: port,
-                       socket: socket)
-    coordinator = OHMySQLStoreCoordinator(user: user)
-    coordinator.encoding = .UTF8MB4
-    parentContext.storeCoordinator = coordinator
-    if !coordinator.isConnected {
-      self.coordinator.connect()
+ 
+  static func select(fromTable : String ) -> [Dictionary<String, Any>]? {
+    let tableString = "?table=\(fromTable)"
+    if let url = URL(string: RMNetwork.web.absoluteString + tableString), 
+      let response = try? Data.init(contentsOf: url) {
+      return try! JSONSerialization.jsonObject(with: response, options: .allowFragments) as? [Dictionary<String, Any>] 
     }
-    pushAll()
-  }
-  
-  
-  static let shared : SQLHandler = SQLHandler.init(userName: RMNetwork.userName,
-                                                                      password: RMNetwork.password,
-                                                                      serverIP: RMNetwork.IP,
-                                                                      dbName: RMNetwork.databaseName,
-                                                                      port: 3306,
-                                                                      socket: nil)
-  func select(fromTable : String, conditions : String? = nil, disconnectAfterQuery : Bool = false) -> [Dictionary<String, Any>]? {
-    if coordinator.pingMySQL() != .none {
-     return nil 
-    }
-    pushAll()
-    let query = OHMySQLQueryRequestFactory.select(fromTable, condition: conditions)
-    let qContext = parentContext
-    qContext.storeCoordinator = coordinator
-    do {
-      return try (qContext.executeQueryRequestAndFetchResult(query), disconnectAfterQuery ? coordinator.disconnect() : nil).0
-    }
-    catch let e {
-      self.inform(action: .SQLError, options: e.localizedDescription)
-      print(e.localizedDescription)
-      return nil 
+    else {
+     print("Failed Select") 
     }
     
+    return nil
   }
-  private(set) var isPushing = false
-  private func pushAll() {
-    coordinator.connect()
+  static private(set) var isPushing = false
+  private static func pushAll() {
+    //coordinator.connect()
     guard !isPushing else {
-     return 
+     return
     }
     isPushing = true
-    var pastActions = pastActionsFromFile
-    while let action = pastActions.last {
-      if push(action: action) {
-        _ = pastActions.popLast()
-        //DispatchQueue.global(qos: .utility).async {
-          self.pastActionsFromFile = pastActions
-        //}
-      }
-      else {
-        print("Failed to Push Action: \(action)")
-        return 
-      }
+    while let action = pastActionsFromFile.popLast() {
+      SQLHandler.push(action: action)
     }
     //print("Pushed Actions: \(pastActionsFromFile)")
     self.pastActionsFromFile = []
     self.isPushing = false
   }
-  private func push(action : [String : Any]) -> Bool {
-    let query = OHMySQLQueryRequestFactory.insert(RMNetwork.userActionsTableName, set: action)
-    let qContext =  self.parentContext
-    qContext.storeCoordinator = self.coordinator
-    do {
-      try qContext.execute(query)
-      return true
-    }
-    catch let querryError {
-      print("Error pushing action:\n\t\(String(describing: action["action"]))\n\tError: \(querryError.localizedDescription)")
-      return false
+  private static func push(action : [String : Any]) {
+    DispatchQueue.global(qos: .background).async {
+      var request = URLRequest.init(url: RMNetwork.web)
+      request.httpMethod = "POST"
+      var actionAsString = "&"
+      for category in action {
+        actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+      }
+      request.httpBody = actionAsString.data(using: .utf8)
+      URLSession.shared.dataTask(with: request) { (data, response, error) in
+        guard let data = data, error == nil else {
+          print("Push Error:", error!) 
+          return
+        }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+          print("Push Error:\n\tStatus Code is not 200! (httpStatusCode \(httpStatus.statusCode))") 
+          //SQLHandler.pastActionsFromFile.append(action)
+        }
+        if let responseString = String.init(data: data, encoding: .utf8), responseString.count > 0 {
+//          print("Data Sent:", String.init(data: request.httpBody!, encoding: .utf8)!)
+          print("Server Reponse:", responseString)
+        }
+        }.resume()
     }
   }
-  
-  func inform(action : RMAction, options : String? = nil, additionalInfo : [String : Any]? = nil) {
+  static func inform(action : RMAction, options : String? = nil, additionalInfo : [String : Any]? = nil) {
     DispatchQueue.global(qos: .utility).async {
       var report = RMUserDevice().deviceInfo
-      report["action"] = action.rawValue
+      report["pact"] = action.rawValue
       if let subseqOptions = (options?.split(separator: ";").first) {
-        report["options"] = String(subseqOptions)
+        report["popt"] = String(subseqOptions)
       }
-      if action == .AppWillEnterBackground {
-        self.pushAll()
+      if action == .AppEnteredForeground || action == .AppWillEnterBackground {
+        pushAll() 
       }
       else {
-        self.pastActionsFromFile.append(report)
+        push(action: report)
       }
       
+      
+      
     }
-    
-    
   }
-  
-  
-  deinit {
-    coordinator.disconnect()
-  }
-  
 }

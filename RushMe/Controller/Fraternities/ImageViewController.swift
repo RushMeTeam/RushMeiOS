@@ -20,7 +20,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   var visualEffectView : UIVisualEffectView?
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.visualEffectView?.removeFromSuperview()
     self.view.backgroundColor = UIColor.clear
     self.scrollView.maximumZoomScale = 3
     self.scrollView.minimumZoomScale = 1
@@ -33,15 +33,23 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     self.scrollView.contentSize = imageView.frame.size
     self.scrollView.bounces = true
   }
+  func addVisualEffectView() {
+    visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+    visualEffectView!.translatesAutoresizingMaskIntoConstraints = false
+    self.view.addSubview(visualEffectView!)
+    self.view.sendSubview(toBack: visualEffectView!)
+    NSLayoutConstraint.activate([visualEffectView!.topAnchor.constraint(equalTo: view.topAnchor),
+                                 visualEffectView!.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                 visualEffectView!.rightAnchor.constraint(equalTo: view.rightAnchor),
+                                 visualEffectView!.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     self.imageView?.image = image
     self.imageView?.layer.masksToBounds = true
     self.imageView?.layer.cornerRadius = RMImage.CornerRadius
-    visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
-    visualEffectView!.frame = self.view.frame
-    self.view.addSubview(visualEffectView!)
-    self.view.sendSubview(toBack: visualEffectView!)
+    
+    
   }
   
   override func didReceiveMemoryWarning() {

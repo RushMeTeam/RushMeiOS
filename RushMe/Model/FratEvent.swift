@@ -10,58 +10,36 @@ import UIKit
 
 class FratEvent: NSObject {
   private(set) var calendar = Calendar.current
-  private(set) var startDate : Date = Date()
-  private(set) var endDate = Date()
+  private(set) var startDate : Date
+  private(set) var endDate : Date
   private(set) var name : String
   private(set) var location : String?
   private(set) var frat : Fraternity
-  
+  let dateFormatter = DateFormatter()
+ 
+  let dateTimeFormatter = DateFormatter()
+  // TODO: Fix dateTimeFormatter to work for 24hr time
   init?(withName : String,
         onDate : String,
         ownedByFraternity : Fraternity,
         startingAt : String? = nil,
         endingAt : String? = nil,
         atLocation : String? = nil) {
+    dateTimeFormatter.dateFormat = "MM/dd/yyyy hh:mm"
+    dateTimeFormatter.isLenient = true
+    dateTimeFormatter.locale = Locale.current
+    dateFormatter.isLenient = true
+    dateTimeFormatter.formatterBehavior = .default
+    dateFormatter.dateFormat =  "MM/dd/yyyy"
+    dateFormatter.formatterBehavior = .default
+    dateFormatter.locale = Locale.current
     self.name = withName
     self.frat = ownedByFraternity
     self.location = atLocation
-    let dateArr = onDate.split(separator: "/")
-    if (dateArr.count != 3){ return nil }
     
-    if let year = NumberFormatter().number(from: String(dateArr[2]))?.intValue {
-      if let month = NumberFormatter().number(from: String(dateArr[0]))?.intValue {
-        if let day = NumberFormatter().number(from: String(dateArr[1]))?.intValue {
-          var startHour : Int? = nil
-          var startMin : Int? = nil
-          var endHour : Int? = nil
-          var endMin : Int? = nil
-          if let _ = startingAt {
-            let splitStartingTime = startingAt!.split(separator: ":")
-            startHour = NumberFormatter().number(from: String(splitStartingTime[0]))?.intValue
-            startMin = NumberFormatter().number(from: String(splitStartingTime[1]))?.intValue
-            endHour = startHour
-            endMin = startMin
-          }
-          startDate = DateComponents(calendar: self.calendar,
-                                     year: year, month: month, day: day, hour: startHour, minute: startMin).date!
-          //          if Date().compare(startDate) == ComparisonResult.orderedDescending {
-          //            return nil
-          //          }
-          if let _ = endingAt {
-            let splitEndingTime = endingAt!.split(separator: ":")
-            endHour = NumberFormatter().number(from: String(splitEndingTime[0]))?.intValue
-            endMin = NumberFormatter().number(from: String(splitEndingTime[1]))?.intValue
-          }
-          if let _ = startHour {
-            endHour = startHour! + 1
-          }
-          endDate = DateComponents(calendar: self.calendar,
-                                   year: year, month: month, day: day, hour: endHour, minute: endMin).date!
-          return
-        }
-      }
-    }
-    return nil
+    
+    self.startDate = ((startingAt == nil) ? dateFormatter.date(from: onDate) : dateTimeFormatter.date(from: onDate + " " + startingAt!))!
+    self.endDate = ((endingAt == nil) ? startDate : dateTimeFormatter.date(from: onDate + " " + endingAt!))!
   }
   
   required init?(coder aDecoder: NSCoder) {

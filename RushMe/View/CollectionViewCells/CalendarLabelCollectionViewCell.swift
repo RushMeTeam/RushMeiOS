@@ -9,13 +9,7 @@
 import UIKit
 
 class CalendarLabelCollectionViewCell: UICollectionViewCell {
-    
-  @IBOutlet var dayLabel: UILabel!
-  var eventsToday : [FratEvent]?
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
-  }
-  
+  @IBOutlet weak var dayLabel: UILabel!
+  var eventsToday : [FratEvent]?  
 }
 

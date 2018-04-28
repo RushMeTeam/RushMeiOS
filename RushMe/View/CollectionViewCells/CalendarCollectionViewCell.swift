@@ -16,35 +16,35 @@ class CalendarCollectionViewCell: UICollectionViewCell {
      dayLabel.textColor = dayTextColor
     }
   }
+  private var circleLayer : CAShapeLayer = CAShapeLayer()
+  var path : UIBezierPath {
+    get {
+      return UIBezierPath(ovalIn: dayLabel.frame)
+    }
+  }
   @IBOutlet weak var eventsLabel: UILabel!
   @IBOutlet weak var dayLabel: UILabel!
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.eventsLabel?.textColor = RMColor.AppColor
-    self.circleLayer.fillColor = RMColor.AppColor.cgColor
-    self.layer.addSublayer(circleLayer)
-    //eventsLabel.layer.addSublayer(circleLayer)
+    eventsLabel.textColor = RMColor.AppColor
+    circleLayer.fillColor = RMColor.AppColor.cgColor
+    layer.addSublayer(circleLayer)
     circleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
-    self.eventsLabel.text = ""
-    self.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
-    self.bringSubview(toFront: eventsLabel)
+    eventsLabel.text = ""
+    addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    bringSubview(toFront: eventsLabel)
   }
   override var isSelected: Bool {
     didSet {
-      circleLayer.fillColor = (isSelected ? highlightColor : UIColor.clear).cgColor
+      circleLayer.fillColor = (isSelected ? highlightColor : .clear).cgColor
       dayLabel.textColor = isSelected ? UIColor.white : dayTextColor
       if circleLayer.path == nil {
         circleLayer.path = path.cgPath
       }
     }
   }
-  private var circleLayer : CAShapeLayer = CAShapeLayer()
-  var path : UIBezierPath {
-    get {
-      return UIBezierPath.init(ovalIn: dayLabel.frame)
-    }
-  }
+  
 
   
 }

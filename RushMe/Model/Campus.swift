@@ -28,13 +28,6 @@ enum Quality : Int {
  Inheritance from NSObject provides future capabilities, namely
  saving.
  */
-protocol CampusDelegate {
-  func addedNew(favorite : String)
-  func addedNew(fraternity : Fraternity)
-  func addedNew(event : FratEvent)
-  func removed(favorite : String)
-  func finishedAll()
-}
 
 
 class Campus: NSObject {
@@ -52,14 +45,14 @@ class Campus: NSObject {
   func addFavorite(named newFavorite : String) {
     if fratNames.contains(newFavorite) {
       if favoritedFrats.insert(newFavorite).inserted {
-        SQLHandler.shared.inform(action: .FraternityFavorited, options: newFavorite)
+        SQLHandler.inform(action: .FraternityFavorited, options: newFavorite)
       }
     }
   }
   func removeFavorite(named oldFavorite : String) {
     if favoritedFrats.contains(oldFavorite) {
       favoritedFrats.remove(oldFavorite)
-      SQLHandler.shared.inform(action: .FraternityUnfavorited, options: oldFavorite)
+      SQLHandler.inform(action: .FraternityUnfavorited, options: oldFavorite)
     }
   }
   
@@ -204,11 +197,11 @@ class Campus: NSObject {
     if !isLoading {
       self.percentageCompletion = 0.2
       DispatchQueue.global(qos: .userInitiated).async {
-        var dictArray = [Dictionary<String, Any>()]
-        var eventArray = [Dictionary<String, Any>()]
-        if let fratArray = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
+        var dictArray = [Dictionary<String, Any>]()
+        var eventArray = [Dictionary<String, Any>]()
+        if let fratArray = SQLHandler.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
-          let eventArr = SQLHandler.shared.select(fromTable: RMDatabaseKey.EventInfoRelation) {
+          let eventArr = SQLHandler.select(fromTable: RMDatabaseKey.EventInfoRelation) {
           dictArray = fratArray
           eventArray = eventArr
           self.lastDictArray = dictArray
@@ -455,7 +448,7 @@ struct RMurl {
     }
   }
   var networkPath : URL {
-    return URL(string: RMNetwork.HTTP + fixedPath)!
+    return URL(string: RMNetwork.S3.absoluteString + fixedPath)!
   }
   
 }
@@ -469,7 +462,7 @@ func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.download
    return nil 
   }
   // Try to retreive the image-- upon fail return nil
-  if let data = try? Data.init(contentsOf: sourceURL.networkPath){
+  if let data = try? Data.init(contentsOf: sourceURL.networkPath) {
     //if (DEBUG) { print(".", separator: "", terminator: "") }
     // Try to downcase the retreived data to an image
     if let image = UIImage(data: data) {
@@ -477,7 +470,6 @@ func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.download
         image.storeOnDisk(at: sourceURL.localPath)
       }
       return image
-      
       //if (DEBUG) { print(".Done", separator: "", terminator: "") }
     }
   }

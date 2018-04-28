@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '42EBE39D5658A798003958BC114E00D7'
+               BlueprintIdentifier = '2BB8DE218BC5D8A28DBD03AC48803025'
                BlueprintName = 'Pods-RushMe-RushMeUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-RushMe-RushMeUITests.framework'>
