@@ -26,7 +26,22 @@ protocol FraternityCellDelegate {
 
 class MasterViewController : UITableViewController,
 UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
-UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate,
+UIGestureRecognizerDelegate{
+  
+  
+//  func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//    return PanAnimationController()
+//  }
+  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return PanAnimationController()
+  }
+  func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    return interactionController.interactionInProgress ? interactionController : nil
+  }
+  
+  lazy var swipeInteractionController = PanAnimationController()
+  lazy var interactionController = PanInteractionController() 
   
   var detailVC : DetailViewController {
     get { 
@@ -131,9 +146,6 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
   // The keys that the tableView uses to display the desired fraternities
   var dataKeys : [String] {
     get {
-      if viewingFavorites {
-        return Array(Campus.shared.favoritedFrats)
-      }
       // If we're searching, use the contents of the search bar to determine 
       // which fraternities to display
       if isSearching {
@@ -188,20 +200,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     //self.handleRefresh(refreshControl: refreshControl!)
-    // Setup the Search Bar (backend)
-    searchController.searchResultsUpdater = self
-    searchController.delegate = self
-    // Setup the Search Bar (visual)
-    //searchController.searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
-    searchController.searchBar.isTranslucent = false
-    searchController.searchBar.tintColor = RMColor.AppColor
-    searchController.searchBar.barTintColor = UIColor.white
-    searchController.hidesNavigationBarDuringPresentation = false
-    searchController.obscuresBackgroundDuringPresentation = false
-    searchController.dimsBackgroundDuringPresentation = false
-    view.sendSubview(toBack: tableView)
-    // Set Search Bar placeholder text, for when a search has not been entered
-    searchController.searchBar.placeholder = "Search Fraternities"
+    
     // Set up Navigation bar (visual)
     // Menu button disabled until refresh complete
     // Ensure the menu button toggles the menu
@@ -214,9 +213,34 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
     //Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler : handleNewFraternity(oldValue:newValue:))  
   }
-  
+  lazy var setupSearchBar : Void = {
+    // Setup the Search Bar (backend)
+    searchController.searchResultsUpdater = self
+    searchController.delegate = self
+    // Setup the Search Bar (visual)
+    //searchController.searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+    searchController.searchBar.isTranslucent = false
+    searchController.searchBar.tintColor = RMColor.AppColor
+    searchController.searchBar.barTintColor = UIColor.white
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
+    if #available(iOS 11, *) {
+      //navigationItem.searchController = searchController
+    }
+    //
+    // Set Search Bar placeholder text, for when a search has not been entered
+    searchController.searchBar.placeholder = "Search Fraternities"
+    //extendedLayoutIncludesOpaqueBars = true
+    //definesPresentationContext = true
+    //edgesForExtendedLayout = []
+    //searchController.searchBar.scopeButtonTitles = []
+  }()
+
   lazy var setupTableHeaderView : Void = {
+    _ = setupSearchBar
     let tableHeaderView = UIView()
+//    let searchBarView = UIView()
     tableHeaderView.backgroundColor = .white
     searchController.searchBar.backgroundImage = UIImage()
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
@@ -224,28 +248,117 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     favoritesSegmentControl.selectedSegmentIndex = 0
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
-    searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
     tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
+//    searchBarView.translatesAutoresizingMaskIntoConstraints = false
     tableView.tableHeaderView = tableHeaderView
-    tableHeaderView.addSubview(searchController.searchBar)
+    //searchBarView.addSubview(searchController.searchBar)
+    //tableHeaderView.addSubview(searchBarView)
     tableHeaderView.addSubview(favoritesSegmentControl)
     // TODO: Fix search bar autolayout errors!
     NSLayoutConstraint.activate([tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                 tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
                                  tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-                                 searchController.searchBar.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant : 5),
-                                 searchController.searchBar.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant : 5),
-                                 searchController.searchBar.heightAnchor.constraint(equalToConstant: 44),
-                                 searchController.searchBar.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 0),
-                                 favoritesSegmentControl.topAnchor.constraint(equalTo: searchController.searchBar.bottomAnchor, constant: 4),
+//                                 searchBarView.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant : 5),
+//                                 searchBarView.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant : -5),
+//                                 searchBarView.heightAnchor.constraint(equalToConstant: 44),
+//                                 searchBarView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 0),
+//                                 searchBarView.centerXAnchor.constraint(equalTo: tableHeaderView.centerXAnchor),
+                                 favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 4),
                                  favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 6),
                                  favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -6),
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
                                  tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 4)])
-    tableHeaderView.layoutSubviews()
-    tableView.layoutSubviews()
-    
+    view.sendSubview(toBack: tableView)
   }()
+  
+  //lazy var panGestureRecognizer = UIPanGestureRecognizer.init(target: self, action: #selector(swiped))
+//  lazy var setupGestureRecognizers : Void = {
+//    tableView.allowsSelection = false
+//    
+//    let doubleTap = UITapGestureRecognizer.init(target: self, action: #selector(double))
+//    doubleTap.numberOfTapsRequired = 2
+//    doubleTap.numberOfTouchesRequired = 1
+//    
+//    let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(single))
+//    singleTap.numberOfTapsRequired = 1
+//    singleTap.numberOfTouchesRequired = 1
+//    
+//    singleTap.require(toFail: doubleTap)
+//    
+//    tableView.addGestureRecognizer(doubleTap)
+//    tableView.addGestureRecognizer(singleTap)
+//    //panGestureRecognizer.delegate = self
+//    //tableView.panGestureRecognizer.require(toFail: panGestureRecognizer)
+////    tableView.addGestureRecognizer(panGestureRecognizer)
+//    //tableView.panGestureRecognizer.addTarget(self, action: #selector(swiped))
+//  }()
+//  
+//  @objc func single(tap : UIGestureRecognizer) {
+//    if tap.state == .ended,
+//      let indexPath = tableView.indexPathForRow(at: tap.location(in: tap.view)),
+//      let cell = tableView.cellForRow(at: indexPath)
+//    {
+//      interactionController.interactionInProgress = true
+//      interactionController.shouldCompleteTransition = true
+//      performSegue(withIdentifier: "showDetail", sender: cell) 
+//    }
+//  }
+//  let percentageThreshhold : CGFloat = 0.5
+//  var destinationController : UIViewController!
+//  @objc func swiped(with pan : UIPanGestureRecognizer) {
+//    let translation = pan.translation(in: view)
+//    let movement = -translation.x / (view.frame.width)
+//    let leftMovement = max(movement, 0)
+//    let leftMovementPercent = min(leftMovement, 1)
+//    let progress : CGFloat = leftMovementPercent
+//    guard let indexPath = tableView.indexPathForRow(at: pan.location(in: pan.view)),
+//      let cell = tableView.cellForRow(at: indexPath)
+//        else {
+//     print("destinationController not set!")
+//      return
+//    }
+//    
+//    switch pan.state {
+//    case .began:
+//      interactionController.interactionInProgress = true
+//      // FIX!
+//      //present(detailVC, animated: true, completion: nil)
+//      performSegue(withIdentifier: "showDetail", sender: indexPath)
+//    case .changed:
+//      interactionController.shouldCompleteTransition = progress > percentageThreshhold
+//      //cell.transform = CGAffineTransform.init(translationX: -progress*view.frame.width/1.5, y: 0)
+//      interactionController.update(progress)
+//    case .cancelled:
+//      interactionController.interactionInProgress = false
+//      //self.navigationController?.setToolbarHidden(true, animated: true)
+//      interactionController.cancel()
+//      cell.transform = CGAffineTransform.identity
+//    case .ended:
+//      if interactionController.shouldCompleteTransition {
+//        //self.navigationController?.setToolbarHidden(false, animated: true)
+//        interactionController.finish()
+//      } else {
+//        //self.navigationController?.setToolbarHidden(true, animated: true)
+//        self.interactionController.cancel() 
+//        cell.transform = CGAffineTransform.identity
+//      }
+//    default:
+//      break
+//    }
+//  }
+  
+  @objc func double(tap : UIGestureRecognizer) {
+    if tap.state == .ended, 
+      let indexPath = tableView.indexPathForRow(at: tap.location(in: tap.view)),
+      let cell = tableView.cellForRow(at: indexPath) as? AttractiveFratCellTableViewCell
+    {
+      Campus.shared.toggleFavorite(named: dataKeys[indexPath.row])
+      cell.isAccentuated = Campus.shared.favoritedFrats.contains(dataKeys[indexPath.row])
+      
+    }
+
+  }
     
   // MARK: - Data Handling
   func dataUpdate() {
@@ -255,116 +368,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     reloadTableView()
   }
   
-  
-  // MARK: Data Request
-//  @objc func pullFratsFromSQLDatabase() -> Bool {
-//    return true
-//    DispatchQueue.main.async {
-//      // Reset progress view to indicate loading has commenced
-//      self.progressView.setProgress(0.05, animated: false)
-//      //self.revealViewController().panGestureRecognizer().isEnabled = false
-//      self.progressView.alpha = 1
-//      self.favoritesSegmentControl?.isEnabled = false
-//      // Reset shuffledFrats
-//      self.shuffledFrats = nil
-//    }
-//    if !SQLHandler.shared.isConnected {
-//      return false
-//    }
-//    // The list of fraternity dictionaries
-//    var dictArray = [Dictionary<String, Any>()]
-//    if let arr = SQLHandler.shared.select(fromTable: RMDatabaseKey.FraternityInfoRelation) {
-//      dictArray = arr
-//    }
-//    if dictArray.count > Campus.shared.fratNames.count {
-//      DispatchQueue.global(qos: .userInitiated).async {
-//        // Keep track of progress
-//        var fratCount = 0
-//        // Iterate through fraternities
-//        for fraternityDict in dictArray {
-//          // Initialize the fraternity from a dictionary
-//          // If successful, register with the shared Campus
-//          Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
-//          fratCount += 1
-//          DispatchQueue.main.async {            
-//            // Don't allow refresh during refresh
-//            self.refreshControl!.isEnabled = false
-//            // Every other fraternity loaded should be indicated
-//            if fratCount%2 == 0 {
-//              self.progressView.setProgress(Float(fratCount+1)/Float(dictArray.count), animated: true)
-//            }
-//            if RMUserPreferences.shuffleEnabled && fratCount % 4 == 0 {
-//              // Every 4 fraternities, update the tableView 
-//              // (only when in shuffled-- prevents whacky stuttering)
-//              self.reloadTableView() 
-//            }
-//            else if !RMUserPreferences.shuffleEnabled {
-//              self.reloadTableView()
-//            }
-//          }
-//        }
-//        DispatchQueue.main.async {
-//          self.reloadTableView()
-//          self.favoritesSegmentControl?.isHidden = false
-//          self.refreshControl!.isEnabled = true
-//          //self.openBarButtonItem.isEnabled = true
-//          
-//          self.favoritesSegmentControl?.isEnabled = true
-//          //self.revealViewController().panGestureRecognizer().isEnabled = true
-//          // Set the progressView to 100% complete state
-//          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-//            self.progressView.progress = 1
-//            self.progressView.alpha = 0
-//          }, completion: { (_) in
-//            self.refreshControl!.endRefreshing()
-//          })
-//        }
-//      }
-//    }
-//    else {
-//      // Do a little refresh to indicate a check was made
-//      // TODO: Make a timing constant for the 0.3
-//      Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { (timer) in
-//        self.refreshControl!.endRefreshing()
-//        self.reloadTableView()
-//        self.refreshControl!.isEnabled = true
-//        // self.revealViewController().panGestureRecognizer().isEnabled = false
-//        self.favoritesSegmentControl?.isEnabled = true
-//        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
-//          self.progressView.progress = 1
-//          self.progressView.alpha = 0
-//        }, completion: { (_) in
-//        })
-//      })
-//    }
-//    return true
-//  }
 
-//  let colors  = [UIColor.white, RMColor.AppColor, RMColor.AppColor, UIColor.cyan, UIColor.red] //[UIColor.red, RMColor.AppColor, RMColor.AppColor, UIColor.purple, UIColor.cyan, RMColor.AppColor, RMColor.AppColor, UIColor.orange, RMColor.AppColor, UIColor.magenta, RMColor.AppColor]
-//  
-//  func animateRefreshView() {
-//    struct Counter {
-//     static var index = 0
-//    }
-//    DispatchQueue.main.async {
-//      UIView.animate(withDuration: 0.5, animations: {
-//        self.refreshControl!.backgroundColor = self.colors[Counter.index%self.colors.count]
-//        self.refreshControl!.tintColor = self.colors[(Counter.index%self.colors.count)%self.colors.count]
-//      }, completion: { (completed) in
-//        Counter.index += 1
-//        if self.refreshControl!.isRefreshing {
-//          self.animateRefreshView()
-//        }
-//        else {
-//          UIView.animate(withDuration: 0.8, animations: {
-//            self.refreshControl!.backgroundColor = UIColor.white
-//            self.refreshControl!.tintColor = RMColor.AppColor
-//          })
-//        }
-//      })
-//    }
-//  }  
-  
   
   @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
     // If we're searching, cancel the search if we select the menu
@@ -391,36 +395,63 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-    
+    //_ = setupGestureRecognizers
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
-  
+  @IBAction func unwindToSelf(segue : UIStoryboardSegue) {
+    
+  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
     if segue.identifier == "showDetail" || segue.identifier == "peekDetail" {
       let cell = sender as? UITableViewCell ?? UITableViewCell()
-      if let row = tableView.indexPathsForSelectedRows?.first?.row ?? tableView.indexPath(for: cell)?.row { 
-        
+      if let row = (sender as? IndexPath)?.row ?? tableView.indexPathsForSelectedRows?.first?.row ?? tableView.indexPath(for: cell)?.row { 
           let fratName = self.dataKeys[row]
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
             SQLHandler.inform(action: .FraternitySelected, options: fratName)
-            let controller = segue.destination.childViewControllers.first as! UIPageViewController
+            let controller = segue.destination as! UIPageViewController
             controller.title = fratName.greekLetters
             controller.dataSource = self
             controller.delegate = self
             controller.view.backgroundColor = .white
+            navigationController?.navigationBar.shadowImage = UIImage()
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            //navigationController?.navigationBar.isTranslucent = false
+            navigationController?.navigationBar.barTintColor = .white
+            navigationController?.navigationItem.hidesBackButton = false
+            navigationController?.providesPresentationContextTransitionStyle = true
+//            navigationController?.view.backgroundColor = .clear
+//            let gradient = CAGradientLayer()
+//            let sizeLength = UIScreen.main.bounds.size.height * 2
+//            let defaultNavigationBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: 64)
+//            gradient.colors = [UIColor.white.cgColor, UIColor.clear.cgColor]
+//            gradient.frame = defaultNavigationBarFrame
+//            navigationController?.navigationBar.setBackgroundImage(self.image(fromLayer: gradient), for: .default)
             let dVC = detailVC
             dVC.selectedFraternity = selectedFraternity
             controller.setViewControllers([dVC], direction: .forward, animated: false) { (_) in
-              _ = segue.identifier == "showDetail" ? 
-                      self.navigationController?.setNavigationBarHidden(false, animated: true) 
-                    : nil 
+//              _ = segue.identifier == "showDetail" ? 
+//                      self.navigationController?.setNavigationBarHidden(false, animated: true) 
+//                    : nil 
             }
           }
         }
       }
   }
+  func image(fromLayer layer: CALayer) -> UIImage {
+    UIGraphicsBeginImageContext(layer.frame.size)
+    
+    layer.render(in: UIGraphicsGetCurrentContext()!)
+    
+    let outputImage = UIGraphicsGetImageFromCurrentImageContext()
+    
+    UIGraphicsEndImageContext()
+    
+    return outputImage!
+  }
+  
+  
   
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
@@ -443,6 +474,7 @@ UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     }
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
+
   
   // MARK: - Table View
   

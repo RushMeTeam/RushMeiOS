@@ -17,10 +17,7 @@ class SettingsViewController: UIViewController {
   // Allow user to choose whether to display/consider past events
   @IBOutlet weak var displayPastEventsSwitch: UISwitch!
   @IBOutlet weak var dateLabel: UILabel!
-  
-  @IBAction func displayPastEventsSwitch(_ sender: UISwitch) {
-    Campus.shared.considerEventsBeforeToday = sender.isOn
-  }
+
 
   @IBAction func disappear(_ sender: Any) {
     //self.dismiss(animated: true, completion: nil)
@@ -78,7 +75,13 @@ class SettingsViewController: UIViewController {
     RMUserPreferences.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn
   }
 
+  @IBAction func shuffleFraternitiesSwitch(_ sender: UISwitch) {
+    RMUserPreferences.shuffleEnabled = sender.isOn
+  }
   
+  @IBAction func displayPastEventsSwitched(_ sender: UISwitch) {
+    Campus.shared.considerEventsBeforeToday = sender.isOn
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

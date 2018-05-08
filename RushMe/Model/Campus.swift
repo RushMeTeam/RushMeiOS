@@ -363,6 +363,11 @@ class Campus: NSObject {
     }
   }
 }
+extension Campus {
+  func toggleFavorite(named fratName : String) {
+    _ = self.favoritedFrats.contains(fratName) ? removeFavorite(named: fratName) : addFavorite(named: fratName)
+  }
+}
 
 extension Fraternity {
   convenience init?(fromDict dict : Dictionary<String, Any>, loadImages : Bool = true) {

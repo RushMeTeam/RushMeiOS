@@ -65,30 +65,28 @@ class ScrollPageViewController: UIViewController,
     super.viewDidLayoutSubviews()
     _ = setupInitialPages
   }
-  override func awakeFromNib() {
-    // TODO: Finish Scroll Indicator!
-  }
   
   func open(fraternityNamed fratName : String) {
    for childVC in orderedViewControllers[1].childViewControllers {
       if let _ = childVC as? UINavigationController,
         let tableVC = childVC.childViewControllers.first as? MasterViewController,
         let row =  tableVC.dataKeys.index(of: fratName) {
-        escapeDetailIfNecessary()
+        _ = escapeDetailIfNecessary()
         tableVC.viewingFavorites = false
-        tableVC.tableView.selectRow(at: IndexPath.init(row: row, section: 0), animated: false, scrollPosition: .middle)
-        tableVC.performSegue(withIdentifier: "showDetail", sender: self)
+        tableVC.performSegue(withIdentifier: "showDetail", sender: IndexPath.init(row: row, section: 0))
         goToPage(page: 1, animated: true)
         return
       }
     }
   }
-  func escapeDetailIfNecessary() {
-    ((currentViewController as? UISplitViewController)?.viewControllers.first as? UINavigationController)?.popToRootViewController(animated: true) 
+  func escapeDetailIfNecessary() -> Bool {
+    return ((currentViewController as? UISplitViewController)?.viewControllers.first as? UINavigationController)?.popToRootViewController(animated: true) != nil 
   }
   
   @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
-    self.revealViewController().revealToggle(animated: true)
+    if !escapeDetailIfNecessary() {
+      self.revealViewController().revealToggle(animated: true)
+    }
   }
   @objc func presentAbout() {
     //print("opened aboutVC")
@@ -281,7 +279,7 @@ class ScrollPageViewController: UIViewController,
   func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
     viewControllerScrollView.isUserInteractionEnabled = position != .right
     // Escape from Detail
-    escapeDetailIfNecessary()
+    (currentViewController as? ScrollableItem)?.updateData()
   }
   /*
    // MARK: - Navigation

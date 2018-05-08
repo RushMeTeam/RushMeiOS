@@ -230,7 +230,12 @@ ScrollableItem {
   // MARK: Button Actions
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
     let indexPaths = collectionView.indexPathsForSelectedItems!
-    collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+    UIView.transition(with: collectionView, duration: 0.1, options: .transitionCrossDissolve, animations: { 
+      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+    }) { (_) in
+      
+    }
+    
     if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
       if let lastSelectedPath = indexPaths.last {
         eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath)

@@ -18,23 +18,33 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   @IBOutlet weak var previewImageView: UIImageView!
   var delegate : FraternityCellDelegate? = nil
   var gradientLayer : CAGradientLayer? = nil
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-    //contentView.layer.masksToBounds = true
+  
+ 
+  
+  lazy var setupCell : Void = {
     previewImageView.layer.masksToBounds = true
-    //iView.layer.cornerRadius = RMImage.CornerRadius
     previewImageView.contentMode = UIViewContentMode.scaleAspectFill
     previewImageView.layer.cornerRadius = 5
     titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
-    favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     previewImageView.isUserInteractionEnabled = false
     favoriteButton.imageView?.contentMode = .scaleAspectFit
-    for layer in previewImageView.layer.sublayers ?? [] {
-      layer.removeFromSuperlayer()
-    }
+    favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+  }()
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    _ = setupCell
+    // Initialization code
+    //contentView.layer.masksToBounds = true
+    
+    //iView.layer.cornerRadius = RMImage.CornerRadius
+    
+    
+    
+//    for layer in previewImageView.layer.sublayers ?? [] {
+//      layer.removeFromSuperlayer()
+//    }
     previewImageView.image = nil
-    previewImageView.layer.sublayers = nil
+    //previewImageView.layer.sublayers = nil
     gradientLayer?.removeFromSuperlayer()
     gradientLayer = CAGradientLayer()
     gradientLayer!.drawsAsynchronously = true
@@ -44,12 +54,13 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     
     
   }
+
   override func layoutSubviews() {
     super.layoutSubviews()
     gradientLayer!.frame = previewImageView.bounds
     gradientLayer!.layoutIfNeeded()
   }
-  @IBAction func favoriteButtonHit(_ sender: UIButton) {
+  @IBAction func favoriteButtonHit(_ sender: UIButton? = nil) {
     isAccentuated = !isAccentuated
     delegate?.cell(withFratName: titleLabel.text ?? "", favoriteStatusToValue: isAccentuated)
     
@@ -69,4 +80,6 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     }
   }
 }
+
+
 

@@ -99,11 +99,8 @@ struct RMUser {
 struct RMUserPreferences {
   static private var shuffleEnabled_ : Bool? = nil
   static private var shuffleEnabledDefault = true
-  static var shuffleEnabled : Bool = shuffleEnabled_ ?? shuffleEnabledDefault {
-    didSet {
-     self.shuffleEnabled_ = self.shuffleEnabled
-    }
-  }
+  static var shuffleEnabled : Bool = shuffleEnabledDefault
+  
 }
 
 struct RMPropertyKeys {

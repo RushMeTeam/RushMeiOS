@@ -20,12 +20,14 @@ class EventTableViewController: UITableViewController {
   var selectedEvents : [FratEvent]? = nil {
     didSet {
       self.tableView.isScrollEnabled = selectedEvents != nil && selectedEvents!.count > 0
-      UIView.animate(withDuration: 0.5) { 
+      UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: { 
         self.tableView.reloadData()
-      }
-      if let _ = selectedEvents, selectedEvents!.count > 0 {
+      }) { (_) in
+        if let _ = self.selectedEvents, self.selectedEvents!.count > 0 {
           self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+        }
       }
+      
   
       
     }
@@ -68,7 +70,7 @@ class EventTableViewController: UITableViewController {
     }
     else {
       let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellIdentifier)!
-      cell.textLabel?.textColor = RMColor.AppColor
+      cell.textLabel?.textColor = .darkGray
       cell.textLabel?.text = RMMessage.NoEvents
       cell.backgroundColor = .clear
       cell.textLabel?.textAlignment = .center

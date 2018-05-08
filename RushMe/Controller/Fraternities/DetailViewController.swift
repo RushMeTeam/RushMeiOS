@@ -25,7 +25,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
-  @IBOutlet weak var favoritesButton: UIBarButtonItem!
+  //@IBOutlet weak var favoritesButton: UIBarButtonItem!
+  var favoritesButton : UIBarButtonItem = UIBarButtonItem()
   @IBOutlet weak var eventView: UIView!
   @IBOutlet weak var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
@@ -41,6 +42,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
      return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
+  @IBAction func disappear(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+ 
+  
   
   var openInMapsAction : UIAlertAction {
     get {
@@ -65,6 +72,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
   }
+  
+  
   // MARK: IBActions
   @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem? = nil) {
     if let fratName = selectedFraternity?.name {
@@ -269,7 +278,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         }
       }
     }
-    
+   
     self.profileImageView.layer.zPosition = 10
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true
