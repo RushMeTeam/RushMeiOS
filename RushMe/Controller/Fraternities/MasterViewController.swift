@@ -209,9 +209,7 @@ UIGestureRecognizerDelegate{
     
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
 
-    //Campus.shared.loadingObservable.addObserver(forOwner: self, handler: handleNewLoading(oldValue:newValue:))
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
-    //Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler : handleNewFraternity(oldValue:newValue:))  
   }
   lazy var setupSearchBar : Void = {
     // Setup the Search Bar (backend)
@@ -398,9 +396,9 @@ UIGestureRecognizerDelegate{
     //_ = setupGestureRecognizers
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
-  @IBAction func unwindToSelf(segue : UIStoryboardSegue) {
-    
-  }
+//  @IBAction func unwindToSelf(segue : UIStoryboardSegue) {
+//    
+//  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
@@ -410,7 +408,7 @@ UIGestureRecognizerDelegate{
           let fratName = self.dataKeys[row]
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
             SQLHandler.inform(action: .FraternitySelected, options: fratName)
-            let controller = segue.destination as! UIPageViewController
+            let controller = segue.destination.childViewControllers.first as! UIPageViewController
             controller.title = fratName.greekLetters
             controller.dataSource = self
             controller.delegate = self
@@ -431,9 +429,9 @@ UIGestureRecognizerDelegate{
             let dVC = detailVC
             dVC.selectedFraternity = selectedFraternity
             controller.setViewControllers([dVC], direction: .forward, animated: false) { (_) in
-//              _ = segue.identifier == "showDetail" ? 
-//                      self.navigationController?.setNavigationBarHidden(false, animated: true) 
-//                    : nil 
+              _ = segue.identifier == "showDetail" ? 
+                self.navigationController?.setNavigationBarHidden(false, animated: true) 
+                : nil 
             }
           }
         }

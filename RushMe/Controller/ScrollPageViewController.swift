@@ -84,12 +84,10 @@ class ScrollPageViewController: UIViewController,
   }
   
   @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
-    if !escapeDetailIfNecessary() {
-      self.revealViewController().revealToggle(animated: true)
-    }
+    _ = escapeDetailIfNecessary() 
+    self.revealViewController().revealToggle(animated: true)
   }
   @objc func presentAbout() {
-    //print("opened aboutVC")
     present(ScrollPageViewController.getViewController(forIdentifier: "aboutVC"), animated: true, completion: nil) 
   }
   private(set) lazy var setupInitialPages : Void = {

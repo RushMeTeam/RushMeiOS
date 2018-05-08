@@ -112,7 +112,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ei-dR-6B3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5500" y="291"/>
+            <point key="canvasLocation" x="-7143" y="3235"/>
         </scene>
         <!--RushMe-->
         <scene sceneID="xO2-fK-6uR">
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qz3-Fv-N6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4495.1999999999998" y="289.20539730134936"/>
+            <point key="canvasLocation" x="-6138" y="3234"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="bI3-pc-WMz">
@@ -570,8 +570,7 @@
         <!--Page View Controller-->
         <scene sceneID="c6C-Ox-J46">
             <objects>
-                <pageViewController storyboardIdentifier="detailPageVC" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="r8X-mU-zrS" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                <pageViewController storyboardIdentifier="detailPageVC" autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="r8X-mU-zrS" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Mzp-xq-oMQ"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8I-Aq-BmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,17 +580,17 @@
         <!--Detail View Controller-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController storyboardIdentifier="detailVC" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JEX-9P-axG" customClass="DetailViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JEX-9P-axG" customClass="DetailViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UnX-NP-e0w"/>
                         <viewControllerLayoutGuide type="bottom" id="jTc-Oc-AYk"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Me9-k4-qFh" userLabel="Detail View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgl-UO-Qmw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="886"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
                                 <subviews>
                                     <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-ZE-WZP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="777"/>
@@ -782,19 +781,12 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="mOI-FS-AaM">
                         <barButtonItem key="backBarButtonItem" title="Fraternities" id="BI9-vG-QVV"/>
-                        <barButtonItem key="rightBarButtonItem" image="FavoritesUnfilled" id="7cf-4I-aUV">
-                            <connections>
-                                <action selector="favoritesButtonHit:" destination="JEX-9P-axG" id="MWo-3Z-r0p"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <size key="freeformSize" width="375" height="950"/>
                     <connections>
                         <outlet property="blockTextView" destination="8vX-2H-ghf" id="DxC-IQ-ZQG"/>
                         <outlet property="coverImageView" destination="otf-vF-Hvh" id="3Ze-iN-vdz"/>
                         <outlet property="eventView" destination="S01-IN-MdK" id="8oG-RC-aJT"/>
-                        <outlet property="favoritesButton" destination="7cf-4I-aUV" id="OCx-T3-NfY"/>
                         <outlet property="gpaLabel" destination="xWe-bl-VJ1" id="khn-qU-IT6"/>
                         <outlet property="mapView" destination="oSM-tO-GHT" id="HOy-kF-dbs"/>
                         <outlet property="memberCountLabel" destination="qjd-kf-2he" id="H7j-HB-aiR"/>
@@ -1304,7 +1296,6 @@
         <image name="BurgerIcon" width="24" height="24"/>
         <image name="CenterMapIcon" width="24" height="24"/>
         <image name="DirectionsIcon" width="24" height="24"/>
-        <image name="FavoritesUnfilled" width="24" height="24"/>
         <image name="RightArrowIcon" width="24" height="24"/>
         <image name="RushMeLogo" width="768" height="877"/>
         <image name="XOutIcon" width="24" height="24"/>
