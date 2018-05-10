@@ -18,6 +18,7 @@ class CalendarViewController: UIViewController,
 ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
+      self.loadViewIfNeeded()
       self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
       self.scrollView.scrollToTop(animated: true)
       self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
@@ -119,7 +120,7 @@ ScrollableItem {
   // MARK: ViewDidLoad and ViewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
+    //    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
     self.view.sendSubview(toBack: collectionView)

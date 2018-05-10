@@ -19,10 +19,16 @@ protocol ScrollViewDelegateForwarder {
 }
 
 class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
-  var pageDelegate : ScrollViewDelegateForwarder? 
+ // var pageDelegate : ScrollViewDelegateForwarder? 
   
   @IBOutlet weak var rushMeLogo: UIImageView!
-  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var scrollView: UIScrollView! 
+  private(set) var accompanyingScrollView : UIScrollView! 
+  func set(newScrollView : UIScrollView, with owner : UIViewController) {
+    owner.loadViewIfNeeded()
+    self.accompanyingScrollView = newScrollView
+    //newScrollView.delegate = self
+  }
   let buttonIcons = [UIImage(named: "MapsIcon"),
                      UIImage(named: "FraternitiesIcon"), 
                      UIImage(named: "EventsIcon"),
@@ -56,12 +62,7 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   }
   
   @objc func buttonHit(sender : UIButton) {
-//    print("nice")
-//    for button in buttons {
-//      if sender == button {
-//        print("Foundem!") 
-//      }
-//    }
+    // TODO: Implement Go-To-Button-Tapped
   }
   @objc func scrollButtons(sender : UIGestureRecognizer) {
     let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
@@ -104,7 +105,10 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   }
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     currentCalculatedPage = calculateCurrentPage(forOffset: scrollView.contentOffset)
-    pageDelegate?.scrollViewDidScroll(scrollView)
+    //accompanyingScrollView.setContentOffset(scrollView.contentOffset, animated: false)
+    accompanyingScrollView.contentOffset = scrollView.contentOffset.applying( CGAffineTransform.init(scaleX: 1, y: accompanyingScrollView.frame.height/self.scrollView.frame.height))
+//    pageDelegate?.scrollViewDidScroll(scrollView)
+    
   }
   
   
@@ -112,7 +116,8 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
     let pageWidth = scrollView.frame.height
     let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
     currentPage = Int(page)
-    pageDelegate?.scrollViewDidEndDecelerating(scrollView)
+    
+//    pageDelegate?.scrollViewDidEndDecelerating(scrollView)
   }
   func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
     let pageWidth = scrollView.frame.height
@@ -126,19 +131,17 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    loadViewIfNeeded()
+//    loadViewIfNeeded()
     
   }
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-    //super.viewWillTransition(to: size, with: coordinator)
     coordinator.animate(alongsideTransition: nil) { (_) in
       for canvasView in self.canvasViews {
        canvasView?.removeFromSuperview() 
       }
       self.canvasViews = [UIView?](repeating: nil, count: self.buttonIcons.count)
       self.adjustScrollView()
-      //self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.scrollView.frame.height * CGFloat(self.currentPage))
       if self.isViewLoaded {
         if size.height < size.width {
           UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
@@ -162,19 +165,6 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
 }
 
 
-//class AnywhereView : UIView {
-//  var desiredView : UIView?
-//  override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-//    print("nice touch")
-//    if let convertedPoint = desiredView?.convert(point, from: self)
-//      ,desiredView!.bounds.contains(convertedPoint)  {
-//      
-//      print("very nice touch", point, convertedPoint)
-//      return self.desiredView!.hitTest(convertedPoint, with: event)
-//    }
-//    return super.hitTest(point, with: event)
-//  }
-//}
 
 
 

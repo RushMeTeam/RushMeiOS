@@ -29,20 +29,6 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
 UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate,
 UIGestureRecognizerDelegate{
   
-  
-//  func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//    return PanAnimationController()
-//  }
-  func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return PanAnimationController()
-  }
-  func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-    return interactionController.interactionInProgress ? interactionController : nil
-  }
-  
-  lazy var swipeInteractionController = PanAnimationController()
-  lazy var interactionController = PanInteractionController() 
-  
   var detailVC : DetailViewController {
     get { 
       return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
@@ -186,6 +172,7 @@ UIGestureRecognizerDelegate{
     }
   }
   override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     _ = self.setupTableHeaderView
   }
   override func didReceiveMemoryWarning() {
@@ -197,17 +184,14 @@ UIGestureRecognizerDelegate{
     super.viewDidLoad()
     navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController?.navigationBar.shadowImage = UIImage()
-    refreshControl = UIRefreshControl()
-    refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-    //self.handleRefresh(refreshControl: refreshControl!)
-    
     // Set up Navigation bar (visual)
     // Menu button disabled until refresh complete
     // Ensure the menu button toggles the menu
     // Refresh control 
     refreshControl = UIRefreshControl()
-    
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    
+    
 
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
   }
@@ -233,130 +217,46 @@ UIGestureRecognizerDelegate{
     //definesPresentationContext = true
     //edgesForExtendedLayout = []
     //searchController.searchBar.scopeButtonTitles = []
+    //                                 searchBarView.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant : 5),
+    //                                 searchBarView.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant : -5),
+    //                                 searchBarView.heightAnchor.constraint(equalToConstant: 44),
+    //                                 searchBarView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 0),
+    //                                 searchBarView.centerXAnchor.constraint(equalTo: tableHeaderView.centerXAnchor),
+    //    searchBarView.translatesAutoresizingMaskIntoConstraints = false
+    //    let searchBarView = UIView()
+       searchController.searchBar.backgroundImage = UIImage()
+    
+    //searchBarView.addSubview(searchController.searchBar)
+    //tableHeaderView.addSubview(searchBarView)
   }()
 
   lazy var setupTableHeaderView : Void = {
     _ = setupSearchBar
     let tableHeaderView = UIView()
-//    let searchBarView = UIView()
+
     tableHeaderView.backgroundColor = .white
-    searchController.searchBar.backgroundImage = UIImage()
+ 
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
     tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
-//    searchBarView.translatesAutoresizingMaskIntoConstraints = false
+
     tableView.tableHeaderView = tableHeaderView
-    //searchBarView.addSubview(searchController.searchBar)
-    //tableHeaderView.addSubview(searchBarView)
+    
     tableHeaderView.addSubview(favoritesSegmentControl)
     // TODO: Fix search bar autolayout errors!
     NSLayoutConstraint.activate([tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
                                  tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
                                  tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-//                                 searchBarView.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant : 5),
-//                                 searchBarView.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant : -5),
-//                                 searchBarView.heightAnchor.constraint(equalToConstant: 44),
-//                                 searchBarView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 0),
-//                                 searchBarView.centerXAnchor.constraint(equalTo: tableHeaderView.centerXAnchor),
                                  favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 4),
                                  favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 6),
                                  favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -6),
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
                                  tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 4)])
-    view.sendSubview(toBack: tableView)
   }()
-  
-  //lazy var panGestureRecognizer = UIPanGestureRecognizer.init(target: self, action: #selector(swiped))
-//  lazy var setupGestureRecognizers : Void = {
-//    tableView.allowsSelection = false
-//    
-//    let doubleTap = UITapGestureRecognizer.init(target: self, action: #selector(double))
-//    doubleTap.numberOfTapsRequired = 2
-//    doubleTap.numberOfTouchesRequired = 1
-//    
-//    let singleTap = UITapGestureRecognizer.init(target: self, action: #selector(single))
-//    singleTap.numberOfTapsRequired = 1
-//    singleTap.numberOfTouchesRequired = 1
-//    
-//    singleTap.require(toFail: doubleTap)
-//    
-//    tableView.addGestureRecognizer(doubleTap)
-//    tableView.addGestureRecognizer(singleTap)
-//    //panGestureRecognizer.delegate = self
-//    //tableView.panGestureRecognizer.require(toFail: panGestureRecognizer)
-////    tableView.addGestureRecognizer(panGestureRecognizer)
-//    //tableView.panGestureRecognizer.addTarget(self, action: #selector(swiped))
-//  }()
-//  
-//  @objc func single(tap : UIGestureRecognizer) {
-//    if tap.state == .ended,
-//      let indexPath = tableView.indexPathForRow(at: tap.location(in: tap.view)),
-//      let cell = tableView.cellForRow(at: indexPath)
-//    {
-//      interactionController.interactionInProgress = true
-//      interactionController.shouldCompleteTransition = true
-//      performSegue(withIdentifier: "showDetail", sender: cell) 
-//    }
-//  }
-//  let percentageThreshhold : CGFloat = 0.5
-//  var destinationController : UIViewController!
-//  @objc func swiped(with pan : UIPanGestureRecognizer) {
-//    let translation = pan.translation(in: view)
-//    let movement = -translation.x / (view.frame.width)
-//    let leftMovement = max(movement, 0)
-//    let leftMovementPercent = min(leftMovement, 1)
-//    let progress : CGFloat = leftMovementPercent
-//    guard let indexPath = tableView.indexPathForRow(at: pan.location(in: pan.view)),
-//      let cell = tableView.cellForRow(at: indexPath)
-//        else {
-//     print("destinationController not set!")
-//      return
-//    }
-//    
-//    switch pan.state {
-//    case .began:
-//      interactionController.interactionInProgress = true
-//      // FIX!
-//      //present(detailVC, animated: true, completion: nil)
-//      performSegue(withIdentifier: "showDetail", sender: indexPath)
-//    case .changed:
-//      interactionController.shouldCompleteTransition = progress > percentageThreshhold
-//      //cell.transform = CGAffineTransform.init(translationX: -progress*view.frame.width/1.5, y: 0)
-//      interactionController.update(progress)
-//    case .cancelled:
-//      interactionController.interactionInProgress = false
-//      //self.navigationController?.setToolbarHidden(true, animated: true)
-//      interactionController.cancel()
-//      cell.transform = CGAffineTransform.identity
-//    case .ended:
-//      if interactionController.shouldCompleteTransition {
-//        //self.navigationController?.setToolbarHidden(false, animated: true)
-//        interactionController.finish()
-//      } else {
-//        //self.navigationController?.setToolbarHidden(true, animated: true)
-//        self.interactionController.cancel() 
-//        cell.transform = CGAffineTransform.identity
-//      }
-//    default:
-//      break
-//    }
-//  }
-  
-  @objc func double(tap : UIGestureRecognizer) {
-    if tap.state == .ended, 
-      let indexPath = tableView.indexPathForRow(at: tap.location(in: tap.view)),
-      let cell = tableView.cellForRow(at: indexPath) as? AttractiveFratCellTableViewCell
-    {
-      Campus.shared.toggleFavorite(named: dataKeys[indexPath.row])
-      cell.isAccentuated = Campus.shared.favoritedFrats.contains(dataKeys[indexPath.row])
-      
-    }
-
-  }
     
   // MARK: - Data Handling
   func dataUpdate() {
@@ -389,7 +289,6 @@ UIGestureRecognizerDelegate{
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.setNavigationBarHidden(true, animated: true)
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
@@ -413,19 +312,6 @@ UIGestureRecognizerDelegate{
             controller.dataSource = self
             controller.delegate = self
             controller.view.backgroundColor = .white
-            navigationController?.navigationBar.shadowImage = UIImage()
-            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            //navigationController?.navigationBar.isTranslucent = false
-            navigationController?.navigationBar.barTintColor = .white
-            navigationController?.navigationItem.hidesBackButton = false
-            navigationController?.providesPresentationContextTransitionStyle = true
-//            navigationController?.view.backgroundColor = .clear
-//            let gradient = CAGradientLayer()
-//            let sizeLength = UIScreen.main.bounds.size.height * 2
-//            let defaultNavigationBarFrame = CGRect(x: 0, y: 0, width: sizeLength, height: 64)
-//            gradient.colors = [UIColor.white.cgColor, UIColor.clear.cgColor]
-//            gradient.frame = defaultNavigationBarFrame
-//            navigationController?.navigationBar.setBackgroundImage(self.image(fromLayer: gradient), for: .default)
             let dVC = detailVC
             dVC.selectedFraternity = selectedFraternity
             controller.setViewControllers([dVC], direction: .forward, animated: false) { (_) in

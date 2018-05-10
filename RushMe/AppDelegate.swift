@@ -72,22 +72,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
     self.scrollPageVC = mainStoryboard.instantiateViewController(withIdentifier: "scrollVC") as! ScrollPageViewController
-    let scrollPageVCNav = UINavigationController.init(rootViewController: scrollPageVC)
+    //let scrollPageVCNav = UINavigationController.init(rootViewController: scrollPageVC)
+    let splitVC = mainStoryboard.instantiateViewController(withIdentifier: "splitVC")
     let swRevealVC = mainStoryboard.instantiateViewController(withIdentifier: "swRevealVC") as! SWRevealViewController
     let drawerMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
-    self.window!.rootViewController = swRevealVC
-    self.window!.makeKeyAndVisible()
-    swRevealVC.setFront(scrollPageVCNav, animated: false)
-    swRevealVC.setRear(drawerMenuVC, animated: false)
+    
+    
+    
     swRevealVC.delegate = scrollPageVC
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       swRevealVC.frontViewShadowOpacity = 0
     }
     swRevealVC.rearViewRevealOverdraw = 0
-    swRevealVC.rearViewRevealWidth = 64
-    drawerMenuVC.pageDelegate = scrollPageVC
+    swRevealVC.rearViewRevealWidth = drawerMenuVC.preferredContentSize.width
+    swRevealVC.setFront(splitVC, animated: false)
+    swRevealVC.setRear(drawerMenuVC, animated: false)
+    swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.panGestureRecognizer())
+    swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.tapGestureRecognizer())
+    scrollPageVC.loadViewIfNeeded()
+    drawerMenuVC.set(newScrollView: scrollPageVC.scrollView, with: scrollPageVC)
     UINavigationBar.appearance().tintColor = RMColor.AppColor
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
+    self.window!.rootViewController = swRevealVC
+    self.window!.makeKeyAndVisible()
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
