@@ -25,8 +25,6 @@
 		DB346C301FB104EB003E59AE /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB346C2F1FB104EB003E59AE /* defaultImage.png */; };
 		DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
 		DB3B2ABF1FAB9380004AD27F /* FratEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */; };
-		DB3BA933209D0D4100747116 /* CellPanSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BA932209D0D4100747116 /* CellPanSegue.swift */; };
-		DB3BA935209D0FC800747116 /* PanAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BA934209D0FC800747116 /* PanAnimationController.swift */; };
 		DB457D671FCB649F00410149 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7611F894A910090DEC3 /* Info.plist */; };
 		DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
 		DB457D9B1FCB6B1C00410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
@@ -115,8 +113,6 @@
 		DB346C2F1FB104EB003E59AE /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DB3B2ABE1FAB9380004AD27F /* FratEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FratEvent.swift; sourceTree = "<group>"; };
-		DB3BA932209D0D4100747116 /* CellPanSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPanSegue.swift; sourceTree = "<group>"; };
-		DB3BA934209D0FC800747116 /* PanAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanAnimationController.swift; sourceTree = "<group>"; };
 		DB47437D2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullEventsListTableViewController.swift; sourceTree = "<group>"; };
@@ -392,8 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				DB05F74A1F894A910090DEC3 /* MasterViewController.swift */,
-				DB3BA932209D0D4100747116 /* CellPanSegue.swift */,
-				DB3BA934209D0FC800747116 /* PanAnimationController.swift */,
 				DB05F74C1F894A910090DEC3 /* DetailViewController.swift */,
 				DB394E971FD10AFE004BF952 /* ImageViewController.swift */,
 				DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */,
@@ -756,8 +750,6 @@
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
 				DB3B2ABF1FAB9380004AD27F /* FratEvent.swift in Sources */,
-				DB3BA933209D0D4100747116 /* CellPanSegue.swift in Sources */,
-				DB3BA935209D0FC800747116 /* PanAnimationController.swift in Sources */,
 				DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */,
 				DB0B732A203FAE4E00FFA951 /* RMPoll.swift in Sources */,
 				DB2338A91FD4F53300FB7118 /* RMCalendarManager.swift in Sources */,

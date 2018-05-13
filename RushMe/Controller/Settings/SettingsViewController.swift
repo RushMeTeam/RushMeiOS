@@ -35,9 +35,7 @@ class SettingsViewController: UIViewController {
 //      view.addGestureRecognizer(revealViewController().panGestureRecognizer())
 //      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
     //}
-    self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-    navigationController?.navigationBar.tintColor = RMColor.AppColor
+  
     // Visual details
     self.qualityPicker.tintColor = RMColor.AppColor
     self.displayPastEventsSwitch.tintColor = RMColor.AppColor

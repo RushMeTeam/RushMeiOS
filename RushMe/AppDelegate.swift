@@ -27,41 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    // Create the window
-    //    [UIApplication sharedApplication].delegate.window.backgroundColor = [UIColor myColor];
-    UIApplication.shared.keyWindow?.backgroundColor = .white
-    
-    //  self.window = UIWindow(frame: UIScreen.main.bounds)
-    //    self.window!.backgroundColor = UIColor.white
-    //    
-    ////    // Instantiate from storyboard
-    //    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-    //    let splitVC = mainStoryBoard.instantiateViewController(withIdentifier: "splitVC") as! UISplitViewController
-    ////  let masterVC = mainStoryBoard.instantiateViewController(withIdentifier: "masterVC") as! MasterViewController
-    ////    let masterNav = UINavigationController(rootViewController: masterVC)
-    ////    let detailVC = mainStoryBoard.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
-    ////    let detailNav = UINavigationController(rootViewController: detailVC)
-    ////    // Add Master and Detail to the SplitView
-    ////    splitVC.viewControllers = [masterNav, detailNav]
-    ////
-    ////    // Override point for customization after application launch.
-    ////    let navController = splitVC.viewControllers[splitVC.viewControllers.count-1] as! UINavigationController
-    ////    navController.topViewController!.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
-    ////    splitVC.delegate = self
-    ////
-    //    // SWRevealViewController
-    //    let navDrawerView = mainStoryBoard.instantiateViewController(withIdentifier: "menuDrawerViewController")
-    //    let swRevealView = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
-    //    swRevealView.setFront(splitVC, animated: true)
-    //    swRevealView.setRear(navDrawerView, animated: true)
-    //
-    //    
-    //    // Set Root view and make it visible
-    //    self.window!.rootViewController = swRevealView
-    //    self.window!.makeKeyAndVisible()
-    //    // Remove the default shadow to keep with the simplistic theme
-    //    
-    //    
     Campus.shared.pullFratsFromSQLDatabase()
     self.window = UIWindow(frame: UIScreen.main.bounds)
     if #available(iOS 11, *) {
@@ -71,14 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-    self.scrollPageVC = mainStoryboard.instantiateViewController(withIdentifier: "scrollVC") as! ScrollPageViewController
-    //let scrollPageVCNav = UINavigationController.init(rootViewController: scrollPageVC)
     let splitVC = mainStoryboard.instantiateViewController(withIdentifier: "splitVC")
+    self.scrollPageVC = splitVC.childViewControllers.first?.childViewControllers.first as! ScrollPageViewController
     let swRevealVC = mainStoryboard.instantiateViewController(withIdentifier: "swRevealVC") as! SWRevealViewController
     let drawerMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
-    
-    
-    
     swRevealVC.delegate = scrollPageVC
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       swRevealVC.frontViewShadowOpacity = 0
@@ -89,12 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     swRevealVC.setRear(drawerMenuVC, animated: false)
     swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.panGestureRecognizer())
     swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.tapGestureRecognizer())
-    scrollPageVC.loadViewIfNeeded()
-    drawerMenuVC.set(newScrollView: scrollPageVC.scrollView, with: scrollPageVC)
+    _ = drawerMenuVC.setupScrollView
+    _ = scrollPageVC.setupScrollView
+    
+    drawerMenuVC.scrollView.delegate = scrollPageVC
     UINavigationBar.appearance().tintColor = RMColor.AppColor
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
     self.window!.rootViewController = swRevealVC
     self.window!.makeKeyAndVisible()
+    //self.window!.backgroundColor = RMColor.AppColor
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
@@ -159,15 +123,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
       }
     }
     completionHandler(true)
-    
-    
-   
   }
-  
-  //  private func shouldPerformActionFor(shortcutItem: UIApplicationShortcutItem) -> Bool {
-  //    
-  //    return true
-  //  }
-  
+}
+
+extension UIStoryboard {
+  static var main : UIStoryboard {
+    get {
+      return UIStoryboard.init(name: "Main", bundle: nil) 
+    }
+  }
 }
 

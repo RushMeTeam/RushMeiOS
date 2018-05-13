@@ -26,15 +26,9 @@ protocol FraternityCellDelegate {
 
 class MasterViewController : UITableViewController,
 UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
-UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIViewControllerTransitioningDelegate,
-UIGestureRecognizerDelegate{
-  
-  var detailVC : DetailViewController {
-    get { 
-      return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
-    }
-  }
-  
+UIPageViewControllerDataSource, UIViewControllerTransitioningDelegate,
+UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
+
   func getFrat(after : String) -> String? {
     let index = dataKeys.index(of: after)
     return (index != nil && index! < dataKeys.count-1) ? dataKeys[index!+1] : nil
@@ -44,27 +38,45 @@ UIGestureRecognizerDelegate{
     return (index != nil && index! > 0) ? dataKeys[index!-1] : nil
   }
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity?.name,
-      let newFrat = getFrat(before: selectedFrat) {
-      let newVC = detailVC
-      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFrat]
+    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity,
+      let newFratName = getFrat(before: selectedFrat.name) {
+      let newVC = UIStoryboard.main.detailVC
+      newVC.title = newFratName
+      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFratName]
       return newVC
     }
     return nil
   }
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
     if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity?.name,
-      let newFrat = getFrat(after: selectedFrat) {
-      let newVC = detailVC
-      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFrat]
+      let newFratName = getFrat(after: selectedFrat) {
+      let newVC = UIStoryboard.main.detailVC
+      newVC.title = newFratName
+      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFratName]
       return newVC
     }
     return nil
   }
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    if completed, let fratName = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity?.name {
-      SQLHandler.inform(action: .FraternitySelected, options: fratName) 
-      pageViewController.title = fratName.greekLetters
+    if completed, let vc = pageViewController.viewControllers?.first as? DetailViewController,
+      let frat = vc.selectedFraternity {
+      pageViewController.navigationItem.setRightBarButton(barButtonItem(for: frat), animated: false)
+      pageViewController.title = frat.name.greekLetters
+    }
+  }
+  
+  func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    return dataKeys.count
+  }
+  func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
+    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
+    button.title = frat.name
+    return button
+  }
+  @objc func toggleFavorite(sender : UIBarButtonItem) {
+    if let fratName = sender.title {
+      sender.image = Campus.shared.toggleFavorite(named: fratName) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
+      tableView.reloadRows(at: [IndexPath.init(row: dataKeys.index(of: fratName)!, section: 0)], with: .automatic)
     }
   }
   
@@ -102,7 +114,7 @@ UIGestureRecognizerDelegate{
   // The hard data used in the table
 
   let progressView = UIProgressView()
-  let searchController = UISearchController.init(searchResultsController: nil)
+  let searchController = UISearchController(searchResultsController: nil)
   // The menu button used to toggle the slide-out menu
   //@IBOutlet var openBarButtonItem: UIBarButtonItem!
   // Is the tableView presenting all fraternities, or just favorites?
@@ -121,6 +133,7 @@ UIGestureRecognizerDelegate{
       return favoritesSegmentControl.selectedSegmentIndex == 1
     }
   }
+  
   // The last shuffled list of fraternity names
   var shuffledFrats : [String]? = nil {
     willSet {
@@ -161,7 +174,7 @@ UIGestureRecognizerDelegate{
   }
   // The first tableViewCell holds a segmentControl that allows
   // the user to select between all and favorite fraternities
-  lazy var favoritesSegmentControl : UISegmentedControl = UISegmentedControl()
+  lazy var favoritesSegmentControl = UISegmentedControl()
   // Reload the tableView, with animations
   func reloadTableView() {
     DispatchQueue.main.async {
@@ -235,7 +248,6 @@ UIGestureRecognizerDelegate{
     let tableHeaderView = UIView()
 
     tableHeaderView.backgroundColor = .white
- 
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
@@ -247,12 +259,13 @@ UIGestureRecognizerDelegate{
     
     tableHeaderView.addSubview(favoritesSegmentControl)
     // TODO: Fix search bar autolayout errors!
-    NSLayoutConstraint.activate([tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
+    NSLayoutConstraint.activate([tableHeaderView.topAnchor.constraint(equalTo: tableView.topAnchor),
+                                 tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
                                  tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
                                  tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
                                  favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 4),
-                                 favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 6),
-                                 favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -6),
+                                 favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 7),
+                                 favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -7),
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
                                  tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 4)])
@@ -260,18 +273,13 @@ UIGestureRecognizerDelegate{
     
   // MARK: - Data Handling
   func dataUpdate() {
-    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites 
     shuffledFrats?.shuffle()
     Campus.shared.pullFratsFromSQLDatabase()
     reloadTableView()
   }
   
 
-  
-  @IBAction func toggleViewControllers(_ sender: UIBarButtonItem) {
-    // If we're searching, cancel the search if we select the menu
-    searchController.dismiss(animated: true, completion: nil)
-  }
+
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
@@ -294,6 +302,7 @@ UIGestureRecognizerDelegate{
     }
     //_ = setupGestureRecognizers
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
+
   }
 //  @IBAction func unwindToSelf(segue : UIStoryboardSegue) {
 //    
@@ -307,18 +316,15 @@ UIGestureRecognizerDelegate{
           let fratName = self.dataKeys[row]
           if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
             SQLHandler.inform(action: .FraternitySelected, options: fratName)
-            let controller = segue.destination.childViewControllers.first as! UIPageViewController
+            let controller = segue.destination as! UIPageViewController
+            controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
             controller.title = fratName.greekLetters
             controller.dataSource = self
             controller.delegate = self
             controller.view.backgroundColor = .white
-            let dVC = detailVC
+            let dVC = UIStoryboard.main.detailVC
             dVC.selectedFraternity = selectedFraternity
-            controller.setViewControllers([dVC], direction: .forward, animated: false) { (_) in
-              _ = segue.identifier == "showDetail" ? 
-                self.navigationController?.setNavigationBarHidden(false, animated: true) 
-                : nil 
-            }
+            controller.setViewControllers([dVC], direction: .forward, animated: false)
           }
         }
       }
@@ -342,6 +348,7 @@ UIGestureRecognizerDelegate{
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
       return !(self.refreshControl?.isRefreshing ?? true)
     }
+  
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
   }
@@ -367,33 +374,29 @@ UIGestureRecognizerDelegate{
   
   // Should always be the number of objects to display
   override func tableView(_ tableView: UITableView,
-                          numberOfRowsInSection section: Int) -> Int { return dataKeys.count }
+                          numberOfRowsInSection section: Int) -> Int { return max(dataKeys.count, 1) }
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if ((viewingFavorites && !Campus.shared.hasFavorites) ||
-      !viewingFavorites && Campus.shared.fratNames.count == 0) {
+    if dataKeys.count == 0{
       let cell = UITableViewCell()
       cell.selectionStyle = .none
       cell.textLabel!.textAlignment = NSTextAlignment.center
-      cell.textLabel!.text = viewingFavorites ? RMMessage.NoFavorites : ""
+      cell.textLabel!.numberOfLines = 2
+      if !Campus.shared.isLoading {
+        cell.textLabel!.text = viewingFavorites ? RMMessage.NoFavorites : "Something went wrong...\nTry again."
+      }
       cell.textLabel!.textColor = RMColor.AppColor
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
     cell.delegate = self
-    let fratName = dataKeys[indexPath.row]
-    if let frat = Campus.shared.fraternitiesDict[fratName]{
-      cell.titleLabel.text = frat.name
-      cell.previewImageView.setImageByURL(fromSource: frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String)
-      cell.isAccentuated = Campus.shared.favoritedFrats.contains(frat.name)
-    }
+    cell.fraternity = Campus.shared.fraternitiesDict[dataKeys[indexPath.row]]
+    cell.loadImage()
     return cell
   }
-  
-  // Row 0 (segment control cell) should have a height of 36, all others should be 128
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 196 //indexPath.row == 0 ? 36 : 128
+    return 196
   }
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return false
@@ -465,11 +468,7 @@ extension UIScrollView {
   }
 }
 
-extension UIStoryboard {
-  static var main : UIStoryboard {
-    get {
-     return UIStoryboard.init(name: "Main", bundle: nil) 
-    }
-  }
-}
+
+
+
 

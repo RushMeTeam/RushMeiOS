@@ -57,7 +57,7 @@ class Campus: NSObject {
   }
   
   var hasFavorites : Bool {
-    return !favoritedFrats.isEmpty
+    return !(fraternitiesDict.isEmpty || favoritedFrats.isEmpty)
   }
   // The name of every fraternity, in download order
   private(set) var fratNamesObservable = Observable<Set<String>>(Set<String>())
@@ -364,8 +364,17 @@ class Campus: NSObject {
   }
 }
 extension Campus {
-  func toggleFavorite(named fratName : String) {
-    _ = self.favoritedFrats.contains(fratName) ? removeFavorite(named: fratName) : addFavorite(named: fratName)
+  // Returns whether the Fraternity is now a favorite
+  func toggleFavorite(named fratName : String) -> Bool {
+    if favoritedFrats.contains(fratName) {
+     removeFavorite(named: fratName) 
+      return false
+    }
+    else {
+     addFavorite(named: fratName)
+      return true
+    }
+    
   }
 }
 
@@ -468,18 +477,14 @@ func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.download
   }
   // Try to retreive the image-- upon fail return nil
   if let data = try? Data.init(contentsOf: sourceURL.networkPath) {
-    //if (DEBUG) { print(".", separator: "", terminator: "") }
     // Try to downcase the retreived data to an image
     if let image = UIImage(data: data) {
       DispatchQueue.global(qos: .background).async {
         image.storeOnDisk(at: sourceURL.localPath)
       }
       return image
-      //if (DEBUG) { print(".Done", separator: "", terminator: "") }
     }
   }
-  
-  //if (DEBUG) { print("") }
   // May be nil!
   return nil
 }

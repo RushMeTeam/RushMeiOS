@@ -29,7 +29,8 @@ struct RMImageQuality {
 }
 // Colors and variables used in the presentation of the app
 struct RMColor {
-  static let AppColor = UIColor.red//UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
+  // RGB 41 171 226
+  static let AppColor = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
   static let NavigationItemsColor = AppColor
   static let SlideOutMenuShadowIsEnabled = false
   static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.15)

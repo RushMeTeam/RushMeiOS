@@ -25,8 +25,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
-  //@IBOutlet weak var favoritesButton: UIBarButtonItem!
-  var favoritesButton : UIBarButtonItem = UIBarButtonItem()
+  var favoritesButton = UIBarButtonItem(image: RMImage.FavoritesImageUnfilled, style: .plain, target: self, action: #selector(favoritesButtonHit))
+  //@IBOutlet weak var favoritesButton : UIBarButtonItem!
   @IBOutlet weak var eventView: UIView!
   @IBOutlet weak var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
@@ -39,12 +39,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   var newImageViewController : ImageViewController? {
     get {
-     return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
+     return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
-  @IBAction func disappear(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-  }
+ 
   
  
   
@@ -75,16 +73,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   
   
   // MARK: IBActions
-  @IBAction func favoritesButtonHit(_ sender: UIBarButtonItem? = nil) {
+  @objc func favoritesButtonHit(_ sender: UIBarButtonItem) {
     if let fratName = selectedFraternity?.name {
       if Campus.shared.favoritedFrats.contains(fratName) {
         Campus.shared.removeFavorite(named: fratName)
-        favoritesButton.image = RMImage.FavoritesImageUnfilled
+        sender.image = RMImage.FavoritesImageUnfilled
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       else {
         Campus.shared.addFavorite(named: fratName)
-        favoritesButton.image = RMImage.FavoritesImageFilled
+        sender.image = RMImage.FavoritesImageFilled
         self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
       }
     }
@@ -99,11 +97,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   
   func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-//    if profileImageView.point(inside: location, with: nil), let imageVC = newImageViewController,
-//      let image = profileImageView.image {
-//      imageVC.image = image
-//      return imageVC
-//    }
     (viewControllerToCommit as? ImageViewController)?.addVisualEffectView()
     present(viewControllerToCommit, animated: true) { 
     }
@@ -112,8 +105,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   override var previewActionItems: [UIPreviewActionItem] {
     get {
      return [
-      UIPreviewAction.init(title: Campus.shared.favoritedFrats.contains(self.selectedFraternity?.name ?? "") ? "Unfavorite" : "Favorite", style: .default) { (action, targetVC) in
-        self.favoritesButtonHit()
+      UIPreviewAction(title: Campus.shared.favoritedFrats.contains(self.selectedFraternity?.name ?? "") ? "Unfavorite" : "Favorite", style: .default) { (action, targetVC) in
+//        self.favoritesButtonHit()
       }]
     }
   }
@@ -140,10 +133,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         imageVC.addVisualEffectView()
         present(imageVC, animated: true, completion: nil)
       }
-      
-
-      
-      
     }
   }
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
@@ -168,7 +157,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       var transform = CGAffineTransform(scaleX: newScale, y: newScale)
       var pinchCenter = CGPoint(x: (location.x - senderView.bounds.midX)*overTime*1.5,
                                 y: (location.y - senderView.bounds.midY)*overTime*1.5)
-      
       if senderView == self.profileImageView {
         pinchCenter = CGPoint(x: (self.view.frame.width/2 - senderView.bounds.midX)*overTime/newScale,
                               y: 0)
@@ -189,9 +177,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     else {
       self.scrollView.isScrollEnabled = true
       UIView.animate(withDuration: RMAnimation.ColoringTime/2, animations: {
-        sender.view?.transform = CGAffineTransform.identity
-        sender.view?.layer.shadowOpacity = 0
-        sender.view?.clipsToBounds = true
+        if let view = sender.view {
+          view.transform = CGAffineTransform.identity
+          view.layer.shadowOpacity = 0
+          view.clipsToBounds = true
+        }
         self.setViews(toAlpha: 1)
       }, completion: { _ in
         
@@ -224,6 +214,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   override func awakeFromNib() {
     
+  }
+  override func viewDidLayoutSubviews() {
+    _ = configureView
   }
   
   // MARK: ViewDidLoad
@@ -282,7 +275,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.profileImageView.layer.zPosition = 10
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true
-    self.configureView()
     registerForPreviewing(with: self, sourceView: profileImageView)
   }
   override func viewWillAppear(_ animated: Bool) {
@@ -293,7 +285,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.coverImageView.alpha = 1
   }
   // MARK: ConfigureView
-  func configureView() {
+  lazy var configureView : Void = {
     if let frat = selectedFraternity {
       // Update the user interface for the detail item.
       if let calendarImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
@@ -307,12 +299,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
        profileImageView.setImageByURL(fromSource: profileImageURL) 
       }
       titleLabel.text = frat.name
-      title = frat.name.greekLetters
       underProfileLabel.text = frat.chapter + " Chapter"
       gpaLabel.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
       if let memberCount = frat.getProperty(named: RMDatabaseKey.MemberCountKey) as? Int {
         self.memberCountLabel.text = String(describing: memberCount)
       }
+      
       if Campus.shared.favoritedFrats.contains(frat.name) {
         self.favoritesButton.image = RMImage.FavoritesImageFilled
         self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
@@ -321,6 +313,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         self.favoritesButton.image = RMImage.FavoritesImageUnfilled
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
+      favoritesButton.title = frat.name
       if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {
         if let textView = blockTextView {
           textView.text = desc
@@ -328,7 +321,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
           scrollView.isScrollEnabled = true
           scrollView.contentSize = textView.contentSize
           view.layoutSubviews()
-          
         }
       }
       if let location = RMGeocoder.locations[frat.name] {
@@ -339,7 +331,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
         mapView.addAnnotation(annotation)
         mapView.setCenter(annotation.coordinate, animated: false)
-        mapItem = MKMapItem(placemark: MKPlacemark.init(coordinate: location.coordinate))
+        mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
         mapItem!.name = frat.name
       }
       else {
@@ -347,76 +339,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         self.openMapButton?.isHidden = true
       }
       
-      
-      
     }
-    
-    
-  }
+  }()
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
 }
-class AnimatableGradientLayer : CAGradientLayer, CAAnimationDelegate {
-  private(set) lazy var gradientSet : [[CGColor]] = {
-    var gSet = [[CGColor]]()
-    gSet.append([gradientOne, gradientTwo])
-    gSet.append([gradientTwo, gradientThree])
-    gSet.append([gradientThree, gradientOne])
-    return gSet
-  }()
-  
-  var gradientAnimation : CABasicAnimation {
-    get {
-      let gAnim = CABasicAnimation(keyPath: "colors")
-      gAnim.delegate = self
-      gAnim.fillMode = kCAFillModeForwards
-      gAnim.isRemovedOnCompletion = true
-      gAnim.duration = 1.5
-      gAnim.toValue = gradientSet[currentGradient]
-      gAnim.repeatCount = 10
-      return gAnim
-    }
-  }
-  var currentGradient : Int = 0
-  let gradientOne : CGColor = UIColor.white.cgColor//UIColor.clear.cgColor//UIColor(red: 48/255, green: 62/255, blue: 103/255, alpha: 1).cgColor
-  let gradientTwo : CGColor = UIColor.gray.withAlphaComponent(0.5).cgColor//UIColor(red: 244/255, green: 88/255, blue: 53/255, alpha: 1).cgColor
-  let gradientThree : CGColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor//UIColor(red: 196/255, green: 70/255, blue: 107/255, alpha: 1).cgColor
-  
-  override init() {
-    super.init()
-    self.colors = gradientSet[currentGradient]
-  }
-  override init(layer: Any) {
-    super.init(layer: layer)
-    self.add(gradientAnimation, forKey: "colors")
-  }
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  func animateGradient() {
-    if currentGradient < gradientSet.count - 1 {
-      currentGradient += 1
-    } else {
-      currentGradient = 0
-    }
-    add(gradientAnimation, forKey: "colorChange") 
-  }
-  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-    if flag {
-     self.removeFromSuperlayer()
-    }
-  }
-  func removeFromSuperlayerAnimated() {
-    removeAllAnimations()
-    let gA = gradientAnimation
-    gA.duration = 0.5
-    gA.toValue = [UIColor.clear.cgColor, UIColor.clear.cgColor]
-    add(gA, forKey: "colorChange")
-  }
-}
-
 
 extension UIImageView {
   func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
@@ -453,6 +382,15 @@ extension UIMotionEffect {
     return group
   }
 }
+extension UIStoryboard {
+  
+  var detailVC : DetailViewController {
+    get { 
+      return self.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController
+    }
+  }
+}
+
 
 
 

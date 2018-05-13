@@ -141,17 +141,7 @@ ScrollableItem {
     self.fileURL = nil
     favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     shareButton.isEnabled = flatDataSource.count != 0
-    if let _ = firstEvent {
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
-      navigationController?.navigationBar.tintColor = RMColor.AppColor
-    } else {
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
-      navigationController?.navigationBar.tintColor = UIColor.lightGray
-      
-      //drawerButton.tintColor = RMColor.AppColor
-    }
+    
     
   }
   override func viewDidLayoutSubviews() {

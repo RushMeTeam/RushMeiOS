@@ -9,7 +9,11 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
+class MapViewController: UIViewController, 
+                         MKMapViewDelegate, 
+                         ScrollableItem {
+  
+  
   func updateData() {
       self.loadViewIfNeeded()
       self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
@@ -130,9 +134,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, ScrollableItem {
   }
   
   @IBAction func goToFraternity(_ sender: Any) {
-    if let fratName = mapView.selectedAnnotations.first?.title as? String, let superVC = self.parent as? ScrollPageViewController
-    {
-      superVC.open(fraternityNamed : fratName)
+    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
+  }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
+      SQLHandler.inform(action: .FraternitySelected, options: fratName)
+      let controller = segue.destination as! UIPageViewController
+      controller.title = fratName.greekLetters
+      controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
+      controller.title = fratName.greekLetters
+      controller.view.backgroundColor = .white
+      let dVC = UIStoryboard.main.detailVC
+      dVC.selectedFraternity = selectedFraternity
+      controller.setViewControllers([dVC], direction: .forward, animated: false)
+    }
+  }
+  func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
+    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
+    button.title = frat.name
+    return button
+  }
+  @objc func toggleFavorite(sender : UIBarButtonItem) {
+    if let fratName = sender.title {
+      sender.image = Campus.shared.toggleFavorite(named: fratName) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
     }
   }
   

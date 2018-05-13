@@ -19,16 +19,29 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   var delegate : FraternityCellDelegate? = nil
   var gradientLayer : CAGradientLayer? = nil
   
+  var fraternity : Fraternity? {
+    set {
+      titleLabel.text = newValue?.name
+      
+      isAccentuated = Campus.shared.favoritedFrats.contains(newValue?.name ?? "")
+    }
+    get {
+     return Campus.shared.fraternitiesDict[titleLabel.text ?? ""]  
+    }
+  }
+  func loadImage() {
+    previewImageView.setImageByURL(fromSource: fraternity!.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String)
+  }
  
   
   lazy var setupCell : Void = {
     previewImageView.layer.masksToBounds = true
     previewImageView.contentMode = UIViewContentMode.scaleAspectFill
-    previewImageView.layer.cornerRadius = 5
-    titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    previewImageView.layer.cornerRadius = 8
+    //titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     previewImageView.isUserInteractionEnabled = false
     favoriteButton.imageView?.contentMode = .scaleAspectFit
-    favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    //favoriteButton.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
   }()
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -45,20 +58,24 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
 //    }
     previewImageView.image = nil
     //previewImageView.layer.sublayers = nil
-    gradientLayer?.removeFromSuperlayer()
-    gradientLayer = CAGradientLayer()
-    gradientLayer!.drawsAsynchronously = true
-    gradientLayer!.locations = [0.8, 1.0]
-    gradientLayer!.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
-    previewImageView!.layer.insertSublayer(gradientLayer!, at: 0)   
-    
+//    gradientLayer?.removeFromSuperlayer()
+//    gradientLayer = CAGradientLayer()
+//    gradientLayer!.drawsAsynchronously = true
+//    gradientLayer!.locations = [0.8, 1.0]
+//    gradientLayer!.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
+//    previewImageView!.layer.insertSublayer(gradientLayer!, at: 0)   
+    titleLabel.layer.shadowRadius = 10
+    titleLabel.layer.shadowColor = UIColor.black.cgColor
+    titleLabel.layer.shadowOffset = CGSize.init(width: 1, height: 1)
+    titleLabel.layer.masksToBounds = false
+  
     
   }
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    gradientLayer!.frame = previewImageView.bounds
-    gradientLayer!.layoutIfNeeded()
+    //gradientLayer?.frame = previewImageView.bounds
+    //gradientLayer?.layoutIfNeeded()
   }
   @IBAction func favoriteButtonHit(_ sender: UIButton? = nil) {
     isAccentuated = !isAccentuated
