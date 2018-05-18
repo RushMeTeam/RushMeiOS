@@ -19,7 +19,7 @@ struct RMImage {
   static let LogoImage = UIImage(named: "RushMeLogoInverted")!
   static let FavoritesImageUnfilled = UIImage(named: "FavoritesUnfilled")
   static let FavoritesImageFilled = UIImage(named: "FavoritesIcon")
-  static let CornerRadius : CGFloat = 8
+  static let CornerRadius : CGFloat = 10
 }
 // Filename extensions for photos stored on the server
 struct RMImageQuality {
@@ -32,7 +32,7 @@ struct RMColor {
   // RGB 41 171 226
   static let AppColor = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
   static let NavigationItemsColor = AppColor
-  static let SlideOutMenuShadowIsEnabled = false
+  static let SlideOutMenuShadowIsEnabled = true
   static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.15)
 }
 // Variables used to tune animations

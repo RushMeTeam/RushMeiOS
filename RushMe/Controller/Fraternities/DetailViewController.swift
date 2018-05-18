@@ -228,13 +228,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     coverImageView.layer.masksToBounds = true
     //coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
-    profileImageView.layer.masksToBounds = false
+    coverImageView.layer.masksToBounds = true
+    coverImageView.layer.cornerRadius = RMImage.CornerRadius
     profileImageView.clipsToBounds = true
     //profileImageView.contentMode = UIViewContentMode.scaleAspectFill
     
     profileImageView.layer.cornerRadius = RMImage.CornerRadius
-    profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
-    profileImageView.layer.borderWidth = 1
+    profileImageView.layer.borderColor = UIColor.white.cgColor
+    profileImageView.layer.borderWidth = 2
     profileImageView.setNeedsDisplay()
     if let tbView = self.childViewControllers.last as? EventTableViewController {
       eventViewController = tbView
@@ -271,7 +272,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         }
       }
     }
-   
+    self.coverImageView.layer.zPosition = 9
     self.profileImageView.layer.zPosition = 10
     self.scrollView.canCancelContentTouches = true
     self.coverImageView.clipsToBounds = true
@@ -311,7 +312,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       else {
         self.favoritesButton.image = RMImage.FavoritesImageUnfilled
-        self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
+        self.profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
       }
       favoritesButton.title = frat.name
       if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {

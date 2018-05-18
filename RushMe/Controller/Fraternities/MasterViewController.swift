@@ -195,16 +195,16 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController!.navigationBar.shadowImage = UIImage()
+    
     // Set up Navigation bar (visual)
     // Menu button disabled until refresh complete
     // Ensure the menu button toggles the menu
     // Refresh control 
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-    
-    
+    tableView.backgroundView = refreshControl
 
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
   }
@@ -220,9 +220,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     searchController.hidesNavigationBarDuringPresentation = false
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.dimsBackgroundDuringPresentation = false
-    if #available(iOS 11, *) {
-      //navigationItem.searchController = searchController
-    }
+    
     //
     // Set Search Bar placeholder text, for when a search has not been entered
     searchController.searchBar.placeholder = "Search Fraternities"

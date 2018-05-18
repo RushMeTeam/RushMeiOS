@@ -124,7 +124,8 @@ ScrollableItem {
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
     self.view.sendSubview(toBack: collectionView)
-    
+    collectionView.layer.masksToBounds = true
+    collectionView.layer.cornerRadius = 8
     
     
     // Do any additional setup after loading the view.
@@ -157,6 +158,7 @@ ScrollableItem {
   }
   @objc func handleRefresh() {
     collectionView.reloadPreservingSelection(animated: true)
+    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     scrollView.refreshControl?.endRefreshing()
   }
   

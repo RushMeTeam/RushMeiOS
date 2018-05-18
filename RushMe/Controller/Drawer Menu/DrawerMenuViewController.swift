@@ -42,23 +42,14 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
     view.addGestureRecognizer(scrollView.panGestureRecognizer)
   }()
   var scrollView : UIScrollView!
-  private(set) var accompanyingScrollView : UIScrollView! 
-  func set(newScrollView : UIScrollView, with owner : UIViewController) {
-    accompanyingScrollView = newScrollView
-  }
+
   let buttonIcons = [UIImage(named: "MapsIcon"),
                      UIImage(named: "FraternitiesIcon"), 
                      UIImage(named: "EventsIcon"),
                      UIImage(named: "SettingsIcon")]
   lazy var buttons = [UIButton?](repeating: nil, count: buttonIcons.count)
   lazy var canvasViews : [UIView?] = [UIView?](repeating: nil, count: buttonIcons.count)
-  var currentCalculatedPage : Int = 1 {
-    willSet {
-      if newValue != currentCalculatedPage && newValue != currentPage {
-       UISelectionFeedbackGenerator().selectionChanged() 
-      }
-    }
-  }
+ 
       
     
   func calculateCurrentPage(forOffset offset : CGPoint) -> Int {
@@ -93,7 +84,7 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
         let newButton = UIButton()
         buttons[bNum] = newButton
         newButton.setImage(buttonIcons[bNum], for: .normal)  
-        newButton.tintColor = .white
+        newButton.tintColor = RMColor.AppColor
         var newFrame = scrollView.frame
         newFrame.size.height = scrollView.bounds.height
         newFrame.size.width = scrollView.bounds.width
@@ -116,32 +107,22 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
     scrollView.contentSize = CGSize.init(width: scrollView.bounds.width/2, height: CGFloat(buttonIcons.count)*scrollView.bounds.height)
     scrollView.contentOffset = CGPoint.init(x: 0, y: scrollView.bounds.height * CGFloat(currentPage))
   }
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    print(scrollView.contentOffset)
   
-    //print(accompanyingScrollView.contentOffset, accompanyingScrollView.contentSize)
-    //accompanyingScrollView.contentOffset = scrollView.contentOffset
-    //print(accompanyingScrollView.contentSize, accompanyingScrollView.contentOffset)
-  }
-  
-  
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    let pageWidth = scrollView.bounds.height
-    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
-    currentPage = Int(page)
-    
-//    pageDelegate?.scrollViewDidEndDecelerating(scrollView)
-  }
-  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-    let pageWidth = scrollView.frame.height
-    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
-    currentPage = Int(page)
-  }
+//  
+//  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//    let pageWidth = scrollView.bounds.height
+//    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
+//    currentPage = Int(page)
+//  }
+//  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//    let pageWidth = scrollView.frame.height
+//    let page = floor((scrollView.contentOffset.y - pageWidth/2)/pageWidth) + 1
+//    currentPage = Int(page)
+//  }
   override func viewDidLayoutSubviews() {
     _ = setupScrollView
     adjustScrollView()
   }
-
   
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     coordinator.animate(alongsideTransition: nil) { (_) in

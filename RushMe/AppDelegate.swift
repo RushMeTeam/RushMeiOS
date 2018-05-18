@@ -44,6 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     if (!RMColor.SlideOutMenuShadowIsEnabled) {
       swRevealVC.frontViewShadowOpacity = 0
     }
+    else {
+     swRevealVC.frontViewShadowOpacity = 0.5
+      swRevealVC.frontViewShadowRadius = 4
+     
+    }
     swRevealVC.rearViewRevealOverdraw = 0
     swRevealVC.rearViewRevealWidth = drawerMenuVC.preferredContentSize.width
     swRevealVC.setFront(splitVC, animated: false)
@@ -54,8 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     _ = scrollPageVC.setupScrollView
     
     drawerMenuVC.scrollView.delegate = scrollPageVC
-    UINavigationBar.appearance().tintColor = RMColor.AppColor
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : RMColor.AppColor]
+    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UINavigationBar.appearance().tintColor]
     self.window!.rootViewController = swRevealVC
     self.window!.makeKeyAndVisible()
     //self.window!.backgroundColor = RMColor.AppColor
