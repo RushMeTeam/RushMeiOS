@@ -1,0 +1,6 @@
+framework module Pods_RushMeTests {
+  umbrella header "Pods-RushMeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

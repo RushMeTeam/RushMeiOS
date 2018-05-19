@@ -18,6 +18,7 @@ depends-top-level:
 - "UISplitViewControllerDelegate"
 - "UIViewController"
 depends-member:
+- ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "delegate"]
 - !private ["s7CVarArgP", "didReceiveMemoryWarning"]
 - !private ["s7CVarArgP", "init"]
@@ -31,7 +32,7 @@ depends-member:
 - ["s7CVarArgP", "targetDisplayModeForAction"]
 - ["s7CVarArgP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s7CVarArgP", "viewDidLoad"]
-- ["s7CVarArgP", ""]
+- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "delegate"]
 - !private ["s28CustomDebugStringConvertibleP", "didReceiveMemoryWarning"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
@@ -45,7 +46,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "targetDisplayModeForAction"]
 - ["s28CustomDebugStringConvertibleP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "viewDidLoad"]
-- ["s28CustomDebugStringConvertibleP", ""]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "delegate"]
 - !private ["s23CustomStringConvertibleP", "didReceiveMemoryWarning"]
 - !private ["s23CustomStringConvertibleP", "init"]
@@ -59,7 +60,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "targetDisplayModeForAction"]
 - ["s23CustomStringConvertibleP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s23CustomStringConvertibleP", "viewDidLoad"]
-- ["s23CustomStringConvertibleP", ""]
+- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "allVisible"]
 - !private ["s9EquatableP", "delegate"]
 - !private ["s9EquatableP", "didReceiveMemoryWarning"]
@@ -74,7 +75,7 @@ depends-member:
 - ["s9EquatableP", "targetDisplayModeForAction"]
 - ["s9EquatableP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s9EquatableP", "viewDidLoad"]
-- ["s9EquatableP", ""]
+- ["s8HashableP", ""]
 - !private ["s8HashableP", "allVisible"]
 - !private ["s8HashableP", "delegate"]
 - !private ["s8HashableP", "didReceiveMemoryWarning"]
@@ -89,7 +90,7 @@ depends-member:
 - ["s8HashableP", "targetDisplayModeForAction"]
 - ["s8HashableP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["s8HashableP", "viewDidLoad"]
-- ["s8HashableP", ""]
+- ["So8NSCodingP", ""]
 - !private ["So8NSCodingP", "delegate"]
 - !private ["So8NSCodingP", "didReceiveMemoryWarning"]
 - !private ["So8NSCodingP", "init"]
@@ -103,7 +104,7 @@ depends-member:
 - ["So8NSCodingP", "targetDisplayModeForAction"]
 - ["So8NSCodingP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So8NSCodingP", "viewDidLoad"]
-- ["So8NSCodingP", ""]
+- ["So26NSExtensionRequestHandlingP", ""]
 - !private ["So26NSExtensionRequestHandlingP", "delegate"]
 - !private ["So26NSExtensionRequestHandlingP", "didReceiveMemoryWarning"]
 - !private ["So26NSExtensionRequestHandlingP", "init"]
@@ -117,7 +118,6 @@ depends-member:
 - ["So26NSExtensionRequestHandlingP", "targetDisplayModeForAction"]
 - ["So26NSExtensionRequestHandlingP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So26NSExtensionRequestHandlingP", "viewDidLoad"]
-- ["So26NSExtensionRequestHandlingP", ""]
 - ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "UISplitViewController"]
 - ["So8NSObjectC", "UIViewController"]
@@ -134,6 +134,7 @@ depends-member:
 - ["So8NSObjectC", "targetDisplayModeForAction"]
 - ["So8NSObjectC", "targetDisplayModeForActionInSplitViewController"]
 - ["So8NSObjectC", "viewDidLoad"]
+- ["So16NSObjectProtocolP", ""]
 - !private ["So16NSObjectProtocolP", "delegate"]
 - !private ["So16NSObjectProtocolP", "didReceiveMemoryWarning"]
 - !private ["So16NSObjectProtocolP", "init"]
@@ -147,7 +148,6 @@ depends-member:
 - ["So16NSObjectProtocolP", "targetDisplayModeForAction"]
 - ["So16NSObjectProtocolP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So16NSObjectProtocolP", "viewDidLoad"]
-- ["So16NSObjectProtocolP", ""]
 - !private ["s16RawRepresentableP", "allVisible"]
 - ["6RushMe19SplitViewControllerC", "Bool"]
 - ["6RushMe19SplitViewControllerC", "UISplitViewController"]
@@ -166,6 +166,7 @@ depends-member:
 - ["6RushMe19SplitViewControllerC", "targetDisplayModeForAction"]
 - ["6RushMe19SplitViewControllerC", "targetDisplayModeForActionInSplitViewController"]
 - ["6RushMe19SplitViewControllerC", "viewDidLoad"]
+- ["So21UIAppearanceContainerP", ""]
 - !private ["So21UIAppearanceContainerP", "delegate"]
 - !private ["So21UIAppearanceContainerP", "didReceiveMemoryWarning"]
 - !private ["So21UIAppearanceContainerP", "init"]
@@ -179,7 +180,7 @@ depends-member:
 - ["So21UIAppearanceContainerP", "targetDisplayModeForAction"]
 - ["So21UIAppearanceContainerP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So21UIAppearanceContainerP", "viewDidLoad"]
-- ["So21UIAppearanceContainerP", ""]
+- ["So18UIContentContainerP", ""]
 - !private ["So18UIContentContainerP", "delegate"]
 - !private ["So18UIContentContainerP", "didReceiveMemoryWarning"]
 - !private ["So18UIContentContainerP", "init"]
@@ -193,7 +194,7 @@ depends-member:
 - ["So18UIContentContainerP", "targetDisplayModeForAction"]
 - ["So18UIContentContainerP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So18UIContentContainerP", "viewDidLoad"]
-- ["So18UIContentContainerP", ""]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["So18UIFocusEnvironmentP", "delegate"]
 - !private ["So18UIFocusEnvironmentP", "didReceiveMemoryWarning"]
 - !private ["So18UIFocusEnvironmentP", "init"]
@@ -207,7 +208,7 @@ depends-member:
 - ["So18UIFocusEnvironmentP", "targetDisplayModeForAction"]
 - ["So18UIFocusEnvironmentP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So18UIFocusEnvironmentP", "viewDidLoad"]
-- ["So18UIFocusEnvironmentP", ""]
+- ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So30UIPasteConfigurationSupportingP", "delegate"]
 - !private ["So30UIPasteConfigurationSupportingP", "didReceiveMemoryWarning"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
@@ -221,7 +222,6 @@ depends-member:
 - ["So30UIPasteConfigurationSupportingP", "targetDisplayModeForAction"]
 - ["So30UIPasteConfigurationSupportingP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "viewDidLoad"]
-- ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Bool"]
 - ["So11UIResponderC", "UISplitViewController"]
 - ["So11UIResponderC", "UIViewController"]
@@ -238,6 +238,7 @@ depends-member:
 - ["So11UIResponderC", "targetDisplayModeForAction"]
 - ["So11UIResponderC", "targetDisplayModeForActionInSplitViewController"]
 - ["So11UIResponderC", "viewDidLoad"]
+- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So30UIResponderStandardEditActionsP", "delegate"]
 - !private ["So30UIResponderStandardEditActionsP", "didReceiveMemoryWarning"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
@@ -251,10 +252,10 @@ depends-member:
 - ["So30UIResponderStandardEditActionsP", "targetDisplayModeForAction"]
 - ["So30UIResponderStandardEditActionsP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "viewDidLoad"]
-- ["So30UIResponderStandardEditActionsP", ""]
 - ["So21UISplitViewControllerC", "Bool"]
 - ["So21UISplitViewControllerC", "UISplitViewController"]
 - ["So21UISplitViewControllerC", "UIViewController"]
+- ["So21UISplitViewControllerC", ""]
 - !private ["So21UISplitViewControllerC", "delegate"]
 - ["So21UISplitViewControllerC", "didReceiveMemoryWarning"]
 - ["So21UISplitViewControllerC", "init"]
@@ -268,7 +269,7 @@ depends-member:
 - ["So21UISplitViewControllerC", "targetDisplayModeForAction"]
 - ["So21UISplitViewControllerC", "targetDisplayModeForActionInSplitViewController"]
 - ["So21UISplitViewControllerC", "viewDidLoad"]
-- ["So21UISplitViewControllerC", ""]
+- ["So29UISplitViewControllerDelegateP", ""]
 - !private ["So29UISplitViewControllerDelegateP", "delegate"]
 - !private ["So29UISplitViewControllerDelegateP", "preferredDisplayMode"]
 - ["So29UISplitViewControllerDelegateP", "primaryViewController"]
@@ -279,8 +280,8 @@ depends-member:
 - ["So29UISplitViewControllerDelegateP", "splitViewControllerSupportedInterfaceOrientations"]
 - ["So29UISplitViewControllerDelegateP", "targetDisplayModeForAction"]
 - ["So29UISplitViewControllerDelegateP", "targetDisplayModeForActionInSplitViewController"]
-- ["So29UISplitViewControllerDelegateP", ""]
 - !private ["SC32UISplitViewControllerDisplayModeO", "allVisible"]
+- ["So16UIStateRestoringP", ""]
 - !private ["So16UIStateRestoringP", "delegate"]
 - !private ["So16UIStateRestoringP", "didReceiveMemoryWarning"]
 - !private ["So16UIStateRestoringP", "init"]
@@ -294,7 +295,7 @@ depends-member:
 - ["So16UIStateRestoringP", "targetDisplayModeForAction"]
 - ["So16UIStateRestoringP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So16UIStateRestoringP", "viewDidLoad"]
-- ["So16UIStateRestoringP", ""]
+- ["So18UITraitEnvironmentP", ""]
 - !private ["So18UITraitEnvironmentP", "delegate"]
 - !private ["So18UITraitEnvironmentP", "didReceiveMemoryWarning"]
 - !private ["So18UITraitEnvironmentP", "init"]
@@ -308,7 +309,6 @@ depends-member:
 - ["So18UITraitEnvironmentP", "targetDisplayModeForAction"]
 - ["So18UITraitEnvironmentP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["So18UITraitEnvironmentP", "viewDidLoad"]
-- ["So18UITraitEnvironmentP", ""]
 - ["So16UIViewControllerC", "Bool"]
 - ["So16UIViewControllerC", "UISplitViewController"]
 - ["So16UIViewControllerC", "UIViewController"]
@@ -325,6 +325,7 @@ depends-member:
 - ["So16UIViewControllerC", "targetDisplayModeForAction"]
 - ["So16UIViewControllerC", "targetDisplayModeForActionInSplitViewController"]
 - ["So16UIViewControllerC", "viewDidLoad"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "delegate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "didReceiveMemoryWarning"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
@@ -338,7 +339,6 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "targetDisplayModeForAction"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "targetDisplayModeForActionInSplitViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 depends-nominal:
 - "s7CVarArgP"
 - "s28CustomDebugStringConvertibleP"
@@ -383,40 +383,24 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "571c8f9cdbfd5279a909c69a15ccc1f6"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "cba18bb2b9b4a75df5d65011a5a6250f"

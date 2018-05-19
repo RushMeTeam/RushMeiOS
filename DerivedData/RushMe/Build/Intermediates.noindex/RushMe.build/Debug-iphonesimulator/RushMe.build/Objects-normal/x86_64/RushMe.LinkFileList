@@ -3,7 +3,6 @@
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/CalendarLabelCollectionViewCell.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/EventTableViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/ImagePageViewController.o
-/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/PostTableViewCell.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/MapViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/ScrollPageViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/DetailViewController.o
@@ -11,11 +10,11 @@
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/DrawerMenuViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/MasterViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/SplitViewController.o
-/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/FullEventsListTableViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/AttractiveFratCellTableViewCell.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/AppDelegate.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/Fraternity.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/RMPageControl.o
+/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/RMGeocoder.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/Constants.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/CalendarCollectionViewCell.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/SQLHandler.o
@@ -23,9 +22,9 @@
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/SegmentCell.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/RMPoll.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/RMCalendarManager.o
-/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/FeedTableViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/AboutViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/Observable.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/ImageViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/SettingsViewController.o
 /Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/Campus.o
+/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/RushMe.build/Debug-iphonesimulator/RushMe.build/Objects-normal/x86_64/RushMe_vers.o

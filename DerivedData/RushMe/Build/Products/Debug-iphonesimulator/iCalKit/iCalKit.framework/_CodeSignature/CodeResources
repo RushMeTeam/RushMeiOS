@@ -6,23 +6,23 @@
 	<dict>
 		<key>Headers/iCalKit-Swift.h</key>
 		<data>
-		c9Af9reiSdIW6pKiR3yv6YRPHy4=
+		UWevbrJUICqSwqeXHXxNqpGMDAs=
 		</data>
 		<key>Headers/iCalKit-umbrella.h</key>
 		<data>
-		dgTWXGlQ/riJQALONUvfyHXUPzM=
+		zuIpwjtbIEwYtipRZA8N0pn34sc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		chsFQD9OsmCGGkDmS4DTBPIHOas=
+		OTzs+te7EheRcvBEqrPtaV4D7xw=
 		</data>
 		<key>Modules/iCalKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		wIj/VqGFz4LMxCT4jXNidYNN0M8=
+		QcHDzgn01HBQHlsoaWiqA94hUjo=
 		</data>
 		<key>Modules/iCalKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ozc2fbcEOr3g3Ea5cRBk1Q0aWLY=
+		qHXFdyhT0Y/F9s0PiBPRp20fhr4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,44 +35,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c9Af9reiSdIW6pKiR3yv6YRPHy4=
+			UWevbrJUICqSwqeXHXxNqpGMDAs=
 			</data>
 			<key>hash2</key>
 			<data>
-			a7RO09xx+7c1LZmVpsScfW+4Jrb2mSyJhCyheZHy6hs=
+			S7Ki4QOmAub2moJqWrHdk3OjsEMpcZsnnltCQdJKDUA=
 			</data>
 		</dict>
 		<key>Headers/iCalKit-umbrella.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dgTWXGlQ/riJQALONUvfyHXUPzM=
+			zuIpwjtbIEwYtipRZA8N0pn34sc=
 			</data>
 			<key>hash2</key>
 			<data>
-			TQsK5CV8J3bHm1VAySgckypG4jGnJw0Jm1JnXZaHoUo=
+			DnIiSBuDd1nAQNwHjY0F5djFBh+NSoUq2amEHHNJ9D0=
 			</data>
 		</dict>
 		<key>Modules/iCalKit.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wIj/VqGFz4LMxCT4jXNidYNN0M8=
+			QcHDzgn01HBQHlsoaWiqA94hUjo=
 			</data>
 			<key>hash2</key>
 			<data>
-			VpOm27O2X7PjPgpblDnfwDXkz3myU3d1wjrkydqjnbk=
+			DC340RiCLk1n/Ca/1dmfHdhztNNjGmeB2Gyb7DAfj9U=
 			</data>
 		</dict>
 		<key>Modules/iCalKit.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ozc2fbcEOr3g3Ea5cRBk1Q0aWLY=
+			qHXFdyhT0Y/F9s0PiBPRp20fhr4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ouEGRR0EC8EgXV3o6/KHWuXjnBnz3dBFWTOrr6yAvZQ=
+			qCprIM7SDnnYwuXFcVzZ0RRgGvSVzdDWzpTMqhwsCmM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

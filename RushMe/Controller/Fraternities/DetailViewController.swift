@@ -212,48 +212,55 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       view.alpha = toAlpha
     }
   }
-  override func awakeFromNib() {
-    
-  }
   override func viewDidLayoutSubviews() {
+    _ = setupViews
     _ = configureView
   }
   
-  // MARK: ViewDidLoad
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  lazy var setupProfileImageView : Void = {
     
-    self.view.bringSubview(toFront: coverImageView)
-    self.view.bringSubview(toFront: profileImageView)
+    profileImageView.layer.cornerRadius = RMImage.CornerRadius
+    profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
+    profileImageView.layer.borderWidth = 2
+    profileImageView.clipsToBounds = true
+    profileImageView.layer.zPosition = 10
+  }()
+  lazy var setupCoverImageView : Void = {
     coverImageView.layer.masksToBounds = true
     //coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.masksToBounds = true
     coverImageView.layer.cornerRadius = RMImage.CornerRadius
-    profileImageView.clipsToBounds = true
-    //profileImageView.contentMode = UIViewContentMode.scaleAspectFill
+    coverImageView.clipsToBounds = true
+    coverImageView.layer.zPosition = 9
+  }()
+  
+  lazy var setupViews : Void = {
+    _ = setupProfileImageView
+    _ = setupCoverImageView
+    view.bringSubview(toFront: coverImageView)
+    view.bringSubview(toFront: profileImageView)
+    scrollView.canCancelContentTouches = true
+    eventViewController!.view.layer.masksToBounds = true
+    mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
+    mapView.layer.cornerRadius = RMImage.CornerRadius
+    mapView.layer.masksToBounds = true
+    view.backgroundColor = .clear
+    parent?.view.backgroundColor = RMColor.AppColor
     
-    profileImageView.layer.cornerRadius = RMImage.CornerRadius
-    profileImageView.layer.borderColor = UIColor.white.cgColor
-    profileImageView.layer.borderWidth = 2
-    profileImageView.setNeedsDisplay()
+    if #available(iOS 11.0, *) {
+     underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+      underlyingView.layer.masksToBounds = true
+      underlyingView.layer.cornerRadius = RMImage.CornerRadius
+    }
+  }()
+  
+  // MARK: ViewDidLoad
+  override func viewDidLoad() {
+    super.viewDidLoad()
     if let tbView = self.childViewControllers.last as? EventTableViewController {
       eventViewController = tbView
     }
-    mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
-    //blockTextView.isScrollEnabled = false
-    //blockTextView.isEditable = false
-    //scrollView.isScrollEnabled = true
-    eventViewController!.view.layer.masksToBounds = true
-    mapView.layer.cornerRadius = 5
-    mapView.layer.masksToBounds = true
-    //openMapButton.tintColor = UIColor.white
-    //openMapButton.layer.cornerRadius = 5
-    //openMapButton.layer.masksToBounds = true
-    //openMapButton.addSubview(visualEffectView)
-    //openMapButton.sendSubview(toBack: visualEffectView)
-    //self.underlyingView.bringSubview(toFront: mapView)
-    //self.underlyingView.bringSubview(toFront: openMapButton)
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
       if let frat = self.selectedFraternity {
@@ -272,10 +279,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         }
       }
     }
-    self.coverImageView.layer.zPosition = 9
-    self.profileImageView.layer.zPosition = 10
-    self.scrollView.canCancelContentTouches = true
-    self.coverImageView.clipsToBounds = true
+
     registerForPreviewing(with: self, sourceView: profileImageView)
   }
   override func viewWillAppear(_ animated: Bool) {
@@ -287,60 +291,60 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   // MARK: ConfigureView
   lazy var configureView : Void = {
-    if let frat = selectedFraternity {
-      // Update the user interface for the detail item.
-      if let calendarImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
-        //self.coverImageView.setImageByURL(fromSource: coverImageURL)
-        (childViewControllers.first as? ImagePageViewController)?.imageNames = [calendarImageURL] 
-      }
-      if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CoverImageKey) as? String {
-        (childViewControllers.first as? ImagePageViewController)?.imageNames.append(coverImageURL)
-      }
-      if let profileImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? String {
-       profileImageView.setImageByURL(fromSource: profileImageURL) 
-      }
-      titleLabel.text = frat.name
-      underProfileLabel.text = frat.chapter + " Chapter"
-      gpaLabel.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
-      if let memberCount = frat.getProperty(named: RMDatabaseKey.MemberCountKey) as? Int {
-        self.memberCountLabel.text = String(describing: memberCount)
-      }
-      
-      if Campus.shared.favoritedFrats.contains(frat.name) {
-        self.favoritesButton.image = RMImage.FavoritesImageFilled
-        self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
-      }
-      else {
-        self.favoritesButton.image = RMImage.FavoritesImageUnfilled
-        self.profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
-      }
-      favoritesButton.title = frat.name
-      if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {
-        if let textView = blockTextView {
-          textView.text = desc
-          textView.sizeToFit()
-          scrollView.isScrollEnabled = true
-          scrollView.contentSize = textView.contentSize
-          view.layoutSubviews()
-        }
-      }
-      if let location = RMGeocoder.locations[frat.name] {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location.coordinate
-        annotation.title = frat.name
-        annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
-        frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
-        mapView.addAnnotation(annotation)
-        mapView.setCenter(annotation.coordinate, animated: false)
-        mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
-        mapItem!.name = frat.name
-      }
-      else {
-        self.mapView?.removeFromSuperview()
-        self.openMapButton?.isHidden = true
-      }
+    guard let frat = selectedFraternity else {
+      print("No Frat to configure view with!")
+      return
+    }
+    // Update the user interface for the detail item.
+    if let calendarImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
+      //self.coverImageView.setImageByURL(fromSource: coverImageURL)
+      (childViewControllers.first as? ImagePageViewController)?.imageNames = [calendarImageURL]
+    }
+    if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CoverImageKey) as? String {
+      (childViewControllers.first as? ImagePageViewController)?.imageNames.append(coverImageURL)
+    }
+    if let profileImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? String {
+      profileImageView.setImageByURL(fromSource: profileImageURL)
+    }
+    titleLabel.text = frat.name
+    underProfileLabel.text = frat.chapter + " Chapter"
+    gpaLabel.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
+    if let memberCount = frat.getProperty(named: RMDatabaseKey.MemberCountKey) as? Int {
+      self.memberCountLabel.text = String(describing: memberCount)
+    }
+    
+    if Campus.shared.favoritedFrats.contains(frat.name) {
+      self.favoritesButton.image = RMImage.FavoritesImageFilled
+      self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
+    }
+    else {
+      self.favoritesButton.image = RMImage.FavoritesImageUnfilled
+      self.profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
+    }
+    favoritesButton.title = frat.name
+    if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {
+      blockTextView.text = desc
+      blockTextView.sizeToFit()
+      scrollView.isScrollEnabled = true
       
     }
+    if let location = RMGeocoder.locations[frat.name] {
+      let annotation = MKPointAnnotation()
+      annotation.coordinate = location.coordinate
+      annotation.title = frat.name
+      annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
+      frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
+      mapView.addAnnotation(annotation)
+      mapView.setCenter(annotation.coordinate, animated: false)
+      mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
+      mapItem!.name = frat.name
+    }
+    else {
+      self.mapView?.removeFromSuperview()
+      self.openMapButton?.isHidden = true
+    }
+    
+    
   }()
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -384,7 +388,6 @@ extension UIMotionEffect {
   }
 }
 extension UIStoryboard {
-  
   var detailVC : DetailViewController {
     get { 
       return self.instantiateViewController(withIdentifier: "detailVC") as! DetailViewController

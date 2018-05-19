@@ -21,18 +21,18 @@ enum ShortCutIdentifier : String {
   }
 }
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
   var scrollPageVC : ScrollPageViewController!
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     Campus.shared.pullFratsFromSQLDatabase()
-    self.window = UIWindow(frame: UIScreen.main.bounds)
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window!.layer.masksToBounds = true
+    window!.layer.cornerRadius = 5
     if #available(iOS 11, *) {
-      window!.layer.masksToBounds = true
-      window!.layer.cornerRadius = 5
-      window!.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+      //window!.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -46,10 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     else {
      swRevealVC.frontViewShadowOpacity = 0.5
-      swRevealVC.frontViewShadowRadius = 4
+      swRevealVC.frontViewShadowRadius = 8
      
     }
     swRevealVC.rearViewRevealOverdraw = 0
+    swRevealVC.rearViewRevealDisplacement = 0
     swRevealVC.rearViewRevealWidth = drawerMenuVC.preferredContentSize.width
     swRevealVC.setFront(splitVC, animated: false)
     swRevealVC.setRear(drawerMenuVC, animated: false)
@@ -104,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
       completionHandler(false)
       return
     }
+    scrollPageVC?.navigationController?.popToRootViewController(animated: true)
     switch shortcutIdentifier {
     case .Fraternities:
       if let _ = scrollPageVC, scrollPageVC.isViewLoaded {

@@ -261,7 +261,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
                                  tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
                                  tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
                                  tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-                                 favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 4),
+                                 favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 6),
                                  favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 7),
                                  favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -7),
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
@@ -298,6 +298,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
+
+
     //_ = setupGestureRecognizers
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
 

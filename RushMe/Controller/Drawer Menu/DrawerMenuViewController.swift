@@ -50,11 +50,11 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   lazy var buttons = [UIButton?](repeating: nil, count: buttonIcons.count)
   lazy var canvasViews : [UIView?] = [UIView?](repeating: nil, count: buttonIcons.count)
  
-      
-    
-  func calculateCurrentPage(forOffset offset : CGPoint) -> Int {
-    let pageWidth = scrollView.frame.height
-    return Int(floor(1-((offset.y)/pageWidth)))
+  var calculatedCurrentPage : Int {
+    get {
+      let pageWidth = scrollView.bounds.height
+      return Int(floor(((scrollView.contentOffset.y)/(pageWidth))))
+    }
   }
   private(set) var currentPage : Int = 1
   func set(newCurrentPage : Int) {
@@ -70,7 +70,13 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
   }
   @objc func scrollButtons(sender : UIGestureRecognizer) {
     let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
-    self.set(newCurrentPage: currentPage + increment)
+    for buttonView in canvasViews {
+      if let view = buttonView, view.bounds.contains(sender.location(in: view)) {
+        scrollView.scrollRectToVisible(view.frame, animated: true)
+        return
+      }
+    }
+    set(newCurrentPage: calculatedCurrentPage + increment)
   }
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -83,6 +89,7 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
       if canvasViews[bNum] == nil {
         let newButton = UIButton()
         buttons[bNum] = newButton
+        newButton.addTarget(self, action: #selector(buttonHit), for: .touchUpInside)
         newButton.setImage(buttonIcons[bNum], for: .normal)  
         newButton.tintColor = RMColor.AppColor
         var newFrame = scrollView.frame

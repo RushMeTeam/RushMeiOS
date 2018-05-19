@@ -115,15 +115,17 @@ class ScrollPageViewController: UIViewController,
   var progressBar : UIProgressView!
   private(set) lazy var setupProgressBar : Void = {
     progressBar = UIProgressView()
-    progressBar.tintColor = RMColor.AppColor
+    progressBar.tintColor = .white
     progressBar.trackTintColor = .clear
     progressBar.progress = 0
+  
     progressBar.translatesAutoresizingMaskIntoConstraints = false
     navigationController!.navigationBar.addSubview(progressBar)
     NSLayoutConstraint.activate([
       progressBar.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor),
       progressBar.rightAnchor.constraint(equalTo: navigationController!.navigationBar.rightAnchor),
-      progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor)
+      progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor),
+      progressBar.heightAnchor.constraint(equalToConstant: 3)
       ])
   }()
   private(set) lazy var titleImageView : UIView = {
@@ -165,12 +167,7 @@ class ScrollPageViewController: UIViewController,
   
   }()
   
-  @IBAction func unwindToScroll(segue : UIStoryboardSegue) {
-    UIView.animate(withDuration: 1) { 
-      self.navigationController!.navigationBar.barTintColor = .white
-      self.navigationController!.navigationBar.tintColor = RMColor.AppColor
-    }
-  }
+  @IBAction func unwindToScroll(segue : UIStoryboardSegue) {}
 
   
   fileprivate func adjustScrollView() {
@@ -193,7 +190,6 @@ class ScrollPageViewController: UIViewController,
     _ = setupNavigationBar
     _ = setupProgressBar
     Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handlePercentageCompletion(oldValue:newValue:))
-    view.backgroundColor = .white
     // Do any additional setup after loading the view.
     pageControl.numberOfPages = numberOfPages
     pageControl.currentPage = ScrollPageViewController.startingPageIndex
@@ -201,8 +197,6 @@ class ScrollPageViewController: UIViewController,
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     revealViewController().panGestureRecognizer().isEnabled = true
-    
-    
   }
   private func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
@@ -250,7 +244,6 @@ class ScrollPageViewController: UIViewController,
       let newViewController = self.orderedViewControllers[page]
       let canvasView = UIView(frame: CGRect(x: 0, y: (pageHeight)*CGFloat(page), width: view.bounds.width, height: pageHeight))
       canvasView.clipsToBounds = true
-      canvasView.layer.masksToBounds = true
       newViewController.willMove(toParentViewController: self)
       addChildViewController(newViewController)
       newViewController.didMove(toParentViewController: self)
@@ -261,7 +254,7 @@ class ScrollPageViewController: UIViewController,
                                    newViewController.view!.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
                                    newViewController.view!.topAnchor.constraint(equalTo: canvasView.topAnchor),
                                    newViewController.view!.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)])
-      self.pages[page] = canvasView
+      pages[page] = canvasView
     }
   }
   fileprivate func loadCurrentPages(page: Int) {

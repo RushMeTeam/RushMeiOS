@@ -41,6 +41,7 @@ depends-member:
 - !private ["So15CALayerDelegateP", "titleTextAttributes"]
 - !private ["s7CVarArgP", "NSAttributedStringKey"]
 - !private ["s7CVarArgP", "RMColor"]
+- ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "authorsTextView"]
 - !private ["s7CVarArgP", "backgroundColor"]
 - !private ["s7CVarArgP", "didReceiveMemoryWarning"]
@@ -52,11 +53,11 @@ depends-member:
 - !private ["s7CVarArgP", "tintColor"]
 - !private ["s7CVarArgP", "titleTextAttributes"]
 - !private ["s7CVarArgP", "viewDidLoad"]
-- ["s7CVarArgP", ""]
 - !private ["s10CollectionP", "init"]
 - !private ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
+- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "authorsTextView"]
 - !private ["s28CustomDebugStringConvertibleP", "backgroundColor"]
 - !private ["s28CustomDebugStringConvertibleP", "didReceiveMemoryWarning"]
@@ -68,11 +69,11 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "tintColor"]
 - !private ["s28CustomDebugStringConvertibleP", "titleTextAttributes"]
 - !private ["s28CustomDebugStringConvertibleP", "viewDidLoad"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s17CustomReflectableP", "init"]
 - !private ["s23CustomStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s23CustomStringConvertibleP", "RMColor"]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "authorsTextView"]
 - !private ["s23CustomStringConvertibleP", "backgroundColor"]
 - !private ["s23CustomStringConvertibleP", "didReceiveMemoryWarning"]
@@ -84,11 +85,11 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "tintColor"]
 - !private ["s23CustomStringConvertibleP", "titleTextAttributes"]
 - !private ["s23CustomStringConvertibleP", "viewDidLoad"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "init"]
 - !private ["s9EncodableP", "init"]
 - !private ["s9EquatableP", "NSAttributedStringKey"]
 - !private ["s9EquatableP", "RMColor"]
+- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "authorsTextView"]
 - !private ["s9EquatableP", "backgroundColor"]
 - !private ["s9EquatableP", "didReceiveMemoryWarning"]
@@ -101,12 +102,12 @@ depends-member:
 - !private ["s9EquatableP", "tintColor"]
 - !private ["s9EquatableP", "titleTextAttributes"]
 - !private ["s9EquatableP", "viewDidLoad"]
-- ["s9EquatableP", ""]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s8HashableP", "NSAttributedStringKey"]
 - !private ["s8HashableP", "RMColor"]
+- ["s8HashableP", ""]
 - !private ["s8HashableP", "authorsTextView"]
 - !private ["s8HashableP", "backgroundColor"]
 - !private ["s8HashableP", "didReceiveMemoryWarning"]
@@ -119,12 +120,12 @@ depends-member:
 - !private ["s8HashableP", "tintColor"]
 - !private ["s8HashableP", "titleTextAttributes"]
 - !private ["s8HashableP", "viewDidLoad"]
-- ["s8HashableP", ""]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "init"]
 - !private ["SC21NSAttributedStringKeyV", "foregroundColor"]
 - !private ["So8NSCodingP", "NSAttributedStringKey"]
 - !private ["So8NSCodingP", "RMColor"]
+- ["So8NSCodingP", ""]
 - !private ["So8NSCodingP", "authorsTextView"]
 - !private ["So8NSCodingP", "backgroundColor"]
 - !private ["So8NSCodingP", "didReceiveMemoryWarning"]
@@ -136,20 +137,15 @@ depends-member:
 - !private ["So8NSCodingP", "tintColor"]
 - !private ["So8NSCodingP", "titleTextAttributes"]
 - !private ["So8NSCodingP", "viewDidLoad"]
-- ["So8NSCodingP", ""]
-- !private ["So9NSCopyingP", "init"]
 - !private ["So26NSExtensionRequestHandlingP", "NSAttributedStringKey"]
 - !private ["So26NSExtensionRequestHandlingP", "RMColor"]
+- ["So26NSExtensionRequestHandlingP", ""]
 - !private ["So26NSExtensionRequestHandlingP", "authorsTextView"]
 - !private ["So26NSExtensionRequestHandlingP", "didReceiveMemoryWarning"]
 - !private ["So26NSExtensionRequestHandlingP", "init"]
 - !private ["So26NSExtensionRequestHandlingP", "navigationBar"]
 - !private ["So26NSExtensionRequestHandlingP", "navigationController"]
 - !private ["So26NSExtensionRequestHandlingP", "viewDidLoad"]
-- ["So26NSExtensionRequestHandlingP", ""]
-- !private ["So21NSItemProviderReadingP", "init"]
-- !private ["So21NSItemProviderWritingP", "init"]
-- !private ["So16NSMutableCopyingP", "init"]
 - !private ["So8NSObjectC", "NSAttributedStringKey"]
 - !private ["So8NSObjectC", "RMColor"]
 - ["So8NSObjectC", "UIBarButtonItem"]
@@ -168,6 +164,7 @@ depends-member:
 - ["So8NSObjectC", "viewDidLoad"]
 - !private ["So16NSObjectProtocolP", "NSAttributedStringKey"]
 - !private ["So16NSObjectProtocolP", "RMColor"]
+- ["So16NSObjectProtocolP", ""]
 - !private ["So16NSObjectProtocolP", "authorsTextView"]
 - !private ["So16NSObjectProtocolP", "backgroundColor"]
 - !private ["So16NSObjectProtocolP", "didReceiveMemoryWarning"]
@@ -179,10 +176,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "tintColor"]
 - !private ["So16NSObjectProtocolP", "titleTextAttributes"]
 - !private ["So16NSObjectProtocolP", "viewDidLoad"]
-- ["So16NSObjectProtocolP", ""]
-- !private ["So14NSSecureCodingP", "init"]
-- !private ["So8NSStringC", "init"]
-- !private ["So15OHSerializationP", "init"]
 - !private ["6RushMe7RMColorV", "AppColor"]
 - !private ["6RushMe7RMColorV", "NavigationItemsColor"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
@@ -204,6 +197,7 @@ depends-member:
 - !private ["So12UIAppearanceP", "titleTextAttributes"]
 - !private ["So21UIAppearanceContainerP", "NSAttributedStringKey"]
 - !private ["So21UIAppearanceContainerP", "RMColor"]
+- ["So21UIAppearanceContainerP", ""]
 - !private ["So21UIAppearanceContainerP", "authorsTextView"]
 - !private ["So21UIAppearanceContainerP", "backgroundColor"]
 - !private ["So21UIAppearanceContainerP", "didReceiveMemoryWarning"]
@@ -215,20 +209,19 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "tintColor"]
 - !private ["So21UIAppearanceContainerP", "titleTextAttributes"]
 - !private ["So21UIAppearanceContainerP", "viewDidLoad"]
-- ["So21UIAppearanceContainerP", ""]
 - !private ["So16UIBarPositioningP", "backgroundColor"]
 - !private ["So16UIBarPositioningP", "isTranslucent"]
 - !private ["So16UIBarPositioningP", "tintColor"]
 - !private ["So16UIBarPositioningP", "titleTextAttributes"]
 - !private ["So18UIContentContainerP", "NSAttributedStringKey"]
 - !private ["So18UIContentContainerP", "RMColor"]
+- ["So18UIContentContainerP", ""]
 - !private ["So18UIContentContainerP", "authorsTextView"]
 - !private ["So18UIContentContainerP", "didReceiveMemoryWarning"]
 - !private ["So18UIContentContainerP", "init"]
 - !private ["So18UIContentContainerP", "navigationBar"]
 - !private ["So18UIContentContainerP", "navigationController"]
 - !private ["So18UIContentContainerP", "viewDidLoad"]
-- ["So18UIContentContainerP", ""]
 - !private ["So30UIContentSizeCategoryAdjustingP", "text"]
 - !private ["So17UICoordinateSpaceP", "backgroundColor"]
 - !private ["So17UICoordinateSpaceP", "isTranslucent"]
@@ -242,6 +235,7 @@ depends-member:
 - !private ["So13UIDynamicItemP", "titleTextAttributes"]
 - !private ["So18UIFocusEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UIFocusEnvironmentP", "RMColor"]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["So18UIFocusEnvironmentP", "authorsTextView"]
 - !private ["So18UIFocusEnvironmentP", "backgroundColor"]
 - !private ["So18UIFocusEnvironmentP", "didReceiveMemoryWarning"]
@@ -253,7 +247,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "tintColor"]
 - !private ["So18UIFocusEnvironmentP", "titleTextAttributes"]
 - !private ["So18UIFocusEnvironmentP", "viewDidLoad"]
-- ["So18UIFocusEnvironmentP", ""]
 - !private ["So11UIFocusItemP", "backgroundColor"]
 - !private ["So11UIFocusItemP", "isTranslucent"]
 - !private ["So11UIFocusItemP", "text"]
@@ -267,6 +260,7 @@ depends-member:
 - !private ["So22UINavigationControllerC", "navigationBar"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSAttributedStringKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
+- ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So30UIPasteConfigurationSupportingP", "authorsTextView"]
 - !private ["So30UIPasteConfigurationSupportingP", "backgroundColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "didReceiveMemoryWarning"]
@@ -278,7 +272,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "tintColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "titleTextAttributes"]
 - !private ["So30UIPasteConfigurationSupportingP", "viewDidLoad"]
-- ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So11UIResponderC", "NSAttributedStringKey"]
 - !private ["So11UIResponderC", "RMColor"]
 - ["So11UIResponderC", "UIBarButtonItem"]
@@ -297,6 +290,7 @@ depends-member:
 - ["So11UIResponderC", "viewDidLoad"]
 - !private ["So30UIResponderStandardEditActionsP", "NSAttributedStringKey"]
 - !private ["So30UIResponderStandardEditActionsP", "RMColor"]
+- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So30UIResponderStandardEditActionsP", "authorsTextView"]
 - !private ["So30UIResponderStandardEditActionsP", "backgroundColor"]
 - !private ["So30UIResponderStandardEditActionsP", "didReceiveMemoryWarning"]
@@ -308,17 +302,16 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "tintColor"]
 - !private ["So30UIResponderStandardEditActionsP", "titleTextAttributes"]
 - !private ["So30UIResponderStandardEditActionsP", "viewDidLoad"]
-- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So12UIScrollViewC", "text"]
 - !private ["So16UIStateRestoringP", "NSAttributedStringKey"]
 - !private ["So16UIStateRestoringP", "RMColor"]
+- ["So16UIStateRestoringP", ""]
 - !private ["So16UIStateRestoringP", "authorsTextView"]
 - !private ["So16UIStateRestoringP", "didReceiveMemoryWarning"]
 - !private ["So16UIStateRestoringP", "init"]
 - !private ["So16UIStateRestoringP", "navigationBar"]
 - !private ["So16UIStateRestoringP", "navigationController"]
 - !private ["So16UIStateRestoringP", "viewDidLoad"]
-- ["So16UIStateRestoringP", ""]
 - !private ["So15UITextDraggableP", "text"]
 - !private ["So15UITextDroppableP", "text"]
 - !private ["So11UITextInputP", "text"]
@@ -327,6 +320,7 @@ depends-member:
 - !private ["So10UITextViewC", "text"]
 - !private ["So18UITraitEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UITraitEnvironmentP", "RMColor"]
+- ["So18UITraitEnvironmentP", ""]
 - !private ["So18UITraitEnvironmentP", "authorsTextView"]
 - !private ["So18UITraitEnvironmentP", "backgroundColor"]
 - !private ["So18UITraitEnvironmentP", "didReceiveMemoryWarning"]
@@ -338,7 +332,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "tintColor"]
 - !private ["So18UITraitEnvironmentP", "titleTextAttributes"]
 - !private ["So18UITraitEnvironmentP", "viewDidLoad"]
-- ["So18UITraitEnvironmentP", ""]
 - !private ["So6UIViewC", "backgroundColor"]
 - !private ["So6UIViewC", "isTranslucent"]
 - !private ["So6UIViewC", "text"]
@@ -348,6 +341,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "RMColor"]
 - ["So16UIViewControllerC", "UIBarButtonItem"]
 - ["So16UIViewControllerC", "UITextView"]
+- ["So16UIViewControllerC", ""]
 - ["So16UIViewControllerC", "authorsTextView"]
 - ["So16UIViewControllerC", "didReceiveMemoryWarning"]
 - ["So16UIViewControllerC", "drawerButton"]
@@ -355,8 +349,6 @@ depends-member:
 - !private ["So16UIViewControllerC", "navigationBar"]
 - !private ["So16UIViewControllerC", "navigationController"]
 - ["So16UIViewControllerC", "viewDidLoad"]
-- ["So16UIViewControllerC", ""]
-- !private ["s23_BidirectionalIndexableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "backgroundColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isTranslucent"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
@@ -367,11 +359,9 @@ depends-member:
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s10_IndexableP", "init"]
-- !private ["s14_IndexableBaseP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedStringKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "authorsTextView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "backgroundColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "didReceiveMemoryWarning"]
@@ -383,10 +373,8 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tintColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "titleTextAttributes"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "foregroundColor"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
@@ -411,16 +399,9 @@ depends-nominal:
 - !private "s10MirrorPathP"
 - !private "SC21NSAttributedStringKeyV"
 - "So8NSCodingP"
-- !private "So9NSCopyingP"
 - "So26NSExtensionRequestHandlingP"
-- !private "So21NSItemProviderReadingP"
-- !private "So21NSItemProviderWritingP"
-- !private "So16NSMutableCopyingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
-- !private "So14NSSecureCodingP"
-- !private "So8NSStringC"
-- !private "So15OHSerializationP"
 - !private "6RushMe7RMColorV"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
@@ -456,19 +437,14 @@ depends-nominal:
 - "So18UITraitEnvironmentP"
 - !private "So6UIViewC"
 - "So16UIViewControllerC"
-- !private "s23_BidirectionalIndexableP"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
-- !private "s35_HasCustomAnyHashableRepresentationP"
-- !private "s10_IndexableP"
-- !private "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s26_RangeReplaceableIndexableP"
 - !private "s20_SwiftNewtypeWrapperP"
 - !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
@@ -490,40 +466,24 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MapKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQL-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLTimeline.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHProtocolType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHResultErrorType.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStore.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSSLConfig.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHCharsetEncoding.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHLogging.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Escaping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSObject+Mapping.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMappingProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHSerializationProtocol.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSData+OHSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+OHSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSNumber+OHSerialization.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLSerialization.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLContainer.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLUser.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLStoreCoordinator.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHRefreshOptions.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHConstants.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHJoinConstants.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequest.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryContext.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/OHMySQLQueryRequestFactory.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Headers/NSString+Utility.h"
-- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/OHMySQL/OHMySQL.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "71fc9f0f542e69adf66192136fa0a9c7"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "ac7d9527f75c37f1b716f3be1abdaf93"

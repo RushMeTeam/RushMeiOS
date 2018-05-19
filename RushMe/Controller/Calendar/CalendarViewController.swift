@@ -243,8 +243,8 @@ ScrollableItem {
   // MARK : Gesture Recognizers
   
   @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
-    if sender.location(in: collectionView).y > collectionView.frame.height {
-      inEventView = !inEventView          
+    if sender.location(in: view).y < collectionView.frame.maxY {
+      inEventView = false
     }
   }
   
