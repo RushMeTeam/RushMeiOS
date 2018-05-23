@@ -1,0 +1,604 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "pullImage"
+provides-nominal:
+provides-member:
+- ["So11UIImageViewC", ""]
+- ["So7UIImageC", ""]
+- ["So11UIImageViewC", "setImageByURL"]
+- ["So7UIImageC", "storeOnDisk"]
+provides-dynamic-lookup:
+- "setImageByURL"
+- "storeOnDisk"
+depends-top-level:
+- !private "!"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "Campus"
+- !private "Data"
+- !private "DispatchQueue"
+- !private "FileManager"
+- "Quality"
+- !private "RMFileManagement"
+- "RMurl"
+- "String"
+- "UIImage"
+- !private "UIImagePNGRepresentation"
+- "UIImageView"
+- !private "UIView"
+- "URL"
+- !private "print"
+- "pullImage"
+depends-member:
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "write"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So7CALayerC", "drawsAsynchronously"]
+- !private ["So15CALayerDelegateP", "DispatchQueue"]
+- !private ["So15CALayerDelegateP", "RMurl"]
+- !private ["So15CALayerDelegateP", "UIView"]
+- !private ["So15CALayerDelegateP", "image"]
+- !private ["So15CALayerDelegateP", "layer"]
+- !private ["So15CALayerDelegateP", "pullImage"]
+- !private ["So15CALayerDelegateP", "transition"]
+- !private ["So13CAMediaTimingP", "drawsAsynchronously"]
+- !private ["s7CVarArgP", "DispatchQueue"]
+- !private ["s7CVarArgP", "FileManager"]
+- !private ["s7CVarArgP", "RMFileManagement"]
+- !private ["s7CVarArgP", "RMurl"]
+- !private ["s7CVarArgP", "UIImagePNGRepresentation"]
+- !private ["s7CVarArgP", "UIView"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "async"]
+- !private ["s7CVarArgP", "createDirectory"]
+- !private ["s7CVarArgP", "default"]
+- !private ["s7CVarArgP", "downloadedImageQuality"]
+- !private ["s7CVarArgP", "drawsAsynchronously"]
+- !private ["s7CVarArgP", "fileExists"]
+- !private ["s7CVarArgP", "global"]
+- !private ["s7CVarArgP", "image"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "layer"]
+- !private ["s7CVarArgP", "main"]
+- !private ["s7CVarArgP", "print"]
+- !private ["s7CVarArgP", "pullImage"]
+- !private ["s7CVarArgP", "storeOnDisk"]
+- !private ["s7CVarArgP", "transition"]
+- !private ["6RushMe6CampusC", "downloadedImageQuality"]
+- !private ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "write"]
+- !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
+- !private ["s28CustomDebugStringConvertibleP", "FileManager"]
+- !private ["s28CustomDebugStringConvertibleP", "RMFileManagement"]
+- !private ["s28CustomDebugStringConvertibleP", "RMurl"]
+- !private ["s28CustomDebugStringConvertibleP", "UIImagePNGRepresentation"]
+- !private ["s28CustomDebugStringConvertibleP", "UIView"]
+- !private ["s28CustomDebugStringConvertibleP", "async"]
+- !private ["s28CustomDebugStringConvertibleP", "createDirectory"]
+- !private ["s28CustomDebugStringConvertibleP", "default"]
+- !private ["s28CustomDebugStringConvertibleP", "downloadedImageQuality"]
+- !private ["s28CustomDebugStringConvertibleP", "drawsAsynchronously"]
+- !private ["s28CustomDebugStringConvertibleP", "fileExists"]
+- !private ["s28CustomDebugStringConvertibleP", "global"]
+- !private ["s28CustomDebugStringConvertibleP", "image"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "layer"]
+- !private ["s28CustomDebugStringConvertibleP", "main"]
+- !private ["s28CustomDebugStringConvertibleP", "path"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
+- !private ["s28CustomDebugStringConvertibleP", "pullImage"]
+- !private ["s28CustomDebugStringConvertibleP", "storeOnDisk"]
+- !private ["s28CustomDebugStringConvertibleP", "transition"]
+- !private ["s28CustomDebugStringConvertibleP", "write"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "path"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "write"]
+- !private ["s23CustomStringConvertibleP", "DispatchQueue"]
+- !private ["s23CustomStringConvertibleP", "FileManager"]
+- !private ["s23CustomStringConvertibleP", "RMFileManagement"]
+- !private ["s23CustomStringConvertibleP", "RMurl"]
+- !private ["s23CustomStringConvertibleP", "UIImagePNGRepresentation"]
+- !private ["s23CustomStringConvertibleP", "UIView"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "async"]
+- !private ["s23CustomStringConvertibleP", "createDirectory"]
+- !private ["s23CustomStringConvertibleP", "default"]
+- !private ["s23CustomStringConvertibleP", "downloadedImageQuality"]
+- !private ["s23CustomStringConvertibleP", "drawsAsynchronously"]
+- !private ["s23CustomStringConvertibleP", "fileExists"]
+- !private ["s23CustomStringConvertibleP", "global"]
+- !private ["s23CustomStringConvertibleP", "image"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "layer"]
+- !private ["s23CustomStringConvertibleP", "main"]
+- !private ["s23CustomStringConvertibleP", "path"]
+- !private ["s23CustomStringConvertibleP", "print"]
+- !private ["s23CustomStringConvertibleP", "pullImage"]
+- !private ["s23CustomStringConvertibleP", "storeOnDisk"]
+- !private ["s23CustomStringConvertibleP", "transition"]
+- !private ["s23CustomStringConvertibleP", "write"]
+- !private ["10Foundation4DataV", "init"]
+- !private ["10Foundation4DataV", "write"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "path"]
+- !private ["s9DecodableP", "write"]
+- !private ["So14DispatchObjectC", "async"]
+- !private ["So14DispatchObjectC", "global"]
+- !private ["So14DispatchObjectC", "main"]
+- !private ["So13DispatchQueueC", "async"]
+- !private ["So13DispatchQueueC", "global"]
+- !private ["So13DispatchQueueC", "main"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "path"]
+- !private ["s9EncodableP", "write"]
+- !private ["s9EquatableP", "DispatchQueue"]
+- !private ["s9EquatableP", "FileManager"]
+- !private ["s9EquatableP", "RMFileManagement"]
+- !private ["s9EquatableP", "RMurl"]
+- !private ["s9EquatableP", "UIImagePNGRepresentation"]
+- !private ["s9EquatableP", "UIView"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "async"]
+- !private ["s9EquatableP", "background"]
+- !private ["s9EquatableP", "createDirectory"]
+- !private ["s9EquatableP", "default"]
+- !private ["s9EquatableP", "downloadedImageQuality"]
+- !private ["s9EquatableP", "drawsAsynchronously"]
+- !private ["s9EquatableP", "fileExists"]
+- !private ["s9EquatableP", "global"]
+- !private ["s9EquatableP", "image"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "layer"]
+- !private ["s9EquatableP", "main"]
+- !private ["s9EquatableP", "path"]
+- !private ["s9EquatableP", "print"]
+- !private ["s9EquatableP", "pullImage"]
+- !private ["s9EquatableP", "storeOnDisk"]
+- !private ["s9EquatableP", "transition"]
+- !private ["s9EquatableP", "transitionCrossDissolve"]
+- !private ["s9EquatableP", "userInteractive"]
+- !private ["s9EquatableP", "write"]
+- !private ["s5ErrorP", "localizedDescription"]
+- !private ["s25ExpressibleByArrayLiteralP", "transitionCrossDissolve"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["So11FileManagerC", "createDirectory"]
+- !private ["So11FileManagerC", "default"]
+- !private ["So11FileManagerC", "fileExists"]
+- !private ["s8HashableP", "DispatchQueue"]
+- !private ["s8HashableP", "FileManager"]
+- !private ["s8HashableP", "RMFileManagement"]
+- !private ["s8HashableP", "RMurl"]
+- !private ["s8HashableP", "UIImagePNGRepresentation"]
+- !private ["s8HashableP", "UIView"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "async"]
+- !private ["s8HashableP", "background"]
+- !private ["s8HashableP", "createDirectory"]
+- !private ["s8HashableP", "default"]
+- !private ["s8HashableP", "downloadedImageQuality"]
+- !private ["s8HashableP", "drawsAsynchronously"]
+- !private ["s8HashableP", "fileExists"]
+- !private ["s8HashableP", "global"]
+- !private ["s8HashableP", "image"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "layer"]
+- !private ["s8HashableP", "main"]
+- !private ["s8HashableP", "path"]
+- !private ["s8HashableP", "print"]
+- !private ["s8HashableP", "pullImage"]
+- !private ["s8HashableP", "storeOnDisk"]
+- !private ["s8HashableP", "transition"]
+- !private ["s8HashableP", "userInteractive"]
+- !private ["s8HashableP", "write"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "init"]
+- !private ["s17MutableCollectionP", "write"]
+- !private ["So8NSCodingP", "DispatchQueue"]
+- !private ["So8NSCodingP", "FileManager"]
+- !private ["So8NSCodingP", "RMFileManagement"]
+- !private ["So8NSCodingP", "RMurl"]
+- !private ["So8NSCodingP", "UIImagePNGRepresentation"]
+- !private ["So8NSCodingP", "UIView"]
+- !private ["So8NSCodingP", "drawsAsynchronously"]
+- !private ["So8NSCodingP", "image"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "layer"]
+- !private ["So8NSCodingP", "print"]
+- !private ["So8NSCodingP", "pullImage"]
+- !private ["So8NSCodingP", "storeOnDisk"]
+- !private ["So8NSCodingP", "transition"]
+- !private ["So21NSItemProviderReadingP", "FileManager"]
+- !private ["So21NSItemProviderReadingP", "RMFileManagement"]
+- !private ["So21NSItemProviderReadingP", "UIImagePNGRepresentation"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderReadingP", "print"]
+- !private ["So21NSItemProviderReadingP", "storeOnDisk"]
+- !private ["So21NSItemProviderWritingP", "FileManager"]
+- !private ["So21NSItemProviderWritingP", "RMFileManagement"]
+- !private ["So21NSItemProviderWritingP", "UIImagePNGRepresentation"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So21NSItemProviderWritingP", "print"]
+- !private ["So21NSItemProviderWritingP", "storeOnDisk"]
+- ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "DispatchQueue"]
+- !private ["So8NSObjectC", "FileManager"]
+- !private ["So8NSObjectC", "RMFileManagement"]
+- !private ["So8NSObjectC", "RMurl"]
+- ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "UIImagePNGRepresentation"]
+- !private ["So8NSObjectC", "UIView"]
+- ["So8NSObjectC", "URL"]
+- !private ["So8NSObjectC", "async"]
+- !private ["So8NSObjectC", "createDirectory"]
+- !private ["So8NSObjectC", "default"]
+- !private ["So8NSObjectC", "downloadedImageQuality"]
+- !private ["So8NSObjectC", "drawsAsynchronously"]
+- !private ["So8NSObjectC", "fileExists"]
+- !private ["So8NSObjectC", "global"]
+- !private ["So8NSObjectC", "image"]
+- !private ["So8NSObjectC", "layer"]
+- !private ["So8NSObjectC", "main"]
+- !private ["So8NSObjectC", "print"]
+- !private ["So8NSObjectC", "pullImage"]
+- ["So8NSObjectC", "setImageByURL"]
+- ["So8NSObjectC", "storeOnDisk"]
+- !private ["So8NSObjectC", "transition"]
+- !private ["So16NSObjectProtocolP", "DispatchQueue"]
+- !private ["So16NSObjectProtocolP", "FileManager"]
+- !private ["So16NSObjectProtocolP", "RMFileManagement"]
+- !private ["So16NSObjectProtocolP", "RMurl"]
+- !private ["So16NSObjectProtocolP", "UIImagePNGRepresentation"]
+- !private ["So16NSObjectProtocolP", "UIView"]
+- !private ["So16NSObjectProtocolP", "async"]
+- !private ["So16NSObjectProtocolP", "createDirectory"]
+- !private ["So16NSObjectProtocolP", "default"]
+- !private ["So16NSObjectProtocolP", "downloadedImageQuality"]
+- !private ["So16NSObjectProtocolP", "drawsAsynchronously"]
+- !private ["So16NSObjectProtocolP", "fileExists"]
+- !private ["So16NSObjectProtocolP", "global"]
+- !private ["So16NSObjectProtocolP", "image"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "layer"]
+- !private ["So16NSObjectProtocolP", "main"]
+- !private ["So16NSObjectProtocolP", "print"]
+- !private ["So16NSObjectProtocolP", "pullImage"]
+- !private ["So16NSObjectProtocolP", "storeOnDisk"]
+- !private ["So16NSObjectProtocolP", "transition"]
+- !private ["So14NSSecureCodingP", "FileManager"]
+- !private ["So14NSSecureCodingP", "RMFileManagement"]
+- !private ["So14NSSecureCodingP", "UIImagePNGRepresentation"]
+- !private ["So14NSSecureCodingP", "drawsAsynchronously"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "print"]
+- !private ["So14NSSecureCodingP", "storeOnDisk"]
+- !private ["So9OS_objectC", "async"]
+- !private ["So9OS_objectC", "global"]
+- !private ["So9OS_objectC", "main"]
+- !private ["s9OptionSetP", "transitionCrossDissolve"]
+- !private ["8Dispatch0A3QoSV0B6SClassO", "background"]
+- !private ["8Dispatch0A3QoSV0B6SClassO", "userInteractive"]
+- !private ["6RushMe16RMFileManagementV", "fratImageURL"]
+- !private ["6RushMe5RMurlV", "init"]
+- !private ["6RushMe5RMurlV", "localPath"]
+- !private ["6RushMe5RMurlV", "networkPath"]
+- !private ["s22RandomAccessCollectionP", "init"]
+- !private ["s22RandomAccessCollectionP", "write"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "write"]
+- !private ["s16RawRepresentableP", "transitionCrossDissolve"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "path"]
+- !private ["10Foundation20ReferenceConvertibleP", "write"]
+- !private ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "write"]
+- !private ["s10SetAlgebraP", "transitionCrossDissolve"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "DispatchQueue"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "RMurl"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "UIView"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "layer"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "pullImage"]
+- !private ["So29UIAccessibilityIdentificationP", "DispatchQueue"]
+- !private ["So29UIAccessibilityIdentificationP", "FileManager"]
+- !private ["So29UIAccessibilityIdentificationP", "RMFileManagement"]
+- !private ["So29UIAccessibilityIdentificationP", "RMurl"]
+- !private ["So29UIAccessibilityIdentificationP", "UIImagePNGRepresentation"]
+- !private ["So29UIAccessibilityIdentificationP", "UIView"]
+- !private ["So29UIAccessibilityIdentificationP", "image"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- !private ["So29UIAccessibilityIdentificationP", "layer"]
+- !private ["So29UIAccessibilityIdentificationP", "print"]
+- !private ["So29UIAccessibilityIdentificationP", "pullImage"]
+- !private ["So29UIAccessibilityIdentificationP", "storeOnDisk"]
+- !private ["So29UIAccessibilityIdentificationP", "transition"]
+- !private ["So12UIAppearanceP", "DispatchQueue"]
+- !private ["So12UIAppearanceP", "RMurl"]
+- !private ["So12UIAppearanceP", "UIView"]
+- !private ["So12UIAppearanceP", "image"]
+- !private ["So12UIAppearanceP", "layer"]
+- !private ["So12UIAppearanceP", "pullImage"]
+- !private ["So12UIAppearanceP", "transition"]
+- !private ["So21UIAppearanceContainerP", "DispatchQueue"]
+- !private ["So21UIAppearanceContainerP", "RMurl"]
+- !private ["So21UIAppearanceContainerP", "UIView"]
+- !private ["So21UIAppearanceContainerP", "image"]
+- !private ["So21UIAppearanceContainerP", "layer"]
+- !private ["So21UIAppearanceContainerP", "pullImage"]
+- !private ["So21UIAppearanceContainerP", "transition"]
+- !private ["So17UICoordinateSpaceP", "DispatchQueue"]
+- !private ["So17UICoordinateSpaceP", "RMurl"]
+- !private ["So17UICoordinateSpaceP", "UIView"]
+- !private ["So17UICoordinateSpaceP", "image"]
+- !private ["So17UICoordinateSpaceP", "layer"]
+- !private ["So17UICoordinateSpaceP", "pullImage"]
+- !private ["So17UICoordinateSpaceP", "transition"]
+- !private ["So13UIDynamicItemP", "DispatchQueue"]
+- !private ["So13UIDynamicItemP", "RMurl"]
+- !private ["So13UIDynamicItemP", "UIView"]
+- !private ["So13UIDynamicItemP", "image"]
+- !private ["So13UIDynamicItemP", "layer"]
+- !private ["So13UIDynamicItemP", "pullImage"]
+- !private ["So13UIDynamicItemP", "transition"]
+- !private ["So18UIFocusEnvironmentP", "DispatchQueue"]
+- !private ["So18UIFocusEnvironmentP", "RMurl"]
+- !private ["So18UIFocusEnvironmentP", "UIView"]
+- !private ["So18UIFocusEnvironmentP", "image"]
+- !private ["So18UIFocusEnvironmentP", "layer"]
+- !private ["So18UIFocusEnvironmentP", "pullImage"]
+- !private ["So18UIFocusEnvironmentP", "transition"]
+- !private ["So11UIFocusItemP", "DispatchQueue"]
+- !private ["So11UIFocusItemP", "RMurl"]
+- !private ["So11UIFocusItemP", "UIView"]
+- !private ["So11UIFocusItemP", "image"]
+- !private ["So11UIFocusItemP", "layer"]
+- !private ["So11UIFocusItemP", "pullImage"]
+- !private ["So11UIFocusItemP", "transition"]
+- !private ["So7UIImageC", "FileManager"]
+- !private ["So7UIImageC", "RMFileManagement"]
+- !private ["So7UIImageC", "UIImagePNGRepresentation"]
+- ["So7UIImageC", "URL"]
+- !private ["So7UIImageC", "init"]
+- !private ["So7UIImageC", "print"]
+- ["So7UIImageC", "storeOnDisk"]
+- ["So11UIImageViewC", "Bool"]
+- !private ["So11UIImageViewC", "DispatchQueue"]
+- !private ["So11UIImageViewC", "RMurl"]
+- ["So11UIImageViewC", "String"]
+- !private ["So11UIImageViewC", "UIView"]
+- !private ["So11UIImageViewC", "image"]
+- !private ["So11UIImageViewC", "layer"]
+- !private ["So11UIImageViewC", "pullImage"]
+- ["So11UIImageViewC", "setImageByURL"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "FileManager"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "RMFileManagement"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "UIImagePNGRepresentation"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "init"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "print"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "storeOnDisk"]
+- !private ["So30UIPasteConfigurationSupportingP", "DispatchQueue"]
+- !private ["So30UIPasteConfigurationSupportingP", "RMurl"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIView"]
+- !private ["So30UIPasteConfigurationSupportingP", "image"]
+- !private ["So30UIPasteConfigurationSupportingP", "layer"]
+- !private ["So30UIPasteConfigurationSupportingP", "pullImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "transition"]
+- ["So11UIResponderC", "Bool"]
+- !private ["So11UIResponderC", "DispatchQueue"]
+- !private ["So11UIResponderC", "RMurl"]
+- ["So11UIResponderC", "String"]
+- !private ["So11UIResponderC", "UIView"]
+- !private ["So11UIResponderC", "image"]
+- !private ["So11UIResponderC", "layer"]
+- !private ["So11UIResponderC", "pullImage"]
+- ["So11UIResponderC", "setImageByURL"]
+- !private ["So11UIResponderC", "transition"]
+- !private ["So30UIResponderStandardEditActionsP", "DispatchQueue"]
+- !private ["So30UIResponderStandardEditActionsP", "RMurl"]
+- !private ["So30UIResponderStandardEditActionsP", "UIView"]
+- !private ["So30UIResponderStandardEditActionsP", "image"]
+- !private ["So30UIResponderStandardEditActionsP", "layer"]
+- !private ["So30UIResponderStandardEditActionsP", "pullImage"]
+- !private ["So30UIResponderStandardEditActionsP", "transition"]
+- !private ["So18UITraitEnvironmentP", "DispatchQueue"]
+- !private ["So18UITraitEnvironmentP", "RMurl"]
+- !private ["So18UITraitEnvironmentP", "UIView"]
+- !private ["So18UITraitEnvironmentP", "image"]
+- !private ["So18UITraitEnvironmentP", "layer"]
+- !private ["So18UITraitEnvironmentP", "pullImage"]
+- !private ["So18UITraitEnvironmentP", "transition"]
+- ["So6UIViewC", "Bool"]
+- !private ["So6UIViewC", "DispatchQueue"]
+- !private ["So6UIViewC", "RMurl"]
+- ["So6UIViewC", "String"]
+- !private ["So6UIViewC", "UIView"]
+- !private ["So6UIViewC", "image"]
+- !private ["So6UIViewC", "layer"]
+- !private ["So6UIViewC", "pullImage"]
+- ["So6UIViewC", "setImageByURL"]
+- !private ["So6UIViewC", "transition"]
+- !private ["SC22UIViewAnimationOptionsV", "transitionCrossDissolve"]
+- !private ["10Foundation3URLV", "path"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "DispatchQueue"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "RMurl"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIView"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "image"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "layer"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "pullImage"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "transition"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "path"]
+- !private ["s26_ExpressibleByImageLiteralP", "FileManager"]
+- !private ["s26_ExpressibleByImageLiteralP", "RMFileManagement"]
+- !private ["s26_ExpressibleByImageLiteralP", "UIImagePNGRepresentation"]
+- !private ["s26_ExpressibleByImageLiteralP", "init"]
+- !private ["s26_ExpressibleByImageLiteralP", "print"]
+- !private ["s26_ExpressibleByImageLiteralP", "storeOnDisk"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "FileManager"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFileManagement"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMurl"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIImagePNGRepresentation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIView"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "createDirectory"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "downloadedImageQuality"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "drawsAsynchronously"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fileExists"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "global"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "image"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "layer"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "main"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pullImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "storeOnDisk"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "transition"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "path"]
+- !private ["s21_ObjectiveCBridgeableP", "write"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "s23BidirectionalCollectionP"
+- !private "Sb"
+- !private "So7CALayerC"
+- !private "So15CALayerDelegateP"
+- !private "So13CAMediaTimingP"
+- !private "s7CVarArgP"
+- !private "6RushMe6CampusC"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation4DataV"
+- !private "s9DecodableP"
+- !private "So14DispatchObjectC"
+- !private "So13DispatchQueueC"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s5ErrorP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "So11FileManagerC"
+- !private "s8HashableP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- !private "So8NSCodingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So9OS_objectC"
+- !private "s9OptionSetP"
+- !private "8Dispatch0A3QoSV0B6SClassO"
+- !private "6RushMe16RMFileManagementV"
+- !private "6RushMe5RMurlV"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "10Foundation20ReferenceConvertibleP"
+- !private "s8SequenceP"
+- !private "s10SetAlgebraP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
+- !private "So29UIAccessibilityIdentificationP"
+- !private "So12UIAppearanceP"
+- !private "So21UIAppearanceContainerP"
+- !private "So17UICoordinateSpaceP"
+- !private "So13UIDynamicItemP"
+- !private "So18UIFocusEnvironmentP"
+- !private "So11UIFocusItemP"
+- "So7UIImageC"
+- "So11UIImageViewC"
+- !private "So39UIItemProviderPresentationSizeProvidingP"
+- !private "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- !private "So30UIResponderStandardEditActionsP"
+- !private "So18UITraitEnvironmentP"
+- "So6UIViewC"
+- !private "SC22UIViewAnimationOptionsV"
+- !private "10Foundation3URLV"
+- !private "s37_DefaultCustomPlaygroundQuickLookableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s34_ExpressibleByFileReferenceLiteralP"
+- !private "s26_ExpressibleByImageLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/DeviceKit.swiftmodule/arm64.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/iCalKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Headers/DeviceKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-umbrella.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Headers/DeviceKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
+- "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "c402eb364c355c09e8c2676defbb6760"

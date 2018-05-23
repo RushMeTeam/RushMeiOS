@@ -352,20 +352,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
 }
 
-extension UIImageView {
-  func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
-    layer.drawsAsynchronously = true
-    image = nil
-    DispatchQueue.global(qos: .userInteractive).async {
-      let image = pullImage(fromSource: RMurl(fromString: sourceString), fallBackToNetwork: true)
-      DispatchQueue.main.async {
-        UIView.transition(with: self, duration: 0.15, options: .transitionCrossDissolve, animations: { 
-          self.image = image
-        }, completion: nil)
-      }
-    }
-  }
-}
 
 extension UIMotionEffect {
   class func twoAxesShift(strength: Float) -> UIMotionEffect {

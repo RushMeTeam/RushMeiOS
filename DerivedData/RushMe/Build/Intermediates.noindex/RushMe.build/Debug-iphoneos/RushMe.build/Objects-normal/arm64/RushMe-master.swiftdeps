@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.1 (swiftlang-902.0.48 clang-902.0.37.1)"
 options: "13bb255de3014a70a40ea4e7bd2089b5"
-build_time: [1527115651, 194779000]
+build_time: [1527116628, 542313000]
 inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/TableViewCells/EventTableViewCell.swift": [1514245464, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/View/CollectionViewCells/CalendarLabelCollectionViewCell.swift": [1526664830, 0]
@@ -8,7 +8,8 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/ImagePageViewController.swift": [1526664830, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Maps/MapViewController.swift": [1526664830, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/ScrollPageViewController.swift": [1527115369, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/DetailViewController.swift": [1526754999, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Images.swift": [1527116628, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/DetailViewController.swift": [1527116605, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Calendar/CalendarViewController.swift": [1526692539, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Drawer Menu/DrawerMenuViewController.swift": [1527115134, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/MasterViewController.swift": [1526757559, 0]
@@ -29,4 +30,4 @@ inputs:
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Observable.swift": [1524072394, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Fraternities/ImageViewController.swift": [1526664830, 0]
   "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Controller/Settings/SettingsViewController.swift": [1526664830, 0]
-  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Campus.swift": [1526664830, 0]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/RushMe/Model/Campus.swift": [1527116628, 0]
