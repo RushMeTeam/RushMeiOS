@@ -74,6 +74,7 @@ depends-member:
 - !private ["s13BinaryIntegerP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["12CoreGraphics7CGFloatV", "rounded"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "batteryLevel"]
 - !private ["s7CVarArgP", "batteryState"]
 - !private ["s7CVarArgP", "contains"]
@@ -100,6 +101,7 @@ depends-member:
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "Int"]
 - !private ["s10ComparableP", "UIDevice"]
+- ["s10ComparableP", ""]
 - ["s10ComparableP", "charging"]
 - ["s10ComparableP", "description"]
 - ["s10ComparableP", "full"]
@@ -107,7 +109,6 @@ depends-member:
 - !private ["s10ComparableP", "round"]
 - !private ["s10ComparableP", "rounded"]
 - ["s10ComparableP", "unplugged"]
-- ["s10ComparableP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "batteryLevel"]
 - !private ["s28CustomDebugStringConvertibleP", "batteryState"]
 - !private ["s28CustomDebugStringConvertibleP", "contains"]
@@ -145,6 +146,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
 - !private ["s23CustomStringConvertibleP", "UInt8"]
 - !private ["s23CustomStringConvertibleP", "UnicodeScalar"]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "allPads"]
 - !private ["s23CustomStringConvertibleP", "allPhones"]
@@ -220,7 +222,6 @@ depends-member:
 - ["s23CustomStringConvertibleP", "unplugged"]
 - !private ["s23CustomStringConvertibleP", "userInterfaceIdiom"]
 - !private ["s23CustomStringConvertibleP", "utsname"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "contains"]
 - !private ["s9DecodableP", "init"]
@@ -325,6 +326,7 @@ depends-member:
 - !private ["s9EquatableP", "UIScreen"]
 - !private ["s9EquatableP", "UInt8"]
 - !private ["s9EquatableP", "UnicodeScalar"]
+- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "allPads"]
 - !private ["s9EquatableP", "allPhones"]
@@ -337,6 +339,7 @@ depends-member:
 - !private ["s9EquatableP", "batteryLevel"]
 - !private ["s9EquatableP", "batteryState"]
 - ["s9EquatableP", "charging"]
+- !private ["s9EquatableP", "contains"]
 - !private ["s9EquatableP", "current"]
 - ["s9EquatableP", "description"]
 - !private ["s9EquatableP", "diagonal"]
@@ -379,6 +382,7 @@ depends-member:
 - !private ["s9EquatableP", "isOneOf"]
 - !private ["s9EquatableP", "localizedModel"]
 - !private ["s9EquatableP", "main"]
+- !private ["s9EquatableP", "map"]
 - !private ["s9EquatableP", "mapToDevice"]
 - !private ["s9EquatableP", "model"]
 - !private ["s9EquatableP", "name"]
@@ -391,6 +395,7 @@ depends-member:
 - !private ["s9EquatableP", "scale"]
 - !private ["s9EquatableP", "screenRatio"]
 - ["s9EquatableP", "simulator"]
+- !private ["s9EquatableP", "subscript"]
 - !private ["s9EquatableP", "systemName"]
 - !private ["s9EquatableP", "systemVersion"]
 - !private ["s9EquatableP", "uname"]
@@ -398,7 +403,6 @@ depends-member:
 - ["s9EquatableP", "unplugged"]
 - !private ["s9EquatableP", "userInterfaceIdiom"]
 - !private ["s9EquatableP", "utsname"]
-- ["s9EquatableP", ""]
 - !private ["s25ExpressibleByArrayLiteralP", "contains"]
 - !private ["s25ExpressibleByArrayLiteralP", "map"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
@@ -414,10 +418,10 @@ depends-member:
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "batteryLevel"]
 - !private ["s8HashableP", "batteryState"]
-- !private ["s8HashableP", "charging"]
+- ["s8HashableP", "charging"]
 - !private ["s8HashableP", "current"]
 - !private ["s8HashableP", "environment"]
-- !private ["s8HashableP", "full"]
+- ["s8HashableP", "full"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "isBatteryMonitoringEnabled"]
 - !private ["s8HashableP", "localizedModel"]
@@ -431,8 +435,8 @@ depends-member:
 - !private ["s8HashableP", "scale"]
 - !private ["s8HashableP", "systemName"]
 - !private ["s8HashableP", "systemVersion"]
-- !private ["s8HashableP", "unknown"]
-- !private ["s8HashableP", "unplugged"]
+- ["s8HashableP", "unknown"]
+- ["s8HashableP", "unplugged"]
 - !private ["s8HashableP", "userInterfaceIdiom"]
 - !private ["Si", "init"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
@@ -442,11 +446,6 @@ depends-member:
 - !private ["s10MirrorPathP", "init"]
 - !private ["s17MutableCollectionP", "contains"]
 - !private ["s17MutableCollectionP", "map"]
-- !private ["So8NSCodingP", "init"]
-- !private ["So9NSCopyingP", "init"]
-- !private ["So21NSItemProviderReadingP", "init"]
-- !private ["So21NSItemProviderWritingP", "init"]
-- !private ["So16NSMutableCopyingP", "init"]
 - !private ["So8NSObjectC", "batteryLevel"]
 - !private ["So8NSObjectC", "batteryState"]
 - !private ["So8NSObjectC", "current"]
@@ -477,8 +476,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "systemName"]
 - !private ["So16NSObjectProtocolP", "systemVersion"]
 - !private ["So16NSObjectProtocolP", "userInterfaceIdiom"]
-- !private ["So14NSSecureCodingP", "init"]
-- !private ["So8NSStringC", "init"]
 - !private ["s7NumericP", "init"]
 - !private ["s7NumericP", "rounded"]
 - !private ["So11ProcessInfoC", "environment"]
@@ -488,12 +485,12 @@ depends-member:
 - !private ["s26RangeReplaceableCollectionP", "contains"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "map"]
-- !private ["s16RawRepresentableP", "charging"]
-- !private ["s16RawRepresentableP", "full"]
+- ["s16RawRepresentableP", "charging"]
+- ["s16RawRepresentableP", "full"]
 - !private ["s16RawRepresentableP", "pad"]
 - !private ["s16RawRepresentableP", "phone"]
-- !private ["s16RawRepresentableP", "unknown"]
-- !private ["s16RawRepresentableP", "unplugged"]
+- ["s16RawRepresentableP", "unknown"]
+- ["s16RawRepresentableP", "unplugged"]
 - !private ["s7UnicodeO6ScalarV", "init"]
 - !private ["s8SequenceP", "contains"]
 - !private ["s8SequenceP", "init"]
@@ -519,10 +516,10 @@ depends-member:
 - !private ["So8UIDeviceC", "systemName"]
 - !private ["So8UIDeviceC", "systemVersion"]
 - !private ["So8UIDeviceC", "userInterfaceIdiom"]
-- !private ["SC20UIDeviceBatteryStateO", "charging"]
-- !private ["SC20UIDeviceBatteryStateO", "full"]
-- !private ["SC20UIDeviceBatteryStateO", "unknown"]
-- !private ["SC20UIDeviceBatteryStateO", "unplugged"]
+- ["SC20UIDeviceBatteryStateO", "charging"]
+- ["SC20UIDeviceBatteryStateO", "full"]
+- ["SC20UIDeviceBatteryStateO", "unknown"]
+- ["SC20UIDeviceBatteryStateO", "unplugged"]
 - !private ["So8UIScreenC", "main"]
 - !private ["So8UIScreenC", "nativeScale"]
 - !private ["So8UIScreenC", "scale"]
@@ -536,9 +533,6 @@ depends-member:
 - !private ["s22_AnyCollectionProtocolP", "reduce"]
 - !private ["s14_ArrayProtocolP", "contains"]
 - !private ["s14_ArrayProtocolP", "map"]
-- !private ["s23_BidirectionalIndexableP", "contains"]
-- !private ["s23_BidirectionalIndexableP", "init"]
-- !private ["s23_BidirectionalIndexableP", "map"]
 - !private ["s18_BitwiseOperationsP", "init"]
 - !private ["s15_CVarArgAlignedP", "rounded"]
 - !private ["s22_CVarArgPassedAsDoubleP", "rounded"]
@@ -551,17 +545,6 @@ depends-member:
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s10_IndexableP", "contains"]
-- !private ["s10_IndexableP", "init"]
-- !private ["s10_IndexableP", "map"]
-- !private ["s10_IndexableP", "reduce"]
-- !private ["s10_IndexableP", "subscript"]
-- !private ["s14_IndexableBaseP", "contains"]
-- !private ["s14_IndexableBaseP", "init"]
-- !private ["s14_IndexableBaseP", "map"]
-- !private ["s14_IndexableBaseP", "reduce"]
-- !private ["s14_IndexableBaseP", "subscript"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "batteryLevel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "batteryState"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
@@ -577,21 +560,12 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "systemName"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "systemVersion"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userInterfaceIdiom"]
-- !private ["s17_MutableIndexableP", "contains"]
-- !private ["s17_MutableIndexableP", "map"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "contains"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "map"]
 - !private ["s21_ObjectiveCBridgeableP", "rounded"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
-- !private ["s22_RandomAccessIndexableP", "contains"]
-- !private ["s22_RandomAccessIndexableP", "map"]
-- !private ["s26_RangeReplaceableIndexableP", "contains"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
-- !private ["s26_RangeReplaceableIndexableP", "map"]
-- !private ["s11_StrideableP", "init"]
-- !private ["s11_StrideableP", "rounded"]
 - !private ["s14_StringElementP", "init"]
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["SC7utsnameV", "init"]
@@ -627,26 +601,19 @@ depends-nominal:
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "s17FixedWidthIntegerP"
 - !private "s13FloatingPointP"
-- !private "s8HashableP"
+- "s8HashableP"
 - !private "Si"
 - !private "s25LosslessStringConvertibleP"
 - !private "s6MirrorV"
 - !private "s10MirrorPathP"
 - !private "s17MutableCollectionP"
-- !private "So8NSCodingP"
-- !private "So9NSCopyingP"
-- !private "So21NSItemProviderReadingP"
-- !private "So21NSItemProviderWritingP"
-- !private "So16NSMutableCopyingP"
 - !private "So8NSObjectC"
 - !private "So16NSObjectProtocolP"
-- !private "So14NSSecureCodingP"
-- !private "So8NSStringC"
 - !private "s7NumericP"
 - !private "So11ProcessInfoC"
 - !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
-- !private "s16RawRepresentableP"
+- "s16RawRepresentableP"
 - !private "s7UnicodeO6ScalarV"
 - !private "s8SequenceP"
 - !private "s13SignedIntegerP"
@@ -657,7 +624,7 @@ depends-nominal:
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
 - !private "So8UIDeviceC"
-- !private "SC20UIDeviceBatteryStateO"
+- "SC20UIDeviceBatteryStateO"
 - !private "So8UIScreenC"
 - !private "So18UITraitEnvironmentP"
 - !private "SC20UIUserInterfaceIdiomO"
@@ -665,7 +632,6 @@ depends-nominal:
 - !private "s15UnsignedIntegerP"
 - !private "s22_AnyCollectionProtocolP"
 - !private "s14_ArrayProtocolP"
-- !private "s23_BidirectionalIndexableP"
 - !private "s18_BitwiseOperationsP"
 - !private "s15_CVarArgAlignedP"
 - !private "s22_CVarArgPassedAsDoubleP"
@@ -677,15 +643,8 @@ depends-nominal:
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
-- !private "s35_HasCustomAnyHashableRepresentationP"
-- !private "s10_IndexableP"
-- !private "s14_IndexableBaseP"
 - !private "10Foundation27_KeyValueCodingAndObservingP"
-- !private "s17_MutableIndexableP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s22_RandomAccessIndexableP"
-- !private "s26_RangeReplaceableIndexableP"
-- !private "s11_StrideableP"
 - !private "s14_StringElementP"
 - !private "s16_SwiftStringViewP"
 - !private "SC7utsnameV"
@@ -706,4 +665,14 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Target Support Files/DeviceKit/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/DeviceKit.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "1179d136d62026e44231d10e4126c235"

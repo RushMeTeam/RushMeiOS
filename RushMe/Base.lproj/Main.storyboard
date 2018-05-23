@@ -45,7 +45,7 @@
                         <subviews>
                             <view alpha="0.10000000000000001" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hy7-tH-iGk" userLabel="HighlightView">
                                 <rect key="frame" x="-4" y="315.5" width="72" height="36"/>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hy7-tH-iGk" secondAttribute="trailing" constant="-4" id="0AL-6g-UQp"/>
@@ -549,7 +549,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="SdM-tI-OQx" secondAttribute="trailing" id="X2l-wH-jMU"/>
                                     <constraint firstItem="SdM-tI-OQx" firstAttribute="top" secondItem="Qz2-y5-8dJ" secondAttribute="top" id="ZC1-bW-CLL"/>

@@ -209,7 +209,7 @@ SWIFT_CLASS("_TtC6RushMe19AboutViewController")
 @class UIApplicationShortcutItem;
 
 SWIFT_CLASS("_TtC6RushMe11AppDelegate")
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (nonatomic, strong) ScrollPageViewController * _Null_unspecified scrollPageVC SWIFT_DEPRECATED_OBJC("Swift property 'AppDelegate.scrollPageVC' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) UIWindow * _Nullable window;
 - (BOOL)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions SWIFT_WARN_UNUSED_RESULT;
@@ -396,7 +396,6 @@ SWIFT_CLASS("_TtC6RushMe20DetailViewController")
 - (IBAction)coverImagePinched:(UIPinchGestureRecognizer * _Nonnull)sender;
 - (IBAction)openInMaps:(UIButton * _Nonnull)sender;
 - (void)setViewsToAlpha:(CGFloat)toAlpha except:(UIView * _Nullable)exceptedView SWIFT_DEPRECATED_OBJC("Swift method 'DetailViewController.setViews(toAlpha:except:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (void)awakeFromNib;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
@@ -415,7 +414,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) id <UIScrollViewDelega
 + (id <UIScrollViewDelegate> _Null_unspecified)scrollViewDelegate SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.scrollViewDelegate' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 + (void)setScrollViewDelegate:(id <UIScrollViewDelegate> _Null_unspecified)value SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.scrollViewDelegate' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, strong) UIScrollView * _Null_unspecified scrollView SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.scrollView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-- (NSInteger)calculateCurrentPageForOffset:(CGPoint)offset SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'DrawerMenuViewController.calculateCurrentPage(forOffset:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly) NSInteger calculatedCurrentPage SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.calculatedCurrentPage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 @property (nonatomic, readonly) NSInteger currentPage SWIFT_DEPRECATED_OBJC("Swift property 'DrawerMenuViewController.currentPage' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)setWithNewCurrentPage:(NSInteger)newCurrentPage SWIFT_DEPRECATED_OBJC("Swift method 'DrawerMenuViewController.set(newCurrentPage:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)buttonHitWithSender:(UIButton * _Nonnull)sender;
@@ -671,10 +670,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSInteger startingPageIndex SW
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (void)pageViewController:(UIPageViewController * _Nonnull)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> * _Nonnull)previousViewControllers transitionCompleted:(BOOL)completed;
 - (IBAction)presentDrawer:(UIBarButtonItem * _Nullable)sender;
-- (void)presentAbout;
 @property (nonatomic, strong) UIProgressView * _Null_unspecified progressBar SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.progressBar' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, strong) UIView * _Nonnull titleImageView SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.titleImageView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (IBAction)unwindToScrollWithSegue:(UIStoryboardSegue * _Nonnull)segue;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (void)viewDidLoad;
