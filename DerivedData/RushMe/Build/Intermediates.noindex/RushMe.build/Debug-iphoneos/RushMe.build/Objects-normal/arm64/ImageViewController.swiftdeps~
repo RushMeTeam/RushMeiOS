@@ -694,6 +694,7 @@ depends-member:
 - !private ["So14NSSecureCodingP", "rightAnchor"]
 - !private ["So14NSSecureCodingP", "topAnchor"]
 - !private ["So14NSSecureCodingP", "translatesAutoresizingMaskIntoConstraints"]
+- !private ["6RushMe7RMImageC", "CornerRadius"]
 - !private ["6RushMe7RMImageV", "CornerRadius"]
 - !private ["s16RawRepresentableP", "light"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "frame"]
@@ -1477,6 +1478,7 @@ depends-nominal:
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
+- !private "6RushMe7RMImageC"
 - !private "6RushMe7RMImageV"
 - !private "s16RawRepresentableP"
 - !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"

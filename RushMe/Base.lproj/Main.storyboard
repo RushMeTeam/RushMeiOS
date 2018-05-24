@@ -29,7 +29,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ir1-EJ-WWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5964" y="3767"/>
+            <point key="canvasLocation" x="-4848" y="1349"/>
         </scene>
         <!--Drawer Menu View Controller-->
         <scene sceneID="P6P-XZ-Cjj">
@@ -45,7 +45,7 @@
                         <subviews>
                             <view alpha="0.10000000000000001" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hy7-tH-iGk" userLabel="HighlightView">
                                 <rect key="frame" x="-4" y="315.5" width="72" height="36"/>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
@@ -64,7 +64,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hy7-tH-iGk" secondAttribute="trailing" constant="-4" id="0AL-6g-UQp"/>
@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZM-oi-f4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5587.1999999999998" y="3766.866566716642"/>
+            <point key="canvasLocation" x="-5003" y="2203"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wp8-RS-Vsg">
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qz3-Fv-N6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5055" y="3767"/>
+            <point key="canvasLocation" x="-5056" y="3932"/>
         </scene>
         <!--About-->
         <scene sceneID="nxy-4h-H5x">
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VE-Jm-Okr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5964" y="3051"/>
+            <point key="canvasLocation" x="-5950" y="3051"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="l8P-6V-amO">
@@ -431,7 +431,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4183.1999999999998" y="4956.521739130435"/>
+            <point key="canvasLocation" x="-4184" y="5011"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="72R-DI-RSe">
@@ -514,7 +514,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ojO-oz-OCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3399" y="3891"/>
+            <point key="canvasLocation" x="-3156" y="3993"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="c6C-Ox-J46">
@@ -781,7 +781,7 @@
                         <outlet property="underProfileLabel" destination="egE-Bz-f5U" id="Hnn-Ea-WCT"/>
                         <outlet property="underlyingView" destination="hV5-ZE-WZP" id="n1U-7e-V8h"/>
                         <outletCollection property="toMakeClear" destination="tFO-6y-tgh" collectionClass="NSMutableArray" id="SCg-zB-i10"/>
-                        <segue destination="UXY-hP-2ei" kind="unwind" unwindAction="unwindToScrollWithSegue:" id="rkf-RA-2nU"/>
+                        <segue destination="UXY-hP-2ei" kind="unwind" identifier="unwindFromShowDetail" unwindAction="unwindToScrollWithSegue:" id="rkf-RA-2nU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -811,7 +811,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4183.1999999999998" y="3890.5547226386811"/>
+            <point key="canvasLocation" x="-4184" y="3931"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="sMQ-T3-gMM">
@@ -868,7 +868,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3399" y="4807"/>
+            <point key="canvasLocation" x="-2778" y="4476"/>
         </scene>
         <!--Map-->
         <scene sceneID="AdF-Wu-7KL">
@@ -956,7 +956,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-5055" y="4424"/>
+            <point key="canvasLocation" x="-5056" y="4711"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
@@ -978,7 +978,7 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController storyboardIdentifier="masterVC" definesPresentationContext="YES" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="196" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="r7i-6Z-zg0">
+                    <tableView key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="196" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1046,7 +1046,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5055.1999999999998" y="5107.1964017991013"/>
+            <point key="canvasLocation" x="-5056" y="5518"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Upw-Ay-TsT">
@@ -1083,7 +1083,7 @@
                                 <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="onTintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="displayPastEventsSwitch:" destination="jXg-Dh-xt4" eventType="valueChanged" id="Kpv-Z3-Lgk"/>
+                                    <action selector="displayPastEventsSwitched:" destination="jXg-Dh-xt4" eventType="valueChanged" id="MVx-u1-cNb"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's (Simulated) Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9N-DN-Ygb">
@@ -1135,7 +1135,7 @@
                                 <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="onTintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="displayPastEventsSwitch:" destination="jXg-Dh-xt4" eventType="valueChanged" id="CeZ-IF-pbh"/>
+                                    <action selector="shuffleFraternitiesSwitch:" destination="jXg-Dh-xt4" eventType="valueChanged" id="aeA-gK-MGI"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fM-ez-3WK">
@@ -1203,7 +1203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdK-vW-d2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5055" y="7182"/>
+            <point key="canvasLocation" x="-5089" y="6234"/>
         </scene>
         <!--Image Page View Controller-->
         <scene sceneID="n62-68-1wl">
@@ -1274,7 +1274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yeg-9b-U2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3399" y="3582"/>
+            <point key="canvasLocation" x="-2958" y="3690"/>
         </scene>
     </scenes>
     <resources>
@@ -1287,7 +1287,7 @@
         <image name="defaultImage" width="2509" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9w1-Sg-K29"/>
+        <segue reference="d4X-6j-ghR"/>
         <segue reference="tmK-b0-YZV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

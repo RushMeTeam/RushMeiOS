@@ -249,12 +249,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     parent?.view.backgroundColor = RMColor.AppColor
     
     if #available(iOS 11.0, *) {
-     underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+     //underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
       underlyingView.layer.masksToBounds = true
       underlyingView.layer.cornerRadius = RMImage.CornerRadius
+      view.layer.masksToBounds = true
+      view.layer.cornerRadius = RMImage.CornerRadius
+      
     }
   }()
-  
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -352,20 +354,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
 }
 
-extension UIImageView {
-  func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
-    layer.drawsAsynchronously = true
-    image = nil
-    DispatchQueue.global(qos: .userInteractive).async {
-      let image = pullImage(fromSource: RMurl(fromString: sourceString), fallBackToNetwork: true)
-      DispatchQueue.main.async {
-        UIView.transition(with: self, duration: 0.15, options: .transitionCrossDissolve, animations: { 
-          self.image = image
-        }, completion: nil)
-      }
-    }
-  }
-}
 
 extension UIMotionEffect {
   class func twoAxesShift(strength: Float) -> UIMotionEffect {

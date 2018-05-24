@@ -42,6 +42,7 @@ depends-member:
 - !private ["So15CALayerDelegateP", "UIBezierPath"]
 - ["So15CALayerDelegateP", "UIColor"]
 - !private ["So15CALayerDelegateP", "UIMotionEffect"]
+- ["So15CALayerDelegateP", ""]
 - !private ["So15CALayerDelegateP", "addMotionEffect"]
 - !private ["So15CALayerDelegateP", "awakeFromNib"]
 - !private ["So15CALayerDelegateP", "bringSubview"]
@@ -57,7 +58,6 @@ depends-member:
 - !private ["So15CALayerDelegateP", "path"]
 - !private ["So15CALayerDelegateP", "text"]
 - !private ["So15CALayerDelegateP", "textColor"]
-- ["So15CALayerDelegateP", ""]
 - !private ["So13CAMediaTimingP", "addSublayer"]
 - !private ["So13CAMediaTimingP", "fillColor"]
 - ["So13CAMediaTimingP", "init"]
@@ -72,6 +72,8 @@ depends-member:
 - !private ["s7CVarArgP", "UIBezierPath"]
 - ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UIMotionEffect"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "addMotionEffect"]
 - !private ["s7CVarArgP", "addSublayer"]
 - !private ["s7CVarArgP", "awakeFromNib"]
@@ -97,7 +99,6 @@ depends-member:
 - !private ["s7CVarArgP", "white"]
 - ["s7CVarArgP", "withAlphaComponent"]
 - !private ["s7CVarArgP", "zPosition"]
-- ["s7CVarArgP", ""]
 - ["6RushMe26CalendarCollectionViewCellC", "Bool"]
 - ["6RushMe26CalendarCollectionViewCellC", "CAShapeLayer"]
 - ["6RushMe26CalendarCollectionViewCellC", "FratEvent"]
@@ -127,6 +128,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "UIBezierPath"]
 - ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UIMotionEffect"]
+- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "addMotionEffect"]
 - !private ["s28CustomDebugStringConvertibleP", "addSublayer"]
 - !private ["s28CustomDebugStringConvertibleP", "awakeFromNib"]
@@ -152,7 +154,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "white"]
 - ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
 - !private ["s28CustomDebugStringConvertibleP", "zPosition"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
@@ -162,6 +163,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "UIBezierPath"]
 - ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UIMotionEffect"]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "addMotionEffect"]
 - !private ["s23CustomStringConvertibleP", "addSublayer"]
@@ -188,7 +190,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "white"]
 - ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - !private ["s23CustomStringConvertibleP", "zPosition"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "init"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
@@ -198,6 +199,7 @@ depends-member:
 - !private ["s9EquatableP", "UIBezierPath"]
 - ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UIMotionEffect"]
+- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "addMotionEffect"]
 - !private ["s9EquatableP", "addSublayer"]
@@ -224,7 +226,6 @@ depends-member:
 - !private ["s9EquatableP", "white"]
 - ["s9EquatableP", "withAlphaComponent"]
 - !private ["s9EquatableP", "zPosition"]
-- ["s9EquatableP", ""]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
@@ -234,6 +235,7 @@ depends-member:
 - !private ["s8HashableP", "UIBezierPath"]
 - ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UIMotionEffect"]
+- ["s8HashableP", ""]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "addMotionEffect"]
 - !private ["s8HashableP", "addSublayer"]
@@ -260,7 +262,6 @@ depends-member:
 - !private ["s8HashableP", "white"]
 - ["s8HashableP", "withAlphaComponent"]
 - !private ["s8HashableP", "zPosition"]
-- ["s8HashableP", ""]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s10MirrorPathP", "init"]
@@ -269,6 +270,7 @@ depends-member:
 - !private ["So8NSCodingP", "UIBezierPath"]
 - ["So8NSCodingP", "UIColor"]
 - !private ["So8NSCodingP", "UIMotionEffect"]
+- ["So8NSCodingP", ""]
 - !private ["So8NSCodingP", "addMotionEffect"]
 - !private ["So8NSCodingP", "addSublayer"]
 - !private ["So8NSCodingP", "awakeFromNib"]
@@ -294,7 +296,6 @@ depends-member:
 - !private ["So8NSCodingP", "white"]
 - ["So8NSCodingP", "withAlphaComponent"]
 - !private ["So8NSCodingP", "zPosition"]
-- ["So8NSCodingP", ""]
 - ["So9NSCopyingP", "black"]
 - !private ["So9NSCopyingP", "cgColor"]
 - !private ["So9NSCopyingP", "cgPath"]
@@ -306,16 +307,13 @@ depends-member:
 - ["So21NSItemProviderReadingP", "black"]
 - !private ["So21NSItemProviderReadingP", "cgColor"]
 - !private ["So21NSItemProviderReadingP", "clear"]
-- !private ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderReadingP", "white"]
 - ["So21NSItemProviderReadingP", "withAlphaComponent"]
 - ["So21NSItemProviderWritingP", "black"]
 - !private ["So21NSItemProviderWritingP", "cgColor"]
 - !private ["So21NSItemProviderWritingP", "clear"]
-- !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So21NSItemProviderWritingP", "white"]
 - ["So21NSItemProviderWritingP", "withAlphaComponent"]
-- !private ["So16NSMutableCopyingP", "init"]
 - ["So8NSObjectC", "Bool"]
 - ["So8NSObjectC", "CAShapeLayer"]
 - ["So8NSObjectC", "FratEvent"]
@@ -355,6 +353,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "UIBezierPath"]
 - ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UIMotionEffect"]
+- ["So16NSObjectProtocolP", ""]
 - !private ["So16NSObjectProtocolP", "addMotionEffect"]
 - !private ["So16NSObjectProtocolP", "addSublayer"]
 - !private ["So16NSObjectProtocolP", "awakeFromNib"]
@@ -380,7 +379,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "white"]
 - ["So16NSObjectProtocolP", "withAlphaComponent"]
 - !private ["So16NSObjectProtocolP", "zPosition"]
-- ["So16NSObjectProtocolP", ""]
 - !private ["So14NSSecureCodingP", "addSublayer"]
 - ["So14NSSecureCodingP", "black"]
 - !private ["So14NSSecureCodingP", "cgColor"]
@@ -392,7 +390,6 @@ depends-member:
 - !private ["So14NSSecureCodingP", "white"]
 - ["So14NSSecureCodingP", "withAlphaComponent"]
 - !private ["So14NSSecureCodingP", "zPosition"]
-- !private ["So8NSStringC", "init"]
 - ["6RushMe7RMColorV", "AppColor"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s8SequenceP", "init"]
@@ -405,6 +402,7 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "UIBezierPath"]
 - ["So29UIAccessibilityIdentificationP", "UIColor"]
 - !private ["So29UIAccessibilityIdentificationP", "UIMotionEffect"]
+- ["So29UIAccessibilityIdentificationP", ""]
 - !private ["So29UIAccessibilityIdentificationP", "addMotionEffect"]
 - !private ["So29UIAccessibilityIdentificationP", "awakeFromNib"]
 - !private ["So29UIAccessibilityIdentificationP", "bringSubview"]
@@ -420,12 +418,12 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "path"]
 - !private ["So29UIAccessibilityIdentificationP", "text"]
 - !private ["So29UIAccessibilityIdentificationP", "textColor"]
-- ["So29UIAccessibilityIdentificationP", ""]
 - ["So12UIAppearanceP", "CAShapeLayer"]
 - ["So12UIAppearanceP", "RMColor"]
 - !private ["So12UIAppearanceP", "UIBezierPath"]
 - ["So12UIAppearanceP", "UIColor"]
 - !private ["So12UIAppearanceP", "UIMotionEffect"]
+- ["So12UIAppearanceP", ""]
 - !private ["So12UIAppearanceP", "addMotionEffect"]
 - !private ["So12UIAppearanceP", "awakeFromNib"]
 - !private ["So12UIAppearanceP", "bringSubview"]
@@ -441,12 +439,12 @@ depends-member:
 - !private ["So12UIAppearanceP", "path"]
 - !private ["So12UIAppearanceP", "text"]
 - !private ["So12UIAppearanceP", "textColor"]
-- ["So12UIAppearanceP", ""]
 - ["So21UIAppearanceContainerP", "CAShapeLayer"]
 - ["So21UIAppearanceContainerP", "RMColor"]
 - !private ["So21UIAppearanceContainerP", "UIBezierPath"]
 - ["So21UIAppearanceContainerP", "UIColor"]
 - !private ["So21UIAppearanceContainerP", "UIMotionEffect"]
+- ["So21UIAppearanceContainerP", ""]
 - !private ["So21UIAppearanceContainerP", "addMotionEffect"]
 - !private ["So21UIAppearanceContainerP", "awakeFromNib"]
 - !private ["So21UIAppearanceContainerP", "bringSubview"]
@@ -462,7 +460,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "path"]
 - !private ["So21UIAppearanceContainerP", "text"]
 - !private ["So21UIAppearanceContainerP", "textColor"]
-- ["So21UIAppearanceContainerP", ""]
 - !private ["So12UIBezierPathC", "cgPath"]
 - !private ["So12UIBezierPathC", "init"]
 - ["So24UICollectionReusableViewC", "Bool"]
@@ -494,6 +491,7 @@ depends-member:
 - ["So20UICollectionViewCellC", "UIColor"]
 - ["So20UICollectionViewCellC", "UILabel"]
 - !private ["So20UICollectionViewCellC", "UIMotionEffect"]
+- ["So20UICollectionViewCellC", ""]
 - !private ["So20UICollectionViewCellC", "addMotionEffect"]
 - ["So20UICollectionViewCellC", "awakeFromNib"]
 - !private ["So20UICollectionViewCellC", "bringSubview"]
@@ -507,7 +505,6 @@ depends-member:
 - ["So20UICollectionViewCellC", "isSelected"]
 - !private ["So20UICollectionViewCellC", "layer"]
 - ["So20UICollectionViewCellC", "path"]
-- ["So20UICollectionViewCellC", ""]
 - ["So7UIColorC", "black"]
 - !private ["So7UIColorC", "cgColor"]
 - !private ["So7UIColorC", "clear"]
@@ -522,6 +519,7 @@ depends-member:
 - !private ["So17UICoordinateSpaceP", "UIBezierPath"]
 - ["So17UICoordinateSpaceP", "UIColor"]
 - !private ["So17UICoordinateSpaceP", "UIMotionEffect"]
+- ["So17UICoordinateSpaceP", ""]
 - !private ["So17UICoordinateSpaceP", "addMotionEffect"]
 - !private ["So17UICoordinateSpaceP", "awakeFromNib"]
 - !private ["So17UICoordinateSpaceP", "bringSubview"]
@@ -537,12 +535,12 @@ depends-member:
 - !private ["So17UICoordinateSpaceP", "path"]
 - !private ["So17UICoordinateSpaceP", "text"]
 - !private ["So17UICoordinateSpaceP", "textColor"]
-- ["So17UICoordinateSpaceP", ""]
 - ["So13UIDynamicItemP", "CAShapeLayer"]
 - ["So13UIDynamicItemP", "RMColor"]
 - !private ["So13UIDynamicItemP", "UIBezierPath"]
 - ["So13UIDynamicItemP", "UIColor"]
 - !private ["So13UIDynamicItemP", "UIMotionEffect"]
+- ["So13UIDynamicItemP", ""]
 - !private ["So13UIDynamicItemP", "addMotionEffect"]
 - !private ["So13UIDynamicItemP", "awakeFromNib"]
 - !private ["So13UIDynamicItemP", "bringSubview"]
@@ -558,12 +556,12 @@ depends-member:
 - !private ["So13UIDynamicItemP", "path"]
 - !private ["So13UIDynamicItemP", "text"]
 - !private ["So13UIDynamicItemP", "textColor"]
-- ["So13UIDynamicItemP", ""]
 - ["So18UIFocusEnvironmentP", "CAShapeLayer"]
 - ["So18UIFocusEnvironmentP", "RMColor"]
 - !private ["So18UIFocusEnvironmentP", "UIBezierPath"]
 - ["So18UIFocusEnvironmentP", "UIColor"]
 - !private ["So18UIFocusEnvironmentP", "UIMotionEffect"]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["So18UIFocusEnvironmentP", "addMotionEffect"]
 - !private ["So18UIFocusEnvironmentP", "awakeFromNib"]
 - !private ["So18UIFocusEnvironmentP", "bringSubview"]
@@ -579,12 +577,12 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "path"]
 - !private ["So18UIFocusEnvironmentP", "text"]
 - !private ["So18UIFocusEnvironmentP", "textColor"]
-- ["So18UIFocusEnvironmentP", ""]
 - ["So11UIFocusItemP", "CAShapeLayer"]
 - ["So11UIFocusItemP", "RMColor"]
 - !private ["So11UIFocusItemP", "UIBezierPath"]
 - ["So11UIFocusItemP", "UIColor"]
 - !private ["So11UIFocusItemP", "UIMotionEffect"]
+- ["So11UIFocusItemP", ""]
 - !private ["So11UIFocusItemP", "addMotionEffect"]
 - !private ["So11UIFocusItemP", "awakeFromNib"]
 - !private ["So11UIFocusItemP", "bringSubview"]
@@ -600,7 +598,6 @@ depends-member:
 - !private ["So11UIFocusItemP", "path"]
 - !private ["So11UIFocusItemP", "text"]
 - !private ["So11UIFocusItemP", "textColor"]
-- ["So11UIFocusItemP", ""]
 - !private ["So7UILabelC", "frame"]
 - !private ["So7UILabelC", "layer"]
 - !private ["So7UILabelC", "text"]
@@ -611,6 +608,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "UIBezierPath"]
 - ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIMotionEffect"]
+- ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So30UIPasteConfigurationSupportingP", "addMotionEffect"]
 - !private ["So30UIPasteConfigurationSupportingP", "awakeFromNib"]
 - !private ["So30UIPasteConfigurationSupportingP", "bringSubview"]
@@ -626,7 +624,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "path"]
 - !private ["So30UIPasteConfigurationSupportingP", "text"]
 - !private ["So30UIPasteConfigurationSupportingP", "textColor"]
-- ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Bool"]
 - ["So11UIResponderC", "CAShapeLayer"]
 - ["So11UIResponderC", "FratEvent"]
@@ -656,6 +653,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "UIBezierPath"]
 - ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UIMotionEffect"]
+- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So30UIResponderStandardEditActionsP", "addMotionEffect"]
 - !private ["So30UIResponderStandardEditActionsP", "awakeFromNib"]
 - !private ["So30UIResponderStandardEditActionsP", "bringSubview"]
@@ -671,12 +669,12 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "path"]
 - !private ["So30UIResponderStandardEditActionsP", "text"]
 - !private ["So30UIResponderStandardEditActionsP", "textColor"]
-- ["So30UIResponderStandardEditActionsP", ""]
 - ["So18UITraitEnvironmentP", "CAShapeLayer"]
 - ["So18UITraitEnvironmentP", "RMColor"]
 - !private ["So18UITraitEnvironmentP", "UIBezierPath"]
 - ["So18UITraitEnvironmentP", "UIColor"]
 - !private ["So18UITraitEnvironmentP", "UIMotionEffect"]
+- ["So18UITraitEnvironmentP", ""]
 - !private ["So18UITraitEnvironmentP", "addMotionEffect"]
 - !private ["So18UITraitEnvironmentP", "awakeFromNib"]
 - !private ["So18UITraitEnvironmentP", "bringSubview"]
@@ -692,7 +690,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "path"]
 - !private ["So18UITraitEnvironmentP", "text"]
 - !private ["So18UITraitEnvironmentP", "textColor"]
-- ["So18UITraitEnvironmentP", ""]
 - ["So6UIViewC", "Bool"]
 - ["So6UIViewC", "CAShapeLayer"]
 - ["So6UIViewC", "FratEvent"]
@@ -717,12 +714,12 @@ depends-member:
 - ["So6UIViewC", "path"]
 - !private ["So6UIViewC", "text"]
 - !private ["So6UIViewC", "textColor"]
-- !private ["s23_BidirectionalIndexableP", "init"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "CAShapeLayer"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "RMColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIBezierPath"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIMotionEffect"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "addMotionEffect"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "awakeFromNib"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "bringSubview"]
@@ -738,7 +735,6 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "path"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "text"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "textColor"]
-- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
@@ -750,14 +746,12 @@ depends-member:
 - !private ["s26_ExpressibleByColorLiteralP", "white"]
 - ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- !private ["s10_IndexableP", "init"]
-- !private ["s14_IndexableBaseP", "init"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "CAShapeLayer"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIBezierPath"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIMotionEffect"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addMotionEffect"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addSublayer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "awakeFromNib"]
@@ -783,10 +777,8 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "white"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "zPosition"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "init"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
 - !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "s23BidirectionalCollectionP"
@@ -817,11 +809,9 @@ depends-nominal:
 - "So9NSCopyingP"
 - "So21NSItemProviderReadingP"
 - "So21NSItemProviderWritingP"
-- !private "So16NSMutableCopyingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
-- !private "So8NSStringC"
 - "6RushMe7RMColorV"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s8SequenceP"
@@ -848,7 +838,6 @@ depends-nominal:
 - "So30UIResponderStandardEditActionsP"
 - "So18UITraitEnvironmentP"
 - "So6UIViewC"
-- !private "s23_BidirectionalIndexableP"
 - "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
@@ -857,12 +846,8 @@ depends-nominal:
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - "s26_ExpressibleByColorLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
-- !private "s35_HasCustomAnyHashableRepresentationP"
-- !private "s10_IndexableP"
-- !private "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s26_RangeReplaceableIndexableP"
 - !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
@@ -891,4 +876,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "9263e71e51063935b5df7e3a499a5893"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "6b6da9bf93b0cc0055876aaaae1d1a93"

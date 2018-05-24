@@ -23,7 +23,6 @@ provides-dynamic-lookup:
 - "pageControl"
 - "pageHeight"
 - "pageViewController"
-- "preferredStatusBarStyle"
 - "prepare"
 - "presentAbout"
 - "presentDrawer"
@@ -37,7 +36,6 @@ provides-dynamic-lookup:
 - "scrollViewDidScrollToTop"
 - "setupScrollView"
 - "startingPageIndex"
-- "titleImageView"
 - "transitioning"
 - "unwindToScroll"
 - "viewController"
@@ -104,7 +102,6 @@ depends-top-level:
 - "UIScrollViewDelegate"
 - !private "UISelectionFeedbackGenerator"
 - "UISplitViewControllerDelegate"
-- "UIStatusBarStyle"
 - !private "UIStoryboard"
 - "UIStoryboardSegue"
 - "UIView"
@@ -146,6 +143,7 @@ depends-member:
 - !private ["So15CALayerDelegateP", "currentPage"]
 - !private ["So15CALayerDelegateP", "delegate"]
 - !private ["So15CALayerDelegateP", "frame"]
+- !private ["So15CALayerDelegateP", "heightAnchor"]
 - !private ["So15CALayerDelegateP", "init"]
 - !private ["So15CALayerDelegateP", "isPagingEnabled"]
 - !private ["So15CALayerDelegateP", "isScrollEnabled"]
@@ -238,6 +236,7 @@ depends-member:
 - !private ["s7CVarArgP", "goToPage"]
 - !private ["s7CVarArgP", "greekLetters"]
 - !private ["s7CVarArgP", "handlePercentageCompletion"]
+- !private ["s7CVarArgP", "heightAnchor"]
 - !private ["s7CVarArgP", "identifier"]
 - !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "instantiateViewController"]
@@ -411,6 +410,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "greekLetters"]
 - !private ["s28CustomDebugStringConvertibleP", "handlePercentageCompletion"]
 - !private ["s28CustomDebugStringConvertibleP", "height"]
+- !private ["s28CustomDebugStringConvertibleP", "heightAnchor"]
 - !private ["s28CustomDebugStringConvertibleP", "identifier"]
 - !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "instantiateViewController"]
@@ -598,6 +598,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "goToPage"]
 - !private ["s23CustomStringConvertibleP", "greekLetters"]
 - !private ["s23CustomStringConvertibleP", "handlePercentageCompletion"]
+- !private ["s23CustomStringConvertibleP", "heightAnchor"]
 - !private ["s23CustomStringConvertibleP", "identifier"]
 - !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "instantiateViewController"]
@@ -796,6 +797,7 @@ depends-member:
 - !private ["s9EquatableP", "greekLetters"]
 - !private ["s9EquatableP", "handlePercentageCompletion"]
 - !private ["s9EquatableP", "height"]
+- !private ["s9EquatableP", "heightAnchor"]
 - !private ["s9EquatableP", "identifier"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "instantiateViewController"]
@@ -985,6 +987,7 @@ depends-member:
 - !private ["s8HashableP", "goToPage"]
 - !private ["s8HashableP", "greekLetters"]
 - !private ["s8HashableP", "handlePercentageCompletion"]
+- !private ["s8HashableP", "heightAnchor"]
 - !private ["s8HashableP", "identifier"]
 - !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "instantiateViewController"]
@@ -1154,6 +1157,7 @@ depends-member:
 - !private ["So8NSCodingP", "goToPage"]
 - !private ["So8NSCodingP", "greekLetters"]
 - !private ["So8NSCodingP", "handlePercentageCompletion"]
+- !private ["So8NSCodingP", "heightAnchor"]
 - !private ["So8NSCodingP", "init"]
 - !private ["So8NSCodingP", "isPagingEnabled"]
 - !private ["So8NSCodingP", "isScrollEnabled"]
@@ -1373,6 +1377,7 @@ depends-member:
 - !private ["So21NSItemProviderWritingP", "white"]
 - !private ["So14NSLayoutAnchorC", "constraint"]
 - !private ["So18NSLayoutConstraintC", "activate"]
+- !private ["So17NSLayoutDimensionC", "constraint"]
 - !private ["So19NSLayoutXAxisAnchorC", "constraint"]
 - !private ["So19NSLayoutYAxisAnchorC", "constraint"]
 - !private ["So16NSMutableCopyingP", "greekLetters"]
@@ -1408,7 +1413,6 @@ depends-member:
 - ["So8NSObjectC", "UIProgressView"]
 - ["So8NSObjectC", "UIScrollView"]
 - !private ["So8NSObjectC", "UISelectionFeedbackGenerator"]
-- ["So8NSObjectC", "UIStatusBarStyle"]
 - !private ["So8NSObjectC", "UIStoryboard"]
 - ["So8NSObjectC", "UIStoryboardSegue"]
 - ["So8NSObjectC", "UIView"]
@@ -1446,6 +1450,7 @@ depends-member:
 - ["So8NSObjectC", "goToPage"]
 - !private ["So8NSObjectC", "greekLetters"]
 - ["So8NSObjectC", "handlePercentageCompletion"]
+- !private ["So8NSObjectC", "heightAnchor"]
 - !private ["So8NSObjectC", "identifier"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "instantiateViewController"]
@@ -1478,7 +1483,6 @@ depends-member:
 - ["So8NSObjectC", "pages.storage"]
 - !private ["So8NSObjectC", "panGestureRecognizer"]
 - !private ["So8NSObjectC", "percentageCompletionObservable"]
-- ["So8NSObjectC", "preferredStatusBarStyle"]
 - ["So8NSObjectC", "prepare"]
 - !private ["So8NSObjectC", "present"]
 - ["So8NSObjectC", "presentAbout"]
@@ -1617,6 +1621,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "goToPage"]
 - !private ["So16NSObjectProtocolP", "greekLetters"]
 - !private ["So16NSObjectProtocolP", "handlePercentageCompletion"]
+- !private ["So16NSObjectProtocolP", "heightAnchor"]
 - !private ["So16NSObjectProtocolP", "identifier"]
 - !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "instantiateViewController"]
@@ -1877,7 +1882,6 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "UIProgressView"]
 - ["6RushMe24ScrollPageViewControllerC", "UIScrollView"]
 - !private ["6RushMe24ScrollPageViewControllerC", "UISelectionFeedbackGenerator"]
-- ["6RushMe24ScrollPageViewControllerC", "UIStatusBarStyle"]
 - !private ["6RushMe24ScrollPageViewControllerC", "UIStoryboard"]
 - ["6RushMe24ScrollPageViewControllerC", "UIStoryboardSegue"]
 - ["6RushMe24ScrollPageViewControllerC", "UIView"]
@@ -1912,10 +1916,9 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "pageViewControllerSupportedInterfaceOrientations"]
 - ["6RushMe24ScrollPageViewControllerC", "pages"]
 - !private ["6RushMe24ScrollPageViewControllerC", "pages.storage"]
-- ["6RushMe24ScrollPageViewControllerC", "preferredStatusBarStyle"]
 - ["6RushMe24ScrollPageViewControllerC", "prepare"]
 - !private ["6RushMe24ScrollPageViewControllerC", "present"]
-- ["6RushMe24ScrollPageViewControllerC", "presentAbout"]
+- !private ["6RushMe24ScrollPageViewControllerC", "presentAbout"]
 - ["6RushMe24ScrollPageViewControllerC", "presentDrawer"]
 - ["6RushMe24ScrollPageViewControllerC", "primaryViewController"]
 - ["6RushMe24ScrollPageViewControllerC", "primaryViewControllerForCollapsingSplitViewController"]
@@ -1944,11 +1947,11 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "scrollViewWillBeginDragging"]
 - ["6RushMe24ScrollPageViewControllerC", "scrollViewWillBeginZooming"]
 - ["6RushMe24ScrollPageViewControllerC", "scrollViewWillEndDragging"]
-- ["6RushMe24ScrollPageViewControllerC", "setupInitialPages"]
+- !private ["6RushMe24ScrollPageViewControllerC", "setupInitialPages"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupInitialPages.storage"]
 - ["6RushMe24ScrollPageViewControllerC", "setupNavigationBar"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupNavigationBar.storage"]
-- ["6RushMe24ScrollPageViewControllerC", "setupProgressBar"]
+- !private ["6RushMe24ScrollPageViewControllerC", "setupProgressBar"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupProgressBar.storage"]
 - ["6RushMe24ScrollPageViewControllerC", "setupScrollView"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupScrollView.storage"]
@@ -1958,7 +1961,7 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "startingPageIndex"]
 - ["6RushMe24ScrollPageViewControllerC", "targetDisplayModeForAction"]
 - ["6RushMe24ScrollPageViewControllerC", "targetDisplayModeForActionInSplitViewController"]
-- ["6RushMe24ScrollPageViewControllerC", "titleImageView"]
+- !private ["6RushMe24ScrollPageViewControllerC", "titleImageView"]
 - !private ["6RushMe24ScrollPageViewControllerC", "titleImageView.storage"]
 - !private ["6RushMe24ScrollPageViewControllerC", "topLayoutGuide"]
 - ["6RushMe24ScrollPageViewControllerC", "transitioning"]
@@ -2097,6 +2100,7 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "currentPage"]
 - !private ["So29UIAccessibilityIdentificationP", "delegate"]
 - !private ["So29UIAccessibilityIdentificationP", "frame"]
+- !private ["So29UIAccessibilityIdentificationP", "heightAnchor"]
 - !private ["So29UIAccessibilityIdentificationP", "init"]
 - !private ["So29UIAccessibilityIdentificationP", "isPagingEnabled"]
 - !private ["So29UIAccessibilityIdentificationP", "isScrollEnabled"]
@@ -2132,6 +2136,7 @@ depends-member:
 - !private ["So12UIAppearanceP", "currentPage"]
 - !private ["So12UIAppearanceP", "delegate"]
 - !private ["So12UIAppearanceP", "frame"]
+- !private ["So12UIAppearanceP", "heightAnchor"]
 - !private ["So12UIAppearanceP", "init"]
 - !private ["So12UIAppearanceP", "isPagingEnabled"]
 - !private ["So12UIAppearanceP", "isScrollEnabled"]
@@ -2200,6 +2205,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "frame"]
 - !private ["So21UIAppearanceContainerP", "goToPage"]
 - !private ["So21UIAppearanceContainerP", "handlePercentageCompletion"]
+- !private ["So21UIAppearanceContainerP", "heightAnchor"]
 - !private ["So21UIAppearanceContainerP", "init"]
 - !private ["So21UIAppearanceContainerP", "isPagingEnabled"]
 - !private ["So21UIAppearanceContainerP", "isScrollEnabled"]
@@ -2434,6 +2440,7 @@ depends-member:
 - !private ["So17UICoordinateSpaceP", "currentPage"]
 - !private ["So17UICoordinateSpaceP", "delegate"]
 - !private ["So17UICoordinateSpaceP", "frame"]
+- !private ["So17UICoordinateSpaceP", "heightAnchor"]
 - !private ["So17UICoordinateSpaceP", "init"]
 - !private ["So17UICoordinateSpaceP", "isPagingEnabled"]
 - !private ["So17UICoordinateSpaceP", "isScrollEnabled"]
@@ -2469,6 +2476,7 @@ depends-member:
 - !private ["So13UIDynamicItemP", "currentPage"]
 - !private ["So13UIDynamicItemP", "delegate"]
 - !private ["So13UIDynamicItemP", "frame"]
+- !private ["So13UIDynamicItemP", "heightAnchor"]
 - !private ["So13UIDynamicItemP", "init"]
 - !private ["So13UIDynamicItemP", "isPagingEnabled"]
 - !private ["So13UIDynamicItemP", "isScrollEnabled"]
@@ -2539,6 +2547,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "frame"]
 - !private ["So18UIFocusEnvironmentP", "goToPage"]
 - !private ["So18UIFocusEnvironmentP", "handlePercentageCompletion"]
+- !private ["So18UIFocusEnvironmentP", "heightAnchor"]
 - !private ["So18UIFocusEnvironmentP", "init"]
 - !private ["So18UIFocusEnvironmentP", "isPagingEnabled"]
 - !private ["So18UIFocusEnvironmentP", "isScrollEnabled"]
@@ -2645,6 +2654,7 @@ depends-member:
 - !private ["So11UIFocusItemP", "currentPage"]
 - !private ["So11UIFocusItemP", "delegate"]
 - !private ["So11UIFocusItemP", "frame"]
+- !private ["So11UIFocusItemP", "heightAnchor"]
 - !private ["So11UIFocusItemP", "init"]
 - !private ["So11UIFocusItemP", "isPagingEnabled"]
 - !private ["So11UIFocusItemP", "isScrollEnabled"]
@@ -2832,6 +2842,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "frame"]
 - !private ["So30UIPasteConfigurationSupportingP", "goToPage"]
 - !private ["So30UIPasteConfigurationSupportingP", "handlePercentageCompletion"]
+- !private ["So30UIPasteConfigurationSupportingP", "heightAnchor"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "isPagingEnabled"]
 - !private ["So30UIPasteConfigurationSupportingP", "isScrollEnabled"]
@@ -2926,6 +2937,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "willMove"]
 - !private ["So14UIProgressViewC", "alpha"]
 - !private ["So14UIProgressViewC", "bottomAnchor"]
+- !private ["So14UIProgressViewC", "heightAnchor"]
 - !private ["So14UIProgressViewC", "init"]
 - !private ["So14UIProgressViewC", "leftAnchor"]
 - !private ["So14UIProgressViewC", "progress"]
@@ -2966,7 +2978,6 @@ depends-member:
 - ["So11UIResponderC", "UIProgressView"]
 - ["So11UIResponderC", "UIScrollView"]
 - !private ["So11UIResponderC", "UISelectionFeedbackGenerator"]
-- ["So11UIResponderC", "UIStatusBarStyle"]
 - !private ["So11UIResponderC", "UIStoryboard"]
 - ["So11UIResponderC", "UIStoryboardSegue"]
 - ["So11UIResponderC", "UIView"]
@@ -2997,6 +3008,7 @@ depends-member:
 - !private ["So11UIResponderC", "frame"]
 - ["So11UIResponderC", "goToPage"]
 - ["So11UIResponderC", "handlePercentageCompletion"]
+- !private ["So11UIResponderC", "heightAnchor"]
 - ["So11UIResponderC", "init"]
 - !private ["So11UIResponderC", "isPagingEnabled"]
 - !private ["So11UIResponderC", "isScrollEnabled"]
@@ -3023,7 +3035,6 @@ depends-member:
 - ["So11UIResponderC", "pages"]
 - ["So11UIResponderC", "pages.storage"]
 - !private ["So11UIResponderC", "panGestureRecognizer"]
-- ["So11UIResponderC", "preferredStatusBarStyle"]
 - ["So11UIResponderC", "prepare"]
 - !private ["So11UIResponderC", "present"]
 - ["So11UIResponderC", "presentAbout"]
@@ -3150,6 +3161,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "frame"]
 - !private ["So30UIResponderStandardEditActionsP", "goToPage"]
 - !private ["So30UIResponderStandardEditActionsP", "handlePercentageCompletion"]
+- !private ["So30UIResponderStandardEditActionsP", "heightAnchor"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
 - !private ["So30UIResponderStandardEditActionsP", "isPagingEnabled"]
 - !private ["So30UIResponderStandardEditActionsP", "isScrollEnabled"]
@@ -3549,7 +3561,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "viewWillDisappear"]
 - !private ["So16UIStateRestoringP", "viewWillTransition"]
 - !private ["So16UIStateRestoringP", "willMove"]
-- !private ["SC16UIStatusBarStyleO", "default"]
 - !private ["So12UIStoryboardC", "instantiateViewController"]
 - !private ["So12UIStoryboardC", "main"]
 - !private ["So17UIStoryboardSegueC", "destination"]
@@ -3601,6 +3612,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "frame"]
 - !private ["So18UITraitEnvironmentP", "goToPage"]
 - !private ["So18UITraitEnvironmentP", "handlePercentageCompletion"]
+- !private ["So18UITraitEnvironmentP", "heightAnchor"]
 - !private ["So18UITraitEnvironmentP", "init"]
 - !private ["So18UITraitEnvironmentP", "isPagingEnabled"]
 - !private ["So18UITraitEnvironmentP", "isScrollEnabled"]
@@ -3707,6 +3719,7 @@ depends-member:
 - !private ["So6UIViewC", "currentPage"]
 - !private ["So6UIViewC", "delegate"]
 - !private ["So6UIViewC", "frame"]
+- !private ["So6UIViewC", "heightAnchor"]
 - !private ["So6UIViewC", "init"]
 - !private ["So6UIViewC", "isPagingEnabled"]
 - !private ["So6UIViewC", "isScrollEnabled"]
@@ -3761,7 +3774,6 @@ depends-member:
 - ["So16UIViewControllerC", "UIProgressView"]
 - ["So16UIViewControllerC", "UIScrollView"]
 - !private ["So16UIViewControllerC", "UISelectionFeedbackGenerator"]
-- ["So16UIViewControllerC", "UIStatusBarStyle"]
 - !private ["So16UIViewControllerC", "UIStoryboard"]
 - ["So16UIViewControllerC", "UIStoryboardSegue"]
 - ["So16UIViewControllerC", "UIView"]
@@ -3800,7 +3812,6 @@ depends-member:
 - ["So16UIViewControllerC", "pages"]
 - ["So16UIViewControllerC", "pages.storage"]
 - !private ["So16UIViewControllerC", "panGestureRecognizer"]
-- ["So16UIViewControllerC", "preferredStatusBarStyle"]
 - ["So16UIViewControllerC", "prepare"]
 - !private ["So16UIViewControllerC", "present"]
 - ["So16UIViewControllerC", "presentAbout"]
@@ -3892,6 +3903,7 @@ depends-member:
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "currentPage"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "delegate"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "frame"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "heightAnchor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isPagingEnabled"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isScrollEnabled"]
@@ -3988,6 +4000,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "goToPage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "greekLetters"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "handlePercentageCompletion"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "heightAnchor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "identifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "instantiateViewController"]
@@ -4167,6 +4180,7 @@ depends-nominal:
 - !private "So21NSItemProviderWritingP"
 - !private "So14NSLayoutAnchorC"
 - !private "So18NSLayoutConstraintC"
+- !private "So17NSLayoutDimensionC"
 - !private "So19NSLayoutXAxisAnchorC"
 - !private "So19NSLayoutYAxisAnchorC"
 - !private "So16NSMutableCopyingP"
@@ -4236,7 +4250,6 @@ depends-nominal:
 - !private "So28UISelectionFeedbackGeneratorC"
 - "So29UISplitViewControllerDelegateP"
 - "So16UIStateRestoringP"
-- !private "SC16UIStatusBarStyleO"
 - !private "So12UIStoryboardC"
 - !private "So17UIStoryboardSegueC"
 - "So18UITraitEnvironmentP"
@@ -4305,4 +4318,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "af6155e004a3d639f6c7d72e92ac3745"
+interface-hash: "93205bd9d1b12ce091970633bf4452cf"

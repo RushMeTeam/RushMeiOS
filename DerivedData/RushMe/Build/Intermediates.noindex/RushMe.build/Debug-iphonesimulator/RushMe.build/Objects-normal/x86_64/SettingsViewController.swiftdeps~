@@ -80,6 +80,8 @@ depends-member:
 - !private ["s7CVarArgP", "String"]
 - !private ["s7CVarArgP", "UIAlertAction"]
 - !private ["s7CVarArgP", "UIAlertController"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "addAction"]
 - !private ["s7CVarArgP", "appVersionLabel"]
 - !private ["s7CVarArgP", "attributesOfItem"]
@@ -112,7 +114,6 @@ depends-member:
 - !private ["s7CVarArgP", "tintColor"]
 - !private ["s7CVarArgP", "viewDidLoad"]
 - !private ["s7CVarArgP", "viewWillDisappear"]
-- ["s7CVarArgP", ""]
 - !private ["6RushMe6CampusC", "considerEventsBeforeToday"]
 - !private ["6RushMe6CampusC", "downloadedImageQuality"]
 - !private ["6RushMe6CampusC", "shared"]
@@ -135,6 +136,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "String"]
 - !private ["s28CustomDebugStringConvertibleP", "UIAlertAction"]
 - !private ["s28CustomDebugStringConvertibleP", "UIAlertController"]
+- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "addAction"]
 - !private ["s28CustomDebugStringConvertibleP", "appVersionLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "appendingPathComponent"]
@@ -169,7 +171,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "tintColor"]
 - !private ["s28CustomDebugStringConvertibleP", "viewDidLoad"]
 - !private ["s28CustomDebugStringConvertibleP", "viewWillDisappear"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
@@ -192,6 +193,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "String"]
 - !private ["s23CustomStringConvertibleP", "UIAlertAction"]
 - !private ["s23CustomStringConvertibleP", "UIAlertController"]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "addAction"]
 - !private ["s23CustomStringConvertibleP", "appVersionLabel"]
@@ -227,7 +229,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "tintColor"]
 - !private ["s23CustomStringConvertibleP", "viewDidLoad"]
 - !private ["s23CustomStringConvertibleP", "viewWillDisappear"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["So13DateFormatterC", "localizedString"]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "appendingPathComponent"]
@@ -259,6 +260,7 @@ depends-member:
 - !private ["s9EquatableP", "String"]
 - !private ["s9EquatableP", "UIAlertAction"]
 - !private ["s9EquatableP", "UIAlertController"]
+- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "actionSheet"]
 - !private ["s9EquatableP", "addAction"]
@@ -276,6 +278,7 @@ depends-member:
 - !private ["s9EquatableP", "displayPastEventsSwitch"]
 - !private ["s9EquatableP", "downloadedImageQuality"]
 - !private ["s9EquatableP", "fileExists"]
+- !private ["s9EquatableP", "forEach"]
 - !private ["s9EquatableP", "fraternitiesAlphabeticalSwitch"]
 - !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "isEnabled"]
@@ -294,11 +297,11 @@ depends-member:
 - !private ["s9EquatableP", "size"]
 - !private ["s9EquatableP", "split"]
 - !private ["s9EquatableP", "subpaths"]
+- !private ["s9EquatableP", "subscript"]
 - !private ["s9EquatableP", "text"]
 - !private ["s9EquatableP", "tintColor"]
 - !private ["s9EquatableP", "viewDidLoad"]
 - !private ["s9EquatableP", "viewWillDisappear"]
-- ["s9EquatableP", ""]
 - !private ["s5ErrorP", "localizedDescription"]
 - !private ["s25ExpressibleByArrayLiteralP", "forEach"]
 - !private ["s25ExpressibleByArrayLiteralP", "subscript"]
@@ -332,6 +335,7 @@ depends-member:
 - !private ["s8HashableP", "String"]
 - !private ["s8HashableP", "UIAlertAction"]
 - !private ["s8HashableP", "UIAlertController"]
+- ["s8HashableP", ""]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "actionSheet"]
 - !private ["s8HashableP", "addAction"]
@@ -371,7 +375,6 @@ depends-member:
 - !private ["s8HashableP", "tintColor"]
 - !private ["s8HashableP", "viewDidLoad"]
 - !private ["s8HashableP", "viewWillDisappear"]
-- ["s8HashableP", ""]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s25LosslessStringConvertibleP", "split"]
@@ -391,6 +394,7 @@ depends-member:
 - !private ["So8NSCodingP", "String"]
 - !private ["So8NSCodingP", "UIAlertAction"]
 - !private ["So8NSCodingP", "UIAlertController"]
+- ["So8NSCodingP", ""]
 - !private ["So8NSCodingP", "addAction"]
 - !private ["So8NSCodingP", "appVersionLabel"]
 - !private ["So8NSCodingP", "clearCache"]
@@ -413,7 +417,6 @@ depends-member:
 - !private ["So8NSCodingP", "tintColor"]
 - !private ["So8NSCodingP", "viewDidLoad"]
 - !private ["So8NSCodingP", "viewWillDisappear"]
-- ["So8NSCodingP", ""]
 - !private ["So9NSCopyingP", "init"]
 - !private ["So9NSCopyingP", "localizedString"]
 - !private ["So9NSCopyingP", "split"]
@@ -429,6 +432,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "String"]
 - !private ["So26NSExtensionRequestHandlingP", "UIAlertAction"]
 - !private ["So26NSExtensionRequestHandlingP", "UIAlertController"]
+- ["So26NSExtensionRequestHandlingP", ""]
 - !private ["So26NSExtensionRequestHandlingP", "addAction"]
 - !private ["So26NSExtensionRequestHandlingP", "appVersionLabel"]
 - !private ["So26NSExtensionRequestHandlingP", "clearCache"]
@@ -443,12 +447,8 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "qualityPicker"]
 - !private ["So26NSExtensionRequestHandlingP", "viewDidLoad"]
 - !private ["So26NSExtensionRequestHandlingP", "viewWillDisappear"]
-- ["So26NSExtensionRequestHandlingP", ""]
-- !private ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderReadingP", "split"]
-- !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So21NSItemProviderWritingP", "split"]
-- !private ["So16NSMutableCopyingP", "init"]
 - !private ["So16NSMutableCopyingP", "split"]
 - ["So8NSObjectC", "Bool"]
 - !private ["So8NSObjectC", "Campus"]
@@ -515,6 +515,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "String"]
 - !private ["So16NSObjectProtocolP", "UIAlertAction"]
 - !private ["So16NSObjectProtocolP", "UIAlertController"]
+- ["So16NSObjectProtocolP", ""]
 - !private ["So16NSObjectProtocolP", "addAction"]
 - !private ["So16NSObjectProtocolP", "appVersionLabel"]
 - !private ["So16NSObjectProtocolP", "attributesOfItem"]
@@ -545,10 +546,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "tintColor"]
 - !private ["So16NSObjectProtocolP", "viewDidLoad"]
 - !private ["So16NSObjectProtocolP", "viewWillDisappear"]
-- ["So16NSObjectProtocolP", ""]
-- !private ["So14NSSecureCodingP", "init"]
 - !private ["So14NSSecureCodingP", "split"]
-- !private ["So8NSStringC", "init"]
 - !private ["So8NSStringC", "split"]
 - !private ["6RushMe7QualityO", "High"]
 - !private ["6RushMe7QualityO", "Low"]
@@ -659,6 +657,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "String"]
 - !private ["So21UIAppearanceContainerP", "UIAlertAction"]
 - !private ["So21UIAppearanceContainerP", "UIAlertController"]
+- ["So21UIAppearanceContainerP", ""]
 - !private ["So21UIAppearanceContainerP", "addAction"]
 - !private ["So21UIAppearanceContainerP", "appVersionLabel"]
 - !private ["So21UIAppearanceContainerP", "clearCache"]
@@ -679,7 +678,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "tintColor"]
 - !private ["So21UIAppearanceContainerP", "viewDidLoad"]
 - !private ["So21UIAppearanceContainerP", "viewWillDisappear"]
-- ["So21UIAppearanceContainerP", ""]
 - !private ["So8UIButtonC", "isEnabled"]
 - !private ["So18UIContentContainerP", "Campus"]
 - !private ["So18UIContentContainerP", "DateFormatter"]
@@ -693,6 +691,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "String"]
 - !private ["So18UIContentContainerP", "UIAlertAction"]
 - !private ["So18UIContentContainerP", "UIAlertController"]
+- ["So18UIContentContainerP", ""]
 - !private ["So18UIContentContainerP", "addAction"]
 - !private ["So18UIContentContainerP", "appVersionLabel"]
 - !private ["So18UIContentContainerP", "clearCache"]
@@ -707,7 +706,6 @@ depends-member:
 - !private ["So18UIContentContainerP", "qualityPicker"]
 - !private ["So18UIContentContainerP", "viewDidLoad"]
 - !private ["So18UIContentContainerP", "viewWillDisappear"]
-- ["So18UIContentContainerP", ""]
 - !private ["So30UIContentSizeCategoryAdjustingP", "text"]
 - !private ["So9UIControlC", "isEnabled"]
 - !private ["So9UIControlC", "isOn"]
@@ -738,6 +736,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "String"]
 - !private ["So18UIFocusEnvironmentP", "UIAlertAction"]
 - !private ["So18UIFocusEnvironmentP", "UIAlertController"]
+- ["So18UIFocusEnvironmentP", ""]
 - !private ["So18UIFocusEnvironmentP", "addAction"]
 - !private ["So18UIFocusEnvironmentP", "appVersionLabel"]
 - !private ["So18UIFocusEnvironmentP", "clearCache"]
@@ -758,7 +757,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "tintColor"]
 - !private ["So18UIFocusEnvironmentP", "viewDidLoad"]
 - !private ["So18UIFocusEnvironmentP", "viewWillDisappear"]
-- ["So18UIFocusEnvironmentP", ""]
 - !private ["So11UIFocusItemP", "isEnabled"]
 - !private ["So11UIFocusItemP", "isOn"]
 - !private ["So11UIFocusItemP", "onTintColor"]
@@ -778,6 +776,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "String"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIAlertAction"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIAlertController"]
+- ["So30UIPasteConfigurationSupportingP", ""]
 - !private ["So30UIPasteConfigurationSupportingP", "addAction"]
 - !private ["So30UIPasteConfigurationSupportingP", "appVersionLabel"]
 - !private ["So30UIPasteConfigurationSupportingP", "clearCache"]
@@ -798,7 +797,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "tintColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "viewDidLoad"]
 - !private ["So30UIPasteConfigurationSupportingP", "viewWillDisappear"]
-- ["So30UIPasteConfigurationSupportingP", ""]
 - ["So11UIResponderC", "Bool"]
 - !private ["So11UIResponderC", "Campus"]
 - !private ["So11UIResponderC", "DateFormatter"]
@@ -854,6 +852,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "String"]
 - !private ["So30UIResponderStandardEditActionsP", "UIAlertAction"]
 - !private ["So30UIResponderStandardEditActionsP", "UIAlertController"]
+- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So30UIResponderStandardEditActionsP", "addAction"]
 - !private ["So30UIResponderStandardEditActionsP", "appVersionLabel"]
 - !private ["So30UIResponderStandardEditActionsP", "clearCache"]
@@ -874,7 +873,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "tintColor"]
 - !private ["So30UIResponderStandardEditActionsP", "viewDidLoad"]
 - !private ["So30UIResponderStandardEditActionsP", "viewWillDisappear"]
-- ["So30UIResponderStandardEditActionsP", ""]
 - !private ["So18UISegmentedControlC", "selectedSegmentIndex"]
 - !private ["So18UISegmentedControlC", "tintColor"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "addAction"]
@@ -894,6 +892,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "String"]
 - !private ["So16UIStateRestoringP", "UIAlertAction"]
 - !private ["So16UIStateRestoringP", "UIAlertController"]
+- ["So16UIStateRestoringP", ""]
 - !private ["So16UIStateRestoringP", "addAction"]
 - !private ["So16UIStateRestoringP", "appVersionLabel"]
 - !private ["So16UIStateRestoringP", "clearCache"]
@@ -908,7 +907,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "qualityPicker"]
 - !private ["So16UIStateRestoringP", "viewDidLoad"]
 - !private ["So16UIStateRestoringP", "viewWillDisappear"]
-- ["So16UIStateRestoringP", ""]
 - !private ["So8UISwitchC", "isOn"]
 - !private ["So8UISwitchC", "onTintColor"]
 - !private ["So8UISwitchC", "tintColor"]
@@ -924,6 +922,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "String"]
 - !private ["So18UITraitEnvironmentP", "UIAlertAction"]
 - !private ["So18UITraitEnvironmentP", "UIAlertController"]
+- ["So18UITraitEnvironmentP", ""]
 - !private ["So18UITraitEnvironmentP", "addAction"]
 - !private ["So18UITraitEnvironmentP", "appVersionLabel"]
 - !private ["So18UITraitEnvironmentP", "clearCache"]
@@ -944,7 +943,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "tintColor"]
 - !private ["So18UITraitEnvironmentP", "viewDidLoad"]
 - !private ["So18UITraitEnvironmentP", "viewWillDisappear"]
-- ["So18UITraitEnvironmentP", ""]
 - !private ["So6UIViewC", "isEnabled"]
 - !private ["So6UIViewC", "isOn"]
 - !private ["So6UIViewC", "onTintColor"]
@@ -970,6 +968,7 @@ depends-member:
 - ["So16UIViewControllerC", "UILabel"]
 - ["So16UIViewControllerC", "UISegmentedControl"]
 - ["So16UIViewControllerC", "UISwitch"]
+- ["So16UIViewControllerC", ""]
 - !private ["So16UIViewControllerC", "addAction"]
 - ["So16UIViewControllerC", "appVersionLabel"]
 - ["So16UIViewControllerC", "clearCache"]
@@ -988,15 +987,10 @@ depends-member:
 - ["So16UIViewControllerC", "shuffleFraternitiesSwitch"]
 - ["So16UIViewControllerC", "viewDidLoad"]
 - ["So16UIViewControllerC", "viewWillDisappear"]
-- ["So16UIViewControllerC", ""]
 - !private ["10Foundation3URLV", "appendingPathComponent"]
 - !private ["10Foundation3URLV", "path"]
 - !private ["s14_ArrayProtocolP", "forEach"]
 - !private ["s14_ArrayProtocolP", "subscript"]
-- !private ["s23_BidirectionalIndexableP", "forEach"]
-- !private ["s23_BidirectionalIndexableP", "init"]
-- !private ["s23_BidirectionalIndexableP", "split"]
-- !private ["s23_BidirectionalIndexableP", "subscript"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isEnabled"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isOn"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "onTintColor"]
@@ -1019,16 +1013,7 @@ depends-member:
 - !private ["s34_ExpressibleByFileReferenceLiteralP", "path"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "split"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "split"]
-- !private ["s10_IndexableP", "forEach"]
-- !private ["s10_IndexableP", "init"]
-- !private ["s10_IndexableP", "split"]
-- !private ["s10_IndexableP", "subscript"]
-- !private ["s14_IndexableBaseP", "forEach"]
-- !private ["s14_IndexableBaseP", "init"]
-- !private ["s14_IndexableBaseP", "split"]
-- !private ["s14_IndexableBaseP", "subscript"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Campus"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DateFormatter"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "FileAttributeKey"]
@@ -1041,6 +1026,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIAlertAction"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIAlertController"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addAction"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "appVersionLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "attributesOfItem"]
@@ -1071,9 +1057,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "tintColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewDidLoad"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewWillDisappear"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
-- !private ["s17_MutableIndexableP", "forEach"]
-- !private ["s17_MutableIndexableP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
 - !private ["s21_ObjectiveCBridgeableP", "forEach"]
@@ -1082,12 +1065,6 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "size"]
 - !private ["s21_ObjectiveCBridgeableP", "split"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
-- !private ["s22_RandomAccessIndexableP", "forEach"]
-- !private ["s22_RandomAccessIndexableP", "subscript"]
-- !private ["s26_RangeReplaceableIndexableP", "forEach"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
-- !private ["s26_RangeReplaceableIndexableP", "split"]
-- !private ["s26_RangeReplaceableIndexableP", "subscript"]
 - !private ["s20_SwiftNewtypeWrapperP", "size"]
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "split"]
@@ -1180,7 +1157,6 @@ depends-nominal:
 - "So16UIViewControllerC"
 - !private "10Foundation3URLV"
 - !private "s14_ArrayProtocolP"
-- !private "s23_BidirectionalIndexableP"
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
@@ -1192,13 +1168,8 @@ depends-nominal:
 - !private "s34_ExpressibleByFileReferenceLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
-- !private "s10_IndexableP"
-- !private "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
-- !private "s17_MutableIndexableP"
 - !private "s21_ObjectiveCBridgeableP"
-- !private "s22_RandomAccessIndexableP"
-- !private "s26_RangeReplaceableIndexableP"
 - !private "s20_SwiftNewtypeWrapperP"
 - !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
@@ -1228,4 +1199,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "c522909e13c5a03e66e7b59818dc9a6a"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "89ccfe985c2f1e0f1a7b917a9a34267d"

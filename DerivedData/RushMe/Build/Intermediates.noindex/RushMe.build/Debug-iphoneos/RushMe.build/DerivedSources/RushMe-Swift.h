@@ -670,10 +670,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSInteger startingPageIndex SW
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (void)pageViewController:(UIPageViewController * _Nonnull)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> * _Nonnull)previousViewControllers transitionCompleted:(BOOL)completed;
 - (IBAction)presentDrawer:(UIBarButtonItem * _Nullable)sender;
-- (void)presentAbout;
 @property (nonatomic, strong) UIProgressView * _Null_unspecified progressBar SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.progressBar' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly, strong) UIView * _Nonnull titleImageView SWIFT_DEPRECATED_OBJC("Swift property 'ScrollPageViewController.titleImageView' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
-@property (nonatomic, readonly) UIStatusBarStyle preferredStatusBarStyle;
 - (IBAction)unwindToScrollWithSegue:(UIStoryboardSegue * _Nonnull)segue;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (void)viewDidLoad;

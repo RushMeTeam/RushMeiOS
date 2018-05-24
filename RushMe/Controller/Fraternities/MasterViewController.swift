@@ -205,6 +205,9 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     tableView.backgroundView = refreshControl
+    refreshControl!.backgroundColor = RMColor.AppColor
+    refreshControl!.tintColor = .white
+    
 
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
   }
@@ -287,11 +290,12 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
        self.refreshControl?.endRefreshing()  
       }
       if newValue == 1 {
-        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities")
+        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", attributes : [NSAttributedStringKey.foregroundColor: UIColor.white])
       }
       self.reloadTableView()
     } 
   }
+  
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -304,9 +308,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
 
   }
-//  @IBAction func unwindToSelf(segue : UIStoryboardSegue) {
-//    
-//  }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     // Checks if segue is going into detail
@@ -329,20 +330,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
         }
       }
   }
-  func image(fromLayer layer: CALayer) -> UIImage {
-    UIGraphicsBeginImageContext(layer.frame.size)
-    
-    layer.render(in: UIGraphicsGetCurrentContext()!)
-    
-    let outputImage = UIGraphicsGetImageFromCurrentImageContext()
-    
-    UIGraphicsEndImageContext()
-    
-    return outputImage!
-  }
-  
-  
-  
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

@@ -467,47 +467,6 @@ struct RMurl {
   
 }
 
-func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.downloadedImageQuality, fallBackToNetwork : Bool = false) -> UIImage? {
-  if let imageData = try? Data.init(contentsOf: sourceURL.localPath),
-    let image = UIImage.init(data: imageData){
-    return image
-  }
-  else if !fallBackToNetwork {
-   return nil 
-  }
-  // Try to retreive the image-- upon fail return nil
-  if let data = try? Data.init(contentsOf: sourceURL.networkPath) {
-    // Try to downcase the retreived data to an image
-    if let image = UIImage(data: data) {
-      DispatchQueue.global(qos: .background).async {
-        image.storeOnDisk(at: sourceURL.localPath)
-      }
-      return image
-    }
-  }
-  // May be nil!
-  return nil
-}
 
-extension UIImage {
-  func storeOnDisk(at url : URL) {
-    if !FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
-      do {
-        try FileManager.default.createDirectory(at: RMFileManagement.fratImageURL, withIntermediateDirectories: false, attributes: nil)
-      }
-      catch let e {
-        print(e.localizedDescription)
-      }
-    }
-    if let imageData = UIImagePNGRepresentation(self) {
-      do {
-        try imageData.write(to: url)
-      }
-      catch let e {
-        print("StoreOnDisk Error:", e.localizedDescription)
-      }
-    }
-  }
-}
 
 

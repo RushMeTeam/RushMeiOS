@@ -91,7 +91,7 @@ class DrawerMenuViewController : UIViewController, UIScrollViewDelegate {
         buttons[bNum] = newButton
         newButton.addTarget(self, action: #selector(buttonHit), for: .touchUpInside)
         newButton.setImage(buttonIcons[bNum], for: .normal)  
-        newButton.tintColor = RMColor.AppColor
+        newButton.tintColor = .white
         var newFrame = scrollView.frame
         newFrame.size.height = scrollView.bounds.height
         newFrame.size.width = scrollView.bounds.width

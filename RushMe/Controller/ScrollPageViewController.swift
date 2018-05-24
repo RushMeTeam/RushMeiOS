@@ -102,10 +102,10 @@ class ScrollPageViewController: UIViewController,
   @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
     self.revealViewController().revealToggle(animated: true)
   }
-  @objc func presentAbout() {
+  @objc private func presentAbout() {
     present(viewController(forIdentifier: "aboutVC"), animated: true, completion: nil) 
   }
-  private(set) lazy var setupInitialPages : Void = {
+  private lazy var setupInitialPages : Void = {
     adjustScrollView()
     loadAllPages()
     transitioning = true
@@ -113,7 +113,7 @@ class ScrollPageViewController: UIViewController,
     transitioning = false
   }()
   var progressBar : UIProgressView!
-  private(set) lazy var setupProgressBar : Void = {
+  private lazy var setupProgressBar : Void = {
     progressBar = UIProgressView()
     progressBar.tintColor = .white
     progressBar.trackTintColor = .clear
@@ -128,7 +128,7 @@ class ScrollPageViewController: UIViewController,
       progressBar.heightAnchor.constraint(equalToConstant: 3)
       ])
   }()
-  private(set) lazy var titleImageView : UIView = {
+  private lazy var titleImageView : UIView = {
     let imageView = UIImageView.init(image: #imageLiteral(resourceName: "RushMeLogo"))
     imageView.contentMode = .scaleAspectFit
     imageView.tintColor = UIColor.white
@@ -138,12 +138,6 @@ class ScrollPageViewController: UIViewController,
     titleView.addSubview(imageView)
     return titleView
   }()
-  
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    get {
-      return .default
-    }
-  }
   
   private(set) lazy var setupNavigationBar : Void = {
     guard let _ = navigationController else {

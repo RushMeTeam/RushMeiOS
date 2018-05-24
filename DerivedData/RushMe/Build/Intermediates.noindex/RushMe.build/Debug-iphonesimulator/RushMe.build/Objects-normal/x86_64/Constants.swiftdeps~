@@ -174,11 +174,13 @@ depends-member:
 - !private ["s9EquatableP", "dateFormat"]
 - !private ["s9EquatableP", "description"]
 - ["s9EquatableP", "documentDirectory"]
+- ["s9EquatableP", "first"]
 - !private ["s9EquatableP", "identifierForVendor"]
 - ["s9EquatableP", "infoDictionary"]
 - ["s9EquatableP", "init"]
 - ["s9EquatableP", "main"]
 - !private ["s9EquatableP", "string"]
+- ["s9EquatableP", "subscript"]
 - !private ["s9EquatableP", "systemVersion"]
 - ["s9EquatableP", "urls"]
 - ["s9EquatableP", "userDomainMask"]
@@ -233,7 +235,6 @@ depends-member:
 - ["So21NSItemProviderWritingP", "init"]
 - ["So21NSItemProviderWritingP", "white"]
 - ["So21NSItemProviderWritingP", "withAlphaComponent"]
-- ["So16NSMutableCopyingP", "init"]
 - !private ["So8NSObjectC", "current"]
 - !private ["So8NSObjectC", "date"]
 - !private ["So8NSObjectC", "dateFormat"]
@@ -261,7 +262,6 @@ depends-member:
 - ["So14NSSecureCodingP", "init"]
 - ["So14NSSecureCodingP", "white"]
 - ["So14NSSecureCodingP", "withAlphaComponent"]
-- ["So8NSStringC", "init"]
 - ["s9OptionSetP", "userDomainMask"]
 - ["6RushMe11RMAnimationV", "ColoringTime"]
 - ["6RushMe11RMAnimationV", "init"]
@@ -390,8 +390,6 @@ depends-member:
 - ["10Foundation3URLV", "init"]
 - !private ["10Foundation4UUIDV", "uuidString"]
 - ["s14_ArrayProtocolP", "first"]
-- ["s23_BidirectionalIndexableP", "first"]
-- ["s23_BidirectionalIndexableP", "init"]
 - ["s24_DestructorSafeContainerP", "first"]
 - ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
@@ -404,13 +402,6 @@ depends-member:
 - ["s34_ExpressibleByFileReferenceLiteralP", "init"]
 - ["s26_ExpressibleByImageLiteralP", "init"]
 - ["s33_ExpressibleByStringInterpolationP", "init"]
-- ["s35_HasCustomAnyHashableRepresentationP", "init"]
-- ["s10_IndexableP", "first"]
-- ["s10_IndexableP", "init"]
-- ["s10_IndexableP", "subscript"]
-- ["s14_IndexableBaseP", "first"]
-- ["s14_IndexableBaseP", "init"]
-- ["s14_IndexableBaseP", "subscript"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "date"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dateFormat"]
@@ -423,15 +414,11 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "urls"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "white"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
-- ["s17_MutableIndexableP", "first"]
 - ["s21_ObjectiveCBridgeableP", "appendingPathComponent"]
 - ["s21_ObjectiveCBridgeableP", "first"]
 - ["s21_ObjectiveCBridgeableP", "init"]
 - ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "uuidString"]
-- ["s22_RandomAccessIndexableP", "first"]
-- ["s26_RangeReplaceableIndexableP", "first"]
-- ["s26_RangeReplaceableIndexableP", "init"]
 - ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - "Sa"
@@ -466,11 +453,9 @@ depends-nominal:
 - "So9NSCopyingP"
 - "So21NSItemProviderReadingP"
 - "So21NSItemProviderWritingP"
-- "So16NSMutableCopyingP"
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
-- "So8NSStringC"
 - "s9OptionSetP"
 - "6RushMe11RMAnimationV"
 - "6RushMe7RMColorV"
@@ -507,7 +492,6 @@ depends-nominal:
 - "10Foundation3URLV"
 - !private "10Foundation4UUIDV"
 - "s14_ArrayProtocolP"
-- "s23_BidirectionalIndexableP"
 - "s24_DestructorSafeContainerP"
 - "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - "s34_ExpressibleByBuiltinStringLiteralP"
@@ -517,14 +501,8 @@ depends-nominal:
 - "s34_ExpressibleByFileReferenceLiteralP"
 - "s26_ExpressibleByImageLiteralP"
 - "s33_ExpressibleByStringInterpolationP"
-- "s35_HasCustomAnyHashableRepresentationP"
-- "s10_IndexableP"
-- "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
-- "s17_MutableIndexableP"
 - "s21_ObjectiveCBridgeableP"
-- "s22_RandomAccessIndexableP"
-- "s26_RangeReplaceableIndexableP"
 - "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
@@ -553,4 +531,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "ee3a54490a07f12fc722929185cd543f"
