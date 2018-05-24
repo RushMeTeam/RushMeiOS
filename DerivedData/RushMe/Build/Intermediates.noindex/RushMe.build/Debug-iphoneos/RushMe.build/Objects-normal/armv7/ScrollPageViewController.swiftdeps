@@ -23,7 +23,6 @@ provides-dynamic-lookup:
 - "pageControl"
 - "pageHeight"
 - "pageViewController"
-- "preferredStatusBarStyle"
 - "prepare"
 - "presentAbout"
 - "presentDrawer"
@@ -37,7 +36,6 @@ provides-dynamic-lookup:
 - "scrollViewDidScrollToTop"
 - "setupScrollView"
 - "startingPageIndex"
-- "titleImageView"
 - "transitioning"
 - "unwindToScroll"
 - "viewController"
@@ -104,7 +102,6 @@ depends-top-level:
 - "UIScrollViewDelegate"
 - !private "UISelectionFeedbackGenerator"
 - "UISplitViewControllerDelegate"
-- "UIStatusBarStyle"
 - !private "UIStoryboard"
 - "UIStoryboardSegue"
 - "UIView"
@@ -1416,7 +1413,6 @@ depends-member:
 - ["So8NSObjectC", "UIProgressView"]
 - ["So8NSObjectC", "UIScrollView"]
 - !private ["So8NSObjectC", "UISelectionFeedbackGenerator"]
-- ["So8NSObjectC", "UIStatusBarStyle"]
 - !private ["So8NSObjectC", "UIStoryboard"]
 - ["So8NSObjectC", "UIStoryboardSegue"]
 - ["So8NSObjectC", "UIView"]
@@ -1487,7 +1483,6 @@ depends-member:
 - ["So8NSObjectC", "pages.storage"]
 - !private ["So8NSObjectC", "panGestureRecognizer"]
 - !private ["So8NSObjectC", "percentageCompletionObservable"]
-- ["So8NSObjectC", "preferredStatusBarStyle"]
 - ["So8NSObjectC", "prepare"]
 - !private ["So8NSObjectC", "present"]
 - ["So8NSObjectC", "presentAbout"]
@@ -1887,7 +1882,6 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "UIProgressView"]
 - ["6RushMe24ScrollPageViewControllerC", "UIScrollView"]
 - !private ["6RushMe24ScrollPageViewControllerC", "UISelectionFeedbackGenerator"]
-- ["6RushMe24ScrollPageViewControllerC", "UIStatusBarStyle"]
 - !private ["6RushMe24ScrollPageViewControllerC", "UIStoryboard"]
 - ["6RushMe24ScrollPageViewControllerC", "UIStoryboardSegue"]
 - ["6RushMe24ScrollPageViewControllerC", "UIView"]
@@ -1922,10 +1916,9 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "pageViewControllerSupportedInterfaceOrientations"]
 - ["6RushMe24ScrollPageViewControllerC", "pages"]
 - !private ["6RushMe24ScrollPageViewControllerC", "pages.storage"]
-- ["6RushMe24ScrollPageViewControllerC", "preferredStatusBarStyle"]
 - ["6RushMe24ScrollPageViewControllerC", "prepare"]
 - !private ["6RushMe24ScrollPageViewControllerC", "present"]
-- ["6RushMe24ScrollPageViewControllerC", "presentAbout"]
+- !private ["6RushMe24ScrollPageViewControllerC", "presentAbout"]
 - ["6RushMe24ScrollPageViewControllerC", "presentDrawer"]
 - ["6RushMe24ScrollPageViewControllerC", "primaryViewController"]
 - ["6RushMe24ScrollPageViewControllerC", "primaryViewControllerForCollapsingSplitViewController"]
@@ -1954,11 +1947,11 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "scrollViewWillBeginDragging"]
 - ["6RushMe24ScrollPageViewControllerC", "scrollViewWillBeginZooming"]
 - ["6RushMe24ScrollPageViewControllerC", "scrollViewWillEndDragging"]
-- ["6RushMe24ScrollPageViewControllerC", "setupInitialPages"]
+- !private ["6RushMe24ScrollPageViewControllerC", "setupInitialPages"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupInitialPages.storage"]
 - ["6RushMe24ScrollPageViewControllerC", "setupNavigationBar"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupNavigationBar.storage"]
-- ["6RushMe24ScrollPageViewControllerC", "setupProgressBar"]
+- !private ["6RushMe24ScrollPageViewControllerC", "setupProgressBar"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupProgressBar.storage"]
 - ["6RushMe24ScrollPageViewControllerC", "setupScrollView"]
 - !private ["6RushMe24ScrollPageViewControllerC", "setupScrollView.storage"]
@@ -1968,7 +1961,7 @@ depends-member:
 - ["6RushMe24ScrollPageViewControllerC", "startingPageIndex"]
 - ["6RushMe24ScrollPageViewControllerC", "targetDisplayModeForAction"]
 - ["6RushMe24ScrollPageViewControllerC", "targetDisplayModeForActionInSplitViewController"]
-- ["6RushMe24ScrollPageViewControllerC", "titleImageView"]
+- !private ["6RushMe24ScrollPageViewControllerC", "titleImageView"]
 - !private ["6RushMe24ScrollPageViewControllerC", "titleImageView.storage"]
 - !private ["6RushMe24ScrollPageViewControllerC", "topLayoutGuide"]
 - ["6RushMe24ScrollPageViewControllerC", "transitioning"]
@@ -2985,7 +2978,6 @@ depends-member:
 - ["So11UIResponderC", "UIProgressView"]
 - ["So11UIResponderC", "UIScrollView"]
 - !private ["So11UIResponderC", "UISelectionFeedbackGenerator"]
-- ["So11UIResponderC", "UIStatusBarStyle"]
 - !private ["So11UIResponderC", "UIStoryboard"]
 - ["So11UIResponderC", "UIStoryboardSegue"]
 - ["So11UIResponderC", "UIView"]
@@ -3043,7 +3035,6 @@ depends-member:
 - ["So11UIResponderC", "pages"]
 - ["So11UIResponderC", "pages.storage"]
 - !private ["So11UIResponderC", "panGestureRecognizer"]
-- ["So11UIResponderC", "preferredStatusBarStyle"]
 - ["So11UIResponderC", "prepare"]
 - !private ["So11UIResponderC", "present"]
 - ["So11UIResponderC", "presentAbout"]
@@ -3570,7 +3561,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "viewWillDisappear"]
 - !private ["So16UIStateRestoringP", "viewWillTransition"]
 - !private ["So16UIStateRestoringP", "willMove"]
-- !private ["SC16UIStatusBarStyleO", "default"]
 - !private ["So12UIStoryboardC", "instantiateViewController"]
 - !private ["So12UIStoryboardC", "main"]
 - !private ["So17UIStoryboardSegueC", "destination"]
@@ -3784,7 +3774,6 @@ depends-member:
 - ["So16UIViewControllerC", "UIProgressView"]
 - ["So16UIViewControllerC", "UIScrollView"]
 - !private ["So16UIViewControllerC", "UISelectionFeedbackGenerator"]
-- ["So16UIViewControllerC", "UIStatusBarStyle"]
 - !private ["So16UIViewControllerC", "UIStoryboard"]
 - ["So16UIViewControllerC", "UIStoryboardSegue"]
 - ["So16UIViewControllerC", "UIView"]
@@ -3823,7 +3812,6 @@ depends-member:
 - ["So16UIViewControllerC", "pages"]
 - ["So16UIViewControllerC", "pages.storage"]
 - !private ["So16UIViewControllerC", "panGestureRecognizer"]
-- ["So16UIViewControllerC", "preferredStatusBarStyle"]
 - ["So16UIViewControllerC", "prepare"]
 - !private ["So16UIViewControllerC", "present"]
 - ["So16UIViewControllerC", "presentAbout"]
@@ -4262,7 +4250,6 @@ depends-nominal:
 - !private "So28UISelectionFeedbackGeneratorC"
 - "So29UISplitViewControllerDelegateP"
 - "So16UIStateRestoringP"
-- !private "SC16UIStatusBarStyleO"
 - !private "So12UIStoryboardC"
 - !private "So17UIStoryboardSegueC"
 - "So18UITraitEnvironmentP"
@@ -4331,4 +4318,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "34484a6b084c445a5b0f09ab89f1f5dd"
+interface-hash: "93205bd9d1b12ce091970633bf4452cf"

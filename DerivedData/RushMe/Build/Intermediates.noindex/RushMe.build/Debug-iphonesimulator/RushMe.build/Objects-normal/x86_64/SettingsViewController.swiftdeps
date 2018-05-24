@@ -11,7 +11,6 @@ provides-dynamic-lookup:
 - "clearCacheButton"
 - "dateLabel"
 - "didReceiveMemoryWarning"
-- "disappear"
 - "displayPastEventsSwitch"
 - "displayPastEventsSwitched"
 - "drawerButton"
@@ -478,7 +477,6 @@ depends-member:
 - ["So8NSObjectC", "dateLabel"]
 - !private ["So8NSObjectC", "default"]
 - ["So8NSObjectC", "didReceiveMemoryWarning"]
-- ["So8NSObjectC", "disappear"]
 - ["So8NSObjectC", "displayPastEventsSwitch"]
 - ["So8NSObjectC", "displayPastEventsSwitched"]
 - !private ["So8NSObjectC", "downloadedImageQuality"]
@@ -604,7 +602,6 @@ depends-member:
 - ["6RushMe22SettingsViewControllerC", "dateLabel"]
 - ["6RushMe22SettingsViewControllerC", "deinit"]
 - ["6RushMe22SettingsViewControllerC", "didReceiveMemoryWarning"]
-- ["6RushMe22SettingsViewControllerC", "disappear"]
 - ["6RushMe22SettingsViewControllerC", "displayPastEventsSwitch"]
 - ["6RushMe22SettingsViewControllerC", "displayPastEventsSwitched"]
 - ["6RushMe22SettingsViewControllerC", "drawerButton"]
@@ -822,7 +819,6 @@ depends-member:
 - ["So11UIResponderC", "clearCacheButton"]
 - ["So11UIResponderC", "dateLabel"]
 - ["So11UIResponderC", "didReceiveMemoryWarning"]
-- ["So11UIResponderC", "disappear"]
 - ["So11UIResponderC", "displayPastEventsSwitch"]
 - ["So11UIResponderC", "displayPastEventsSwitched"]
 - ["So11UIResponderC", "drawerButton"]
@@ -975,7 +971,6 @@ depends-member:
 - ["So16UIViewControllerC", "clearCacheButton"]
 - ["So16UIViewControllerC", "dateLabel"]
 - ["So16UIViewControllerC", "didReceiveMemoryWarning"]
-- ["So16UIViewControllerC", "disappear"]
 - ["So16UIViewControllerC", "displayPastEventsSwitch"]
 - ["So16UIViewControllerC", "displayPastEventsSwitched"]
 - ["So16UIViewControllerC", "drawerButton"]
@@ -1211,4 +1206,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "89ccfe985c2f1e0f1a7b917a9a34267d"
+interface-hash: "8a937bce46b9e537f6faef0ad7f3c09b"

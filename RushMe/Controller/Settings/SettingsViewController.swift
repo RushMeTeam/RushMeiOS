@@ -19,9 +19,6 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var dateLabel: UILabel!
 
 
-  @IBAction func disappear(_ sender: Any) {
-    //self.dismiss(animated: true, completion: nil)
-  }
   @IBOutlet weak var appVersionLabel: UILabel!
   
   

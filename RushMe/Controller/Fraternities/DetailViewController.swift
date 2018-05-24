@@ -249,12 +249,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     parent?.view.backgroundColor = RMColor.AppColor
     
     if #available(iOS 11.0, *) {
-     underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+     //underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
       underlyingView.layer.masksToBounds = true
       underlyingView.layer.cornerRadius = RMImage.CornerRadius
+      view.layer.masksToBounds = true
+      view.layer.cornerRadius = RMImage.CornerRadius
+      
     }
   }()
-  
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()

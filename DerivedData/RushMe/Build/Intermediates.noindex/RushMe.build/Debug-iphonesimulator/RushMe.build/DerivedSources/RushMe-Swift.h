@@ -589,7 +589,6 @@ SWIFT_CLASS("_TtC6RushMe17MapViewController")
 @class UIPageViewController;
 @class UISearchController;
 @class UIProgressView;
-@class CALayer;
 @class UITableViewRowAction;
 @class UIRefreshControl;
 
@@ -621,7 +620,6 @@ SWIFT_CLASS("_TtC6RushMe20MasterViewController")
 - (void)dataUpdate SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.dataUpdate()' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)viewWillAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
-- (UIImage * _Nonnull)imageFromLayer:(CALayer * _Nonnull)layer SWIFT_WARN_UNUSED_RESULT SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.image(fromLayer:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString * _Nonnull)identifier sender:(id _Nullable)sender SWIFT_WARN_UNUSED_RESULT;
 - (void)segmentControlChangedWithSender:(UISegmentedControl * _Nonnull)sender;
 - (void)cellWithFratName:(NSString * _Nonnull)fratName favoriteStatusToValue:(BOOL)isFavorited SWIFT_DEPRECATED_OBJC("Swift method 'MasterViewController.cell(withFratName:favoriteStatusToValue:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
@@ -709,7 +707,6 @@ SWIFT_CLASS("_TtC6RushMe22SettingsViewController")
 @property (nonatomic, weak) IBOutlet UISegmentedControl * _Null_unspecified qualityPicker;
 @property (nonatomic, weak) IBOutlet UISwitch * _Null_unspecified displayPastEventsSwitch;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified dateLabel;
-- (IBAction)disappear:(id _Nonnull)sender;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified appVersionLabel;
 - (void)viewDidLoad;
 - (void)viewWillDisappear:(BOOL)animated;

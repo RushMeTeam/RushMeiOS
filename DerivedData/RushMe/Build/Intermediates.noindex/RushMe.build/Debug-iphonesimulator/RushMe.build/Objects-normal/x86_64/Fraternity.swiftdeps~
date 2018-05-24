@@ -37,6 +37,8 @@ depends-member:
 - ["s7CVarArgP", "Date"]
 - ["s7CVarArgP", "FratEvent"]
 - !private ["s7CVarArgP", "RMImage"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "chapter"]
 - !private ["s7CVarArgP", "events"]
 - ["s7CVarArgP", "init"]
@@ -46,7 +48,6 @@ depends-member:
 - !private ["s7CVarArgP", "replacingOccurrences"]
 - !private ["s7CVarArgP", "startDate"]
 - !private ["s7CVarArgP", "subscript"]
-- ["s7CVarArgP", ""]
 - ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "replacingOccurrences"]
 - !private ["s10CollectionP", "subscript"]
@@ -55,6 +56,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "Date"]
 - ["s28CustomDebugStringConvertibleP", "FratEvent"]
 - !private ["s28CustomDebugStringConvertibleP", "RMImage"]
+- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "chapter"]
 - !private ["s28CustomDebugStringConvertibleP", "events"]
 - ["s28CustomDebugStringConvertibleP", "init"]
@@ -64,7 +66,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "replacingOccurrences"]
 - !private ["s28CustomDebugStringConvertibleP", "startDate"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
-- ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "replacingOccurrences"]
@@ -75,6 +76,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "Date"]
 - ["s23CustomStringConvertibleP", "FratEvent"]
 - !private ["s23CustomStringConvertibleP", "RMImage"]
+- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "chapter"]
 - !private ["s23CustomStringConvertibleP", "events"]
@@ -85,7 +87,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "replacingOccurrences"]
 - !private ["s23CustomStringConvertibleP", "startDate"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "replacingOccurrences"]
@@ -99,16 +100,17 @@ depends-member:
 - ["s9EquatableP", "Date"]
 - ["s9EquatableP", "FratEvent"]
 - !private ["s9EquatableP", "RMImage"]
+- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "chapter"]
 - !private ["s9EquatableP", "events"]
-- !private ["s9EquatableP", "init"]
+- ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "previewImage"]
 - !private ["s9EquatableP", "properties"]
 - !private ["s9EquatableP", "replacingOccurrences"]
 - !private ["s9EquatableP", "startDate"]
-- ["s9EquatableP", ""]
+- !private ["s9EquatableP", "subscript"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - ["s30ExpressibleByDictionaryLiteralP", "init"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
@@ -139,6 +141,7 @@ depends-member:
 - ["s8HashableP", "Date"]
 - ["s8HashableP", "FratEvent"]
 - !private ["s8HashableP", "RMImage"]
+- ["s8HashableP", ""]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "chapter"]
 - !private ["s8HashableP", "events"]
@@ -148,21 +151,15 @@ depends-member:
 - !private ["s8HashableP", "properties"]
 - !private ["s8HashableP", "replacingOccurrences"]
 - !private ["s8HashableP", "startDate"]
-- ["s8HashableP", ""]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s25LosslessStringConvertibleP", "replacingOccurrences"]
 - !private ["s10MirrorPathP", "init"]
 - !private ["s10MirrorPathP", "replacingOccurrences"]
-- !private ["So8NSCodingP", "init"]
 - !private ["So8NSCodingP", "replacingOccurrences"]
-- !private ["So9NSCopyingP", "init"]
 - !private ["So9NSCopyingP", "replacingOccurrences"]
-- !private ["So21NSItemProviderReadingP", "init"]
 - !private ["So21NSItemProviderReadingP", "replacingOccurrences"]
-- !private ["So21NSItemProviderWritingP", "init"]
 - !private ["So21NSItemProviderWritingP", "replacingOccurrences"]
-- !private ["So16NSMutableCopyingP", "init"]
 - !private ["So16NSMutableCopyingP", "replacingOccurrences"]
 - ["So8NSObjectC", "Date"]
 - ["So8NSObjectC", "Dictionary"]
@@ -170,6 +167,7 @@ depends-member:
 - !private ["So8NSObjectC", "RMImage"]
 - ["So8NSObjectC", "String"]
 - ["So8NSObjectC", "UIImage"]
+- ["So8NSObjectC", ""]
 - ["So8NSObjectC", "add"]
 - ["So8NSObjectC", "chapter"]
 - ["So8NSObjectC", "events"]
@@ -181,10 +179,10 @@ depends-member:
 - !private ["So8NSObjectC", "replacingOccurrences"]
 - ["So8NSObjectC", "setProperty"]
 - !private ["So8NSObjectC", "startDate"]
-- ["So8NSObjectC", ""]
 - ["So16NSObjectProtocolP", "Date"]
 - ["So16NSObjectProtocolP", "FratEvent"]
 - !private ["So16NSObjectProtocolP", "RMImage"]
+- ["So16NSObjectProtocolP", ""]
 - !private ["So16NSObjectProtocolP", "chapter"]
 - !private ["So16NSObjectProtocolP", "events"]
 - !private ["So16NSObjectProtocolP", "init"]
@@ -193,10 +191,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "properties"]
 - !private ["So16NSObjectProtocolP", "replacingOccurrences"]
 - !private ["So16NSObjectProtocolP", "startDate"]
-- ["So16NSObjectProtocolP", ""]
-- !private ["So14NSSecureCodingP", "init"]
 - !private ["So14NSSecureCodingP", "replacingOccurrences"]
-- !private ["So8NSStringC", "init"]
 - !private ["So8NSStringC", "replacingOccurrences"]
 - !private ["6RushMe7RMImageV", "NoImage"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
@@ -215,8 +210,6 @@ depends-member:
 - !private ["s16TextOutputStreamP", "replacingOccurrences"]
 - !private ["s20TextOutputStreamableP", "init"]
 - !private ["s20TextOutputStreamableP", "replacingOccurrences"]
-- !private ["s23_BidirectionalIndexableP", "init"]
-- !private ["s23_BidirectionalIndexableP", "replacingOccurrences"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "replacingOccurrences"]
@@ -228,17 +221,11 @@ depends-member:
 - !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "replacingOccurrences"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "replacingOccurrences"]
-- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "replacingOccurrences"]
-- ["s10_IndexableP", "init"]
-- !private ["s10_IndexableP", "replacingOccurrences"]
-- !private ["s10_IndexableP", "subscript"]
-- ["s14_IndexableBaseP", "init"]
-- !private ["s14_IndexableBaseP", "replacingOccurrences"]
-- !private ["s14_IndexableBaseP", "subscript"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Date"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "chapter"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "events"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
@@ -247,13 +234,10 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "properties"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "replacingOccurrences"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "replacingOccurrences"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
-- !private ["s26_RangeReplaceableIndexableP", "init"]
-- !private ["s26_RangeReplaceableIndexableP", "replacingOccurrences"]
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "replacingOccurrences"]
 depends-nominal:
@@ -297,7 +281,6 @@ depends-nominal:
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
-- !private "s23_BidirectionalIndexableP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
@@ -305,11 +288,8 @@ depends-nominal:
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
-- "s10_IndexableP"
-- "s14_IndexableBaseP"
 - "10Foundation27_KeyValueCodingAndObservingP"
 - "s21_ObjectiveCBridgeableP"
-- !private "s26_RangeReplaceableIndexableP"
 - !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
@@ -338,4 +318,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-interface-hash: "7ddec18efd7f690911e174c498277cab"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "222e211fbee8cda3c15649bd1a3c99d4"

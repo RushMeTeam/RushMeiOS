@@ -8,41 +8,58 @@
 
 import Foundation
 
+
+class RMCachedImage {
+  static var images = Dictionary<String, UIImage>() {
+    didSet {
+      
+    }
+  }
+}
 extension UIImageView {
   func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
-    layer.drawsAsynchronously = true
-    image = nil
-    DispatchQueue.global(qos: .userInteractive).async {
-      let image = pullImage(fromSource: RMurl(fromString: sourceString), fallBackToNetwork: true)
+    func setAsync(image newImage : UIImage) {
+      _ = RMCachedImage.images[sourceString] == nil ? {
+                    RMCachedImage.images[sourceString] = newImage
+        } : nil
       DispatchQueue.main.async {
-        UIView.transition(with: self, duration: 0.15, options: .transitionCrossDissolve, animations: {
-          self.image = image
-        }, completion: nil)
+        self.image = newImage
+      }
+    }
+    DispatchQueue.global(qos: .userInteractive).async {
+      if let newImage = RMCachedImage.images[sourceString] {
+        DispatchQueue.main.async {
+          self.image = newImage
+        }
+      }
+      else if let image = readImageFromDisk(at: RMurl(fromString: sourceString)) {
+        setAsync(image: image)
+      }
+      else {
+        DispatchQueue.main.async {
+          self.image = nil
+        }
+        URLSession.shared.dataTask(with: RMurl(fromString : sourceString).networkPath) {
+          (data, response, _) in
+          DispatchQueue.main.async {
+            if self.image == nil {
+              if data != nil, let newImage = UIImage(data: data!) {
+                setAsync(image: newImage)
+              }
+            }
+          }
+          }.resume()
       }
     }
   }
 }
 
 
-func pullImage(fromSource sourceURL : RMurl, quality : Quality = Campus.downloadedImageQuality, fallBackToNetwork : Bool = false) -> UIImage? {
+func readImageFromDisk(at sourceURL : RMurl, with : Quality = Campus.downloadedImageQuality) -> UIImage? {
   if let imageData = try? Data.init(contentsOf: sourceURL.localPath),
     let image = UIImage.init(data: imageData){
     return image
   }
-  else if !fallBackToNetwork {
-    return nil
-  }
-  // Try to retreive the image-- upon fail return nil
-  if let data = try? Data.init(contentsOf: sourceURL.networkPath) {
-    // Try to downcase the retreived data to an image
-    if let image = UIImage(data: data) {
-      DispatchQueue.global(qos: .background).async {
-        image.storeOnDisk(at: sourceURL.localPath)
-      }
-      return image
-    }
-  }
-  // May be nil!
   return nil
 }
 

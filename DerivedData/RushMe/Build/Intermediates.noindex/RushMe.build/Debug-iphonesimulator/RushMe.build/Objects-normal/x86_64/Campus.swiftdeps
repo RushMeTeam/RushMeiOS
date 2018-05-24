@@ -5,7 +5,6 @@ provides-top-level:
 - "urlSuffix"
 - "urlSuffixes"
 - "RMurl"
-- "pullImage"
 provides-nominal:
 - "6RushMe7QualityO"
 - "6RushMe6CampusC"
@@ -17,11 +16,9 @@ provides-member:
 - ["6RushMe6CampusC0C5ErrorO", ""]
 - ["6RushMe10FraternityC", ""]
 - ["6RushMe5RMurlV", ""]
-- ["So7UIImageC", ""]
 - ["6RushMe6CampusC", "toggleFavorite"]
 - ["6RushMe10FraternityC", "init"]
 - ["6RushMe10FraternityC", "register"]
-- ["So7UIImageC", "storeOnDisk"]
 provides-dynamic-lookup:
 - "addFavorite"
 - "allEvents"
@@ -45,7 +42,6 @@ provides-dynamic-lookup:
 - "removeFavorite"
 - "saveFavorites"
 - "shared"
-- "storeOnDisk"
 - "toggleFavorite"
 depends-top-level:
 - !private "!"
@@ -66,13 +62,11 @@ depends-top-level:
 - "Campus"
 - "CastingPrecedence"
 - !private "ComparisonResult"
-- !private "Data"
 - "Date"
 - "Dictionary"
 - !private "DispatchQueue"
 - "Error"
 - !private "ExtendedGraphemeClusterType"
-- !private "FileManager"
 - "Float"
 - "FratEvent"
 - "Fraternity"
@@ -94,12 +88,9 @@ depends-top-level:
 - "Set"
 - "String"
 - !private "StringLiteralType"
-- "UIImage"
-- !private "UIImagePNGRepresentation"
 - "URL"
 - !private "UnicodeScalarType"
 - !private "print"
-- "pullImage"
 - "urlSuffix"
 - "urlSuffixes"
 - !private "||"
@@ -127,7 +118,6 @@ depends-member:
 - !private ["s23BidirectionalCollectionP", "split"]
 - !private ["s23BidirectionalCollectionP", "startDate"]
 - !private ["s23BidirectionalCollectionP", "subscript"]
-- !private ["s23BidirectionalCollectionP", "write"]
 - !private ["s19BinaryFloatingPointP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "Array"]
@@ -137,7 +127,6 @@ depends-member:
 - !private ["s7CVarArgP", "Date"]
 - ["s7CVarArgP", "Dictionary"]
 - !private ["s7CVarArgP", "DispatchQueue"]
-- !private ["s7CVarArgP", "FileManager"]
 - !private ["s7CVarArgP", "Float"]
 - ["s7CVarArgP", "FratEvent"]
 - ["s7CVarArgP", "Fraternity"]
@@ -152,7 +141,6 @@ depends-member:
 - !private ["s7CVarArgP", "SQLHandler"]
 - ["s7CVarArgP", "Set"]
 - ["s7CVarArgP", "String"]
-- !private ["s7CVarArgP", "UIImagePNGRepresentation"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "add"]
@@ -164,9 +152,7 @@ depends-member:
 - !private ["s7CVarArgP", "considerEventsBeforeToday"]
 - !private ["s7CVarArgP", "contains"]
 - !private ["s7CVarArgP", "count"]
-- !private ["s7CVarArgP", "createDirectory"]
 - !private ["s7CVarArgP", "dayKey"]
-- !private ["s7CVarArgP", "default"]
 - !private ["s7CVarArgP", "downloadedImageQuality"]
 - !private ["s7CVarArgP", "dropLast"]
 - !private ["s7CVarArgP", "events"]
@@ -176,7 +162,6 @@ depends-member:
 - !private ["s7CVarArgP", "favoritedEventsByDay_"]
 - !private ["s7CVarArgP", "favoritedEvents_"]
 - !private ["s7CVarArgP", "favoritedFrats"]
-- !private ["s7CVarArgP", "fileExists"]
 - !private ["s7CVarArgP", "filter"]
 - !private ["s7CVarArgP", "firstEvent_"]
 - !private ["s7CVarArgP", "firstFavoritedEvent_"]
@@ -211,7 +196,6 @@ depends-member:
 - !private ["s7CVarArgP", "sorted"]
 - !private ["s7CVarArgP", "split"]
 - !private ["s7CVarArgP", "startDate"]
-- !private ["s7CVarArgP", "storeOnDisk"]
 - !private ["s7CVarArgP", "subscript"]
 - !private ["s7CVarArgP", "sync"]
 - !private ["s7CVarArgP", "unarchiveObject"]
@@ -303,7 +287,6 @@ depends-member:
 - !private ["s10CollectionP", "startDate"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10CollectionP", "values"]
-- !private ["s10CollectionP", "write"]
 - !private ["s10ComparableP", "compare"]
 - !private ["s10ComparableP", "dropLast"]
 - !private ["s10ComparableP", "init"]
@@ -316,7 +299,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "Date"]
 - ["s28CustomDebugStringConvertibleP", "Dictionary"]
 - !private ["s28CustomDebugStringConvertibleP", "DispatchQueue"]
-- !private ["s28CustomDebugStringConvertibleP", "FileManager"]
 - !private ["s28CustomDebugStringConvertibleP", "Float"]
 - ["s28CustomDebugStringConvertibleP", "FratEvent"]
 - ["s28CustomDebugStringConvertibleP", "Fraternity"]
@@ -331,7 +313,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "SQLHandler"]
 - ["s28CustomDebugStringConvertibleP", "Set"]
 - ["s28CustomDebugStringConvertibleP", "String"]
-- !private ["s28CustomDebugStringConvertibleP", "UIImagePNGRepresentation"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "absoluteString"]
 - !private ["s28CustomDebugStringConvertibleP", "add"]
@@ -345,9 +326,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "considerEventsBeforeToday"]
 - !private ["s28CustomDebugStringConvertibleP", "contains"]
 - !private ["s28CustomDebugStringConvertibleP", "count"]
-- !private ["s28CustomDebugStringConvertibleP", "createDirectory"]
 - !private ["s28CustomDebugStringConvertibleP", "dayKey"]
-- !private ["s28CustomDebugStringConvertibleP", "default"]
 - !private ["s28CustomDebugStringConvertibleP", "downloadedImageQuality"]
 - !private ["s28CustomDebugStringConvertibleP", "dropLast"]
 - !private ["s28CustomDebugStringConvertibleP", "events"]
@@ -357,7 +336,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "favoritedEventsByDay_"]
 - !private ["s28CustomDebugStringConvertibleP", "favoritedEvents_"]
 - !private ["s28CustomDebugStringConvertibleP", "favoritedFrats"]
-- !private ["s28CustomDebugStringConvertibleP", "fileExists"]
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "firstEvent_"]
 - !private ["s28CustomDebugStringConvertibleP", "firstFavoritedEvent_"]
@@ -393,12 +371,10 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "sorted"]
 - !private ["s28CustomDebugStringConvertibleP", "split"]
 - !private ["s28CustomDebugStringConvertibleP", "startDate"]
-- !private ["s28CustomDebugStringConvertibleP", "storeOnDisk"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["s28CustomDebugStringConvertibleP", "sync"]
 - !private ["s28CustomDebugStringConvertibleP", "unarchiveObject"]
 - !private ["s28CustomDebugStringConvertibleP", "values"]
-- !private ["s28CustomDebugStringConvertibleP", "write"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "absoluteString"]
 - !private ["s29CustomPlaygroundQuickLookableP", "appendingPathComponent"]
@@ -426,7 +402,6 @@ depends-member:
 - !private ["s17CustomReflectableP", "startDate"]
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s17CustomReflectableP", "values"]
-- !private ["s17CustomReflectableP", "write"]
 - !private ["s23CustomStringConvertibleP", "Array"]
 - ["s23CustomStringConvertibleP", "Campus"]
 - !private ["s23CustomStringConvertibleP", "CampusError"]
@@ -434,7 +409,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "Date"]
 - ["s23CustomStringConvertibleP", "Dictionary"]
 - !private ["s23CustomStringConvertibleP", "DispatchQueue"]
-- !private ["s23CustomStringConvertibleP", "FileManager"]
 - !private ["s23CustomStringConvertibleP", "Float"]
 - ["s23CustomStringConvertibleP", "FratEvent"]
 - ["s23CustomStringConvertibleP", "Fraternity"]
@@ -449,7 +423,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "SQLHandler"]
 - ["s23CustomStringConvertibleP", "Set"]
 - ["s23CustomStringConvertibleP", "String"]
-- !private ["s23CustomStringConvertibleP", "UIImagePNGRepresentation"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "absoluteString"]
@@ -464,9 +437,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "considerEventsBeforeToday"]
 - !private ["s23CustomStringConvertibleP", "contains"]
 - !private ["s23CustomStringConvertibleP", "count"]
-- !private ["s23CustomStringConvertibleP", "createDirectory"]
 - !private ["s23CustomStringConvertibleP", "dayKey"]
-- !private ["s23CustomStringConvertibleP", "default"]
 - !private ["s23CustomStringConvertibleP", "downloadedImageQuality"]
 - !private ["s23CustomStringConvertibleP", "dropLast"]
 - !private ["s23CustomStringConvertibleP", "events"]
@@ -476,7 +447,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "favoritedEventsByDay_"]
 - !private ["s23CustomStringConvertibleP", "favoritedEvents_"]
 - !private ["s23CustomStringConvertibleP", "favoritedFrats"]
-- !private ["s23CustomStringConvertibleP", "fileExists"]
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "firstEvent_"]
 - !private ["s23CustomStringConvertibleP", "firstFavoritedEvent_"]
@@ -512,14 +482,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "sorted"]
 - !private ["s23CustomStringConvertibleP", "split"]
 - !private ["s23CustomStringConvertibleP", "startDate"]
-- !private ["s23CustomStringConvertibleP", "storeOnDisk"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "sync"]
 - !private ["s23CustomStringConvertibleP", "unarchiveObject"]
 - !private ["s23CustomStringConvertibleP", "values"]
-- !private ["s23CustomStringConvertibleP", "write"]
-- !private ["10Foundation4DataV", "init"]
-- !private ["10Foundation4DataV", "write"]
 - !private ["10Foundation4DateV", "compare"]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "absoluteString"]
@@ -542,7 +508,6 @@ depends-member:
 - !private ["s9DecodableP", "split"]
 - !private ["s9DecodableP", "subscript"]
 - !private ["s9DecodableP", "values"]
-- !private ["s9DecodableP", "write"]
 - !private ["s10DictionaryV", "count"]
 - ["s10DictionaryV", "init"]
 - !private ["s10DictionaryV", "isEmpty"]
@@ -577,7 +542,6 @@ depends-member:
 - !private ["s9EncodableP", "split"]
 - !private ["s9EncodableP", "subscript"]
 - !private ["s9EncodableP", "values"]
-- !private ["s9EncodableP", "write"]
 - !private ["s9EquatableP", "Array"]
 - ["s9EquatableP", "Campus"]
 - !private ["s9EquatableP", "CampusError"]
@@ -585,7 +549,6 @@ depends-member:
 - !private ["s9EquatableP", "Date"]
 - ["s9EquatableP", "Dictionary"]
 - !private ["s9EquatableP", "DispatchQueue"]
-- !private ["s9EquatableP", "FileManager"]
 - !private ["s9EquatableP", "Float"]
 - ["s9EquatableP", "FratEvent"]
 - ["s9EquatableP", "Fraternity"]
@@ -606,7 +569,6 @@ depends-member:
 - !private ["s9EquatableP", "SQLHandler"]
 - ["s9EquatableP", "Set"]
 - ["s9EquatableP", "String"]
-- !private ["s9EquatableP", "UIImagePNGRepresentation"]
 - ["s9EquatableP", ""]
 - ["s9EquatableP", "_Default_RawValue"]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
@@ -623,7 +585,6 @@ depends-member:
 - !private ["s9EquatableP", "considerEventsBeforeToday"]
 - !private ["s9EquatableP", "contains"]
 - !private ["s9EquatableP", "count"]
-- !private ["s9EquatableP", "createDirectory"]
 - !private ["s9EquatableP", "dayKey"]
 - !private ["s9EquatableP", "default"]
 - !private ["s9EquatableP", "downloadedImageQuality"]
@@ -635,7 +596,6 @@ depends-member:
 - !private ["s9EquatableP", "favoritedEventsByDay_"]
 - !private ["s9EquatableP", "favoritedEvents_"]
 - !private ["s9EquatableP", "favoritedFrats"]
-- !private ["s9EquatableP", "fileExists"]
 - !private ["s9EquatableP", "filter"]
 - !private ["s9EquatableP", "firstEvent_"]
 - !private ["s9EquatableP", "firstFavoritedEvent_"]
@@ -674,13 +634,11 @@ depends-member:
 - !private ["s9EquatableP", "sorted"]
 - !private ["s9EquatableP", "split"]
 - !private ["s9EquatableP", "startDate"]
-- !private ["s9EquatableP", "storeOnDisk"]
 - !private ["s9EquatableP", "subscript"]
 - !private ["s9EquatableP", "sync"]
 - !private ["s9EquatableP", "unarchiveObject"]
 - !private ["s9EquatableP", "userInitiated"]
 - !private ["s9EquatableP", "values"]
-- !private ["s9EquatableP", "write"]
 - !private ["s5ErrorP", "RuntimeError"]
 - ["s5ErrorP", ""]
 - ["s5ErrorP", "_code"]
@@ -719,9 +677,6 @@ depends-member:
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "dropLast"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "split"]
-- !private ["So11FileManagerC", "createDirectory"]
-- !private ["So11FileManagerC", "default"]
-- !private ["So11FileManagerC", "fileExists"]
 - !private ["Sf", "init"]
 - !private ["s13FloatingPointP", "init"]
 - !private ["6RushMe9FratEventC", "dayKey"]
@@ -747,7 +702,6 @@ depends-member:
 - !private ["s8HashableP", "Date"]
 - ["s8HashableP", "Dictionary"]
 - !private ["s8HashableP", "DispatchQueue"]
-- !private ["s8HashableP", "FileManager"]
 - !private ["s8HashableP", "Float"]
 - ["s8HashableP", "FratEvent"]
 - ["s8HashableP", "Fraternity"]
@@ -768,7 +722,6 @@ depends-member:
 - !private ["s8HashableP", "SQLHandler"]
 - ["s8HashableP", "Set"]
 - ["s8HashableP", "String"]
-- !private ["s8HashableP", "UIImagePNGRepresentation"]
 - ["s8HashableP", ""]
 - ["s8HashableP", "_Default_RawValue"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
@@ -783,7 +736,6 @@ depends-member:
 - !private ["s8HashableP", "compare"]
 - !private ["s8HashableP", "considerEventsBeforeToday"]
 - !private ["s8HashableP", "contains"]
-- !private ["s8HashableP", "createDirectory"]
 - !private ["s8HashableP", "dayKey"]
 - !private ["s8HashableP", "default"]
 - !private ["s8HashableP", "downloadedImageQuality"]
@@ -795,7 +747,6 @@ depends-member:
 - !private ["s8HashableP", "favoritedEventsByDay_"]
 - !private ["s8HashableP", "favoritedEvents_"]
 - !private ["s8HashableP", "favoritedFrats"]
-- !private ["s8HashableP", "fileExists"]
 - !private ["s8HashableP", "filter"]
 - !private ["s8HashableP", "firstEvent_"]
 - !private ["s8HashableP", "firstFavoritedEvent_"]
@@ -831,11 +782,9 @@ depends-member:
 - !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "split"]
 - !private ["s8HashableP", "startDate"]
-- !private ["s8HashableP", "storeOnDisk"]
 - !private ["s8HashableP", "sync"]
 - !private ["s8HashableP", "unarchiveObject"]
 - !private ["s8HashableP", "userInitiated"]
-- !private ["s8HashableP", "write"]
 - !private ["s22LazyCollectionProtocolP", "startDate"]
 - !private ["s20LazySequenceProtocolP", "startDate"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
@@ -855,35 +804,16 @@ depends-member:
 - !private ["s17MutableCollectionP", "sorted"]
 - !private ["s17MutableCollectionP", "startDate"]
 - !private ["s17MutableCollectionP", "subscript"]
-- !private ["s17MutableCollectionP", "write"]
 - !private ["So7NSCoderC", "archiveRootObject"]
 - !private ["So7NSCoderC", "unarchiveObject"]
-- !private ["So8NSCodingP", "FileManager"]
-- !private ["So8NSCodingP", "RMFileManagement"]
-- !private ["So8NSCodingP", "UIImagePNGRepresentation"]
 - !private ["So8NSCodingP", "dropLast"]
-- !private ["So8NSCodingP", "init"]
-- !private ["So8NSCodingP", "print"]
 - !private ["So8NSCodingP", "split"]
-- !private ["So8NSCodingP", "storeOnDisk"]
 - !private ["So9NSCopyingP", "dropLast"]
 - !private ["So9NSCopyingP", "split"]
-- !private ["So21NSItemProviderReadingP", "FileManager"]
-- !private ["So21NSItemProviderReadingP", "RMFileManagement"]
-- !private ["So21NSItemProviderReadingP", "UIImagePNGRepresentation"]
 - !private ["So21NSItemProviderReadingP", "dropLast"]
-- !private ["So21NSItemProviderReadingP", "init"]
-- !private ["So21NSItemProviderReadingP", "print"]
 - !private ["So21NSItemProviderReadingP", "split"]
-- !private ["So21NSItemProviderReadingP", "storeOnDisk"]
-- !private ["So21NSItemProviderWritingP", "FileManager"]
-- !private ["So21NSItemProviderWritingP", "RMFileManagement"]
-- !private ["So21NSItemProviderWritingP", "UIImagePNGRepresentation"]
 - !private ["So21NSItemProviderWritingP", "dropLast"]
-- !private ["So21NSItemProviderWritingP", "init"]
-- !private ["So21NSItemProviderWritingP", "print"]
 - !private ["So21NSItemProviderWritingP", "split"]
-- !private ["So21NSItemProviderWritingP", "storeOnDisk"]
 - !private ["So15NSKeyedArchiverC", "archiveRootObject"]
 - !private ["So17NSKeyedUnarchiverC", "unarchiveObject"]
 - !private ["So16NSMutableCopyingP", "dropLast"]
@@ -897,7 +827,6 @@ depends-member:
 - ["So8NSObjectC", "Dictionary"]
 - !private ["So8NSObjectC", "DispatchQueue"]
 - ["So8NSObjectC", "Error"]
-- !private ["So8NSObjectC", "FileManager"]
 - ["So8NSObjectC", "Float"]
 - ["So8NSObjectC", "FratEvent"]
 - ["So8NSObjectC", "Fraternity"]
@@ -913,8 +842,6 @@ depends-member:
 - !private ["So8NSObjectC", "SQLHandler"]
 - ["So8NSObjectC", "Set"]
 - ["So8NSObjectC", "String"]
-- !private ["So8NSObjectC", "UIImagePNGRepresentation"]
-- ["So8NSObjectC", "URL"]
 - ["So8NSObjectC", ""]
 - ["So8NSObjectC", "add"]
 - ["So8NSObjectC", "addFavorite"]
@@ -922,9 +849,7 @@ depends-member:
 - !private ["So8NSObjectC", "archiveRootObject"]
 - !private ["So8NSObjectC", "async"]
 - ["So8NSObjectC", "considerEventsBeforeToday"]
-- !private ["So8NSObjectC", "createDirectory"]
 - !private ["So8NSObjectC", "dayKey"]
-- !private ["So8NSObjectC", "default"]
 - ["So8NSObjectC", "downloadedImageQuality"]
 - !private ["So8NSObjectC", "dropLast"]
 - !private ["So8NSObjectC", "events"]
@@ -935,7 +860,6 @@ depends-member:
 - ["So8NSObjectC", "favoritedEventsByDay_"]
 - ["So8NSObjectC", "favoritedEvents_"]
 - ["So8NSObjectC", "favoritedFrats"]
-- !private ["So8NSObjectC", "fileExists"]
 - ["So8NSObjectC", "firstEvent"]
 - ["So8NSObjectC", "firstEvent_"]
 - ["So8NSObjectC", "firstFavoritedEvent"]
@@ -967,7 +891,6 @@ depends-member:
 - ["So8NSObjectC", "shared"]
 - !private ["So8NSObjectC", "split"]
 - !private ["So8NSObjectC", "startDate"]
-- ["So8NSObjectC", "storeOnDisk"]
 - !private ["So8NSObjectC", "sync"]
 - ["So8NSObjectC", "toggleFavorite"]
 - !private ["So8NSObjectC", "unarchiveObject"]
@@ -978,7 +901,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "Date"]
 - ["So16NSObjectProtocolP", "Dictionary"]
 - !private ["So16NSObjectProtocolP", "DispatchQueue"]
-- !private ["So16NSObjectProtocolP", "FileManager"]
 - !private ["So16NSObjectProtocolP", "Float"]
 - ["So16NSObjectProtocolP", "FratEvent"]
 - ["So16NSObjectProtocolP", "Fraternity"]
@@ -993,7 +915,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "SQLHandler"]
 - ["So16NSObjectProtocolP", "Set"]
 - ["So16NSObjectProtocolP", "String"]
-- !private ["So16NSObjectProtocolP", "UIImagePNGRepresentation"]
 - ["So16NSObjectProtocolP", ""]
 - !private ["So16NSObjectProtocolP", "add"]
 - !private ["So16NSObjectProtocolP", "addFavorite"]
@@ -1001,9 +922,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "archiveRootObject"]
 - !private ["So16NSObjectProtocolP", "async"]
 - !private ["So16NSObjectProtocolP", "considerEventsBeforeToday"]
-- !private ["So16NSObjectProtocolP", "createDirectory"]
 - !private ["So16NSObjectProtocolP", "dayKey"]
-- !private ["So16NSObjectProtocolP", "default"]
 - !private ["So16NSObjectProtocolP", "downloadedImageQuality"]
 - !private ["So16NSObjectProtocolP", "dropLast"]
 - !private ["So16NSObjectProtocolP", "events"]
@@ -1013,7 +932,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritedEventsByDay_"]
 - !private ["So16NSObjectProtocolP", "favoritedEvents_"]
 - !private ["So16NSObjectProtocolP", "favoritedFrats"]
-- !private ["So16NSObjectProtocolP", "fileExists"]
 - !private ["So16NSObjectProtocolP", "firstEvent_"]
 - !private ["So16NSObjectProtocolP", "firstFavoritedEvent_"]
 - !private ["So16NSObjectProtocolP", "firstLoad"]
@@ -1040,17 +958,10 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "shared"]
 - !private ["So16NSObjectProtocolP", "split"]
 - !private ["So16NSObjectProtocolP", "startDate"]
-- !private ["So16NSObjectProtocolP", "storeOnDisk"]
 - !private ["So16NSObjectProtocolP", "sync"]
 - !private ["So16NSObjectProtocolP", "unarchiveObject"]
-- !private ["So14NSSecureCodingP", "FileManager"]
-- !private ["So14NSSecureCodingP", "RMFileManagement"]
-- !private ["So14NSSecureCodingP", "UIImagePNGRepresentation"]
 - !private ["So14NSSecureCodingP", "dropLast"]
-- !private ["So14NSSecureCodingP", "init"]
-- !private ["So14NSSecureCodingP", "print"]
 - !private ["So14NSSecureCodingP", "split"]
-- !private ["So14NSSecureCodingP", "storeOnDisk"]
 - !private ["So8NSStringC", "dropLast"]
 - !private ["So8NSStringC", "split"]
 - !private ["s7NumericP", "init"]
@@ -1108,7 +1019,6 @@ depends-member:
 - !private ["s22RandomAccessCollectionP", "sorted"]
 - !private ["s22RandomAccessCollectionP", "startDate"]
 - !private ["s22RandomAccessCollectionP", "subscript"]
-- !private ["s22RandomAccessCollectionP", "write"]
 - !private ["s26RangeReplaceableCollectionP", "append"]
 - !private ["s26RangeReplaceableCollectionP", "count"]
 - !private ["s26RangeReplaceableCollectionP", "dropLast"]
@@ -1121,7 +1031,6 @@ depends-member:
 - !private ["s26RangeReplaceableCollectionP", "split"]
 - !private ["s26RangeReplaceableCollectionP", "startDate"]
 - !private ["s26RangeReplaceableCollectionP", "subscript"]
-- !private ["s26RangeReplaceableCollectionP", "write"]
 - !private ["s16RawRepresentableP", "FraternityFavorited"]
 - !private ["s16RawRepresentableP", "FraternityUnfavorited"]
 - ["s16RawRepresentableP", "High"]
@@ -1139,7 +1048,6 @@ depends-member:
 - !private ["10Foundation20ReferenceConvertibleP", "compare"]
 - !private ["10Foundation20ReferenceConvertibleP", "init"]
 - !private ["10Foundation20ReferenceConvertibleP", "path"]
-- !private ["10Foundation20ReferenceConvertibleP", "write"]
 - !private ["6RushMe10SQLHandlerC", "inform"]
 - !private ["6RushMe10SQLHandlerC", "select"]
 - !private ["s8SequenceP", "append"]
@@ -1159,7 +1067,6 @@ depends-member:
 - !private ["s8SequenceP", "startDate"]
 - !private ["s8SequenceP", "subscript"]
 - !private ["s8SequenceP", "values"]
-- !private ["s8SequenceP", "write"]
 - !private ["s3SetV", "contains"]
 - !private ["s3SetV", "filter"]
 - ["s3SetV", "init"]
@@ -1189,25 +1096,6 @@ depends-member:
 - !private ["s20TextOutputStreamableP", "dropLast"]
 - !private ["s20TextOutputStreamableP", "init"]
 - !private ["s20TextOutputStreamableP", "split"]
-- !private ["So29UIAccessibilityIdentificationP", "FileManager"]
-- !private ["So29UIAccessibilityIdentificationP", "RMFileManagement"]
-- !private ["So29UIAccessibilityIdentificationP", "UIImagePNGRepresentation"]
-- !private ["So29UIAccessibilityIdentificationP", "init"]
-- !private ["So29UIAccessibilityIdentificationP", "print"]
-- !private ["So29UIAccessibilityIdentificationP", "storeOnDisk"]
-- !private ["So7UIImageC", "FileManager"]
-- !private ["So7UIImageC", "RMFileManagement"]
-- !private ["So7UIImageC", "UIImagePNGRepresentation"]
-- ["So7UIImageC", "URL"]
-- !private ["So7UIImageC", "init"]
-- !private ["So7UIImageC", "print"]
-- ["So7UIImageC", "storeOnDisk"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "FileManager"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "RMFileManagement"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "UIImagePNGRepresentation"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "init"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "print"]
-- !private ["So39UIItemProviderPresentationSizeProvidingP", "storeOnDisk"]
 - !private ["10Foundation3URLV", "absoluteString"]
 - !private ["10Foundation3URLV", "appendingPathComponent"]
 - !private ["10Foundation3URLV", "init"]
@@ -1254,12 +1142,6 @@ depends-member:
 - !private ["s34_ExpressibleByFileReferenceLiteralP", "appendingPathComponent"]
 - !private ["s34_ExpressibleByFileReferenceLiteralP", "init"]
 - !private ["s34_ExpressibleByFileReferenceLiteralP", "path"]
-- !private ["s26_ExpressibleByImageLiteralP", "FileManager"]
-- !private ["s26_ExpressibleByImageLiteralP", "RMFileManagement"]
-- !private ["s26_ExpressibleByImageLiteralP", "UIImagePNGRepresentation"]
-- !private ["s26_ExpressibleByImageLiteralP", "init"]
-- !private ["s26_ExpressibleByImageLiteralP", "print"]
-- !private ["s26_ExpressibleByImageLiteralP", "storeOnDisk"]
 - !private ["s33_ExpressibleByStringInterpolationP", "dropLast"]
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "split"]
@@ -1272,7 +1154,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Date"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Dictionary"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "DispatchQueue"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "FileManager"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Float"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Fraternity"]
@@ -1287,7 +1168,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "SQLHandler"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "Set"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "String"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIImagePNGRepresentation"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "add"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addFavorite"]
@@ -1295,9 +1175,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "archiveRootObject"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "considerEventsBeforeToday"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "createDirectory"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dayKey"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "downloadedImageQuality"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dropLast"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "events"]
@@ -1307,7 +1185,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedEventsByDay_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedEvents_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "fileExists"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstEvent_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstFavoritedEvent_"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstLoad"]
@@ -1334,7 +1211,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "split"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "storeOnDisk"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "sync"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "unarchiveObject"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
@@ -1358,7 +1234,6 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "split"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "values"]
-- !private ["s21_ObjectiveCBridgeableP", "write"]
 - !private ["s16_SwiftStringViewP", "dropLast"]
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "split"]
@@ -1379,7 +1254,6 @@ depends-nominal:
 - !private "s29CustomPlaygroundQuickLookableP"
 - "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
-- !private "10Foundation4DataV"
 - !private "10Foundation4DateV"
 - "s9DecodableP"
 - "s10DictionaryV"
@@ -1396,7 +1270,6 @@ depends-nominal:
 - !private "s27ExpressibleByIntegerLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
-- !private "So11FileManagerC"
 - !private "Sf"
 - !private "s13FloatingPointP"
 - "6RushMe9FratEventC"
@@ -1448,9 +1321,6 @@ depends-nominal:
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
-- !private "So29UIAccessibilityIdentificationP"
-- "So7UIImageC"
-- !private "So39UIItemProviderPresentationSizeProvidingP"
 - !private "10Foundation3URLV"
 - !private "s14_ArrayProtocolP"
 - !private "s15_CVarArgAlignedP"
@@ -1465,7 +1335,6 @@ depends-nominal:
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s34_ExpressibleByFileReferenceLiteralP"
-- !private "s26_ExpressibleByImageLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
 - "10Foundation27_KeyValueCodingAndObservingP"
@@ -1510,4 +1379,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "7ed95a5181f9bf2eee51c023186da895"
+interface-hash: "30df5dc9436d9ad4452e95a62663b703"
