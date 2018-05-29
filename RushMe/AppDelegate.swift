@@ -26,18 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
-    Campus.shared.pullFratsFromSQLDatabase()
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.layer.masksToBounds = true
     window!.layer.cornerRadius = 5
-    if #available(iOS 11, *) {
-      //window!.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-    }
     
-    let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+    // Override point for customization after application launch.
+    let mainStoryboard = UIStoryboard.main
     let splitVC = mainStoryboard.instantiateViewController(withIdentifier: "splitVC")
-    self.scrollPageVC = splitVC.childViewControllers.first?.childViewControllers.first as! ScrollPageViewController
+    self.scrollPageVC = splitVC.childViewControllers.first!.childViewControllers.first as! ScrollPageViewController
     let swRevealVC = mainStoryboard.instantiateViewController(withIdentifier: "swRevealVC") as! SWRevealViewController
     let drawerMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
     swRevealVC.delegate = scrollPageVC
@@ -47,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     else {
      swRevealVC.frontViewShadowOpacity = 0.5
       swRevealVC.frontViewShadowRadius = 8
-     
     }
     swRevealVC.rearViewRevealOverdraw = 0
     swRevealVC.rearViewRevealDisplacement = 0
@@ -60,27 +55,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     _ = scrollPageVC.setupScrollView
     
     drawerMenuVC.scrollView.delegate = scrollPageVC
+    
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UINavigationBar.appearance().tintColor]
     self.window!.rootViewController = swRevealVC
     self.window!.makeKeyAndVisible()
-    //self.window!.backgroundColor = RMColor.AppColor
+    Campus.shared.pullFratsFromSQLDatabase()
+    DispatchQueue.global(qos: .userInitiated).async {
+      if RushMe.privacy.preferencesNeedUpdating {
+        DispatchQueue.main.async {
+          swRevealVC.present(UIStoryboard(name: "FirstEntry", bundle: nil).instantiateViewController(withIdentifier: "FirstVC") , animated: true, completion: {
+            RushMe.privacy.lastPolicyInteractionDate = Date()
+          })
+        }
+      }
+    }
+    
+   
     return true
   }
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    let task = application.beginBackgroundTask(withName: "Upload User Info") { 
-      print("Doing background task")
-    } 
-    SQLHandler.inform(action: .AppWillEnterBackground)
-    application.endBackgroundTask(task)
+//    let task = application.beginBackgroundTask(withName: "Upload User Info") { 
+//      print("Doing background task")
+//    } 
+//    SQLHandler.inform(action: .AppWillEnterBackground)
+//    application.endBackgroundTask(task)
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
+    SQLHandler.inform(action: .AppWillEnterBackground)
+
   }
   
   func applicationWillEnterForeground(_ application: UIApplication) {

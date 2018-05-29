@@ -30,7 +30,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     }
   }
   func loadImage() {
-    previewImageView.setImageByURL(fromSource: fraternity!.getProperty(named: RMDatabaseKey.ProfileImageKey) as! String)
+    previewImageView.setImageByURL(fromSource: fraternity!.getProperty(named: RushMe.keys.frat.profileImage) as! String)
   }
  
   
@@ -49,7 +49,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     // Initialization code
     //contentView.layer.masksToBounds = true
     
-    //iView.layer.cornerRadius = RMImage.CornerRadius
+    //iView.layer.cornerRadius = RushMe.images.CornerRadius
     
     
     
@@ -92,7 +92,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   }
   var isAccentuated : Bool = false {
     didSet {
-      favoriteButton.setImage(isAccentuated ? RMImage.FavoritesImageFilled : RMImage.FavoritesImageUnfilled, for: .normal)
+      favoriteButton.setImage(isAccentuated ? RushMe.images.filledHeart : RushMe.images.unfilledHeart, for: .normal)
       //imageBorderColor =  UIColor.white.withAlphaComponent(0.2) //isAccentuated ? RMColor.AppColor.withAlphaComponent(0.7) :
     }
   }

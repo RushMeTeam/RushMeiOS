@@ -17,30 +17,30 @@ class Fraternity : NSObject {
   let chapter : String
   // The previewImage is the image seen when the user scrolls through a list of fraternities
   // e.g. a picture of the house, possibly the profile image
-  var previewImage : UIImage?
+  var profileImagePath : String
   // All the Fraternity's associated rush events are stored in events
   var events = [Date : FratEvent]()
   // All data in the Fraternity object is stored again in properties
   private var properties : Dictionary<String, Any>
+  
   init(name : String,
        chapter : String,
-       previewImage: UIImage?,
+       previewImage: UIImage? = nil,
        properties : Dictionary<String, Any>) {
     
     self.name = name
     self.chapter = chapter
     self.properties = properties
-    if let previewImg = previewImage {
-      self.previewImage = previewImg
-    }
-    else {
-      if let profImage = self.properties["profileImage"] as? UIImage {
-        self.previewImage = profImage
-      }
-      else {
-        self.previewImage = RMImage.NoImage
-      }
-    }
+    self.profileImagePath = properties[RushMe.keys.frat.profileImage] as! String
+//    if let previewImg = previewImage {
+////      self.profileImagePath = previewImg
+//    }
+//    else {
+//      if let profImage = self.properties["profileImage"] as? String {
+//        self.profileImagePath = profImage
+//      }
+//      
+//    }
     if self.properties["profileImage"] != nil {
       self.properties["profileImage"] = previewImage
     }
@@ -49,7 +49,6 @@ class Fraternity : NSObject {
   func getProperty(named : String) -> Any? {
     if (named == "name"){ return self.name }
     if (named == "chapter"){ return self.chapter }
-    if (named == "previewImage"){ return self.previewImage }
     return properties[named]
   }
   func setProperty(named : String, to : Any) {

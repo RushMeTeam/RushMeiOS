@@ -20,7 +20,7 @@ class RMGeocoder {
   }()
   static func geocode(selectedFraternities loadList : [String]) {
     if let fratName = loadList.last, let frat = Campus.shared.fraternitiesDict[fratName] {
-      if let address = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String, 
+      if let address = frat.getProperty(named: RushMe.keys.frat.address) as? String, 
         observableLocations.value[fratName] == nil {
         if let location = locations[fratName]{
           observableLocations.value[fratName] = location

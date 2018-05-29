@@ -93,8 +93,7 @@ class MapViewController: UIViewController,
       let annotation = MKPointAnnotation()
       annotation.coordinate = newValue[fratName]!.coordinate
       annotation.title = frat.name
-      annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
-      frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
+      annotation.subtitle = frat.getProperty(named: RushMe.keys.frat.address) as? String
       mapView.addAnnotation(annotation)
       mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
       

@@ -199,9 +199,9 @@ class Campus: NSObject {
       DispatchQueue.global(qos: .userInitiated).async {
         var dictArray = [Dictionary<String, Any>]()
         var eventArray = [Dictionary<String, Any>]()
-        if let fratArray = SQLHandler.select(fromTable: RMDatabaseKey.FraternityInfoRelation),
+        if let fratArray = SQLHandler.selectAll(fromTable: RushMe.keys.database.fraternities),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
-          let eventArr = SQLHandler.select(fromTable: RMDatabaseKey.EventInfoRelation) {
+          let eventArr = SQLHandler.selectAll(fromTable: RushMe.keys.database.events) {
           dictArray = fratArray
           eventArray = eventArr
           self.lastDictArray = dictArray
@@ -380,8 +380,8 @@ extension Campus {
 
 extension Fraternity {
   convenience init?(fromDict dict : Dictionary<String, Any>, loadImages : Bool = true) {
-    if let name = dict[RMDatabaseKey.NameKey] as? String,
-      let chapter = dict[RMDatabaseKey.ChapterKey] as? String {
+    if let name = dict[RushMe.keys.frat.name] as? String,
+      let chapter = dict[RushMe.keys.frat.chapter] as? String {
 //      var previewImage : UIImage?
 //      var profileImage : UIImage?
 //      if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
@@ -462,7 +462,7 @@ struct RMurl {
     }
   }
   var networkPath : URL {
-    return URL(string: RMNetwork.S3.absoluteString + fixedPath)!
+    return URL(string: RushMe.network.S3.absoluteString + fixedPath)!
   }
   
 }

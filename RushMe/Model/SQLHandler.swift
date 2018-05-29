@@ -41,11 +41,11 @@ class SQLHandler  {
   }
   // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
  
-  static func select(fromTable : String ) -> [Dictionary<String, Any>]? {
+  static func selectAll(fromTable : String ) -> [Dictionary<String, Any>]? {
     let tableString = "?table=\(fromTable)"
-    if let url = URL(string: RMNetwork.web.absoluteString + tableString), 
+    if let url = URL(string: RushMe.network.web.absoluteString + tableString), 
       let response = try? Data.init(contentsOf: url) {
-      return try! JSONSerialization.jsonObject(with: response, options: .allowFragments) as? [Dictionary<String, Any>] 
+      return (try? JSONSerialization.jsonObject(with: response, options: .allowFragments)) as? [Dictionary<String, Any>] 
     }
     else {
      print("Failed Select") 
@@ -54,7 +54,7 @@ class SQLHandler  {
     return nil
   }
   static private(set) var isPushing = false
-  private static func pushAll() {
+  private static func pushAllActions() {
     //coordinator.connect()
     guard !isPushing else {
      return
@@ -68,28 +68,31 @@ class SQLHandler  {
     self.isPushing = false
   }
   private static func push(action : [String : Any]) {
-    DispatchQueue.global(qos: .background).async {
-      var request = URLRequest.init(url: RMNetwork.web)
-      request.httpMethod = "POST"
-      var actionAsString = "&"
-      for category in action {
-        actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+    if RushMe.privacy.policyAccepted {
+      DispatchQueue.global(qos: .background).async {
+        var request = URLRequest.init(url: RushMe.network.web)
+        request.httpMethod = "POST"
+        var actionAsString = "&"
+        for category in action {
+          actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+        }
+        request.timeoutInterval = 10
+        request.httpBody = actionAsString.data(using: .utf8)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+          guard let data = data, error == nil else {
+            print("Push Error:", error!) 
+            return
+          }
+          if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("Push Error:\n\tStatus Code is not 200! (httpStatusCode \(httpStatus.statusCode))") 
+            //SQLHandler.pastActionsFromFile.append(action)
+          }
+          if let responseString = String.init(data: data, encoding: .utf8), responseString.count > 0 {
+            //          print("Data Sent:", String.init(data: request.httpBody!, encoding: .utf8)!)
+            print("Server Reponse:", responseString)
+          }
+          }.resume()
       }
-      request.httpBody = actionAsString.data(using: .utf8)
-      URLSession.shared.dataTask(with: request) { (data, response, error) in
-        guard let data = data, error == nil else {
-          print("Push Error:", error!) 
-          return
-        }
-        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-          print("Push Error:\n\tStatus Code is not 200! (httpStatusCode \(httpStatus.statusCode))") 
-          //SQLHandler.pastActionsFromFile.append(action)
-        }
-        if let responseString = String.init(data: data, encoding: .utf8), responseString.count > 0 {
-//          print("Data Sent:", String.init(data: request.httpBody!, encoding: .utf8)!)
-          print("Server Reponse:", responseString)
-        }
-        }.resume()
     }
   }
   static func inform(action : RMAction, options : String? = nil, additionalInfo : [String : Any]? = nil) {
@@ -100,7 +103,7 @@ class SQLHandler  {
         report["popt"] = String(subseqOptions)
       }
       if action == .AppEnteredForeground || action == .AppWillEnterBackground {
-        pushAll() 
+        pushAllActions() 
       }
       else {
         push(action: report)

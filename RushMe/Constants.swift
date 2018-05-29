@@ -11,16 +11,10 @@ import UIKit
 import DeviceKit
 
 let DEBUG = false
+fileprivate let defaults = UserDefaults.standard
 
 // Images used often by the app
-struct RMImage {
-  static let NoImage = UIImage(named: "defaultImage")!
-  static let IconImage = UIImage(named: "appIcon")!
-  static let LogoImage = UIImage(named: "RushMeLogoInverted")!
-  static let FavoritesImageUnfilled = UIImage(named: "FavoritesUnfilled")
-  static let FavoritesImageFilled = UIImage(named: "FavoritesIcon")
-  static let CornerRadius : CGFloat = 10
-}
+
 // Filename extensions for photos stored on the server
 struct RMImageQuality {
   static let High = ""
@@ -40,14 +34,7 @@ struct RMAnimation {
   static let ColoringTime = 0.5
 }
 // Networking parameters, used to access the server
-struct RMNetwork {
-  static let userName = "RushMePublic"
-  static let password = "fras@a&etHaS#7eyudrum+Hak?fresax"
-  static let databaseName = "fratinfo"
-  static let userActionsTableName = "sqlrequests"
-  static let web = URL.init(string: "http://ec2-18-188-8-243.us-east-2.compute.amazonaws.com/request.php")!
-  static let S3 = URL.init(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
-}
+
 
 struct RMMessage {
   static let AppName = "RushMe"
@@ -60,9 +47,9 @@ struct RMMessage {
   static let Unfavorite = "Unfavorite"
   static let Sharing = "Here are all the events I'll be going to this rush!"
 }
-struct RMFratPropertyKeys {
- static let fratMapAnnotation = "Annotation"
-}
+//struct RMFratPropertyKeys {
+// static let fratMapAnnotation = "Annotation"
+//}
 
 struct RMDatabaseFormat {
   private static var dateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
@@ -74,38 +61,133 @@ struct RMDatabaseFormat {
     }
   }
   static func date(fromSQLDateTime inputString: String) -> Date? {
-   return self.dateFormatter.date(from: inputString)
+    return self.dateFormatter.date(from: inputString)
   }
 }
 
-struct RMDatabaseKey {
-  static let NameKey = "name"
-  static let ChapterKey = "chapter"
-  static let MemberCountKey = "members"
-  static let DescriptionKey = "description"
-  static let gpaKey = "gpa"
-  static let AddressKey = "address"
-  static let PreviewImageKey = "preview_image"
-  static let ProfileImageKey = "profile_image"
-  static let CoverImageKey = "cover_image"
-  static let CalendarImageKey = "calendar_image"
-  static let FraternityInfoRelation = "house_info"
-  static let EventInfoRelation = "events"
-}
-struct RMUser {
-  static let minPassLength = 6 
-  static let minUsernameLength = 6
-}
+
 // TODO: Make user preferences save (should include display events before today!)
-struct RMUserPreferences {
-  static private var shuffleEnabled_ : Bool? = nil
-  static private var shuffleEnabledDefault = true
-  static var shuffleEnabled : Bool = shuffleEnabledDefault
-  
+struct RushMe {
+  static let dateFormatter : DateFormatter = {
+    let dF = DateFormatter()
+    dF.isLenient = true
+    dF.dateFormat =  "MM/dd/yyyy"
+    dF.formatterBehavior = .default
+    dF.locale = Locale.current
+    return dF
+  }()
+  static let dateTimeFormatter : DateFormatter = {
+    let dTF = DateFormatter()
+    dTF.dateFormat = "MM/dd/yyyy hh:mm"
+    dTF.isLenient = true
+    dTF.locale = Locale.current
+    dTF.formatterBehavior = .default
+    return dTF
+  }()
+  static let defaultSQLDateFormatter : DateFormatter = {
+    let dF = DateFormatter()
+    dF.isLenient = true
+    dF.dateFormat = "yyyy-MM-dd"
+    dF.formatterBehavior = .default
+    dF.locale = Locale.current
+    return dF
+  }()
+  static var shuffleEnabled : Bool {
+    get {
+      return !defaults.bool(forKey: "shuffleEnabled")
+    }
+    set {
+      defaults.set(!newValue, forKey: "shuffleEnabled")
+    }
+  }
+  struct privacy {
+    static var lastPolicyInteractionDate : Date? {
+      get {
+        return defaults.object(forKey: "privacyDate") as? Date
+      }
+      set {
+        defaults.set(Date(), forKey: "privacyDate")
+      }
+    }
+    static var policyAccepted : Bool {
+      get {
+        defaults.set(Date(), forKey: "privacyDate")
+        return !defaults.bool(forKey: "privacyAccepted")
+      }
+      set {
+        defaults.set(!newValue, forKey: "privacyAccepted")
+      }
+    }
+    static var preferencesNeedUpdating : Bool {
+      get {
+        if let lastDate = policyDate {
+          return lastPolicyInteractionDate == nil || lastDate.compare(lastPolicyInteractionDate!) == .orderedDescending
+        }
+        else {
+          return false 
+        }
+      }
+    }
+    private static var privacyRow : Dictionary<String, Any?>?
+    static var policy : String? {
+     return privacyRow?["policy"] as? String ?? getPrivacyStatement()?.0
+    }
+    static var policyDate : Date? {
+     return privacyRow?["publishdate"] as? Date ?? getPrivacyStatement()?.1
+    }
+    private static func getPrivacyStatement() -> (String, Date)? {
+      if let dictionary = SQLHandler.selectAll(fromTable: "privacy")?.first,
+        let policy = dictionary["policy"] as? String,
+        let dateString = dictionary["publishdate"] as? String,
+        let date = RushMe.defaultSQLDateFormatter.date(from: dateString) {
+        privacyRow = dictionary
+        privacyRow!["publishdate"] = date
+        return (policy, date)
+      }
+      return nil
+    }
+    
+    
+  }
+  struct network {
+    static let userName = "RushMePublic"
+    static let password = "fras@a&etHaS#7eyudrum+Hak?fresax"
+    static let databaseName = "fratinfo"
+    static let userActionsTableName = "sqlrequests"
+    static let web = URL(string: "http://ec2-18-188-8-243.us-east-2.compute.amazonaws.com/request.php")!
+    static let S3 = URL(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
+  }
+  struct keys {
+    struct database {
+      static let fraternities = "house_info"
+      static let events = "events"
+    }
+    struct frat {
+      static let name = "name"
+      static let chapter = "chapter"
+      static let memberCount = "members"
+      static let description = "description"
+      static let gpa = "gpa"
+      static let address = "address"
+      static let previewImage = "preview_image"
+      static let profileImage = "profile_image"
+      static let coverImage = "cover_image"
+      static let calendarImage = "calendar_image"
+    }
+  }
+  struct images {
+    static let none = UIImage(named: "defaultImage")!
+    static let icon = UIImage(named: "appIcon")!
+    static let logo = UIImage(named: "RushMeLogoInverted")!
+    static let unfilledHeart = UIImage(named: "FavoritesUnfilled")
+    static let filledHeart = UIImage(named: "FavoritesIcon")
+  }
+  static let cornerRadius : CGFloat = 10
 }
 
+
 struct RMPropertyKeys {
- static let FavoriteFraternities = "FavoriteFrats"
+  static let FavoriteFraternities = "FavoriteFrats"
   static let ConsiderEventsBeforeTodayKey = "ConsiderEventsBeforeToday"
   
 }
@@ -125,7 +207,8 @@ struct RMDate {
 struct RMUserDevice {
   static var dateFormatter : DateFormatter {
     get {
-     let dF = DateFormatter.init()
+      let dF = DateFormatter()
+      dF.isLenient = true
       dF.dateFormat = "yyyy-MM-dd HH:mm:ss.ZZZZ"
       return dF
     }
@@ -140,11 +223,12 @@ struct RMUserDevice {
     }
   }
   fileprivate static let appVersion =
-                    ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "") +
-                                                        "-" +
-                                          ((Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "")
+    ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "") +
+      "-" +
+      ((Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "")
   
 }
+
 
 
 

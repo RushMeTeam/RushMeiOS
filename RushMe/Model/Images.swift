@@ -10,42 +10,43 @@ import Foundation
 
 
 class RMCachedImage {
-  static var images = Dictionary<String, UIImage>() {
-    didSet {
-      
-    }
-  }
+  static var images = Dictionary<String, UIImage>()
 }
 extension UIImageView {
   func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
     func setAsync(image newImage : UIImage) {
       _ = RMCachedImage.images[sourceString] == nil ? {
-                    RMCachedImage.images[sourceString] = newImage
+        RMCachedImage.images[sourceString] = newImage
         } : nil
       DispatchQueue.main.async {
-        self.image = newImage
+        if self.image == nil {
+          self.image = newImage
+        }
       }
     }
+    let rmURL = RMurl(fromString: sourceString)
     DispatchQueue.global(qos: .userInteractive).async {
       if let newImage = RMCachedImage.images[sourceString] {
         DispatchQueue.main.async {
           self.image = newImage
         }
       }
-      else if let image = readImageFromDisk(at: RMurl(fromString: sourceString)) {
+      else if let image = readImageFromDisk(at: rmURL) {
         setAsync(image: image)
       }
       else {
         DispatchQueue.main.async {
           self.image = nil
         }
-        URLSession.shared.dataTask(with: RMurl(fromString : sourceString).networkPath) {
-          (data, response, _) in
+        URLSession.shared.dataTask(with: rmURL.networkPath) {
+          (data, _, error) in
           DispatchQueue.main.async {
-            if self.image == nil {
-              if data != nil, let newImage = UIImage(data: data!) {
-                setAsync(image: newImage)
-              }
+            if data != nil, let newImage = UIImage(data: data!) {
+              newImage.storeOnDisk(at: rmURL.localPath)
+              setAsync(image: newImage)
+            }
+            else {
+              SQLHandler.inform(action: .SQLError, options: error?.localizedDescription) 
             }
           }
           }.resume()

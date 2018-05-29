@@ -124,7 +124,7 @@ class ScrollPageViewController: UIViewController,
     NSLayoutConstraint.activate([
       progressBar.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor),
       progressBar.rightAnchor.constraint(equalTo: navigationController!.navigationBar.rightAnchor),
-      progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor),
+      progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor, constant: 3),
       progressBar.heightAnchor.constraint(equalToConstant: 3)
       ])
   }()
@@ -151,6 +151,7 @@ class ScrollPageViewController: UIViewController,
     navigationController!.navigationBar.layer.backgroundColor = UIColor.white.cgColor
     navigationController!.navigationBar.layer.shadowColor = UIColor.white.cgColor
     navigationController!.navigationBar.barTintColor = RMColor.AppColor
+//    navigationItem.setRightBarButton(UIBarButtonItem.init(customView: UISegmentedControl.init(items: [#imageLiteral(resourceName: "FavoritesUnfilled"), #imageLiteral(resourceName: "FavoritesIcon")])), animated: false)
 //    navigationController!.navigationBar.tintColor = RMColor.AppColor
 //    navigationController!.navigationBar.titleTextAttributes =
 //      [NSAttributedStringKey.foregroundColor: navigationController!.navigationBar.tintColor]

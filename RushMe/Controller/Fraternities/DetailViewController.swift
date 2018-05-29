@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
-  var favoritesButton = UIBarButtonItem(image: RMImage.FavoritesImageUnfilled, style: .plain, target: self, action: #selector(favoritesButtonHit))
+  var favoritesButton = UIBarButtonItem(image: RushMe.images.unfilledHeart, style: .plain, target: self, action: #selector(favoritesButtonHit))
   //@IBOutlet weak var favoritesButton : UIBarButtonItem!
   @IBOutlet weak var eventView: UIView!
   @IBOutlet weak var blockTextView: UITextView!
@@ -77,12 +77,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     if let fratName = selectedFraternity?.name {
       if Campus.shared.favoritedFrats.contains(fratName) {
         Campus.shared.removeFavorite(named: fratName)
-        sender.image = RMImage.FavoritesImageUnfilled
+        sender.image = RushMe.images.unfilledHeart
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       else {
         Campus.shared.addFavorite(named: fratName)
-        sender.image = RMImage.FavoritesImageFilled
+        sender.image = RushMe.images.filledHeart
         self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
       }
     }
@@ -129,7 +129,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       else if let image = coverImagePageViewController.currentPageImage {
         imageVC.image = image
       }
-      if imageVC.image.size != .zero && imageVC.image != RMImage.NoImage  {
+      if imageVC.image.size != .zero && imageVC.image != RushMe.images.none  {
         imageVC.addVisualEffectView()
         present(imageVC, animated: true, completion: nil)
       }
@@ -138,7 +138,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
     if sender.state == .began || sender.state == .changed {
       guard let senderView = sender.view as? UIImageView, 
-        senderView.image != RMImage.NoImage else { return }
+        senderView.image != RushMe.images.none else { return }
       self.scrollView.isScrollEnabled = false
       let currScale = senderView.frame.size.width/senderView.bounds.size.width
       var newScale = currScale*sender.scale
@@ -191,7 +191,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }  
   @IBAction func openInMaps(_ sender: UIButton) {
     if let _ = mapItem { 
-      let addressAlert = UIAlertController.init(title: selectedFraternity?.name, message: selectedFraternity?.getProperty(named: RMDatabaseKey.AddressKey) as? String, preferredStyle: .actionSheet)
+      let addressAlert = UIAlertController.init(title: selectedFraternity?.name, message: selectedFraternity?.getProperty(named: RushMe.keys.frat.address) as? String, preferredStyle: .actionSheet)
       addressAlert.view.tintColor = RMColor.AppColor
       addressAlert.addAction(openInMapsAction)
       addressAlert.addAction(cancelAction)
@@ -219,7 +219,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   
   lazy var setupProfileImageView : Void = {
     
-    profileImageView.layer.cornerRadius = RMImage.CornerRadius
+    profileImageView.layer.cornerRadius = RushMe.cornerRadius
     profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     profileImageView.layer.borderWidth = 2
     profileImageView.clipsToBounds = true
@@ -230,7 +230,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     //coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.masksToBounds = true
-    coverImageView.layer.cornerRadius = RMImage.CornerRadius
+    coverImageView.layer.cornerRadius = RushMe.cornerRadius
     coverImageView.clipsToBounds = true
     coverImageView.layer.zPosition = 9
   }()
@@ -243,7 +243,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     scrollView.canCancelContentTouches = true
     eventViewController!.view.layer.masksToBounds = true
     mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
-    mapView.layer.cornerRadius = RMImage.CornerRadius
+    mapView.layer.cornerRadius = RushMe.cornerRadius
     mapView.layer.masksToBounds = true
     view.backgroundColor = .clear
     parent?.view.backgroundColor = RMColor.AppColor
@@ -251,9 +251,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     if #available(iOS 11.0, *) {
      //underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
       underlyingView.layer.masksToBounds = true
-      underlyingView.layer.cornerRadius = RMImage.CornerRadius
+      underlyingView.layer.cornerRadius = RushMe.cornerRadius
       view.layer.masksToBounds = true
-      view.layer.cornerRadius = RMImage.CornerRadius
+      //view.layer.cornerRadius = RushMe.cornerRadius
       
     }
   }()
@@ -298,33 +298,33 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       return
     }
     // Update the user interface for the detail item.
-    if let calendarImageURL = frat.getProperty(named: RMDatabaseKey.CalendarImageKey) as? String {
+    if let calendarImageURL = frat.getProperty(named: RushMe.keys.frat.calendarImage) as? String {
       //self.coverImageView.setImageByURL(fromSource: coverImageURL)
       (childViewControllers.first as? ImagePageViewController)?.imageNames = [calendarImageURL]
     }
-    if let coverImageURL = frat.getProperty(named: RMDatabaseKey.CoverImageKey) as? String {
+    if let coverImageURL = frat.getProperty(named: RushMe.keys.frat.coverImage) as? String {
       (childViewControllers.first as? ImagePageViewController)?.imageNames.append(coverImageURL)
     }
-    if let profileImageURL = frat.getProperty(named: RMDatabaseKey.ProfileImageKey) as? String {
+    if let profileImageURL = frat.getProperty(named: RushMe.keys.frat.profileImage) as? String {
       profileImageView.setImageByURL(fromSource: profileImageURL)
     }
     titleLabel.text = frat.name
     underProfileLabel.text = frat.chapter + " Chapter"
-    gpaLabel.text = frat.getProperty(named: RMDatabaseKey.gpaKey) as? String
-    if let memberCount = frat.getProperty(named: RMDatabaseKey.MemberCountKey) as? Int {
+    gpaLabel.text = frat.getProperty(named: RushMe.keys.frat.gpa) as? String
+    if let memberCount = frat.getProperty(named: RushMe.keys.frat.memberCount) as? Int {
       self.memberCountLabel.text = String(describing: memberCount)
     }
     
     if Campus.shared.favoritedFrats.contains(frat.name) {
-      self.favoritesButton.image = RMImage.FavoritesImageFilled
+      self.favoritesButton.image = RushMe.images.filledHeart
       self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
     }
     else {
-      self.favoritesButton.image = RMImage.FavoritesImageUnfilled
+      self.favoritesButton.image = RushMe.images.unfilledHeart
       self.profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     }
     favoritesButton.title = frat.name
-    if let desc = frat.getProperty(named: RMDatabaseKey.DescriptionKey) as? String {
+    if let desc = frat.getProperty(named: RushMe.keys.frat.description) as? String {
       blockTextView.text = desc
       blockTextView.sizeToFit()
       scrollView.isScrollEnabled = true
@@ -334,8 +334,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       let annotation = MKPointAnnotation()
       annotation.coordinate = location.coordinate
       annotation.title = frat.name
-      annotation.subtitle = frat.getProperty(named: RMDatabaseKey.AddressKey) as? String
-      frat.setProperty(named: RMFratPropertyKeys.fratMapAnnotation, to: annotation)
+      annotation.subtitle = frat.getProperty(named: RushMe.keys.frat.address) as? String
       mapView.addAnnotation(annotation)
       mapView.setCenter(annotation.coordinate, animated: false)
       mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))

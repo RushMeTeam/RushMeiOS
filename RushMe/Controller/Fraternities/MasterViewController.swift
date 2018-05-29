@@ -157,7 +157,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
        return Array(Campus.shared.favoritedFrats)
       }
       // Display all fraternities, sorted by name
-      else if !RMUserPreferences.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
+      else if !RushMe.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
         return Array(Campus.shared.fratNames).sorted()
       }
       // Display all fraternities, shuffled
@@ -205,10 +205,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     refreshControl = UIRefreshControl()
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     tableView.backgroundView = refreshControl
+    
     refreshControl!.backgroundColor = RMColor.AppColor
     refreshControl!.tintColor = .white
     
-
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
   }
   lazy var setupSearchBar : Void = {
@@ -247,15 +247,17 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   lazy var setupTableHeaderView : Void = {
     _ = setupSearchBar
     let tableHeaderView = UIView()
-
-    tableHeaderView.backgroundColor = .white
+    
+    tableHeaderView.backgroundColor = RMColor.AppColor
+//    tableView.backgroundColor = RMColor.AppColor
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
+    favoritesSegmentControl.tintColor = .white
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
     tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
-
+    //view.backgroundColor = RMColor.AppColor
     tableView.tableHeaderView = tableHeaderView
     
     tableHeaderView.addSubview(favoritesSegmentControl)
@@ -269,7 +271,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
                                  favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -7),
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
-                                 tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 4)])
+                                 tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 6)])
   }()
     
   // MARK: - Data Handling
@@ -291,6 +293,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       }
       if newValue == 1 {
         self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", attributes : [NSAttributedStringKey.foregroundColor: UIColor.white])
+        self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
       }
       self.reloadTableView()
     } 
@@ -302,8 +305,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     if let splitVC = splitViewController {
       clearsSelectionOnViewWillAppear = splitVC.isCollapsed
     }
-
-
     //_ = setupGestureRecognizers
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
 
@@ -378,6 +379,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
     cell.delegate = self
+    guard indexPath.row < dataKeys.count else {
+     tableView.reloadData()
+      return cell
+    }
     cell.fraternity = Campus.shared.fraternitiesDict[dataKeys[indexPath.row]]
     cell.loadImage()
     return cell

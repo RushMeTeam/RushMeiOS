@@ -22,18 +22,23 @@ class CalendarCollectionViewCell: UICollectionViewCell {
       return UIBezierPath(ovalIn: dayLabel.frame)
     }
   }
-  @IBOutlet weak var eventsLabel: UILabel!
-  @IBOutlet weak var dayLabel: UILabel!
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  lazy var setupCell : Void = {
     eventsLabel.textColor = RMColor.AppColor
     circleLayer.fillColor = RMColor.AppColor.cgColor
     layer.addSublayer(circleLayer)
     circleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
     eventsLabel.text = ""
-    addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
+    //addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     bringSubview(toFront: eventsLabel)
+  }()
+  @IBOutlet weak var eventsLabel: UILabel!
+  @IBOutlet weak var dayLabel: UILabel!
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    _ = setupCell
+    eventsLabel.textColor = RMColor.AppColor
+    circleLayer.fillColor = RMColor.AppColor.cgColor
   }
   override var isSelected: Bool {
     didSet {

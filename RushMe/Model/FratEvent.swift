@@ -15,31 +15,22 @@ class FratEvent: NSObject {
   private(set) var name : String
   private(set) var location : String?
   private(set) var frat : Fraternity
-  let dateFormatter = DateFormatter()
- 
-  let dateTimeFormatter = DateFormatter()
-  // TODO: Fix dateTimeFormatter to work for 24hr time
+
+  // TODO: Fix RushMe.dateTimeFormatter to work for 24hr time
   init?(withName : String,
         onDate : String,
         ownedByFraternity : Fraternity,
         startingAt : String? = nil,
         endingAt : String? = nil,
         atLocation : String? = nil) {
-    dateTimeFormatter.dateFormat = "MM/dd/yyyy hh:mm"
-    dateTimeFormatter.isLenient = true
-    dateTimeFormatter.locale = Locale.current
-    dateFormatter.isLenient = true
-    dateTimeFormatter.formatterBehavior = .default
-    dateFormatter.dateFormat =  "MM/dd/yyyy"
-    dateFormatter.formatterBehavior = .default
-    dateFormatter.locale = Locale.current
+    
     self.name = withName
     self.frat = ownedByFraternity
     self.location = atLocation
     
     
-    self.startDate = ((startingAt == nil) ? dateFormatter.date(from: onDate) : dateTimeFormatter.date(from: onDate + " " + startingAt!))!
-    self.endDate = ((endingAt == nil) ? startDate : dateTimeFormatter.date(from: onDate + " " + endingAt!))!
+    self.startDate = ((startingAt == nil) ? RushMe.dateFormatter.date(from: onDate) : RushMe.dateTimeFormatter.date(from: onDate + " " + startingAt!))!
+    self.endDate = ((endingAt == nil) ? startDate : RushMe.dateTimeFormatter.date(from: onDate + " " + endingAt!))!
   }
   
   required init?(coder aDecoder: NSCoder) {
