@@ -11,7 +11,15 @@ import UIKit
 import DeviceKit
 
 let DEBUG = false
-fileprivate let defaults = UserDefaults.standard
+fileprivate let defaults : UserDefaults = {
+  if let pDomain = UserDefaults.standard.persistentDomain(forName: "RushMe") {
+   return UserDefaults.standard
+  }
+  else {
+    UserDefaults.standard.setPersistentDomain([:], forName: "RushMe")
+   return UserDefaults.standard 
+  }
+}()
 
 // Images used often by the app
 
@@ -92,6 +100,14 @@ struct RushMe {
     dF.locale = Locale.current
     return dF
   }()
+  static var considerPastEvents : Bool {
+    get {
+      return !defaults.bool(forKey: "considerPastEvents")
+    }
+    set {
+      defaults.set(!newValue, forKey: "considerPastEvents")
+    }
+  }
   static var shuffleEnabled : Bool {
     get {
       return !defaults.bool(forKey: "shuffleEnabled")
@@ -130,19 +146,23 @@ struct RushMe {
     }
     private static var privacyRow : Dictionary<String, Any?>?
     static var policy : String? {
-     return privacyRow?["policy"] as? String ?? getPrivacyStatement()?.0
+     return privacyRow?["policy"] as? String ?? getPrivacyStatement()?.policy
     }
     static var policyDate : Date? {
-     return privacyRow?["publishdate"] as? Date ?? getPrivacyStatement()?.1
+     return privacyRow?["publishdate"] as? Date ?? getPrivacyStatement()?.effective
     }
-    private static func getPrivacyStatement() -> (String, Date)? {
+    static var policyIsMandatory : Bool? {
+     return privacyRow?["mandatory"] as? Bool ?? getPrivacyStatement()?.isMandatory
+    }
+    private static func getPrivacyStatement() -> (policy : String, effective: Date, isMandatory: Bool)? {
       if let dictionary = SQLHandler.selectAll(fromTable: "privacy")?.first,
         let policy = dictionary["policy"] as? String,
         let dateString = dictionary["publishdate"] as? String,
+        let isMandatoryRaw = dictionary["mandatory"] as? String, 
         let date = RushMe.defaultSQLDateFormatter.date(from: dateString) {
         privacyRow = dictionary
         privacyRow!["publishdate"] = date
-        return (policy, date)
+        return (policy, date, isMandatoryRaw == "1")
       }
       return nil
     }

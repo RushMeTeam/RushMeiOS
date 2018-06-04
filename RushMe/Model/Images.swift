@@ -7,16 +7,16 @@
 //
 
 import Foundation
-
+import UIKit
 
 class RMCachedImage {
   static var images = Dictionary<String, UIImage>()
 }
 extension UIImageView {
-  func setImageByURL(fromSource sourceString : String, animated: Bool = true) {
+  func setImageByURL(fromSource rmURL : RMURL, animated: Bool = true) {
     func setAsync(image newImage : UIImage) {
-      _ = RMCachedImage.images[sourceString] == nil ? {
-        RMCachedImage.images[sourceString] = newImage
+      _ = RMCachedImage.images[rmURL.underlyingURL.absoluteString] == nil ? {
+        RMCachedImage.images[rmURL.underlyingURL.absoluteString] = newImage
         } : nil
       DispatchQueue.main.async {
         if self.image == nil {
@@ -24,9 +24,11 @@ extension UIImageView {
         }
       }
     }
-    let rmURL = RMurl(fromString: sourceString)
+    DispatchQueue.main.async {
+      self.image = nil
+    }
     DispatchQueue.global(qos: .userInteractive).async {
-      if let newImage = RMCachedImage.images[sourceString] {
+      if let newImage = RMCachedImage.images[rmURL.underlyingURL.absoluteString] {
         DispatchQueue.main.async {
           self.image = newImage
         }
@@ -35,9 +37,6 @@ extension UIImageView {
         setAsync(image: image)
       }
       else {
-        DispatchQueue.main.async {
-          self.image = nil
-        }
         URLSession.shared.dataTask(with: rmURL.networkPath) {
           (data, _, error) in
           DispatchQueue.main.async {
@@ -56,7 +55,7 @@ extension UIImageView {
 }
 
 
-func readImageFromDisk(at sourceURL : RMurl, with : Quality = Campus.downloadedImageQuality) -> UIImage? {
+func readImageFromDisk(at sourceURL : RMURL, with : Quality = Campus.downloadedImageQuality) -> UIImage? {
   if let imageData = try? Data.init(contentsOf: sourceURL.localPath),
     let image = UIImage.init(data: imageData){
     return image

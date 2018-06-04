@@ -25,6 +25,7 @@ target 'RushMe' do
 
   target 'RushMeUITests' do
     inherit! :complete
+    pod 'DeviceKit', '~> 1.3.0'
     # Pods for testing
   end
 

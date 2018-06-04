@@ -190,13 +190,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }  
   @IBAction func openInMaps(_ sender: UIButton) {
-    if let _ = mapItem { 
-      let addressAlert = UIAlertController.init(title: selectedFraternity?.name, message: selectedFraternity?.getProperty(named: RushMe.keys.frat.address) as? String, preferredStyle: .actionSheet)
-      addressAlert.view.tintColor = RMColor.AppColor
-      addressAlert.addAction(openInMapsAction)
-      addressAlert.addAction(cancelAction)
-      self.present(addressAlert, animated: true, completion: nil)
+    guard let _ = mapItem, let frat = selectedFraternity else {
+      return  
     }
+    let addressAlert = UIAlertController.init(title: frat.name, message: frat.address, preferredStyle: .actionSheet)
+    addressAlert.view.tintColor = RMColor.AppColor
+    addressAlert.addAction(openInMapsAction)
+    addressAlert.addAction(cancelAction)
+    self.present(addressAlert, animated: true, completion: nil)
+    
   }
   // MARK: Set View Alphas
   func setViews(toAlpha : CGFloat, except exceptedView : UIView? = nil) {
@@ -252,9 +254,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
      //underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
       underlyingView.layer.masksToBounds = true
       underlyingView.layer.cornerRadius = RushMe.cornerRadius
-      view.layer.masksToBounds = true
-      //view.layer.cornerRadius = RushMe.cornerRadius
-      
     }
   }()
   // MARK: ViewDidLoad
@@ -263,24 +262,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     if let tbView = self.childViewControllers.last as? EventTableViewController {
       eventViewController = tbView
     }
-    // Do any additional setup after loading the view, typically from a nib.
-    DispatchQueue.global(qos: .utility).async {
-      if let frat = self.selectedFraternity {
-        if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
-          return Campus.shared.considerEventsBeforeToday || value.startDate.compare(RMDate.Today) != .orderedAscending
-        }).last?.value {
-          DispatchQueue.main.async {
-            self.eventViewController!.selectedEvents = [event]
-            self.eventViewController!.provideDate = true
-          }
-        }
-        else {
-          DispatchQueue.main.async {
-            self.eventViewController!.selectedEvents = nil
-          }
-        }
-      }
-    }
+    
 
     registerForPreviewing(with: self, sourceView: profileImageView)
   }
@@ -297,21 +279,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       print("No Frat to configure view with!")
       return
     }
-    // Update the user interface for the detail item.
-    if let calendarImageURL = frat.getProperty(named: RushMe.keys.frat.calendarImage) as? String {
-      //self.coverImageView.setImageByURL(fromSource: coverImageURL)
-      (childViewControllers.first as? ImagePageViewController)?.imageNames = [calendarImageURL]
+    if let imageVC = childViewControllers.first as? ImagePageViewController {
+      imageVC.imageNames = []
+      // Update the user interface for the detail item.
+      if let calendarImageURL = frat.calendarImagePath {
+        //self.coverImageView.setImageByURL(fromSource: coverImageURL)
+        imageVC.imageNames.append(calendarImageURL)
+      }
+      if let coverImageURLs = frat.coverImagePaths {
+        imageVC.imageNames.append(contentsOf: coverImageURLs)
+      }
     }
-    if let coverImageURL = frat.getProperty(named: RushMe.keys.frat.coverImage) as? String {
-      (childViewControllers.first as? ImagePageViewController)?.imageNames.append(coverImageURL)
-    }
-    if let profileImageURL = frat.getProperty(named: RushMe.keys.frat.profileImage) as? String {
-      profileImageView.setImageByURL(fromSource: profileImageURL)
-    }
+    profileImageView.setImageByURL(fromSource: frat.profileImagePath)
+    
     titleLabel.text = frat.name
     underProfileLabel.text = frat.chapter + " Chapter"
-    gpaLabel.text = frat.getProperty(named: RushMe.keys.frat.gpa) as? String
-    if let memberCount = frat.getProperty(named: RushMe.keys.frat.memberCount) as? Int {
+    if let memberCount = frat.memberCount {
       self.memberCountLabel.text = String(describing: memberCount)
     }
     
@@ -324,17 +307,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       self.profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     }
     favoritesButton.title = frat.name
-    if let desc = frat.getProperty(named: RushMe.keys.frat.description) as? String {
-      blockTextView.text = desc
-      blockTextView.sizeToFit()
-      scrollView.isScrollEnabled = true
-      
-    }
-    if let location = RMGeocoder.locations[frat.name] {
+    blockTextView.text = frat.description
+    blockTextView.sizeToFit()
+    scrollView.isScrollEnabled = true
+    
+    if let location = frat.coordinates {
       let annotation = MKPointAnnotation()
       annotation.coordinate = location.coordinate
       annotation.title = frat.name
-      annotation.subtitle = frat.getProperty(named: RushMe.keys.frat.address) as? String
+      annotation.subtitle = frat.address
       mapView.addAnnotation(annotation)
       mapView.setCenter(annotation.coordinate, animated: false)
       mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
@@ -342,10 +323,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
     else {
       self.mapView?.removeFromSuperview()
-      self.openMapButton?.isHidden = true
+      self.openMapButton?.removeFromSuperview()
     }
-    
-    
+    // Do any additional setup after loading the view, typically from a nib.
+    DispatchQueue.global(qos: .utility).async {
+      if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
+        return Campus.shared.considerPastEvents || value.startDate.compare(RMDate.Today) != .orderedAscending
+      }).last?.value {
+        DispatchQueue.main.async {
+          self.eventViewController!.selectedEvents = [event]
+          self.eventViewController!.provideDate = true
+        }
+      }
+      else {
+        DispatchQueue.main.async {
+          self.eventViewController!.selectedEvents = nil
+        }
+      }
+      
+    }
   }()
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

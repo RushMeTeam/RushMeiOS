@@ -21,7 +21,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
   lazy var pages : [UIView?] = [UIView.init()]
   var newImageViewController : ImageViewController? {
     get {
-      return UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
+      return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
   var currentPageIndex : Int = 0 {
@@ -79,7 +79,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
       transitioning = false
     }
   }
-  var imageNames: [String] = ["defaultImage.png"] {
+  var imageNames: [RMURL] = [] {
     didSet {
       self.pages = [UIView?](repeatElement(nil, count: self.numberOfPages))
       self.pageControl.numberOfPages = numberOfPages

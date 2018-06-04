@@ -79,10 +79,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       tableView.reloadRows(at: [IndexPath.init(row: dataKeys.index(of: fratName)!, section: 0)], with: .automatic)
     }
   }
-  
-  
-  
-  
   // MARK: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating
   func updateSearchResults(for searchController: UISearchController) {
     // As the user types, update the results to match
@@ -112,9 +108,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   }
   // MARK: Member Variables
   // The hard data used in the table
-
-  let progressView = UIProgressView()
-  let searchController = UISearchController(searchResultsController: nil)
+  lazy private(set) var searchController = UISearchController(searchResultsController: nil)
   // The menu button used to toggle the slide-out menu
   //@IBOutlet var openBarButtonItem: UIBarButtonItem!
   // Is the tableView presenting all fraternities, or just favorites?
@@ -135,16 +129,15 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   }
   
   // The last shuffled list of fraternity names
-  var shuffledFrats : [String]? = nil {
-    willSet {
-      if newValue == nil {
-        self.reloadTableView()
-      }
-    }
-  }
+  var shuffledFrats : [String]? = nil
   // The keys that the tableView uses to display the desired fraternities
   var dataKeys : [String] {
     get {
+      // FOR SCREENSHOTS 
+//      if !viewingFavorites {
+//       return ["Theta Chi", "Chi Phi", "Phi Iota Alpha", "Rensselaer Society of Engineers", "Psi Upsilon", "Delta Tau Delta",  "Zeta Psi", "Delta Phi", "Pi Lambda Phi","Theta Xi",  "Phi Kappa Theta", "Sigma Alpha Epsilon", "Phi Sigma Kappa", "Sigma Phi Epsilon", "Delta Kappa Epsilon", "Pi Kappa Alpha", "Lambda Chi Alpha", "Alpha Phi Alpha", "Pi Kappa Phi", "Acacia", "Phi Mu Delta", "Tau Kappa Epsilon", "Alpha Epsilon Pi", "Phi Gamma Delta", "Alpha Sigma Phi", "Tau Epsilon Phi", "Alpha Chi Rho", "Sigma Chi", "Pi Delta Psi"]
+//      }
+      
       // If we're searching, use the contents of the search bar to determine 
       // which fraternities to display
       if isSearching {
@@ -211,8 +204,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
   }
+
   lazy var setupSearchBar : Void = {
     // Setup the Search Bar (backend)
+  
     searchController.searchResultsUpdater = self
     searchController.delegate = self
     // Setup the Search Bar (visual)
@@ -380,11 +375,12 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
     cell.delegate = self
     guard indexPath.row < dataKeys.count else {
-     tableView.reloadData()
+      tableView.reloadData()
       return cell
     }
     cell.fraternity = Campus.shared.fraternitiesDict[dataKeys[indexPath.row]]
-    cell.loadImage()
+      cell.loadImage()
+    
     return cell
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -394,7 +390,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     return false
   }
 
-  
   func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
     if (action.title == RMMessage.Favorite) {
       let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)

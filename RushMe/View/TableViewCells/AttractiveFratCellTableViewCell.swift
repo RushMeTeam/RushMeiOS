@@ -22,7 +22,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   var fraternity : Fraternity? {
     set {
       titleLabel.text = newValue?.name
-      
+      favoriteButton.accessibilityIdentifier = (titleLabel.text ?? "") + " Favorites Button"
       isAccentuated = Campus.shared.favoritedFrats.contains(newValue?.name ?? "")
     }
     get {
@@ -30,7 +30,9 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     }
   }
   func loadImage() {
-    previewImageView.setImageByURL(fromSource: fraternity!.getProperty(named: RushMe.keys.frat.profileImage) as! String)
+    if let profileImageURL = fraternity?.profileImagePath{
+    previewImageView.setImageByURL(fromSource: profileImageURL) 
+    }
   }
  
   

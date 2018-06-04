@@ -19,7 +19,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
   private var circleLayer : CAShapeLayer = CAShapeLayer()
   var path : UIBezierPath {
     get {
-      return UIBezierPath(ovalIn: dayLabel.frame)
+      return UIBezierPath(ovalIn: dayLabel.frame.insetBy(dx: -2, dy: -2))
     }
   }
   lazy var setupCell : Void = {
@@ -29,6 +29,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     circleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
     eventsLabel.text = ""
+    eventsLabel.layer.masksToBounds = false
+    layer.masksToBounds = false
     //addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     bringSubview(toFront: eventsLabel)
   }()
@@ -44,9 +46,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     didSet {
       circleLayer.fillColor = (isSelected ? highlightColor : .clear).cgColor
       dayLabel.textColor = isSelected ? UIColor.white : dayTextColor
-      if circleLayer.path == nil {
-        circleLayer.path = path.cgPath
-      }
+      circleLayer.path = path.cgPath
     }
   }
   

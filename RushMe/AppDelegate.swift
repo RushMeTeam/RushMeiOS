@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.layer.masksToBounds = true
     window!.layer.cornerRadius = 5
+    if ProcessInfo.processInfo.arguments.contains("TESTING") {
+     UserDefaults.standard.set(["Chi Phi", "Delta Tau Delta", "Alpha Epsilon Phi"], forKey: "Favorites") 
+    }
     
     // Override point for customization after application launch.
     let mainStoryboard = UIStoryboard.main
@@ -53,9 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.tapGestureRecognizer())
     _ = drawerMenuVC.setupScrollView
     _ = scrollPageVC.setupScrollView
-    
     drawerMenuVC.scrollView.delegate = scrollPageVC
-    
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UINavigationBar.appearance().tintColor]
     self.window!.rootViewController = swRevealVC

@@ -8,55 +8,79 @@
 
 import Foundation
 import UIKit
-class Fraternity : NSObject {
+import MapKit
+class Fraternity {
   // The name of the fraternity
   // e.g. "Lambda Lambda Chi"
   let name : String
+  // The fraternity's description
+  let description : String
   // The chapter of the fraternity (if no chapter, then school)
   // e.g. "Rho Chapter" or "RPI Chapter"
   let chapter : String
   // The previewImage is the image seen when the user scrolls through a list of fraternities
   // e.g. a picture of the house, possibly the profile image
-  var profileImagePath : String
+  let profileImagePath : RMURL
+  // The path to a possible calendar image
+  let calendarImagePath : RMURL?
+  // All other images
+  let coverImagePaths : [RMURL]?
+  // The physical address of the fraternity
+  let address : String?
+  var coordinates : CLLocation? {
+   return RMGeocoder.locations[name] 
+  }
   // All the Fraternity's associated rush events are stored in events
-  var events = [Date : FratEvent]()
+  var events : [Date : FratEvent]!
+  // The number of active members
+  var memberCount : Int?
   // All data in the Fraternity object is stored again in properties
-  private var properties : Dictionary<String, Any>
+  private var dictionaryRepresentation : Dictionary<String, Any>
   
-  init(name : String,
-       chapter : String,
-       previewImage: UIImage? = nil,
-       properties : Dictionary<String, Any>) {
-    
-    self.name = name
-    self.chapter = chapter
-    self.properties = properties
-    self.profileImagePath = properties[RushMe.keys.frat.profileImage] as! String
-//    if let previewImg = previewImage {
-////      self.profileImagePath = previewImg
-//    }
-//    else {
-//      if let profImage = self.properties["profileImage"] as? String {
-//        self.profileImagePath = profImage
-//      }
-//      
-//    }
-    if self.properties["profileImage"] != nil {
-      self.properties["profileImage"] = previewImage
+  init?(withDictionary dictionary : [String : Any]) {
+    if let name = dictionary[RushMe.keys.frat.name] as? String,
+      let statement = dictionary[RushMe.keys.frat.description] as? String,
+      let chapter = dictionary[RushMe.keys.frat.chapter] as? String,
+      let profileImagePathRaw = dictionary[RushMe.keys.frat.profileImage] as? String,
+      let profileImagePath = RMURL(fromString: profileImagePathRaw) {
+      self.name = name
+      self.description = statement
+      self.chapter = chapter
+      self.profileImagePath = profileImagePath
+      if let memberCountRaw = dictionary[RushMe.keys.frat.memberCount] as? String,
+        let memberCount = Int(memberCountRaw){
+        self.memberCount = abs(memberCount)
+      }
+      if let calendarImagePathRaw = dictionary[RushMe.keys.frat.calendarImage] as? String {
+          self.calendarImagePath = RMURL(fromString: calendarImagePathRaw)
+      }
+      else {
+            self.calendarImagePath = nil
+      }
+      self.address = dictionary[RushMe.keys.frat.address] as? String
+       
+      self.dictionaryRepresentation = dictionary
+      // TODO: Allow for multiple images
+      self.coverImagePaths = nil
+    }
+    else {
+     return nil 
     }
   }
   
-  func getProperty(named : String) -> Any? {
+
+  
+  func getUnmarkedProperty(named : String) -> Any? {
     if (named == "name"){ return self.name }
     if (named == "chapter"){ return self.chapter }
-    return properties[named]
-  }
-  func setProperty(named : String, to : Any) {
-    properties[named] = to
+    return dictionaryRepresentation[named]
   }
   func add(eventDescribedBy dict : Dictionary<String, Any>) -> FratEvent? {
     //house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
+    if events == nil {
+      events = [:] 
+    }
     let houseName = dict["house"] as! String
     if (self.name != houseName){
       return nil

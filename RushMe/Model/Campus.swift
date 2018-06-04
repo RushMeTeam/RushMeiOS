@@ -74,7 +74,7 @@ class Campus: NSObject {
     get {
       if favoritedEvents_ == nil {
         favoritedEvents_ = self.allEvents.filter({ (event) -> Bool in
-          return self.favoritedFrats.contains(event.frat.name) && (considerEventsBeforeToday || event.startDate.compare(RMDate.Today) != .orderedAscending)
+          return self.favoritedFrats.contains(event.frat.name) && (considerPastEvents || event.startDate.compare(RMDate.Today) != .orderedAscending)
         })
       }
       return favoritedEvents_ ?? self.favoritedEvents
@@ -87,7 +87,7 @@ class Campus: NSObject {
         eventsByDay_ = [[FratEvent]]()
         for daysEvents in fratEventsByDay.values {
           let futureDaysEvents = daysEvents.filter({ (event) -> Bool in
-            return considerEventsBeforeToday || event.startDate.compare(RMDate.Today) != .orderedAscending
+            return considerPastEvents || event.startDate.compare(RMDate.Today) != .orderedAscending
           }).sorted { (first, second) -> Bool in
             return first.startDate < second.startDate 
           }
@@ -127,9 +127,11 @@ class Campus: NSObject {
   var firstFavoritedEvent : FratEvent? {
     get {
       if firstFavoritedEvent_ == nil {
-        firstFavoritedEvent_ = favoritedEvents.min(by: {
+        firstFavoritedEvent_ = favoritedEvents.filter({ (event) -> Bool in
+          return considerPastEvents || event.startDate > RMDate.Today
+        }).min(by: {
           (thisEvent, thatEvent) in
-          return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
+          return thisEvent.startDate < thatEvent.startDate
         })
       }
       return firstFavoritedEvent_
@@ -139,9 +141,11 @@ class Campus: NSObject {
   var firstEvent : FratEvent? {
     get {
       if firstEvent_ == nil {
-        firstEvent_ = allEvents.min(by: {
+        firstEvent_ = allEvents.filter({ (event) -> Bool in
+          return considerPastEvents || event.startDate > RMDate.Today
+        }).min(by: {
           (thisEvent, thatEvent) in
-          return thisEvent.startDate.compare(thatEvent.startDate) == ComparisonResult.orderedAscending
+          return thisEvent.startDate < thatEvent.startDate
         })
       }
       return firstEvent_
@@ -151,33 +155,21 @@ class Campus: NSObject {
   
   // The default quality at which an image should be downloaded
   static var downloadedImageQuality : Quality = .Medium
-  var considerEventsBeforeToday = true {
-    willSet {
-      if newValue != self.considerEventsBeforeToday {
+  var considerPastEvents : Bool {
+    get {
+      return RushMe.considerPastEvents
+    }
+    set {
+      if newValue != RushMe.considerPastEvents {
         self.firstFavoritedEvent_ = nil
         self.eventsByDay_ = nil
         self.favoritedEvents_ = nil
         self.favoritedEventsByDay_ = nil 
       }
+      RushMe.considerPastEvents = newValue
     }
-    didSet {
-      preferences[RMPropertyKeys.ConsiderEventsBeforeTodayKey] = considerEventsBeforeToday
-    }
+    
   }
-  private(set) var firstLoad : Bool = false
-  private var preferences : Dictionary<String, Any> = Dictionary<String, Any>() {
-    didSet {
-      DispatchQueue.global().async {
-        if NSKeyedArchiver.archiveRootObject(self.preferences, toFile: RMFileManagement.userInfoURL.path) {
-          //print("Success saving Campus preferences")
-        }
-        else {
-          print("Failed to save Campus preferences!")
-        }
-      }
-    }
-  }
-  
   // MARK: Shared Instance (singleton)
   @objc static let shared : Campus = Campus(loadFromFile: true)
   
@@ -208,7 +200,7 @@ class Campus: NSObject {
         }
         var numberFraternitiesCompleted = 0
         for fraternityDict in dictArray {
-          _ = Fraternity.init(fromDict: fraternityDict)?.register(withCampus: Campus.shared)
+          _ = Fraternity.init(withDictionary: fraternityDict)?.register(withCampus: self)
           numberFraternitiesCompleted += 1
           self.percentageCompletion = 0.2 + 0.8*Float(numberFraternitiesCompleted) / Float(dictArray.count)
         }
@@ -241,20 +233,11 @@ class Campus: NSObject {
     self.init()
     if loadFromFile {
       // TODO: Refactor storing of user preferences
-      if let preferencesObject = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.userInfoURL.path) as? Dictionary<String, Any>,
-        let considerEventsBeforeTodayValue = preferencesObject[RMPropertyKeys.ConsiderEventsBeforeTodayKey] as? Bool {
-        self.considerEventsBeforeToday = considerEventsBeforeTodayValue
-      }
-      else {
-        print("Failed to load Preferences")
-      }
       DispatchQueue.global(qos: .default).async {
         if let favorites = Campus.loadFavorites() {
           self.favoritedFrats = favorites
-          self.firstLoad = false
         }
         else {
-          self.firstLoad = true
           self.saveFavorites()
         }
       }
@@ -271,90 +254,26 @@ class Campus: NSObject {
     else {
       self.fraternitiesDict[frat.name] = frat
       self.fratNames.insert(frat.name)
-      //DispatchQueue.global(qos: .background).async {
-        //let _ = self.getEvents(forFratWithName: frat.name)
-      //}
     }
     
   }
-  
-  // Remove any FratEvents that are not from favorited frats
-  //  func filterEventsForFavorites()  {
-  //    let favoriteSet = Set.init(favoritedFrats)
-  //    var newEventsByDay = [String : [FratEvent]]()
-  //    var newEvents = Set<FratEvent>()
-  //    for event in allEvents {
-  //      if favoriteSet.contains(event.frat.name) {
-  //        // If not considering events before today and this event is not after today
-  //        if !considerEventsBeforeToday && event.startDate.compare(RMDate.Today) == .orderedAscending {
-  //          continue
-  //        }
-  //        if let _ = newEventsByDay[event.dayKey] {
-  //          print("did this")
-  //          newEventsByDay[event.dayKey]!.append(event)
-  //        }
-  //        else {
-  //          newEventsByDay[event.dayKey] = [event]
-  //        }
-  //        newEvents.insert(event)
-  //      }
-  //    }
-  //    favoritedEvents = newEvents
-  //  }
-  
-  // Create an URL that descibes the location of an image on a server,
-  // in addition to a local URL. Then (try to!) (down)load the image. 
-  // If anything goes wrong, return nil
-  
-  // Pull all the images for a given fraternity name, with the
-  // option of asynchronous loading:
-  //    - if async == true, image is loaded in a new thread, nothing interesting is returned
-  //    - else image is loaded sequentially, and main thread waits
-  // Note that if the events for this fraternity have already been loaded,
-  // The function simply returns those events
   @objc func getEvents(forFratWithName fratName : String, async : Bool = false) -> [Date: FratEvent] {
     if let events = Campus.shared.fraternitiesDict[fratName]?.events {
       // If is fraternity's list of events is already saturated, return
-      if events.count > 0 { return events }
+      return events 
     }
-    // If asynchronous loading is enabled
-    if (async) {
-      // Dispatch a new relatively high priority thread to get the images
-      DispatchQueue.global(qos: .default).async {
-        let _ = self.pullEventsFromSQLDataBase(fratName: fratName)
-      }
-      return [Date : FratEvent]() // return an empty dictionary for the meantime
+    else {
+      return [Date : FratEvent]() 
     }
-    // If not asyncrhonous, call function in (presumably) main thread
-    return pullEventsFromSQLDataBase(fratName : fratName)
-  }
-  
-  private func pullEventsFromSQLDataBase(fratName : String) -> [Date : FratEvent] {
-    // Try to grab the fraternity (see if it exists)
-//    if let fraternity = self.fraternitiesDict[fratName] {
-//      // Pull all this house's events from the SQL database
-//      if let fratEvents = SQLHandler.shared.select(fromTable: "events", conditions: "house = '" + fratName + "'") {
-//        for eventDict in fratEvents {
-//          
-//        }
-//      }
-//      return fraternity.events
-//    }
-//    print("Failed to return \(fratName)'s events")
-    // Failed, provide no dates
-    return [Date : FratEvent]()
   }
   // MARK: Save To and Load From File
   func saveFavorites() {
     DispatchQueue.global(qos: .background).async {
-      let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(Array(Campus.shared.favoritedFrats), toFile: RMFileManagement.favoritedFratURL.path)
-      if !isSuccessfulSave {
-        print("Error saving favorite frats at: \(RMFileManagement.favoritedFratURL.path)")
-      }
+      UserDefaults.standard.set(Array(self.favoritedFrats), forKey: "Favorites")
     }
   }
   static private func loadFavorites() -> Set<String>? {
-    if let favoritedFrats = NSKeyedUnarchiver.unarchiveObject(withFile: RMFileManagement.favoritedFratURL.path) as? [String] {
+    if let favoritedFrats = UserDefaults.standard.stringArray(forKey: "Favorites") {
       return Set<String>(favoritedFrats)
     }
     else {
@@ -379,28 +298,7 @@ extension Campus {
 }
 
 extension Fraternity {
-  convenience init?(fromDict dict : Dictionary<String, Any>, loadImages : Bool = true) {
-    if let name = dict[RushMe.keys.frat.name] as? String,
-      let chapter = dict[RushMe.keys.frat.chapter] as? String {
-//      var previewImage : UIImage?
-//      var profileImage : UIImage?
-//      if let URLString = dict[RMDatabaseKey.ProfileImageKey] as? String {
-//        if let previewImg = pullImage(fromSource: URLString) {
-//          previewImage = previewImg
-//          profileImage = previewImg
-//        }
-//      }
-      
-      self.init(name: name, chapter: chapter, previewImage: nil, properties: dict)
-//      if let _ = profileImage {
-//        self.setProperty(named: RMDatabaseKey.ProfileImageKey, to: profileImage!)
-//      }
-      return
-      
-    }
-    
-    return nil
-  }
+
   func register(withCampus campus : Campus) -> Fraternity {
     do {
       try campus.add(fraternity: self)
@@ -415,56 +313,61 @@ extension Fraternity {
 }
 
 
-func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.downloadedImageQuality) -> String {
-  var fileName = ""
-  // Images are scaled to three different sizes:
-  //    - high (i.e. full)
-  //    - medium (i.e. half-size)
-  //    - low (i.e. quarter-size)
-  // The quality of the image retreived is based on the
-  // file URL. For example, a file named "image.png" would
-  // have a half-sized image named "image_Half.png"
-  switch quality {
-  case .High:
-    // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
-    fileName = urlSuffix
-  case.Medium:
-    // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
-    fileName = urlSuffix.dropLast(4) + RMImageQuality.Medium
-  case.Low:
-    // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
-    fileName = urlSuffix.dropLast(4) + RMImageQuality.Low
-  }
-  // Sigma_Delta_Cover_Image.png
-  
-  // .../local/on/device/path/Sigma_Delta_Cover_Image.png
-  return fileName
-}
-
-func urlSuffixes(forFilesWithName filename : String) -> [String] {
-  return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
-}
-
-struct RMurl {
-  let stringRepresentation : String
-  init(fromString : String) {
-    self.stringRepresentation = fromString
-  }
-  var fixedPath : String {
-    get {
-      return urlSuffix(forFileWithName: stringRepresentation, quality : Campus.downloadedImageQuality)
+struct RMURL : Hashable {
+  let underlyingURL : URL
+  init?(fromString : String) {
+    if let newURL = URL.init(string: fromString) {
+      self.underlyingURL = newURL 
     }
+    else {
+      return nil 
+    }
+  }
+  static func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.downloadedImageQuality) -> String {
+    var fileName = ""
+    // Images are scaled to three different sizes:
+    //    - high (i.e. full)
+    //    - medium (i.e. half-size)
+    //    - low (i.e. quarter-size)
+    // The quality of the image retreived is based on the
+    // file URL. For example, a file named "image.png" would
+    // have a half-sized image named "image_Half.png"
+    switch quality {
+    case .High:
+      // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
+      fileName = urlSuffix
+    case.Medium:
+      // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
+      fileName = urlSuffix.dropLast(4) + RMImageQuality.Medium
+    case.Low:
+      // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
+      fileName = urlSuffix.dropLast(4) + RMImageQuality.Low
+    }
+    // Sigma_Delta_Cover_Image.png
+    
+    // .../local/on/device/path/Sigma_Delta_Cover_Image.png
+    return fileName
+  }
+  static func urlSuffixes(forFilesWithName filename : String) -> [String] {
+    return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
+  }
+  init(_ fromURL : URL) {
+    self.underlyingURL = fromURL
+  }
+  private var fixedPath : String {
+      return RMURL.urlSuffix(forFileWithName: underlyingURL.absoluteString,quality : Campus.downloadedImageQuality)
   }
   var localPath : URL {
-    get {
       let urlEnding = String(fixedPath.split(separator: "/").last!)
       return RMFileManagement.fratImageURL.appendingPathComponent(urlEnding)
-    }
   }
   var networkPath : URL {
+  
     return URL(string: RushMe.network.S3.absoluteString + fixedPath)!
   }
-  
+  var hashValue : Int {
+   return underlyingURL.hashValue
+  }
 }
 
 

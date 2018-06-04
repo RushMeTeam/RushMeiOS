@@ -10,7 +10,6 @@ import UIKit
 import DeviceKit
 
 
-
 protocol ScrollableItem {
   func updateData() 
 }
@@ -22,7 +21,6 @@ protocol SegueDelegate {
 class ScrollPageViewController: UIViewController,
                                 UIScrollViewDelegate,
                                 UISplitViewControllerDelegate,
-                                ScrollViewDelegateForwarder,
                                 SWRevealViewControllerDelegate,
                                 UIPageViewControllerDelegate{
   private(set) lazy var setupScrollView : UIScrollView = {
@@ -281,7 +279,7 @@ class ScrollPageViewController: UIViewController,
     bounds.origin.y = pageHeight * CGFloat(page) - topLayoutGuide.length - bottomLayoutGuide.length
     transitioning = true
     scrollView.scrollRectToVisible(bounds, animated: animated)
-    (revealViewController()?.rearViewController as? DrawerMenuViewController)?.set(newCurrentPage: page)
+    (revealViewController()?.rearViewController as? ScrollMenuViewController)?.set(newCurrentPage: page)
     transitioning = false
     currentPage = page
   }
@@ -295,15 +293,13 @@ class ScrollPageViewController: UIViewController,
     self.scrollView.contentOffset = scrollView.contentOffset.applying(
       CGAffineTransform(scaleX: 1, y: self.scrollView.bounds.height/scrollView.bounds.height)
                                                             )
-        currentCalculatedPage = Int(floor((scrollView.contentOffset.y)/pageHeight))
-  }
-  var currentCalculatedPage : Int = 1 {
-    willSet {
-      if newValue != currentCalculatedPage {
-        //UISelectionFeedbackGenerator().selectionChanged() 
-      }
+    let newCalculatedPage = Int(floor((scrollView.contentOffset.y)/pageHeight))
+    if newCalculatedPage != currentCalculatedPage {
+      UISelectionFeedbackGenerator().selectionChanged()
     }
+    currentCalculatedPage = newCalculatedPage
   }
+  var currentCalculatedPage : Int = 1
   @IBAction func goToPage(_ sender: UIPageControl) {
     goToPage(page: sender.currentPage, animated: true) 
   }
@@ -311,9 +307,7 @@ class ScrollPageViewController: UIViewController,
   func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
     scrollView?.isUserInteractionEnabled = !(position == .right || position == .rightMost)
     scrollView?.isScrollEnabled = position == .right
-    if position == .rightMost {
-     UISelectionFeedbackGenerator().selectionChanged() 
-    }
+    
     // Escape from Detail'
     (currentViewController as? ScrollableItem)?.updateData()
   }

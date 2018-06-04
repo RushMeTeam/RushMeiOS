@@ -19,13 +19,12 @@ ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
+      self.favoritesSegmentControl.isEnabled = self.favoritesShouldBeEnabled
       self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
       self.scrollView.scrollToTop(animated: true)
-      self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
       if !Campus.shared.hasFavorites {
         self.favoritesSegmentControl.selectedSegmentIndex = 0
       }
-      self.viewWillAppear(true)
     }
   }
   
@@ -66,6 +65,9 @@ ScrollableItem {
       return []
     }
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
+    if !Campus.shared.considerPastEvents && RMDate.Today.compare(currentDay) != .orderedAscending {
+     return [] 
+    }
     let todaysEvents = flatDataSource.filter({
       (event) in
       return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
@@ -104,7 +106,7 @@ ScrollableItem {
   }
   var favoritesShouldBeEnabled : Bool {
     get {
-      return Campus.shared.favoritedEvents.count != 0
+      return Campus.shared.firstFavoritedEvent != nil || viewingFavorites
     }
   }
   var selectedIndexPath : IndexPath? {
@@ -150,11 +152,12 @@ ScrollableItem {
     if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
       collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
     }
+    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
     scrollView.canCancelContentTouches = true
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 5
     scrollView.refreshControl = UIRefreshControl()
-    scrollView.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    scrollView.refreshControl!.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
   }
   @objc func handleRefresh() {
     collectionView.reloadPreservingSelection(animated: true)
@@ -342,7 +345,7 @@ ScrollableItem {
   
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let cellWidth = collectionView.frame.width/8.0
+    let cellWidth = collectionView.frame.width/8.5
     var cellHeight = collectionView.frame.height/6.0
     if (indexPath.row < 7) {
       cellHeight = collectionView.frame.height/8.0
