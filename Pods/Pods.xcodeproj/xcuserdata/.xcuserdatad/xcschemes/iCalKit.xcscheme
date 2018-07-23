@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FC2B5738B0A4832F9FFBB4341649922B'
-               BlueprintName = 'iCalKit'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'iCalKit.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FC2B5738B0A4832F9FFBB4341649922B"
+               BlueprintName = "iCalKit"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "iCalKit.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

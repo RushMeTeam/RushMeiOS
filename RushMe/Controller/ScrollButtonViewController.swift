@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ScrollMenuViewController : UIViewController, UIScrollViewDelegate {
+class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
   
   lazy var setupScrollView: Void = {
     self.scrollView = UIScrollView.init(frame: CGRect.init(x: 0, y: view.bounds.height/2-view.bounds.width/2, width: view.bounds.width, height: view.bounds.width))

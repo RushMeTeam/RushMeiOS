@@ -18,32 +18,35 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
       return imageNames.count 
     }
   }
-  lazy var pages : [UIView?] = [UIView.init()]
+  lazy var pages : [UIView?] = [UIView?]()
   var newImageViewController : ImageViewController? {
     get {
       return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
-  var currentPageIndex : Int = 0 {
-    willSet {
-      let correctedNewValue = min(numberOfPages - 1, max(newValue, 0))
-      if correctedNewValue != currentPageIndex {
-        pageControl.currentPage = newValue
-        // Update information!!!
-        loadCurrentPages(page: self.pageControl.currentPage)
-      }
+  var currentPageIndex : Int {
+    get {
+      return Int(floor((scrollView.contentOffset.x - scrollView.frame.width/2)/scrollView.frame.width)) + 1
     }
   }
+  var currentPage : UIView? {
+    guard currentPageIndex >= 0 && currentPageIndex < pages.count else {
+      print("Current page index (\(currentPageIndex)) out of bounds for page list of size \(pages.count)")
+      return nil 
+    }
+    return pages[currentPageIndex]
+  }
+  
   var currentPageImage : UIImage? {
     get {
-     return (pages[currentPageIndex]?.subviews.first as? UIImageView)?.image
+      return (currentPage?.subviews.first as? UIImageView)?.image
     }
   }
   var contentMode : UIViewContentMode = .scaleAspectFill {
     willSet {
       for page in pages {
         if let imageView = page?.subviews.first as? UIImageView {
-         imageView.contentMode = contentMode 
+          imageView.contentMode = contentMode 
         }
       }
     }
@@ -180,12 +183,12 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
     bounds.origin.x = bounds.width * CGFloat(page)
     bounds.origin.y = 0
     scrollView.scrollRectToVisible(bounds, animated: animated)
-    currentPageIndex = page
+    //    currentPageIndex = page
   }
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     let pageWidth = scrollView.frame.width
     let page = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1
-    currentPageIndex = Int(page)
+    //    currentPageIndex = Int(page)
   }
   
   @IBAction func goToPage(_ sender: UIPageControl) {

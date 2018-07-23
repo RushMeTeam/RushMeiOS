@@ -7,15 +7,7 @@ target 'RushMe' do
   pod 'iCalKit', :git => 'https://github.com/kiliankoe/iCalKit.git'
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 #   pod 'NVActivityIndicatorView'
-  pod 'DeviceKit', '~> 1.3.0'
-#  pod 'Firebase'
-#  pod 'Firebase/Auth'
-#  pod 'Firebase/Messaging'
-#  pod 'Firebase/Database'
-
-#pod 'Atlas'
-#   pod 'Chatto', '>= 3.2.0'
-#   pod 'ChattoAdditions', '>= 3.2.0'
+  pod 'DeviceKit', '~> 1.3'
 
   # Pods for RushMe
   target 'RushMeTests' do
@@ -25,7 +17,7 @@ target 'RushMe' do
 
   target 'RushMeUITests' do
     inherit! :complete
-    pod 'DeviceKit', '~> 1.3.0'
+    #pod 'DeviceKit', '~> 1.3'
     # Pods for testing
   end
 

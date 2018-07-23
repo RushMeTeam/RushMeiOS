@@ -6,8 +6,7 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 
-//import Foundation
-import UIKit
+import Foundation
 import DeviceKit
 
 let DEBUG = false
@@ -235,7 +234,7 @@ struct RMUserDevice {
   }
   var deviceInfo : Dictionary<String, Any> {
     get {
-      return ["duuid" : (UIDevice.current.identifierForVendor?.uuidString ?? "ID Broken"),
+      return ["duuid" : UIDevice.current.identifierForVendor?.uuidString as Any,
               "rtime" : RMDatabaseFormat.dateFormatter.string(from: Date()),
               "dtype" : Device().description,
               "dsoft" : UIDevice.current.systemVersion,

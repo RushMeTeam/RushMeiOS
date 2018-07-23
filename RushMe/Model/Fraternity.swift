@@ -36,7 +36,6 @@ class Fraternity {
   var memberCount : Int?
   // All data in the Fraternity object is stored again in properties
   private var dictionaryRepresentation : Dictionary<String, Any>
-  
   init?(withDictionary dictionary : [String : Any]) {
     if let name = dictionary[RushMe.keys.frat.name] as? String,
       let statement = dictionary[RushMe.keys.frat.description] as? String,

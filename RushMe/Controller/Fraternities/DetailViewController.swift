@@ -27,19 +27,26 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var staticGPALabel: UILabel!
   var favoritesButton = UIBarButtonItem(image: RushMe.images.unfilledHeart, style: .plain, target: self, action: #selector(favoritesButtonHit))
   //@IBOutlet weak var favoritesButton : UIBarButtonItem!
-  @IBOutlet weak var eventView: UIView!
   @IBOutlet weak var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
   @IBOutlet weak var openMapButton: UIButton!
   @IBOutlet var toMakeClear: [UIView]!
-  var coverImagePageViewController : ImagePageViewController {
-    get {
-      return (self.childViewControllers.first as! ImagePageViewController)
-    }
-  }
   var newImageViewController : ImageViewController? {
     get {
      return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
+    }
+  }
+  private var _coverImagePageViewController  : ImagePageViewController? 
+  var coverImagePageViewController  : ImagePageViewController! {
+    get {
+      if let _ = _coverImagePageViewController  {
+        return _coverImagePageViewController  
+      }
+      for viewController in childViewControllers where (viewController as? ImagePageViewController == nil) ? false : true {
+        _coverImagePageViewController  = viewController as! ImagePageViewController
+        return viewController as! ImagePageViewController
+      }
+      return nil
     }
   }
  
@@ -60,7 +67,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }
   // MARK: Member Variables
-  weak var eventViewController : EventTableViewController? = nil
+  @IBOutlet weak var eventView: UIView!
+  private var _eventViewController : EventTableViewController? 
+  var eventViewController : EventTableViewController! {
+    get {
+      if let _ = _eventViewController {
+       return _eventViewController 
+      }
+      for viewController in childViewControllers where (viewController as? EventTableViewController == nil) ? false : true {
+        _eventViewController = viewController as! EventTableViewController
+         return viewController as! EventTableViewController
+      }
+      return nil
+    }
+  }
   var mapItem : MKMapItem?
   var selectedFraternity: Fraternity? = nil {
     didSet {
@@ -232,6 +252,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     //coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.masksToBounds = true
+//    coverImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     coverImageView.layer.cornerRadius = RushMe.cornerRadius
     coverImageView.clipsToBounds = true
     coverImageView.layer.zPosition = 9
@@ -243,7 +264,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     view.bringSubview(toFront: coverImageView)
     view.bringSubview(toFront: profileImageView)
     scrollView.canCancelContentTouches = true
-    eventViewController!.view.layer.masksToBounds = true
     mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
     mapView.layer.cornerRadius = RushMe.cornerRadius
     mapView.layer.masksToBounds = true
@@ -259,9 +279,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-    if let tbView = self.childViewControllers.last as? EventTableViewController {
-      eventViewController = tbView
-    }
+//    if let tbView = self.childViewControllers.last as? EventTableViewController {
+//      eventViewController = tbView
+//    }
     
 
     registerForPreviewing(with: self, sourceView: profileImageView)
@@ -295,7 +315,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     titleLabel.text = frat.name
     underProfileLabel.text = frat.chapter + " Chapter"
     if let memberCount = frat.memberCount {
-      self.memberCountLabel.text = String(describing: memberCount)
+      self.memberCountLabel.text = String(describing: memberCount) + " Members"
     }
     
     if Campus.shared.favoritedFrats.contains(frat.name) {

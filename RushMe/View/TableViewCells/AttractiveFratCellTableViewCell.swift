@@ -85,7 +85,6 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     
   }
 
-  
   private(set) var imageBorderColor = UIColor.clear {
     didSet {
       previewImageView.layer.borderColor = self.imageBorderColor.cgColor

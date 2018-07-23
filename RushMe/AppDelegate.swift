@@ -22,8 +22,9 @@ enum ShortCutIdentifier : String {
 }
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  var scrollPageVC : ScrollPageViewController!
+  var scrollPageVC : RMViewController!
   var window: UIWindow?
+  
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
@@ -34,34 +35,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Override point for customization after application launch.
-    let mainStoryboard = UIStoryboard.main
-    let splitVC = mainStoryboard.instantiateViewController(withIdentifier: "splitVC")
-    self.scrollPageVC = splitVC.childViewControllers.first!.childViewControllers.first as! ScrollPageViewController
-    let swRevealVC = mainStoryboard.instantiateViewController(withIdentifier: "swRevealVC") as! SWRevealViewController
-    let drawerMenuVC = mainStoryboard.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
-    swRevealVC.delegate = scrollPageVC
-    if (!RMColor.SlideOutMenuShadowIsEnabled) {
-      swRevealVC.frontViewShadowOpacity = 0
-    }
-    else {
-     swRevealVC.frontViewShadowOpacity = 0.5
-      swRevealVC.frontViewShadowRadius = 8
-    }
-    swRevealVC.rearViewRevealOverdraw = 0
-    swRevealVC.rearViewRevealDisplacement = 0
-    swRevealVC.rearViewRevealWidth = drawerMenuVC.preferredContentSize.width
-    swRevealVC.setFront(splitVC, animated: false)
-    swRevealVC.setRear(drawerMenuVC, animated: false)
-    swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.panGestureRecognizer())
-    swRevealVC.frontViewController.view.addGestureRecognizer(swRevealVC.tapGestureRecognizer())
-    _ = drawerMenuVC.setupScrollView
-    _ = scrollPageVC.setupScrollView
-    drawerMenuVC.scrollView.delegate = scrollPageVC
+    let swRevealVC = UIStoryboard.main.instantiateViewController(withIdentifier: "swRevealVC") as! SWViewController
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UINavigationBar.appearance().tintColor]
     self.window!.rootViewController = swRevealVC
     self.window!.makeKeyAndVisible()
+
     Campus.shared.pullFratsFromSQLDatabase()
+
     DispatchQueue.global(qos: .userInitiated).async {
       if RushMe.privacy.preferencesNeedUpdating {
         DispatchQueue.main.async {

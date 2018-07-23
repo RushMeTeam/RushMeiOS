@@ -1,10 +1,14 @@
 PODS:
-  - DeviceKit (1.3.2)
+  - DeviceKit (1.7.0)
   - iCalKit (0.1.0)
 
 DEPENDENCIES:
-  - DeviceKit (~> 1.3.0)
+  - DeviceKit (~> 1.3)
   - iCalKit (from `https://github.com/kiliankoe/iCalKit.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DeviceKit
 
 EXTERNAL SOURCES:
   iCalKit:
@@ -16,9 +20,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/kiliankoe/iCalKit.git
 
 SPEC CHECKSUMS:
-  DeviceKit: f763607473cdd286a69d1957de099bdbd8391db5
+  DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
   iCalKit: 6fc24b368fe28588ec9137b28d6c79636368ca4d
 
-PODFILE CHECKSUM: 1322cf96edf748c36c4f3abf348a5c781e0fb6c3
+PODFILE CHECKSUM: 5fe594388eb624476bf00d89d146c42044b124d7
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.2

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DrawerMenuViewController: ScrollMenuViewController {
+class DrawerMenuViewController: ScrollButtonViewController {
 
   override var buttonIcons : [UIImage?] {
     get { 

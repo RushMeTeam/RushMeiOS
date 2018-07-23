@@ -14,15 +14,9 @@ protocol ScrollableItem {
   func updateData() 
 }
 
-protocol SegueDelegate {
-  
-}
-
 class ScrollPageViewController: UIViewController,
-                                UIScrollViewDelegate,
-                                UISplitViewControllerDelegate,
-                                SWRevealViewControllerDelegate,
-                                UIPageViewControllerDelegate{
+                                UIScrollViewDelegate
+                                {
   private(set) lazy var setupScrollView : UIScrollView = {
     scrollView = UIScrollView(frame: view.bounds)
     scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,13 +36,38 @@ class ScrollPageViewController: UIViewController,
   @IBOutlet var pageControl: UIPageControl!
   var numberOfPages : Int {
     get {
-      return orderedViewControllers.count 
+      return pageViewControllers.count 
     }
   }
-  
-  lazy var pages : [UIView?] = [UIView?].init(repeating: nil, count: self.orderedViewControllers.count)
-  
-  lazy var scrollIndicator : CAShapeLayer = CAShapeLayer()
+  lazy var pageViewControllers: [UIViewController] = {
+    return []
+  }()
+  private(set) lazy var pageCanvases : [UIView?] = [UIView?](repeating: nil, count: self.pageViewControllers.count)
+  var progress : Float {
+    get {
+      return progressBar?.progress ?? 0
+    }
+    set {
+      guard let _ = progressBar else {
+        print("Tried to set progress on a null bar!")
+       return 
+      }
+      DispatchQueue.main.async {
+        if newValue == 1 {
+          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
+            self.progressBar.alpha = 0
+            self.progressBar.progress = 1
+          }, completion: { (_) in
+            self.progressBar.progress = 0
+            self.progressBar.alpha = 1
+          })
+        }
+        else {
+          self.progressBar.setProgress(max(newValue, 0.05), animated: true)  
+        }
+      }
+    }
+  }
   var currentPage : Int = 1 {
     didSet {
       if let currentVC = currentViewController as? ScrollableItem {
@@ -56,24 +75,13 @@ class ScrollPageViewController: UIViewController,
       }
     }
   }
-  var currentViewController : UIViewController? {
+  var currentViewController : UIViewController! {
     get {
-      return (currentPage >= 0 && currentPage < orderedViewControllers.count) ? orderedViewControllers[currentPage] : nil
+      return (currentPage >= 0 && currentPage < pageViewControllers.count) ? pageViewControllers[currentPage] : nil
     }
   }
   
   static var startingPageIndex : Int = 1
-  private(set) lazy var orderedViewControllers: [UIViewController] = 
-    [viewController(forIdentifier: "mapVC"),
-     viewController(forIdentifier: "masterVC"),
-     viewController(forIdentifier: "calendarVC"),
-     viewController(forIdentifier: "settingsViewController")]
-  
-  func viewController(forIdentifier identifier : String) -> UIViewController {
-    let newVCInstance = UIStoryboard.main.instantiateViewController(withIdentifier: identifier)
-   
-    return newVCInstance
-  }
   
   
   var transitioning = false
@@ -83,25 +91,15 @@ class ScrollPageViewController: UIViewController,
     _ = setupInitialPages
   }
   
+
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDetail" {
-      revealViewController().panGestureRecognizer().isEnabled = false
-    }
-    (segue.destination as? UIPageViewController)?.delegate = self
-  }
-  func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    if completed, let fratName = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity?.name {
-      SQLHandler.inform(action: .FraternitySelected, options: fratName) 
-      pageViewController.title = fratName.greekLetters
-    }
-  }
   
+  // MARK: Actions
   @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
     self.revealViewController().revealToggle(animated: true)
   }
   @objc private func presentAbout() {
-    present(viewController(forIdentifier: "aboutVC"), animated: true, completion: nil) 
+    present(UIStoryboard.main.instantiateViewController(withIdentifier: "aboutVC"), animated: true, completion: nil) 
   }
   private lazy var setupInitialPages : Void = {
     adjustScrollView()
@@ -110,24 +108,41 @@ class ScrollPageViewController: UIViewController,
     goToPage(page: ScrollPageViewController.startingPageIndex, animated: false)
     transitioning = false
   }()
-  var progressBar : UIProgressView!
+  private(set) var progressBar : UIProgressView!
   private lazy var setupProgressBar : Void = {
     progressBar = UIProgressView()
     progressBar.tintColor = .white
     progressBar.trackTintColor = .clear
     progressBar.progress = 0
-  
     progressBar.translatesAutoresizingMaskIntoConstraints = false
     navigationController!.navigationBar.addSubview(progressBar)
     NSLayoutConstraint.activate([
       progressBar.leftAnchor.constraint(equalTo: navigationController!.navigationBar.leftAnchor),
       progressBar.rightAnchor.constraint(equalTo: navigationController!.navigationBar.rightAnchor),
-      progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor, constant: 3),
+      progressBar.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor, constant: 0),
       progressBar.heightAnchor.constraint(equalToConstant: 3)
       ])
   }()
+  private(set) lazy var setupNavigationBar : Void = {
+    guard let _ = navigationController else {
+     return 
+    }
+    navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    navigationController!.navigationBar.shadowImage = UIImage()
+    navigationController!.navigationBar.isTranslucent = false
+    navigationController!.navigationBar.layer.backgroundColor = UIColor.white.cgColor
+    navigationController!.navigationBar.layer.shadowColor = UIColor.white.cgColor
+    navigationController!.navigationBar.barTintColor = RMColor.AppColor
+    // Set up Title View
+    navigationItem.titleView = titleImageView
+  }()
+  var titleImage : UIImage {
+    get {
+      return UIImage()
+    }
+  }
   private lazy var titleImageView : UIView = {
-    let imageView = UIImageView.init(image: #imageLiteral(resourceName: "RushMeLogo"))
+    let imageView = UIImageView.init(image: titleImage)
     imageView.contentMode = .scaleAspectFit
     imageView.tintColor = UIColor.white
     imageView.backgroundColor = .clear
@@ -135,29 +150,6 @@ class ScrollPageViewController: UIViewController,
     imageView.frame = titleView.bounds
     titleView.addSubview(imageView)
     return titleView
-  }()
-  
-  private(set) lazy var setupNavigationBar : Void = {
-    guard let _ = navigationController else {
-     return 
-    }
-    navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-    navigationController!.navigationBar.shadowImage = UIImage()
-    
-    
-    navigationController!.navigationBar.isTranslucent = false
-    navigationController!.navigationBar.layer.backgroundColor = UIColor.white.cgColor
-    navigationController!.navigationBar.layer.shadowColor = UIColor.white.cgColor
-    navigationController!.navigationBar.barTintColor = RMColor.AppColor
-//    navigationItem.setRightBarButton(UIBarButtonItem.init(customView: UISegmentedControl.init(items: [#imageLiteral(resourceName: "FavoritesUnfilled"), #imageLiteral(resourceName: "FavoritesIcon")])), animated: false)
-//    navigationController!.navigationBar.tintColor = RMColor.AppColor
-//    navigationController!.navigationBar.titleTextAttributes =
-//      [NSAttributedStringKey.foregroundColor: navigationController!.navigationBar.tintColor]
-    
-    // Set up Title View
-    navigationItem.titleView = titleImageView
-    
-  
   }()
   
   @IBAction func unwindToScroll(segue : UIStoryboardSegue) {}
@@ -171,7 +163,7 @@ class ScrollPageViewController: UIViewController,
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     coordinator.animate(alongsideTransition: nil) { (_) in
       self.adjustScrollView()
-      self.pages = [UIView?](repeatElement(nil, count: self.numberOfPages))
+      self.pageCanvases = [UIView?](repeatElement(nil, count: self.numberOfPages))
       self.goToPage(page: self.currentPage, animated: false)
       self.transitioning = false
     }
@@ -182,7 +174,6 @@ class ScrollPageViewController: UIViewController,
     super.viewDidLoad()
     _ = setupNavigationBar
     _ = setupProgressBar
-    Campus.shared.percentageCompletionObservable.addObserver(forOwner: self, handler: handlePercentageCompletion(oldValue:newValue:))
     // Do any additional setup after loading the view.
     pageControl.numberOfPages = numberOfPages
     pageControl.currentPage = ScrollPageViewController.startingPageIndex
@@ -191,23 +182,8 @@ class ScrollPageViewController: UIViewController,
     super.viewDidAppear(animated)
     revealViewController().panGestureRecognizer().isEnabled = true
   }
-  private func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
-    DispatchQueue.main.async {
-      if newValue == 1 {
-        UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
-          self.progressBar.alpha = 0
-          self.progressBar.progress = 1
-        }, completion: { (_) in
-          self.progressBar.progress = 0
-          self.progressBar.alpha = 1
-          (self.orderedViewControllers[2] as? CalendarViewController)?.updateData()
-        })
-      }
-      else {
-       self.progressBar.setProgress(max(newValue, 0.05), animated: true)  
-      }
-    }
-  }
+  
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     revealViewController().panGestureRecognizer().isEnabled = false
@@ -228,14 +204,13 @@ class ScrollPageViewController: UIViewController,
   }
   
   
-  fileprivate func loadPage(_ page : Int) {
-    guard page < numberOfPages && page >= 0 else {
-      //print("Attemped to load illegal page number", page)
+  fileprivate func loadPage(_ pageIndex : Int) {
+    guard pageIndex < numberOfPages && pageIndex >= 0 else {
       return 
     }
-    if pages[page] == nil {
-      let newViewController = self.orderedViewControllers[page]
-      let canvasView = UIView(frame: CGRect(x: 0, y: (pageHeight)*CGFloat(page), width: view.bounds.width, height: pageHeight))
+    if pageCanvases[pageIndex] == nil {
+      let newViewController = self.pageViewControllers[pageIndex]
+      let canvasView = UIView(frame: CGRect(x: 0, y: (pageHeight)*CGFloat(pageIndex), width: view.bounds.width, height: pageHeight))
       canvasView.clipsToBounds = true
       newViewController.willMove(toParentViewController: self)
       addChildViewController(newViewController)
@@ -247,22 +222,20 @@ class ScrollPageViewController: UIViewController,
                                    newViewController.view!.trailingAnchor.constraint(equalTo: canvasView.trailingAnchor),
                                    newViewController.view!.topAnchor.constraint(equalTo: canvasView.topAnchor),
                                    newViewController.view!.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)])
-      pages[page] = canvasView
+      pageCanvases[pageIndex] = canvasView
     }
   }
-  fileprivate func loadCurrentPages(page: Int) {
-    guard (page > 0 && page + 1 < numberOfPages) || transitioning else {
-      //print("Attemped to load multiple illegal pages surrounding page number", page)
-      return
+  fileprivate func loadPages(aroundPage: Int) {
+    guard (aroundPage > 0 && aroundPage + 1 < numberOfPages) || transitioning else {      return
     }
-    pages = [UIView?](repeating: nil, count: numberOfPages)
-    loadPage(Int(page) - 1)
-    loadPage(Int(page))
-    loadPage(Int(page) + 1)
+    pageCanvases = [UIView?](repeating: nil, count: numberOfPages)
+    loadPage(Int(aroundPage) - 1)
+    loadPage(Int(aroundPage))
+    loadPage(Int(aroundPage) + 1)
     
   }
   func loadAllPages() {
-    for pageNum in 0..<orderedViewControllers.count {
+    for pageNum in 0..<pageViewControllers.count {
      loadPage(pageNum) 
     }
   }
@@ -273,13 +246,13 @@ class ScrollPageViewController: UIViewController,
       //print("Attemped to goTo illegal page number", page)
       return 
     }
-    loadCurrentPages(page: page)
+    loadPages(aroundPage: page)
     var bounds = scrollView.bounds
     bounds.origin.x = 0
     bounds.origin.y = pageHeight * CGFloat(page) - topLayoutGuide.length - bottomLayoutGuide.length
     transitioning = true
     scrollView.scrollRectToVisible(bounds, animated: animated)
-    (revealViewController()?.rearViewController as? ScrollMenuViewController)?.set(newCurrentPage: page)
+    (revealViewController()?.rearViewController as? ScrollButtonViewController)?.set(newCurrentPage: page)
     transitioning = false
     currentPage = page
   }
@@ -290,6 +263,9 @@ class ScrollPageViewController: UIViewController,
   func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {}
   func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {}
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    guard scrollView != self.scrollView else {
+     return 
+    }
     self.scrollView.contentOffset = scrollView.contentOffset.applying(
       CGAffineTransform(scaleX: 1, y: self.scrollView.bounds.height/scrollView.bounds.height)
                                                             )
@@ -303,23 +279,7 @@ class ScrollPageViewController: UIViewController,
   @IBAction func goToPage(_ sender: UIPageControl) {
     goToPage(page: sender.currentPage, animated: true) 
   }
-  // MARK: SWRevealViewControllerDelegate
-  func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
-    scrollView?.isUserInteractionEnabled = !(position == .right || position == .rightMost)
-    scrollView?.isScrollEnabled = position == .right
-    
-    // Escape from Detail'
-    (currentViewController as? ScrollableItem)?.updateData()
-  }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  
   
 }
 

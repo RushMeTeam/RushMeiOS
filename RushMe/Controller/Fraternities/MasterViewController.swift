@@ -179,7 +179,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   }
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    _ = self.setupTableHeaderView
+    _ = setupTableHeaderView
+    _ = setupSearchBar
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -213,8 +214,9 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     // Setup the Search Bar (visual)
     //searchController.searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
     searchController.searchBar.isTranslucent = false
-    searchController.searchBar.tintColor = RMColor.AppColor
-    searchController.searchBar.barTintColor = UIColor.white
+    searchController.searchBar.tintColor = .white
+    searchController.searchBar.backgroundColor = RMColor.AppColor
+    searchController.searchBar.barTintColor = RMColor.AppColor
     searchController.hidesNavigationBarDuringPresentation = false
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.dimsBackgroundDuringPresentation = false
@@ -234,14 +236,14 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     //    searchBarView.translatesAutoresizingMaskIntoConstraints = false
     //    let searchBarView = UIView()
        searchController.searchBar.backgroundImage = UIImage()
-    
+    //tableHeaderView = searchController.searchBar
+    tableView.tableHeaderView = searchController.searchBar
     //searchBarView.addSubview(searchController.searchBar)
     //tableHeaderView.addSubview(searchBarView)
   }()
-
+  var tableHeaderView : UIView!
   lazy var setupTableHeaderView : Void = {
-    _ = setupSearchBar
-    let tableHeaderView = UIView()
+    tableHeaderView = UIView()
     
     tableHeaderView.backgroundColor = RMColor.AppColor
 //    tableView.backgroundColor = RMColor.AppColor
@@ -251,20 +253,20 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     favoritesSegmentControl.tintColor = .white
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
-    tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
+   //tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
     //view.backgroundColor = RMColor.AppColor
-    tableView.tableHeaderView = tableHeaderView
+   // tableView.tableHeaderView = 
     
     tableHeaderView.addSubview(favoritesSegmentControl)
     // TODO: Fix search bar autolayout errors!
-    NSLayoutConstraint.activate([tableHeaderView.topAnchor.constraint(equalTo: tableView.topAnchor),
-                                 tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                 tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
-                                 tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
+    NSLayoutConstraint.activate([//tableHeaderView.topAnchor.constraint(equalTo: tableView.topAnchor),
+                                 //tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                 //tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                                 //tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
                                  favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 6),
                                  favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 7),
                                  favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -7),
-                                 favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 22),
+                                 favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 0),
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
                                  tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 6)])
   }()
@@ -276,7 +278,16 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     reloadTableView()
   }
   
-
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return Campus.shared.hasFavorites || viewingFavorites ? 40  : 0
+  }
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard section == 0 else {
+      return nil
+    }
+    _ = setupTableHeaderView
+    return tableHeaderView
+  }
 
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
@@ -341,12 +352,19 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
      return 
     }
     if isFavorited {
-      Campus.shared.addFavorite(named: fratName) 
+      Campus.shared.addFavorite(named: fratName)
+      if (Campus.shared.favoritedFrats.count == 1) {
+       self.reloadTableView() 
+      }
     }
     else {
       Campus.shared.removeFavorite(named: fratName)
+      if (Campus.shared.hasFavorites == false) {
+        self.reloadTableView() 
+      }
     }
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
+    
   }
 
   
@@ -361,15 +379,22 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if dataKeys.count == 0{
+    if dataKeys.count == 0 {
       let cell = UITableViewCell()
       cell.selectionStyle = .none
       cell.textLabel!.textAlignment = NSTextAlignment.center
-      cell.textLabel!.numberOfLines = 2
-      if !Campus.shared.isLoading {
-        cell.textLabel!.text = viewingFavorites ? RMMessage.NoFavorites : "Something went wrong...\nTry again."
-      }
       cell.textLabel!.textColor = RMColor.AppColor
+      cell.textLabel!.numberOfLines = 2
+      if (Campus.shared.isLoading) {
+       return cell 
+      } else if (!searchBarIsEmpty) {
+        cell.textLabel!.text = "No matches"
+      } else if (viewingFavorites) {
+       cell.textLabel!.text = "No favorites"
+      } else {
+       cell.textLabel!.text = "Something went wrong...\nTry again"  
+      }
+      
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
@@ -384,7 +409,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     return cell
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 196
+    return 128
   }
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return false
