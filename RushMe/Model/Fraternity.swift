@@ -130,6 +130,7 @@ extension String {
       result = result.replacingOccurrences(of: "Chi", with: "Χ")          // -> Χ
       result = result.replacingOccurrences(of: "Psi", with: "Ψ")          // -> Ψ
       result = result.replacingOccurrences(of: "Omega", with: "Ω")        // -> Ω
+      result = result.replacingOccurrences(of: " ", with: "")
       return result
     }
 }

@@ -7,11 +7,11 @@ provides-member:
 - ["6RushMe23ImagePageViewControllerC", ""]
 provides-dynamic-lookup:
 - "contentMode"
+- "currentPage"
 - "currentPageImage"
 - "currentPageIndex"
 - "didReceiveMemoryWarning"
 - "goToPage"
-- "imageNames"
 - "newImageViewController"
 - "numberOfPages"
 - "pageControl"
@@ -24,7 +24,6 @@ provides-dynamic-lookup:
 - "viewDidLoad"
 - "viewWillTransition"
 depends-top-level:
-- !private "!="
 - !private "&&"
 - !private "*"
 - !private "+"
@@ -47,8 +46,8 @@ depends-top-level:
 - "ImageViewController"
 - "Int"
 - !private "NSLayoutConstraint"
-- "String"
-- "StringLiteralType"
+- "RMURL"
+- !private "StringLiteralType"
 - "UIImage"
 - !private "UIImageView"
 - "UIPageControl"
@@ -63,8 +62,7 @@ depends-top-level:
 - "UIViewControllerTransitionCoordinator"
 - "Void"
 - !private "floor"
-- !private "max"
-- !private "min"
+- !private "print"
 - !private "repeatElement"
 - !private "||"
 depends-member:
@@ -74,7 +72,7 @@ depends-member:
 - !private ["Sa", "subscript"]
 - !private ["s23BidirectionalCollectionP", "count"]
 - !private ["s23BidirectionalCollectionP", "first"]
-- ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "subscript"]
 - !private ["s19BinaryFloatingPointP", "init"]
 - !private ["s13BinaryIntegerP", "init"]
@@ -140,14 +138,13 @@ depends-member:
 - !private ["s7CVarArgP", "hidesForSinglePage"]
 - !private ["s7CVarArgP", "image"]
 - !private ["s7CVarArgP", "imageNames"]
-- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "instantiateViewController"]
 - !private ["s7CVarArgP", "leadingAnchor"]
 - !private ["s7CVarArgP", "loadCurrentPages"]
 - !private ["s7CVarArgP", "loadPage"]
 - !private ["s7CVarArgP", "loadViewIfNeeded"]
-- !private ["s7CVarArgP", "max"]
-- !private ["s7CVarArgP", "min"]
+- !private ["s7CVarArgP", "main"]
 - !private ["s7CVarArgP", "newImageViewController"]
 - !private ["s7CVarArgP", "numberOfPages"]
 - !private ["s7CVarArgP", "pageControl"]
@@ -155,6 +152,7 @@ depends-member:
 - !private ["s7CVarArgP", "point"]
 - !private ["s7CVarArgP", "present"]
 - ["s7CVarArgP", "previewingContext"]
+- !private ["s7CVarArgP", "print"]
 - !private ["s7CVarArgP", "registerForPreviewing"]
 - !private ["s7CVarArgP", "repeatElement"]
 - !private ["s7CVarArgP", "scrollRectToVisible"]
@@ -189,9 +187,9 @@ depends-member:
 - !private ["s7CVarArgP", "viewWillTransition"]
 - !private ["s10CollectionP", "count"]
 - !private ["s10CollectionP", "first"]
-- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "subscript"]
-- ["s10ComparableP", "init"]
+- !private ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "CGFloat"]
 - !private ["s28CustomDebugStringConvertibleP", "CGSize"]
 - !private ["s28CustomDebugStringConvertibleP", "Int"]
@@ -223,14 +221,13 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "hidesForSinglePage"]
 - !private ["s28CustomDebugStringConvertibleP", "image"]
 - !private ["s28CustomDebugStringConvertibleP", "imageNames"]
-- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "instantiateViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "leadingAnchor"]
 - !private ["s28CustomDebugStringConvertibleP", "loadCurrentPages"]
 - !private ["s28CustomDebugStringConvertibleP", "loadPage"]
 - !private ["s28CustomDebugStringConvertibleP", "loadViewIfNeeded"]
-- !private ["s28CustomDebugStringConvertibleP", "max"]
-- !private ["s28CustomDebugStringConvertibleP", "min"]
+- !private ["s28CustomDebugStringConvertibleP", "main"]
 - !private ["s28CustomDebugStringConvertibleP", "newImageViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "numberOfPages"]
 - !private ["s28CustomDebugStringConvertibleP", "origin"]
@@ -239,6 +236,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "point"]
 - !private ["s28CustomDebugStringConvertibleP", "present"]
 - ["s28CustomDebugStringConvertibleP", "previewingContext"]
+- !private ["s28CustomDebugStringConvertibleP", "print"]
 - !private ["s28CustomDebugStringConvertibleP", "registerForPreviewing"]
 - !private ["s28CustomDebugStringConvertibleP", "repeatElement"]
 - !private ["s28CustomDebugStringConvertibleP", "scrollRectToVisible"]
@@ -277,7 +275,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "y"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "height"]
-- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "origin"]
 - !private ["s29CustomPlaygroundQuickLookableP", "size"]
 - !private ["s29CustomPlaygroundQuickLookableP", "width"]
@@ -287,7 +285,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "count"]
 - !private ["s17CustomReflectableP", "first"]
 - !private ["s17CustomReflectableP", "height"]
-- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "origin"]
 - !private ["s17CustomReflectableP", "size"]
 - !private ["s17CustomReflectableP", "subscript"]
@@ -325,14 +323,13 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "hidesForSinglePage"]
 - !private ["s23CustomStringConvertibleP", "image"]
 - !private ["s23CustomStringConvertibleP", "imageNames"]
-- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "instantiateViewController"]
 - !private ["s23CustomStringConvertibleP", "leadingAnchor"]
 - !private ["s23CustomStringConvertibleP", "loadCurrentPages"]
 - !private ["s23CustomStringConvertibleP", "loadPage"]
 - !private ["s23CustomStringConvertibleP", "loadViewIfNeeded"]
-- !private ["s23CustomStringConvertibleP", "max"]
-- !private ["s23CustomStringConvertibleP", "min"]
+- !private ["s23CustomStringConvertibleP", "main"]
 - !private ["s23CustomStringConvertibleP", "newImageViewController"]
 - !private ["s23CustomStringConvertibleP", "numberOfPages"]
 - !private ["s23CustomStringConvertibleP", "pageControl"]
@@ -340,6 +337,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "point"]
 - !private ["s23CustomStringConvertibleP", "present"]
 - ["s23CustomStringConvertibleP", "previewingContext"]
+- !private ["s23CustomStringConvertibleP", "print"]
 - !private ["s23CustomStringConvertibleP", "registerForPreviewing"]
 - !private ["s23CustomStringConvertibleP", "repeatElement"]
 - !private ["s23CustomStringConvertibleP", "scrollRectToVisible"]
@@ -376,7 +374,7 @@ depends-member:
 - !private ["s9DecodableP", "count"]
 - !private ["s9DecodableP", "first"]
 - !private ["s9DecodableP", "height"]
-- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "origin"]
 - !private ["s9DecodableP", "size"]
 - !private ["s9DecodableP", "subscript"]
@@ -387,7 +385,7 @@ depends-member:
 - !private ["s9EncodableP", "count"]
 - !private ["s9EncodableP", "first"]
 - !private ["s9EncodableP", "height"]
-- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "origin"]
 - !private ["s9EncodableP", "size"]
 - !private ["s9EncodableP", "subscript"]
@@ -426,14 +424,13 @@ depends-member:
 - !private ["s9EquatableP", "hidesForSinglePage"]
 - !private ["s9EquatableP", "image"]
 - !private ["s9EquatableP", "imageNames"]
-- ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "instantiateViewController"]
 - !private ["s9EquatableP", "leadingAnchor"]
 - !private ["s9EquatableP", "loadCurrentPages"]
 - !private ["s9EquatableP", "loadPage"]
 - !private ["s9EquatableP", "loadViewIfNeeded"]
-- !private ["s9EquatableP", "max"]
-- !private ["s9EquatableP", "min"]
+- !private ["s9EquatableP", "main"]
 - !private ["s9EquatableP", "newImageViewController"]
 - !private ["s9EquatableP", "numberOfPages"]
 - !private ["s9EquatableP", "origin"]
@@ -442,6 +439,7 @@ depends-member:
 - !private ["s9EquatableP", "point"]
 - !private ["s9EquatableP", "present"]
 - ["s9EquatableP", "previewingContext"]
+- !private ["s9EquatableP", "print"]
 - !private ["s9EquatableP", "registerForPreviewing"]
 - !private ["s9EquatableP", "repeatElement"]
 - ["s9EquatableP", "scaleAspectFill"]
@@ -484,11 +482,11 @@ depends-member:
 - !private ["s25ExpressibleByArrayLiteralP", "init"]
 - !private ["s25ExpressibleByArrayLiteralP", "subscript"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s25ExpressibleByFloatLiteralP", "init"]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
-- ["s26ExpressibleByStringLiteralP", "init"]
-- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s17FixedWidthIntegerP", "init"]
 - !private ["s13FloatingPointP", "init"]
 - !private ["s8HashableP", "CGFloat"]
@@ -520,14 +518,13 @@ depends-member:
 - !private ["s8HashableP", "hidesForSinglePage"]
 - !private ["s8HashableP", "image"]
 - !private ["s8HashableP", "imageNames"]
-- ["s8HashableP", "init"]
+- !private ["s8HashableP", "init"]
 - !private ["s8HashableP", "instantiateViewController"]
 - !private ["s8HashableP", "leadingAnchor"]
 - !private ["s8HashableP", "loadCurrentPages"]
 - !private ["s8HashableP", "loadPage"]
 - !private ["s8HashableP", "loadViewIfNeeded"]
-- !private ["s8HashableP", "max"]
-- !private ["s8HashableP", "min"]
+- !private ["s8HashableP", "main"]
 - !private ["s8HashableP", "newImageViewController"]
 - !private ["s8HashableP", "numberOfPages"]
 - !private ["s8HashableP", "pageControl"]
@@ -535,6 +532,7 @@ depends-member:
 - !private ["s8HashableP", "point"]
 - !private ["s8HashableP", "present"]
 - ["s8HashableP", "previewingContext"]
+- !private ["s8HashableP", "print"]
 - !private ["s8HashableP", "registerForPreviewing"]
 - !private ["s8HashableP", "repeatElement"]
 - ["s8HashableP", "scaleAspectFill"]
@@ -574,7 +572,7 @@ depends-member:
 - ["6RushMe23ImagePageViewControllerC", "ImageViewController"]
 - ["6RushMe23ImagePageViewControllerC", "Int"]
 - !private ["6RushMe23ImagePageViewControllerC", "NSLayoutConstraint"]
-- ["6RushMe23ImagePageViewControllerC", "String"]
+- ["6RushMe23ImagePageViewControllerC", "RMURL"]
 - ["6RushMe23ImagePageViewControllerC", "UIImage"]
 - !private ["6RushMe23ImagePageViewControllerC", "UIImageView"]
 - ["6RushMe23ImagePageViewControllerC", "UIPageControl"]
@@ -588,6 +586,7 @@ depends-member:
 - ["6RushMe23ImagePageViewControllerC", "Void"]
 - !private ["6RushMe23ImagePageViewControllerC", "adjustScrollView"]
 - ["6RushMe23ImagePageViewControllerC", "contentMode"]
+- ["6RushMe23ImagePageViewControllerC", "currentPage"]
 - ["6RushMe23ImagePageViewControllerC", "currentPageImage"]
 - ["6RushMe23ImagePageViewControllerC", "currentPageIndex"]
 - ["6RushMe23ImagePageViewControllerC", "deinit"]
@@ -599,8 +598,6 @@ depends-member:
 - !private ["6RushMe23ImagePageViewControllerC", "loadCurrentPages"]
 - !private ["6RushMe23ImagePageViewControllerC", "loadPage"]
 - !private ["6RushMe23ImagePageViewControllerC", "loadViewIfNeeded"]
-- !private ["6RushMe23ImagePageViewControllerC", "max"]
-- !private ["6RushMe23ImagePageViewControllerC", "min"]
 - ["6RushMe23ImagePageViewControllerC", "newImageViewController"]
 - ["6RushMe23ImagePageViewControllerC", "numberOfPages"]
 - ["6RushMe23ImagePageViewControllerC", "pageControl"]
@@ -608,6 +605,7 @@ depends-member:
 - !private ["6RushMe23ImagePageViewControllerC", "pages.storage"]
 - !private ["6RushMe23ImagePageViewControllerC", "present"]
 - ["6RushMe23ImagePageViewControllerC", "previewingContext"]
+- !private ["6RushMe23ImagePageViewControllerC", "print"]
 - !private ["6RushMe23ImagePageViewControllerC", "registerForPreviewing"]
 - !private ["6RushMe23ImagePageViewControllerC", "repeatElement"]
 - ["6RushMe23ImagePageViewControllerC", "scrollView"]
@@ -638,8 +636,8 @@ depends-member:
 - !private ["6RushMe19ImageViewControllerC", "image"]
 - !private ["Si", "init"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- ["s25LosslessStringConvertibleP", "init"]
-- ["s10MirrorPathP", "init"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
 - !private ["s17MutableCollectionP", "count"]
 - !private ["s17MutableCollectionP", "first"]
 - !private ["s17MutableCollectionP", "init"]
@@ -675,8 +673,6 @@ depends-member:
 - !private ["So8NSCodingP", "loadCurrentPages"]
 - !private ["So8NSCodingP", "loadPage"]
 - !private ["So8NSCodingP", "loadViewIfNeeded"]
-- !private ["So8NSCodingP", "max"]
-- !private ["So8NSCodingP", "min"]
 - !private ["So8NSCodingP", "newImageViewController"]
 - !private ["So8NSCodingP", "numberOfPages"]
 - !private ["So8NSCodingP", "pageControl"]
@@ -684,6 +680,7 @@ depends-member:
 - !private ["So8NSCodingP", "point"]
 - !private ["So8NSCodingP", "present"]
 - ["So8NSCodingP", "previewingContext"]
+- !private ["So8NSCodingP", "print"]
 - !private ["So8NSCodingP", "registerForPreviewing"]
 - !private ["So8NSCodingP", "repeatElement"]
 - !private ["So8NSCodingP", "scrollRectToVisible"]
@@ -726,6 +723,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "addVisualEffectView"]
 - !private ["So26NSExtensionRequestHandlingP", "adjustScrollView"]
 - !private ["So26NSExtensionRequestHandlingP", "contentMode"]
+- !private ["So26NSExtensionRequestHandlingP", "currentPage"]
 - !private ["So26NSExtensionRequestHandlingP", "currentPageIndex"]
 - !private ["So26NSExtensionRequestHandlingP", "didReceiveMemoryWarning"]
 - !private ["So26NSExtensionRequestHandlingP", "floor"]
@@ -736,14 +734,13 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "loadCurrentPages"]
 - !private ["So26NSExtensionRequestHandlingP", "loadPage"]
 - !private ["So26NSExtensionRequestHandlingP", "loadViewIfNeeded"]
-- !private ["So26NSExtensionRequestHandlingP", "max"]
-- !private ["So26NSExtensionRequestHandlingP", "min"]
 - !private ["So26NSExtensionRequestHandlingP", "newImageViewController"]
 - !private ["So26NSExtensionRequestHandlingP", "numberOfPages"]
 - !private ["So26NSExtensionRequestHandlingP", "pageControl"]
 - !private ["So26NSExtensionRequestHandlingP", "pages"]
 - !private ["So26NSExtensionRequestHandlingP", "present"]
 - ["So26NSExtensionRequestHandlingP", "previewingContext"]
+- !private ["So26NSExtensionRequestHandlingP", "print"]
 - !private ["So26NSExtensionRequestHandlingP", "registerForPreviewing"]
 - !private ["So26NSExtensionRequestHandlingP", "repeatElement"]
 - !private ["So26NSExtensionRequestHandlingP", "scrollView"]
@@ -780,7 +777,7 @@ depends-member:
 - ["So8NSObjectC", "ImageViewController"]
 - ["So8NSObjectC", "Int"]
 - !private ["So8NSObjectC", "NSLayoutConstraint"]
-- ["So8NSObjectC", "String"]
+- ["So8NSObjectC", "RMURL"]
 - ["So8NSObjectC", "UIImage"]
 - !private ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UIPageControl"]
@@ -802,7 +799,7 @@ depends-member:
 - ["So8NSObjectC", "contentMode"]
 - !private ["So8NSObjectC", "contentOffset"]
 - !private ["So8NSObjectC", "contentSize"]
-- !private ["So8NSObjectC", "currentPage"]
+- ["So8NSObjectC", "currentPage"]
 - ["So8NSObjectC", "currentPageImage"]
 - ["So8NSObjectC", "currentPageIndex"]
 - !private ["So8NSObjectC", "delegate"]
@@ -819,8 +816,7 @@ depends-member:
 - ["So8NSObjectC", "loadCurrentPages"]
 - ["So8NSObjectC", "loadPage"]
 - !private ["So8NSObjectC", "loadViewIfNeeded"]
-- !private ["So8NSObjectC", "max"]
-- !private ["So8NSObjectC", "min"]
+- !private ["So8NSObjectC", "main"]
 - ["So8NSObjectC", "newImageViewController"]
 - ["So8NSObjectC", "numberOfPages"]
 - ["So8NSObjectC", "pageControl"]
@@ -829,6 +825,7 @@ depends-member:
 - !private ["So8NSObjectC", "point"]
 - !private ["So8NSObjectC", "present"]
 - ["So8NSObjectC", "previewingContext"]
+- !private ["So8NSObjectC", "print"]
 - !private ["So8NSObjectC", "registerForPreviewing"]
 - !private ["So8NSObjectC", "repeatElement"]
 - !private ["So8NSObjectC", "scrollRectToVisible"]
@@ -897,8 +894,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "loadCurrentPages"]
 - !private ["So16NSObjectProtocolP", "loadPage"]
 - !private ["So16NSObjectProtocolP", "loadViewIfNeeded"]
-- !private ["So16NSObjectProtocolP", "max"]
-- !private ["So16NSObjectProtocolP", "min"]
+- !private ["So16NSObjectProtocolP", "main"]
 - !private ["So16NSObjectProtocolP", "newImageViewController"]
 - !private ["So16NSObjectProtocolP", "numberOfPages"]
 - !private ["So16NSObjectProtocolP", "pageControl"]
@@ -906,6 +902,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "point"]
 - !private ["So16NSObjectProtocolP", "present"]
 - ["So16NSObjectProtocolP", "previewingContext"]
+- !private ["So16NSObjectProtocolP", "print"]
 - !private ["So16NSObjectProtocolP", "registerForPreviewing"]
 - !private ["So16NSObjectProtocolP", "repeatElement"]
 - !private ["So16NSObjectProtocolP", "scrollRectToVisible"]
@@ -944,20 +941,20 @@ depends-member:
 - !private ["s22RandomAccessCollectionP", "subscript"]
 - !private ["s26RangeReplaceableCollectionP", "count"]
 - !private ["s26RangeReplaceableCollectionP", "first"]
-- ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "subscript"]
 - ["s16RawRepresentableP", "scaleAspectFill"]
 - !private ["s8SequenceP", "count"]
 - !private ["s8SequenceP", "first"]
-- ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "subscript"]
 - !private ["s13SignedIntegerP", "init"]
 - !private ["s13SignedNumericP", "init"]
 - !private ["s10StrideableP", "init"]
-- ["SS", "init"]
-- ["s14StringProtocolP", "init"]
-- ["s16TextOutputStreamP", "init"]
-- ["s20TextOutputStreamableP", "init"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "bottomAnchor"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "contentMode"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
@@ -1041,8 +1038,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "loadCurrentPages"]
 - !private ["So21UIAppearanceContainerP", "loadPage"]
 - !private ["So21UIAppearanceContainerP", "loadViewIfNeeded"]
-- !private ["So21UIAppearanceContainerP", "max"]
-- !private ["So21UIAppearanceContainerP", "min"]
 - !private ["So21UIAppearanceContainerP", "newImageViewController"]
 - !private ["So21UIAppearanceContainerP", "numberOfPages"]
 - !private ["So21UIAppearanceContainerP", "pageControl"]
@@ -1050,6 +1045,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "point"]
 - !private ["So21UIAppearanceContainerP", "present"]
 - ["So21UIAppearanceContainerP", "previewingContext"]
+- !private ["So21UIAppearanceContainerP", "print"]
 - !private ["So21UIAppearanceContainerP", "registerForPreviewing"]
 - !private ["So21UIAppearanceContainerP", "repeatElement"]
 - !private ["So21UIAppearanceContainerP", "scrollRectToVisible"]
@@ -1092,6 +1088,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "addVisualEffectView"]
 - !private ["So18UIContentContainerP", "adjustScrollView"]
 - !private ["So18UIContentContainerP", "contentMode"]
+- !private ["So18UIContentContainerP", "currentPage"]
 - !private ["So18UIContentContainerP", "currentPageIndex"]
 - !private ["So18UIContentContainerP", "didReceiveMemoryWarning"]
 - !private ["So18UIContentContainerP", "floor"]
@@ -1102,14 +1099,13 @@ depends-member:
 - !private ["So18UIContentContainerP", "loadCurrentPages"]
 - !private ["So18UIContentContainerP", "loadPage"]
 - !private ["So18UIContentContainerP", "loadViewIfNeeded"]
-- !private ["So18UIContentContainerP", "max"]
-- !private ["So18UIContentContainerP", "min"]
 - !private ["So18UIContentContainerP", "newImageViewController"]
 - !private ["So18UIContentContainerP", "numberOfPages"]
 - !private ["So18UIContentContainerP", "pageControl"]
 - !private ["So18UIContentContainerP", "pages"]
 - !private ["So18UIContentContainerP", "present"]
 - ["So18UIContentContainerP", "previewingContext"]
+- !private ["So18UIContentContainerP", "print"]
 - !private ["So18UIContentContainerP", "registerForPreviewing"]
 - !private ["So18UIContentContainerP", "repeatElement"]
 - !private ["So18UIContentContainerP", "scrollView"]
@@ -1211,8 +1207,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "loadCurrentPages"]
 - !private ["So18UIFocusEnvironmentP", "loadPage"]
 - !private ["So18UIFocusEnvironmentP", "loadViewIfNeeded"]
-- !private ["So18UIFocusEnvironmentP", "max"]
-- !private ["So18UIFocusEnvironmentP", "min"]
 - !private ["So18UIFocusEnvironmentP", "newImageViewController"]
 - !private ["So18UIFocusEnvironmentP", "numberOfPages"]
 - !private ["So18UIFocusEnvironmentP", "pageControl"]
@@ -1220,6 +1214,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "point"]
 - !private ["So18UIFocusEnvironmentP", "present"]
 - ["So18UIFocusEnvironmentP", "previewingContext"]
+- !private ["So18UIFocusEnvironmentP", "print"]
 - !private ["So18UIFocusEnvironmentP", "registerForPreviewing"]
 - !private ["So18UIFocusEnvironmentP", "repeatElement"]
 - !private ["So18UIFocusEnvironmentP", "scrollRectToVisible"]
@@ -1317,8 +1312,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "loadCurrentPages"]
 - !private ["So30UIPasteConfigurationSupportingP", "loadPage"]
 - !private ["So30UIPasteConfigurationSupportingP", "loadViewIfNeeded"]
-- !private ["So30UIPasteConfigurationSupportingP", "max"]
-- !private ["So30UIPasteConfigurationSupportingP", "min"]
 - !private ["So30UIPasteConfigurationSupportingP", "newImageViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "numberOfPages"]
 - !private ["So30UIPasteConfigurationSupportingP", "pageControl"]
@@ -1326,6 +1319,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "point"]
 - !private ["So30UIPasteConfigurationSupportingP", "present"]
 - ["So30UIPasteConfigurationSupportingP", "previewingContext"]
+- !private ["So30UIPasteConfigurationSupportingP", "print"]
 - !private ["So30UIPasteConfigurationSupportingP", "registerForPreviewing"]
 - !private ["So30UIPasteConfigurationSupportingP", "repeatElement"]
 - !private ["So30UIPasteConfigurationSupportingP", "scrollRectToVisible"]
@@ -1364,7 +1358,7 @@ depends-member:
 - ["So11UIResponderC", "ImageViewController"]
 - ["So11UIResponderC", "Int"]
 - !private ["So11UIResponderC", "NSLayoutConstraint"]
-- ["So11UIResponderC", "String"]
+- ["So11UIResponderC", "RMURL"]
 - ["So11UIResponderC", "UIImage"]
 - !private ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UIPageControl"]
@@ -1384,7 +1378,7 @@ depends-member:
 - ["So11UIResponderC", "contentMode"]
 - !private ["So11UIResponderC", "contentOffset"]
 - !private ["So11UIResponderC", "contentSize"]
-- !private ["So11UIResponderC", "currentPage"]
+- ["So11UIResponderC", "currentPage"]
 - ["So11UIResponderC", "currentPageImage"]
 - ["So11UIResponderC", "currentPageIndex"]
 - !private ["So11UIResponderC", "delegate"]
@@ -1400,8 +1394,6 @@ depends-member:
 - ["So11UIResponderC", "loadCurrentPages"]
 - ["So11UIResponderC", "loadPage"]
 - !private ["So11UIResponderC", "loadViewIfNeeded"]
-- !private ["So11UIResponderC", "max"]
-- !private ["So11UIResponderC", "min"]
 - ["So11UIResponderC", "newImageViewController"]
 - ["So11UIResponderC", "numberOfPages"]
 - ["So11UIResponderC", "pageControl"]
@@ -1410,6 +1402,7 @@ depends-member:
 - !private ["So11UIResponderC", "point"]
 - !private ["So11UIResponderC", "present"]
 - ["So11UIResponderC", "previewingContext"]
+- !private ["So11UIResponderC", "print"]
 - !private ["So11UIResponderC", "registerForPreviewing"]
 - !private ["So11UIResponderC", "repeatElement"]
 - !private ["So11UIResponderC", "scrollRectToVisible"]
@@ -1473,8 +1466,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "loadCurrentPages"]
 - !private ["So30UIResponderStandardEditActionsP", "loadPage"]
 - !private ["So30UIResponderStandardEditActionsP", "loadViewIfNeeded"]
-- !private ["So30UIResponderStandardEditActionsP", "max"]
-- !private ["So30UIResponderStandardEditActionsP", "min"]
 - !private ["So30UIResponderStandardEditActionsP", "newImageViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "numberOfPages"]
 - !private ["So30UIResponderStandardEditActionsP", "pageControl"]
@@ -1482,6 +1473,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "point"]
 - !private ["So30UIResponderStandardEditActionsP", "present"]
 - ["So30UIResponderStandardEditActionsP", "previewingContext"]
+- !private ["So30UIResponderStandardEditActionsP", "print"]
 - !private ["So30UIResponderStandardEditActionsP", "registerForPreviewing"]
 - !private ["So30UIResponderStandardEditActionsP", "repeatElement"]
 - !private ["So30UIResponderStandardEditActionsP", "scrollRectToVisible"]
@@ -1532,6 +1524,7 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "addVisualEffectView"]
 - !private ["So20UIScrollViewDelegateP", "adjustScrollView"]
 - !private ["So20UIScrollViewDelegateP", "contentMode"]
+- !private ["So20UIScrollViewDelegateP", "currentPage"]
 - !private ["So20UIScrollViewDelegateP", "currentPageIndex"]
 - !private ["So20UIScrollViewDelegateP", "floor"]
 - !private ["So20UIScrollViewDelegateP", "goToPage"]
@@ -1540,14 +1533,13 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "loadCurrentPages"]
 - !private ["So20UIScrollViewDelegateP", "loadPage"]
 - !private ["So20UIScrollViewDelegateP", "loadViewIfNeeded"]
-- !private ["So20UIScrollViewDelegateP", "max"]
-- !private ["So20UIScrollViewDelegateP", "min"]
 - !private ["So20UIScrollViewDelegateP", "newImageViewController"]
 - !private ["So20UIScrollViewDelegateP", "numberOfPages"]
 - !private ["So20UIScrollViewDelegateP", "pageControl"]
 - !private ["So20UIScrollViewDelegateP", "pages"]
 - !private ["So20UIScrollViewDelegateP", "present"]
 - ["So20UIScrollViewDelegateP", "previewingContext"]
+- !private ["So20UIScrollViewDelegateP", "print"]
 - !private ["So20UIScrollViewDelegateP", "registerForPreviewing"]
 - !private ["So20UIScrollViewDelegateP", "repeatElement"]
 - !private ["So20UIScrollViewDelegateP", "scrollView"]
@@ -1581,6 +1573,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "addVisualEffectView"]
 - !private ["So16UIStateRestoringP", "adjustScrollView"]
 - !private ["So16UIStateRestoringP", "contentMode"]
+- !private ["So16UIStateRestoringP", "currentPage"]
 - !private ["So16UIStateRestoringP", "currentPageIndex"]
 - !private ["So16UIStateRestoringP", "didReceiveMemoryWarning"]
 - !private ["So16UIStateRestoringP", "floor"]
@@ -1591,14 +1584,13 @@ depends-member:
 - !private ["So16UIStateRestoringP", "loadCurrentPages"]
 - !private ["So16UIStateRestoringP", "loadPage"]
 - !private ["So16UIStateRestoringP", "loadViewIfNeeded"]
-- !private ["So16UIStateRestoringP", "max"]
-- !private ["So16UIStateRestoringP", "min"]
 - !private ["So16UIStateRestoringP", "newImageViewController"]
 - !private ["So16UIStateRestoringP", "numberOfPages"]
 - !private ["So16UIStateRestoringP", "pageControl"]
 - !private ["So16UIStateRestoringP", "pages"]
 - !private ["So16UIStateRestoringP", "present"]
 - ["So16UIStateRestoringP", "previewingContext"]
+- !private ["So16UIStateRestoringP", "print"]
 - !private ["So16UIStateRestoringP", "registerForPreviewing"]
 - !private ["So16UIStateRestoringP", "repeatElement"]
 - !private ["So16UIStateRestoringP", "scrollView"]
@@ -1624,8 +1616,8 @@ depends-member:
 - ["So16UIStateRestoringP", "viewForZooming"]
 - ["So16UIStateRestoringP", "viewForZoomingInScrollView"]
 - !private ["So16UIStateRestoringP", "viewWillTransition"]
-- !private ["So12UIStoryboardC", "init"]
 - !private ["So12UIStoryboardC", "instantiateViewController"]
+- !private ["So12UIStoryboardC", "main"]
 - !private ["So18UITraitEnvironmentP", "CGFloat"]
 - !private ["So18UITraitEnvironmentP", "CGSize"]
 - !private ["So18UITraitEnvironmentP", "Int"]
@@ -1657,8 +1649,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "loadCurrentPages"]
 - !private ["So18UITraitEnvironmentP", "loadPage"]
 - !private ["So18UITraitEnvironmentP", "loadViewIfNeeded"]
-- !private ["So18UITraitEnvironmentP", "max"]
-- !private ["So18UITraitEnvironmentP", "min"]
 - !private ["So18UITraitEnvironmentP", "newImageViewController"]
 - !private ["So18UITraitEnvironmentP", "numberOfPages"]
 - !private ["So18UITraitEnvironmentP", "pageControl"]
@@ -1666,6 +1656,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "point"]
 - !private ["So18UITraitEnvironmentP", "present"]
 - ["So18UITraitEnvironmentP", "previewingContext"]
+- !private ["So18UITraitEnvironmentP", "print"]
 - !private ["So18UITraitEnvironmentP", "registerForPreviewing"]
 - !private ["So18UITraitEnvironmentP", "repeatElement"]
 - !private ["So18UITraitEnvironmentP", "scrollRectToVisible"]
@@ -1726,7 +1717,7 @@ depends-member:
 - ["So16UIViewControllerC", "ImageViewController"]
 - ["So16UIViewControllerC", "Int"]
 - !private ["So16UIViewControllerC", "NSLayoutConstraint"]
-- ["So16UIViewControllerC", "String"]
+- ["So16UIViewControllerC", "RMURL"]
 - ["So16UIViewControllerC", "UIImage"]
 - !private ["So16UIViewControllerC", "UIImageView"]
 - ["So16UIViewControllerC", "UIPageControl"]
@@ -1742,6 +1733,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "addVisualEffectView"]
 - ["So16UIViewControllerC", "adjustScrollView"]
 - ["So16UIViewControllerC", "contentMode"]
+- ["So16UIViewControllerC", "currentPage"]
 - ["So16UIViewControllerC", "currentPageImage"]
 - ["So16UIViewControllerC", "currentPageIndex"]
 - ["So16UIViewControllerC", "didReceiveMemoryWarning"]
@@ -1753,8 +1745,6 @@ depends-member:
 - ["So16UIViewControllerC", "loadCurrentPages"]
 - ["So16UIViewControllerC", "loadPage"]
 - !private ["So16UIViewControllerC", "loadViewIfNeeded"]
-- !private ["So16UIViewControllerC", "max"]
-- !private ["So16UIViewControllerC", "min"]
 - ["So16UIViewControllerC", "newImageViewController"]
 - ["So16UIViewControllerC", "numberOfPages"]
 - ["So16UIViewControllerC", "pageControl"]
@@ -1762,6 +1752,7 @@ depends-member:
 - ["So16UIViewControllerC", "pages.storage"]
 - !private ["So16UIViewControllerC", "present"]
 - ["So16UIViewControllerC", "previewingContext"]
+- !private ["So16UIViewControllerC", "print"]
 - !private ["So16UIViewControllerC", "registerForPreviewing"]
 - !private ["So16UIViewControllerC", "repeatElement"]
 - ["So16UIViewControllerC", "scrollView"]
@@ -1798,6 +1789,7 @@ depends-member:
 - ["So34UIViewControllerPreviewingDelegateP", ""]
 - !private ["So34UIViewControllerPreviewingDelegateP", "adjustScrollView"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "contentMode"]
+- !private ["So34UIViewControllerPreviewingDelegateP", "currentPage"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "currentPageIndex"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "floor"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "goToPage"]
@@ -1805,14 +1797,13 @@ depends-member:
 - !private ["So34UIViewControllerPreviewingDelegateP", "loadCurrentPages"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "loadPage"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "loadViewIfNeeded"]
-- !private ["So34UIViewControllerPreviewingDelegateP", "max"]
-- !private ["So34UIViewControllerPreviewingDelegateP", "min"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "newImageViewController"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "numberOfPages"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "pageControl"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "pages"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "present"]
 - ["So34UIViewControllerPreviewingDelegateP", "previewingContext"]
+- !private ["So34UIViewControllerPreviewingDelegateP", "print"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "registerForPreviewing"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "repeatElement"]
 - !private ["So34UIViewControllerPreviewingDelegateP", "scrollView"]
@@ -1870,12 +1861,12 @@ depends-member:
 - !private ["s24_DestructorSafeContainerP", "init"]
 - !private ["s24_DestructorSafeContainerP", "subscript"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
-- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CGFloat"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CGSize"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Int"]
@@ -1910,8 +1901,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadCurrentPages"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadPage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadViewIfNeeded"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "max"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "min"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "main"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "newImageViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "numberOfPages"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "pageControl"]
@@ -1919,6 +1909,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "point"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "present"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "previewingContext"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "print"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "registerForPreviewing"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "repeatElement"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "scrollRectToVisible"]
@@ -1954,17 +1945,17 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "count"]
 - !private ["s21_ObjectiveCBridgeableP", "first"]
 - !private ["s21_ObjectiveCBridgeableP", "height"]
-- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "origin"]
 - !private ["s21_ObjectiveCBridgeableP", "size"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s21_ObjectiveCBridgeableP", "width"]
 - !private ["s21_ObjectiveCBridgeableP", "x"]
 - !private ["s21_ObjectiveCBridgeableP", "y"]
-- ["s16_SwiftStringViewP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
 depends-nominal:
 - !private "Sa"
-- "s23BidirectionalCollectionP"
+- !private "s23BidirectionalCollectionP"
 - !private "s19BinaryFloatingPointP"
 - !private "s13BinaryIntegerP"
 - !private "Sb"
@@ -1974,30 +1965,30 @@ depends-nominal:
 - !private "SC6CGRectV"
 - !private "SC6CGSizeV"
 - "s7CVarArgP"
-- "s10CollectionP"
-- "s10ComparableP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
 - "s28CustomDebugStringConvertibleP"
-- "s29CustomPlaygroundQuickLookableP"
-- "s17CustomReflectableP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
-- "s9DecodableP"
-- "s9EncodableP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
 - "s9EquatableP"
 - !private "s25ExpressibleByArrayLiteralP"
 - !private "s27ExpressibleByBooleanLiteralP"
-- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s25ExpressibleByFloatLiteralP"
 - !private "s27ExpressibleByIntegerLiteralP"
-- "s26ExpressibleByStringLiteralP"
-- "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "s17FixedWidthIntegerP"
 - !private "s13FloatingPointP"
 - "s8HashableP"
 - "6RushMe23ImagePageViewControllerC"
 - !private "6RushMe19ImageViewControllerC"
 - !private "Si"
-- "s25LosslessStringConvertibleP"
-- "s10MirrorPathP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
 - !private "s17MutableCollectionP"
 - "So8NSCodingP"
 - "So26NSExtensionRequestHandlingP"
@@ -2009,16 +2000,16 @@ depends-nominal:
 - "So16NSObjectProtocolP"
 - !private "s7NumericP"
 - !private "s22RandomAccessCollectionP"
-- "s26RangeReplaceableCollectionP"
+- !private "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
-- "s8SequenceP"
+- !private "s8SequenceP"
 - !private "s13SignedIntegerP"
 - !private "s13SignedNumericP"
 - !private "s10StrideableP"
-- "SS"
-- "s14StringProtocolP"
-- "s16TextOutputStreamP"
-- "s20TextOutputStreamableP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
 - !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
 - !private "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
@@ -2053,15 +2044,15 @@ depends-nominal:
 - !private "s37_DefaultCustomPlaygroundQuickLookableP"
 - !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
-- "s34_ExpressibleByBuiltinStringLiteralP"
-- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- "s33_ExpressibleByStringInterpolationP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
 - "10Foundation27_KeyValueCodingAndObservingP"
-- "s21_ObjectiveCBridgeableP"
-- "s16_SwiftStringViewP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s16_SwiftStringViewP"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
@@ -2089,16 +2080,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "39692a6b646aafab14e49fbade24bd45"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "30d6829f207cfe10d0853ba77b134d7d"

@@ -193,7 +193,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "startDate"]
 - !private ["So14NSSecureCodingP", "replacingOccurrences"]
 - !private ["So8NSStringC", "replacingOccurrences"]
-- !private ["6RushMe7RMImageC", "NoImage"]
 - !private ["6RushMe7RMImageV", "NoImage"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "replacingOccurrences"]
@@ -274,7 +273,6 @@ depends-nominal:
 - "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
 - !private "So8NSStringC"
-- !private "6RushMe7RMImageC"
 - !private "6RushMe7RMImageV"
 - !private "s26RangeReplaceableCollectionP"
 - "s8SequenceP"

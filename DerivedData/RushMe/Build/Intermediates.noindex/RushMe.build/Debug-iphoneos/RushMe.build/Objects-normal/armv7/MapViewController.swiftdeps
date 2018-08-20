@@ -6,7 +6,6 @@ provides-nominal:
 provides-member:
 - ["6RushMe17MapViewControllerC", ""]
 provides-dynamic-lookup:
-- "barButtonItem"
 - "center"
 - "centerMap"
 - "didReceiveMemoryWarning"
@@ -53,13 +52,12 @@ depends-top-level:
 - !private "MasterViewController"
 - !private "NSAttributedStringKey"
 - !private "RMColor"
-- !private "RMDatabaseKey"
-- !private "RMFratPropertyKeys"
 - !private "RMGeocoder"
 - !private "SQLHandler"
 - "ScrollableItem"
 - !private "Set"
 - "String"
+- !private "StringLiteralType"
 - "TernaryPrecedence"
 - "UIActivityIndicatorView"
 - "UIBarButtonItem"
@@ -129,8 +127,6 @@ depends-member:
 - !private ["s7CVarArgP", "MasterViewController"]
 - !private ["s7CVarArgP", "NSAttributedStringKey"]
 - !private ["s7CVarArgP", "RMColor"]
-- !private ["s7CVarArgP", "RMDatabaseKey"]
-- !private ["s7CVarArgP", "RMFratPropertyKeys"]
 - !private ["s7CVarArgP", "RMGeocoder"]
 - !private ["s7CVarArgP", "SQLHandler"]
 - !private ["s7CVarArgP", "Set"]
@@ -168,7 +164,6 @@ depends-member:
 - !private ["s7CVarArgP", "fratAnnotations"]
 - !private ["s7CVarArgP", "fratNameButton"]
 - !private ["s7CVarArgP", "fraternitiesDict"]
-- !private ["s7CVarArgP", "getProperty"]
 - !private ["s7CVarArgP", "greekLetters"]
 - !private ["s7CVarArgP", "handleGeocoding"]
 - !private ["s7CVarArgP", "hasFavorites"]
@@ -195,7 +190,6 @@ depends-member:
 - ["s7CVarArgP", "mapViewWillStartLocatingUser"]
 - ["s7CVarArgP", "mapViewWillStartRenderingMap"]
 - !private ["s7CVarArgP", "masksToBounds"]
-- !private ["s7CVarArgP", "name"]
 - !private ["s7CVarArgP", "navigationBar"]
 - !private ["s7CVarArgP", "navigationController"]
 - !private ["s7CVarArgP", "navigationItem"]
@@ -206,7 +200,6 @@ depends-member:
 - !private ["s7CVarArgP", "selectedFraternity"]
 - !private ["s7CVarArgP", "selectedSegmentIndex"]
 - !private ["s7CVarArgP", "setCenter"]
-- !private ["s7CVarArgP", "setProperty"]
 - !private ["s7CVarArgP", "setRightBarButton"]
 - !private ["s7CVarArgP", "setTitle"]
 - !private ["s7CVarArgP", "setViewControllers"]
@@ -252,8 +245,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "MasterViewController"]
 - !private ["s28CustomDebugStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s28CustomDebugStringConvertibleP", "RMColor"]
-- !private ["s28CustomDebugStringConvertibleP", "RMDatabaseKey"]
-- !private ["s28CustomDebugStringConvertibleP", "RMFratPropertyKeys"]
 - !private ["s28CustomDebugStringConvertibleP", "RMGeocoder"]
 - !private ["s28CustomDebugStringConvertibleP", "SQLHandler"]
 - !private ["s28CustomDebugStringConvertibleP", "Set"]
@@ -290,7 +281,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "fratAnnotations"]
 - !private ["s28CustomDebugStringConvertibleP", "fratNameButton"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesDict"]
-- !private ["s28CustomDebugStringConvertibleP", "getProperty"]
 - !private ["s28CustomDebugStringConvertibleP", "greekLetters"]
 - !private ["s28CustomDebugStringConvertibleP", "handleGeocoding"]
 - !private ["s28CustomDebugStringConvertibleP", "hasFavorites"]
@@ -317,7 +307,6 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "mapViewWillStartLocatingUser"]
 - ["s28CustomDebugStringConvertibleP", "mapViewWillStartRenderingMap"]
 - !private ["s28CustomDebugStringConvertibleP", "masksToBounds"]
-- !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "navigationBar"]
 - !private ["s28CustomDebugStringConvertibleP", "navigationController"]
 - !private ["s28CustomDebugStringConvertibleP", "navigationItem"]
@@ -328,7 +317,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "selectedFraternity"]
 - !private ["s28CustomDebugStringConvertibleP", "selectedSegmentIndex"]
 - !private ["s28CustomDebugStringConvertibleP", "setCenter"]
-- !private ["s28CustomDebugStringConvertibleP", "setProperty"]
 - !private ["s28CustomDebugStringConvertibleP", "setRightBarButton"]
 - !private ["s28CustomDebugStringConvertibleP", "setTitle"]
 - !private ["s28CustomDebugStringConvertibleP", "setViewControllers"]
@@ -372,8 +360,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "MasterViewController"]
 - !private ["s23CustomStringConvertibleP", "NSAttributedStringKey"]
 - !private ["s23CustomStringConvertibleP", "RMColor"]
-- !private ["s23CustomStringConvertibleP", "RMDatabaseKey"]
-- !private ["s23CustomStringConvertibleP", "RMFratPropertyKeys"]
 - !private ["s23CustomStringConvertibleP", "RMGeocoder"]
 - !private ["s23CustomStringConvertibleP", "SQLHandler"]
 - !private ["s23CustomStringConvertibleP", "Set"]
@@ -411,7 +397,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "fratAnnotations"]
 - !private ["s23CustomStringConvertibleP", "fratNameButton"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesDict"]
-- !private ["s23CustomStringConvertibleP", "getProperty"]
 - !private ["s23CustomStringConvertibleP", "greekLetters"]
 - !private ["s23CustomStringConvertibleP", "handleGeocoding"]
 - !private ["s23CustomStringConvertibleP", "hasFavorites"]
@@ -438,7 +423,6 @@ depends-member:
 - ["s23CustomStringConvertibleP", "mapViewWillStartLocatingUser"]
 - ["s23CustomStringConvertibleP", "mapViewWillStartRenderingMap"]
 - !private ["s23CustomStringConvertibleP", "masksToBounds"]
-- !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "navigationBar"]
 - !private ["s23CustomStringConvertibleP", "navigationController"]
 - !private ["s23CustomStringConvertibleP", "navigationItem"]
@@ -449,7 +433,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "selectedFraternity"]
 - !private ["s23CustomStringConvertibleP", "selectedSegmentIndex"]
 - !private ["s23CustomStringConvertibleP", "setCenter"]
-- !private ["s23CustomStringConvertibleP", "setProperty"]
 - !private ["s23CustomStringConvertibleP", "setRightBarButton"]
 - !private ["s23CustomStringConvertibleP", "setTitle"]
 - !private ["s23CustomStringConvertibleP", "setViewControllers"]
@@ -507,8 +490,6 @@ depends-member:
 - !private ["s9EquatableP", "MasterViewController"]
 - !private ["s9EquatableP", "NSAttributedStringKey"]
 - !private ["s9EquatableP", "RMColor"]
-- !private ["s9EquatableP", "RMDatabaseKey"]
-- !private ["s9EquatableP", "RMFratPropertyKeys"]
 - !private ["s9EquatableP", "RMGeocoder"]
 - !private ["s9EquatableP", "SQLHandler"]
 - !private ["s9EquatableP", "Set"]
@@ -548,7 +529,6 @@ depends-member:
 - !private ["s9EquatableP", "fratAnnotations"]
 - !private ["s9EquatableP", "fratNameButton"]
 - !private ["s9EquatableP", "fraternitiesDict"]
-- !private ["s9EquatableP", "getProperty"]
 - !private ["s9EquatableP", "greekLetters"]
 - !private ["s9EquatableP", "handleGeocoding"]
 - !private ["s9EquatableP", "hasFavorites"]
@@ -576,7 +556,6 @@ depends-member:
 - ["s9EquatableP", "mapViewWillStartLocatingUser"]
 - ["s9EquatableP", "mapViewWillStartRenderingMap"]
 - !private ["s9EquatableP", "masksToBounds"]
-- !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "navigationBar"]
 - !private ["s9EquatableP", "navigationController"]
 - !private ["s9EquatableP", "navigationItem"]
@@ -589,7 +568,6 @@ depends-member:
 - !private ["s9EquatableP", "selectedFraternity"]
 - !private ["s9EquatableP", "selectedSegmentIndex"]
 - !private ["s9EquatableP", "setCenter"]
-- !private ["s9EquatableP", "setProperty"]
 - !private ["s9EquatableP", "setRightBarButton"]
 - !private ["s9EquatableP", "setTitle"]
 - !private ["s9EquatableP", "setViewControllers"]
@@ -629,9 +607,8 @@ depends-member:
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "greekLetters"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - ["s13FloatingPointP", "init"]
-- !private ["6RushMe10FraternityC", "getProperty"]
+- !private ["6RushMe10FraternityC", "address"]
 - !private ["6RushMe10FraternityC", "name"]
-- !private ["6RushMe10FraternityC", "setProperty"]
 - !private ["6RushMe22FraternityCellDelegateP", "toggleFavorite"]
 - !private ["s8HashableP", "CGRect"]
 - !private ["s8HashableP", "CLLocation"]
@@ -645,8 +622,6 @@ depends-member:
 - !private ["s8HashableP", "MasterViewController"]
 - !private ["s8HashableP", "NSAttributedStringKey"]
 - !private ["s8HashableP", "RMColor"]
-- !private ["s8HashableP", "RMDatabaseKey"]
-- !private ["s8HashableP", "RMFratPropertyKeys"]
 - !private ["s8HashableP", "RMGeocoder"]
 - !private ["s8HashableP", "SQLHandler"]
 - !private ["s8HashableP", "Set"]
@@ -684,7 +659,6 @@ depends-member:
 - !private ["s8HashableP", "fratAnnotations"]
 - !private ["s8HashableP", "fratNameButton"]
 - !private ["s8HashableP", "fraternitiesDict"]
-- !private ["s8HashableP", "getProperty"]
 - !private ["s8HashableP", "greekLetters"]
 - !private ["s8HashableP", "handleGeocoding"]
 - !private ["s8HashableP", "hasFavorites"]
@@ -710,7 +684,6 @@ depends-member:
 - ["s8HashableP", "mapViewWillStartLocatingUser"]
 - ["s8HashableP", "mapViewWillStartRenderingMap"]
 - !private ["s8HashableP", "masksToBounds"]
-- !private ["s8HashableP", "name"]
 - !private ["s8HashableP", "navigationBar"]
 - !private ["s8HashableP", "navigationController"]
 - !private ["s8HashableP", "navigationItem"]
@@ -722,7 +695,6 @@ depends-member:
 - !private ["s8HashableP", "selectedFraternity"]
 - !private ["s8HashableP", "selectedSegmentIndex"]
 - !private ["s8HashableP", "setCenter"]
-- !private ["s8HashableP", "setProperty"]
 - !private ["s8HashableP", "setRightBarButton"]
 - !private ["s8HashableP", "setTitle"]
 - !private ["s8HashableP", "setViewControllers"]
@@ -772,8 +744,6 @@ depends-member:
 - !private ["So17MKMapViewDelegateP", "MasterViewController"]
 - !private ["So17MKMapViewDelegateP", "NSAttributedStringKey"]
 - !private ["So17MKMapViewDelegateP", "RMColor"]
-- !private ["So17MKMapViewDelegateP", "RMDatabaseKey"]
-- !private ["So17MKMapViewDelegateP", "RMFratPropertyKeys"]
 - !private ["So17MKMapViewDelegateP", "RMGeocoder"]
 - !private ["So17MKMapViewDelegateP", "SQLHandler"]
 - !private ["So17MKMapViewDelegateP", "Set"]
@@ -833,8 +803,6 @@ depends-member:
 - !private ["6RushMe17MapViewControllerC", "MasterViewController"]
 - !private ["6RushMe17MapViewControllerC", "NSAttributedStringKey"]
 - !private ["6RushMe17MapViewControllerC", "RMColor"]
-- !private ["6RushMe17MapViewControllerC", "RMDatabaseKey"]
-- !private ["6RushMe17MapViewControllerC", "RMFratPropertyKeys"]
 - !private ["6RushMe17MapViewControllerC", "RMGeocoder"]
 - !private ["6RushMe17MapViewControllerC", "SQLHandler"]
 - !private ["6RushMe17MapViewControllerC", "Set"]
@@ -903,8 +871,6 @@ depends-member:
 - !private ["So8NSCodingP", "MasterViewController"]
 - !private ["So8NSCodingP", "NSAttributedStringKey"]
 - !private ["So8NSCodingP", "RMColor"]
-- !private ["So8NSCodingP", "RMDatabaseKey"]
-- !private ["So8NSCodingP", "RMFratPropertyKeys"]
 - !private ["So8NSCodingP", "RMGeocoder"]
 - !private ["So8NSCodingP", "SQLHandler"]
 - !private ["So8NSCodingP", "Set"]
@@ -994,8 +960,6 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "MasterViewController"]
 - !private ["So26NSExtensionRequestHandlingP", "NSAttributedStringKey"]
 - !private ["So26NSExtensionRequestHandlingP", "RMColor"]
-- !private ["So26NSExtensionRequestHandlingP", "RMDatabaseKey"]
-- !private ["So26NSExtensionRequestHandlingP", "RMFratPropertyKeys"]
 - !private ["So26NSExtensionRequestHandlingP", "RMGeocoder"]
 - !private ["So26NSExtensionRequestHandlingP", "SQLHandler"]
 - !private ["So26NSExtensionRequestHandlingP", "Set"]
@@ -1060,8 +1024,6 @@ depends-member:
 - !private ["So8NSObjectC", "MasterViewController"]
 - !private ["So8NSObjectC", "NSAttributedStringKey"]
 - !private ["So8NSObjectC", "RMColor"]
-- !private ["So8NSObjectC", "RMDatabaseKey"]
-- !private ["So8NSObjectC", "RMFratPropertyKeys"]
 - !private ["So8NSObjectC", "RMGeocoder"]
 - !private ["So8NSObjectC", "SQLHandler"]
 - !private ["So8NSObjectC", "Set"]
@@ -1099,7 +1061,6 @@ depends-member:
 - ["So8NSObjectC", "fratAnnotations"]
 - ["So8NSObjectC", "fratNameButton"]
 - !private ["So8NSObjectC", "fraternitiesDict"]
-- !private ["So8NSObjectC", "getProperty"]
 - ["So8NSObjectC", "goToFraternity"]
 - !private ["So8NSObjectC", "greekLetters"]
 - ["So8NSObjectC", "handleGeocoding"]
@@ -1126,7 +1087,6 @@ depends-member:
 - ["So8NSObjectC", "mapViewWillStartLocatingUser"]
 - ["So8NSObjectC", "mapViewWillStartRenderingMap"]
 - !private ["So8NSObjectC", "masksToBounds"]
-- !private ["So8NSObjectC", "name"]
 - !private ["So8NSObjectC", "navigationBar"]
 - !private ["So8NSObjectC", "navigationController"]
 - !private ["So8NSObjectC", "navigationItem"]
@@ -1140,7 +1100,6 @@ depends-member:
 - !private ["So8NSObjectC", "selectedFraternity"]
 - !private ["So8NSObjectC", "selectedSegmentIndex"]
 - !private ["So8NSObjectC", "setCenter"]
-- !private ["So8NSObjectC", "setProperty"]
 - !private ["So8NSObjectC", "setRightBarButton"]
 - !private ["So8NSObjectC", "setTitle"]
 - !private ["So8NSObjectC", "setViewControllers"]
@@ -1168,8 +1127,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "MasterViewController"]
 - !private ["So16NSObjectProtocolP", "NSAttributedStringKey"]
 - !private ["So16NSObjectProtocolP", "RMColor"]
-- !private ["So16NSObjectProtocolP", "RMDatabaseKey"]
-- !private ["So16NSObjectProtocolP", "RMFratPropertyKeys"]
 - !private ["So16NSObjectProtocolP", "RMGeocoder"]
 - !private ["So16NSObjectProtocolP", "SQLHandler"]
 - !private ["So16NSObjectProtocolP", "Set"]
@@ -1203,7 +1160,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "fratAnnotations"]
 - !private ["So16NSObjectProtocolP", "fratNameButton"]
 - !private ["So16NSObjectProtocolP", "fraternitiesDict"]
-- !private ["So16NSObjectProtocolP", "getProperty"]
 - !private ["So16NSObjectProtocolP", "greekLetters"]
 - !private ["So16NSObjectProtocolP", "handleGeocoding"]
 - !private ["So16NSObjectProtocolP", "hasFavorites"]
@@ -1228,7 +1184,6 @@ depends-member:
 - ["So16NSObjectProtocolP", "mapViewWillStartLocatingUser"]
 - ["So16NSObjectProtocolP", "mapViewWillStartRenderingMap"]
 - !private ["So16NSObjectProtocolP", "masksToBounds"]
-- !private ["So16NSObjectProtocolP", "name"]
 - !private ["So16NSObjectProtocolP", "navigationBar"]
 - !private ["So16NSObjectProtocolP", "navigationController"]
 - !private ["So16NSObjectProtocolP", "navigationItem"]
@@ -1239,7 +1194,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "selectedFraternity"]
 - !private ["So16NSObjectProtocolP", "selectedSegmentIndex"]
 - !private ["So16NSObjectProtocolP", "setCenter"]
-- !private ["So16NSObjectProtocolP", "setProperty"]
 - !private ["So16NSObjectProtocolP", "setRightBarButton"]
 - !private ["So16NSObjectProtocolP", "setTitle"]
 - !private ["So16NSObjectProtocolP", "setViewControllers"]
@@ -1272,8 +1226,6 @@ depends-member:
 - !private ["Sq", "white"]
 - !private ["6RushMe8RMActionO", "FraternitySelected"]
 - !private ["6RushMe7RMColorV", "NavigationItemsColor"]
-- !private ["6RushMe13RMDatabaseKeyV", "AddressKey"]
-- !private ["6RushMe18RMFratPropertyKeysV", "fratMapAnnotation"]
 - !private ["6RushMe10RMGeocoderC", "observableLocations"]
 - !private ["s22RandomAccessCollectionP", "filter"]
 - !private ["s22RandomAccessCollectionP", "first"]
@@ -1302,8 +1254,6 @@ depends-member:
 - !private ["6RushMe14ScrollableItemP", "MasterViewController"]
 - !private ["6RushMe14ScrollableItemP", "NSAttributedStringKey"]
 - !private ["6RushMe14ScrollableItemP", "RMColor"]
-- !private ["6RushMe14ScrollableItemP", "RMDatabaseKey"]
-- !private ["6RushMe14ScrollableItemP", "RMFratPropertyKeys"]
 - !private ["6RushMe14ScrollableItemP", "RMGeocoder"]
 - !private ["6RushMe14ScrollableItemP", "SQLHandler"]
 - !private ["6RushMe14ScrollableItemP", "Set"]
@@ -1436,8 +1386,6 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "MasterViewController"]
 - !private ["So21UIAppearanceContainerP", "NSAttributedStringKey"]
 - !private ["So21UIAppearanceContainerP", "RMColor"]
-- !private ["So21UIAppearanceContainerP", "RMDatabaseKey"]
-- !private ["So21UIAppearanceContainerP", "RMFratPropertyKeys"]
 - !private ["So21UIAppearanceContainerP", "RMGeocoder"]
 - !private ["So21UIAppearanceContainerP", "SQLHandler"]
 - !private ["So21UIAppearanceContainerP", "Set"]
@@ -1531,8 +1479,6 @@ depends-member:
 - !private ["So18UIContentContainerP", "MasterViewController"]
 - !private ["So18UIContentContainerP", "NSAttributedStringKey"]
 - !private ["So18UIContentContainerP", "RMColor"]
-- !private ["So18UIContentContainerP", "RMDatabaseKey"]
-- !private ["So18UIContentContainerP", "RMFratPropertyKeys"]
 - !private ["So18UIContentContainerP", "RMGeocoder"]
 - !private ["So18UIContentContainerP", "SQLHandler"]
 - !private ["So18UIContentContainerP", "Set"]
@@ -1646,8 +1592,6 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "MasterViewController"]
 - !private ["So18UIFocusEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UIFocusEnvironmentP", "RMColor"]
-- !private ["So18UIFocusEnvironmentP", "RMDatabaseKey"]
-- !private ["So18UIFocusEnvironmentP", "RMFratPropertyKeys"]
 - !private ["So18UIFocusEnvironmentP", "RMGeocoder"]
 - !private ["So18UIFocusEnvironmentP", "SQLHandler"]
 - !private ["So18UIFocusEnvironmentP", "Set"]
@@ -1763,8 +1707,6 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "MasterViewController"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSAttributedStringKey"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMColor"]
-- !private ["So30UIPasteConfigurationSupportingP", "RMDatabaseKey"]
-- !private ["So30UIPasteConfigurationSupportingP", "RMFratPropertyKeys"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMGeocoder"]
 - !private ["So30UIPasteConfigurationSupportingP", "SQLHandler"]
 - !private ["So30UIPasteConfigurationSupportingP", "Set"]
@@ -1847,8 +1789,6 @@ depends-member:
 - !private ["So11UIResponderC", "MasterViewController"]
 - !private ["So11UIResponderC", "NSAttributedStringKey"]
 - !private ["So11UIResponderC", "RMColor"]
-- !private ["So11UIResponderC", "RMDatabaseKey"]
-- !private ["So11UIResponderC", "RMFratPropertyKeys"]
 - !private ["So11UIResponderC", "RMGeocoder"]
 - !private ["So11UIResponderC", "SQLHandler"]
 - !private ["So11UIResponderC", "Set"]
@@ -1936,8 +1876,6 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "MasterViewController"]
 - !private ["So30UIResponderStandardEditActionsP", "NSAttributedStringKey"]
 - !private ["So30UIResponderStandardEditActionsP", "RMColor"]
-- !private ["So30UIResponderStandardEditActionsP", "RMDatabaseKey"]
-- !private ["So30UIResponderStandardEditActionsP", "RMFratPropertyKeys"]
 - !private ["So30UIResponderStandardEditActionsP", "RMGeocoder"]
 - !private ["So30UIResponderStandardEditActionsP", "SQLHandler"]
 - !private ["So30UIResponderStandardEditActionsP", "Set"]
@@ -2030,8 +1968,6 @@ depends-member:
 - !private ["So16UIStateRestoringP", "MasterViewController"]
 - !private ["So16UIStateRestoringP", "NSAttributedStringKey"]
 - !private ["So16UIStateRestoringP", "RMColor"]
-- !private ["So16UIStateRestoringP", "RMDatabaseKey"]
-- !private ["So16UIStateRestoringP", "RMFratPropertyKeys"]
 - !private ["So16UIStateRestoringP", "RMGeocoder"]
 - !private ["So16UIStateRestoringP", "SQLHandler"]
 - !private ["So16UIStateRestoringP", "Set"]
@@ -2094,8 +2030,6 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "MasterViewController"]
 - !private ["So18UITraitEnvironmentP", "NSAttributedStringKey"]
 - !private ["So18UITraitEnvironmentP", "RMColor"]
-- !private ["So18UITraitEnvironmentP", "RMDatabaseKey"]
-- !private ["So18UITraitEnvironmentP", "RMFratPropertyKeys"]
 - !private ["So18UITraitEnvironmentP", "RMGeocoder"]
 - !private ["So18UITraitEnvironmentP", "SQLHandler"]
 - !private ["So18UITraitEnvironmentP", "Set"]
@@ -2204,8 +2138,6 @@ depends-member:
 - !private ["So16UIViewControllerC", "MasterViewController"]
 - !private ["So16UIViewControllerC", "NSAttributedStringKey"]
 - !private ["So16UIViewControllerC", "RMColor"]
-- !private ["So16UIViewControllerC", "RMDatabaseKey"]
-- !private ["So16UIViewControllerC", "RMFratPropertyKeys"]
 - !private ["So16UIViewControllerC", "RMGeocoder"]
 - !private ["So16UIViewControllerC", "SQLHandler"]
 - !private ["So16UIViewControllerC", "Set"]
@@ -2329,8 +2261,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "MasterViewController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSAttributedStringKey"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMColor"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDatabaseKey"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFratPropertyKeys"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMGeocoder"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "SQLHandler"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Set"]
@@ -2364,7 +2294,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fratAnnotations"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fratNameButton"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesDict"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "getProperty"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "greekLetters"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "handleGeocoding"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "hasFavorites"]
@@ -2389,7 +2318,6 @@ depends-member:
 - ["10Foundation27_KeyValueCodingAndObservingP", "mapViewWillStartLocatingUser"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "mapViewWillStartRenderingMap"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "masksToBounds"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "navigationBar"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "navigationController"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "navigationItem"]
@@ -2400,7 +2328,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "selectedFraternity"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "selectedSegmentIndex"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setCenter"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "setProperty"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setRightBarButton"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setTitle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setViewControllers"]
@@ -2500,8 +2427,6 @@ depends-nominal:
 - !private "Sq"
 - !private "6RushMe8RMActionO"
 - !private "6RushMe7RMColorV"
-- !private "6RushMe13RMDatabaseKeyV"
-- !private "6RushMe18RMFratPropertyKeysV"
 - !private "6RushMe10RMGeocoderC"
 - "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
@@ -2614,16 +2539,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "9280a9b12fcc9bf169def490c4733dc1"

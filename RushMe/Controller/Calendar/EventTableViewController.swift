@@ -27,7 +27,7 @@ class EventTableViewController: UITableViewController {
   
   var selectedEvents : [FratEvent] = [] {
     didSet {
-      tableView.isScrollEnabled = selectedEvents.count > 0
+      tableView.isScrollEnabled = selectedEvents.count > 1
       UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: { 
         self.tableView.reloadData()
       }) { (_) in
@@ -35,9 +35,6 @@ class EventTableViewController: UITableViewController {
           self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
         }
       }
-      
-  
-      
     }
   }
   
@@ -67,6 +64,7 @@ class EventTableViewController: UITableViewController {
                           canEditRowAt indexPath: IndexPath) -> Bool {
     return false
   }
+
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,10 +84,10 @@ class EventTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    return selectedEvents.count
+    return selectedEvents.count + 1
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return indexPath.row == selectedEvents.count ? 16 : 64
+    return 64
   }
   
   

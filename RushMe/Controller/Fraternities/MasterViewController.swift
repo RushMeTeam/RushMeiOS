@@ -294,10 +294,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     DispatchQueue.main.async {
       self.searchController.searchBar.placeholder = "Search \(Campus.shared.fratNames.count) Fraternities"
       self.searchController.searchBar.layoutIfNeeded() 
-      if newValue != 0 {
-       self.refreshControl?.endRefreshing()  
-      }
       if newValue == 1 {
+        self.refreshControl?.endRefreshing()
         self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", attributes : [NSAttributedStringKey.foregroundColor: UIColor.white])
         self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
       }

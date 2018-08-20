@@ -8,6 +8,8 @@
 
 import Foundation
 import DeviceKit
+import CoreLocation.CLLocation
+
 
 let DEBUG = false
 fileprivate let defaults : UserDefaults = {
@@ -193,6 +195,9 @@ struct RushMe {
       static let coverImage = "cover_image"
       static let calendarImage = "calendar_image"
     }
+  }
+  struct campus {
+   static let coordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: -73.677647)
   }
   struct images {
     static let none = UIImage(named: "defaultImage")!

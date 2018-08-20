@@ -21,9 +21,14 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   
   var fraternity : Fraternity? {
     set {
-      titleLabel.text = newValue?.name
-      favoriteButton.accessibilityIdentifier = (titleLabel.text ?? "") + " Favorites Button"
-      isAccentuated = Campus.shared.favoritedFrats.contains(newValue?.name ?? "")
+      if let _ = newValue {
+        titleLabel.text = newValue!.name
+        favoriteButton.accessibilityIdentifier = (titleLabel.text ?? "") + " Favorites Button"
+        isAccentuated = Campus.shared.favoritedFrats.contains(newValue!.name)
+      } else {
+        titleLabel.text = ""
+        isAccentuated = false
+      }
     }
     get {
      return Campus.shared.fraternitiesDict[titleLabel.text ?? ""]  
@@ -31,7 +36,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   }
   func loadImage() {
     if let profileImageURL = fraternity?.profileImagePath{
-    previewImageView.setImageByURL(fromSource: profileImageURL) 
+      previewImageView.setImageByURL(fromSource: profileImageURL)
     }
   }
  
@@ -50,11 +55,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     _ = setupCell
     // Initialization code
     //contentView.layer.masksToBounds = true
-    
     //iView.layer.cornerRadius = RushMe.images.CornerRadius
-    
-    
-    
 //    for layer in previewImageView.layer.sublayers ?? [] {
 //      layer.removeFromSuperlayer()
 //    }
@@ -70,11 +71,10 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
     titleLabel.layer.shadowColor = UIColor.black.cgColor
     titleLabel.layer.shadowOffset = CGSize.init(width: 1, height: 1)
     titleLabel.layer.masksToBounds = false
-  
-    
   }
 
   override func layoutSubviews() {
+    
     super.layoutSubviews()
     //gradientLayer?.frame = previewImageView.bounds
     //gradientLayer?.layoutIfNeeded()
@@ -82,13 +82,20 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   @IBAction func favoriteButtonHit(_ sender: UIButton? = nil) {
     isAccentuated = !isAccentuated
     delegate?.cell(withFratName: titleLabel.text ?? "", favoriteStatusToValue: isAccentuated)
-    
   }
 
-  private(set) var imageBorderColor = UIColor.clear {
-    didSet {
-      previewImageView.layer.borderColor = self.imageBorderColor.cgColor
-      layoutSubviews()
+  var imageBorderColor : UIColor {
+    set {
+      DispatchQueue.main.async {
+        self.previewImageView.layer.borderColor = newValue.cgColor
+        self.layoutSubviews()
+      }
+    } get {
+      if let color = self.previewImageView.layer.borderColor {
+       return UIColor(cgColor: color)
+      } else {
+       return .clear
+      }
     }
   }
   var isAccentuated : Bool = false {

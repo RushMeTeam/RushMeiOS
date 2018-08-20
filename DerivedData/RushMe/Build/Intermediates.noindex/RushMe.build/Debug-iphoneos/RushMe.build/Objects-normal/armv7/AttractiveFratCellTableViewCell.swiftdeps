@@ -9,7 +9,6 @@ provides-dynamic-lookup:
 - "awakeFromNib"
 - "favoriteButton"
 - "favoriteButtonHit"
-- "fraternity"
 - "gradientLayer"
 - "imageBorderColor"
 - "isAccentuated"
@@ -19,6 +18,7 @@ provides-dynamic-lookup:
 - "titleLabel"
 depends-top-level:
 - !private "!"
+- !private "+"
 - !private "??"
 - "AssignmentPrecedence"
 - "AttractiveFratCellTableViewCell"
@@ -27,12 +27,9 @@ depends-top-level:
 - "CAGradientLayer"
 - !private "CGSize"
 - !private "Campus"
-- "CastingPrecedence"
 - "Fraternity"
 - "FraternityCellDelegate"
-- !private "RMDatabaseKey"
-- !private "RMImage"
-- !private "String"
+- !private "RushMe"
 - !private "StringLiteralType"
 - "TernaryPrecedence"
 - "UIButton"
@@ -49,9 +46,7 @@ depends-member:
 - !private ["6RushMe027AttractiveFratCellTableViewE0C", "Campus"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "Fraternity"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "FraternityCellDelegate"]
-- !private ["6RushMe027AttractiveFratCellTableViewE0C", "RMDatabaseKey"]
-- !private ["6RushMe027AttractiveFratCellTableViewE0C", "RMImage"]
-- !private ["6RushMe027AttractiveFratCellTableViewE0C", "String"]
+- !private ["6RushMe027AttractiveFratCellTableViewE0C", "RushMe"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "UIButton"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "UIColor"]
 - ["6RushMe027AttractiveFratCellTableViewE0C", "UIImageView"]
@@ -84,11 +79,11 @@ depends-member:
 - !private ["So7CALayerC", "shadowRadius"]
 - !private ["So15CALayerDelegateP", "CGSize"]
 - !private ["So15CALayerDelegateP", "Campus"]
-- !private ["So15CALayerDelegateP", "RMDatabaseKey"]
-- !private ["So15CALayerDelegateP", "RMImage"]
+- !private ["So15CALayerDelegateP", "RushMe"]
 - ["So15CALayerDelegateP", "UIColor"]
 - !private ["So15CALayerDelegateP", "UIViewContentMode"]
 - ["So15CALayerDelegateP", ""]
+- !private ["So15CALayerDelegateP", "accessibilityIdentifier"]
 - !private ["So15CALayerDelegateP", "awakeFromNib"]
 - !private ["So15CALayerDelegateP", "contentMode"]
 - !private ["So15CALayerDelegateP", "delegate"]
@@ -117,12 +112,12 @@ depends-member:
 - !private ["SC6CGSizeV", "init"]
 - !private ["s7CVarArgP", "CGSize"]
 - !private ["s7CVarArgP", "Campus"]
-- !private ["s7CVarArgP", "RMDatabaseKey"]
-- !private ["s7CVarArgP", "RMImage"]
+- !private ["s7CVarArgP", "RushMe"]
 - ["s7CVarArgP", "UIColor"]
 - !private ["s7CVarArgP", "UIViewContentMode"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "accessibilityIdentifier"]
 - !private ["s7CVarArgP", "awakeFromNib"]
 - !private ["s7CVarArgP", "black"]
 - !private ["s7CVarArgP", "borderColor"]
@@ -136,7 +131,6 @@ depends-member:
 - !private ["s7CVarArgP", "favoritedFrats"]
 - !private ["s7CVarArgP", "fraternitiesDict"]
 - !private ["s7CVarArgP", "fraternity"]
-- !private ["s7CVarArgP", "getProperty"]
 - !private ["s7CVarArgP", "image"]
 - !private ["s7CVarArgP", "imageBorderColor"]
 - !private ["s7CVarArgP", "imageView"]
@@ -146,7 +140,6 @@ depends-member:
 - !private ["s7CVarArgP", "layer"]
 - !private ["s7CVarArgP", "layoutSubviews"]
 - !private ["s7CVarArgP", "masksToBounds"]
-- !private ["s7CVarArgP", "name"]
 - !private ["s7CVarArgP", "previewImageView"]
 - !private ["s7CVarArgP", "setImage"]
 - !private ["s7CVarArgP", "setImageByURL"]
@@ -167,11 +160,11 @@ depends-member:
 - !private ["s10ComparableP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "CGSize"]
 - !private ["s28CustomDebugStringConvertibleP", "Campus"]
-- !private ["s28CustomDebugStringConvertibleP", "RMDatabaseKey"]
-- !private ["s28CustomDebugStringConvertibleP", "RMImage"]
+- !private ["s28CustomDebugStringConvertibleP", "RushMe"]
 - ["s28CustomDebugStringConvertibleP", "UIColor"]
 - !private ["s28CustomDebugStringConvertibleP", "UIViewContentMode"]
 - ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "accessibilityIdentifier"]
 - !private ["s28CustomDebugStringConvertibleP", "awakeFromNib"]
 - !private ["s28CustomDebugStringConvertibleP", "black"]
 - !private ["s28CustomDebugStringConvertibleP", "borderColor"]
@@ -185,7 +178,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "favoritedFrats"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesDict"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternity"]
-- !private ["s28CustomDebugStringConvertibleP", "getProperty"]
 - !private ["s28CustomDebugStringConvertibleP", "image"]
 - !private ["s28CustomDebugStringConvertibleP", "imageBorderColor"]
 - !private ["s28CustomDebugStringConvertibleP", "imageView"]
@@ -195,7 +187,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "layer"]
 - !private ["s28CustomDebugStringConvertibleP", "layoutSubviews"]
 - !private ["s28CustomDebugStringConvertibleP", "masksToBounds"]
-- !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "previewImageView"]
 - !private ["s28CustomDebugStringConvertibleP", "setImage"]
 - !private ["s28CustomDebugStringConvertibleP", "setImageByURL"]
@@ -215,12 +206,12 @@ depends-member:
 - !private ["s17CustomReflectableP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "CGSize"]
 - !private ["s23CustomStringConvertibleP", "Campus"]
-- !private ["s23CustomStringConvertibleP", "RMDatabaseKey"]
-- !private ["s23CustomStringConvertibleP", "RMImage"]
+- !private ["s23CustomStringConvertibleP", "RushMe"]
 - ["s23CustomStringConvertibleP", "UIColor"]
 - !private ["s23CustomStringConvertibleP", "UIViewContentMode"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "accessibilityIdentifier"]
 - !private ["s23CustomStringConvertibleP", "awakeFromNib"]
 - !private ["s23CustomStringConvertibleP", "black"]
 - !private ["s23CustomStringConvertibleP", "borderColor"]
@@ -234,7 +225,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "favoritedFrats"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesDict"]
 - !private ["s23CustomStringConvertibleP", "fraternity"]
-- !private ["s23CustomStringConvertibleP", "getProperty"]
 - !private ["s23CustomStringConvertibleP", "image"]
 - !private ["s23CustomStringConvertibleP", "imageBorderColor"]
 - !private ["s23CustomStringConvertibleP", "imageView"]
@@ -244,7 +234,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "layer"]
 - !private ["s23CustomStringConvertibleP", "layoutSubviews"]
 - !private ["s23CustomStringConvertibleP", "masksToBounds"]
-- !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "previewImageView"]
 - !private ["s23CustomStringConvertibleP", "setImage"]
 - !private ["s23CustomStringConvertibleP", "setImageByURL"]
@@ -267,12 +256,12 @@ depends-member:
 - !private ["s9EncodableP", "subscript"]
 - !private ["s9EquatableP", "CGSize"]
 - !private ["s9EquatableP", "Campus"]
-- !private ["s9EquatableP", "RMDatabaseKey"]
-- !private ["s9EquatableP", "RMImage"]
+- !private ["s9EquatableP", "RushMe"]
 - ["s9EquatableP", "UIColor"]
 - !private ["s9EquatableP", "UIViewContentMode"]
 - ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "accessibilityIdentifier"]
 - !private ["s9EquatableP", "awakeFromNib"]
 - !private ["s9EquatableP", "black"]
 - !private ["s9EquatableP", "borderColor"]
@@ -286,7 +275,6 @@ depends-member:
 - !private ["s9EquatableP", "favoritedFrats"]
 - !private ["s9EquatableP", "fraternitiesDict"]
 - !private ["s9EquatableP", "fraternity"]
-- !private ["s9EquatableP", "getProperty"]
 - !private ["s9EquatableP", "image"]
 - !private ["s9EquatableP", "imageBorderColor"]
 - !private ["s9EquatableP", "imageView"]
@@ -296,7 +284,6 @@ depends-member:
 - !private ["s9EquatableP", "layer"]
 - !private ["s9EquatableP", "layoutSubviews"]
 - !private ["s9EquatableP", "masksToBounds"]
-- !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "normal"]
 - !private ["s9EquatableP", "previewImageView"]
 - !private ["s9EquatableP", "scaleAspectFill"]
@@ -318,17 +305,17 @@ depends-member:
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["6RushMe10FraternityC", "getProperty"]
 - !private ["6RushMe10FraternityC", "name"]
+- !private ["6RushMe10FraternityC", "profileImagePath"]
 - !private ["6RushMe22FraternityCellDelegateP", "cell"]
 - !private ["s8HashableP", "CGSize"]
 - !private ["s8HashableP", "Campus"]
-- !private ["s8HashableP", "RMDatabaseKey"]
-- !private ["s8HashableP", "RMImage"]
+- !private ["s8HashableP", "RushMe"]
 - ["s8HashableP", "UIColor"]
 - !private ["s8HashableP", "UIViewContentMode"]
 - ["s8HashableP", ""]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "accessibilityIdentifier"]
 - !private ["s8HashableP", "awakeFromNib"]
 - !private ["s8HashableP", "black"]
 - !private ["s8HashableP", "borderColor"]
@@ -342,7 +329,6 @@ depends-member:
 - !private ["s8HashableP", "favoritedFrats"]
 - !private ["s8HashableP", "fraternitiesDict"]
 - !private ["s8HashableP", "fraternity"]
-- !private ["s8HashableP", "getProperty"]
 - !private ["s8HashableP", "image"]
 - !private ["s8HashableP", "imageBorderColor"]
 - !private ["s8HashableP", "imageView"]
@@ -352,7 +338,6 @@ depends-member:
 - !private ["s8HashableP", "layer"]
 - !private ["s8HashableP", "layoutSubviews"]
 - !private ["s8HashableP", "masksToBounds"]
-- !private ["s8HashableP", "name"]
 - !private ["s8HashableP", "previewImageView"]
 - !private ["s8HashableP", "scaleAspectFill"]
 - !private ["s8HashableP", "scaleAspectFit"]
@@ -370,11 +355,11 @@ depends-member:
 - !private ["s10MirrorPathP", "init"]
 - !private ["So8NSCodingP", "CGSize"]
 - !private ["So8NSCodingP", "Campus"]
-- !private ["So8NSCodingP", "RMDatabaseKey"]
-- !private ["So8NSCodingP", "RMImage"]
+- !private ["So8NSCodingP", "RushMe"]
 - ["So8NSCodingP", "UIColor"]
 - !private ["So8NSCodingP", "UIViewContentMode"]
 - ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "accessibilityIdentifier"]
 - !private ["So8NSCodingP", "awakeFromNib"]
 - !private ["So8NSCodingP", "black"]
 - !private ["So8NSCodingP", "borderColor"]
@@ -418,15 +403,14 @@ depends-member:
 - !private ["So8NSObjectC", "Campus"]
 - ["So8NSObjectC", "Fraternity"]
 - ["So8NSObjectC", "FraternityCellDelegate"]
-- !private ["So8NSObjectC", "RMDatabaseKey"]
-- !private ["So8NSObjectC", "RMImage"]
-- !private ["So8NSObjectC", "String"]
+- !private ["So8NSObjectC", "RushMe"]
 - ["So8NSObjectC", "UIButton"]
 - ["So8NSObjectC", "UIColor"]
 - ["So8NSObjectC", "UIImageView"]
 - ["So8NSObjectC", "UILabel"]
 - !private ["So8NSObjectC", "UIViewContentMode"]
 - ["So8NSObjectC", "Void"]
+- !private ["So8NSObjectC", "accessibilityIdentifier"]
 - ["So8NSObjectC", "awakeFromNib"]
 - !private ["So8NSObjectC", "black"]
 - !private ["So8NSObjectC", "borderColor"]
@@ -440,7 +424,6 @@ depends-member:
 - !private ["So8NSObjectC", "favoritedFrats"]
 - !private ["So8NSObjectC", "fraternitiesDict"]
 - ["So8NSObjectC", "fraternity"]
-- !private ["So8NSObjectC", "getProperty"]
 - ["So8NSObjectC", "gradientLayer"]
 - !private ["So8NSObjectC", "image"]
 - ["So8NSObjectC", "imageBorderColor"]
@@ -452,7 +435,6 @@ depends-member:
 - ["So8NSObjectC", "layoutSubviews"]
 - ["So8NSObjectC", "loadImage"]
 - !private ["So8NSObjectC", "masksToBounds"]
-- !private ["So8NSObjectC", "name"]
 - ["So8NSObjectC", "previewImageView"]
 - !private ["So8NSObjectC", "setImage"]
 - !private ["So8NSObjectC", "setImageByURL"]
@@ -466,11 +448,11 @@ depends-member:
 - ["So8NSObjectC", "titleLabel"]
 - !private ["So16NSObjectProtocolP", "CGSize"]
 - !private ["So16NSObjectProtocolP", "Campus"]
-- !private ["So16NSObjectProtocolP", "RMDatabaseKey"]
-- !private ["So16NSObjectProtocolP", "RMImage"]
+- !private ["So16NSObjectProtocolP", "RushMe"]
 - ["So16NSObjectProtocolP", "UIColor"]
 - !private ["So16NSObjectProtocolP", "UIViewContentMode"]
 - ["So16NSObjectProtocolP", ""]
+- !private ["So16NSObjectProtocolP", "accessibilityIdentifier"]
 - !private ["So16NSObjectProtocolP", "awakeFromNib"]
 - !private ["So16NSObjectProtocolP", "black"]
 - !private ["So16NSObjectProtocolP", "borderColor"]
@@ -483,7 +465,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritedFrats"]
 - !private ["So16NSObjectProtocolP", "fraternitiesDict"]
 - !private ["So16NSObjectProtocolP", "fraternity"]
-- !private ["So16NSObjectProtocolP", "getProperty"]
 - !private ["So16NSObjectProtocolP", "image"]
 - !private ["So16NSObjectProtocolP", "imageBorderColor"]
 - !private ["So16NSObjectProtocolP", "imageView"]
@@ -493,7 +474,6 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "layer"]
 - !private ["So16NSObjectProtocolP", "layoutSubviews"]
 - !private ["So16NSObjectProtocolP", "masksToBounds"]
-- !private ["So16NSObjectProtocolP", "name"]
 - !private ["So16NSObjectProtocolP", "previewImageView"]
 - !private ["So16NSObjectProtocolP", "setImage"]
 - !private ["So16NSObjectProtocolP", "setImageByURL"]
@@ -514,13 +494,11 @@ depends-member:
 - !private ["So14NSSecureCodingP", "shadowOffset"]
 - !private ["So14NSSecureCodingP", "shadowRadius"]
 - !private ["s9OptionSetP", "normal"]
-- !private ["6RushMe13RMDatabaseKeyV", "ProfileImageKey"]
-- !private ["6RushMe7RMImageV", "FavoritesImageFilled"]
-- !private ["6RushMe7RMImageV", "FavoritesImageUnfilled"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s16RawRepresentableP", "normal"]
 - !private ["s16RawRepresentableP", "scaleAspectFill"]
 - !private ["s16RawRepresentableP", "scaleAspectFit"]
+- !private ["6RushMeAAV", "images"]
 - !private ["s8SequenceP", "contains"]
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "subscript"]
@@ -531,6 +509,7 @@ depends-member:
 - !private ["s14StringProtocolP", "init"]
 - !private ["s16TextOutputStreamP", "init"]
 - !private ["s20TextOutputStreamableP", "init"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "accessibilityIdentifier"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "contentMode"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "imageView"]
@@ -540,11 +519,11 @@ depends-member:
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "setImageByURL"]
 - !private ["So29UIAccessibilityIdentificationP", "CGSize"]
 - !private ["So29UIAccessibilityIdentificationP", "Campus"]
-- !private ["So29UIAccessibilityIdentificationP", "RMDatabaseKey"]
-- !private ["So29UIAccessibilityIdentificationP", "RMImage"]
+- !private ["So29UIAccessibilityIdentificationP", "RushMe"]
 - ["So29UIAccessibilityIdentificationP", "UIColor"]
 - !private ["So29UIAccessibilityIdentificationP", "UIViewContentMode"]
 - ["So29UIAccessibilityIdentificationP", ""]
+- !private ["So29UIAccessibilityIdentificationP", "accessibilityIdentifier"]
 - !private ["So29UIAccessibilityIdentificationP", "awakeFromNib"]
 - !private ["So29UIAccessibilityIdentificationP", "contentMode"]
 - !private ["So29UIAccessibilityIdentificationP", "delegate"]
@@ -566,11 +545,11 @@ depends-member:
 - !private ["So29UIAccessibilityIdentificationP", "titleLabel"]
 - !private ["So12UIAppearanceP", "CGSize"]
 - !private ["So12UIAppearanceP", "Campus"]
-- !private ["So12UIAppearanceP", "RMDatabaseKey"]
-- !private ["So12UIAppearanceP", "RMImage"]
+- !private ["So12UIAppearanceP", "RushMe"]
 - ["So12UIAppearanceP", "UIColor"]
 - !private ["So12UIAppearanceP", "UIViewContentMode"]
 - ["So12UIAppearanceP", ""]
+- !private ["So12UIAppearanceP", "accessibilityIdentifier"]
 - !private ["So12UIAppearanceP", "awakeFromNib"]
 - !private ["So12UIAppearanceP", "contentMode"]
 - !private ["So12UIAppearanceP", "delegate"]
@@ -592,11 +571,11 @@ depends-member:
 - !private ["So12UIAppearanceP", "titleLabel"]
 - !private ["So21UIAppearanceContainerP", "CGSize"]
 - !private ["So21UIAppearanceContainerP", "Campus"]
-- !private ["So21UIAppearanceContainerP", "RMDatabaseKey"]
-- !private ["So21UIAppearanceContainerP", "RMImage"]
+- !private ["So21UIAppearanceContainerP", "RushMe"]
 - ["So21UIAppearanceContainerP", "UIColor"]
 - !private ["So21UIAppearanceContainerP", "UIViewContentMode"]
 - ["So21UIAppearanceContainerP", ""]
+- !private ["So21UIAppearanceContainerP", "accessibilityIdentifier"]
 - !private ["So21UIAppearanceContainerP", "awakeFromNib"]
 - !private ["So21UIAppearanceContainerP", "contentMode"]
 - !private ["So21UIAppearanceContainerP", "delegate"]
@@ -616,6 +595,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "setupCell"]
 - !private ["So21UIAppearanceContainerP", "text"]
 - !private ["So21UIAppearanceContainerP", "titleLabel"]
+- !private ["So8UIButtonC", "accessibilityIdentifier"]
 - !private ["So8UIButtonC", "imageView"]
 - !private ["So8UIButtonC", "setImage"]
 - !private ["So7UIColorC", "black"]
@@ -623,16 +603,17 @@ depends-member:
 - ["So7UIColorC", "clear"]
 - !private ["So30UIContentSizeCategoryAdjustingP", "layer"]
 - !private ["So30UIContentSizeCategoryAdjustingP", "text"]
+- !private ["So9UIControlC", "accessibilityIdentifier"]
 - !private ["So9UIControlC", "imageView"]
 - !private ["So9UIControlC", "setImage"]
 - !private ["SC14UIControlStateV", "normal"]
 - !private ["So17UICoordinateSpaceP", "CGSize"]
 - !private ["So17UICoordinateSpaceP", "Campus"]
-- !private ["So17UICoordinateSpaceP", "RMDatabaseKey"]
-- !private ["So17UICoordinateSpaceP", "RMImage"]
+- !private ["So17UICoordinateSpaceP", "RushMe"]
 - ["So17UICoordinateSpaceP", "UIColor"]
 - !private ["So17UICoordinateSpaceP", "UIViewContentMode"]
 - ["So17UICoordinateSpaceP", ""]
+- !private ["So17UICoordinateSpaceP", "accessibilityIdentifier"]
 - !private ["So17UICoordinateSpaceP", "awakeFromNib"]
 - !private ["So17UICoordinateSpaceP", "contentMode"]
 - !private ["So17UICoordinateSpaceP", "delegate"]
@@ -654,11 +635,11 @@ depends-member:
 - !private ["So17UICoordinateSpaceP", "titleLabel"]
 - !private ["So13UIDynamicItemP", "CGSize"]
 - !private ["So13UIDynamicItemP", "Campus"]
-- !private ["So13UIDynamicItemP", "RMDatabaseKey"]
-- !private ["So13UIDynamicItemP", "RMImage"]
+- !private ["So13UIDynamicItemP", "RushMe"]
 - ["So13UIDynamicItemP", "UIColor"]
 - !private ["So13UIDynamicItemP", "UIViewContentMode"]
 - ["So13UIDynamicItemP", ""]
+- !private ["So13UIDynamicItemP", "accessibilityIdentifier"]
 - !private ["So13UIDynamicItemP", "awakeFromNib"]
 - !private ["So13UIDynamicItemP", "contentMode"]
 - !private ["So13UIDynamicItemP", "delegate"]
@@ -680,11 +661,11 @@ depends-member:
 - !private ["So13UIDynamicItemP", "titleLabel"]
 - !private ["So18UIFocusEnvironmentP", "CGSize"]
 - !private ["So18UIFocusEnvironmentP", "Campus"]
-- !private ["So18UIFocusEnvironmentP", "RMDatabaseKey"]
-- !private ["So18UIFocusEnvironmentP", "RMImage"]
+- !private ["So18UIFocusEnvironmentP", "RushMe"]
 - ["So18UIFocusEnvironmentP", "UIColor"]
 - !private ["So18UIFocusEnvironmentP", "UIViewContentMode"]
 - ["So18UIFocusEnvironmentP", ""]
+- !private ["So18UIFocusEnvironmentP", "accessibilityIdentifier"]
 - !private ["So18UIFocusEnvironmentP", "awakeFromNib"]
 - !private ["So18UIFocusEnvironmentP", "contentMode"]
 - !private ["So18UIFocusEnvironmentP", "delegate"]
@@ -706,11 +687,11 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "titleLabel"]
 - !private ["So11UIFocusItemP", "CGSize"]
 - !private ["So11UIFocusItemP", "Campus"]
-- !private ["So11UIFocusItemP", "RMDatabaseKey"]
-- !private ["So11UIFocusItemP", "RMImage"]
+- !private ["So11UIFocusItemP", "RushMe"]
 - ["So11UIFocusItemP", "UIColor"]
 - !private ["So11UIFocusItemP", "UIViewContentMode"]
 - ["So11UIFocusItemP", ""]
+- !private ["So11UIFocusItemP", "accessibilityIdentifier"]
 - !private ["So11UIFocusItemP", "awakeFromNib"]
 - !private ["So11UIFocusItemP", "contentMode"]
 - !private ["So11UIFocusItemP", "delegate"]
@@ -732,8 +713,7 @@ depends-member:
 - !private ["So11UIFocusItemP", "titleLabel"]
 - !private ["So27UIGestureRecognizerDelegateP", "CGSize"]
 - !private ["So27UIGestureRecognizerDelegateP", "Campus"]
-- !private ["So27UIGestureRecognizerDelegateP", "RMDatabaseKey"]
-- !private ["So27UIGestureRecognizerDelegateP", "RMImage"]
+- !private ["So27UIGestureRecognizerDelegateP", "RushMe"]
 - ["So27UIGestureRecognizerDelegateP", "UIColor"]
 - !private ["So27UIGestureRecognizerDelegateP", "UIViewContentMode"]
 - ["So27UIGestureRecognizerDelegateP", ""]
@@ -757,11 +737,11 @@ depends-member:
 - !private ["So7UILabelC", "text"]
 - !private ["So30UIPasteConfigurationSupportingP", "CGSize"]
 - !private ["So30UIPasteConfigurationSupportingP", "Campus"]
-- !private ["So30UIPasteConfigurationSupportingP", "RMDatabaseKey"]
-- !private ["So30UIPasteConfigurationSupportingP", "RMImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "RushMe"]
 - ["So30UIPasteConfigurationSupportingP", "UIColor"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIViewContentMode"]
 - ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So30UIPasteConfigurationSupportingP", "accessibilityIdentifier"]
 - !private ["So30UIPasteConfigurationSupportingP", "awakeFromNib"]
 - !private ["So30UIPasteConfigurationSupportingP", "contentMode"]
 - !private ["So30UIPasteConfigurationSupportingP", "delegate"]
@@ -787,15 +767,14 @@ depends-member:
 - !private ["So11UIResponderC", "Campus"]
 - ["So11UIResponderC", "Fraternity"]
 - ["So11UIResponderC", "FraternityCellDelegate"]
-- !private ["So11UIResponderC", "RMDatabaseKey"]
-- !private ["So11UIResponderC", "RMImage"]
-- !private ["So11UIResponderC", "String"]
+- !private ["So11UIResponderC", "RushMe"]
 - ["So11UIResponderC", "UIButton"]
 - ["So11UIResponderC", "UIColor"]
 - ["So11UIResponderC", "UIImageView"]
 - ["So11UIResponderC", "UILabel"]
 - !private ["So11UIResponderC", "UIViewContentMode"]
 - ["So11UIResponderC", "Void"]
+- !private ["So11UIResponderC", "accessibilityIdentifier"]
 - ["So11UIResponderC", "awakeFromNib"]
 - !private ["So11UIResponderC", "contentMode"]
 - ["So11UIResponderC", "delegate"]
@@ -821,11 +800,11 @@ depends-member:
 - ["So11UIResponderC", "titleLabel"]
 - !private ["So30UIResponderStandardEditActionsP", "CGSize"]
 - !private ["So30UIResponderStandardEditActionsP", "Campus"]
-- !private ["So30UIResponderStandardEditActionsP", "RMDatabaseKey"]
-- !private ["So30UIResponderStandardEditActionsP", "RMImage"]
+- !private ["So30UIResponderStandardEditActionsP", "RushMe"]
 - ["So30UIResponderStandardEditActionsP", "UIColor"]
 - !private ["So30UIResponderStandardEditActionsP", "UIViewContentMode"]
 - ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So30UIResponderStandardEditActionsP", "accessibilityIdentifier"]
 - !private ["So30UIResponderStandardEditActionsP", "awakeFromNib"]
 - !private ["So30UIResponderStandardEditActionsP", "contentMode"]
 - !private ["So30UIResponderStandardEditActionsP", "delegate"]
@@ -845,6 +824,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "setupCell"]
 - !private ["So30UIResponderStandardEditActionsP", "text"]
 - !private ["So30UIResponderStandardEditActionsP", "titleLabel"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "accessibilityIdentifier"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "imageView"]
 - !private ["So35UISpringLoadedInteractionSupportingP", "setImage"]
 - ["So15UITableViewCellC", "Bool"]
@@ -853,9 +833,7 @@ depends-member:
 - !private ["So15UITableViewCellC", "Campus"]
 - ["So15UITableViewCellC", "Fraternity"]
 - ["So15UITableViewCellC", "FraternityCellDelegate"]
-- !private ["So15UITableViewCellC", "RMDatabaseKey"]
-- !private ["So15UITableViewCellC", "RMImage"]
-- !private ["So15UITableViewCellC", "String"]
+- !private ["So15UITableViewCellC", "RushMe"]
 - ["So15UITableViewCellC", "UIButton"]
 - ["So15UITableViewCellC", "UIColor"]
 - ["So15UITableViewCellC", "UIImageView"]
@@ -880,11 +858,11 @@ depends-member:
 - ["So15UITableViewCellC", "titleLabel"]
 - !private ["So18UITraitEnvironmentP", "CGSize"]
 - !private ["So18UITraitEnvironmentP", "Campus"]
-- !private ["So18UITraitEnvironmentP", "RMDatabaseKey"]
-- !private ["So18UITraitEnvironmentP", "RMImage"]
+- !private ["So18UITraitEnvironmentP", "RushMe"]
 - ["So18UITraitEnvironmentP", "UIColor"]
 - !private ["So18UITraitEnvironmentP", "UIViewContentMode"]
 - ["So18UITraitEnvironmentP", ""]
+- !private ["So18UITraitEnvironmentP", "accessibilityIdentifier"]
 - !private ["So18UITraitEnvironmentP", "awakeFromNib"]
 - !private ["So18UITraitEnvironmentP", "contentMode"]
 - !private ["So18UITraitEnvironmentP", "delegate"]
@@ -910,15 +888,14 @@ depends-member:
 - !private ["So6UIViewC", "Campus"]
 - ["So6UIViewC", "Fraternity"]
 - ["So6UIViewC", "FraternityCellDelegate"]
-- !private ["So6UIViewC", "RMDatabaseKey"]
-- !private ["So6UIViewC", "RMImage"]
-- !private ["So6UIViewC", "String"]
+- !private ["So6UIViewC", "RushMe"]
 - ["So6UIViewC", "UIButton"]
 - ["So6UIViewC", "UIColor"]
 - ["So6UIViewC", "UIImageView"]
 - ["So6UIViewC", "UILabel"]
 - !private ["So6UIViewC", "UIViewContentMode"]
 - ["So6UIViewC", "Void"]
+- !private ["So6UIViewC", "accessibilityIdentifier"]
 - ["So6UIViewC", "awakeFromNib"]
 - !private ["So6UIViewC", "contentMode"]
 - ["So6UIViewC", "delegate"]
@@ -946,11 +923,11 @@ depends-member:
 - !private ["SC17UIViewContentModeO", "scaleAspectFit"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "CGSize"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "Campus"]
-- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "RMDatabaseKey"]
-- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "RMImage"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "RushMe"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", "UIColor"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIViewContentMode"]
 - ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "accessibilityIdentifier"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "awakeFromNib"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "contentMode"]
 - !private ["s37_DefaultCustomPlaygroundQuickLookableP", "delegate"]
@@ -981,11 +958,11 @@ depends-member:
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "CGSize"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "Campus"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDatabaseKey"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RushMe"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIViewContentMode"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "accessibilityIdentifier"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "awakeFromNib"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "black"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "borderColor"]
@@ -998,7 +975,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritedFrats"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesDict"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternity"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "getProperty"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "image"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "imageBorderColor"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "imageView"]
@@ -1008,7 +984,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "layoutSubviews"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "masksToBounds"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "previewImageView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setImage"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "setImageByURL"]
@@ -1024,6 +999,8 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s16_SwiftStringViewP", "init"]
+- !private ["6RushMeAAV6imagesV", "filledHeart"]
+- !private ["6RushMeAAV6imagesV", "unfilledHeart"]
 depends-nominal:
 - "6RushMe027AttractiveFratCellTableViewE0C"
 - !private "s23BidirectionalCollectionP"
@@ -1063,10 +1040,9 @@ depends-nominal:
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
 - !private "s9OptionSetP"
-- !private "6RushMe13RMDatabaseKeyV"
-- !private "6RushMe7RMImageV"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
+- !private "6RushMeAAV"
 - !private "s8SequenceP"
 - !private "s3SetV"
 - !private "s10SetAlgebraP"
@@ -1109,6 +1085,7 @@ depends-nominal:
 - "10Foundation27_KeyValueCodingAndObservingP"
 - !private "s21_ObjectiveCBridgeableP"
 - !private "s16_SwiftStringViewP"
+- !private "6RushMeAAV6imagesV"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
@@ -1136,16 +1113,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "708bf52c1b23863fd1627a68c4336311"

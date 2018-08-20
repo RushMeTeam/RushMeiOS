@@ -7,15 +7,26 @@ provides-top-level:
 provides-nominal:
 - "9DeviceKit0A0O"
 - "9DeviceKit0A0O12BatteryStateO"
+- "9DeviceKit0A0O11OrientationO"
 provides-member:
 - ["9DeviceKit0A0O", ""]
 - ["9DeviceKit0A0O12BatteryStateO", ""]
+- ["9DeviceKit0A0O11OrientationO", ""]
 - ["9DeviceKit0A0O", "BatteryState"]
 - ["9DeviceKit0A0O", "batteryState"]
 - ["9DeviceKit0A0O", "batteryLevel"]
+- ["9DeviceKit0A0O", "Orientation"]
+- ["9DeviceKit0A0O", "orientation"]
+- ["9DeviceKit0A0O", "volumeTotalCapacity"]
+- ["9DeviceKit0A0O", "volumeAvailableCapacity"]
+- ["9DeviceKit0A0O", "volumeAvailableCapacityForImportantUsage"]
+- ["9DeviceKit0A0O", "volumeAvailableCapacityForOpportunisticUsage"]
+- ["9DeviceKit0A0O", "volumes"]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "!"
 - !private "!="
+- !private "&&"
 - !private "*"
 - !private "+"
 - "<"
@@ -24,6 +35,7 @@ depends-top-level:
 - ">"
 - ">="
 - !private "??"
+- !private "Array"
 - "AssignmentPrecedence"
 - "Bool"
 - !private "BooleanLiteralType"
@@ -34,16 +46,20 @@ depends-top-level:
 - "Double"
 - "Equatable"
 - "Int"
+- "Int64"
 - !private "Int8"
 - !private "Mirror"
 - !private "ProcessInfo"
 - "String"
-- !private "StringLiteralType"
+- "StringLiteralType"
+- !private "UIAccessibilityIsGuidedAccessEnabled"
 - !private "UIDevice"
 - !private "UIScreen"
 - !private "UInt8"
+- "URL"
+- "URLResourceKey"
 - !private "UnicodeScalar"
-- !private "UnicodeScalarType"
+- "UnicodeScalarType"
 - !private "round"
 - !private "uname"
 - !private "utsname"
@@ -58,6 +74,7 @@ depends-member:
 - ["9DeviceKit0A0O12BatteryStateO", "Bool"]
 - ["9DeviceKit0A0O12BatteryStateO", "Device"]
 - ["9DeviceKit0A0O12BatteryStateO", "Int"]
+- !private ["9DeviceKit0A0O12BatteryStateO", "ProcessInfo"]
 - ["9DeviceKit0A0O12BatteryStateO", "String"]
 - !private ["9DeviceKit0A0O12BatteryStateO", "UIDevice"]
 - ["9DeviceKit0A0O12BatteryStateO", "charging"]
@@ -65,10 +82,11 @@ depends-member:
 - ["9DeviceKit0A0O12BatteryStateO", "description"]
 - ["9DeviceKit0A0O12BatteryStateO", "full"]
 - !private ["9DeviceKit0A0O12BatteryStateO", "init"]
+- ["9DeviceKit0A0O12BatteryStateO", "lowPowerMode"]
 - !private ["9DeviceKit0A0O12BatteryStateO", "round"]
 - ["9DeviceKit0A0O12BatteryStateO", "unplugged"]
 - !private ["s23BidirectionalCollectionP", "contains"]
-- !private ["s23BidirectionalCollectionP", "init"]
+- ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "map"]
 - !private ["s19BinaryFloatingPointP", "rounded"]
 - !private ["s13BinaryIntegerP", "init"]
@@ -77,17 +95,22 @@ depends-member:
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
 - !private ["s7CVarArgP", "batteryLevel"]
 - !private ["s7CVarArgP", "batteryState"]
+- !private ["s7CVarArgP", "brightness"]
 - !private ["s7CVarArgP", "contains"]
 - !private ["s7CVarArgP", "current"]
 - !private ["s7CVarArgP", "environment"]
-- !private ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "isBatteryMonitoringEnabled"]
+- !private ["s7CVarArgP", "isLowPowerModeEnabled"]
 - !private ["s7CVarArgP", "localizedModel"]
 - !private ["s7CVarArgP", "main"]
 - !private ["s7CVarArgP", "map"]
+- !private ["s7CVarArgP", "mapValues"]
 - !private ["s7CVarArgP", "model"]
 - !private ["s7CVarArgP", "name"]
 - !private ["s7CVarArgP", "nativeScale"]
+- !private ["s7CVarArgP", "orientation"]
+- !private ["s7CVarArgP", "processInfo"]
 - !private ["s7CVarArgP", "rounded"]
 - !private ["s7CVarArgP", "scale"]
 - !private ["s7CVarArgP", "subscript"]
@@ -95,62 +118,77 @@ depends-member:
 - !private ["s7CVarArgP", "systemVersion"]
 - !private ["s7CVarArgP", "userInterfaceIdiom"]
 - !private ["s10CollectionP", "contains"]
-- !private ["s10CollectionP", "init"]
+- ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "map"]
+- !private ["s10CollectionP", "mapValues"]
 - !private ["s10CollectionP", "reduce"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "Int"]
+- !private ["s10ComparableP", "ProcessInfo"]
 - !private ["s10ComparableP", "UIDevice"]
 - ["s10ComparableP", ""]
 - ["s10ComparableP", "charging"]
 - ["s10ComparableP", "description"]
 - ["s10ComparableP", "full"]
-- !private ["s10ComparableP", "init"]
+- ["s10ComparableP", "init"]
 - !private ["s10ComparableP", "round"]
 - !private ["s10ComparableP", "rounded"]
 - ["s10ComparableP", "unplugged"]
 - !private ["s28CustomDebugStringConvertibleP", "batteryLevel"]
 - !private ["s28CustomDebugStringConvertibleP", "batteryState"]
+- !private ["s28CustomDebugStringConvertibleP", "brightness"]
 - !private ["s28CustomDebugStringConvertibleP", "contains"]
 - !private ["s28CustomDebugStringConvertibleP", "current"]
 - !private ["s28CustomDebugStringConvertibleP", "environment"]
-- !private ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "isBatteryMonitoringEnabled"]
+- !private ["s28CustomDebugStringConvertibleP", "isLowPowerModeEnabled"]
 - !private ["s28CustomDebugStringConvertibleP", "localizedModel"]
 - !private ["s28CustomDebugStringConvertibleP", "main"]
 - !private ["s28CustomDebugStringConvertibleP", "map"]
+- !private ["s28CustomDebugStringConvertibleP", "mapValues"]
 - !private ["s28CustomDebugStringConvertibleP", "model"]
 - !private ["s28CustomDebugStringConvertibleP", "name"]
 - !private ["s28CustomDebugStringConvertibleP", "nativeScale"]
+- !private ["s28CustomDebugStringConvertibleP", "orientation"]
+- !private ["s28CustomDebugStringConvertibleP", "processInfo"]
+- !private ["s28CustomDebugStringConvertibleP", "resourceValues"]
 - !private ["s28CustomDebugStringConvertibleP", "scale"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
 - !private ["s28CustomDebugStringConvertibleP", "systemName"]
 - !private ["s28CustomDebugStringConvertibleP", "systemVersion"]
 - !private ["s28CustomDebugStringConvertibleP", "userInterfaceIdiom"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
-- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "resourceValues"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
 - !private ["s17CustomReflectableP", "children"]
 - !private ["s17CustomReflectableP", "contains"]
-- !private ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "map"]
+- !private ["s17CustomReflectableP", "mapValues"]
 - !private ["s17CustomReflectableP", "rounded"]
 - !private ["s17CustomReflectableP", "subscript"]
 - ["s23CustomStringConvertibleP", "BatteryState"]
 - !private ["s23CustomStringConvertibleP", "Device"]
 - !private ["s23CustomStringConvertibleP", "Int"]
+- !private ["s23CustomStringConvertibleP", "Int64"]
 - !private ["s23CustomStringConvertibleP", "Mirror"]
 - !private ["s23CustomStringConvertibleP", "ProcessInfo"]
 - !private ["s23CustomStringConvertibleP", "String"]
+- !private ["s23CustomStringConvertibleP", "UIAccessibilityIsGuidedAccessEnabled"]
 - !private ["s23CustomStringConvertibleP", "UIDevice"]
 - !private ["s23CustomStringConvertibleP", "UIScreen"]
 - !private ["s23CustomStringConvertibleP", "UInt8"]
+- ["s23CustomStringConvertibleP", "URL"]
 - !private ["s23CustomStringConvertibleP", "UnicodeScalar"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "allPads"]
 - !private ["s23CustomStringConvertibleP", "allPhones"]
+- !private ["s23CustomStringConvertibleP", "allPlusSizedDevices"]
 - !private ["s23CustomStringConvertibleP", "allPods"]
+- !private ["s23CustomStringConvertibleP", "allProDevices"]
 - !private ["s23CustomStringConvertibleP", "allRealDevices"]
 - !private ["s23CustomStringConvertibleP", "allSimulatorPads"]
 - !private ["s23CustomStringConvertibleP", "allSimulatorPhones"]
@@ -158,6 +196,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "allSimulators"]
 - !private ["s23CustomStringConvertibleP", "batteryLevel"]
 - !private ["s23CustomStringConvertibleP", "batteryState"]
+- !private ["s23CustomStringConvertibleP", "brightness"]
 - ["s23CustomStringConvertibleP", "charging"]
 - !private ["s23CustomStringConvertibleP", "children"]
 - !private ["s23CustomStringConvertibleP", "contains"]
@@ -166,10 +205,12 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "diagonal"]
 - !private ["s23CustomStringConvertibleP", "environment"]
 - ["s23CustomStringConvertibleP", "full"]
+- ["s23CustomStringConvertibleP", "homePod"]
 - ["s23CustomStringConvertibleP", "iPad2"]
 - ["s23CustomStringConvertibleP", "iPad3"]
 - ["s23CustomStringConvertibleP", "iPad4"]
 - ["s23CustomStringConvertibleP", "iPad5"]
+- ["s23CustomStringConvertibleP", "iPad6"]
 - ["s23CustomStringConvertibleP", "iPadAir"]
 - ["s23CustomStringConvertibleP", "iPadAir2"]
 - ["s23CustomStringConvertibleP", "iPadMini"]
@@ -198,17 +239,24 @@ depends-member:
 - ["s23CustomStringConvertibleP", "iPodTouch5"]
 - ["s23CustomStringConvertibleP", "iPodTouch6"]
 - !private ["s23CustomStringConvertibleP", "identifier"]
-- !private ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "isBatteryMonitoringEnabled"]
+- !private ["s23CustomStringConvertibleP", "isLowPowerModeEnabled"]
 - !private ["s23CustomStringConvertibleP", "isOneOf"]
+- !private ["s23CustomStringConvertibleP", "isPod"]
 - !private ["s23CustomStringConvertibleP", "localizedModel"]
 - !private ["s23CustomStringConvertibleP", "main"]
 - !private ["s23CustomStringConvertibleP", "map"]
 - !private ["s23CustomStringConvertibleP", "mapToDevice"]
+- !private ["s23CustomStringConvertibleP", "mapValues"]
 - !private ["s23CustomStringConvertibleP", "model"]
 - !private ["s23CustomStringConvertibleP", "name"]
 - !private ["s23CustomStringConvertibleP", "nativeScale"]
+- !private ["s23CustomStringConvertibleP", "orientation"]
 - !private ["s23CustomStringConvertibleP", "ppi"]
+- !private ["s23CustomStringConvertibleP", "processInfo"]
+- !private ["s23CustomStringConvertibleP", "resourceValues"]
+- !private ["s23CustomStringConvertibleP", "rootURL"]
 - !private ["s23CustomStringConvertibleP", "round"]
 - !private ["s23CustomStringConvertibleP", "rounded"]
 - !private ["s23CustomStringConvertibleP", "scale"]
@@ -224,8 +272,10 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "utsname"]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
 - !private ["s9DecodableP", "contains"]
-- !private ["s9DecodableP", "init"]
+- ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "map"]
+- !private ["s9DecodableP", "mapValues"]
+- !private ["s9DecodableP", "resourceValues"]
 - !private ["s9DecodableP", "rounded"]
 - !private ["s9DecodableP", "subscript"]
 - ["9DeviceKit0A0O", "=="]
@@ -236,31 +286,42 @@ depends-member:
 - ["9DeviceKit0A0O", "Double"]
 - ["9DeviceKit0A0O", "Equatable"]
 - ["9DeviceKit0A0O", "Int"]
+- ["9DeviceKit0A0O", "Int64"]
 - !private ["9DeviceKit0A0O", "Int8"]
 - !private ["9DeviceKit0A0O", "Mirror"]
+- ["9DeviceKit0A0O", "Orientation"]
 - !private ["9DeviceKit0A0O", "ProcessInfo"]
 - ["9DeviceKit0A0O", "String"]
+- !private ["9DeviceKit0A0O", "UIAccessibilityIsGuidedAccessEnabled"]
 - !private ["9DeviceKit0A0O", "UIDevice"]
 - !private ["9DeviceKit0A0O", "UIScreen"]
 - !private ["9DeviceKit0A0O", "UInt8"]
+- ["9DeviceKit0A0O", "URL"]
+- ["9DeviceKit0A0O", "URLResourceKey"]
 - !private ["9DeviceKit0A0O", "UnicodeScalar"]
 - ["9DeviceKit0A0O", "allPads"]
 - ["9DeviceKit0A0O", "allPhones"]
+- ["9DeviceKit0A0O", "allPlusSizedDevices"]
 - ["9DeviceKit0A0O", "allPods"]
+- ["9DeviceKit0A0O", "allProDevices"]
 - ["9DeviceKit0A0O", "allRealDevices"]
 - ["9DeviceKit0A0O", "allSimulatorPads"]
 - ["9DeviceKit0A0O", "allSimulatorPhones"]
+- ["9DeviceKit0A0O", "allSimulatorPlusSizedDevices"]
 - ["9DeviceKit0A0O", "allSimulatorPods"]
+- ["9DeviceKit0A0O", "allSimulatorProDevices"]
 - ["9DeviceKit0A0O", "allSimulators"]
 - ["9DeviceKit0A0O", "batteryLevel"]
 - ["9DeviceKit0A0O", "batteryState"]
 - ["9DeviceKit0A0O", "deinit"]
 - ["9DeviceKit0A0O", "description"]
 - ["9DeviceKit0A0O", "diagonal"]
+- ["9DeviceKit0A0O", "homePod"]
 - ["9DeviceKit0A0O", "iPad2"]
 - ["9DeviceKit0A0O", "iPad3"]
 - ["9DeviceKit0A0O", "iPad4"]
 - ["9DeviceKit0A0O", "iPad5"]
+- ["9DeviceKit0A0O", "iPad6"]
 - ["9DeviceKit0A0O", "iPadAir"]
 - ["9DeviceKit0A0O", "iPadAir2"]
 - ["9DeviceKit0A0O", "iPadMini"]
@@ -290,6 +351,7 @@ depends-member:
 - ["9DeviceKit0A0O", "iPodTouch6"]
 - ["9DeviceKit0A0O", "identifier"]
 - ["9DeviceKit0A0O", "init"]
+- ["9DeviceKit0A0O", "isGuidedAccessSessionActive"]
 - ["9DeviceKit0A0O", "isOneOf"]
 - ["9DeviceKit0A0O", "isPad"]
 - ["9DeviceKit0A0O", "isPhone"]
@@ -300,8 +362,11 @@ depends-member:
 - ["9DeviceKit0A0O", "mapToDevice"]
 - ["9DeviceKit0A0O", "model"]
 - ["9DeviceKit0A0O", "name"]
+- ["9DeviceKit0A0O", "orientation"]
 - ["9DeviceKit0A0O", "ppi"]
+- !private ["9DeviceKit0A0O", "rootURL"]
 - !private ["9DeviceKit0A0O", "round"]
+- ["9DeviceKit0A0O", "screenBrightness"]
 - ["9DeviceKit0A0O", "screenRatio"]
 - ["9DeviceKit0A0O", "simulator"]
 - ["9DeviceKit0A0O", "systemName"]
@@ -309,28 +374,41 @@ depends-member:
 - !private ["9DeviceKit0A0O", "uname"]
 - ["9DeviceKit0A0O", "unknown"]
 - !private ["9DeviceKit0A0O", "utsname"]
+- ["9DeviceKit0A0O", "volumeAvailableCapacity"]
+- ["9DeviceKit0A0O", "volumeAvailableCapacityForImportantUsage"]
+- ["9DeviceKit0A0O", "volumeAvailableCapacityForOpportunisticUsage"]
+- ["9DeviceKit0A0O", "volumeTotalCapacity"]
+- ["9DeviceKit0A0O", "volumes"]
+- !private ["s10DictionaryV", "mapValues"]
 - !private ["s10DictionaryV", "subscript"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
 - !private ["s9EncodableP", "contains"]
-- !private ["s9EncodableP", "init"]
+- ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "map"]
+- !private ["s9EncodableP", "mapValues"]
+- !private ["s9EncodableP", "resourceValues"]
 - !private ["s9EncodableP", "rounded"]
 - !private ["s9EncodableP", "subscript"]
 - ["s9EquatableP", "BatteryState"]
 - !private ["s9EquatableP", "Device"]
 - !private ["s9EquatableP", "Int"]
+- !private ["s9EquatableP", "Int64"]
 - !private ["s9EquatableP", "Mirror"]
 - !private ["s9EquatableP", "ProcessInfo"]
 - !private ["s9EquatableP", "String"]
+- !private ["s9EquatableP", "UIAccessibilityIsGuidedAccessEnabled"]
 - !private ["s9EquatableP", "UIDevice"]
 - !private ["s9EquatableP", "UIScreen"]
 - !private ["s9EquatableP", "UInt8"]
+- ["s9EquatableP", "URL"]
 - !private ["s9EquatableP", "UnicodeScalar"]
 - ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
 - !private ["s9EquatableP", "allPads"]
 - !private ["s9EquatableP", "allPhones"]
+- !private ["s9EquatableP", "allPlusSizedDevices"]
 - !private ["s9EquatableP", "allPods"]
+- !private ["s9EquatableP", "allProDevices"]
 - !private ["s9EquatableP", "allRealDevices"]
 - !private ["s9EquatableP", "allSimulatorPads"]
 - !private ["s9EquatableP", "allSimulatorPhones"]
@@ -338,6 +416,7 @@ depends-member:
 - !private ["s9EquatableP", "allSimulators"]
 - !private ["s9EquatableP", "batteryLevel"]
 - !private ["s9EquatableP", "batteryState"]
+- !private ["s9EquatableP", "brightness"]
 - ["s9EquatableP", "charging"]
 - !private ["s9EquatableP", "contains"]
 - !private ["s9EquatableP", "current"]
@@ -345,10 +424,13 @@ depends-member:
 - !private ["s9EquatableP", "diagonal"]
 - !private ["s9EquatableP", "environment"]
 - ["s9EquatableP", "full"]
+- ["s9EquatableP", "hashValue"]
+- ["s9EquatableP", "homePod"]
 - ["s9EquatableP", "iPad2"]
 - ["s9EquatableP", "iPad3"]
 - ["s9EquatableP", "iPad4"]
 - ["s9EquatableP", "iPad5"]
+- ["s9EquatableP", "iPad6"]
 - ["s9EquatableP", "iPadAir"]
 - ["s9EquatableP", "iPadAir2"]
 - ["s9EquatableP", "iPadMini"]
@@ -377,19 +459,29 @@ depends-member:
 - ["s9EquatableP", "iPodTouch5"]
 - ["s9EquatableP", "iPodTouch6"]
 - !private ["s9EquatableP", "identifier"]
-- !private ["s9EquatableP", "init"]
+- ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "isBatteryMonitoringEnabled"]
+- !private ["s9EquatableP", "isLandscape"]
+- !private ["s9EquatableP", "isLowPowerModeEnabled"]
 - !private ["s9EquatableP", "isOneOf"]
+- !private ["s9EquatableP", "isPod"]
+- !private ["s9EquatableP", "landscape"]
 - !private ["s9EquatableP", "localizedModel"]
 - !private ["s9EquatableP", "main"]
 - !private ["s9EquatableP", "map"]
 - !private ["s9EquatableP", "mapToDevice"]
+- !private ["s9EquatableP", "mapValues"]
 - !private ["s9EquatableP", "model"]
 - !private ["s9EquatableP", "name"]
 - !private ["s9EquatableP", "nativeScale"]
+- !private ["s9EquatableP", "orientation"]
 - !private ["s9EquatableP", "pad"]
 - !private ["s9EquatableP", "phone"]
+- !private ["s9EquatableP", "portrait"]
 - !private ["s9EquatableP", "ppi"]
+- !private ["s9EquatableP", "processInfo"]
+- !private ["s9EquatableP", "resourceValues"]
+- !private ["s9EquatableP", "rootURL"]
 - !private ["s9EquatableP", "round"]
 - !private ["s9EquatableP", "rounded"]
 - !private ["s9EquatableP", "scale"]
@@ -403,34 +495,49 @@ depends-member:
 - ["s9EquatableP", "unplugged"]
 - !private ["s9EquatableP", "userInterfaceIdiom"]
 - !private ["s9EquatableP", "utsname"]
+- !private ["s9EquatableP", "volumeAvailableCapacityForImportantUsageKey"]
+- !private ["s9EquatableP", "volumeAvailableCapacityForOpportunisticUsageKey"]
+- !private ["s9EquatableP", "volumeAvailableCapacityKey"]
+- !private ["s9EquatableP", "volumeTotalCapacityKey"]
 - !private ["s25ExpressibleByArrayLiteralP", "contains"]
 - !private ["s25ExpressibleByArrayLiteralP", "map"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "mapValues"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
-- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s25ExpressibleByFloatLiteralP", "rounded"]
 - !private ["s27ExpressibleByIntegerLiteralP", "init"]
 - !private ["s27ExpressibleByIntegerLiteralP", "rounded"]
-- !private ["s26ExpressibleByStringLiteralP", "init"]
-- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s17FixedWidthIntegerP", "init"]
 - !private ["s13FloatingPointP", "rounded"]
+- ["s8HashableP", ""]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "batteryLevel"]
 - !private ["s8HashableP", "batteryState"]
+- !private ["s8HashableP", "brightness"]
 - ["s8HashableP", "charging"]
 - !private ["s8HashableP", "current"]
 - !private ["s8HashableP", "environment"]
 - ["s8HashableP", "full"]
-- !private ["s8HashableP", "init"]
+- ["s8HashableP", "hashValue"]
+- ["s8HashableP", "init"]
 - !private ["s8HashableP", "isBatteryMonitoringEnabled"]
+- !private ["s8HashableP", "isLandscape"]
+- !private ["s8HashableP", "isLowPowerModeEnabled"]
+- !private ["s8HashableP", "landscape"]
 - !private ["s8HashableP", "localizedModel"]
 - !private ["s8HashableP", "main"]
 - !private ["s8HashableP", "model"]
 - !private ["s8HashableP", "name"]
 - !private ["s8HashableP", "nativeScale"]
+- !private ["s8HashableP", "orientation"]
 - !private ["s8HashableP", "pad"]
 - !private ["s8HashableP", "phone"]
+- !private ["s8HashableP", "portrait"]
+- !private ["s8HashableP", "processInfo"]
+- !private ["s8HashableP", "resourceValues"]
 - !private ["s8HashableP", "rounded"]
 - !private ["s8HashableP", "scale"]
 - !private ["s8HashableP", "systemName"]
@@ -438,63 +545,91 @@ depends-member:
 - ["s8HashableP", "unknown"]
 - ["s8HashableP", "unplugged"]
 - !private ["s8HashableP", "userInterfaceIdiom"]
+- !private ["s8HashableP", "volumeAvailableCapacityForImportantUsageKey"]
+- !private ["s8HashableP", "volumeAvailableCapacityForOpportunisticUsageKey"]
+- !private ["s8HashableP", "volumeAvailableCapacityKey"]
+- !private ["s8HashableP", "volumeTotalCapacityKey"]
 - !private ["Si", "init"]
+- !private ["s5Int64V", "init"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
-- !private ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
 - !private ["s6MirrorV", "children"]
 - !private ["s6MirrorV", "init"]
-- !private ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
 - !private ["s17MutableCollectionP", "contains"]
 - !private ["s17MutableCollectionP", "map"]
 - !private ["So8NSObjectC", "batteryLevel"]
 - !private ["So8NSObjectC", "batteryState"]
+- !private ["So8NSObjectC", "brightness"]
 - !private ["So8NSObjectC", "current"]
 - !private ["So8NSObjectC", "environment"]
 - !private ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "isBatteryMonitoringEnabled"]
+- !private ["So8NSObjectC", "isLowPowerModeEnabled"]
 - !private ["So8NSObjectC", "localizedModel"]
 - !private ["So8NSObjectC", "main"]
 - !private ["So8NSObjectC", "model"]
 - !private ["So8NSObjectC", "name"]
 - !private ["So8NSObjectC", "nativeScale"]
+- !private ["So8NSObjectC", "orientation"]
+- !private ["So8NSObjectC", "processInfo"]
 - !private ["So8NSObjectC", "scale"]
 - !private ["So8NSObjectC", "systemName"]
 - !private ["So8NSObjectC", "systemVersion"]
 - !private ["So8NSObjectC", "userInterfaceIdiom"]
 - !private ["So16NSObjectProtocolP", "batteryLevel"]
 - !private ["So16NSObjectProtocolP", "batteryState"]
+- !private ["So16NSObjectProtocolP", "brightness"]
 - !private ["So16NSObjectProtocolP", "current"]
 - !private ["So16NSObjectProtocolP", "environment"]
 - !private ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "isBatteryMonitoringEnabled"]
+- !private ["So16NSObjectProtocolP", "isLowPowerModeEnabled"]
 - !private ["So16NSObjectProtocolP", "localizedModel"]
 - !private ["So16NSObjectProtocolP", "main"]
 - !private ["So16NSObjectProtocolP", "model"]
 - !private ["So16NSObjectProtocolP", "name"]
 - !private ["So16NSObjectProtocolP", "nativeScale"]
+- !private ["So16NSObjectProtocolP", "orientation"]
+- !private ["So16NSObjectProtocolP", "processInfo"]
 - !private ["So16NSObjectProtocolP", "scale"]
 - !private ["So16NSObjectProtocolP", "systemName"]
 - !private ["So16NSObjectProtocolP", "systemVersion"]
 - !private ["So16NSObjectProtocolP", "userInterfaceIdiom"]
 - !private ["s7NumericP", "init"]
 - !private ["s7NumericP", "rounded"]
+- ["9DeviceKit0A0O11OrientationO", "__derived_enum_equals"]
+- ["9DeviceKit0A0O11OrientationO", "deinit"]
+- ["9DeviceKit0A0O11OrientationO", "hashValue"]
+- ["9DeviceKit0A0O11OrientationO", "landscape"]
+- ["9DeviceKit0A0O11OrientationO", "portrait"]
 - !private ["So11ProcessInfoC", "environment"]
 - !private ["So11ProcessInfoC", "init"]
+- !private ["So11ProcessInfoC", "isLowPowerModeEnabled"]
+- !private ["So11ProcessInfoC", "processInfo"]
 - !private ["s22RandomAccessCollectionP", "contains"]
 - !private ["s22RandomAccessCollectionP", "map"]
 - !private ["s26RangeReplaceableCollectionP", "contains"]
-- !private ["s26RangeReplaceableCollectionP", "init"]
+- ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "map"]
 - ["s16RawRepresentableP", "charging"]
 - ["s16RawRepresentableP", "full"]
+- !private ["s16RawRepresentableP", "isLandscape"]
 - !private ["s16RawRepresentableP", "pad"]
 - !private ["s16RawRepresentableP", "phone"]
 - ["s16RawRepresentableP", "unknown"]
 - ["s16RawRepresentableP", "unplugged"]
+- !private ["s16RawRepresentableP", "volumeAvailableCapacityForImportantUsageKey"]
+- !private ["s16RawRepresentableP", "volumeAvailableCapacityForOpportunisticUsageKey"]
+- !private ["s16RawRepresentableP", "volumeAvailableCapacityKey"]
+- !private ["s16RawRepresentableP", "volumeTotalCapacityKey"]
+- ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "resourceValues"]
 - !private ["s7UnicodeO6ScalarV", "init"]
 - !private ["s8SequenceP", "contains"]
-- !private ["s8SequenceP", "init"]
+- ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "map"]
+- !private ["s8SequenceP", "mapValues"]
 - !private ["s8SequenceP", "reduce"]
 - !private ["s8SequenceP", "subscript"]
 - !private ["s13SignedIntegerP", "init"]
@@ -502,10 +637,10 @@ depends-member:
 - !private ["s13SignedNumericP", "rounded"]
 - !private ["s10StrideableP", "init"]
 - !private ["s10StrideableP", "rounded"]
-- !private ["SS", "init"]
-- !private ["s14StringProtocolP", "init"]
-- !private ["s16TextOutputStreamP", "init"]
-- !private ["s20TextOutputStreamableP", "init"]
+- ["SS", "init"]
+- ["s14StringProtocolP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
 - !private ["So8UIDeviceC", "batteryLevel"]
 - !private ["So8UIDeviceC", "batteryState"]
 - !private ["So8UIDeviceC", "current"]
@@ -513,6 +648,7 @@ depends-member:
 - !private ["So8UIDeviceC", "localizedModel"]
 - !private ["So8UIDeviceC", "model"]
 - !private ["So8UIDeviceC", "name"]
+- !private ["So8UIDeviceC", "orientation"]
 - !private ["So8UIDeviceC", "systemName"]
 - !private ["So8UIDeviceC", "systemVersion"]
 - !private ["So8UIDeviceC", "userInterfaceIdiom"]
@@ -520,115 +656,153 @@ depends-member:
 - ["SC20UIDeviceBatteryStateO", "full"]
 - ["SC20UIDeviceBatteryStateO", "unknown"]
 - ["SC20UIDeviceBatteryStateO", "unplugged"]
+- !private ["SC19UIDeviceOrientationO", "isLandscape"]
+- !private ["So8UIScreenC", "brightness"]
 - !private ["So8UIScreenC", "main"]
 - !private ["So8UIScreenC", "nativeScale"]
 - !private ["So8UIScreenC", "scale"]
+- !private ["So18UITraitEnvironmentP", "brightness"]
 - !private ["So18UITraitEnvironmentP", "main"]
 - !private ["So18UITraitEnvironmentP", "nativeScale"]
 - !private ["So18UITraitEnvironmentP", "scale"]
 - !private ["SC20UIUserInterfaceIdiomO", "pad"]
 - !private ["SC20UIUserInterfaceIdiomO", "phone"]
 - !private ["s5UInt8V", "init"]
+- ["10Foundation3URLV", "init"]
+- !private ["10Foundation3URLV", "resourceValues"]
+- !private ["SC14URLResourceKeyV", "volumeAvailableCapacityForImportantUsageKey"]
+- !private ["SC14URLResourceKeyV", "volumeAvailableCapacityForOpportunisticUsageKey"]
+- !private ["SC14URLResourceKeyV", "volumeAvailableCapacityKey"]
+- !private ["SC14URLResourceKeyV", "volumeTotalCapacityKey"]
+- !private ["10Foundation17URLResourceValuesV", "allValues"]
+- !private ["10Foundation17URLResourceValuesV", "volumeAvailableCapacity"]
+- !private ["10Foundation17URLResourceValuesV", "volumeAvailableCapacityForImportantUsage"]
+- !private ["10Foundation17URLResourceValuesV", "volumeAvailableCapacityForOpportunisticUsage"]
+- !private ["10Foundation17URLResourceValuesV", "volumeTotalCapacity"]
 - !private ["s15UnsignedIntegerP", "init"]
 - !private ["s22_AnyCollectionProtocolP", "reduce"]
 - !private ["s14_ArrayProtocolP", "contains"]
 - !private ["s14_ArrayProtocolP", "map"]
 - !private ["s18_BitwiseOperationsP", "init"]
+- !private ["s15_CVarArgAlignedP", "init"]
 - !private ["s15_CVarArgAlignedP", "rounded"]
 - !private ["s22_CVarArgPassedAsDoubleP", "rounded"]
 - !private ["s24_DestructorSafeContainerP", "contains"]
 - !private ["s24_DestructorSafeContainerP", "map"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
-- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
-- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
-- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
-- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
-- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s34_ExpressibleByFileReferenceLiteralP", "init"]
+- !private ["s34_ExpressibleByFileReferenceLiteralP", "resourceValues"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "batteryLevel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "batteryState"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "brightness"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "current"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "environment"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "isBatteryMonitoringEnabled"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isLowPowerModeEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "localizedModel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "main"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "model"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "nativeScale"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "orientation"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "processInfo"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "scale"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "systemName"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "systemVersion"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userInterfaceIdiom"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
 - !private ["s21_ObjectiveCBridgeableP", "contains"]
-- !private ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "map"]
+- !private ["s21_ObjectiveCBridgeableP", "mapValues"]
+- !private ["s21_ObjectiveCBridgeableP", "resourceValues"]
 - !private ["s21_ObjectiveCBridgeableP", "rounded"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "volumeAvailableCapacityForImportantUsageKey"]
+- !private ["s21_ObjectiveCBridgeableP", "volumeAvailableCapacityForOpportunisticUsageKey"]
+- !private ["s21_ObjectiveCBridgeableP", "volumeAvailableCapacityKey"]
+- !private ["s21_ObjectiveCBridgeableP", "volumeTotalCapacityKey"]
 - !private ["s14_StringElementP", "init"]
-- !private ["s16_SwiftStringViewP", "init"]
+- !private ["s20_SwiftNewtypeWrapperP", "volumeAvailableCapacityForImportantUsageKey"]
+- !private ["s20_SwiftNewtypeWrapperP", "volumeAvailableCapacityForOpportunisticUsageKey"]
+- !private ["s20_SwiftNewtypeWrapperP", "volumeAvailableCapacityKey"]
+- !private ["s20_SwiftNewtypeWrapperP", "volumeTotalCapacityKey"]
+- ["s16_SwiftStringViewP", "init"]
 - !private ["SC7utsnameV", "init"]
 - !private ["SC7utsnameV", "machine"]
 depends-nominal:
 - !private "s13AnyCollectionV"
 - !private "Sa"
 - "9DeviceKit0A0O12BatteryStateO"
-- !private "s23BidirectionalCollectionP"
+- "s23BidirectionalCollectionP"
 - !private "s19BinaryFloatingPointP"
 - !private "s13BinaryIntegerP"
 - !private "Sb"
 - !private "12CoreGraphics7CGFloatV"
-- !private "s7CVarArgP"
-- !private "s10CollectionP"
+- "s7CVarArgP"
+- "s10CollectionP"
 - "s10ComparableP"
-- !private "s28CustomDebugStringConvertibleP"
-- !private "s29CustomPlaygroundQuickLookableP"
-- !private "s17CustomReflectableP"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
-- !private "s9DecodableP"
+- "s9DecodableP"
 - "9DeviceKit0A0O"
 - !private "s10DictionaryV"
-- !private "s9EncodableP"
+- "s9EncodableP"
 - "s9EquatableP"
 - !private "s25ExpressibleByArrayLiteralP"
 - !private "s27ExpressibleByBooleanLiteralP"
 - !private "s30ExpressibleByDictionaryLiteralP"
-- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
 - !private "s25ExpressibleByFloatLiteralP"
 - !private "s27ExpressibleByIntegerLiteralP"
-- !private "s26ExpressibleByStringLiteralP"
-- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
 - !private "s17FixedWidthIntegerP"
 - !private "s13FloatingPointP"
 - "s8HashableP"
 - !private "Si"
-- !private "s25LosslessStringConvertibleP"
+- !private "s5Int64V"
+- "s25LosslessStringConvertibleP"
 - !private "s6MirrorV"
-- !private "s10MirrorPathP"
+- "s10MirrorPathP"
 - !private "s17MutableCollectionP"
 - !private "So8NSObjectC"
 - !private "So16NSObjectProtocolP"
 - !private "s7NumericP"
+- "9DeviceKit0A0O11OrientationO"
 - !private "So11ProcessInfoC"
 - !private "s22RandomAccessCollectionP"
-- !private "s26RangeReplaceableCollectionP"
+- "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
+- "10Foundation20ReferenceConvertibleP"
 - !private "s7UnicodeO6ScalarV"
-- !private "s8SequenceP"
+- "s8SequenceP"
 - !private "s13SignedIntegerP"
 - !private "s13SignedNumericP"
 - !private "s10StrideableP"
-- !private "SS"
-- !private "s14StringProtocolP"
-- !private "s16TextOutputStreamP"
-- !private "s20TextOutputStreamableP"
+- "SS"
+- "s14StringProtocolP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
 - !private "So8UIDeviceC"
 - "SC20UIDeviceBatteryStateO"
+- !private "SC19UIDeviceOrientationO"
 - !private "So8UIScreenC"
 - !private "So18UITraitEnvironmentP"
 - !private "SC20UIUserInterfaceIdiomO"
 - !private "s5UInt8V"
+- "10Foundation3URLV"
+- !private "SC14URLResourceKeyV"
+- !private "10Foundation17URLResourceValuesV"
 - !private "s15UnsignedIntegerP"
 - !private "s22_AnyCollectionProtocolP"
 - !private "s14_ArrayProtocolP"
@@ -637,16 +811,18 @@ depends-nominal:
 - !private "s22_CVarArgPassedAsDoubleP"
 - !private "s24_DestructorSafeContainerP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
-- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
 - !private "s35_ExpressibleByBuiltinIntegerLiteralP"
-- !private "s34_ExpressibleByBuiltinStringLiteralP"
-- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
-- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
-- !private "s33_ExpressibleByStringInterpolationP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s34_ExpressibleByFileReferenceLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
 - !private "10Foundation27_KeyValueCodingAndObservingP"
-- !private "s21_ObjectiveCBridgeableP"
+- "s21_ObjectiveCBridgeableP"
 - !private "s14_StringElementP"
-- !private "s16_SwiftStringViewP"
+- !private "s20_SwiftNewtypeWrapperP"
+- "s16_SwiftStringViewP"
 - !private "SC7utsnameV"
 depends-dynamic-lookup:
 depends-external:
@@ -665,14 +841,14 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/Target Support Files/DeviceKit/DeviceKit-umbrella.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/DeviceKit.build/unextended-module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "1179d136d62026e44231d10e4126c235"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "ec3819a9f9031e97dbd8e8871f1e2612"

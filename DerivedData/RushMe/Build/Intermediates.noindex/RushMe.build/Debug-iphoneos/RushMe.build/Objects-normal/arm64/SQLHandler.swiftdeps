@@ -31,8 +31,8 @@ depends-top-level:
 - !private "NSKeyedUnarchiver"
 - "RMAction"
 - !private "RMFileManagement"
-- !private "RMNetwork"
 - !private "RMUserDevice"
+- !private "RushMe"
 - "SQLHandler"
 - "String"
 - "StringLiteralType"
@@ -103,6 +103,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "split"]
 - !private ["s28CustomDebugStringConvertibleP", "statusCode"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "timeoutInterval"]
 - !private ["s28CustomDebugStringConvertibleP", "unarchiveObject"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
 - !private ["s29CustomPlaygroundQuickLookableP", "absoluteString"]
@@ -121,6 +122,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "popLast"]
 - !private ["s17CustomReflectableP", "split"]
 - !private ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "timeoutInterval"]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s23CustomStringConvertibleP", "absoluteString"]
 - !private ["s23CustomStringConvertibleP", "archiveRootObject"]
@@ -141,6 +143,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "split"]
 - !private ["s23CustomStringConvertibleP", "statusCode"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "timeoutInterval"]
 - !private ["s23CustomStringConvertibleP", "unarchiveObject"]
 - !private ["s23CustomStringConvertibleP", "utf8"]
 - !private ["10Foundation4DataV", "init"]
@@ -199,6 +202,7 @@ depends-member:
 - !private ["s9EquatableP", "split"]
 - !private ["s9EquatableP", "statusCode"]
 - !private ["s9EquatableP", "subscript"]
+- !private ["s9EquatableP", "timeoutInterval"]
 - !private ["s9EquatableP", "unarchiveObject"]
 - !private ["s9EquatableP", "utf8"]
 - !private ["s9EquatableP", "utility"]
@@ -246,6 +250,7 @@ depends-member:
 - !private ["s8HashableP", "shared"]
 - !private ["s8HashableP", "split"]
 - !private ["s8HashableP", "statusCode"]
+- !private ["s8HashableP", "timeoutInterval"]
 - !private ["s8HashableP", "unarchiveObject"]
 - !private ["s8HashableP", "utf8"]
 - !private ["s8HashableP", "utility"]
@@ -336,7 +341,6 @@ depends-member:
 - ["6RushMe8RMActionO", "init"]
 - ["6RushMe8RMActionO", "rawValue"]
 - !private ["6RushMe16RMFileManagementV", "userActionsURL"]
-- !private ["6RushMe9RMNetworkV", "web"]
 - !private ["6RushMe12RMUserDeviceV", "deviceInfo"]
 - !private ["6RushMe12RMUserDeviceV", "init"]
 - !private ["s22RandomAccessCollectionP", "first"]
@@ -364,6 +368,9 @@ depends-member:
 - !private ["10Foundation20ReferenceConvertibleP", "httpMethod"]
 - !private ["10Foundation20ReferenceConvertibleP", "init"]
 - !private ["10Foundation20ReferenceConvertibleP", "path"]
+- !private ["10Foundation20ReferenceConvertibleP", "timeoutInterval"]
+- !private ["6RushMeAAV", "network"]
+- !private ["6RushMeAAV", "privacy"]
 - ["6RushMe10SQLHandlerC", "Array"]
 - !private ["6RushMe10SQLHandlerC", "Data"]
 - ["6RushMe10SQLHandlerC", "Dictionary"]
@@ -374,8 +381,8 @@ depends-member:
 - !private ["6RushMe10SQLHandlerC", "NSKeyedUnarchiver"]
 - ["6RushMe10SQLHandlerC", "RMAction"]
 - !private ["6RushMe10SQLHandlerC", "RMFileManagement"]
-- !private ["6RushMe10SQLHandlerC", "RMNetwork"]
 - !private ["6RushMe10SQLHandlerC", "RMUserDevice"]
+- !private ["6RushMe10SQLHandlerC", "RushMe"]
 - !private ["6RushMe10SQLHandlerC", "SQLHandler"]
 - ["6RushMe10SQLHandlerC", "String"]
 - !private ["6RushMe10SQLHandlerC", "URL"]
@@ -388,8 +395,8 @@ depends-member:
 - ["6RushMe10SQLHandlerC", "pastActionsFromFile"]
 - !private ["6RushMe10SQLHandlerC", "print"]
 - !private ["6RushMe10SQLHandlerC", "push"]
-- !private ["6RushMe10SQLHandlerC", "pushAll"]
-- ["6RushMe10SQLHandlerC", "select"]
+- !private ["6RushMe10SQLHandlerC", "pushAllActions"]
+- ["6RushMe10SQLHandlerC", "selectAll"]
 - !private ["s8SequenceP", "count"]
 - !private ["s8SequenceP", "data"]
 - !private ["s8SequenceP", "first"]
@@ -421,6 +428,7 @@ depends-member:
 - !private ["10Foundation10URLRequestV", "httpBody"]
 - !private ["10Foundation10URLRequestV", "httpMethod"]
 - !private ["10Foundation10URLRequestV", "init"]
+- !private ["10Foundation10URLRequestV", "timeoutInterval"]
 - !private ["So11URLResponseC", "statusCode"]
 - !private ["So10URLSessionC", "dataTask"]
 - !private ["So10URLSessionC", "shared"]
@@ -484,10 +492,13 @@ depends-member:
 - !private ["s21_ObjectiveCBridgeableP", "popLast"]
 - !private ["s21_ObjectiveCBridgeableP", "split"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "timeoutInterval"]
 - !private ["s16_SwiftStringViewP", "count"]
 - !private ["s16_SwiftStringViewP", "data"]
 - ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "split"]
+- !private ["6RushMeAAV7networkV", "web"]
+- !private ["6RushMeAAV7privacyV", "policyAccepted"]
 depends-nominal:
 - !private "Sa"
 - "s23BidirectionalCollectionP"
@@ -538,13 +549,13 @@ depends-nominal:
 - !private "8Dispatch0A3QoSV0B6SClassO"
 - "6RushMe8RMActionO"
 - !private "6RushMe16RMFileManagementV"
-- !private "6RushMe9RMNetworkV"
 - !private "6RushMe12RMUserDeviceV"
 - !private "s22RandomAccessCollectionP"
 - "s26RangeReplaceableCollectionP"
 - "s16RawRepresentableP"
 - !private "So17JSONSerializationC14ReadingOptionsV"
 - !private "10Foundation20ReferenceConvertibleP"
+- !private "6RushMeAAV"
 - "6RushMe10SQLHandlerC"
 - "s8SequenceP"
 - !private "s10SetAlgebraP"
@@ -573,6 +584,8 @@ depends-nominal:
 - !private "10Foundation27_KeyValueCodingAndObservingP"
 - "s21_ObjectiveCBridgeableP"
 - "s16_SwiftStringViewP"
+- !private "6RushMeAAV7networkV"
+- !private "6RushMeAAV7privacyV"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.apinotesc"
@@ -600,16 +613,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "6816771d555b127a6eda2aa21148ae9b"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "dc953658ce83d9ffb0ea040da1b5e7e9"

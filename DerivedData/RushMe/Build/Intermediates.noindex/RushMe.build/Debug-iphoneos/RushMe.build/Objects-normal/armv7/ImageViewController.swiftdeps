@@ -29,7 +29,7 @@ depends-top-level:
 - !private "BooleanLiteralType"
 - "ImageViewController"
 - !private "NSLayoutConstraint"
-- !private "RMImage"
+- !private "RushMe"
 - !private "UIBlurEffect"
 - !private "UIBlurEffectStyle"
 - !private "UIColor"
@@ -76,7 +76,7 @@ depends-member:
 - !private ["SC6CGRectV", "height"]
 - !private ["SC6CGRectV", "size"]
 - !private ["s7CVarArgP", "NSLayoutConstraint"]
-- !private ["s7CVarArgP", "RMImage"]
+- !private ["s7CVarArgP", "RushMe"]
 - !private ["s7CVarArgP", "UIBlurEffect"]
 - !private ["s7CVarArgP", "UIBlurEffectStyle"]
 - !private ["s7CVarArgP", "UIColor"]
@@ -138,7 +138,7 @@ depends-member:
 - !private ["s7CVarArgP", "visualEffectView"]
 - !private ["s7CVarArgP", "zoomScale"]
 - !private ["s28CustomDebugStringConvertibleP", "NSLayoutConstraint"]
-- !private ["s28CustomDebugStringConvertibleP", "RMImage"]
+- !private ["s28CustomDebugStringConvertibleP", "RushMe"]
 - !private ["s28CustomDebugStringConvertibleP", "UIBlurEffect"]
 - !private ["s28CustomDebugStringConvertibleP", "UIBlurEffectStyle"]
 - !private ["s28CustomDebugStringConvertibleP", "UIColor"]
@@ -210,7 +210,7 @@ depends-member:
 - !private ["s17CustomReflectableP", "size"]
 - !private ["s17CustomReflectableP", "y"]
 - !private ["s23CustomStringConvertibleP", "NSLayoutConstraint"]
-- !private ["s23CustomStringConvertibleP", "RMImage"]
+- !private ["s23CustomStringConvertibleP", "RushMe"]
 - !private ["s23CustomStringConvertibleP", "UIBlurEffect"]
 - !private ["s23CustomStringConvertibleP", "UIBlurEffectStyle"]
 - !private ["s23CustomStringConvertibleP", "UIColor"]
@@ -280,7 +280,7 @@ depends-member:
 - !private ["s9EncodableP", "size"]
 - !private ["s9EncodableP", "y"]
 - !private ["s9EquatableP", "NSLayoutConstraint"]
-- !private ["s9EquatableP", "RMImage"]
+- !private ["s9EquatableP", "RushMe"]
 - !private ["s9EquatableP", "UIBlurEffect"]
 - !private ["s9EquatableP", "UIBlurEffectStyle"]
 - !private ["s9EquatableP", "UIColor"]
@@ -347,7 +347,7 @@ depends-member:
 - !private ["s9EquatableP", "zoomScale"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "NSLayoutConstraint"]
-- !private ["s8HashableP", "RMImage"]
+- !private ["s8HashableP", "RushMe"]
 - !private ["s8HashableP", "UIBlurEffect"]
 - !private ["s8HashableP", "UIBlurEffectStyle"]
 - !private ["s8HashableP", "UIColor"]
@@ -411,7 +411,7 @@ depends-member:
 - !private ["s8HashableP", "zoomScale"]
 - ["6RushMe19ImageViewControllerC", "Bool"]
 - !private ["6RushMe19ImageViewControllerC", "NSLayoutConstraint"]
-- !private ["6RushMe19ImageViewControllerC", "RMImage"]
+- !private ["6RushMe19ImageViewControllerC", "RushMe"]
 - !private ["6RushMe19ImageViewControllerC", "UIBlurEffect"]
 - !private ["6RushMe19ImageViewControllerC", "UIBlurEffectStyle"]
 - !private ["6RushMe19ImageViewControllerC", "UIColor"]
@@ -453,7 +453,7 @@ depends-member:
 - ["6RushMe19ImageViewControllerC", "visualEffectView"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["So8NSCodingP", "NSLayoutConstraint"]
-- !private ["So8NSCodingP", "RMImage"]
+- !private ["So8NSCodingP", "RushMe"]
 - !private ["So8NSCodingP", "UIBlurEffect"]
 - !private ["So8NSCodingP", "UIBlurEffectStyle"]
 - !private ["So8NSCodingP", "UIColor"]
@@ -514,7 +514,7 @@ depends-member:
 - !private ["So9NSCopyingP", "clear"]
 - !private ["So9NSCopyingP", "init"]
 - !private ["So26NSExtensionRequestHandlingP", "NSLayoutConstraint"]
-- !private ["So26NSExtensionRequestHandlingP", "RMImage"]
+- !private ["So26NSExtensionRequestHandlingP", "RushMe"]
 - !private ["So26NSExtensionRequestHandlingP", "UIBlurEffect"]
 - !private ["So26NSExtensionRequestHandlingP", "UIBlurEffectStyle"]
 - !private ["So26NSExtensionRequestHandlingP", "UIColor"]
@@ -557,7 +557,7 @@ depends-member:
 - !private ["So19NSLayoutYAxisAnchorC", "constraint"]
 - ["So8NSObjectC", "Bool"]
 - !private ["So8NSObjectC", "NSLayoutConstraint"]
-- !private ["So8NSObjectC", "RMImage"]
+- !private ["So8NSObjectC", "RushMe"]
 - !private ["So8NSObjectC", "UIBlurEffect"]
 - !private ["So8NSObjectC", "UIBlurEffectStyle"]
 - !private ["So8NSObjectC", "UIColor"]
@@ -624,7 +624,7 @@ depends-member:
 - ["So8NSObjectC", "visualEffectView"]
 - !private ["So8NSObjectC", "zoomScale"]
 - !private ["So16NSObjectProtocolP", "NSLayoutConstraint"]
-- !private ["So16NSObjectProtocolP", "RMImage"]
+- !private ["So16NSObjectProtocolP", "RushMe"]
 - !private ["So16NSObjectProtocolP", "UIBlurEffect"]
 - !private ["So16NSObjectProtocolP", "UIBlurEffectStyle"]
 - !private ["So16NSObjectProtocolP", "UIColor"]
@@ -694,8 +694,8 @@ depends-member:
 - !private ["So14NSSecureCodingP", "rightAnchor"]
 - !private ["So14NSSecureCodingP", "topAnchor"]
 - !private ["So14NSSecureCodingP", "translatesAutoresizingMaskIntoConstraints"]
-- !private ["6RushMe7RMImageV", "CornerRadius"]
 - !private ["s16RawRepresentableP", "light"]
+- !private ["6RushMeAAV", "cornerRadius"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "frame"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "image"]
 - !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "layer"]
@@ -748,7 +748,7 @@ depends-member:
 - !private ["So12UIAppearanceP", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["So12UIAppearanceP", "zoomScale"]
 - !private ["So21UIAppearanceContainerP", "NSLayoutConstraint"]
-- !private ["So21UIAppearanceContainerP", "RMImage"]
+- !private ["So21UIAppearanceContainerP", "RushMe"]
 - !private ["So21UIAppearanceContainerP", "UIBlurEffect"]
 - !private ["So21UIAppearanceContainerP", "UIBlurEffectStyle"]
 - !private ["So21UIAppearanceContainerP", "UIColor"]
@@ -807,7 +807,7 @@ depends-member:
 - !private ["SC17UIBlurEffectStyleO", "light"]
 - !private ["So7UIColorC", "clear"]
 - !private ["So18UIContentContainerP", "NSLayoutConstraint"]
-- !private ["So18UIContentContainerP", "RMImage"]
+- !private ["So18UIContentContainerP", "RushMe"]
 - !private ["So18UIContentContainerP", "UIBlurEffect"]
 - !private ["So18UIContentContainerP", "UIBlurEffectStyle"]
 - !private ["So18UIContentContainerP", "UIColor"]
@@ -889,7 +889,7 @@ depends-member:
 - !private ["So13UIDynamicItemP", "translatesAutoresizingMaskIntoConstraints"]
 - !private ["So13UIDynamicItemP", "zoomScale"]
 - !private ["So18UIFocusEnvironmentP", "NSLayoutConstraint"]
-- !private ["So18UIFocusEnvironmentP", "RMImage"]
+- !private ["So18UIFocusEnvironmentP", "RushMe"]
 - !private ["So18UIFocusEnvironmentP", "UIBlurEffect"]
 - !private ["So18UIFocusEnvironmentP", "UIBlurEffectStyle"]
 - !private ["So18UIFocusEnvironmentP", "UIColor"]
@@ -974,7 +974,7 @@ depends-member:
 - !private ["So11UIImageViewC", "layer"]
 - ["So39UIItemProviderPresentationSizeProvidingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSLayoutConstraint"]
-- !private ["So30UIPasteConfigurationSupportingP", "RMImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "RushMe"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIBlurEffect"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIBlurEffectStyle"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
@@ -1031,7 +1031,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "zoomScale"]
 - ["So11UIResponderC", "Bool"]
 - !private ["So11UIResponderC", "NSLayoutConstraint"]
-- !private ["So11UIResponderC", "RMImage"]
+- !private ["So11UIResponderC", "RushMe"]
 - !private ["So11UIResponderC", "UIBlurEffect"]
 - !private ["So11UIResponderC", "UIBlurEffectStyle"]
 - !private ["So11UIResponderC", "UIColor"]
@@ -1093,7 +1093,7 @@ depends-member:
 - ["So11UIResponderC", "visualEffectView"]
 - !private ["So11UIResponderC", "zoomScale"]
 - !private ["So30UIResponderStandardEditActionsP", "NSLayoutConstraint"]
-- !private ["So30UIResponderStandardEditActionsP", "RMImage"]
+- !private ["So30UIResponderStandardEditActionsP", "RushMe"]
 - !private ["So30UIResponderStandardEditActionsP", "UIBlurEffect"]
 - !private ["So30UIResponderStandardEditActionsP", "UIBlurEffectStyle"]
 - !private ["So30UIResponderStandardEditActionsP", "UIColor"]
@@ -1160,7 +1160,7 @@ depends-member:
 - !private ["So12UIScrollViewC", "showsVerticalScrollIndicator"]
 - !private ["So12UIScrollViewC", "zoomScale"]
 - !private ["So20UIScrollViewDelegateP", "NSLayoutConstraint"]
-- !private ["So20UIScrollViewDelegateP", "RMImage"]
+- !private ["So20UIScrollViewDelegateP", "RushMe"]
 - !private ["So20UIScrollViewDelegateP", "UIBlurEffect"]
 - !private ["So20UIScrollViewDelegateP", "UIBlurEffectStyle"]
 - !private ["So20UIScrollViewDelegateP", "UIColor"]
@@ -1191,7 +1191,7 @@ depends-member:
 - ["So20UIScrollViewDelegateP", "viewForZoomingInScrollView"]
 - !private ["So20UIScrollViewDelegateP", "visualEffectView"]
 - !private ["So16UIStateRestoringP", "NSLayoutConstraint"]
-- !private ["So16UIStateRestoringP", "RMImage"]
+- !private ["So16UIStateRestoringP", "RushMe"]
 - !private ["So16UIStateRestoringP", "UIBlurEffect"]
 - !private ["So16UIStateRestoringP", "UIBlurEffectStyle"]
 - !private ["So16UIStateRestoringP", "UIColor"]
@@ -1225,7 +1225,7 @@ depends-member:
 - ["So16UIStateRestoringP", "viewForZoomingInScrollView"]
 - !private ["So16UIStateRestoringP", "visualEffectView"]
 - !private ["So18UITraitEnvironmentP", "NSLayoutConstraint"]
-- !private ["So18UITraitEnvironmentP", "RMImage"]
+- !private ["So18UITraitEnvironmentP", "RushMe"]
 - !private ["So18UITraitEnvironmentP", "UIBlurEffect"]
 - !private ["So18UITraitEnvironmentP", "UIBlurEffectStyle"]
 - !private ["So18UITraitEnvironmentP", "UIColor"]
@@ -1306,7 +1306,7 @@ depends-member:
 - !private ["So6UIViewC", "zoomScale"]
 - ["So16UIViewControllerC", "Bool"]
 - !private ["So16UIViewControllerC", "NSLayoutConstraint"]
-- !private ["So16UIViewControllerC", "RMImage"]
+- !private ["So16UIViewControllerC", "RushMe"]
 - !private ["So16UIViewControllerC", "UIBlurEffect"]
 - !private ["So16UIViewControllerC", "UIBlurEffectStyle"]
 - !private ["So16UIViewControllerC", "UIColor"]
@@ -1382,7 +1382,7 @@ depends-member:
 - !private ["s26_ExpressibleByColorLiteralP", "clear"]
 - ["s26_ExpressibleByImageLiteralP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "NSLayoutConstraint"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RushMe"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIBlurEffect"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIBlurEffectStyle"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
@@ -1477,8 +1477,8 @@ depends-nominal:
 - "So8NSObjectC"
 - "So16NSObjectProtocolP"
 - "So14NSSecureCodingP"
-- !private "6RushMe7RMImageV"
 - !private "s16RawRepresentableP"
+- !private "6RushMeAAV"
 - !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
 - "So29UIAccessibilityIdentificationP"
 - !private "So12UIAppearanceP"
@@ -1538,16 +1538,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "cbca84684cf9fd7456ae53d1376d6ce7"

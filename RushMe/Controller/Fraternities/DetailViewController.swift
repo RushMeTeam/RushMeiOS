@@ -235,12 +235,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
   }
   override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     _ = setupViews
     _ = configureView
   }
   
   lazy var setupProfileImageView : Void = {
-    
     profileImageView.layer.cornerRadius = RushMe.cornerRadius
     profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     profileImageView.layer.borderWidth = 2
@@ -342,8 +342,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       mapItem!.name = frat.name
     }
     else {
-      self.mapView?.removeFromSuperview()
-      self.openMapButton?.removeFromSuperview()
+      self.mapView.isScrollEnabled = false
+      self.mapView.setCenter(RushMe.campus.coordinates, animated: false)
+      //self.mapView?.removeFromSuperview()
+      //self.openMapButton?.removeFromSuperview()
+     
     }
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {

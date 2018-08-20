@@ -11,7 +11,6 @@ provides-dynamic-lookup:
 - "clearCacheButton"
 - "dateLabel"
 - "didReceiveMemoryWarning"
-- "disappear"
 - "displayPastEventsSwitch"
 - "displayPastEventsSwitched"
 - "drawerButton"
@@ -28,6 +27,7 @@ depends-top-level:
 - !private "??"
 - "AssignmentPrecedence"
 - "Bool"
+- !private "BooleanLiteralType"
 - !private "Campus"
 - "CastingPrecedence"
 - !private "DateFormatter"
@@ -39,7 +39,7 @@ depends-top-level:
 - !private "RMDate"
 - !private "RMFileManagement"
 - !private "RMUserDevice"
-- !private "RMUserPreferences"
+- !private "RushMe"
 - "SettingsViewController"
 - !private "String"
 - !private "StringLiteralType"
@@ -76,7 +76,7 @@ depends-member:
 - !private ["s7CVarArgP", "RMDate"]
 - !private ["s7CVarArgP", "RMFileManagement"]
 - !private ["s7CVarArgP", "RMUserDevice"]
-- !private ["s7CVarArgP", "RMUserPreferences"]
+- !private ["s7CVarArgP", "RushMe"]
 - !private ["s7CVarArgP", "String"]
 - !private ["s7CVarArgP", "UIAlertAction"]
 - !private ["s7CVarArgP", "UIAlertController"]
@@ -87,7 +87,7 @@ depends-member:
 - !private ["s7CVarArgP", "attributesOfItem"]
 - !private ["s7CVarArgP", "clearCache"]
 - !private ["s7CVarArgP", "clearCacheButton"]
-- !private ["s7CVarArgP", "considerEventsBeforeToday"]
+- !private ["s7CVarArgP", "considerPastEvents"]
 - !private ["s7CVarArgP", "dateLabel"]
 - !private ["s7CVarArgP", "default"]
 - !private ["s7CVarArgP", "didReceiveMemoryWarning"]
@@ -114,7 +114,7 @@ depends-member:
 - !private ["s7CVarArgP", "tintColor"]
 - !private ["s7CVarArgP", "viewDidLoad"]
 - !private ["s7CVarArgP", "viewWillDisappear"]
-- !private ["6RushMe6CampusC", "considerEventsBeforeToday"]
+- !private ["6RushMe6CampusC", "considerPastEvents"]
 - !private ["6RushMe6CampusC", "downloadedImageQuality"]
 - !private ["6RushMe6CampusC", "shared"]
 - !private ["s9CharacterV", "init"]
@@ -132,7 +132,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "RMDate"]
 - !private ["s28CustomDebugStringConvertibleP", "RMFileManagement"]
 - !private ["s28CustomDebugStringConvertibleP", "RMUserDevice"]
-- !private ["s28CustomDebugStringConvertibleP", "RMUserPreferences"]
+- !private ["s28CustomDebugStringConvertibleP", "RushMe"]
 - !private ["s28CustomDebugStringConvertibleP", "String"]
 - !private ["s28CustomDebugStringConvertibleP", "UIAlertAction"]
 - !private ["s28CustomDebugStringConvertibleP", "UIAlertController"]
@@ -143,7 +143,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "attributesOfItem"]
 - !private ["s28CustomDebugStringConvertibleP", "clearCache"]
 - !private ["s28CustomDebugStringConvertibleP", "clearCacheButton"]
-- !private ["s28CustomDebugStringConvertibleP", "considerEventsBeforeToday"]
+- !private ["s28CustomDebugStringConvertibleP", "considerPastEvents"]
 - !private ["s28CustomDebugStringConvertibleP", "dateLabel"]
 - !private ["s28CustomDebugStringConvertibleP", "default"]
 - !private ["s28CustomDebugStringConvertibleP", "didReceiveMemoryWarning"]
@@ -189,7 +189,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "RMDate"]
 - !private ["s23CustomStringConvertibleP", "RMFileManagement"]
 - !private ["s23CustomStringConvertibleP", "RMUserDevice"]
-- !private ["s23CustomStringConvertibleP", "RMUserPreferences"]
+- !private ["s23CustomStringConvertibleP", "RushMe"]
 - !private ["s23CustomStringConvertibleP", "String"]
 - !private ["s23CustomStringConvertibleP", "UIAlertAction"]
 - !private ["s23CustomStringConvertibleP", "UIAlertController"]
@@ -201,7 +201,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "attributesOfItem"]
 - !private ["s23CustomStringConvertibleP", "clearCache"]
 - !private ["s23CustomStringConvertibleP", "clearCacheButton"]
-- !private ["s23CustomStringConvertibleP", "considerEventsBeforeToday"]
+- !private ["s23CustomStringConvertibleP", "considerPastEvents"]
 - !private ["s23CustomStringConvertibleP", "dateLabel"]
 - !private ["s23CustomStringConvertibleP", "default"]
 - !private ["s23CustomStringConvertibleP", "didReceiveMemoryWarning"]
@@ -256,7 +256,7 @@ depends-member:
 - !private ["s9EquatableP", "RMDate"]
 - !private ["s9EquatableP", "RMFileManagement"]
 - !private ["s9EquatableP", "RMUserDevice"]
-- !private ["s9EquatableP", "RMUserPreferences"]
+- !private ["s9EquatableP", "RushMe"]
 - !private ["s9EquatableP", "String"]
 - !private ["s9EquatableP", "UIAlertAction"]
 - !private ["s9EquatableP", "UIAlertController"]
@@ -270,7 +270,7 @@ depends-member:
 - !private ["s9EquatableP", "cancel"]
 - !private ["s9EquatableP", "clearCache"]
 - !private ["s9EquatableP", "clearCacheButton"]
-- !private ["s9EquatableP", "considerEventsBeforeToday"]
+- !private ["s9EquatableP", "considerPastEvents"]
 - !private ["s9EquatableP", "dateLabel"]
 - !private ["s9EquatableP", "default"]
 - !private ["s9EquatableP", "destructive"]
@@ -331,7 +331,7 @@ depends-member:
 - !private ["s8HashableP", "RMDate"]
 - !private ["s8HashableP", "RMFileManagement"]
 - !private ["s8HashableP", "RMUserDevice"]
-- !private ["s8HashableP", "RMUserPreferences"]
+- !private ["s8HashableP", "RushMe"]
 - !private ["s8HashableP", "String"]
 - !private ["s8HashableP", "UIAlertAction"]
 - !private ["s8HashableP", "UIAlertController"]
@@ -345,7 +345,7 @@ depends-member:
 - !private ["s8HashableP", "cancel"]
 - !private ["s8HashableP", "clearCache"]
 - !private ["s8HashableP", "clearCacheButton"]
-- !private ["s8HashableP", "considerEventsBeforeToday"]
+- !private ["s8HashableP", "considerPastEvents"]
 - !private ["s8HashableP", "dateLabel"]
 - !private ["s8HashableP", "default"]
 - !private ["s8HashableP", "destructive"]
@@ -390,7 +390,7 @@ depends-member:
 - !private ["So8NSCodingP", "RMDate"]
 - !private ["So8NSCodingP", "RMFileManagement"]
 - !private ["So8NSCodingP", "RMUserDevice"]
-- !private ["So8NSCodingP", "RMUserPreferences"]
+- !private ["So8NSCodingP", "RushMe"]
 - !private ["So8NSCodingP", "String"]
 - !private ["So8NSCodingP", "UIAlertAction"]
 - !private ["So8NSCodingP", "UIAlertController"]
@@ -428,7 +428,7 @@ depends-member:
 - !private ["So26NSExtensionRequestHandlingP", "RMDate"]
 - !private ["So26NSExtensionRequestHandlingP", "RMFileManagement"]
 - !private ["So26NSExtensionRequestHandlingP", "RMUserDevice"]
-- !private ["So26NSExtensionRequestHandlingP", "RMUserPreferences"]
+- !private ["So26NSExtensionRequestHandlingP", "RushMe"]
 - !private ["So26NSExtensionRequestHandlingP", "String"]
 - !private ["So26NSExtensionRequestHandlingP", "UIAlertAction"]
 - !private ["So26NSExtensionRequestHandlingP", "UIAlertController"]
@@ -460,7 +460,7 @@ depends-member:
 - !private ["So8NSObjectC", "RMDate"]
 - !private ["So8NSObjectC", "RMFileManagement"]
 - !private ["So8NSObjectC", "RMUserDevice"]
-- !private ["So8NSObjectC", "RMUserPreferences"]
+- !private ["So8NSObjectC", "RushMe"]
 - !private ["So8NSObjectC", "String"]
 - !private ["So8NSObjectC", "UIAlertAction"]
 - !private ["So8NSObjectC", "UIAlertController"]
@@ -474,11 +474,10 @@ depends-member:
 - !private ["So8NSObjectC", "attributesOfItem"]
 - ["So8NSObjectC", "clearCache"]
 - ["So8NSObjectC", "clearCacheButton"]
-- !private ["So8NSObjectC", "considerEventsBeforeToday"]
+- !private ["So8NSObjectC", "considerPastEvents"]
 - ["So8NSObjectC", "dateLabel"]
 - !private ["So8NSObjectC", "default"]
 - ["So8NSObjectC", "didReceiveMemoryWarning"]
-- ["So8NSObjectC", "disappear"]
 - ["So8NSObjectC", "displayPastEventsSwitch"]
 - ["So8NSObjectC", "displayPastEventsSwitched"]
 - !private ["So8NSObjectC", "downloadedImageQuality"]
@@ -511,7 +510,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "RMDate"]
 - !private ["So16NSObjectProtocolP", "RMFileManagement"]
 - !private ["So16NSObjectProtocolP", "RMUserDevice"]
-- !private ["So16NSObjectProtocolP", "RMUserPreferences"]
+- !private ["So16NSObjectProtocolP", "RushMe"]
 - !private ["So16NSObjectProtocolP", "String"]
 - !private ["So16NSObjectProtocolP", "UIAlertAction"]
 - !private ["So16NSObjectProtocolP", "UIAlertController"]
@@ -521,7 +520,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "attributesOfItem"]
 - !private ["So16NSObjectProtocolP", "clearCache"]
 - !private ["So16NSObjectProtocolP", "clearCacheButton"]
-- !private ["So16NSObjectProtocolP", "considerEventsBeforeToday"]
+- !private ["So16NSObjectProtocolP", "considerPastEvents"]
 - !private ["So16NSObjectProtocolP", "dateLabel"]
 - !private ["So16NSObjectProtocolP", "default"]
 - !private ["So16NSObjectProtocolP", "didReceiveMemoryWarning"]
@@ -557,7 +556,6 @@ depends-member:
 - !private ["6RushMe16RMFileManagementV", "fratImageURL"]
 - !private ["6RushMe12RMUserDeviceV", "deviceInfo"]
 - !private ["6RushMe12RMUserDeviceV", "init"]
-- !private ["6RushMe17RMUserPreferencesV", "shuffleEnabled"]
 - !private ["s22RandomAccessCollectionP", "forEach"]
 - !private ["s22RandomAccessCollectionP", "subscript"]
 - !private ["s26RangeReplaceableCollectionP", "forEach"]
@@ -575,6 +573,7 @@ depends-member:
 - !private ["s16RawRepresentableP", "size"]
 - !private ["10Foundation20ReferenceConvertibleP", "appendingPathComponent"]
 - !private ["10Foundation20ReferenceConvertibleP", "path"]
+- !private ["6RushMeAAV", "shuffleEnabled"]
 - !private ["s8SequenceP", "forEach"]
 - !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "split"]
@@ -589,7 +588,7 @@ depends-member:
 - !private ["6RushMe22SettingsViewControllerC", "RMDate"]
 - !private ["6RushMe22SettingsViewControllerC", "RMFileManagement"]
 - !private ["6RushMe22SettingsViewControllerC", "RMUserDevice"]
-- !private ["6RushMe22SettingsViewControllerC", "RMUserPreferences"]
+- !private ["6RushMe22SettingsViewControllerC", "RushMe"]
 - !private ["6RushMe22SettingsViewControllerC", "String"]
 - !private ["6RushMe22SettingsViewControllerC", "UIAlertAction"]
 - !private ["6RushMe22SettingsViewControllerC", "UIAlertController"]
@@ -604,7 +603,6 @@ depends-member:
 - ["6RushMe22SettingsViewControllerC", "dateLabel"]
 - ["6RushMe22SettingsViewControllerC", "deinit"]
 - ["6RushMe22SettingsViewControllerC", "didReceiveMemoryWarning"]
-- ["6RushMe22SettingsViewControllerC", "disappear"]
 - ["6RushMe22SettingsViewControllerC", "displayPastEventsSwitch"]
 - ["6RushMe22SettingsViewControllerC", "displayPastEventsSwitched"]
 - ["6RushMe22SettingsViewControllerC", "drawerButton"]
@@ -653,7 +651,7 @@ depends-member:
 - !private ["So21UIAppearanceContainerP", "RMDate"]
 - !private ["So21UIAppearanceContainerP", "RMFileManagement"]
 - !private ["So21UIAppearanceContainerP", "RMUserDevice"]
-- !private ["So21UIAppearanceContainerP", "RMUserPreferences"]
+- !private ["So21UIAppearanceContainerP", "RushMe"]
 - !private ["So21UIAppearanceContainerP", "String"]
 - !private ["So21UIAppearanceContainerP", "UIAlertAction"]
 - !private ["So21UIAppearanceContainerP", "UIAlertController"]
@@ -687,7 +685,7 @@ depends-member:
 - !private ["So18UIContentContainerP", "RMDate"]
 - !private ["So18UIContentContainerP", "RMFileManagement"]
 - !private ["So18UIContentContainerP", "RMUserDevice"]
-- !private ["So18UIContentContainerP", "RMUserPreferences"]
+- !private ["So18UIContentContainerP", "RushMe"]
 - !private ["So18UIContentContainerP", "String"]
 - !private ["So18UIContentContainerP", "UIAlertAction"]
 - !private ["So18UIContentContainerP", "UIAlertController"]
@@ -732,7 +730,7 @@ depends-member:
 - !private ["So18UIFocusEnvironmentP", "RMDate"]
 - !private ["So18UIFocusEnvironmentP", "RMFileManagement"]
 - !private ["So18UIFocusEnvironmentP", "RMUserDevice"]
-- !private ["So18UIFocusEnvironmentP", "RMUserPreferences"]
+- !private ["So18UIFocusEnvironmentP", "RushMe"]
 - !private ["So18UIFocusEnvironmentP", "String"]
 - !private ["So18UIFocusEnvironmentP", "UIAlertAction"]
 - !private ["So18UIFocusEnvironmentP", "UIAlertController"]
@@ -772,7 +770,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "RMDate"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMFileManagement"]
 - !private ["So30UIPasteConfigurationSupportingP", "RMUserDevice"]
-- !private ["So30UIPasteConfigurationSupportingP", "RMUserPreferences"]
+- !private ["So30UIPasteConfigurationSupportingP", "RushMe"]
 - !private ["So30UIPasteConfigurationSupportingP", "String"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIAlertAction"]
 - !private ["So30UIPasteConfigurationSupportingP", "UIAlertController"]
@@ -807,7 +805,7 @@ depends-member:
 - !private ["So11UIResponderC", "RMDate"]
 - !private ["So11UIResponderC", "RMFileManagement"]
 - !private ["So11UIResponderC", "RMUserDevice"]
-- !private ["So11UIResponderC", "RMUserPreferences"]
+- !private ["So11UIResponderC", "RushMe"]
 - !private ["So11UIResponderC", "String"]
 - !private ["So11UIResponderC", "UIAlertAction"]
 - !private ["So11UIResponderC", "UIAlertController"]
@@ -822,7 +820,6 @@ depends-member:
 - ["So11UIResponderC", "clearCacheButton"]
 - ["So11UIResponderC", "dateLabel"]
 - ["So11UIResponderC", "didReceiveMemoryWarning"]
-- ["So11UIResponderC", "disappear"]
 - ["So11UIResponderC", "displayPastEventsSwitch"]
 - ["So11UIResponderC", "displayPastEventsSwitched"]
 - ["So11UIResponderC", "drawerButton"]
@@ -848,7 +845,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "RMDate"]
 - !private ["So30UIResponderStandardEditActionsP", "RMFileManagement"]
 - !private ["So30UIResponderStandardEditActionsP", "RMUserDevice"]
-- !private ["So30UIResponderStandardEditActionsP", "RMUserPreferences"]
+- !private ["So30UIResponderStandardEditActionsP", "RushMe"]
 - !private ["So30UIResponderStandardEditActionsP", "String"]
 - !private ["So30UIResponderStandardEditActionsP", "UIAlertAction"]
 - !private ["So30UIResponderStandardEditActionsP", "UIAlertController"]
@@ -888,7 +885,7 @@ depends-member:
 - !private ["So16UIStateRestoringP", "RMDate"]
 - !private ["So16UIStateRestoringP", "RMFileManagement"]
 - !private ["So16UIStateRestoringP", "RMUserDevice"]
-- !private ["So16UIStateRestoringP", "RMUserPreferences"]
+- !private ["So16UIStateRestoringP", "RushMe"]
 - !private ["So16UIStateRestoringP", "String"]
 - !private ["So16UIStateRestoringP", "UIAlertAction"]
 - !private ["So16UIStateRestoringP", "UIAlertController"]
@@ -918,7 +915,7 @@ depends-member:
 - !private ["So18UITraitEnvironmentP", "RMDate"]
 - !private ["So18UITraitEnvironmentP", "RMFileManagement"]
 - !private ["So18UITraitEnvironmentP", "RMUserDevice"]
-- !private ["So18UITraitEnvironmentP", "RMUserPreferences"]
+- !private ["So18UITraitEnvironmentP", "RushMe"]
 - !private ["So18UITraitEnvironmentP", "String"]
 - !private ["So18UITraitEnvironmentP", "UIAlertAction"]
 - !private ["So18UITraitEnvironmentP", "UIAlertController"]
@@ -959,7 +956,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "RMDate"]
 - !private ["So16UIViewControllerC", "RMFileManagement"]
 - !private ["So16UIViewControllerC", "RMUserDevice"]
-- !private ["So16UIViewControllerC", "RMUserPreferences"]
+- !private ["So16UIViewControllerC", "RushMe"]
 - !private ["So16UIViewControllerC", "String"]
 - !private ["So16UIViewControllerC", "UIAlertAction"]
 - !private ["So16UIViewControllerC", "UIAlertController"]
@@ -975,7 +972,6 @@ depends-member:
 - ["So16UIViewControllerC", "clearCacheButton"]
 - ["So16UIViewControllerC", "dateLabel"]
 - ["So16UIViewControllerC", "didReceiveMemoryWarning"]
-- ["So16UIViewControllerC", "disappear"]
 - ["So16UIViewControllerC", "displayPastEventsSwitch"]
 - ["So16UIViewControllerC", "displayPastEventsSwitched"]
 - ["So16UIViewControllerC", "drawerButton"]
@@ -1022,7 +1018,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMDate"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMFileManagement"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "RMUserDevice"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMUserPreferences"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "RushMe"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "String"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIAlertAction"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "UIAlertController"]
@@ -1032,7 +1028,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "attributesOfItem"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "clearCache"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "clearCacheButton"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "considerEventsBeforeToday"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "considerPastEvents"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "dateLabel"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "didReceiveMemoryWarning"]
@@ -1116,11 +1112,11 @@ depends-nominal:
 - !private "6RushMe6RMDateV"
 - !private "6RushMe16RMFileManagementV"
 - !private "6RushMe12RMUserDeviceV"
-- !private "6RushMe17RMUserPreferencesV"
 - !private "s22RandomAccessCollectionP"
 - !private "s26RangeReplaceableCollectionP"
 - !private "s16RawRepresentableP"
 - !private "10Foundation20ReferenceConvertibleP"
+- !private "6RushMeAAV"
 - !private "s8SequenceP"
 - "6RushMe22SettingsViewControllerC"
 - !private "SS"
@@ -1199,16 +1195,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "89ccfe985c2f1e0f1a7b917a9a34267d"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "8a937bce46b9e537f6faef0ad7f3c09b"

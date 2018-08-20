@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.layer.masksToBounds = true
     window!.layer.cornerRadius = 5
+    
     if ProcessInfo.processInfo.arguments.contains("TESTING") {
      UserDefaults.standard.set(["Chi Phi", "Delta Tau Delta", "Alpha Epsilon Phi"], forKey: "Favorites") 
     }

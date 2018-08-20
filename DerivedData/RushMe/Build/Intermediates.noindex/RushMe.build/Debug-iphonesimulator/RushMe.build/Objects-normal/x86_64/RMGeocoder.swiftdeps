@@ -22,7 +22,6 @@ depends-top-level:
 - !private "NSKeyedArchiver"
 - "NSKeyedUnarchiver"
 - "Observable"
-- !private "RMDatabaseKey"
 - "RMFileManagement"
 - "RMGeocoder"
 - "String"
@@ -48,11 +47,9 @@ depends-member:
 - !private ["s7CVarArgP", "first"]
 - !private ["s7CVarArgP", "fraternitiesDict"]
 - !private ["s7CVarArgP", "geocodeAddressString"]
-- !private ["s7CVarArgP", "getProperty"]
 - ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "last"]
 - !private ["s7CVarArgP", "location"]
-- !private ["s7CVarArgP", "name"]
 - !private ["s7CVarArgP", "shared"]
 - !private ["s7CVarArgP", "subscript"]
 - ["s7CVarArgP", "unarchiveObject"]
@@ -69,11 +66,9 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "first"]
 - !private ["s28CustomDebugStringConvertibleP", "fraternitiesDict"]
 - !private ["s28CustomDebugStringConvertibleP", "geocodeAddressString"]
-- !private ["s28CustomDebugStringConvertibleP", "getProperty"]
 - ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "last"]
 - !private ["s28CustomDebugStringConvertibleP", "location"]
-- !private ["s28CustomDebugStringConvertibleP", "name"]
 - ["s28CustomDebugStringConvertibleP", "path"]
 - !private ["s28CustomDebugStringConvertibleP", "shared"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
@@ -93,11 +88,9 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "first"]
 - !private ["s23CustomStringConvertibleP", "fraternitiesDict"]
 - !private ["s23CustomStringConvertibleP", "geocodeAddressString"]
-- !private ["s23CustomStringConvertibleP", "getProperty"]
 - ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "last"]
 - !private ["s23CustomStringConvertibleP", "location"]
-- !private ["s23CustomStringConvertibleP", "name"]
 - ["s23CustomStringConvertibleP", "path"]
 - !private ["s23CustomStringConvertibleP", "shared"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
@@ -124,11 +117,9 @@ depends-member:
 - !private ["s9EquatableP", "first"]
 - !private ["s9EquatableP", "fraternitiesDict"]
 - !private ["s9EquatableP", "geocodeAddressString"]
-- !private ["s9EquatableP", "getProperty"]
 - ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "last"]
 - !private ["s9EquatableP", "location"]
-- !private ["s9EquatableP", "name"]
 - ["s9EquatableP", "path"]
 - !private ["s9EquatableP", "shared"]
 - !private ["s9EquatableP", "subscript"]
@@ -145,16 +136,14 @@ depends-member:
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
-- !private ["6RushMe10FraternityC", "getProperty"]
+- !private ["6RushMe10FraternityC", "address"]
 - !private ["6RushMe10FraternityC", "name"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
 - !private ["s8HashableP", "archiveRootObject"]
 - !private ["s8HashableP", "fraternitiesDict"]
 - !private ["s8HashableP", "geocodeAddressString"]
-- !private ["s8HashableP", "getProperty"]
 - ["s8HashableP", "init"]
 - !private ["s8HashableP", "location"]
-- !private ["s8HashableP", "name"]
 - ["s8HashableP", "path"]
 - !private ["s8HashableP", "shared"]
 - ["s8HashableP", "unarchiveObject"]
@@ -175,25 +164,20 @@ depends-member:
 - !private ["So8NSObjectC", "archiveRootObject"]
 - !private ["So8NSObjectC", "fraternitiesDict"]
 - !private ["So8NSObjectC", "geocodeAddressString"]
-- !private ["So8NSObjectC", "getProperty"]
 - ["So8NSObjectC", "init"]
 - !private ["So8NSObjectC", "location"]
-- !private ["So8NSObjectC", "name"]
 - !private ["So8NSObjectC", "shared"]
 - ["So8NSObjectC", "unarchiveObject"]
 - !private ["So16NSObjectProtocolP", "archiveRootObject"]
 - !private ["So16NSObjectProtocolP", "fraternitiesDict"]
 - !private ["So16NSObjectProtocolP", "geocodeAddressString"]
-- !private ["So16NSObjectProtocolP", "getProperty"]
 - ["So16NSObjectProtocolP", "init"]
 - !private ["So16NSObjectProtocolP", "location"]
-- !private ["So16NSObjectProtocolP", "name"]
 - !private ["So16NSObjectProtocolP", "shared"]
 - ["So16NSObjectProtocolP", "unarchiveObject"]
 - !private ["So14NSSecureCodingP", "location"]
 - ["6RushMe10ObservableC", "init"]
 - !private ["6RushMe10ObservableC", "value"]
-- !private ["6RushMe13RMDatabaseKeyV", "AddressKey"]
 - ["6RushMe16RMFileManagementV", "locationsURL"]
 - !private ["6RushMe10RMGeocoderC", "Array"]
 - ["6RushMe10RMGeocoderC", "CLGeocoder"]
@@ -203,7 +187,6 @@ depends-member:
 - !private ["6RushMe10RMGeocoderC", "NSKeyedArchiver"]
 - ["6RushMe10RMGeocoderC", "NSKeyedUnarchiver"]
 - ["6RushMe10RMGeocoderC", "Observable"]
-- !private ["6RushMe10RMGeocoderC", "RMDatabaseKey"]
 - ["6RushMe10RMGeocoderC", "RMFileManagement"]
 - ["6RushMe10RMGeocoderC", "String"]
 - ["6RushMe10RMGeocoderC", "deinit"]
@@ -254,10 +237,8 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "archiveRootObject"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fraternitiesDict"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "geocodeAddressString"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "getProperty"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "init"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "location"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "unarchiveObject"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
@@ -307,7 +288,6 @@ depends-nominal:
 - "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
 - "6RushMe10ObservableC"
-- !private "6RushMe13RMDatabaseKeyV"
 - "6RushMe16RMFileManagementV"
 - "6RushMe10RMGeocoderC"
 - !private "s22RandomAccessCollectionP"
@@ -358,16 +338,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "4ac2a1056881931eecb9b4142661f465"

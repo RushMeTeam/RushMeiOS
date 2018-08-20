@@ -203,6 +203,7 @@ depends-member:
 - !private ["s7CVarArgP", "center"]
 - !private ["s7CVarArgP", "childViewControllers"]
 - ["s7CVarArgP", "collectionView"]
+- !private ["s7CVarArgP", "considerPastEvents"]
 - !private ["s7CVarArgP", "containerView"]
 - !private ["s7CVarArgP", "contentOffset"]
 - !private ["s7CVarArgP", "cornerRadius"]
@@ -229,6 +230,7 @@ depends-member:
 - !private ["s7CVarArgP", "filter"]
 - !private ["s7CVarArgP", "first"]
 - !private ["s7CVarArgP", "firstEvent"]
+- !private ["s7CVarArgP", "firstFavoritedEvent"]
 - !private ["s7CVarArgP", "flatDataSource"]
 - !private ["s7CVarArgP", "font"]
 - !private ["s7CVarArgP", "frame"]
@@ -419,10 +421,12 @@ depends-member:
 - ["6RushMe22CalendarViewControllerC", "zeroIndexPath"]
 - !private ["6RushMe22CalendarViewControllerC", "zeroIndexPath.storage"]
 - !private ["6RushMe6CampusC", "allEvents"]
+- !private ["6RushMe6CampusC", "considerPastEvents"]
 - !private ["6RushMe6CampusC", "eventsByDay"]
 - !private ["6RushMe6CampusC", "favoritedEvents"]
 - !private ["6RushMe6CampusC", "favoritedEventsByDay"]
 - !private ["6RushMe6CampusC", "firstEvent"]
+- !private ["6RushMe6CampusC", "firstFavoritedEvent"]
 - !private ["6RushMe6CampusC", "hasFavorites"]
 - !private ["6RushMe6CampusC", "shared"]
 - !private ["s10CollectionP", "count"]
@@ -434,10 +438,12 @@ depends-member:
 - !private ["s10CollectionP", "row"]
 - !private ["s10CollectionP", "sorted"]
 - !private ["s10CollectionP", "subscript"]
+- !private ["s10ComparableP", "compare"]
 - ["s10ComparableP", "init"]
 - !private ["s10ComparableP", "prefix"]
 - !private ["s10ComparableP", "row"]
 - !private ["s10ComparableP", "ultraLight"]
+- !private ["SC16ComparisonResultO", "orderedAscending"]
 - !private ["SC16ComparisonResultO", "orderedSame"]
 - !private ["10Foundation8CalendarV9ComponentO", "day"]
 - !private ["10Foundation8CalendarV9ComponentO", "month"]
@@ -481,6 +487,7 @@ depends-member:
 - ["s28CustomDebugStringConvertibleP", "collectionView"]
 - !private ["s28CustomDebugStringConvertibleP", "compare"]
 - !private ["s28CustomDebugStringConvertibleP", "component"]
+- !private ["s28CustomDebugStringConvertibleP", "considerPastEvents"]
 - !private ["s28CustomDebugStringConvertibleP", "containerView"]
 - !private ["s28CustomDebugStringConvertibleP", "contentOffset"]
 - !private ["s28CustomDebugStringConvertibleP", "cornerRadius"]
@@ -511,6 +518,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "filter"]
 - !private ["s28CustomDebugStringConvertibleP", "first"]
 - !private ["s28CustomDebugStringConvertibleP", "firstEvent"]
+- !private ["s28CustomDebugStringConvertibleP", "firstFavoritedEvent"]
 - !private ["s28CustomDebugStringConvertibleP", "flatDataSource"]
 - !private ["s28CustomDebugStringConvertibleP", "font"]
 - !private ["s28CustomDebugStringConvertibleP", "frame"]
@@ -599,6 +607,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "y"]
 - !private ["s28CustomDebugStringConvertibleP", "zeroIndexPath"]
 - !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "compare"]
 - !private ["s29CustomPlaygroundQuickLookableP", "height"]
 - ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "maxY"]
@@ -670,6 +679,7 @@ depends-member:
 - ["s23CustomStringConvertibleP", "collectionView"]
 - !private ["s23CustomStringConvertibleP", "compare"]
 - !private ["s23CustomStringConvertibleP", "component"]
+- !private ["s23CustomStringConvertibleP", "considerPastEvents"]
 - !private ["s23CustomStringConvertibleP", "containerView"]
 - !private ["s23CustomStringConvertibleP", "contentOffset"]
 - !private ["s23CustomStringConvertibleP", "cornerRadius"]
@@ -700,6 +710,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "filter"]
 - !private ["s23CustomStringConvertibleP", "first"]
 - !private ["s23CustomStringConvertibleP", "firstEvent"]
+- !private ["s23CustomStringConvertibleP", "firstFavoritedEvent"]
 - !private ["s23CustomStringConvertibleP", "flatDataSource"]
 - !private ["s23CustomStringConvertibleP", "font"]
 - !private ["s23CustomStringConvertibleP", "frame"]
@@ -782,6 +793,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "white"]
 - !private ["s23CustomStringConvertibleP", "withAlphaComponent"]
 - !private ["s23CustomStringConvertibleP", "zeroIndexPath"]
+- !private ["10Foundation4DateV", "compare"]
 - !private ["10Foundation14DateComponentsV", "day"]
 - !private ["So13DateFormatterC", "Style"]
 - !private ["So13DateFormatterC", "localizedString"]
@@ -876,6 +888,7 @@ depends-member:
 - ["s9EquatableP", "collectionView"]
 - !private ["s9EquatableP", "compare"]
 - !private ["s9EquatableP", "component"]
+- !private ["s9EquatableP", "considerPastEvents"]
 - !private ["s9EquatableP", "containerView"]
 - !private ["s9EquatableP", "contentOffset"]
 - !private ["s9EquatableP", "cornerRadius"]
@@ -906,6 +919,7 @@ depends-member:
 - !private ["s9EquatableP", "filter"]
 - !private ["s9EquatableP", "first"]
 - !private ["s9EquatableP", "firstEvent"]
+- !private ["s9EquatableP", "firstFavoritedEvent"]
 - !private ["s9EquatableP", "flatDataSource"]
 - !private ["s9EquatableP", "font"]
 - !private ["s9EquatableP", "frame"]
@@ -941,6 +955,7 @@ depends-member:
 - !private ["s9EquatableP", "none"]
 - ["s9EquatableP", "numberOfSections"]
 - ["s9EquatableP", "numberOfSectionsInCollectionView"]
+- !private ["s9EquatableP", "orderedAscending"]
 - !private ["s9EquatableP", "orderedSame"]
 - !private ["s9EquatableP", "popoverPresentationController"]
 - !private ["s9EquatableP", "prefix"]
@@ -1067,6 +1082,7 @@ depends-member:
 - ["s8HashableP", "collectionView"]
 - !private ["s8HashableP", "compare"]
 - !private ["s8HashableP", "component"]
+- !private ["s8HashableP", "considerPastEvents"]
 - !private ["s8HashableP", "containerView"]
 - !private ["s8HashableP", "contentOffset"]
 - !private ["s8HashableP", "cornerRadius"]
@@ -1096,6 +1112,7 @@ depends-member:
 - !private ["s8HashableP", "fileURL"]
 - !private ["s8HashableP", "filter"]
 - !private ["s8HashableP", "firstEvent"]
+- !private ["s8HashableP", "firstFavoritedEvent"]
 - !private ["s8HashableP", "flatDataSource"]
 - !private ["s8HashableP", "font"]
 - !private ["s8HashableP", "frame"]
@@ -1127,6 +1144,7 @@ depends-member:
 - !private ["s8HashableP", "none"]
 - ["s8HashableP", "numberOfSections"]
 - ["s8HashableP", "numberOfSectionsInCollectionView"]
+- !private ["s8HashableP", "orderedAscending"]
 - !private ["s8HashableP", "orderedSame"]
 - !private ["s8HashableP", "popoverPresentationController"]
 - !private ["s8HashableP", "prefix"]
@@ -1469,6 +1487,7 @@ depends-member:
 - !private ["So8NSObjectC", "center"]
 - !private ["So8NSObjectC", "childViewControllers"]
 - ["So8NSObjectC", "collectionView"]
+- !private ["So8NSObjectC", "considerPastEvents"]
 - ["So8NSObjectC", "containerView"]
 - !private ["So8NSObjectC", "contentOffset"]
 - !private ["So8NSObjectC", "cornerRadius"]
@@ -1495,6 +1514,7 @@ depends-member:
 - ["So8NSObjectC", "favoritesShouldBeEnabled"]
 - ["So8NSObjectC", "fileURL"]
 - ["So8NSObjectC", "firstEvent"]
+- !private ["So8NSObjectC", "firstFavoritedEvent"]
 - ["So8NSObjectC", "flatDataSource"]
 - !private ["So8NSObjectC", "font"]
 - !private ["So8NSObjectC", "frame"]
@@ -1613,6 +1633,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "center"]
 - !private ["So16NSObjectProtocolP", "childViewControllers"]
 - ["So16NSObjectProtocolP", "collectionView"]
+- !private ["So16NSObjectProtocolP", "considerPastEvents"]
 - !private ["So16NSObjectProtocolP", "containerView"]
 - !private ["So16NSObjectProtocolP", "contentOffset"]
 - !private ["So16NSObjectProtocolP", "cornerRadius"]
@@ -1636,6 +1657,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "favoritesShouldBeEnabled"]
 - !private ["So16NSObjectProtocolP", "fileURL"]
 - !private ["So16NSObjectProtocolP", "firstEvent"]
+- !private ["So16NSObjectProtocolP", "firstFavoritedEvent"]
 - !private ["So16NSObjectProtocolP", "flatDataSource"]
 - !private ["So16NSObjectProtocolP", "font"]
 - !private ["So16NSObjectProtocolP", "frame"]
@@ -1748,6 +1770,7 @@ depends-member:
 - !private ["s16RawRepresentableP", "full"]
 - !private ["s16RawRepresentableP", "long"]
 - !private ["s16RawRepresentableP", "none"]
+- !private ["s16RawRepresentableP", "orderedAscending"]
 - !private ["s16RawRepresentableP", "orderedSame"]
 - !private ["s16RawRepresentableP", "top"]
 - !private ["s16RawRepresentableP", "transitionCrossDissolve"]
@@ -1829,7 +1852,6 @@ depends-member:
 - !private ["6RushMe14ScrollableItemP", "view"]
 - ["6RushMe14ScrollableItemP", "viewForZooming"]
 - ["6RushMe14ScrollableItemP", "viewForZoomingInScrollView"]
-- !private ["6RushMe14ScrollableItemP", "viewWillAppear"]
 - !private ["6RushMe14ScrollableItemP", "viewingFavorites"]
 - !private ["6RushMe14ScrollableItemP", "zeroIndexPath"]
 - !private ["s8SequenceP", "count"]
@@ -2147,7 +2169,6 @@ depends-member:
 - !private ["So26UICollectionViewDataSourceP", "view"]
 - ["So26UICollectionViewDataSourceP", "viewForZooming"]
 - ["So26UICollectionViewDataSourceP", "viewForZoomingInScrollView"]
-- !private ["So26UICollectionViewDataSourceP", "viewWillAppear"]
 - !private ["So26UICollectionViewDataSourceP", "viewingFavorites"]
 - !private ["So26UICollectionViewDataSourceP", "zeroIndexPath"]
 - !private ["So24UICollectionViewDelegateP", "CGSize"]
@@ -2216,7 +2237,6 @@ depends-member:
 - !private ["So24UICollectionViewDelegateP", "view"]
 - ["So24UICollectionViewDelegateP", "viewForZooming"]
 - ["So24UICollectionViewDelegateP", "viewForZoomingInScrollView"]
-- !private ["So24UICollectionViewDelegateP", "viewWillAppear"]
 - !private ["So24UICollectionViewDelegateP", "viewingFavorites"]
 - !private ["So24UICollectionViewDelegateP", "zeroIndexPath"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "CGSize"]
@@ -2285,7 +2305,6 @@ depends-member:
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "view"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "viewForZooming"]
 - ["So34UICollectionViewDelegateFlowLayoutP", "viewForZoomingInScrollView"]
-- !private ["So34UICollectionViewDelegateFlowLayoutP", "viewWillAppear"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "viewingFavorites"]
 - !private ["So34UICollectionViewDelegateFlowLayoutP", "zeroIndexPath"]
 - !private ["SC30UICollectionViewScrollPositionV", "top"]
@@ -3071,7 +3090,6 @@ depends-member:
 - !private ["So20UIScrollViewDelegateP", "view"]
 - ["So20UIScrollViewDelegateP", "viewForZooming"]
 - ["So20UIScrollViewDelegateP", "viewForZoomingInScrollView"]
-- !private ["So20UIScrollViewDelegateP", "viewWillAppear"]
 - !private ["So20UIScrollViewDelegateP", "viewingFavorites"]
 - !private ["So20UIScrollViewDelegateP", "zeroIndexPath"]
 - !private ["So18UISegmentedControlC", "isEnabled"]
@@ -3523,6 +3541,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "center"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "childViewControllers"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "collectionView"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "considerPastEvents"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "containerView"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "contentOffset"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "cornerRadius"]
@@ -3546,6 +3565,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "favoritesShouldBeEnabled"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "fileURL"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "firstEvent"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "firstFavoritedEvent"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "flatDataSource"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "font"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "frame"]
@@ -3683,6 +3703,7 @@ depends-nominal:
 - "s29CustomPlaygroundQuickLookableP"
 - "s17CustomReflectableP"
 - "s23CustomStringConvertibleP"
+- !private "10Foundation4DateV"
 - !private "10Foundation14DateComponentsV"
 - !private "So13DateFormatterC"
 - "s9DecodableP"
@@ -3826,16 +3847,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphonesimulator/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 interface-hash: "5f0130bb673562d8dd915d36929464d5"

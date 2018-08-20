@@ -93,7 +93,7 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
         canvasViews[bNum] = canvasView
       }
       else {
-       canvasViews[bNum]?.layoutSubviews() 
+        self.canvasViews[bNum]?.layoutSubviews()
       }
     }
     scrollView.contentSize = CGSize.init(width: scrollView.bounds.width/2, height: CGFloat(buttonIcons.count)*scrollView.bounds.height)

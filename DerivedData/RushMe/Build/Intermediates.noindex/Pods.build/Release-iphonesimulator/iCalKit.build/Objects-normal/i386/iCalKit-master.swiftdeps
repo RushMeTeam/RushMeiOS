@@ -1,0 +1,14 @@
+version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
+options: "1938640bf04f100549ccf9a49cb9e894"
+build_time: [1534788689, 565231000]
+inputs:
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Alarm.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Calendar.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Protocols/CalendarComponent.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Extensions/Date.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Event.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/iCal.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Enums/iCalError.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Protocols/IcsElement.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Parser.swift": [9223372036, 854775807]
+  "/Users/adamthk/Documents/GitHub/RushMeiOS/Pods/iCalKit/Sources/Extensions/String.swift": [9223372036, 854775807]

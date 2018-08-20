@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Release-iphonesimulator/iCalKit/iCalKit.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/Pods.build/Release-iphonesimulator/iCalKit.build/unextended-module.modulemap',
+    }]
+  }]
+}

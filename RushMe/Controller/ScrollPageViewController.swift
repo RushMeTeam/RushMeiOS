@@ -94,10 +94,7 @@ class ScrollPageViewController: UIViewController,
 
   
   
-  // MARK: Actions
-  @IBAction func presentDrawer(_ sender: UIBarButtonItem? = nil) {
-    self.revealViewController().revealToggle(animated: true)
-  }
+  
   @objc private func presentAbout() {
     present(UIStoryboard.main.instantiateViewController(withIdentifier: "aboutVC"), animated: true, completion: nil) 
   }
@@ -178,15 +175,11 @@ class ScrollPageViewController: UIViewController,
     pageControl.numberOfPages = numberOfPages
     pageControl.currentPage = ScrollPageViewController.startingPageIndex
   }
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    revealViewController().panGestureRecognizer().isEnabled = true
-  }
+
   
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    revealViewController().panGestureRecognizer().isEnabled = false
     self.navigationController?.navigationBar.barTintColor = RMColor.AppColor
     self.navigationController?.navigationBar.tintColor = .white
     self.navigationController?.navigationBar.titleTextAttributes =
@@ -252,7 +245,6 @@ class ScrollPageViewController: UIViewController,
     bounds.origin.y = pageHeight * CGFloat(page) - topLayoutGuide.length - bottomLayoutGuide.length
     transitioning = true
     scrollView.scrollRectToVisible(bounds, animated: animated)
-    (revealViewController()?.rearViewController as? ScrollButtonViewController)?.set(newCurrentPage: page)
     transitioning = false
     currentPage = page
   }

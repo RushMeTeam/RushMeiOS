@@ -8,61 +8,40 @@ provides-member:
 - ["SS", ""]
 - ["SS", "greekLetters"]
 provides-dynamic-lookup:
-- "add"
-- "chapter"
-- "events"
-- "getProperty"
-- "name"
-- "previewImage"
-- "setProperty"
 depends-top-level:
 - !private "!="
 - !private "=="
 - "AssignmentPrecedence"
+- "CLLocation"
 - "CastingPrecedence"
 - "Date"
 - "Dictionary"
 - "FratEvent"
 - "Fraternity"
-- "NSObject"
-- !private "RMImage"
+- "Int"
+- !private "RMGeocoder"
+- "RMURL"
+- !private "RushMe"
 - "String"
 - !private "StringLiteralType"
-- "UIImage"
 - !private "UnicodeScalarType"
+- !private "abs"
 depends-member:
 - !private ["s23BidirectionalCollectionP", "init"]
 - !private ["s23BidirectionalCollectionP", "replacingOccurrences"]
+- !private ["s13BinaryIntegerP", "init"]
 - !private ["Sb", "_getBuiltinLogicValue"]
-- ["s7CVarArgP", "Date"]
-- ["s7CVarArgP", "FratEvent"]
-- !private ["s7CVarArgP", "RMImage"]
-- ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "_getBuiltinLogicValue"]
-- !private ["s7CVarArgP", "chapter"]
-- !private ["s7CVarArgP", "events"]
-- ["s7CVarArgP", "init"]
-- !private ["s7CVarArgP", "name"]
-- !private ["s7CVarArgP", "previewImage"]
-- !private ["s7CVarArgP", "properties"]
+- !private ["s7CVarArgP", "init"]
 - !private ["s7CVarArgP", "replacingOccurrences"]
 - !private ["s7CVarArgP", "startDate"]
 - !private ["s7CVarArgP", "subscript"]
-- ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "init"]
 - !private ["s10CollectionP", "replacingOccurrences"]
 - !private ["s10CollectionP", "subscript"]
 - !private ["s10ComparableP", "init"]
 - !private ["s10ComparableP", "replacingOccurrences"]
-- ["s28CustomDebugStringConvertibleP", "Date"]
-- ["s28CustomDebugStringConvertibleP", "FratEvent"]
-- !private ["s28CustomDebugStringConvertibleP", "RMImage"]
-- ["s28CustomDebugStringConvertibleP", ""]
-- !private ["s28CustomDebugStringConvertibleP", "chapter"]
-- !private ["s28CustomDebugStringConvertibleP", "events"]
-- ["s28CustomDebugStringConvertibleP", "init"]
-- !private ["s28CustomDebugStringConvertibleP", "name"]
-- !private ["s28CustomDebugStringConvertibleP", "previewImage"]
-- !private ["s28CustomDebugStringConvertibleP", "properties"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
 - !private ["s28CustomDebugStringConvertibleP", "replacingOccurrences"]
 - !private ["s28CustomDebugStringConvertibleP", "startDate"]
 - !private ["s28CustomDebugStringConvertibleP", "subscript"]
@@ -70,87 +49,71 @@ depends-member:
 - !private ["s29CustomPlaygroundQuickLookableP", "init"]
 - !private ["s29CustomPlaygroundQuickLookableP", "replacingOccurrences"]
 - !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
-- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "init"]
 - !private ["s17CustomReflectableP", "replacingOccurrences"]
 - !private ["s17CustomReflectableP", "subscript"]
-- ["s23CustomStringConvertibleP", "Date"]
-- ["s23CustomStringConvertibleP", "FratEvent"]
-- !private ["s23CustomStringConvertibleP", "RMImage"]
-- ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
-- !private ["s23CustomStringConvertibleP", "chapter"]
-- !private ["s23CustomStringConvertibleP", "events"]
-- ["s23CustomStringConvertibleP", "init"]
-- !private ["s23CustomStringConvertibleP", "name"]
-- !private ["s23CustomStringConvertibleP", "previewImage"]
-- !private ["s23CustomStringConvertibleP", "properties"]
+- !private ["s23CustomStringConvertibleP", "init"]
 - !private ["s23CustomStringConvertibleP", "replacingOccurrences"]
 - !private ["s23CustomStringConvertibleP", "startDate"]
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s9DecodableP", "_getBuiltinLogicValue"]
-- ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "init"]
 - !private ["s9DecodableP", "replacingOccurrences"]
 - !private ["s9DecodableP", "subscript"]
-- ["s10DictionaryV", "init"]
 - !private ["s10DictionaryV", "subscript"]
 - !private ["s9EncodableP", "_getBuiltinLogicValue"]
-- ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "init"]
 - !private ["s9EncodableP", "replacingOccurrences"]
 - !private ["s9EncodableP", "subscript"]
-- ["s9EquatableP", "Date"]
-- ["s9EquatableP", "FratEvent"]
-- !private ["s9EquatableP", "RMImage"]
-- ["s9EquatableP", ""]
 - !private ["s9EquatableP", "_getBuiltinLogicValue"]
-- !private ["s9EquatableP", "chapter"]
-- !private ["s9EquatableP", "events"]
-- ["s9EquatableP", "init"]
-- !private ["s9EquatableP", "name"]
-- !private ["s9EquatableP", "previewImage"]
-- !private ["s9EquatableP", "properties"]
+- !private ["s9EquatableP", "init"]
 - !private ["s9EquatableP", "replacingOccurrences"]
 - !private ["s9EquatableP", "startDate"]
 - !private ["s9EquatableP", "subscript"]
 - !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
-- ["s30ExpressibleByDictionaryLiteralP", "init"]
 - !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "replacingOccurrences"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "init"]
 - !private ["s26ExpressibleByStringLiteralP", "replacingOccurrences"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
 - !private ["s33ExpressibleByUnicodeScalarLiteralP", "replacingOccurrences"]
+- !private ["s17FixedWidthIntegerP", "init"]
+- !private ["6RushMe9FratEventC", "deinit"]
 - !private ["6RushMe9FratEventC", "init"]
 - !private ["6RushMe9FratEventC", "startDate"]
+- ["6RushMe10FraternityC", "CLLocation"]
 - ["6RushMe10FraternityC", "Date"]
 - ["6RushMe10FraternityC", "Dictionary"]
 - ["6RushMe10FraternityC", "FratEvent"]
-- !private ["6RushMe10FraternityC", "RMImage"]
+- ["6RushMe10FraternityC", "Int"]
+- !private ["6RushMe10FraternityC", "RMGeocoder"]
+- ["6RushMe10FraternityC", "RMURL"]
+- !private ["6RushMe10FraternityC", "RushMe"]
 - ["6RushMe10FraternityC", "String"]
-- ["6RushMe10FraternityC", "UIImage"]
+- !private ["6RushMe10FraternityC", "abs"]
 - ["6RushMe10FraternityC", "add"]
+- ["6RushMe10FraternityC", "address"]
+- ["6RushMe10FraternityC", "calendarImagePath"]
 - ["6RushMe10FraternityC", "chapter"]
+- ["6RushMe10FraternityC", "coordinates"]
+- ["6RushMe10FraternityC", "coverImagePaths"]
 - ["6RushMe10FraternityC", "deinit"]
+- ["6RushMe10FraternityC", "description"]
+- !private ["6RushMe10FraternityC", "dictionaryRepresentation"]
 - ["6RushMe10FraternityC", "events"]
-- ["6RushMe10FraternityC", "getProperty"]
+- ["6RushMe10FraternityC", "getUnmarkedProperty"]
 - ["6RushMe10FraternityC", "init"]
+- ["6RushMe10FraternityC", "memberCount"]
 - ["6RushMe10FraternityC", "name"]
-- ["6RushMe10FraternityC", "previewImage"]
-- !private ["6RushMe10FraternityC", "properties"]
-- ["6RushMe10FraternityC", "setProperty"]
-- ["s8HashableP", "Date"]
-- ["s8HashableP", "FratEvent"]
-- !private ["s8HashableP", "RMImage"]
-- ["s8HashableP", ""]
+- ["6RushMe10FraternityC", "profileImagePath"]
 - !private ["s8HashableP", "_getBuiltinLogicValue"]
-- !private ["s8HashableP", "chapter"]
-- !private ["s8HashableP", "events"]
 - !private ["s8HashableP", "init"]
-- !private ["s8HashableP", "name"]
-- !private ["s8HashableP", "previewImage"]
-- !private ["s8HashableP", "properties"]
 - !private ["s8HashableP", "replacingOccurrences"]
 - !private ["s8HashableP", "startDate"]
+- !private ["Si", "init"]
 - !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
 - !private ["s25LosslessStringConvertibleP", "init"]
 - !private ["s25LosslessStringConvertibleP", "replacingOccurrences"]
@@ -161,45 +124,25 @@ depends-member:
 - !private ["So21NSItemProviderReadingP", "replacingOccurrences"]
 - !private ["So21NSItemProviderWritingP", "replacingOccurrences"]
 - !private ["So16NSMutableCopyingP", "replacingOccurrences"]
-- ["So8NSObjectC", "Date"]
-- ["So8NSObjectC", "Dictionary"]
-- ["So8NSObjectC", "FratEvent"]
-- !private ["So8NSObjectC", "RMImage"]
-- ["So8NSObjectC", "String"]
-- ["So8NSObjectC", "UIImage"]
-- ["So8NSObjectC", ""]
-- ["So8NSObjectC", "add"]
-- ["So8NSObjectC", "chapter"]
-- ["So8NSObjectC", "events"]
-- ["So8NSObjectC", "getProperty"]
-- ["So8NSObjectC", "init"]
-- ["So8NSObjectC", "name"]
-- ["So8NSObjectC", "previewImage"]
-- ["So8NSObjectC", "properties"]
 - !private ["So8NSObjectC", "replacingOccurrences"]
-- ["So8NSObjectC", "setProperty"]
 - !private ["So8NSObjectC", "startDate"]
-- ["So16NSObjectProtocolP", "Date"]
-- ["So16NSObjectProtocolP", "FratEvent"]
-- !private ["So16NSObjectProtocolP", "RMImage"]
-- ["So16NSObjectProtocolP", ""]
-- !private ["So16NSObjectProtocolP", "chapter"]
-- !private ["So16NSObjectProtocolP", "events"]
 - !private ["So16NSObjectProtocolP", "init"]
-- !private ["So16NSObjectProtocolP", "name"]
-- !private ["So16NSObjectProtocolP", "previewImage"]
-- !private ["So16NSObjectProtocolP", "properties"]
 - !private ["So16NSObjectProtocolP", "replacingOccurrences"]
 - !private ["So16NSObjectProtocolP", "startDate"]
 - !private ["So14NSSecureCodingP", "replacingOccurrences"]
 - !private ["So8NSStringC", "replacingOccurrences"]
-- !private ["6RushMe7RMImageV", "NoImage"]
+- !private ["s7NumericP", "init"]
+- !private ["6RushMe10RMGeocoderC", "locations"]
+- !private ["6RushMe5RMURLV", "init"]
 - !private ["s26RangeReplaceableCollectionP", "init"]
 - !private ["s26RangeReplaceableCollectionP", "replacingOccurrences"]
-- ["s8SequenceP", "init"]
+- !private ["6RushMeAAV", "keys"]
+- !private ["s8SequenceP", "init"]
 - !private ["s8SequenceP", "replacingOccurrences"]
 - !private ["s8SequenceP", "subscript"]
-- !private ["s12StaticStringV", "init"]
+- !private ["s13SignedIntegerP", "init"]
+- !private ["s13SignedNumericP", "init"]
+- !private ["s10StrideableP", "init"]
 - ["SS", "String"]
 - ["SS", "greekLetters"]
 - !private ["SS", "init"]
@@ -210,9 +153,11 @@ depends-member:
 - !private ["s16TextOutputStreamP", "replacingOccurrences"]
 - !private ["s20TextOutputStreamableP", "init"]
 - !private ["s20TextOutputStreamableP", "replacingOccurrences"]
+- !private ["s18_BitwiseOperationsP", "init"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "replacingOccurrences"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
 - !private ["s34_ExpressibleByBuiltinStringLiteralP", "replacingOccurrences"]
 - !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
@@ -222,46 +167,49 @@ depends-member:
 - !private ["s33_ExpressibleByStringInterpolationP", "init"]
 - !private ["s33_ExpressibleByStringInterpolationP", "replacingOccurrences"]
 - !private ["s35_HasCustomAnyHashableRepresentationP", "replacingOccurrences"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "Date"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "FratEvent"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "RMImage"]
-- ["10Foundation27_KeyValueCodingAndObservingP", ""]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "chapter"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "events"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "name"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "previewImage"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "properties"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "replacingOccurrences"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "startDate"]
 - !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
-- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
 - !private ["s21_ObjectiveCBridgeableP", "replacingOccurrences"]
 - !private ["s21_ObjectiveCBridgeableP", "subscript"]
 - !private ["s16_SwiftStringViewP", "init"]
 - !private ["s16_SwiftStringViewP", "replacingOccurrences"]
+- !private ["6RushMeAAV4keysV4fratV", "address"]
+- !private ["6RushMeAAV4keysV4fratV", "calendarImage"]
+- !private ["6RushMeAAV4keysV4fratV", "chapter"]
+- !private ["6RushMeAAV4keysV4fratV", "description"]
+- !private ["6RushMeAAV4keysV4fratV", "memberCount"]
+- !private ["6RushMeAAV4keysV4fratV", "name"]
+- !private ["6RushMeAAV4keysV4fratV", "profileImage"]
+- !private ["6RushMeAAV4keysV", "frat"]
 depends-nominal:
 - !private "s23BidirectionalCollectionP"
+- !private "s13BinaryIntegerP"
 - !private "Sb"
-- "s7CVarArgP"
-- "s10CollectionP"
+- !private "s7CVarArgP"
+- !private "s10CollectionP"
 - !private "s10ComparableP"
-- "s28CustomDebugStringConvertibleP"
+- !private "s28CustomDebugStringConvertibleP"
 - !private "s29CustomPlaygroundQuickLookableP"
-- "s17CustomReflectableP"
-- "s23CustomStringConvertibleP"
-- "s9DecodableP"
-- "s10DictionaryV"
-- "s9EncodableP"
-- "s9EquatableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s10DictionaryV"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
 - !private "s27ExpressibleByBooleanLiteralP"
-- "s30ExpressibleByDictionaryLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
 - !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
 - !private "s26ExpressibleByStringLiteralP"
 - !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s17FixedWidthIntegerP"
 - !private "6RushMe9FratEventC"
 - "6RushMe10FraternityC"
-- "s8HashableP"
+- !private "s8HashableP"
+- !private "Si"
 - !private "s25LosslessStringConvertibleP"
 - !private "s10MirrorPathP"
 - !private "So8NSCodingP"
@@ -269,28 +217,37 @@ depends-nominal:
 - !private "So21NSItemProviderReadingP"
 - !private "So21NSItemProviderWritingP"
 - !private "So16NSMutableCopyingP"
-- "So8NSObjectC"
-- "So16NSObjectProtocolP"
+- !private "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
 - !private "So14NSSecureCodingP"
 - !private "So8NSStringC"
-- !private "6RushMe7RMImageV"
+- !private "s7NumericP"
+- !private "6RushMe10RMGeocoderC"
+- !private "6RushMe5RMURLV"
 - !private "s26RangeReplaceableCollectionP"
-- "s8SequenceP"
-- !private "s12StaticStringV"
+- !private "6RushMeAAV"
+- !private "s8SequenceP"
+- !private "s13SignedIntegerP"
+- !private "s13SignedNumericP"
+- !private "s10StrideableP"
 - "SS"
 - !private "s14StringProtocolP"
 - !private "s16TextOutputStreamP"
 - !private "s20TextOutputStreamableP"
+- !private "s18_BitwiseOperationsP"
 - !private "s35_ExpressibleByBuiltinBooleanLiteralP"
 - !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
 - !private "s34_ExpressibleByBuiltinStringLiteralP"
 - !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
 - !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
 - !private "s33_ExpressibleByStringInterpolationP"
 - !private "s35_HasCustomAnyHashableRepresentationP"
-- "10Foundation27_KeyValueCodingAndObservingP"
-- "s21_ObjectiveCBridgeableP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
 - !private "s16_SwiftStringViewP"
+- !private "6RushMeAAV4keysV4fratV"
+- !private "6RushMeAAV4keysV"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
@@ -318,16 +275,16 @@ depends-external:
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Headers/iCalKit-Swift.h"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/DeviceKit/DeviceKit.framework/Modules/module.modulemap"
 - "/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Products/Debug-iphoneos/iCalKit/iCalKit.framework/Modules/module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/objc/ObjectiveC.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/usr/include/Darwin.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
-- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "222e211fbee8cda3c15649bd1a3c99d4"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+interface-hash: "2cb6cf56df1d27dedd1ef78e5653efbb"
