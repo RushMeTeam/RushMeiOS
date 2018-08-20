@@ -339,7 +339,7 @@ ScrollableItem {
       }
     }
     else {
-      eventViewController!.selectedEvents = nil
+      eventViewController!.selectedEvents = []
     }
   }
   

@@ -8,22 +8,30 @@
 
 import UIKit
 
-fileprivate let emptyCellIdentifier = "emptyCell"
 fileprivate let tableViewCellIdentifier = "eventTBCell"
+fileprivate let basicCellIdentifier = "basicCell"
 
 class EventTableViewController: UITableViewController {
   // Allow cells to provide the date
   // Useful if date is not implied/indicated anywhere else
   var provideDate = false
+//  private var numberOfEventsToDisplay = 0 
+//  var numberOfEventsDisplayed : Int {
+//    get {
+//     return max(min(selectedEvents.count, numberOfEventsToDisplay), 0) 
+//    } set {
+//     numberOfEventsToDisplay = newValue 
+//    }
+//  }
   // MARK: Member Variables
   
-  var selectedEvents : [FratEvent]? = nil {
+  var selectedEvents : [FratEvent] = [] {
     didSet {
-      self.tableView.isScrollEnabled = selectedEvents != nil && selectedEvents!.count > 0
+      tableView.isScrollEnabled = selectedEvents.count > 0
       UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: { 
         self.tableView.reloadData()
       }) { (_) in
-        if let _ = self.selectedEvents, self.selectedEvents!.count > 0 {
+        if self.selectedEvents.count > 0 {
           self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
         }
       }
@@ -62,27 +70,26 @@ class EventTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let events = selectedEvents, events.count != 0 {
+    if selectedEvents.count > 0 && indexPath.row != selectedEvents.count {
       let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier) as! EventTableViewCell
-      cell.event = events[indexPath.row]
-      cell.provideDate = self.provideDate
+      cell.event = selectedEvents[indexPath.row]
+      cell.provideDate = provideDate
       return cell
-    }
-    else {
-      let cell = tableView.dequeueReusableCell(withIdentifier: emptyCellIdentifier)!
-      cell.textLabel?.textColor = .darkGray
-      cell.textLabel?.text = RMMessage.NoEvents
-      cell.backgroundColor = .clear
-      cell.textLabel?.textAlignment = .center
+    } else {
+      let cell = tableView.dequeueReusableCell(withIdentifier: basicCellIdentifier)!
+      let numberOfEvents = selectedEvents.count == 0 ? "No" : String(selectedEvents.count) 
+      let plural = selectedEvents.count == 1 ? "" : "s"
+      cell.textLabel?.text = "\(numberOfEvents) Event\(plural)"
       return cell
     }
   }
+  
   override func tableView(_ tableView: UITableView,
                           numberOfRowsInSection section: Int) -> Int {
-    return max((selectedEvents?.count ?? 1), 1)
+    return selectedEvents.count
   }
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 64
+    return indexPath.row == selectedEvents.count ? 16 : 64
   }
   
   

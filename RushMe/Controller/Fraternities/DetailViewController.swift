@@ -357,7 +357,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       else {
         DispatchQueue.main.async {
-          self.eventViewController!.selectedEvents = nil
+          self.eventViewController!.selectedEvents = []
         }
       }
       
