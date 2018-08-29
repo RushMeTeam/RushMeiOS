@@ -36,21 +36,21 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
      return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
-  private var _coverImagePageViewController  : ImagePageViewController? 
-  var coverImagePageViewController  : ImagePageViewController! {
-    get {
-      if let _ = _coverImagePageViewController  {
-        return _coverImagePageViewController  
-      }
-      for viewController in childViewControllers where (viewController as? ImagePageViewController == nil) ? false : true {
-        _coverImagePageViewController  = viewController as! ImagePageViewController
-        return viewController as! ImagePageViewController
-      }
-      return nil
-    }
-  }
+//  private var _coverImagePageViewController  : ImagePageViewController? 
+//  var coverImagePageViewController  : ImagePageViewController! {
+//    get {
+//      if let _ = _coverImagePageViewController  {
+//        return _coverImagePageViewController  
+//      }
+//      for viewController in childViewControllers where (viewController as? ImagePageViewController == nil) ? false : true {
+//        _coverImagePageViewController  = viewController as! ImagePageViewController
+//        return viewController as! ImagePageViewController
+//      }
+//      return nil
+//    }
+//  }
  
-  
+  private var coverImagePageViewController : ImagePageViewController!
  
   
   
@@ -241,11 +241,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }
   
   lazy var setupProfileImageView : Void = {
-    profileImageView.layer.cornerRadius = RushMe.cornerRadius
     profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
-    profileImageView.layer.borderWidth = 2
-    profileImageView.clipsToBounds = true
-    profileImageView.layer.zPosition = 10
+    profileImageView.layer.zPosition = -1
   }()
   lazy var setupCoverImageView : Void = {
     coverImageView.layer.masksToBounds = true
@@ -269,12 +266,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     mapView.layer.masksToBounds = true
     view.backgroundColor = .clear
     parent?.view.backgroundColor = RMColor.AppColor
-    
-    if #available(iOS 11.0, *) {
-     //underlyingView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-      underlyingView.layer.masksToBounds = true
-      underlyingView.layer.cornerRadius = RushMe.cornerRadius
-    }
   }()
   // MARK: ViewDidLoad
   override func viewDidLoad() {
@@ -370,6 +361,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.destination {
+    case let imagePageViewController as ImagePageViewController:
+      coverImagePageViewController = imagePageViewController
+    default:
+      break
+    }
+  }
+  
 }
 
 
