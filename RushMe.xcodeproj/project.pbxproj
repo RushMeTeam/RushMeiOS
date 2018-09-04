@@ -57,7 +57,6 @@
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
 		DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */; };
 		DBD4F7F720C08101007EFA18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
-		DBD4F7F820C08101007EFA18 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
 		DBD4F7F920C08101007EFA18 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB3180120B62AA50098782A /* Images.swift */; };
 		DBD4F7FA20C08101007EFA18 /* RMCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RMCalendarManager.swift */; };
 		DBD4F7FB20C08101007EFA18 /* RMPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B7329203FAE4E00FFA951 /* RMPoll.swift */; };
@@ -93,7 +92,10 @@
 		DBD4F81F20C08101007EFA18 /* defaultImage.png in Sources */ = {isa = PBXBuildFile; fileRef = DB346C2F1FB104EB003E59AE /* defaultImage.png */; };
 		DBD4F82020C08101007EFA18 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
 		DBD4F82120C08101007EFA18 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7561F894A910090DEC3 /* Info.plist */; };
-		DBF07A221F8AA576001645D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF07A211F8AA576001645D5 /* Constants.swift */; };
+		DBF1A103213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
+		DBF1A104213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
+		DBF1A105213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
+		DBF1A106213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,7 +195,7 @@
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractiveFratCellTableViewCell.swift; sourceTree = "<group>"; };
-		DBF07A211F8AA576001645D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DBF1A102213F3566002A9F3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBF60522203F99CB00101FEF /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		DBF60527203FA25700101FEF /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		DBF60529203FA65F00101FEF /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -288,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				DB05F7481F894A910090DEC3 /* AppDelegate.swift */,
-				DBF07A211F8AA576001645D5 /* Constants.swift */,
+				DBF1A102213F3566002A9F3F /* Constants.swift */,
 				DBD140481F92842100945D9B /* Model */,
 				DB346C311FB10630003E59AE /* View */,
 				DB346C2B1FB103CA003E59AE /* Controller */,
@@ -597,7 +599,7 @@
 					};
 					DB05F75A1F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					DB05F7651F894A910090DEC3 = {
@@ -609,6 +611,7 @@
 					DB9E60EC20C07D5700B2C765 = {
 						CreatedOnToolsVersion = 9.4;
 						DevelopmentTeam = 7KE765B32L;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DB05F7441F894A910090DEC3;
 					};
@@ -778,6 +781,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */,
+				DBF1A103213F3566002A9F3F /* Constants.swift in Sources */,
 				DB47437E2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift in Sources */,
 				DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */,
 				DBCE4A4B2105406B00D362C4 /* SWViewController.swift in Sources */,
@@ -797,7 +801,6 @@
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
 				DB8CA199207D9CF20011E25A /* RMGeocoder.swift in Sources */,
 				DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */,
-				DBF07A221F8AA576001645D5 /* Constants.swift in Sources */,
 				DBAF96D420BC6B5600165F5E /* PrivacyViewController.swift in Sources */,
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* SQLHandler.swift in Sources */,
@@ -817,6 +820,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF1A104213F3566002A9F3F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,7 +831,6 @@
 				DBCDA268210502C700C11CB2 /* RMViewController.swift in Sources */,
 				DBD4F81E20C08101007EFA18 /* RushMe-Bridging-Header.h in Sources */,
 				DBD4F7F720C08101007EFA18 /* AppDelegate.swift in Sources */,
-				DBD4F7F820C08101007EFA18 /* Constants.swift in Sources */,
 				DBD4F7F920C08101007EFA18 /* Images.swift in Sources */,
 				DBD4F7FA20C08101007EFA18 /* RMCalendarManager.swift in Sources */,
 				DBD4F7FB20C08101007EFA18 /* RMPoll.swift in Sources */,
@@ -835,6 +838,7 @@
 				DBD4F7FD20C08101007EFA18 /* Campus.swift in Sources */,
 				DBD4F7FE20C08101007EFA18 /* Observable.swift in Sources */,
 				DBD4F7FF20C08101007EFA18 /* SQLHandler.swift in Sources */,
+				DBF1A105213F3566002A9F3F /* Constants.swift in Sources */,
 				DBD4F80020C08101007EFA18 /* Fraternity.swift in Sources */,
 				DBD4F80120C08101007EFA18 /* FratEvent.swift in Sources */,
 				DBD4F80220C08101007EFA18 /* CalendarCollectionViewCell.swift in Sources */,
@@ -872,6 +876,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF1A106213F3566002A9F3F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,10 +1083,12 @@
 			baseConfigurationReference = CA1545654F3424CBF44F0D6D /* Pods-RushMeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RushMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1092,6 +1099,7 @@
 			baseConfigurationReference = F9CA2D544FE001362499BA32 /* Pods-RushMeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RushMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeTests;
@@ -1142,6 +1150,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1153,6 +1162,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RushMe.Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RushMe;
@@ -1163,6 +1173,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
