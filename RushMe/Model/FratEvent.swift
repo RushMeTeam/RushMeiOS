@@ -8,40 +8,7 @@
 
 import UIKit
 
-class FratEvent: NSObject {
-  private(set) var calendar = Calendar.current
-  private(set) var startDate : Date
-  private(set) var endDate : Date
-  private(set) var name : String
-  private(set) var location : String?
-  private(set) var frat : Fraternity
-
-  // TODO: Fix RushMe.dateTimeFormatter to work for 24hr time
-  init?(withName : String,
-        onDate : String,
-        ownedByFraternity : Fraternity,
-        startingAt : String? = nil,
-        endingAt : String? = nil,
-        atLocation : String? = nil) {
-    
-    self.name = withName
-    self.frat = ownedByFraternity
-    self.location = atLocation
-    
-    
-    self.startDate = ((startingAt == nil) ? RushMe.dateFormatter.date(from: onDate) : RushMe.dateTimeFormatter.date(from: onDate + " " + startingAt!))!
-    self.endDate = ((endingAt == nil) ? startDate : RushMe.dateTimeFormatter.date(from: onDate + " " + endingAt!))!
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  var dayKey : String {
-    return DateFormatter.localizedString(from: self.startDate, dateStyle: .medium, timeStyle: .none)
-  }
-  static func <(lhs : FratEvent, rhs : FratEvent) -> Bool {
-   return lhs.startDate < rhs.startDate 
-  }
+class Fraternity.Event {
   
 }
 // Make a date, such as Sunday, November 22nd, 12:00PM return its time, as a string, i.e. "12:00PM"

@@ -74,7 +74,7 @@ class MapViewController: UIViewController,
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: RMColor.NavigationItemsColor]
+      [NSAttributedStringKey.foregroundColor: Frontend.colors.NavigationItemsColor]
     // Do any additional setup after loading the view.
     self.fratNameButton.title
     self.mapView.layer.cornerRadius = 5
@@ -83,13 +83,13 @@ class MapViewController: UIViewController,
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    RMGeocoder.observableLocations.addObserver(forOwner: self, handler: handleGeocoding(oldValue:newValue:))
+    Locations.observableLocations.addObserver(forOwner: self, handler: handleGeocoding(oldValue:newValue:))
   }
   func handleGeocoding(oldValue : [String:CLLocation]?, newValue: [String: CLLocation]) {
     let safeOldValue = oldValue ?? [String:CLLocation].init()
     let changedFrats = Set(newValue.keys).symmetricDifference(Set<String>(safeOldValue.keys))
     for fratName in changedFrats {
-      let frat = Campus.shared.fraternitiesDict[fratName]!
+      let frat = Campus.shared.fraternitiesByName[fratName]!
       let annotation = MKPointAnnotation()
       annotation.coordinate = newValue[fratName]!.coordinate
       annotation.title = frat.name
@@ -136,8 +136,8 @@ class MapViewController: UIViewController,
     self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-      SQLHandler.inform(action: .FraternitySelected, options: fratName)
+    if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
+      Backend.inform(action: .FraternitySelected, options: fratName)
       let controller = segue.destination as! UIPageViewController
       controller.title = fratName.greekLetters
       controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)

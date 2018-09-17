@@ -47,7 +47,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   override func viewWillAppear(_ animated: Bool) {
     self.imageView?.image = image
     self.imageView?.layer.masksToBounds = true
-    self.imageView?.layer.cornerRadius = RushMe.cornerRadius
+    self.imageView?.layer.cornerRadius = Frontend.cornerRadius
     
     
   }

@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let buildVersion = (RMUserDevice().deviceInfo["appv"] as! String).split(separator: "-")
+    let buildVersion = (User.device.properties["appv"] as! String).split(separator: "-")
     appVersionLabel.text = "RushMe Version \(buildVersion[0]) Build \(buildVersion[1])"
     //if (self.revealViewController() != nil) {
       // Allow drawer button to toggle the lefthand drawer menu
@@ -34,11 +34,11 @@ class SettingsViewController: UIViewController {
     //}
   
     // Visual details
-    self.qualityPicker.tintColor = RMColor.AppColor
-    self.displayPastEventsSwitch.tintColor = RMColor.AppColor
-    self.displayPastEventsSwitch.onTintColor = RMColor.AppColor
+    self.qualityPicker.tintColor = Frontend.colors.AppColor
+    self.displayPastEventsSwitch.tintColor = Frontend.colors.AppColor
+    self.displayPastEventsSwitch.onTintColor = Frontend.colors.AppColor
     // Update UI to match current settings
-    dateLabel.text = DateFormatter.localizedString(from: RMDate.Today, dateStyle: .medium, timeStyle: .short)
+    dateLabel.text = DateFormatter.localizedString(from: .today, dateStyle: .medium, timeStyle: .short)
     displayPastEventsSwitch.isOn = Campus.shared.considerPastEvents
     if Campus.downloadedImageQuality == .High {
      qualityPicker.selectedSegmentIndex = 2
@@ -49,8 +49,8 @@ class SettingsViewController: UIViewController {
     if Campus.downloadedImageQuality == .Low {
       qualityPicker.selectedSegmentIndex = 0
     }
-    fraternitiesAlphabeticalSwitch.isOn = RushMe.shuffleEnabled
-    clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path)
+    fraternitiesAlphabeticalSwitch.isOn = User.preferences.shuffleEnabled
+    clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: User.files.fratImageURL.path)
   }
   
   
@@ -68,11 +68,11 @@ class SettingsViewController: UIViewController {
     }
     Campus.shared.considerPastEvents = displayPastEventsSwitch!.isOn
     
-    RushMe.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn
+    User.preferences.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn
   }
 
   @IBAction func shuffleFraternitiesSwitch(_ sender: UISwitch) {
-    RushMe.shuffleEnabled = sender.isOn
+    User.preferences.shuffleEnabled = sender.isOn
   }
   
   @IBAction func displayPastEventsSwitched(_ sender: UISwitch) {
@@ -89,8 +89,8 @@ class SettingsViewController: UIViewController {
   @IBAction func clearCache(_ sender: UIButton) {
     var fileSize = 0.0
     var fileNumber = 0
-    let _ = FileManager.default.subpaths(atPath: RMFileManagement.fratImageURL.path)?.forEach({ (fileName) in
-      fileSize += ((try? FileManager.default.attributesOfItem(atPath: RMFileManagement.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) ?? nil) ?? 0
+    let _ = FileManager.default.subpaths(atPath: User.files.fratImageURL.path)?.forEach({ (fileName) in
+      fileSize += ((try? FileManager.default.attributesOfItem(atPath: User.files.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) ?? nil) ?? 0
       fileNumber += 1
     })
     let deleteAlert = UIAlertController.init(title: String(format: "Free %.1f mb", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
@@ -98,14 +98,14 @@ class SettingsViewController: UIViewController {
       self.clearCache()
     }))
     self.present(deleteAlert, animated: true) {
-      self.clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path)
+      self.clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: User.files.fratImageURL.path)
     }
     deleteAlert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
   }
   fileprivate func clearCache() {
-    if FileManager.default.fileExists(atPath: RMFileManagement.fratImageURL.path) {
+    if FileManager.default.fileExists(atPath: User.files.fratImageURL.path) {
       do {
-        try FileManager.default.removeItem(at: RMFileManagement.fratImageURL)
+        try FileManager.default.removeItem(at: User.files.fratImageURL)
 //        print("Cache cleared!")
       }
       catch let e {

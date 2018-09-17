@@ -25,7 +25,7 @@ class EventTableViewController: UITableViewController {
 //  }
   // MARK: Member Variables
   
-  var selectedEvents : [FratEvent] = [] {
+  var selectedEvents : [Fraternity.Event] = [] {
     didSet {
       tableView.isScrollEnabled = selectedEvents.count > 1
       UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: { 

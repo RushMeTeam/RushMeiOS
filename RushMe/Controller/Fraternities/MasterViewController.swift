@@ -6,7 +6,6 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 import UIKit
-import DeviceKit
 // Master view controller, a subclass of UITableViewController,
 // provides the main list of fraternities from which a user can
 // select in order to find detail.
@@ -42,7 +41,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       let newFratName = getFrat(before: selectedFrat.name) {
       let newVC = UIStoryboard.main.detailVC
       newVC.title = newFratName
-      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFratName]
+      newVC.selectedFraternity = Campus.shared.fraternitiesByName[newFratName]
       return newVC
     }
     return nil
@@ -52,7 +51,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       let newFratName = getFrat(after: selectedFrat) {
       let newVC = UIStoryboard.main.detailVC
       newVC.title = newFratName
-      newVC.selectedFraternity = Campus.shared.fraternitiesDict[newFratName]
+      newVC.selectedFraternity = Campus.shared.fraternitiesByName[newFratName]
       return newVC
     }
     return nil
@@ -141,7 +140,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       // If we're searching, use the contents of the search bar to determine 
       // which fraternities to display
       if isSearching {
-        return Array(viewingFavorites ? Campus.shared.favoritedFrats : Campus.shared.fratNames).filter({ (fratName) -> Bool in
+        return Array(viewingFavorites ? Campus.shared.favoritedFrats : Campus.shared.fraternityNames).filter({ (fratName) -> Bool in
           return fratName.lowercased().contains(searchController.searchBar.text!.lowercased())
         }) 
       }
@@ -150,8 +149,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
        return Array(Campus.shared.favoritedFrats)
       }
       // Display all fraternities, sorted by name
-      else if !RushMe.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
-        return Array(Campus.shared.fratNames).sorted()
+      else if !User.preferences.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
+        return Array(Campus.shared.fraternityNames).sorted()
       }
       // Display all fraternities, shuffled
       else if let _ = shuffledFrats {
@@ -160,7 +159,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       // Shuffle, then display all fraternities
       else {
         // TODO: Allow no-shuffling option
-        shuffledFrats = Campus.shared.fratNames.shuffled()
+        shuffledFrats = Campus.shared.fraternityNames.shuffled()
         return shuffledFrats!
       }
     }
@@ -200,7 +199,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
     tableView.backgroundView = refreshControl
     
-    refreshControl!.backgroundColor = RMColor.AppColor
+    refreshControl!.backgroundColor = Frontend.colors.AppColor
     refreshControl!.tintColor = .white
     
     Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
@@ -215,8 +214,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     //searchController.searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
     searchController.searchBar.isTranslucent = false
     searchController.searchBar.tintColor = .white
-    searchController.searchBar.backgroundColor = RMColor.AppColor
-    searchController.searchBar.barTintColor = RMColor.AppColor
+    searchController.searchBar.backgroundColor = Frontend.colors.AppColor
+    searchController.searchBar.barTintColor = Frontend.colors.AppColor
     searchController.hidesNavigationBarDuringPresentation = false
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.dimsBackgroundDuringPresentation = false
@@ -245,7 +244,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   lazy var setupTableHeaderView : Void = {
     tableHeaderView = UIView()
     
-    tableHeaderView.backgroundColor = RMColor.AppColor
+    tableHeaderView.backgroundColor = Frontend.colors.AppColor
 //    tableView.backgroundColor = RMColor.AppColor
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
@@ -292,7 +291,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
-      self.searchController.searchBar.placeholder = "Search \(Campus.shared.fratNames.count) Fraternities"
+      self.searchController.searchBar.placeholder = "Search \(Campus.shared.fraternityNames.count) Fraternities"
       self.searchController.searchBar.layoutIfNeeded() 
       if newValue == 1 {
         self.refreshControl?.endRefreshing()
@@ -320,8 +319,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       let cell = sender as? UITableViewCell ?? UITableViewCell()
       if let row = (sender as? IndexPath)?.row ?? tableView.indexPathsForSelectedRows?.first?.row ?? tableView.indexPath(for: cell)?.row { 
           let fratName = self.dataKeys[row]
-          if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-            SQLHandler.inform(action: .FraternitySelected, options: fratName)
+          if let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
+            Backend.inform(action: .FraternitySelected, options: fratName)
             let controller = segue.destination as! UIPageViewController
             controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
             controller.title = fratName.greekLetters
@@ -346,7 +345,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   }
   // MARK: FraternityCellDelegate
   func cell(withFratName fratName: String, favoriteStatusToValue isFavorited : Bool) {
-    guard Campus.shared.fratNames.contains(fratName) else {
+    guard Campus.shared.fraternityNames.contains(fratName) else {
      return 
     }
     if isFavorited {
@@ -381,7 +380,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       let cell = UITableViewCell()
       cell.selectionStyle = .none
       cell.textLabel!.textAlignment = NSTextAlignment.center
-      cell.textLabel!.textColor = RMColor.AppColor
+      cell.textLabel!.textColor = Frontend.colors.AppColor
       cell.textLabel!.numberOfLines = 2
       if (Campus.shared.isLoading) {
        return cell 
@@ -401,7 +400,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       tableView.reloadData()
       return cell
     }
-    cell.fraternity = Campus.shared.fraternitiesDict[dataKeys[indexPath.row]]
+    cell.fraternity = Campus.shared.fraternitiesByName[dataKeys[indexPath.row]]
       cell.loadImage()
     
     return cell
@@ -414,19 +413,19 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   }
 
   func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
-    if (action.title == RMMessage.Favorite) {
+    if (action.title == Frontend.text.favorite) {
       let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
       Campus.shared.addFavorite(named: fratName)
-      action.backgroundColor = RMColor.AppColor
+      action.backgroundColor = Frontend.colors.AppColor
       if let cell = tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = true
         //SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
       }
-      action.backgroundColor = RMColor.AppColor
+      action.backgroundColor = Frontend.colors.AppColor
       tableView.reloadRows(at: [cellIndex], with: .automatic)
     }
     else {
-      action.backgroundColor = RMColor.AppColor.withAlphaComponent(0.5)
+      action.backgroundColor = Frontend.colors.AppColor.withAlphaComponent(0.5)
       if let cell = tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
         cell.isAccentuated = false
         //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
@@ -436,7 +435,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
         tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
       }
       else {
-        action.backgroundColor = RMColor.AppColor
+        action.backgroundColor = Frontend.colors.AppColor
         tableView.reloadRows(at: [cellIndex], with: .right)
       }
     }

@@ -45,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Campus.shared.pullFratsFromSQLDatabase()
 
     DispatchQueue.global(qos: .userInitiated).async {
-      if RushMe.privacy.preferencesNeedUpdating {
+      if Privacy.preferencesNeedUpdating {
         DispatchQueue.main.async {
           swRevealVC.present(UIStoryboard(name: "FirstEntry", bundle: nil).instantiateViewController(withIdentifier: "FirstVC") , animated: true, completion: {
-            RushMe.privacy.lastPolicyInteractionDate = Date()
+            Privacy.lastPolicyInteractionDate = Date()
           })
         }
       }
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidEnterBackground(_ application: UIApplication) {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    SQLHandler.inform(action: .AppWillEnterBackground)
+    Backend.inform(action: .AppWillEnterBackground)
 
   }
   

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DeviceKit
 
 class ImagePageViewController: UIViewController,
 UIScrollViewDelegate, UIViewControllerPreviewingDelegate {

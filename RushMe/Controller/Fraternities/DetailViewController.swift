@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet weak var staticMemberLabel: UILabel!
   @IBOutlet weak var gpaLabel: UILabel!
   @IBOutlet weak var staticGPALabel: UILabel!
-  var favoritesButton = UIBarButtonItem(image: RushMe.images.unfilledHeart, style: .plain, target: self, action: #selector(favoritesButtonHit))
+  var favoritesButton = UIBarButtonItem(image: Frontend.images.unfilledHeart, style: .plain, target: self, action: #selector(favoritesButtonHit))
   //@IBOutlet weak var favoritesButton : UIBarButtonItem!
   @IBOutlet weak var blockTextView: UITextView!
   @IBOutlet weak var mapView: MKMapView!
@@ -97,13 +97,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     if let fratName = selectedFraternity?.name {
       if Campus.shared.favoritedFrats.contains(fratName) {
         Campus.shared.removeFavorite(named: fratName)
-        sender.image = RushMe.images.unfilledHeart
+        sender.image = Frontend.images.unfilledHeart
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       else {
         Campus.shared.addFavorite(named: fratName)
-        sender.image = RushMe.images.filledHeart
-        self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
+        sender.image = Frontend.images.filledHeart
+        self.profileImageView.layer.borderColor = Frontend.colors.AppColor.withAlphaComponent(0.7).cgColor
       }
     }
   }
@@ -149,7 +149,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       else if let image = coverImagePageViewController.currentPageImage {
         imageVC.image = image
       }
-      if imageVC.image.size != .zero && imageVC.image != RushMe.images.none  {
+      if imageVC.image.size != .zero && imageVC.image != Frontend.images.noImage  {
         imageVC.addVisualEffectView()
         present(imageVC, animated: true, completion: nil)
       }
@@ -158,7 +158,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
     if sender.state == .began || sender.state == .changed {
       guard let senderView = sender.view as? UIImageView, 
-        senderView.image != RushMe.images.none else { return }
+        senderView.image != Frontend.images.noImage else { return }
       self.scrollView.isScrollEnabled = false
       let currScale = senderView.frame.size.width/senderView.bounds.size.width
       var newScale = currScale*sender.scale
@@ -214,7 +214,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       return  
     }
     let addressAlert = UIAlertController.init(title: frat.name, message: frat.address, preferredStyle: .actionSheet)
-    addressAlert.view.tintColor = RMColor.AppColor
+    addressAlert.view.tintColor = Frontend.colors.AppColor
     addressAlert.addAction(openInMapsAction)
     addressAlert.addAction(cancelAction)
     self.present(addressAlert, animated: true, completion: nil)
@@ -250,7 +250,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     coverImageView.contentMode = UIViewContentMode.scaleAspectFill
     coverImageView.layer.masksToBounds = true
 //    coverImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
-    coverImageView.layer.cornerRadius = RushMe.cornerRadius
+    coverImageView.layer.cornerRadius = Frontend.cornerRadius
     coverImageView.clipsToBounds = true
     coverImageView.layer.zPosition = 9
   }()
@@ -262,10 +262,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     view.bringSubview(toFront: profileImageView)
     scrollView.canCancelContentTouches = true
     mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
-    mapView.layer.cornerRadius = RushMe.cornerRadius
+    mapView.layer.cornerRadius = Frontend.cornerRadius
     mapView.layer.masksToBounds = true
     view.backgroundColor = .clear
-    parent?.view.backgroundColor = RMColor.AppColor
+    parent?.view.backgroundColor = Frontend.colors.AppColor
   }()
   // MARK: ViewDidLoad
   override func viewDidLoad() {
@@ -310,11 +310,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
     
     if Campus.shared.favoritedFrats.contains(frat.name) {
-      self.favoritesButton.image = RushMe.images.filledHeart
-      self.profileImageView.layer.borderColor = RMColor.AppColor.withAlphaComponent(0.7).cgColor
+      self.favoritesButton.image = Frontend.images.filledHeart
+      self.profileImageView.layer.borderColor = Frontend.colors.AppColor.withAlphaComponent(0.7).cgColor
     }
     else {
-      self.favoritesButton.image = RushMe.images.unfilledHeart
+      self.favoritesButton.image = Frontend.images.unfilledHeart
       self.profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     }
     favoritesButton.title = frat.name
@@ -342,7 +342,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
       if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
-        return Campus.shared.considerPastEvents || value.startDate.compare(RMDate.Today) != .orderedAscending
+        return Campus.shared.considerPastEvents || value.startDate.compare(.today) != .orderedAscending
       }).last?.value {
         DispatchQueue.main.async {
           self.eventViewController!.selectedEvents = [event]

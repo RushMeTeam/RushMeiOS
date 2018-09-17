@@ -42,7 +42,7 @@ ScrollableItem {
   @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
   
   // MARK: Data Source Calculated Fields
-  var firstEvent : FratEvent? {
+  var firstEvent : Fraternity.Event? {
     get {
       return Campus.shared.firstEvent
       //      return viewingFavorites ?
@@ -50,22 +50,22 @@ ScrollableItem {
       //        Campus.shared.firstEvent
     }
   }
-  var dataSource : [[FratEvent]] {
+  var dataSource : [[Fraternity.Event]] {
     return viewingFavorites ? Campus.shared.eventsByDay : Campus.shared.favoritedEventsByDay
   }
-  var flatDataSource : Set<FratEvent> {
+  var flatDataSource : Set<Fraternity.Event> {
     get {
       return viewingFavorites ?
         Campus.shared.favoritedEvents :
         Campus.shared.allEvents
     }
   }
-  func events(forIndexPath indexPath : IndexPath) -> [FratEvent] {
+  func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
     if (indexPath.row < 7 || firstEvent == nil) {
       return []
     }
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
-    if !Campus.shared.considerPastEvents && RMDate.Today.compare(currentDay) != .orderedAscending {
+    if !Campus.shared.considerPastEvents && Date.today.compare(currentDay) != .orderedAscending {
      return [] 
     }
     let todaysEvents = flatDataSource.filter({
@@ -200,10 +200,10 @@ ScrollableItem {
       }
       else {
         // TODO: Fix this so it exports the correct events (favorites or otherwise)
-        self.fileURL = RMCalendarManager.exportAsICS(events: Campus.shared.favoritedEvents)
+        self.fileURL = RushCalendar.exportAsICS(events: Campus.shared.favoritedEvents)
       }
       if let url = self.fileURL {
-        let activityVC = UIActivityViewController(activityItems: [RMMessage.Sharing, url],
+        let activityVC = UIActivityViewController(activityItems: [Frontend.text.shareMessage, url],
                                                   applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = sender.customView
         self.present(activityVC, animated: true, completion: {
@@ -293,7 +293,7 @@ ScrollableItem {
     cell.eventsToday = eventsToday.count == 0 ? nil : eventsToday
     let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
     let currentMonth = Calendar.current.component(Calendar.Component.month, from: currentDay)
-    let todaysMonth = Calendar.current.component(Calendar.Component.month, from: RMDate.Today)
+    let todaysMonth = Calendar.current.component(Calendar.Component.month, from: .today)
     cell.dayTextColor = currentMonth == todaysMonth ? UIColor.black : UIColor.lightGray
     cell.dayLabel.text = String(Calendar.current.dateComponents([.day], from: currentDay).day!)
     if let numberOfEventsToday = cell.eventsToday?.count {
@@ -329,7 +329,7 @@ ScrollableItem {
           DateFormatter.localizedString(from: todaysEvent.startDate,
                                         dateStyle: .long,
                                         timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
-                                                                                     inSameDayAs: RMDate.Today) ? " (Today)" : "")
+                                                                                     inSameDayAs: .today) ? " (Today)" : "")
         //collectionCell.backgroundColor = UIColor.blue
         
         UISelectionFeedbackGenerator().selectionChanged()
