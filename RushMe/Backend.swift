@@ -43,11 +43,10 @@ class Backend {
       return []
     }
   }
-  // "name","description","chapter","members","cover_image","profile_image","calendar_image","preview_image","address"
- 
-  static func selectAll(fromTable : String ) -> [Dictionary<String, Any>]? {
-    let tableString = "?table=\(fromTable)"
-    if let url = URL(string: Backend.db.absoluteString + tableString), 
+  // Grab everything from a SQL table using it's name
+  static func selectAll(fromTable tableName : String ) -> [Dictionary<String, Any>]? {
+    let tableString = "?table=\(tableName)"
+    if let url = URL(string: Backend.db.absoluteString + tableName), 
       let response = try? Data.init(contentsOf: url) {
       return (try? JSONSerialization.jsonObject(with: response, options: .allowFragments)) as? [Dictionary<String, Any>] 
     }
@@ -57,7 +56,10 @@ class Backend {
     
     return nil
   }
+  // Used to determine whether the App is currently in the process of 
+  //    pusing user actions to the database
   static private(set) var isPushing = false
+  // Push multiple stored/cached actions
   private static func pushAllActions() {
     //coordinator.connect()
     guard !isPushing else {

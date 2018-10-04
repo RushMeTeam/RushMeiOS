@@ -18,7 +18,6 @@
 		DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */; };
 		DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
 		DB0A842720C084B5006048A8 /* Pods_RushMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A842620C084B5006048A8 /* Pods_RushMe.framework */; };
-		DB0B732A203FAE4E00FFA951 /* RMPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B7329203FAE4E00FFA951 /* RMPoll.swift */; };
 		DB0D5CFF20C07E4E006A850D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
 		DB0D5D0020C07EA6006A850D /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -27,7 +26,6 @@
 		DB32F39020C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
 		DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
 		DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
-		DB457D671FCB649F00410149 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7611F894A910090DEC3 /* Info.plist */; };
 		DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
 		DB457D9B1FCB6B1C00410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
 		DB47437E2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift */; };
@@ -105,7 +103,6 @@
 		DBD4F81D20C08101007EFA18 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF96D320BC6B5600165F5E /* PrivacyViewController.swift */; };
 		DBD4F81E20C08101007EFA18 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
 		DBD4F82020C08101007EFA18 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
-		DBD4F82120C08101007EFA18 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7561F894A910090DEC3 /* Info.plist */; };
 		DBF1A103213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
 		DBF1A104213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
 		DBF1A105213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
@@ -687,7 +684,6 @@
 			files = (
 				DBB1BA7D20B9BD2E0077872F /* FirstEntry.storyboard in Resources */,
 				DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */,
-				DB457D671FCB649F00410149 /* Info.plist in Resources */,
 				DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */,
 				DB05F7501F894A910090DEC3 /* Main.storyboard in Resources */,
 			);
@@ -849,7 +845,6 @@
 				DB7E1DDF1F93C239002C6B80 /* Backend.swift in Sources */,
 				DB514FE021501868006BC05A /* User.swift in Sources */,
 				DB8D52631FF5C438003A80C1 /* SegmentCell.swift in Sources */,
-				DB0B732A203FAE4E00FFA951 /* RMPoll.swift in Sources */,
 				DB2338A91FD4F53300FB7118 /* RushCalendar.swift in Sources */,
 				DB514FF9215026C2006BC05A /* Format.swift in Sources */,
 				DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */,
@@ -916,7 +911,6 @@
 				DBD4F81720C08101007EFA18 /* FullEventsListTableViewController.swift in Sources */,
 				DBD4F81D20C08101007EFA18 /* PrivacyViewController.swift in Sources */,
 				DBD4F82020C08101007EFA18 /* Assets.xcassets in Sources */,
-				DBD4F82120C08101007EFA18 /* Info.plist in Sources */,
 				DB0D5CFF20C07E4E006A850D /* SnapshotHelper.swift in Sources */,
 				DB0D5D0020C07EA6006A850D /* RushMeUITests.swift in Sources */,
 				DBCE4A4C210540E800D362C4 /* SWViewController.swift in Sources */,
