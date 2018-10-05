@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarLabelCollectionViewCell: UICollectionViewCell {
+class StaticCalendarCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var dayLabel: UILabel!
   var eventsToday : [Fraternity.Event]?  
 }

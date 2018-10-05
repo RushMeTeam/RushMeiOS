@@ -89,7 +89,7 @@
 		3D80096567AB1A6676506CD3DF68F8FB /* DeviceKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DeviceKit-umbrella.h"; sourceTree = "<group>"; };
 		46D1FA6AFBE08A1130B43D6D862A4C20 /* Pods-RushMe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RushMe-dummy.m"; sourceTree = "<group>"; };
 		4E841398B20A13E920AD795931E3E34F /* Pods-RushMe-RushMeUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RushMe-RushMeUITests-resources.sh"; sourceTree = "<group>"; };
-		5883355E3726098AA1CED0460E95541D /* Pods_RushMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RushMeTests.framework; path = "Pods-RushMeTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5883355E3726098AA1CED0460E95541D /* Pods_RushMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RushMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5B015DC1061B35B6B7056E48B64BEEF6 /* CalendarComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarComponent.swift; path = Sources/Protocols/CalendarComponent.swift; sourceTree = "<group>"; };
 		5D8E06043EF097203F20A0C036BACFAF /* iCalKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iCalKit-umbrella.h"; sourceTree = "<group>"; };
@@ -99,21 +99,21 @@
 		6A23922FC5AA7827C75A886FFAC0B350 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C505CAC1051C47B2A1D4B778715672A /* iCalKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iCalKit.xcconfig; sourceTree = "<group>"; };
 		6E7EA84F8DDBADA34E1DF3C3366762CE /* Calendar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Sources/Calendar.swift; sourceTree = "<group>"; };
-		70240C921535871DBFB98A4C50762E64 /* Pods_RushMe_RushMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RushMe_RushMeUITests.framework; path = "Pods-RushMe-RushMeUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70240C921535871DBFB98A4C50762E64 /* Pods_RushMe_RushMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RushMe_RushMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70EF730F13D08FF89A54C5C446F663AE /* Pods-RushMe.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RushMe.modulemap"; sourceTree = "<group>"; };
 		73DE515805B67F82FA271463BE8200B2 /* DeviceKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DeviceKit.modulemap; sourceTree = "<group>"; };
 		7C0D3F663B1068A61BE910EF976A1699 /* Pods-RushMe-RushMeUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RushMe-RushMeUITests-frameworks.sh"; sourceTree = "<group>"; };
 		7DEE7578C3B5EA749FC84F21555631C5 /* iCal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iCal.swift; path = Sources/iCal.swift; sourceTree = "<group>"; };
-		82DFE38DD9C0A5334B83977C7199048D /* iCalKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iCalKit.framework; path = iCalKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82DFE38DD9C0A5334B83977C7199048D /* iCalKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iCalKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C42F21B94DA047CF225211827C1AD5 /* Pods-RushMe-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RushMe-acknowledgements.plist"; sourceTree = "<group>"; };
 		8B2202DD4AF7318657EBFFE4D4ED2481 /* Pods-RushMe-RushMeUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RushMe-RushMeUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		8B3B35A60EE8E9E5BB2FD1617B9562F9 /* Pods-RushMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RushMe.release.xcconfig"; sourceTree = "<group>"; };
 		9119A978C44B306875CEBDC7ED748C3F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E27C8BC7B32E1778D0059626A6D2FB /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Sources/Extensions/Date.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		99C0ED7E7230B953B2CD43F9E0AAC3B8 /* Pods-RushMe-RushMeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RushMe-RushMeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9C5FC250B8BA2443FA42AF923F181CE3 /* Pods-RushMeTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RushMeTests.modulemap"; sourceTree = "<group>"; };
-		A19CDEEAD9FE8990BF37D246FB9BE311 /* Pods_RushMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RushMe.framework; path = "Pods-RushMe.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A19CDEEAD9FE8990BF37D246FB9BE311 /* Pods_RushMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RushMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A497662061DA2385C0445E05B28F94EA /* Pods-RushMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RushMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		A91C12A03D38ACC1EEB887D394CF084E /* Pods-RushMeTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RushMeTests-dummy.m"; sourceTree = "<group>"; };
 		AA27C3195E4C44786418466ADEE42760 /* IcsElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IcsElement.swift; path = Sources/Protocols/IcsElement.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		D4842616DB7AB6FC0542A2BF33450C2D /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Sources/Event.swift; sourceTree = "<group>"; };
 		D739101147E9FEEFC4B7524C74DE2B21 /* iCalKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iCalKit-dummy.m"; sourceTree = "<group>"; };
 		D9E5D24FA3580321CB0C95E429859B5E /* DeviceKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DeviceKit.xcconfig; sourceTree = "<group>"; };
-		DA4FBAF28A7C118634C6C374E65D337F /* DeviceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DeviceKit.framework; path = DeviceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA4FBAF28A7C118634C6C374E65D337F /* DeviceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeviceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB82069360EE459BCFCEA22A8C4EF92 /* Pods-RushMeTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RushMeTests-frameworks.sh"; sourceTree = "<group>"; };
 		E5B7F271194261EC0F959C8CB3ED7502 /* DeviceKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DeviceKit-dummy.m"; sourceTree = "<group>"; };
 		E74D529AD85C79E4AE705DDC85B91731 /* iCalError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iCalError.swift; path = Sources/Enums/iCalError.swift; sourceTree = "<group>"; };
@@ -272,7 +272,6 @@
 				695793DDC2ACFE9BC79C2BD5BE73C3FC /* Device.generated.swift */,
 				959B0F672DDD805274F887D13EEA3403 /* Support Files */,
 			);
-			name = DeviceKit;
 			path = DeviceKit;
 			sourceTree = "<group>";
 		};
@@ -309,7 +308,6 @@
 				FD8F162C1EC64099426F847EAEB45915 /* String.swift */,
 				4A33091C2341910DC5EF91491ED0FFEB /* Support Files */,
 			);
-			name = iCalKit;
 			path = iCalKit;
 			sourceTree = "<group>";
 		};
@@ -493,6 +491,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					B74671AC4AD442223B677430EE6BBBF5 = {
+						LastSwiftMigration = 1000;
+					};
+					FC2B5738B0A4832F9FFBB4341649922B = {
+						LastSwiftMigration = 1000;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";

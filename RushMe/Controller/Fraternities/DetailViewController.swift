@@ -74,7 +74,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       if let _ = _eventViewController {
        return _eventViewController 
       }
-      for viewController in childViewControllers where (viewController as? EventTableViewController == nil) ? false : true {
+      for viewController in children where (viewController as? EventTableViewController == nil) ? false : true {
         _eventViewController = viewController as! EventTableViewController
          return viewController as! EventTableViewController
       }
@@ -247,7 +247,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   lazy var setupCoverImageView : Void = {
     coverImageView.layer.masksToBounds = true
     //coverImageView.clipsToBounds = false
-    coverImageView.contentMode = UIViewContentMode.scaleAspectFill
+    coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
     coverImageView.layer.masksToBounds = true
 //    coverImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     coverImageView.layer.cornerRadius = Frontend.cornerRadius
@@ -258,8 +258,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   lazy var setupViews : Void = {
     _ = setupProfileImageView
     _ = setupCoverImageView
-    view.bringSubview(toFront: coverImageView)
-    view.bringSubview(toFront: profileImageView)
+    view.bringSubviewToFront(coverImageView)
+    view.bringSubviewToFront(profileImageView)
     scrollView.canCancelContentTouches = true
     mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.001, longitudeDelta: 0.001)
     mapView.layer.cornerRadius = Frontend.cornerRadius
@@ -290,7 +290,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       print("No Frat to configure view with!")
       return
     }
-    if let imageVC = childViewControllers.first as? ImagePageViewController {
+    if let imageVC = children.first as? ImagePageViewController {
       imageVC.imageNames = []
       // Update the user interface for the detail item.
       if let calendarImageURL = frat.calendarImagePath {
@@ -376,7 +376,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
 extension UIMotionEffect {
   class func twoAxesShift(strength: Float) -> UIMotionEffect {
     // internal method that creates motion effect
-    func motion(type: UIInterpolatingMotionEffectType) -> UIInterpolatingMotionEffect {
+    func motion(type: UIInterpolatingMotionEffect.EffectType) -> UIInterpolatingMotionEffect {
       let keyPath = type == .tiltAlongHorizontalAxis ? "center.x" : "center.y"
       let motion = UIInterpolatingMotionEffect(keyPath: keyPath, type: type)
       motion.minimumRelativeValue = -strength

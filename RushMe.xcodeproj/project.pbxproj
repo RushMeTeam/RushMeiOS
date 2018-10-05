@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		36181108CE80F95E76097558 /* Pods_RushMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A842620C084B5006048A8 /* Pods_RushMe.framework */; };
-		92571F2F09D34A33D0A177B1 /* Pods_RushMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D408C95B0DA6F3379595E5E /* Pods_RushMeTests.framework */; };
-		B7E35CC6D83950B3BD015D2B /* Pods_RushMe_RushMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6922CC6B24716BD257B2F12 /* Pods_RushMe_RushMeUITests.framework */; };
 		DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
 		DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
 		DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
@@ -17,40 +15,18 @@
 		DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
 		DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */; };
 		DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
-		DB0A842720C084B5006048A8 /* Pods_RushMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A842620C084B5006048A8 /* Pods_RushMe.framework */; };
-		DB0D5CFF20C07E4E006A850D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
-		DB0D5D0020C07EA6006A850D /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
+		DB0A15EC2166A19300433D51 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150032150307E006BC05A /* Campus.swift */; };
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* ScrollButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */; };
 		DB2338A91FD4F53300FB7118 /* RushCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendar.swift */; };
-		DB32F39020C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
 		DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
 		DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
-		DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
-		DB457D9B1FCB6B1C00410149 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
-		DB47437E2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift */; };
+		DB47437E2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */; };
 		DB514FE021501868006BC05A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FDF21501868006BC05A /* User.swift */; };
-		DB514FE121501868006BC05A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FDF21501868006BC05A /* User.swift */; };
-		DB514FE221501868006BC05A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FDF21501868006BC05A /* User.swift */; };
-		DB514FE321501868006BC05A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FDF21501868006BC05A /* User.swift */; };
 		DB514FEA21501C16006BC05A /* Frontend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FE921501C16006BC05A /* Frontend.swift */; };
-		DB514FEB21501C16006BC05A /* Frontend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FE921501C16006BC05A /* Frontend.swift */; };
-		DB514FEC21501C16006BC05A /* Frontend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FE921501C16006BC05A /* Frontend.swift */; };
-		DB514FED21501C16006BC05A /* Frontend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FE921501C16006BC05A /* Frontend.swift */; };
 		DB514FF421501DCD006BC05A /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF321501DCD006BC05A /* Privacy.swift */; };
-		DB514FF621501DCD006BC05A /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF321501DCD006BC05A /* Privacy.swift */; };
 		DB514FF9215026C2006BC05A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF8215026C2006BC05A /* Format.swift */; };
-		DB514FFA215026C2006BC05A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF8215026C2006BC05A /* Format.swift */; };
-		DB514FFB215026C2006BC05A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF8215026C2006BC05A /* Format.swift */; };
-		DB514FFC215026C2006BC05A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF8215026C2006BC05A /* Format.swift */; };
-		DB5150042150307E006BC05A /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150032150307E006BC05A /* Campus.swift */; };
-		DB5150052150307E006BC05A /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150032150307E006BC05A /* Campus.swift */; };
-		DB5150062150307E006BC05A /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150032150307E006BC05A /* Campus.swift */; };
-		DB5150072150307E006BC05A /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150032150307E006BC05A /* Campus.swift */; };
 		DB5150092150308E006BC05A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150082150308E006BC05A /* Images.swift */; };
-		DB51500A2150308E006BC05A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150082150308E006BC05A /* Images.swift */; };
-		DB51500B2150308E006BC05A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150082150308E006BC05A /* Images.swift */; };
-		DB51500C2150308E006BC05A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150082150308E006BC05A /* Images.swift */; };
 		DB57897F1FDAE5FD0083CB6C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */; };
 		DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
 		DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */; };
@@ -66,72 +42,12 @@
 		DBAF96D420BC6B5600165F5E /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF96D320BC6B5600165F5E /* PrivacyViewController.swift */; };
 		DBB1BA7D20B9BD2E0077872F /* FirstEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB1BA7C20B9BD2E0077872F /* FirstEntry.storyboard */; };
 		DBCDA2672104FBAE00C11CB2 /* RMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCDA2662104FBAE00C11CB2 /* RMViewController.swift */; };
-		DBCDA268210502C700C11CB2 /* RMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCDA2662104FBAE00C11CB2 /* RMViewController.swift */; };
 		DBCE4A4B2105406B00D362C4 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE4A4A2105406B00D362C4 /* SWViewController.swift */; };
-		DBCE4A4C210540E800D362C4 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE4A4A2105406B00D362C4 /* SWViewController.swift */; };
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
 		DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
-		DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */; };
-		DBD4F7F720C08101007EFA18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
-		DBD4F7FA20C08101007EFA18 /* RushCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendar.swift */; };
-		DBD4F7FB20C08101007EFA18 /* RMPoll.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0B7329203FAE4E00FFA951 /* RMPoll.swift */; };
-		DBD4F7FC20C08101007EFA18 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8CA198207D9CF20011E25A /* Locations.swift */; };
-		DBD4F7FE20C08101007EFA18 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BB1420730F9F00411AB1 /* Observable.swift */; };
-		DBD4F7FF20C08101007EFA18 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* Backend.swift */; };
-		DBD4F80020C08101007EFA18 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
-		DBD4F80220C08101007EFA18 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */; };
-		DBD4F80320C08101007EFA18 /* CalendarLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift */; };
-		DBD4F80420C08101007EFA18 /* AttractiveFratCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */; };
-		DBD4F80520C08101007EFA18 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
-		DBD4F80620C08101007EFA18 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8D52621FF5C438003A80C1 /* SegmentCell.swift */; };
-		DBD4F80720C08101007EFA18 /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */; };
-		DBD4F80820C08101007EFA18 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
-		DBD4F80920C08101007EFA18 /* ScrollButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */; };
-		DBD4F80A20C08101007EFA18 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */; };
-		DBD4F80B20C08101007EFA18 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */; };
-		DBD4F80D20C08101007EFA18 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD140401F90FCE800945D9B /* AboutViewController.swift */; };
-		DBD4F80E20C08101007EFA18 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
-		DBD4F80F20C08101007EFA18 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
-		DBD4F81020C08101007EFA18 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
-		DBD4F81120C08101007EFA18 /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */; };
-		DBD4F81220C08101007EFA18 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
-		DBD4F81320C08101007EFA18 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
-		DBD4F81420C08101007EFA18 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */; };
-		DBD4F81520C08101007EFA18 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
-		DBD4F81720C08101007EFA18 /* FullEventsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5789831FDCAA7F0083CB6C /* FullEventsListTableViewController.swift */; };
-		DBD4F81C20C08101007EFA18 /* FirstEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB1BA7C20B9BD2E0077872F /* FirstEntry.storyboard */; };
-		DBD4F81D20C08101007EFA18 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF96D320BC6B5600165F5E /* PrivacyViewController.swift */; };
-		DBD4F81E20C08101007EFA18 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
-		DBD4F82020C08101007EFA18 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
+		DBD2ED071FEC67AB00407858 /* FraternityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2ED061FEC67AB00407858 /* FraternityTableViewCell.swift */; };
 		DBF1A103213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
-		DBF1A104213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
-		DBF1A105213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
-		DBF1A106213F3566002A9F3F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF1A102213F3566002A9F3F /* Constants.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DB05F75C1F894A910090DEC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB05F73D1F894A910090DEC3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB05F7441F894A910090DEC3;
-			remoteInfo = RushMe;
-		};
-		DB05F7671F894A910090DEC3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB05F73D1F894A910090DEC3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB05F7441F894A910090DEC3;
-			remoteInfo = RushMe;
-		};
-		DB9E60F220C07D5700B2C765 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB05F73D1F894A910090DEC3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB05F7441F894A910090DEC3;
-			remoteInfo = RushMe;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DB61D21A1F92B6CE009872DC /* Embed Frameworks */ = {
@@ -178,7 +94,7 @@
 		DB2338A81FD4F53300FB7118 /* RushCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RushCalendar.swift; sourceTree = "<group>"; };
 		DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		DB47437D2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB514FDF21501868006BC05A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB514FE921501C16006BC05A /* Frontend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frontend.swift; sourceTree = "<group>"; };
 		DB514FF321501DCD006BC05A /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
@@ -207,7 +123,7 @@
 		DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DBD140401F90FCE800945D9B /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RushMe-Bridging-Header.h"; sourceTree = "<group>"; };
-		DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractiveFratCellTableViewCell.swift; sourceTree = "<group>"; };
+		DBD2ED061FEC67AB00407858 /* FraternityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FraternityTableViewCell.swift; sourceTree = "<group>"; };
 		DBF1A102213F3566002A9F3F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBF60522203F99CB00101FEF /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		DBF60527203FA25700101FEF /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
@@ -230,7 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92571F2F09D34A33D0A177B1 /* Pods_RushMeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,8 +153,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB0A842720C084B5006048A8 /* Pods_RushMe.framework in Frameworks */,
-				B7E35CC6D83950B3BD015D2B /* Pods_RushMe_RushMeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +381,7 @@
 		DBD140471F92840700945D9B /* Table */ = {
 			isa = PBXGroup;
 			children = (
-				DBD2ED061FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift */,
+				DBD2ED061FEC67AB00407858 /* FraternityTableViewCell.swift */,
 				DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */,
 				DB8D52621FF5C438003A80C1 /* SegmentCell.swift */,
 			);
@@ -519,7 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */,
-				DB47437D2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift */,
+				DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -570,7 +483,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DB05F75D1F894A910090DEC3 /* PBXTargetDependency */,
 			);
 			name = RushMeTests;
 			productName = RushMeTests;
@@ -590,7 +502,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DB05F7681F894A910090DEC3 /* PBXTargetDependency */,
 			);
 			name = RushMeUITests;
 			productName = RushMeUITests;
@@ -608,7 +519,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DB9E60F320C07D5700B2C765 /* PBXTargetDependency */,
 			);
 			name = Screenshots;
 			productName = Screenshots;
@@ -628,7 +538,7 @@
 					DB05F7441F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7KE765B32L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -638,21 +548,21 @@
 					};
 					DB05F75A1F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7KE765B32L;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					DB05F7651F894A910090DEC3 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 7KE765B32L;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
-						TestTargetID = DB05F7441F894A910090DEC3;
 					};
 					DB9E60EC20C07D5700B2C765 = {
 						CreatedOnToolsVersion = 9.4;
 						DevelopmentTeam = 7KE765B32L;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
-						TestTargetID = DB05F7441F894A910090DEC3;
 					};
 				};
 			};
@@ -693,7 +603,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB457D9A1FCB6B1900410149 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,8 +610,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB457D9B1FCB6B1C00410149 /* Main.storyboard in Resources */,
-				DBD4F81C20C08101007EFA18 /* FirstEntry.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,7 +726,7 @@
 			files = (
 				DB627BF41FAE12DD00BA362B /* EventTableViewCell.swift in Sources */,
 				DBF1A103213F3566002A9F3F /* Constants.swift in Sources */,
-				DB47437E2010002D00B17D1C /* CalendarLabelCollectionViewCell.swift in Sources */,
+				DB47437E2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift in Sources */,
 				DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */,
 				DBCE4A4B2105406B00D362C4 /* SWViewController.swift in Sources */,
 				DB9ACA002064428600BD4DCF /* ImagePageViewController.swift in Sources */,
@@ -835,12 +742,13 @@
 				DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */,
 				DBCDA2672104FBAE00C11CB2 /* RMViewController.swift in Sources */,
 				DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */,
-				DBD2ED071FEC67AB00407858 /* AttractiveFratCellTableViewCell.swift in Sources */,
+				DBD2ED071FEC67AB00407858 /* FraternityTableViewCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
 				DB8CA199207D9CF20011E25A /* Locations.swift in Sources */,
 				DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */,
 				DBAF96D420BC6B5600165F5E /* PrivacyViewController.swift in Sources */,
+				DB0A15EC2166A19300433D51 /* Campus.swift in Sources */,
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* Backend.swift in Sources */,
 				DB514FE021501868006BC05A /* User.swift in Sources */,
@@ -850,7 +758,6 @@
 				DBD140411F90FCE800945D9B /* AboutViewController.swift in Sources */,
 				DB79BB1520730F9F00411AB1 /* Observable.swift in Sources */,
 				DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */,
-				DB5150042150307E006BC05A /* Campus.swift in Sources */,
 				DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -859,12 +766,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB51500A2150308E006BC05A /* Images.swift in Sources */,
-				DBF1A104213F3566002A9F3F /* Constants.swift in Sources */,
-				DB514FFA215026C2006BC05A /* Format.swift in Sources */,
-				DB5150052150307E006BC05A /* Campus.swift in Sources */,
-				DB514FE121501868006BC05A /* User.swift in Sources */,
-				DB514FEB21501C16006BC05A /* Frontend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,48 +773,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBCDA268210502C700C11CB2 /* RMViewController.swift in Sources */,
-				DBD4F81E20C08101007EFA18 /* RushMe-Bridging-Header.h in Sources */,
-				DBD4F7F720C08101007EFA18 /* AppDelegate.swift in Sources */,
-				DB5150062150307E006BC05A /* Campus.swift in Sources */,
-				DBD4F7FA20C08101007EFA18 /* RushCalendar.swift in Sources */,
-				DBD4F7FB20C08101007EFA18 /* RMPoll.swift in Sources */,
-				DBD4F7FC20C08101007EFA18 /* Locations.swift in Sources */,
-				DBD4F7FE20C08101007EFA18 /* Observable.swift in Sources */,
-				DBD4F7FF20C08101007EFA18 /* Backend.swift in Sources */,
-				DBF1A105213F3566002A9F3F /* Constants.swift in Sources */,
-				DBD4F80020C08101007EFA18 /* Fraternity.swift in Sources */,
-				DBD4F80220C08101007EFA18 /* CalendarCollectionViewCell.swift in Sources */,
-				DBD4F80320C08101007EFA18 /* CalendarLabelCollectionViewCell.swift in Sources */,
-				DBD4F80420C08101007EFA18 /* AttractiveFratCellTableViewCell.swift in Sources */,
-				DB514FFB215026C2006BC05A /* Format.swift in Sources */,
-				DBD4F80520C08101007EFA18 /* EventTableViewCell.swift in Sources */,
-				DBD4F80620C08101007EFA18 /* SegmentCell.swift in Sources */,
-				DBD4F80720C08101007EFA18 /* SWRevealViewController.h in Sources */,
-				DB514FF621501DCD006BC05A /* Privacy.swift in Sources */,
-				DBD4F80820C08101007EFA18 /* SWRevealViewController.m in Sources */,
-				DB514FE221501868006BC05A /* User.swift in Sources */,
-				DBD4F80920C08101007EFA18 /* ScrollButtonViewController.swift in Sources */,
-				DBD4F80A20C08101007EFA18 /* ScrollPageViewController.swift in Sources */,
-				DBD4F80B20C08101007EFA18 /* SplitViewController.swift in Sources */,
-				DB514FEC21501C16006BC05A /* Frontend.swift in Sources */,
-				DBD4F80D20C08101007EFA18 /* AboutViewController.swift in Sources */,
-				DBD4F80E20C08101007EFA18 /* MasterViewController.swift in Sources */,
-				DBD4F80F20C08101007EFA18 /* DetailViewController.swift in Sources */,
-				DB51500B2150308E006BC05A /* Images.swift in Sources */,
-				DB32F39020C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */,
-				DBD4F81020C08101007EFA18 /* ImageViewController.swift in Sources */,
-				DBD4F81120C08101007EFA18 /* ImagePageViewController.swift in Sources */,
-				DBD4F81220C08101007EFA18 /* CalendarViewController.swift in Sources */,
-				DBD4F81320C08101007EFA18 /* EventTableViewController.swift in Sources */,
-				DBD4F81420C08101007EFA18 /* MapViewController.swift in Sources */,
-				DBD4F81520C08101007EFA18 /* SettingsViewController.swift in Sources */,
-				DBD4F81720C08101007EFA18 /* FullEventsListTableViewController.swift in Sources */,
-				DBD4F81D20C08101007EFA18 /* PrivacyViewController.swift in Sources */,
-				DBD4F82020C08101007EFA18 /* Assets.xcassets in Sources */,
-				DB0D5CFF20C07E4E006A850D /* SnapshotHelper.swift in Sources */,
-				DB0D5D0020C07EA6006A850D /* RushMeUITests.swift in Sources */,
-				DBCE4A4C210540E800D362C4 /* SWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,34 +780,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB51500C2150308E006BC05A /* Images.swift in Sources */,
-				DBF1A106213F3566002A9F3F /* Constants.swift in Sources */,
-				DB514FFC215026C2006BC05A /* Format.swift in Sources */,
-				DB5150072150307E006BC05A /* Campus.swift in Sources */,
-				DB514FE321501868006BC05A /* User.swift in Sources */,
-				DB514FED21501C16006BC05A /* Frontend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DB05F75D1F894A910090DEC3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB05F7441F894A910090DEC3 /* RushMe */;
-			targetProxy = DB05F75C1F894A910090DEC3 /* PBXContainerItemProxy */;
-		};
-		DB05F7681F894A910090DEC3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB05F7441F894A910090DEC3 /* RushMe */;
-			targetProxy = DB05F7671F894A910090DEC3 /* PBXContainerItemProxy */;
-		};
-		DB9E60F320C07D5700B2C765 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB05F7441F894A910090DEC3 /* RushMe */;
-			targetProxy = DB9E60F220C07D5700B2C765 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB05F74E1F894A910090DEC3 /* Main.storyboard */ = {
@@ -1098,8 +933,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RushMe/RushMe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1121,8 +955,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RushMe/RushMe-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1134,6 +967,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeTests;
@@ -1150,6 +984,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeTests;
@@ -1165,6 +1000,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeUITests;
@@ -1174,7 +1010,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = RushMe;
 			};
 			name = Debug;
 		};
@@ -1184,6 +1019,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMeUITests;
@@ -1192,7 +1028,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "RushMeUITests/RushMeUITests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = RushMe;
 			};
 			name = Release;
 		};
@@ -1212,10 +1047,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RushMe.Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RushMe;
 			};
 			name = Debug;
 		};
@@ -1235,9 +1070,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RushMe.Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RushMe;
 			};
 			name = Release;
 		};

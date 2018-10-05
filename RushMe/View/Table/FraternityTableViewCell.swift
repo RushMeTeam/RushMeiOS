@@ -9,7 +9,7 @@
 import UIKit
 
 
-class AttractiveFratCellTableViewCell: UITableViewCell {
+class FraternityTableViewCell: UITableViewCell {
   // Fraternity name (e.g. Alpha Beta Gamma)
   @IBOutlet weak var titleLabel: UILabel!
   // Chapter designation (e.g. Theta)
@@ -43,7 +43,7 @@ class AttractiveFratCellTableViewCell: UITableViewCell {
   
   lazy var setupCell : Void = {
     previewImageView.layer.masksToBounds = true
-    previewImageView.contentMode = UIViewContentMode.scaleAspectFill
+    previewImageView.contentMode = UIView.ContentMode.scaleAspectFill
     previewImageView.layer.cornerRadius = 8
     //titleLabel.addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))
     previewImageView.isUserInteractionEnabled = false

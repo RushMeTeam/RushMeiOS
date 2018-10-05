@@ -28,50 +28,7 @@ UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, Frater
 UIPageViewControllerDataSource, UIViewControllerTransitioningDelegate,
 UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
 
-  func getFrat(after : String) -> String? {
-    let index = dataKeys.index(of: after)
-    return (index != nil && index! < dataKeys.count-1) ? dataKeys[index!+1] : nil
-  }
-  func getFrat(before : String) -> String? {
-    let index = dataKeys.index(of: before)
-    return (index != nil && index! > 0) ? dataKeys[index!-1] : nil
-  }
-  func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity,
-      let newFratName = getFrat(before: selectedFrat.name) {
-      let newVC = UIStoryboard.main.detailVC
-      newVC.title = newFratName
-      newVC.selectedFraternity = Campus.shared.fraternitiesByName[newFratName]
-      return newVC
-    }
-    return nil
-  }
-  func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity?.name,
-      let newFratName = getFrat(after: selectedFrat) {
-      let newVC = UIStoryboard.main.detailVC
-      newVC.title = newFratName
-      newVC.selectedFraternity = Campus.shared.fraternitiesByName[newFratName]
-      return newVC
-    }
-    return nil
-  }
-  func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    if completed, let vc = pageViewController.viewControllers?.first as? DetailViewController,
-      let frat = vc.selectedFraternity {
-      pageViewController.navigationItem.setRightBarButton(barButtonItem(for: frat), animated: false)
-      pageViewController.title = frat.name.greekLetters
-    }
-  }
-  
-  func presentationCount(for pageViewController: UIPageViewController) -> Int {
-    return dataKeys.count
-  }
-  func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
-    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
-    button.title = frat.name
-    return button
-  }
+
   @objc func toggleFavorite(sender : UIBarButtonItem) {
     if let fratName = sender.title {
       sender.image = Campus.shared.toggleFavorite(named: fratName) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
@@ -134,7 +91,12 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     get {
       // FOR SCREENSHOTS 
 //      if !viewingFavorites {
-//       return ["Theta Chi", "Chi Phi", "Phi Iota Alpha", "Rensselaer Society of Engineers", "Psi Upsilon", "Delta Tau Delta",  "Zeta Psi", "Delta Phi", "Pi Lambda Phi","Theta Xi",  "Phi Kappa Theta", "Sigma Alpha Epsilon", "Phi Sigma Kappa", "Sigma Phi Epsilon", "Delta Kappa Epsilon", "Pi Kappa Alpha", "Lambda Chi Alpha", "Alpha Phi Alpha", "Pi Kappa Phi", "Acacia", "Phi Mu Delta", "Tau Kappa Epsilon", "Alpha Epsilon Pi", "Phi Gamma Delta", "Alpha Sigma Phi", "Tau Epsilon Phi", "Alpha Chi Rho", "Sigma Chi", "Pi Delta Psi"]
+//       return ["Theta Chi", "Chi Phi", "Phi Iota Alpha", "Rensselaer Society of Engineers", 
+      //         "Psi Upsilon", "Delta Tau Delta",  "Zeta Psi", "Delta Phi", "Pi Lambda Phi","Theta Xi",  
+      //         "Phi Kappa Theta", "Sigma Alpha Epsilon", "Phi Sigma Kappa", "Sigma Phi Epsilon", "Delta Kappa Epsilon", 
+      //         "Pi Kappa Alpha", "Lambda Chi Alpha", "Alpha Phi Alpha", "Pi Kappa Phi", "Acacia", "Phi Mu Delta", 
+      //         "Tau Kappa Epsilon", "Alpha Epsilon Pi", "Phi Gamma Delta", "Alpha Sigma Phi", "Tau Epsilon Phi", 
+      //         "Alpha Chi Rho", "Sigma Chi", "Pi Delta Psi"]
 //      }
       
       // If we're searching, use the contents of the search bar to determine 
@@ -188,6 +150,9 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
+
     navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController!.navigationBar.shadowImage = UIImage()
     
@@ -196,13 +161,12 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     // Ensure the menu button toggles the menu
     // Refresh control 
     refreshControl = UIRefreshControl()
-    refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+    refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControl.Event.valueChanged)
     tableView.backgroundView = refreshControl
     
     refreshControl!.backgroundColor = Frontend.colors.AppColor
     refreshControl!.tintColor = .white
-    
-    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
+  
   }
 
   lazy var setupSearchBar : Void = {
@@ -250,7 +214,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
     favoritesSegmentControl.tintColor = .white
-    favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControlEvents.valueChanged)
+    favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControl.Event.valueChanged)
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
    //tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
     //view.backgroundColor = RMColor.AppColor
@@ -273,7 +237,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   // MARK: - Data Handling
   func dataUpdate() {
     shuffledFrats?.shuffle()
-    Campus.shared.pullFratsFromSQLDatabase()
+    Campus.shared.pullFromBackend()
     reloadTableView()
   }
   
@@ -291,14 +255,16 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     DispatchQueue.main.async {
+      self.reloadTableView()
       self.searchController.searchBar.placeholder = "Search \(Campus.shared.fraternityNames.count) Fraternities"
       self.searchController.searchBar.layoutIfNeeded() 
       if newValue == 1 {
         self.refreshControl?.endRefreshing()
-        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", attributes : [NSAttributedStringKey.foregroundColor: UIColor.white])
+        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", attributes : [NSAttributedString.Key.foregroundColor: UIColor.white])
         self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
+        
       }
-      self.reloadTableView()
+      
     } 
   }
   
@@ -394,7 +360,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       
       return cell
     }
-    let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! AttractiveFratCellTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! FraternityTableViewCell
     cell.delegate = self
     guard indexPath.row < dataKeys.count else {
       tableView.reloadData()
@@ -417,7 +383,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
       Campus.shared.addFavorite(named: fratName)
       action.backgroundColor = Frontend.colors.AppColor
-      if let cell = tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+      if let cell = tableView.cellForRow(at: cellIndex) as? FraternityTableViewCell {
         cell.isAccentuated = true
         //SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
       }
@@ -426,13 +392,13 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     }
     else {
       action.backgroundColor = Frontend.colors.AppColor.withAlphaComponent(0.5)
-      if let cell = tableView.cellForRow(at: cellIndex) as? AttractiveFratCellTableViewCell {
+      if let cell = tableView.cellForRow(at: cellIndex) as? FraternityTableViewCell {
         cell.isAccentuated = false
         //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
       }
       Campus.shared.removeFavorite(named: fratName)
       if (viewingFavorites) {
-        tableView.deleteRows(at: [cellIndex], with: UITableViewRowAnimation.left)
+        tableView.deleteRows(at: [cellIndex], with: UITableView.RowAnimation.left)
       }
       else {
         action.backgroundColor = Frontend.colors.AppColor
@@ -445,6 +411,50 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   // MARK: - Refresh Control
   @objc func handleRefresh(refreshControl : UIRefreshControl) {
     dataUpdate()
+  }
+  func getFrat(after : String) -> String? {
+    let index = dataKeys.index(of: after)
+    return (index != nil && index! < dataKeys.count-1) ? dataKeys[index!+1] : nil
+  }
+  func getFrat(before : String) -> String? {
+    let index = dataKeys.index(of: before)
+    return (index != nil && index! > 0) ? dataKeys[index!-1] : nil
+  }
+  func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity,
+      let newFratName = getFrat(before: selectedFrat.name) {
+      let newVC = UIStoryboard.main.detailVC
+      newVC.title = newFratName
+      newVC.selectedFraternity = Campus.shared.fraternitiesByName[newFratName]
+      return newVC
+    }
+    return nil
+  }
+  func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    if let selectedFrat = (viewController as? DetailViewController)?.selectedFraternity?.name,
+      let newFratName = getFrat(after: selectedFrat) {
+      let newVC = UIStoryboard.main.detailVC
+      newVC.title = newFratName
+      newVC.selectedFraternity = Campus.shared.fraternitiesByName[newFratName]
+      return newVC
+    }
+    return nil
+  }
+  func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    if completed, let vc = pageViewController.viewControllers?.first as? DetailViewController,
+      let frat = vc.selectedFraternity {
+      pageViewController.navigationItem.setRightBarButton(barButtonItem(for: frat), animated: false)
+      pageViewController.title = frat.name.greekLetters
+    }
+  }
+  
+  func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    return dataKeys.count
+  }
+  func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
+    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
+    button.title = frat.name
+    return button
   }
 }
 // MARK: Array Shuffle

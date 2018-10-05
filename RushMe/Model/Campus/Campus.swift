@@ -186,12 +186,14 @@ class Campus: NSObject {
     }
   }
   var lastDictArray : [Dictionary<String,Any>]? = nil 
-  func pullFratsFromSQLDatabase() {
+  func pullFromBackend() {
     if !isLoading {
       self.percentageCompletion = 0.2
       DispatchQueue.global(qos: .userInitiated).async {
+        
         var dictArray = [Dictionary<String, Any>]()
         var eventArray = [Dictionary<String, Any>]()
+        
         if let fratArray = Backend.selectAll(fromTable: Database.keys.database.fraternities),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
           let eventArr = Backend.selectAll(fromTable: Database.keys.database.events) {
@@ -199,27 +201,30 @@ class Campus: NSObject {
           eventArray = eventArr
           self.lastDictArray = dictArray
         }
-        var numberFraternitiesCompleted = 0
+        
         for fraternityDict in dictArray {
           _ = Fraternity(withDictionary: fraternityDict)?.register(withCampus: self)
-          numberFraternitiesCompleted += 1
-          self.percentageCompletion = 0.2 + 0.8*Float(numberFraternitiesCompleted) / Float(dictArray.count)
+          // Removed due to performance issues, lack of necessity for small quantity of data being pulled
+//          self.percentageCompletionObservable.value = 0.2 + 0.8*Float(numberFraternitiesCompleted) / Float(dictArray.count)
         }
         for eventDict in eventArray {
-          if let fratName = eventDict["house"] as? String, let fEvent = self.fraternitiesByName[fratName]?.add(eventDescribedBy: eventDict){
+          if let fratName = eventDict["house"] as? String, 
+             let fEvent = self.fraternitiesByName[fratName]?.add(eventDescribedBy: eventDict){
             if let _ = self.fratEventsByDay[fEvent.dayKey] {
               self.fratEventsByDay[fEvent.dayKey]!.append(fEvent)
-            }
-            else {
+            } else {
               self.fratEventsByDay[fEvent.dayKey] = [fEvent] 
             }
             self.allEvents.insert(fEvent)
           }
         }
         self.percentageCompletion = 1
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
           Locations.geocode(selectedFraternities: Array(Campus.shared.fraternityNames))
         }
+        
+
+        
       } 
     }
     else {

@@ -34,10 +34,10 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     self.scrollView.bounces = true
   }
   func addVisualEffectView() {
-    visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
+    visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.light))
     visualEffectView!.translatesAutoresizingMaskIntoConstraints = false
     self.view.addSubview(visualEffectView!)
-    self.view.sendSubview(toBack: visualEffectView!)
+    self.view.sendSubviewToBack(visualEffectView!)
     NSLayoutConstraint.activate([visualEffectView!.topAnchor.constraint(equalTo: view.topAnchor),
                                  visualEffectView!.leftAnchor.constraint(equalTo: view.leftAnchor),
                                  visualEffectView!.rightAnchor.constraint(equalTo: view.rightAnchor),

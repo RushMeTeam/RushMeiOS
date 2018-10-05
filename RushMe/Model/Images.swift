@@ -83,7 +83,7 @@ extension UIImage {
         print(e.localizedDescription)
       }
     }
-    if let imageData = UIImagePNGRepresentation(self) {
+    if let imageData = self.pngData() {
       do {
         try imageData.write(to: url)
       }

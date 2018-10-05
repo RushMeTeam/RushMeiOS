@@ -74,7 +74,7 @@ class MapViewController: UIViewController,
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: Frontend.colors.NavigationItemsColor]
+      [NSAttributedString.Key.foregroundColor: Frontend.colors.NavigationItemsColor]
     // Do any additional setup after loading the view.
     self.fratNameButton.title
     self.mapView.layer.cornerRadius = 5

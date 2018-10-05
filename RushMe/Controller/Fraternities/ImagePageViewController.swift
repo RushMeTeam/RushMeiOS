@@ -41,7 +41,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
       return (currentPage?.subviews.first as? UIImageView)?.image
     }
   }
-  var contentMode : UIViewContentMode = .scaleAspectFill {
+  var contentMode : UIView.ContentMode = .scaleAspectFill {
     willSet {
       for page in pages {
         if let imageView = page?.subviews.first as? UIImageView {
@@ -185,9 +185,9 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
     //    currentPageIndex = page
   }
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    let pageWidth = scrollView.frame.width
-    let page = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1
-    //    currentPageIndex = Int(page)
+    //let pageWidth = scrollView.frame.width
+    //let page = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1
+    //currentPageIndex = Int(page)
   }
   
   @IBAction func goToPage(_ sender: UIPageControl) {

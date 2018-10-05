@@ -54,19 +54,7 @@ class EventTableViewCell: UITableViewCell {
       }
     }
   }
-  var provideDate : Bool = false {
-    didSet {
-      if let event = self.event, provideDate {
-        //self.dateLabel?.text = DateFormatter.localizedString(from: event.startDate,
-                                                            // dateStyle: .medium,
-                                                             //timeStyle: .none)
-        //self.dateLabel?.isHidden = false
-      }
-      else {
-       //self.dateLabel?.isHidden = true
-      }
-    }
-  }
+  var provideDate : Bool = false 
   
   override func awakeFromNib() {
         super.awakeFromNib()
@@ -87,18 +75,16 @@ extension String {
   }
   
   func substring(from: Int) -> String {
-    let fromIndex = index(from: from)
-    return substring(from: fromIndex)
+    return String(self[index(from: from)...])
   }
   
   func substring(to: Int) -> String {
-    let toIndex = index(from: to)
-    return substring(to: toIndex)
+    return String(self[...index(from: to)])
   }
   
   func substring(with r: Range<Int>) -> String {
     let startIndex = index(from: r.lowerBound)
     let endIndex = index(from: r.upperBound)
-    return substring(with: startIndex..<endIndex)
+    return String(self[startIndex..<endIndex])
   }
 }

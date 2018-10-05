@@ -1,5 +1,5 @@
 PODS:
-  - DeviceKit (1.7.0)
+  - DeviceKit (1.8.1)
   - iCalKit (0.1.0)
 
 DEPENDENCIES:
@@ -20,7 +20,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/kiliankoe/iCalKit.git
 
 SPEC CHECKSUMS:
-  DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
+  DeviceKit: eb29be542f5473b46b1c719011cf7de3ec5264ca
   iCalKit: 6fc24b368fe28588ec9137b28d6c79636368ca4d
 
 PODFILE CHECKSUM: 5fe594388eb624476bf00d89d146c42044b124d7

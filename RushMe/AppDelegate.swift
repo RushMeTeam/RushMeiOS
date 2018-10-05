@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.layer.masksToBounds = true
     window!.layer.cornerRadius = 5
@@ -38,11 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     let swRevealVC = UIStoryboard.main.instantiateViewController(withIdentifier: "swRevealVC") as! SWViewController
     UINavigationBar.appearance().tintColor = .white
-    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UINavigationBar.appearance().tintColor]
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UINavigationBar.appearance().tintColor]
     self.window!.rootViewController = swRevealVC
     self.window!.makeKeyAndVisible()
 
-    Campus.shared.pullFratsFromSQLDatabase()
 
     DispatchQueue.global(qos: .userInitiated).async {
       if Privacy.preferencesNeedUpdating {
@@ -53,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
     }
-    
+    Campus.shared.pullFromBackend()
    
     return true
   }

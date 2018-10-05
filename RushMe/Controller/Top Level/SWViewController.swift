@@ -13,7 +13,7 @@ class SWViewController: SWRevealViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     let splitVC = UIStoryboard.main.instantiateViewController(withIdentifier: "splitVC")
-    let scrollPageVC = splitVC.childViewControllers.first!.childViewControllers.first as! RMViewController
+    let scrollPageVC = splitVC.children.first!.children.first as! RMViewController
     let drawerMenuVC = UIStoryboard.main.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
     self.delegate = scrollPageVC
     if (!Frontend.colors.SlideOutMenuShadowIsEnabled) {

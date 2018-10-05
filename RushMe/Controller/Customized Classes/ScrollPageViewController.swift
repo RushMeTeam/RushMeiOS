@@ -33,7 +33,7 @@ class ScrollPageViewController: UIViewController,
     return scrollView
   }()
   private(set) var scrollView : UIScrollView!
-  @IBOutlet var pageControl: UIPageControl!
+  var pageControl: UIPageControl = UIPageControl()
   var numberOfPages : Int {
     get {
       return pageViewControllers.count 
@@ -183,7 +183,7 @@ class ScrollPageViewController: UIViewController,
     self.navigationController?.navigationBar.barTintColor = Frontend.colors.AppColor
     self.navigationController?.navigationBar.tintColor = .white
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: navigationController!.navigationBar.tintColor]
+      [NSAttributedString.Key.foregroundColor: navigationController!.navigationBar.tintColor]
 
   }
   override func didReceiveMemoryWarning() {
@@ -205,9 +205,9 @@ class ScrollPageViewController: UIViewController,
       let newViewController = self.pageViewControllers[pageIndex]
       let canvasView = UIView(frame: CGRect(x: 0, y: (pageHeight)*CGFloat(pageIndex), width: view.bounds.width, height: pageHeight))
       canvasView.clipsToBounds = true
-      newViewController.willMove(toParentViewController: self)
-      addChildViewController(newViewController)
-      newViewController.didMove(toParentViewController: self)
+      newViewController.willMove(toParent: self)
+      addChild(newViewController)
+      newViewController.didMove(toParent: self)
       scrollView.addSubview(canvasView)
       newViewController.view!.translatesAutoresizingMaskIntoConstraints = false
       canvasView.addSubview(newViewController.view!)

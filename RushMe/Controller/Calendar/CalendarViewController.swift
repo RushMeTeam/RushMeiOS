@@ -125,13 +125,13 @@ ScrollableItem {
     //    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = false
-    self.view.sendSubview(toBack: collectionView)
+    self.view.sendSubviewToBack(collectionView)
     collectionView.layer.masksToBounds = true
     collectionView.layer.cornerRadius = 8
     
     
     // Do any additional setup after loading the view.
-    if let tbView = self.childViewControllers.first as? EventTableViewController {
+    if let tbView = self.children.first as? EventTableViewController {
       eventViewController = tbView
     }
     
@@ -280,7 +280,7 @@ ScrollableItem {
     }
     
     if (indexPath.row < 7) {
-      let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! CalendarLabelCollectionViewCell
+      let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! StaticCalendarCollectionViewCell
       let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (firstEvent!.startDate))!
       let dateAsString = DateFormatter.localizedString(from: currentDay,
                                                        dateStyle: DateFormatter.Style.full,

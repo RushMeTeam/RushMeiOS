@@ -23,7 +23,7 @@ class AboutViewController: UIViewController {
 //      view.addGestureRecognizer(revealViewController().tapGestureRecognizer())
 //    }
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSAttributedStringKey.foregroundColor: Frontend.colors.NavigationItemsColor]
+      [NSAttributedString.Key.foregroundColor: Frontend.colors.NavigationItemsColor]
     navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.backgroundColor = Frontend.colors.AppColor
     navigationController?.navigationBar.tintColor = Frontend.colors.AppColor
