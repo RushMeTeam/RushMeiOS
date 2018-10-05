@@ -194,9 +194,9 @@ class Campus: NSObject {
         var dictArray = [Dictionary<String, Any>]()
         var eventArray = [Dictionary<String, Any>]()
         
-        if let fratArray = Backend.selectAll(fromTable: Database.keys.database.fraternities),
+        if let fratArray = try? Backend.selectAll(fromTable: Database.keys.database.fraternities),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
-          let eventArr = Backend.selectAll(fromTable: Database.keys.database.events) {
+          let eventArr = try? Backend.selectAll(fromTable: Database.keys.database.events) {
           dictArray = fratArray
           eventArray = eventArr
           self.lastDictArray = dictArray

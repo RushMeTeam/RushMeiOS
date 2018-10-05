@@ -20,11 +20,21 @@ enum ActionType : String {
 
 // Centralize requests made to an SQL server
 class Backend {
+  
+  enum BackendError : Error {
+    case nullServerResponse
+    case invalidServerResponse(withCode : Int)
+    case invalidServerResponse(withCode : Int, response : String?)
+    case jsonParseError(from : Data)
+    case badRequest
+  }
+  
   fileprivate static let databaseName = "fratinfo"
   fileprivate static let userActionsTableName = "sqlrequests"
-  fileprivate static let userName = "RushMePublic"
+  
   static let db = URL(string: "http://ec2-18-188-8-243.us-east-2.compute.amazonaws.com/request.php")!
   static let S3 = URL(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
+  
   static var pastActionsFromFile : Array<Dictionary<String, Any>> {
     set {
       DispatchQueue.global(qos: .background).async {
@@ -35,83 +45,104 @@ class Backend {
     }
     get {
       if let actions = NSKeyedUnarchiver.unarchiveObject(withFile: User.files.userActionsURL.path) as? [Dictionary<String, Any>] {
-       return actions 
+        return actions 
       }
-      else {
-        self.pastActionsFromFile = [Dictionary<String, Any>]()
-      }
+      self.pastActionsFromFile = [Dictionary<String, Any>]()
       return []
     }
   }
-  // Grab everything from a SQL table using it's name
-  static func selectAll(fromTable tableName : String ) -> [Dictionary<String, Any>]? {
+  
+  // Select everything from a SQL table using its name
+  static func selectAll(fromTable tableName : String ) throws -> [Dictionary<String, Any>]  {
     let tableString = "?table=\(tableName)"
-    if let url = URL(string: Backend.db.absoluteString + tableString), 
-      let response = try? Data.init(contentsOf: url) {
-      return (try? JSONSerialization.jsonObject(with: response, options: .allowFragments)) as? [Dictionary<String, Any>] 
-    } else {
-     print("Failed Select") 
+    guard let url = URL(string: Backend.db.absoluteString + tableString) else {
+      throw BackendError.badRequest
+    }; guard let response = try? Data(contentsOf: url) else {
+      throw BackendError.nullServerResponse
+    }; guard let jsonObject = 
+      try? JSONSerialization.jsonObject(with: response, options: .allowFragments)
+    else {
+        throw BackendError.jsonParseError(from: response)
     }
-    return nil
+    return jsonObject as? [Dictionary<String, Any>] ?? [] 
   }
+  
   // Used to determine whether the App is currently in the process of 
-  //    pusing user actions to the database
+  // uploading (pushing) user actions to the database
   static private(set) var isPushing = false
-  // Push multiple stored/cached actions
-  private static func pushAllActions() {
-    //coordinator.connect()
-    guard !isPushing else {
-     return
+  
+  private static func handleResponse(_ data : Data?,_ response : URLResponse?,_ error : Error?) throws {
+    guard let data = data, error == nil else {
+      print("Push Error:", error!) 
+      return
     }
+    let httpStatus = response as? HTTPURLResponse
+    switch httpStatus?.statusCode {
+    case nil:
+      throw BackendError.nullServerResponse
+    case 200: 
+      break
+    default:
+      //print("Push Error:\n\tHTTPStatus:\t\(httpStatus!.statusCode)\n\tHTTPResponse:\t\(String(data: data, encoding: .utf8) ?? "None")")
+      throw BackendError.invalidServerResponse(withCode: httpStatus!.statusCode, 
+                                               response: String(data: data, encoding: .utf8))
+    }
+  }
+  
+  private static func push(action : [String : Any]) {
+    guard Privacy.policyAccepted else { return }
+    DispatchQueue.global(qos: .background).async {
+      let request = URLRequest(fromAction: action)
+      URLSession.shared.dataTask(with: request) {  
+        (data, response, error) in try? handleResponse(data, response, error) 
+      }.resume()
+    }
+  }
+  
+  // Push multiple stored/cached actions
+  private static func pushAll() {
+    guard !isPushing else { return }
     isPushing = true
     while let action = pastActionsFromFile.popLast() {
       Backend.push(action: action)
     }
-    //print("Pushed Actions: \(pastActionsFromFile)")
     self.pastActionsFromFile = []
     self.isPushing = false
   }
-  private static func push(action : [String : Any]) {
-    if Privacy.policyAccepted {
-      DispatchQueue.global(qos: .background).async {
-        var request = URLRequest.init(url: Backend.db)
-        request.httpMethod = "POST"
-        var actionAsString = "&"
-        for category in action {
-          actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
-        }
-        request.timeoutInterval = 10
-        request.httpBody = actionAsString.data(using: .utf8)
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-          guard let data = data, error == nil else {
-            print("Push Error:", error!) 
-            return
-          }
-          if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-            print("Push Error:\n\tStatus Code is not 200! (httpStatusCode \(httpStatus.statusCode))") 
-            //SQLHandler.pastActionsFromFile.append(action)
-          }
-          if let responseString = String.init(data: data, encoding: .utf8), responseString.count > 0 {
-            //          print("Data Sent:", String.init(data: request.httpBody!, encoding: .utf8)!)
-            print("Server Reponse:", responseString)
-          }
-          }.resume()
+  
+  
+  static func inform(action : ActionType, options : String? = nil) {
+    DispatchQueue.global(qos: .utility).async {
+      let actionReport = report(fromAction: action)
+      if action == .AppEnteredForeground || 
+         action == .AppWillEnterBackground {
+        pushAll() 
+      } else {
+        push(action: actionReport)
       }
     }
   }
-  static func inform(action : ActionType, options : String? = nil, additionalInfo : [String : Any]? = nil) {
-    DispatchQueue.global(qos: .utility).async {
-      var report = User.device.properties
-      report["pact"] = action.rawValue
-      if let subseqOptions = (options?.split(separator: ";").first) {
-        report["popt"] = String(subseqOptions)
-      }
-      if action == .AppEnteredForeground || action == .AppWillEnterBackground {
-        pushAllActions() 
-      } else {
-        push(action: report)
-      }
+  private static func report(fromAction action : ActionType, options : String? = nil) -> [String : Any] {
+    var report = User.device.properties
+    report["pact"] = action.rawValue
+    if let subseqOptions = (options?.split(separator: ";").first) {
+      report["popt"] = String(subseqOptions)
     }
+    return report
+  }
+  
+}
+
+fileprivate extension URLRequest {
+  init(fromAction action : [String : Any]) {
+    self.init(url: Backend.db)
+    self.httpMethod = "POST"
+    var actionAsString = "&"
+    for category in action {
+      actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+    }
+    self.timeoutInterval = 10
+    self.httpBody = actionAsString.data(using: .utf8)
   }
 }
 

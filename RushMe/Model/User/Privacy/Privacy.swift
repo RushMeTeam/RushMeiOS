@@ -56,7 +56,8 @@ struct Privacy {
     return privacyRow?["mandatory"] as? Bool ?? getPrivacyStatement()?.isMandatory
   }
   private static func getPrivacyStatement() -> (policy : String, effective: Date, isMandatory: Bool)? {
-    if let dictionary = Backend.selectAll(fromTable: "privacy")?.first,
+    if let selectAttempt = try? Backend.selectAll(fromTable: "privacy").first,
+      let dictionary = selectAttempt,
       let policy = dictionary["policy"] as? String,
       let dateString = dictionary["publishdate"] as? String,
       let isMandatoryRaw = dictionary["mandatory"] as? String, 

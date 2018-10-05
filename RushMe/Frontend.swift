@@ -9,6 +9,7 @@
 import Foundation
 
 struct Frontend {
+  
   struct images {
     static let noImage = UIImage(named: "defaultImage")!
     static let icon = UIImage(named: "appIcon")!
@@ -16,6 +17,7 @@ struct Frontend {
     static let unfilledHeart = UIImage(named: "FavoritesUnfilled")
     static let filledHeart = UIImage(named: "FavoritesIcon")
   }
+  
   struct text {
     static let appName = "RushMe"
     static let noEvents = "No events"
@@ -27,7 +29,9 @@ struct Frontend {
     static let unfavorite = "Unfavorite"
     static let shareMessage = "Here are all the events I'll be going to this rush!"
   }
+  
   static let cornerRadius : CGFloat = 10
+  
   struct colors {
     // RGB 41 171 226
     static let AppColor = UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
@@ -35,4 +39,31 @@ struct Frontend {
     static let SlideOutMenuShadowIsEnabled = true
     static let MenuButtonSelectedColor = UIColor.white.withAlphaComponent(0.15)
   } 
+}
+
+enum ShortCutIdentifier : String {
+  case Fraternities
+  case Maps
+  case Calendar
+  init?(identifier : String) {
+    if let id = identifier.components(separatedBy: ".").last {
+      self.init(rawValue: id)
+    } else {
+      return nil 
+    }
+  }
+}
+
+
+extension UIStoryboard {
+  static var main : UIStoryboard {
+    get {
+      return UIStoryboard(name: "Main", bundle: nil) 
+    }
+  }
+  static var privacy : UIStoryboard {
+    get {
+      return UIStoryboard(name: "FirstEntry", bundle: nil) 
+    }
+  }
 }
