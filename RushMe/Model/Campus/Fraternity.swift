@@ -31,7 +31,7 @@ class Fraternity {
    return Locations.byName[name] 
   }
   // All the Fraternity's associated rush events are stored in events
-  var events : [Date : Fraternity.Event]!
+  var events : Set<Fraternity.Event> = Set<Fraternity.Event>()
   // The number of active members
   var memberCount : Int?
   // All data in the Fraternity object is stored again in properties
@@ -75,9 +75,6 @@ class Fraternity {
   func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
     //house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
-    if events == nil {
-      events = [:] 
-    }
     let houseName = dict["house"] as! String
     if (self.name != houseName){
       return nil
@@ -93,8 +90,8 @@ class Fraternity {
                              startingAt: startTime,
                              endingAt: endTime,
                              atLocation: location) {
-      self.events[event.startDate] = event
-      return event
+    
+      return events.insert(event).memberAfterInsert
     }
     return nil
   }

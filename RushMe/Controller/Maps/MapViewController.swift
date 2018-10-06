@@ -137,7 +137,7 @@ class MapViewController: UIViewController,
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
-      Backend.inform(action: .FraternitySelected, options: fratName)
+      Backend.log(action: .FraternitySelected, options: fratName)
       let controller = segue.destination as! UIPageViewController
       controller.title = fratName.greekLetters
       controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)

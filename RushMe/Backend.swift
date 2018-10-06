@@ -111,7 +111,7 @@ class Backend {
   }
   
   
-  static func inform(action : ActionType, options : String? = nil) {
+  static func log(action : ActionType, options : String? = nil) {
     DispatchQueue.global(qos: .utility).async {
       let actionReport = report(fromAction: action)
       if action == .AppEnteredForeground || 

@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController {
     self.displayPastEventsSwitch.onTintColor = Frontend.colors.AppColor
     // Update UI to match current settings
     dateLabel.text = DateFormatter.localizedString(from: .today, dateStyle: .medium, timeStyle: .short)
-    displayPastEventsSwitch.isOn = Campus.shared.considerPastEvents
+    displayPastEventsSwitch.isOn = User.preferences.considerPastEvents
     if Campus.downloadedImageQuality == .High {
      qualityPicker.selectedSegmentIndex = 2
     }
@@ -66,7 +66,7 @@ class SettingsViewController: UIViewController {
     else if qualityPicker?.selectedSegmentIndex == 2 {
      Campus.downloadedImageQuality = .High
     }
-    Campus.shared.considerPastEvents = displayPastEventsSwitch!.isOn
+    User.preferences.considerPastEvents = displayPastEventsSwitch!.isOn
     
     User.preferences.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn
   }
@@ -76,7 +76,7 @@ class SettingsViewController: UIViewController {
   }
   
   @IBAction func displayPastEventsSwitched(_ sender: UISwitch) {
-    Campus.shared.considerPastEvents = sender.isOn
+    User.preferences.considerPastEvents = sender.isOn
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()

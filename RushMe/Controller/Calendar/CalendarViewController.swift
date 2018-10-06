@@ -19,7 +19,7 @@ ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
-      self.favoritesSegmentControl.isEnabled = self.favoritesShouldBeEnabled
+      self.favoritesSegmentControl.isEnabled = User.preferences.displayFavoritesOnly
       self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
       self.scrollView.scrollToTop(animated: true)
       if !Campus.shared.hasFavorites {
@@ -42,40 +42,35 @@ ScrollableItem {
   @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
   
   // MARK: Data Source Calculated Fields
-  var firstEvent : Fraternity.Event? {
+  var earliestDate : Date? {
     get {
-      return Campus.shared.firstEvent
+      return RushCalendar.shared.firstEvent?.startDate
       //      return viewingFavorites ?
       //        Campus.shared.firstFavoritedEvent :
       //        Campus.shared.firstEvent
     }
   }
-  var dataSource : [[Fraternity.Event]] {
-    return viewingFavorites ? Campus.shared.eventsByDay : Campus.shared.favoritedEventsByDay
-  }
-  var flatDataSource : Set<Fraternity.Event> {
-    get {
-      return viewingFavorites ?
-        Campus.shared.favoritedEvents :
-        Campus.shared.allEvents
+  func dateKey(from indexPath : IndexPath) -> Date? {
+    guard indexPath.row > 6, let minDate = earliestDate, 
+          let currentDateComponents = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: minDate),
+          let today = currentDateComponents.dayMonthYear else {
+        return nil
     }
+    return today
   }
+  
+  
   func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
-    if (indexPath.row < 7 || firstEvent == nil) {
-      return []
+    guard let today = dateKey(from: indexPath), 
+          let todaysEvents = RushCalendar.shared.eventsOn(today) else {
+        return []
     }
-    let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
-    if !Campus.shared.considerPastEvents && Date.today.compare(currentDay) != .orderedAscending {
-     return [] 
-    }
-    let todaysEvents = flatDataSource.filter({
-      (event) in
-      return Calendar.current.compare(currentDay, to: event.startDate, toGranularity: .day) == ComparisonResult.orderedSame
-    })
-    return todaysEvents.sorted(by: { (first, second) -> Bool in
-      return first.startDate < second.startDate
-    })
+    return todaysEvents.sorted(by: <)
   }
+  var isEmpty : Bool {
+   return !RushCalendar.shared.hasEvents
+  }
+  
   // MARK: Visual Calculated Fields
   var inEventView : Bool {
     get {
@@ -104,11 +99,7 @@ ScrollableItem {
       
     }
   }
-  var favoritesShouldBeEnabled : Bool {
-    get {
-      return Campus.shared.firstFavoritedEvent != nil || viewingFavorites
-    }
-  }
+ 
   var selectedIndexPath : IndexPath? {
     get {
       return collectionView.indexPathsForSelectedItems?.first
@@ -142,17 +133,15 @@ ScrollableItem {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.fileURL = nil
-    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
-    shareButton.isEnabled = flatDataSource.count != 0
-    
-    
+    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
+    shareButton.isEnabled = !RushCalendar.shared.hasEvents
   }
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
       collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
     }
-    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
+    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     scrollView.canCancelContentTouches = true
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 5
@@ -161,7 +150,7 @@ ScrollableItem {
   }
   @objc func handleRefresh() {
     collectionView.reloadPreservingSelection(animated: true)
-    favoritesSegmentControl.isEnabled = favoritesShouldBeEnabled
+    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     scrollView.refreshControl?.endRefreshing()
   }
   
@@ -200,7 +189,7 @@ ScrollableItem {
       }
       else {
         // TODO: Fix this so it exports the correct events (favorites or otherwise)
-        self.fileURL = RushCalendar.exportAsICS(events: Campus.shared.favoritedEvents)
+        self.fileURL = RushCalendar.shared.exportAsICS()
       }
       if let url = self.fileURL {
         let activityVC = UIActivityViewController(activityItems: [Frontend.text.shareMessage, url],
@@ -264,50 +253,30 @@ ScrollableItem {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarCollectionViewCell
-    cell.isSelected = false
-    if (firstEvent == nil) {
-      cell.eventsLabel?.isHidden = true
-      cell.dayLabel?.textColor = UIColor.gray
-      // cell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
-      if (indexPath.row < 7) {
-        cell.dayLabel?.text = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][indexPath.row]
-      }
-      else {
-        cell.dayLabel?.text = String(indexPath.row-6)
-      }
-      return cell
+    let basicCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
+    guard let today = dateKey(from: indexPath) else {
+      let dumbCell = basicCell as! CalendarCollectionViewCell
+      let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday-2
+      dumbCell.dayLabel.text = indexPath.row < 7 ? ["M","T","W","T","F","S","S"][weekday%6] : "\(indexPath.row)"
+      dumbCell.isSelected = false
+      return dumbCell
     }
-    
-    if (indexPath.row < 7) {
-      let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! StaticCalendarCollectionViewCell
-      let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: (firstEvent!.startDate))!
-      let dateAsString = DateFormatter.localizedString(from: currentDay,
-                                                       dateStyle: DateFormatter.Style.full,
-                                                       timeStyle: DateFormatter.Style.full)
-      labelCell.dayLabel?.text = String(describing: dateAsString.prefix(3))
-      labelCell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
-      return labelCell
+//    if (indexPath.row < 7) {
+//      let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! StaticCalendarCollectionViewCell
+//      let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: earliestDate!)!
+//      let dateAsString = DateFormatter.localizedString(from: currentDay,
+//                                                       dateStyle: DateFormatter.Style.full,
+//                                                       timeStyle: DateFormatter.Style.full)
+//      labelCell.dayLabel?.text = String(describing: dateAsString.prefix(1))
+//      labelCell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
+//      return labelCell
+//    }
+    guard let cell = basicCell as? CalendarCollectionViewCell else {
+     return basicCell 
     }
     let eventsToday = events(forIndexPath: indexPath)
-    cell.eventsToday = eventsToday.count == 0 ? nil : eventsToday
-    let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: (firstEvent!.startDate))!
-    let currentMonth = Calendar.current.component(Calendar.Component.month, from: currentDay)
-    let todaysMonth = Calendar.current.component(Calendar.Component.month, from: .today)
-    cell.dayTextColor = currentMonth == todaysMonth ? UIColor.black : UIColor.lightGray
-    cell.dayLabel.text = String(Calendar.current.dateComponents([.day], from: currentDay).day!)
-    if let numberOfEventsToday = cell.eventsToday?.count {
-      cell.eventsLabel.isHidden = false
-      if (numberOfEventsToday <= eventCountThreshold) {
-        cell.eventsLabel.text = String(numberOfEventsToday)
-      }
-      else {
-        cell.eventsLabel.text = String(eventCountThreshold) + "+"
-      }
-    }
-    else {
-      cell.eventsLabel.isHidden = true
-    }
+    cell.set(isGrayedOut: today.month != Date.today.month)
+    cell.set(day: today.day, eventCount: eventsToday.count)
     
     return cell
   }
@@ -322,24 +291,18 @@ ScrollableItem {
   //  }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    eventViewController!.selectedEvents = events(forIndexPath: indexPath)
-    if let collectionCell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell {
-      if let todaysEvent = collectionCell.eventsToday?.first {
-        self.dateLabel.text =
-          DateFormatter.localizedString(from: todaysEvent.startDate,
-                                        dateStyle: .long,
-                                        timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
-                                                                                     inSameDayAs: .today) ? " (Today)" : "")
-        //collectionCell.backgroundColor = UIColor.blue
-        
-        UISelectionFeedbackGenerator().selectionChanged()
-      }
-      else {
-        dateLabel?.text = " "
-      }
+    let todaysEvents = events(forIndexPath: indexPath)
+    eventViewController!.selectedEvents = todaysEvents
+    if let todaysEvent = todaysEvents.first {
+      self.dateLabel.text =
+        DateFormatter.localizedString(from: todaysEvent.startDate,
+                                      dateStyle: .long,
+                                      timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
+                                                                                   inSameDayAs: .today) ? " (Today)" : "")
+      UISelectionFeedbackGenerator().selectionChanged()
     }
     else {
-      eventViewController!.selectedEvents = []
+      dateLabel?.text = " "
     }
   }
   

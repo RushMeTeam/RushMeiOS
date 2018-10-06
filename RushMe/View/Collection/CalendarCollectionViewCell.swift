@@ -8,8 +8,29 @@
 
 import UIKit
 
+fileprivate var eventNumberingCutoff = 9 
+
 class CalendarCollectionViewCell: UICollectionViewCell {
-  var eventsToday : [Fraternity.Event]?
+  static var inactiveColor : UIColor = .lightGray
+  static var activeColor : UIColor = .black
+  
+  func set(day : Int, eventCount: Int) {
+    // TODO: Events label is not being hidden!!!
+    dayLabel.text = "\(day)"
+    if eventCount > 0 {
+      eventsLabel.isHidden = false
+      eventsLabel.text = "\(min(eventNumberingCutoff, abs(eventCount)))" + (abs(eventCount) > eventNumberingCutoff ? "+" : "")
+    } else {
+      eventsLabel.isHidden = true
+    }
+    eventsLabel.setNeedsLayout()
+  }
+  
+  func set(isGrayedOut : Bool) {
+    dayTextColor = isGrayedOut ? .lightGray : .black
+  }
+  
+  
   var highlightColor : UIColor = Frontend.colors.AppColor.withAlphaComponent(0.8)
   var dayTextColor : UIColor = UIColor.black {
     didSet {
@@ -28,7 +49,6 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     layer.addSublayer(circleLayer)
     circleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
-    eventsLabel.text = ""
     eventsLabel.layer.masksToBounds = false
     layer.masksToBounds = false
     //addMotionEffect(UIMotionEffect.twoAxesShift(strength: 10))

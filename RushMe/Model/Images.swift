@@ -55,7 +55,7 @@ extension UIImageView {
               setAsync(image: newImage)
             }
             else {
-              Backend.inform(action: .SQLError, options: error?.localizedDescription) 
+              Backend.log(action: .SQLError, options: error?.localizedDescription) 
             }
           }
           }.resume()

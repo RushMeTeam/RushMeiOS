@@ -85,7 +85,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   var selectedFraternity: Fraternity? = nil {
     didSet {
       if let frat = selectedFraternity {
-        eventViewController?.selectedEvents = Array(frat.events.values)
+        eventViewController?.selectedEvents = Array(frat.events)
         title = frat.name.greekLetters
       }
     }
@@ -341,9 +341,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
-      if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (key, value) -> Bool in
-        return Campus.shared.considerPastEvents || value.startDate.compare(.today) != .orderedAscending
-      }).last?.value {
+      if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (value) -> Bool in
+        return User.preferences.considerPastEvents || value.startDate.compare(.today) != .orderedAscending
+      }).last {
         DispatchQueue.main.async {
           self.eventViewController!.selectedEvents = [event]
           self.eventViewController!.provideDate = true

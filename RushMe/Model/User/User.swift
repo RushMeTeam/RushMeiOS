@@ -12,6 +12,14 @@ import DeviceKit
 // User preferences
 struct User {
   struct preferences {
+    static private var displayFavoritesOnly_ : Bool? = nil
+    static var displayFavoritesOnly : Bool {
+      get {
+        return displayFavoritesOnly_ ?? false
+      } set {
+        displayFavoritesOnly_ = newValue
+      }
+    }
     // Include events that have already occured on the calendar?
     // Default: true
     static var considerPastEvents : Bool {

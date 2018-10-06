@@ -66,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
-    Backend.inform(action: .AppWillEnterBackground)
+    Backend.log(action: .AppWillEnterBackground)
   }
   func applicationWillEnterForeground(_ application: UIApplication) {
     //SQLHandler.shared.informAction(action: .AppEnteredForeground)

@@ -286,7 +286,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       if let row = (sender as? IndexPath)?.row ?? tableView.indexPathsForSelectedRows?.first?.row ?? tableView.indexPath(for: cell)?.row { 
           let fratName = self.dataKeys[row]
           if let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
-            Backend.inform(action: .FraternitySelected, options: fratName)
+            Backend.log(action: .FraternitySelected, options: fratName)
             let controller = segue.destination as! UIPageViewController
             controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
             controller.title = fratName.greekLetters
@@ -315,13 +315,13 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
      return 
     }
     if isFavorited {
-      Campus.shared.addFavorite(named: fratName)
+      _ = Campus.shared.addFavorite(named: fratName)
       if (Campus.shared.favoritedFrats.count == 1) {
        self.reloadTableView() 
       }
     }
     else {
-      Campus.shared.removeFavorite(named: fratName)
+      _ = Campus.shared.removeFavorite(named: fratName)
       if (Campus.shared.hasFavorites == false) {
         self.reloadTableView() 
       }
@@ -381,7 +381,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
     if (action.title == Frontend.text.favorite) {
       let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
-      Campus.shared.addFavorite(named: fratName)
+      _ = Campus.shared.addFavorite(named: fratName)
       action.backgroundColor = Frontend.colors.AppColor
       if let cell = tableView.cellForRow(at: cellIndex) as? FraternityTableViewCell {
         cell.isAccentuated = true
@@ -396,7 +396,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
         cell.isAccentuated = false
         //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
       }
-      Campus.shared.removeFavorite(named: fratName)
+      _ = Campus.shared.removeFavorite(named: fratName)
       if (viewingFavorites) {
         tableView.deleteRows(at: [cellIndex], with: UITableView.RowAnimation.left)
       }

@@ -26,7 +26,80 @@ import iCalKit
  exportToCalendar actually mutates the users' calendar (with
  permission) as to actually do the work.
  */
+
+extension Date {
+  var dayMonthYear : Date? {
+    get {
+      let components = UIKit.Calendar.current.dateComponents(Set<UIKit.Calendar.Component>([.day, .month, .year]), from: self)
+      let date = UIKit.Calendar.current.date(from: components)
+      return date
+    }
+  }
+}
+
 class RushCalendar {
+  static let shared : RushCalendar = RushCalendar()
+  
+  private var calendar : UIKit.Calendar {
+    get {
+      return Calendar.current
+    }
+  }
+  
+  private var events : [Date : Set<Fraternity.Event>] = [Date : Set<Fraternity.Event>]()
+  
+  func add(event : Fraternity.Event) -> Bool {
+    guard let dateKey = event.startDate.dayMonthYear else {
+      return false
+    }
+    if events[dateKey] == nil {
+      events[dateKey] = Set<Fraternity.Event>()
+    }
+    return events[dateKey]!.insert(event).inserted
+  }
+  
+  func remove(event: Fraternity.Event) -> Bool {
+    guard let dateKey = event.startDate.dayMonthYear,
+      let _ = events[dateKey] else {
+        return false
+    }
+    guard let _ = events[dateKey]!.remove(event) else {
+      return false
+    }
+    if events[dateKey]!.count == 0 {
+     events.removeValue(forKey: dateKey) 
+    }
+    return true
+  }
+  
+  private var firstDate : Date? {
+   return events.keys.min() 
+  }
+  
+  var firstEvent : Fraternity.Event? {
+    get {
+      guard let date = firstDate else {
+        return nil 
+      }
+      return events[date]?.min(by: <)
+    }
+  }
+  
+  var hasEvents : Bool {
+    get {
+     return !events.isEmpty 
+    }
+  }
+  
+  func eventsOn(_ date : Date) -> Set<Fraternity.Event>? {
+    guard let dateKey = date.dayMonthYear, 
+      let daysEvents = events[dateKey] else {
+     return nil   
+    }
+    return daysEvents
+  }
+  
+  
   /*
    Saves a .ics file to the app's document directory, and
    returns the location at which the document was saved, if
@@ -40,18 +113,20 @@ class RushCalendar {
    an ICS file, and secondly it saves that file to the disk.
    
    */
-  static func exportAsICS(events : Set<Fraternity.Event>) -> URL? {
+    func exportAsICS() -> URL? {
     // Create the Array in which we will store the events
     var iCalEvents = [Event]()
     // Run through the FratEvents, add as much information
     // about each as possible.
-    for event in events {
-      var iCalEvent = Event()
-      iCalEvent.dtstart = event.startDate
-      iCalEvent.dtend = event.endDate
-      iCalEvent.location = event.location
-      iCalEvent.summary = event.name
-      iCalEvents.append(iCalEvent)
+    for daysEvents in events.values {
+      for event in daysEvents {
+        var iCalEvent = Event()
+        iCalEvent.dtstart = event.startDate
+        iCalEvent.dtend = event.endDate
+        iCalEvent.location = event.location
+        iCalEvent.summary = event.name
+        iCalEvents.append(iCalEvent)
+      }
     }
     // Compose a calendar, combining the events dynamically
     // into the VCalendar format.
@@ -77,6 +152,9 @@ class RushCalendar {
     // Success-- return where the file was saved.
     return saveFileURL
   }
+  
+  
+  
   
   /*
    Export FratEvents to the device's default calendar application.

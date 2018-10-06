@@ -87,7 +87,7 @@ UISplitViewControllerDelegate {
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, 
                           previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
     if completed, let fratName = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity?.name {
-      Backend.inform(action: .FraternitySelected, options: fratName) 
+      Backend.log(action: .FraternitySelected, options: fratName) 
       pageViewController.title = fratName.greekLetters
     }
   }
