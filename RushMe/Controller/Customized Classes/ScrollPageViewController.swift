@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import DeviceKit
-
 
 protocol ScrollableItem {
   func updateData() 
@@ -39,9 +37,7 @@ class ScrollPageViewController: UIViewController,
       return pageViewControllers.count 
     }
   }
-  lazy var pageViewControllers: [UIViewController] = {
-    return []
-  }()
+  internal var pageViewControllers: [UIViewController]!
   private(set) lazy var pageCanvases : [UIView?] = [UIView?](repeating: nil, count: self.pageViewControllers.count)
   var progress : Float {
     get {

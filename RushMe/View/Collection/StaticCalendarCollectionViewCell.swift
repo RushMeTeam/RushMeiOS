@@ -10,6 +10,6 @@ import UIKit
 
 class StaticCalendarCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var dayLabel: UILabel!
-  var eventsToday : [Fraternity.Event]?  
+  var eventsToday : Int!  
 }
 

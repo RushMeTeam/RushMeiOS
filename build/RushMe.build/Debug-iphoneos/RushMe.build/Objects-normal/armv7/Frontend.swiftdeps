@@ -1,0 +1,398 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Frontend"
+- "ShortCutIdentifier"
+provides-nominal:
+- "6RushMe8FrontendV"
+- "6RushMe8FrontendV6imagesV"
+- "6RushMe8FrontendV4textV"
+- "6RushMe8FrontendV6colorsV"
+- "6RushMe18ShortCutIdentifierO"
+provides-member:
+- ["6RushMe8FrontendV", ""]
+- ["6RushMe8FrontendV6imagesV", ""]
+- ["6RushMe8FrontendV4textV", ""]
+- ["6RushMe8FrontendV6colorsV", ""]
+- ["6RushMe18ShortCutIdentifierO", ""]
+- ["So12UIStoryboardC", ""]
+- ["So12UIStoryboardC", "main"]
+- ["So12UIStoryboardC", "privacy"]
+provides-dynamic-lookup:
+depends-top-level:
+- "/"
+- "=="
+- !private "Array"
+- "BooleanLiteralType"
+- "CGFloat"
+- "FloatLiteralType"
+- "Frontend"
+- "IntegerLiteralType"
+- "ShortCutIdentifier"
+- "String"
+- "StringLiteralType"
+- "UIColor"
+- "UIImage"
+- "UIStoryboard"
+- !private "UnicodeScalarType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- !private ["Sa", "last"]
+- !private ["s13ArrayProtocolP", "last"]
+- !private ["SK", "components"]
+- ["SK", "init"]
+- ["SK", "init"]
+- !private ["SK", "last"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "UIStoryboard"]
+- !private ["s7CVarArgP", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "components"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "last"]
+- ["s7CVarArgP", "white"]
+- ["s7CVarArgP", "withAlphaComponent"]
+- !private ["Sl", "components"]
+- ["Sl", "init"]
+- ["Sl", "init"]
+- !private ["Sl", "last"]
+- !private ["SL", "components"]
+- ["SL", "init"]
+- ["SL", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "UIStoryboard"]
+- !private ["s28CustomDebugStringConvertibleP", "components"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "last"]
+- ["s28CustomDebugStringConvertibleP", "white"]
+- ["s28CustomDebugStringConvertibleP", "withAlphaComponent"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "components"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "components"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "last"]
+- !private ["s23CustomStringConvertibleP", "UIStoryboard"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "components"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "last"]
+- ["s23CustomStringConvertibleP", "white"]
+- ["s23CustomStringConvertibleP", "withAlphaComponent"]
+- !private ["Se", "_getBuiltinLogicValue"]
+- !private ["Se", "components"]
+- ["Se", "init"]
+- ["Se", "init"]
+- !private ["Se", "last"]
+- !private ["SE", "_getBuiltinLogicValue"]
+- !private ["SE", "components"]
+- ["SE", "init"]
+- ["SE", "init"]
+- !private ["SE", "last"]
+- ["SQ", "RawValue"]
+- !private ["SQ", "UIStoryboard"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- !private ["SQ", "_getBuiltinLogicValue"]
+- !private ["SQ", "components"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "init"]
+- !private ["SQ", "last"]
+- ["SQ", "rawValue"]
+- ["SQ", "white"]
+- ["SQ", "withAlphaComponent"]
+- !private ["s25ExpressibleByArrayLiteralP", "last"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "components"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "components"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "components"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["6RushMe8FrontendV", "CGFloat"]
+- ["6RushMe8FrontendV", "UIColor"]
+- ["6RushMe8FrontendV", "UIImage"]
+- ["6RushMe8FrontendV", "colors"]
+- ["6RushMe8FrontendV", "cornerRadius"]
+- ["6RushMe8FrontendV", "images"]
+- ["6RushMe8FrontendV", "init"]
+- ["6RushMe8FrontendV", "text"]
+- ["SH", "RawValue"]
+- !private ["SH", "UIStoryboard"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- !private ["SH", "_getBuiltinLogicValue"]
+- !private ["SH", "components"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "init"]
+- !private ["SH", "last"]
+- ["SH", "rawValue"]
+- ["SH", "white"]
+- ["SH", "withAlphaComponent"]
+- !private ["s6HasherV", "combine"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "components"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "components"]
+- ["s10MirrorPathP", "init"]
+- ["s10MirrorPathP", "init"]
+- !private ["SM", "last"]
+- !private ["So8NSCodingP", "components"]
+- ["So8NSCodingP", "init"]
+- ["So8NSCodingP", "white"]
+- ["So8NSCodingP", "withAlphaComponent"]
+- !private ["So9NSCopyingP", "components"]
+- ["So9NSCopyingP", "init"]
+- ["So9NSCopyingP", "white"]
+- ["So9NSCopyingP", "withAlphaComponent"]
+- !private ["So21NSItemProviderReadingP", "components"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderReadingP", "white"]
+- ["So21NSItemProviderReadingP", "withAlphaComponent"]
+- !private ["So21NSItemProviderWritingP", "components"]
+- ["So21NSItemProviderWritingP", "init"]
+- ["So21NSItemProviderWritingP", "white"]
+- ["So21NSItemProviderWritingP", "withAlphaComponent"]
+- !private ["So16NSMutableCopyingP", "components"]
+- ["So8NSObjectC", "UIStoryboard"]
+- !private ["So8NSObjectC", "components"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "main"]
+- ["So8NSObjectC", "privacy"]
+- ["So8NSObjectC", "white"]
+- ["So8NSObjectC", "withAlphaComponent"]
+- !private ["So8NSObjectP", "UIStoryboard"]
+- !private ["So8NSObjectP", "components"]
+- ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "white"]
+- ["So8NSObjectP", "withAlphaComponent"]
+- !private ["So14NSSecureCodingP", "components"]
+- ["So14NSSecureCodingP", "init"]
+- ["So14NSSecureCodingP", "white"]
+- ["So14NSSecureCodingP", "withAlphaComponent"]
+- !private ["So8NSStringC", "components"]
+- !private ["Sk", "last"]
+- !private ["Sm", "components"]
+- ["Sm", "init"]
+- ["Sm", "init"]
+- !private ["Sm", "last"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- ["SY", "rawValue"]
+- !private ["ST", "components"]
+- ["ST", "init"]
+- ["ST", "init"]
+- !private ["ST", "last"]
+- ["6RushMe18ShortCutIdentifierO", "Calendar"]
+- ["6RushMe18ShortCutIdentifierO", "Fraternities"]
+- ["6RushMe18ShortCutIdentifierO", "Maps"]
+- ["6RushMe18ShortCutIdentifierO", "RawValue"]
+- ["6RushMe18ShortCutIdentifierO", "String"]
+- ["6RushMe18ShortCutIdentifierO", "_Default_RawValue"]
+- !private ["6RushMe18ShortCutIdentifierO", "_findStringSwitchCase"]
+- ["6RushMe18ShortCutIdentifierO", "deinit"]
+- ["6RushMe18ShortCutIdentifierO", "hash"]
+- ["6RushMe18ShortCutIdentifierO", "hashValue"]
+- ["6RushMe18ShortCutIdentifierO", "init"]
+- ["6RushMe18ShortCutIdentifierO", "rawValue"]
+- !private ["s12StaticStringV", "init"]
+- !private ["s12StaticStringV", "init"]
+- !private ["SS", "components"]
+- ["SS", "init"]
+- ["SS", "init"]
+- !private ["Sy", "components"]
+- ["Sy", "init"]
+- ["Sy", "init"]
+- !private ["s16TextOutputStreamP", "components"]
+- ["s16TextOutputStreamP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "components"]
+- ["s20TextOutputStreamableP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["So29UIAccessibilityIdentificationP", "init"]
+- ["So7UIColorC", "init"]
+- ["So7UIColorC", "white"]
+- ["So7UIColorC", "withAlphaComponent"]
+- ["So7UIImageC", "init"]
+- ["So39UIItemProviderPresentationSizeProvidingP", "init"]
+- ["So12UIStoryboardC", "UIStoryboard"]
+- !private ["So12UIStoryboardC", "init"]
+- ["So12UIStoryboardC", "main"]
+- ["So12UIStoryboardC", "privacy"]
+- !private ["s24_DestructorSafeContainerP", "last"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "components"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "components"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "components"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "components"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s26_ExpressibleByColorLiteralP", "init"]
+- ["s26_ExpressibleByColorLiteralP", "white"]
+- ["s26_ExpressibleByColorLiteralP", "withAlphaComponent"]
+- ["s26_ExpressibleByImageLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "components"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "components"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "last"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIStoryboard"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "components"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "white"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "withAlphaComponent"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "components"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "last"]
+- !private ["s16_SwiftStringViewP", "components"]
+- ["s16_SwiftStringViewP", "init"]
+- ["s16_SwiftStringViewP", "init"]
+- ["6RushMe8FrontendV6colorsV", "AppColor"]
+- ["6RushMe8FrontendV6colorsV", "MenuButtonSelectedColor"]
+- ["6RushMe8FrontendV6colorsV", "NavigationItemsColor"]
+- ["6RushMe8FrontendV6colorsV", "SlideOutMenuShadowIsEnabled"]
+- ["6RushMe8FrontendV6colorsV", "UIColor"]
+- ["6RushMe8FrontendV6colorsV", "init"]
+- ["6RushMe8FrontendV6imagesV", "UIImage"]
+- ["6RushMe8FrontendV6imagesV", "filledHeart"]
+- ["6RushMe8FrontendV6imagesV", "icon"]
+- ["6RushMe8FrontendV6imagesV", "init"]
+- ["6RushMe8FrontendV6imagesV", "logo"]
+- ["6RushMe8FrontendV6imagesV", "noImage"]
+- ["6RushMe8FrontendV6imagesV", "unfilledHeart"]
+- ["6RushMe8FrontendV4textV", "appName"]
+- ["6RushMe8FrontendV4textV", "favorite"]
+- ["6RushMe8FrontendV4textV", "init"]
+- ["6RushMe8FrontendV4textV", "loading"]
+- ["6RushMe8FrontendV4textV", "loadingFirstTime"]
+- ["6RushMe8FrontendV4textV", "noEvents"]
+- ["6RushMe8FrontendV4textV", "noFavorites"]
+- ["6RushMe8FrontendV4textV", "refreshAgain"]
+- ["6RushMe8FrontendV4textV", "shareMessage"]
+- ["6RushMe8FrontendV4textV", "unfavorite"]
+depends-nominal:
+- !private "Sa"
+- !private "s13ArrayProtocolP"
+- "SK"
+- !private "Sb"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "6RushMe8FrontendV"
+- "SH"
+- !private "s6HasherV"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- !private "SM"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "Sk"
+- "Sm"
+- "SY"
+- "ST"
+- "6RushMe18ShortCutIdentifierO"
+- !private "s12StaticStringV"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "So29UIAccessibilityIdentificationP"
+- "So7UIColorC"
+- "So7UIImageC"
+- "So39UIItemProviderPresentationSizeProvidingP"
+- "So12UIStoryboardC"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s26_ExpressibleByColorLiteralP"
+- "s26_ExpressibleByImageLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s16_SwiftStringViewP"
+- "6RushMe8FrontendV6colorsV"
+- "6RushMe8FrontendV6imagesV"
+- "6RushMe8FrontendV4textV"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/MapKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/adamthk/Documents/GitHub/RushMeTeam/RushMeiOS/RushMe/RushMe-Bridging-Header.h"
+- "/Users/adamthk/Documents/GitHub/RushMeTeam/RushMeiOS/RushMe/Controller/Side Menu/SlideoutMenu (SWRevealVC)/SWRevealViewController.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/MapKit.framework/Headers/MapKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "46c67368eaa31d33b635b7b693730028"

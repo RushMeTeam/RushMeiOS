@@ -44,6 +44,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     }
   }
   lazy var setupCell : Void = {
+    eventsLabel.isHidden = true
     eventsLabel.textColor = Frontend.colors.AppColor
     circleLayer.fillColor = Frontend.colors.AppColor.cgColor
     layer.addSublayer(circleLayer)

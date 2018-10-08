@@ -65,7 +65,7 @@ struct User {
       get {
         return ["duuid" : UIDevice.current.identifierForVendor?.uuidString as Any,
                 "rtime" : Format.dates.SQLDateFormatter.string(from: Date()),
-                "dtype" : Device().description,
+                "dtype" : DeviceKit.Device().description,
                 "dsoft" : UIDevice.current.systemVersion,
                 "appv" : User.device.appVersion]
       }

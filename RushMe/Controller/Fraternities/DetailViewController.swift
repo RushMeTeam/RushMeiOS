@@ -71,14 +71,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   private var _eventViewController : EventTableViewController? 
   var eventViewController : EventTableViewController! {
     get {
-      if let _ = _eventViewController {
-       return _eventViewController 
-      }
-      for viewController in children where (viewController as? EventTableViewController == nil) ? false : true {
-        _eventViewController = viewController as! EventTableViewController
-         return viewController as! EventTableViewController
-      }
-      return nil
+      _eventViewController = _eventViewController ?? children.first(where: { (child) -> Bool in
+        return child is EventTableViewController
+      }) as? EventTableViewController
+      return _eventViewController
     }
   }
   var mapItem : MKMapItem?
@@ -96,12 +92,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @objc func favoritesButtonHit(_ sender: UIBarButtonItem) {
     if let fratName = selectedFraternity?.name {
       if Campus.shared.favoritedFrats.contains(fratName) {
-        Campus.shared.removeFavorite(named: fratName)
+        _ = Campus.shared.removeFavorite(named: fratName)
         sender.image = Frontend.images.unfilledHeart
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       else {
-        Campus.shared.addFavorite(named: fratName)
+        _ = Campus.shared.addFavorite(named: fratName)
         sender.image = Frontend.images.filledHeart
         self.profileImageView.layer.borderColor = Frontend.colors.AppColor.withAlphaComponent(0.7).cgColor
       }

@@ -30,7 +30,6 @@ ScrollableItem {
   
   // MARK: Constants
   var eventViewController : EventTableViewController? = nil
-  fileprivate let eventCountThreshold = 9
   // MARK: View IBOutlets
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var containerView: UIView!
@@ -51,8 +50,8 @@ ScrollableItem {
     }
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
-    guard indexPath.row > 6, let minDate = earliestDate, 
-          let currentDateComponents = Calendar.current.date(byAdding: .day, value: indexPath.row-7, to: minDate),
+    guard indexPath.section == 1, let minDate = earliestDate, 
+          let currentDateComponents = Calendar.current.date(byAdding: .day, value: indexPath.row, to: minDate),
           let today = currentDateComponents.dayMonthYear else {
         return nil
     }
@@ -105,7 +104,7 @@ ScrollableItem {
       return collectionView.indexPathsForSelectedItems?.first
     }
   }
-  lazy var zeroIndexPath = IndexPath.init(item: 7, section: 0)
+  lazy var zeroIndexPath = IndexPath.init(item: 0, section: 1)
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -208,7 +207,6 @@ ScrollableItem {
         print("Error in calendar share button!")
       }
     }
-    
   }
   
   
@@ -240,37 +238,27 @@ ScrollableItem {
     }
   }
   
-  
-  // MARK: Animation Calculated Fields
+
   
   // MARK: UICollectionViewDataSource
   
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
+    return 2
   }
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 31+7
+    return section == 0 ? 7 : 31
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let basicCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
     guard let today = dateKey(from: indexPath) else {
       let dumbCell = basicCell as! CalendarCollectionViewCell
-      let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday-2
-      dumbCell.dayLabel.text = indexPath.row < 7 ? ["M","T","W","T","F","S","S"][weekday%6] : "\(indexPath.row)"
+      let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday
+      dumbCell.dayLabel.text = indexPath.section == 0 ? ["M","T","W","T","F","S","S"][weekday%6] : "\(indexPath.row)"
       dumbCell.isSelected = false
+      dumbCell.set(isGrayedOut: true)
       return dumbCell
     }
-//    if (indexPath.row < 7) {
-//      let labelCell = collectionView.dequeueReusableCell(withReuseIdentifier: labelReuseIdentifier, for: indexPath) as! StaticCalendarCollectionViewCell
-//      let currentDay = Calendar.current.date(byAdding: .day, value: indexPath.row, to: earliestDate!)!
-//      let dateAsString = DateFormatter.localizedString(from: currentDay,
-//                                                       dateStyle: DateFormatter.Style.full,
-//                                                       timeStyle: DateFormatter.Style.full)
-//      labelCell.dayLabel?.text = String(describing: dateAsString.prefix(1))
-//      labelCell.dayLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 7, weight: UIFont.Weight.ultraLight)
-//      return labelCell
-//    }
     guard let cell = basicCell as? CalendarCollectionViewCell else {
      return basicCell 
     }
@@ -286,9 +274,10 @@ ScrollableItem {
   func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
     return true
   }
-  //  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-  //    return indexPath.row > 6 && firstEvent != nil
-  //  }
+  
+  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    return indexPath.section != 0 && !isEmpty
+  }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let todaysEvents = events(forIndexPath: indexPath)
@@ -310,7 +299,7 @@ ScrollableItem {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let cellWidth = collectionView.frame.width/8.5
     var cellHeight = collectionView.frame.height/6.0
-    if (indexPath.row < 7) {
+    if (indexPath.section == 0) {
       cellHeight = collectionView.frame.height/8.0
     }
     return CGSize(width: cellWidth, height: cellHeight)
@@ -320,7 +309,7 @@ ScrollableItem {
 extension UICollectionView {
   func reloadPreservingSelection(animated : Bool) {
     let selectedIP = self.indexPathsForSelectedItems
-    self.reloadSections(IndexSet.init(integersIn: 0...0)) 
+    self.reloadSections(IndexSet.init(integersIn: 1...1)) 
     if let reselectIndexPath = selectedIP?.first {
       self.selectItem(at: reselectIndexPath, animated: animated, scrollPosition: .top)
     } 

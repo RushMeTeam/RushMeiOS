@@ -217,7 +217,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="YTx-Ep-isO" secondAttribute="height" multiplier="1:1" id="fr6-fE-VL8"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="19"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1316,7 +1316,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d4X-6j-ghR"/>
-        <segue reference="tmK-b0-YZV"/>
+        <segue reference="bIi-pf-Ao2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -17,12 +17,24 @@ UISplitViewControllerDelegate {
   // WARNING: Cannot override with a stored property 'pageViewControllers'
   //      Not sure how to resolve this. The Array needs to be lazy, but 
   //              overridable. See "ScrollPageViewController
-  override lazy var pageViewControllers: [UIViewController] = {
-      return [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
-       UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
-       UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
-       UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
-  }()
+  
+  
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")]
+    
+  }
   override var titleImage : UIImage {
     get {
      return #imageLiteral(resourceName: "RushMeLogo") 
@@ -63,7 +75,9 @@ UISplitViewControllerDelegate {
     DispatchQueue.main.async {
       self.drawerButton.isEnabled = newValue == 1 || newValue == 0
     }
-    (self.pageViewControllers[2] as? CalendarViewController)?.updateData()
+    if (self.pageViewControllers.count > 1) {
+      (self.pageViewControllers[2] as? CalendarViewController)?.updateData()
+    }
   }
   
   override func didReceiveMemoryWarning() {
