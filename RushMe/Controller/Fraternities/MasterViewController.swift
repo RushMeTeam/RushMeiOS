@@ -26,7 +26,7 @@ protocol FraternityCellDelegate {
 class MasterViewController : UITableViewController,
 UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
 UIPageViewControllerDataSource, UIViewControllerTransitioningDelegate,
-UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
+UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
 
 
   @objc func toggleFavorite(sender : UIBarButtonItem) {
@@ -89,7 +89,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   // The keys that the tableView uses to display the desired fraternities
   var dataKeys : [String] {
     get {
-      // FOR SCREENSHOTS 
+      // For Screenshots 
 //      if !viewingFavorites {
 //       return ["Theta Chi", "Chi Phi", "Phi Iota Alpha", "Rensselaer Society of Engineers", 
       //         "Psi Upsilon", "Delta Tau Delta",  "Zeta Psi", "Delta Phi", "Pi Lambda Phi","Theta Xi",  
@@ -143,15 +143,11 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     _ = setupTableHeaderView
     _ = setupSearchBar
   }
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+ 
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
 
     navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController!.navigationBar.shadowImage = UIImage()
@@ -271,34 +267,26 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if let splitVC = splitViewController {
-      clearsSelectionOnViewWillAppear = splitVC.isCollapsed
-    }
-    //_ = setupGestureRecognizers
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
-
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Checks if segue is going into detail
-    if segue.identifier == "showDetail" || segue.identifier == "peekDetail" {
-      let cell = sender as? UITableViewCell ?? UITableViewCell()
-      if let row = (sender as? IndexPath)?.row ?? tableView.indexPathsForSelectedRows?.first?.row ?? tableView.indexPath(for: cell)?.row { 
-          let fratName = self.dataKeys[row]
-          if let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
-            Backend.log(action: .FraternitySelected, options: fratName)
-            let controller = segue.destination as! UIPageViewController
-            controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
-            controller.title = fratName.greekLetters
-            controller.dataSource = self
-            controller.delegate = self
-            controller.view.backgroundColor = .white
-            let dVC = UIStoryboard.main.detailVC
-            dVC.selectedFraternity = selectedFraternity
-            controller.setViewControllers([dVC], direction: .forward, animated: false)
-          }
-        }
-      }
+    guard segue.identifier == "showDetail" || segue.identifier == "peekDetail", 
+      let cell = sender as? FraternityTableViewCell,
+      let frat = cell.fraternity else { return }
+    
+    // Checks if segue is going into detail      
+    Backend.log(action: .FraternitySelected, options: frat.name)
+    let controller = segue.destination as! UIPageViewController
+    controller.navigationItem.setRightBarButton(barButtonItem(for: frat), animated: false)
+    controller.title = frat.name.greekLetters
+    controller.dataSource = self
+    controller.delegate = self
+    controller.view.backgroundColor = .white
+    let dVC = UIStoryboard.main.detailVC
+    dVC.selectedFraternity = frat
+    controller.setViewControllers([dVC], direction: .forward, animated: false)      
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
@@ -314,31 +302,28 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
     guard Campus.shared.fraternityNames.contains(fratName) else {
      return 
     }
-    if isFavorited {
-      _ = Campus.shared.addFavorite(named: fratName)
-      if (Campus.shared.favoritedFrats.count == 1) {
-       self.reloadTableView() 
-      }
-    }
-    else {
-      _ = Campus.shared.removeFavorite(named: fratName)
-      if (Campus.shared.hasFavorites == false) {
-        self.reloadTableView() 
-      }
+    let needsRefresh = !Campus.shared.hasFavorites
+    _ = Campus.shared.toggleFavorite(named: fratName)
+    if (!Campus.shared.hasFavorites || needsRefresh) {
+     reloadTableView() 
     }
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
-    
   }
 
   
   // MARK: - Table View
   
   // Should always be 1 (for now!)
-  override func numberOfSections(in tableView: UITableView) -> Int { return 1 }
+  override func numberOfSections(in tableView: UITableView) -> Int { 
+    return 1 
+    
+  }
   
   // Should always be the number of objects to display
   override func tableView(_ tableView: UITableView,
-                          numberOfRowsInSection section: Int) -> Int { return max(dataKeys.count, 1) }
+                          numberOfRowsInSection section: Int) -> Int { 
+    return max(dataKeys.count, 1) 
+  }
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -357,7 +342,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate{
       } else {
        cell.textLabel!.text = "Something went wrong...\nTry again"  
       }
-      
+
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! FraternityTableViewCell

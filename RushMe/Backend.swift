@@ -6,6 +6,8 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 import Foundation
+import CoreLocation.CLLocation
+
 
 enum ActionType : String {
   typealias RawValue = String
@@ -168,3 +170,47 @@ struct Database {
   }
 }
 
+// TODO: Empty this file
+// Variables used to tune animations
+struct RMAnimation {
+  static let ColoringTime = 0.5
+}
+// TODO: Make user preferences save (should include display events before today!)
+struct RushMe {
+  struct campus {
+    static let coordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: -73.677647)
+  }
+}
+struct RMPropertyKeys {
+  static let FavoriteFraternities = "FavoriteFrats"
+  static let ConsiderEventsBeforeTodayKey = "ConsiderEventsBeforeToday"
+}
+extension Date {
+  // TODO: Replace "Today" with the current day!
+  static var today : Date {
+    get {
+      return Date(timeIntervalSince1970: 1505036460) 
+    }
+  }
+  
+  var month : Int {
+    get {
+      return UIKit.Calendar.current.component(.month, from: self)
+    }
+  }
+  var day : Int {
+    get {
+      return UIKit.Calendar.current.component(.day, from: self)
+    }
+  }
+  var year : Int {
+    get {
+      return UIKit.Calendar.current.component(.year, from: self)
+    }
+  }
+  var weekday : Int {
+    get {
+      return UIKit.Calendar.current.component(.weekday, from: self)
+    }
+  }
+}

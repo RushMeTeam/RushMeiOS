@@ -9,32 +9,18 @@
 import UIKit
 
 class RMViewController: ScrollPageViewController, 
-  SWRevealViewControllerDelegate, 
-  UIPageViewControllerDelegate,
-  
- 
-UISplitViewControllerDelegate {
-  // WARNING: Cannot override with a stored property 'pageViewControllers'
-  //      Not sure how to resolve this. The Array needs to be lazy, but 
-  //              overridable. See "ScrollPageViewController
-  
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
-  }
+                        SWRevealViewControllerDelegate, 
+                        UIPageViewControllerDelegate, 
+                        UISplitViewControllerDelegate {
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")]
-    
+                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
   }
+  
   override var titleImage : UIImage {
     get {
      return #imageLiteral(resourceName: "RushMeLogo") 
@@ -52,13 +38,6 @@ UISplitViewControllerDelegate {
       revealViewController().panGestureRecognizer().isEnabled = false
     }
     (segue.destination as? UIPageViewController)?.delegate = self
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-
-    // Do any additional setup after loading the view.
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -80,10 +59,6 @@ UISplitViewControllerDelegate {
     }
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
   override func goToPage(page: Int, animated: Bool) {
     super.goToPage(page: page, animated: animated)
     (revealViewController()?.rearViewController as? ScrollButtonViewController)?.set(newCurrentPage: page)

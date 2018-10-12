@@ -10,39 +10,35 @@ import UIKit
 
 class SWViewController: SWRevealViewController {
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    let splitVC = UIStoryboard.main.instantiateViewController(withIdentifier: "splitVC")
-    let scrollPageVC = splitVC.children.first!.children.first as! RMViewController
-    let drawerMenuVC = UIStoryboard.main.instantiateViewController(withIdentifier: "drawerVC") as! DrawerMenuViewController
-    self.delegate = scrollPageVC
-    if (!Frontend.colors.SlideOutMenuShadowIsEnabled) {
-      self.frontViewShadowOpacity = 0
-    }
-    else {
-      self.frontViewShadowOpacity = 0.5
-      self.frontViewShadowRadius = 8
-    }
-    self.rearViewRevealOverdraw = 0
-    self.rearViewRevealDisplacement = 0
-    self.rearViewRevealWidth = drawerMenuVC.preferredContentSize.width
-    self.setFront(splitVC, animated: false)
-    self.setRear(drawerMenuVC, animated: false)
-    self.frontViewController.view.addGestureRecognizer(self.panGestureRecognizer())
-    self.frontViewController.view.addGestureRecognizer(self.tapGestureRecognizer())
+  var splitVC : UIViewController! 
+  var scrollPageVC : RMViewController!
+  var drawerMenuVC : DrawerMenuViewController!
+
+  override func viewWillAppear(_ animated: Bool) {
+    splitVC = UIStoryboard.main.instantiateViewController(withIdentifier: "splitVC")
+    scrollPageVC = splitVC.children.first!.children.first as? RMViewController
+    drawerMenuVC = UIStoryboard.main.instantiateViewController(withIdentifier: "drawerVC") as? DrawerMenuViewController
+    
+    delegate = scrollPageVC
+    setFront(splitVC, animated: false)
+    setRear(drawerMenuVC, animated: false)
+    
+    frontViewShadowOpacity = Frontend.colors.SlideOutMenuShadowIsEnabled ? 0.5 : 0
+    frontViewShadowRadius = Frontend.colors.SlideOutMenuShadowIsEnabled ? 8 : 0
+    
+    rearViewRevealOverdraw = 0
+    rearViewRevealDisplacement = 0
+    rearViewRevealWidth = drawerMenuVC.preferredContentSize.width
+    
+    frontViewController.view.addGestureRecognizer(panGestureRecognizer())
+    frontViewController.view.addGestureRecognizer(tapGestureRecognizer())
     _ = drawerMenuVC.setupScrollView
     _ = scrollPageVC.setupScrollView
-    Campus.shared.percentageCompletionObservable.addObserver(forOwner: scrollPageVC, handler: scrollPageVC.handlePercentageCompletion(oldValue:newValue:))
     drawerMenuVC.scrollView.delegate = scrollPageVC
-
+    
     // Do any additional setup after loading the view.
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner: scrollPageVC, handler: scrollPageVC.handlePercentageCompletion(oldValue:newValue:))
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   
   /*
    // MARK: - Navigation
