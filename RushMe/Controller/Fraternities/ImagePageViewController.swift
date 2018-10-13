@@ -62,11 +62,6 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
   }
   
   func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-    //    if profileImageView.point(inside: location, with: nil), let imageVC = newImageViewController,
-    //      let image = profileImageView.image {
-    //      imageVC.image = image
-    //      return imageVC
-    //    }
     (viewControllerToCommit as? ImageViewController)?.addVisualEffectView()
     present(viewControllerToCommit, animated: true) { 
     }
@@ -141,7 +136,6 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
     if pages[page] == nil {
       let newView = UIImageView()
       newView.contentMode = contentMode
-      //newView.backgroundColor = page == 0 ? .blue : .green
       var newFrame = scrollView.frame
       newFrame.origin.x = newFrame.width * CGFloat(page)
       newFrame.origin.y = -self.topLayoutGuide.length
@@ -163,7 +157,6 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
   }
   fileprivate func loadCurrentPages(page: Int) {
     guard (page > 0 && page + 1 < numberOfPages) || transitioning else {
-      //print("Attemped to load multiple illegal pages surrounding page number", page)
       return
     }
     loadPage(Int(page) - 1)
@@ -184,24 +177,9 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
     scrollView.scrollRectToVisible(bounds, animated: animated)
     //    currentPageIndex = page
   }
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    //let pageWidth = scrollView.frame.width
-    //let page = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1
-    //currentPageIndex = Int(page)
-  }
   
   @IBAction func goToPage(_ sender: UIPageControl) {
     goToPage(page: sender.currentPage, animated: true) 
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }
 

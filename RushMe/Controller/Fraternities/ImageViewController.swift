@@ -26,7 +26,6 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     self.scrollView.minimumZoomScale = 1
     self.scrollView.showsVerticalScrollIndicator = false
     self.scrollView.showsHorizontalScrollIndicator = false
-    //self.scrollView.alwaysBounceHorizontal = true
     self.scrollView.alwaysBounceVertical = true
     self.scrollView.isScrollEnabled = true
     self.scrollView.delegate = self
@@ -75,15 +74,5 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
     self.dismiss(animated: true, completion: nil)
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
 }

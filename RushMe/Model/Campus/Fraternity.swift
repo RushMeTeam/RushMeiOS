@@ -95,7 +95,11 @@ class Fraternity {
     }
     return nil
   }
-  class Event: NSObject {
+  class Event : Hashable {
+    static func == (lhs: Fraternity.Event, rhs: Fraternity.Event) -> Bool {
+      return lhs.startDate == rhs.startDate && lhs.name == rhs.name
+    }
+    
     private(set) var calendar = Calendar.current
     private(set) var startDate : Date
     private(set) var endDate : Date
@@ -119,9 +123,10 @@ class Fraternity {
       self.startDate = ((startingAt == nil) ? Format.dates.dateFormatter.date(from: onDate) : Format.dates.dateTimeFormatter.date(from: onDate + " " + startingAt!))!
       self.endDate = ((endingAt == nil) ? startDate : Format.dates.dateTimeFormatter.date(from: onDate + " " + endingAt!))!
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
+    var hashValue : Int {
+      get {
+       return startDate.hashValue + frat.name.hashValue 
+      }
     }
     var dayKey : String {
       return DateFormatter.localizedString(from: self.startDate, dateStyle: .medium, timeStyle: .none)

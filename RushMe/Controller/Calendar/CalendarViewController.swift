@@ -51,8 +51,7 @@ ScrollableItem {
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
     guard indexPath.section == 1, let minDate = earliestDate, 
-          let currentDateComponents = Calendar.current.date(byAdding: .day, value: indexPath.row, to: minDate),
-          let today = currentDateComponents.dayMonthYear else {
+      let today = Calendar.current.date(byAdding: .day, value: indexPath.row, to: minDate) else {
         return nil
     }
     return today
@@ -61,13 +60,13 @@ ScrollableItem {
   
   func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
     guard let today = dateKey(from: indexPath), 
-          let todaysEvents = RushCalendar.shared.eventsOn(today) else {
+      let todaysEvents = RushCalendar.shared.eventsOn(today) else {
         return []
     }
     return todaysEvents.sorted(by: <)
   }
   var isEmpty : Bool {
-   return !RushCalendar.shared.hasEvents
+    return !RushCalendar.shared.hasEvents
   }
   
   // MARK: Visual Calculated Fields
@@ -98,7 +97,7 @@ ScrollableItem {
       
     }
   }
- 
+  
   var selectedIndexPath : IndexPath? {
     get {
       return collectionView.indexPathsForSelectedItems?.first
@@ -114,14 +113,13 @@ ScrollableItem {
     super.viewDidLoad()
     //    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    self.view.sendSubviewToBack(collectionView)
+    view.sendSubviewToBack(collectionView)
     collectionView.layer.masksToBounds = true
     collectionView.layer.cornerRadius = 8
     
     
     // Do any additional setup after loading the view.
-    if let tbView = self.children.first as? EventTableViewController {
+    if let tbView = children.first as? EventTableViewController {
       eventViewController = tbView
     }
     
@@ -131,7 +129,7 @@ ScrollableItem {
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.fileURL = nil
+    fileURL = nil
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     shareButton.isEnabled = !RushCalendar.shared.hasEvents
   }
@@ -159,16 +157,6 @@ ScrollableItem {
   }
   
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using [segue destinationViewController].
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
   var fileURL : URL? = nil
   // MARK: Sharing
   // Shown when share button is selected
@@ -188,7 +176,7 @@ ScrollableItem {
       }
       else {
         // TODO: Fix this so it exports the correct events (favorites or otherwise)
-        self.fileURL = RushCalendar.shared.exportAsICS()
+        self.fileURL = self.exportEventsAsICS()
       }
       if let url = self.fileURL {
         let activityVC = UIActivityViewController(activityItems: [Frontend.text.shareMessage, url],
@@ -231,17 +219,13 @@ ScrollableItem {
     
   }
   // MARK : Gesture Recognizers
-  
   @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
     if sender.location(in: view).y < collectionView.frame.maxY {
       inEventView = false
     }
   }
   
-
-  
   // MARK: UICollectionViewDataSource
-  
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 2
   }
@@ -254,13 +238,14 @@ ScrollableItem {
     guard let today = dateKey(from: indexPath) else {
       let dumbCell = basicCell as! CalendarCollectionViewCell
       let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday
-      dumbCell.dayLabel.text = indexPath.section == 0 ? ["M","T","W","T","F","S","S"][weekday%6] : "\(indexPath.row)"
+      dumbCell.dayLabel.text = indexPath.section == 0 ? 
+        ["M","T","W","T","F","S","S"][weekday%6] : "\(indexPath.row)"
       dumbCell.isSelected = false
       dumbCell.set(isGrayedOut: true)
       return dumbCell
     }
     guard let cell = basicCell as? CalendarCollectionViewCell else {
-     return basicCell 
+      return basicCell 
     }
     let eventsToday = events(forIndexPath: indexPath)
     cell.set(isGrayedOut: today.month != Date.today.month)
@@ -271,23 +256,27 @@ ScrollableItem {
   
   
   // MARK: - UICollectionViewDelegate
-  func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+  func collectionView(_ collectionView: UICollectionView, 
+                      shouldDeselectItemAt indexPath: IndexPath) -> Bool {
     return true
   }
   
-  func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+  func collectionView(_ collectionView: UICollectionView, 
+                      shouldSelectItemAt indexPath: IndexPath) -> Bool {
     return indexPath.section != 0 && !isEmpty
   }
   
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  func collectionView(_ collectionView: UICollectionView, 
+                      didSelectItemAt indexPath: IndexPath) {
     let todaysEvents = events(forIndexPath: indexPath)
     eventViewController!.selectedEvents = todaysEvents
     if let todaysEvent = todaysEvents.first {
       self.dateLabel.text =
         DateFormatter.localizedString(from: todaysEvent.startDate,
                                       dateStyle: .long,
-                                      timeStyle: .none) + (Calendar.current.isDate(todaysEvent.startDate,
-                                                                                   inSameDayAs: .today) ? " (Today)" : "")
+                                      timeStyle: .none)
+      self.dateLabel.text! += Calendar.current.isDate(todaysEvent.startDate,
+                                                      inSameDayAs: .today) ? " (Today)" : ""
       UISelectionFeedbackGenerator().selectionChanged()
     }
     else {
@@ -315,4 +304,41 @@ extension UICollectionView {
     } 
   }
 }
+
+extension CalendarViewController {
+  /*
+   Saves a .ics file to the app's document directory, and
+   returns the location at which the document was saved, if
+   it was saved. If it was not saved, the URL will be nil!
+   
+   The exportAsICS function makes good use of the iCalKit
+   open-source framework, a software bundle used to describe
+   Apple's Date-type as .ics VEvents, all within a VCalendar.
+   
+   The function has two main components: firstly, it creates
+   an ICS file, and secondly it saves that file to the disk.
+   
+   */
+  fileprivate func exportEventsAsICS() -> URL? {
+    let stringICS = User.session.selectedEvents.asICS
+    // Try(!) to find a place to save this file
+    guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+      return nil
+    }
+    // Create the path, name the file "fratEvents.ics"
+    let saveFileURL = path.appendingPathComponent("/fratEvents.ics")
+    // Try(!) to save the file, handle all throws below
+    do {
+      try stringICS.write(to: saveFileURL, atomically: true, encoding: String.Encoding.ascii)
+    }
+      // If there are any errors, they are printed here
+    catch let e {
+      print(e.localizedDescription)
+      return nil
+    }
+    // Success-- return where the file was saved.
+    return saveFileURL
+  } 
+}
+
 

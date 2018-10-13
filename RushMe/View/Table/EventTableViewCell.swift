@@ -16,13 +16,11 @@ class EventTableViewCell: UITableViewCell {
   var event : Fraternity.Event? = nil {
     didSet {
       if let event = self.event {
-        //self.timeLabel.isHidden = false
         self.fraternityNameLabel.isHidden = false
         self.eventNameLabel.isHidden = false
         self.textLabel?.isHidden = true
         let end = event.endDate.formatToHour()
         let start = event.startDate.formatToHour()
-        
         self.dateLabel?.text = DateFormatter.localizedString(from: event.startDate,
                                                              dateStyle: .short,
                                                              timeStyle: .none)
@@ -49,8 +47,6 @@ class EventTableViewCell: UITableViewCell {
         } else {
          self.fraternityNameLabel.text = event.frat.name.greekLetters
         }
-        
-  
       }
     }
   }

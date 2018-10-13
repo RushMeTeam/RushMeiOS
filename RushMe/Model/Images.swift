@@ -9,15 +9,11 @@
 import Foundation
 import UIKit
 
-
-
-
 struct ImagePathSuffix {
   static let lowQuality = ""
   static let mediumQuality = "_Half.png.png"
   static let highQuality = "_Quarter.png.png"
 }
-
 
 class RMCachedImage {
   static var images = Dictionary<String, UIImage>()

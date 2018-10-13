@@ -182,7 +182,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
       transform = transform.translatedBy(x: pinchCenter.x, y: pinchCenter.y)
       senderView.transform = transform
-      //senderView.layer.shadowColor = UIColor.black.cgColor
       senderView.layer.shadowOpacity = Float(overTime)
       senderView.layer.shadowRadius = (overTime)*10.0
       if (senderView != self.profileImageView) {
@@ -242,10 +241,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   }()
   lazy var setupCoverImageView : Void = {
     coverImageView.layer.masksToBounds = true
-    //coverImageView.clipsToBounds = false
     coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
     coverImageView.layer.masksToBounds = true
-//    coverImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
     coverImageView.layer.cornerRadius = Frontend.cornerRadius
     coverImageView.clipsToBounds = true
     coverImageView.layer.zPosition = 9
@@ -266,11 +263,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if let tbView = self.childViewControllers.last as? EventTableViewController {
-//      eventViewController = tbView
-//    }
-    
-
     registerForPreviewing(with: self, sourceView: profileImageView)
   }
   override func viewWillAppear(_ animated: Bool) {
@@ -280,7 +272,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     self.coverImageView.transform = CGAffineTransform.identity
     self.coverImageView.alpha = 1
   }
-  // MARK: ConfigureView
+  
   lazy var configureView : Void = {
     guard let frat = selectedFraternity else {
       print("No Frat to configure view with!")
@@ -298,7 +290,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
     profileImageView.setImageByURL(fromSource: frat.profileImagePath)
-    
     titleLabel.text = frat.name
     underProfileLabel.text = frat.chapter + " Chapter"
     if let memberCount = frat.memberCount {
@@ -327,13 +318,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       mapView.setCenter(annotation.coordinate, animated: false)
       mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
       mapItem!.name = frat.name
-    }
-    else {
+    } else {
       self.mapView.isScrollEnabled = false
       self.mapView.setCenter(RushMe.campus.coordinates, animated: false)
-      //self.mapView?.removeFromSuperview()
-      //self.openMapButton?.removeFromSuperview()
-     
     }
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
@@ -344,8 +331,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
           self.eventViewController!.selectedEvents = [event]
           self.eventViewController!.provideDate = true
         }
-      }
-      else {
+      } else {
         DispatchQueue.main.async {
           self.eventViewController!.selectedEvents = []
         }
@@ -379,7 +365,6 @@ extension UIMotionEffect {
       motion.maximumRelativeValue = strength
       return motion
     }
-    
     // group of motion effects
     let group = UIMotionEffectGroup()
     group.motionEffects = [

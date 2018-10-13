@@ -15,16 +15,7 @@ class EventTableViewController: UITableViewController {
   // Allow cells to provide the date
   // Useful if date is not implied/indicated anywhere else
   var provideDate = false
-//  private var numberOfEventsToDisplay = 0 
-//  var numberOfEventsDisplayed : Int {
-//    get {
-//     return max(min(selectedEvents.count, numberOfEventsToDisplay), 0) 
-//    } set {
-//     numberOfEventsToDisplay = newValue 
-//    }
-//  }
   // MARK: Member Variables
-  
   var selectedEvents : [Fraternity.Event] = [] {
     didSet {
       tableView.isScrollEnabled = selectedEvents.count > 1

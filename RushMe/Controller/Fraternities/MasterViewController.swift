@@ -65,8 +65,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   // MARK: Member Variables
   // The hard data used in the table
   lazy private(set) var searchController = UISearchController(searchResultsController: nil)
-  // The menu button used to toggle the slide-out menu
-  //@IBOutlet var openBarButtonItem: UIBarButtonItem!
   // Is the tableView presenting all fraternities, or just favorites?
   var viewingFavorites : Bool  {
     // Setting viewingFavorites configures the tableView to view the user's favorites
@@ -166,12 +164,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   }
 
   lazy var setupSearchBar : Void = {
-    // Setup the Search Bar (backend)
   
     searchController.searchResultsUpdater = self
     searchController.delegate = self
     // Setup the Search Bar (visual)
-    //searchController.searchBar.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
     searchController.searchBar.isTranslucent = false
     searchController.searchBar.tintColor = .white
     searchController.searchBar.backgroundColor = Frontend.colors.AppColor
@@ -180,49 +176,27 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.dimsBackgroundDuringPresentation = false
     
-    //
-    // Set Search Bar placeholder text, for when a search has not been entered
+    // set Search Bar placeholder text, for when a search has not been entered
     searchController.searchBar.placeholder = "Search Fraternities"
-    //extendedLayoutIncludesOpaqueBars = true
-    //definesPresentationContext = true
-    //edgesForExtendedLayout = []
-    //searchController.searchBar.scopeButtonTitles = []
-    //                                 searchBarView.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant : 5),
-    //                                 searchBarView.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant : -5),
-    //                                 searchBarView.heightAnchor.constraint(equalToConstant: 44),
-    //                                 searchBarView.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 0),
-    //                                 searchBarView.centerXAnchor.constraint(equalTo: tableHeaderView.centerXAnchor),
-    //    searchBarView.translatesAutoresizingMaskIntoConstraints = false
-    //    let searchBarView = UIView()
+    
        searchController.searchBar.backgroundImage = UIImage()
-    //tableHeaderView = searchController.searchBar
     tableView.tableHeaderView = searchController.searchBar
-    //searchBarView.addSubview(searchController.searchBar)
-    //tableHeaderView.addSubview(searchBarView)
   }()
   var tableHeaderView : UIView!
   lazy var setupTableHeaderView : Void = {
     tableHeaderView = UIView()
     
     tableHeaderView.backgroundColor = Frontend.colors.AppColor
-//    tableView.backgroundColor = RMColor.AppColor
     favoritesSegmentControl.insertSegment(withTitle: "All", at: 0, animated: false)
     favoritesSegmentControl.insertSegment(withTitle: "Favorites", at: 1, animated: false)
     favoritesSegmentControl.selectedSegmentIndex = 0
     favoritesSegmentControl.tintColor = .white
     favoritesSegmentControl.addTarget(self, action: #selector(MasterViewController.segmentControlChanged), for: UIControl.Event.valueChanged)
     favoritesSegmentControl.translatesAutoresizingMaskIntoConstraints = false
-   //tableHeaderView.translatesAutoresizingMaskIntoConstraints = false
-    //view.backgroundColor = RMColor.AppColor
-   // tableView.tableHeaderView = 
     
     tableHeaderView.addSubview(favoritesSegmentControl)
     // TODO: Fix search bar autolayout errors!
-    NSLayoutConstraint.activate([//tableHeaderView.topAnchor.constraint(equalTo: tableView.topAnchor),
-                                 //tableHeaderView.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                 //tableHeaderView.rightAnchor.constraint(equalTo: view.rightAnchor),
-                                 //tableHeaderView.widthAnchor.constraint(equalTo: tableView.widthAnchor),
-                                 favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 6),
+    NSLayoutConstraint.activate([favoritesSegmentControl.topAnchor.constraint(equalTo: tableHeaderView.topAnchor, constant: 6),
                                  favoritesSegmentControl.leftAnchor.constraint(equalTo: tableHeaderView.leftAnchor, constant: 7),
                                  favoritesSegmentControl.rightAnchor.constraint(equalTo: tableHeaderView.rightAnchor, constant: -7),
                                  favoritesSegmentControl.heightAnchor.constraint(greaterThanOrEqualToConstant: 0),
@@ -247,27 +221,34 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     _ = setupTableHeaderView
     return tableHeaderView
   }
-
   
-  func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
+  func updateSearchBar() {
+    self.searchController.searchBar.placeholder = "Search \(Campus.shared.fraternityNames.count) Fraternities"
+    self.searchController.searchBar.layoutIfNeeded() 
+  }
+  
+  func endRefreshing() {
+    self.refreshControl?.endRefreshing()
+    self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", 
+                                                                   attributes : [NSAttributedString.Key.foregroundColor: UIColor.white])
+    self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites 
+  }
+  
+  func handlePercentageCompletion(oldValue : Float?, newValue progress : Float) {
     DispatchQueue.main.async {
       self.reloadTableView()
-      self.searchController.searchBar.placeholder = "Search \(Campus.shared.fraternityNames.count) Fraternities"
-      self.searchController.searchBar.layoutIfNeeded() 
-      if newValue == 1 {
-        self.refreshControl?.endRefreshing()
-        self.refreshControl?.attributedTitle = NSAttributedString.init(string: "Shuffle Fraternities", attributes : [NSAttributedString.Key.foregroundColor: UIColor.white])
-        self.favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || self.viewingFavorites
-        
+      self.updateSearchBar()
+      if progress == 1 {
+        self.endRefreshing()
       }
-      
     } 
   }
   
   // MARK: - Transitions
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, handler: handlePercentageCompletion(oldValue:newValue:))
+    Campus.shared.percentageCompletionObservable.addObserver(forOwner : self, 
+                                                             handler: handlePercentageCompletion(oldValue:newValue:))
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
   
@@ -437,7 +418,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     return dataKeys.count
   }
   func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
-    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
+    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , 
+                                 style: .plain, 
+                                 target: self, 
+                                 action: #selector(MasterViewController.toggleFavorite(sender:)))
     button.title = frat.name
     return button
   }

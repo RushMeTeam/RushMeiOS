@@ -11,6 +11,11 @@ import DeviceKit
 
 // User preferences
 struct User {
+  struct session {
+    static var selectedEvents = Set<Fraternity.Event>()
+   
+  }
+  
   struct preferences {
     static private var displayFavoritesOnly_ : Bool? = nil
     static var displayFavoritesOnly : Bool {

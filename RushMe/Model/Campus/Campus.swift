@@ -244,7 +244,7 @@ class Campus: NSObject {
     }
     
   }
-  @objc func getEvents(forFratWithName fratName : String, async : Bool = false) -> Set<Fraternity.Event> {
+  func getEvents(forFratWithName fratName : String, async : Bool = false) -> Set<Fraternity.Event> {
     if let events = Campus.shared.fraternitiesByName[fratName]?.events {
       // If is fraternity's list of events is already saturated, return
       return events 
