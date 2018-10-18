@@ -34,19 +34,22 @@ class Backend {
   fileprivate static let databaseName = "fratinfo"
   fileprivate static let userActionsTableName = "sqlrequests"
   
-  static let db = URL(string: "http://ec2-18-188-8-243.us-east-2.compute.amazonaws.com/request.php")!
+  static let db = "https://s3.us-east-2.amazonaws.com/rushmepublic/fraternites.rushme"
   static let S3 = URL(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
   
   static var pastActionsFromFile : Array<Dictionary<String, Any>> {
     set {
       DispatchQueue.global(qos: .background).async {
-        if !NSKeyedArchiver.archiveRootObject(newValue, toFile: User.files.userActionsURL.path) {
+        guard NSKeyedArchiver.archiveRootObject(newValue, toFile: User.files.userActionsURL.path) else {
           print("Error Saving Actions!")
+          return
         }
       }
     }
     get {
-      if let actions = NSKeyedUnarchiver.unarchiveObject(withFile: User.files.userActionsURL.path) as? [Dictionary<String, Any>] {
+      if let actions = 
+        NSKeyedUnarchiver.unarchiveObject(withFile: User.files.userActionsURL.path) 
+                                                      as? [Dictionary<String, Any>] {
         return actions 
       }
       self.pastActionsFromFile = [Dictionary<String, Any>]()
@@ -56,8 +59,8 @@ class Backend {
   
   // Select everything from a SQL table using its name
   static func selectAll(fromTable tableName : String ) throws -> [Dictionary<String, Any>]  {
-    let tableString = "?table=\(tableName)"
-    guard let url = URL(string: Backend.db.absoluteString + tableString) else {
+    let tableString = "/\(tableName)" //"?table=\(tableName)"
+    guard let url = URL(string: Backend.db + tableString) else {
       throw BackendError.badRequest
     }; guard let response = try? Data(contentsOf: url) else {
       throw BackendError.nullServerResponse
@@ -137,7 +140,7 @@ class Backend {
 
 fileprivate extension URLRequest {
   init(fromAction action : [String : Any]) {
-    self.init(url: Backend.db)
+    self.init(url: URL(string: Backend.db)!)
     self.httpMethod = "POST"
     var actionAsString = "&"
     for category in action {
@@ -263,6 +266,7 @@ extension Fraternity {
       var pImagePath : RMURL? 
       if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
         pImagePath = RMURL(fromString: profileImagePathRaw)
+        
       }
       
       let address = dict[Database.keys.frat.address] as? String

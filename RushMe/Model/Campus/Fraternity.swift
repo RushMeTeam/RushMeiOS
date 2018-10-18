@@ -58,12 +58,6 @@ class Fraternity : Hashable {
       return name.djb2hash ^ chapter.djb2hash
     }
   }
-  // The number of active members
-  
-  // All data in the Fraternity object is stored again in properties
-  
-  
-  
   
   class Event : Hashable {
     static func == (lhs: Fraternity.Event, rhs: Fraternity.Event) -> Bool {
@@ -155,9 +149,7 @@ extension Date {
     let hour = String(split[0])
     let min = String(split[1])
     return hour + ":" +  min + " " + AmPm
-    
   }
-  
 }
 
 
@@ -165,7 +157,6 @@ extension Fraternity {
   var isFavorite : Bool {
     return User.session.favoriteFrats.contains(name)
   }
-  
 }
 extension String {
   var djb2hash: Int {

@@ -65,90 +65,6 @@ class Campus {
   
   // Refer to each fraternity by its name, in no order
   private(set) var fraternitiesByName = [String : Fraternity]()
-  // FratEvents, unordered
-//  private var favoritedEvents_ : Set<Fraternity.Event>? = nil
-//  var favoritedEvents : Set<Fraternity.Event> {
-//    get {
-//      if favoritedEvents_ == nil {
-//        favoritedEvents_ = self.allEvents.filter({ (event) -> Bool in
-//          return self.favoritedFrats.contains(event.frat.name) && (considerPastEvents || event.startDate.compare(.today) != .orderedAscending)
-//        })
-//      }
-//      return favoritedEvents_ ?? self.favoritedEvents
-//    }
-//  }
-//  private var eventsByDay_ : [[Fraternity.Event]]? = nil
-//  var eventsByDay : [[Fraternity.Event]] {
-//    get {
-//      if eventsByDay_ == nil {
-//        eventsByDay_ = [[Fraternity.Event]]()
-//        for daysEvents in fratEventsByDay.values {
-//          let futureDaysEvents = daysEvents.filter({ (event) -> Bool in
-//            return considerPastEvents || event.startDate.compare(.today) != .orderedAscending
-//          }).sorted { (first, second) -> Bool in
-//            return first.startDate < second.startDate 
-//          }
-//          if futureDaysEvents.count > 0 {
-//            eventsByDay_!.append(futureDaysEvents)
-//          }
-//        }
-//        eventsByDay_!.sort(by: { (first, second) -> Bool in
-//          return first[0].startDate < second[0].startDate
-//        })
-//      }
-//      return eventsByDay_!
-//    }
-//  }
-//  private var favoritedEventsByDay_ : [[Fraternity.Event]]? = nil
-//  var favoritedEventsByDay : [[Fraternity.Event]] {
-//    get {
-//      if favoritedEventsByDay_ == nil {
-//        favoritedEventsByDay_ = [[Fraternity.Event]]()
-//        for daysEvents in eventsByDay {
-//          let favoritedEventsToday = daysEvents.filter({ (event) -> Bool in
-//            return favoritedFrats.contains(event.frat.name)
-//          }).sorted { (first, second) -> Bool in
-//            return first.startDate < second.startDate
-//          }
-//          if !favoritedEventsToday.isEmpty {
-//            favoritedEventsByDay_!.append(favoritedEventsToday)
-//          }
-//        }
-//      }
-//      return favoritedEventsByDay_!
-//    }
-//  }
-//  private var fratEventsByDay = [String : [Fraternity.Event]]()
-//  private(set) var allEvents = Set<Fraternity.Event>()
-//  private var firstFavoritedEvent_ : Fraternity.Event? = nil
-//  var firstFavoritedEvent : Fraternity.Event? {
-//    get {
-//      if firstFavoritedEvent_ == nil {
-//        firstFavoritedEvent_ = favoritedEvents.filter({ (event) -> Bool in
-//          return considerPastEvents || event.startDate > .today
-//        }).min(by: {
-//          (thisEvent, thatEvent) in
-//          return thisEvent.startDate < thatEvent.startDate
-//        })
-//      }
-//      return firstFavoritedEvent_
-//    }
-//  }
-//  private var firstEvent_ : Fraternity.Event? = nil
-//  var firstEvent : Fraternity.Event? {
-//    get {
-//      if firstEvent_ == nil {
-//        firstEvent_ = allEvents.filter({ (event) -> Bool in
-//          return considerPastEvents || event.startDate > .today
-//        }).min(by: {
-//          (thisEvent, thatEvent) in
-//          return thisEvent.startDate < thatEvent.startDate
-//        })
-//      }
-//      return firstEvent_
-//    }
-//  }
-  
   
   // The default quality at which an image should be downloaded
   static var downloadedImageQuality : Quality = .Medium
@@ -167,6 +83,7 @@ class Campus {
     }
   }
   var lastDictArray : [Dictionary<String,Any>]? = nil 
+  
   func pullFromBackend() {
     if !isLoading {
       self.percentageCompletion = 0.2
@@ -197,16 +114,11 @@ class Campus {
         DispatchQueue.main.async {
           Locations.geocode(selectedFraternities: Array(Campus.shared.fraternityNames))
         }
-        
-
-        
       } 
     }
     else {
       print("(Tried to refresh when loading)") 
     }
-    
-    
   }
   
   enum CampusError : Error {
@@ -220,10 +132,7 @@ class Campus {
     else {
       self.fraternitiesByName[frat.name] = frat
     }
-    
   }
-  
-  
 }
 extension Campus {
   // Returns whether the Fraternity is now a favorite
