@@ -33,25 +33,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   @IBOutlet var toMakeClear: [UIView]!
   var newImageViewController : ImageViewController? {
     get {
-     return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
+      return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
-//  private var _coverImagePageViewController  : ImagePageViewController? 
-//  var coverImagePageViewController  : ImagePageViewController! {
-//    get {
-//      if let _ = _coverImagePageViewController  {
-//        return _coverImagePageViewController  
-//      }
-//      for viewController in childViewControllers where (viewController as? ImagePageViewController == nil) ? false : true {
-//        _coverImagePageViewController  = viewController as! ImagePageViewController
-//        return viewController as! ImagePageViewController
-//      }
-//      return nil
-//    }
-//  }
- 
+  //  private var _coverImagePageViewController  : ImagePageViewController? 
+  //  var coverImagePageViewController  : ImagePageViewController! {
+  //    get {
+  //      if let _ = _coverImagePageViewController  {
+  //        return _coverImagePageViewController  
+  //      }
+  //      for viewController in childViewControllers where (viewController as? ImagePageViewController == nil) ? false : true {
+  //        _coverImagePageViewController  = viewController as! ImagePageViewController
+  //        return viewController as! ImagePageViewController
+  //      }
+  //      return nil
+  //    }
+  //  }
+  
   private var coverImagePageViewController : ImagePageViewController!
- 
+  
   
   
   var openInMapsAction : UIAlertAction {
@@ -81,7 +81,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   var selectedFraternity: Fraternity? = nil {
     didSet {
       if let frat = selectedFraternity {
-        eventViewController?.selectedEvents = Array(frat.events)
+        eventViewController?.selectedEvents = Array(frat.events ?? [])
         title = frat.name.greekLetters
       }
     }
@@ -90,14 +90,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   
   // MARK: IBActions
   @objc func favoritesButtonHit(_ sender: UIBarButtonItem) {
-    if let fratName = selectedFraternity?.name {
-      if Campus.shared.favoritedFrats.contains(fratName) {
-        _ = Campus.shared.removeFavorite(named: fratName)
+    if let frat = selectedFraternity {
+      if frat.isFavorite {
+        _ = Campus.shared.unfavorite(fratNamed: frat.name)
         sender.image = Frontend.images.unfilledHeart
         self.profileImageView.layer.borderColor = UIColor.white.withAlphaComponent(0.7).cgColor
       }
       else {
-        _ = Campus.shared.addFavorite(named: fratName)
+        _ = Campus.shared.favorite(fratNamed: frat.name)
         sender.image = Frontend.images.filledHeart
         self.profileImageView.layer.borderColor = Frontend.colors.AppColor.withAlphaComponent(0.7).cgColor
       }
@@ -107,7 +107,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     if profileImageView.point(inside: location, with: nil), let imageVC = newImageViewController,
       let image = profileImageView.image {
       imageVC.image = image
-     return imageVC
+      return imageVC
     }
     return nil
   }
@@ -120,10 +120,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
   
   override var previewActionItems: [UIPreviewActionItem] {
     get {
-     return [
-      UIPreviewAction(title: Campus.shared.favoritedFrats.contains(self.selectedFraternity?.name ?? "") ? "Unfavorite" : "Favorite", style: .default) { (action, targetVC) in
-//        self.favoritesButtonHit()
-      }]
+      return [
+        UIPreviewAction(title: selectedFraternity?.isFavorite ?? false ? "Unfavorite" : "Favorite", style: .default) { (action, targetVC) in
+          //        self.favoritesButtonHit()
+        }]
     }
   }
   // Would like to add 3D touch support
@@ -285,9 +285,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
         //self.coverImageView.setImageByURL(fromSource: coverImageURL)
         imageVC.imageNames.append(calendarImageURL)
       }
-      if let coverImageURLs = frat.coverImagePaths {
-        imageVC.imageNames.append(contentsOf: coverImageURLs)
-      }
+      
+      imageVC.imageNames.append(contentsOf: frat.coverImagePaths)
+      
     }
     profileImageView.setImageByURL(fromSource: frat.profileImagePath)
     titleLabel.text = frat.name
@@ -296,7 +296,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       self.memberCountLabel.text = String(describing: memberCount) + " Members"
     }
     
-    if Campus.shared.favoritedFrats.contains(frat.name) {
+    if frat.isFavorite {
       self.favoritesButton.image = Frontend.images.filledHeart
       self.profileImageView.layer.borderColor = Frontend.colors.AppColor.withAlphaComponent(0.7).cgColor
     }
@@ -311,12 +311,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     
     if let location = frat.coordinates {
       let annotation = MKPointAnnotation()
-      annotation.coordinate = location.coordinate
+      annotation.coordinate = location
       annotation.title = frat.name
       annotation.subtitle = frat.address
       mapView.addAnnotation(annotation)
       mapView.setCenter(annotation.coordinate, animated: false)
-      mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
+      mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location))
       mapItem!.name = frat.name
     } else {
       self.mapView.isScrollEnabled = false
@@ -324,7 +324,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     }
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
-      if let event = Campus.shared.getEvents(forFratWithName: frat.name).filter({ (value) -> Bool in
+      if let event = frat.events?.filter({ (value) -> Bool in
         return User.preferences.considerPastEvents || value.startDate.compare(.today) != .orderedAscending
       }).last {
         DispatchQueue.main.async {

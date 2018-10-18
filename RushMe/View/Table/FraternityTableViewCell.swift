@@ -24,7 +24,7 @@ class FraternityTableViewCell: UITableViewCell {
       if let _ = newValue {
         titleLabel.text = newValue!.name
         favoriteButton.accessibilityIdentifier = (titleLabel.text ?? "") + " Favorites Button"
-        isAccentuated = Campus.shared.favoritedFrats.contains(newValue!.name)
+        isAccentuated = newValue!.isFavorite
       } else {
         titleLabel.text = ""
         isAccentuated = false

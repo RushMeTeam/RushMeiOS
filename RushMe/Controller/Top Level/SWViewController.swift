@@ -15,6 +15,7 @@ class SWViewController: SWRevealViewController {
   var drawerMenuVC : DrawerMenuViewController!
 
   override func viewWillAppear(_ animated: Bool) {
+  
     splitVC = UIStoryboard.main.instantiateViewController(withIdentifier: "splitVC")
     scrollPageVC = splitVC.children.first!.children.first as? RMViewController
     drawerMenuVC = UIStoryboard.main.instantiateViewController(withIdentifier: "drawerVC") as? DrawerMenuViewController

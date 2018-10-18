@@ -31,25 +31,35 @@ import iCalKit
 
 class RushCalendar {
   static let shared : RushCalendar = RushCalendar()
-  private var events : [Int : Set<Fraternity.Event>] = [Int : Set<Fraternity.Event>]()
-  
+  private var eventsByDay : [Int : Set<Fraternity.Event>] = [Int : Set<Fraternity.Event>]()
+  private(set) var eventsByFraternity : [Fraternity : Set<Fraternity.Event>] = [Fraternity : Set<Fraternity.Event>]()
   func add(event : Fraternity.Event) -> Bool {
-    let key = event.startDate.daysSinceReferenceDate
-    if let _ = events[key] {
-      return events[key]!.insert(event).inserted
-    } else {
-      events[key] = Set([event])
-      return true
+    if eventsByFraternity[event.frat] == nil{
+      eventsByFraternity[event.frat] = Set<Fraternity.Event>()
     }
+    
+    let key = event.startDate.daysSinceReferenceDate
+    if eventsByDay[key] == nil {
+     eventsByDay[key] = Set<Fraternity.Event>() 
+    } 
+    return eventsByDay[key]!.insert(event).inserted && 
+           eventsByFraternity[event.frat]!.insert(event).inserted
+    
   }
   
+  
   func remove(event: Fraternity.Event) -> Bool {
-    guard let daysEvents = events[event.startDate.daysSinceReferenceDate] else {
+    if let events = eventsByFraternity[event.frat], events.count > 1  {
+     eventsByFraternity[event.frat]?.remove(event)
+    } else {
+     eventsByFraternity.removeValue(forKey: event.frat) 
+    }
+    guard let daysEvents = eventsByDay[event.startDate.daysSinceReferenceDate] else {
      return false 
     }; guard daysEvents.count > 1 else {
-     return events.removeValue(forKey: event.startDate.daysSinceReferenceDate) != nil
+     return eventsByDay.removeValue(forKey: event.startDate.daysSinceReferenceDate) != nil
     }
-    return events[event.startDate.daysSinceReferenceDate]!.remove(event) != nil
+    return eventsByDay[event.startDate.daysSinceReferenceDate]!.remove(event) != nil
   }
   
   var firstDate : Date? {
@@ -60,21 +70,21 @@ class RushCalendar {
   
   var firstEvent : Fraternity.Event? {
     get {
-      guard let key = events.keys.min() else {
+      guard let key = eventsByDay.keys.min() else {
         return nil 
       }
-      return events[key]?.min(by: <)
+      return eventsByDay[key]?.min(by: <)
     }
   }
   
   var hasEvents : Bool {
     get {
-     return !events.isEmpty 
+     return !eventsByDay.isEmpty 
     }
   }
   
   func eventsOn(_ date : Date) -> Set<Fraternity.Event>? {
-    return events[date.daysSinceReferenceDate]
+    return eventsByDay[date.daysSinceReferenceDate]
   }
 }
 
@@ -108,3 +118,8 @@ extension Collection where Element : Fraternity.Event {
   }
 }
 
+extension Fraternity {
+  var events : Set<Fraternity.Event>? {
+    return RushCalendar.shared.eventsByFraternity[self]
+  }
+}

@@ -22,8 +22,8 @@ class ScrollPageViewController: UIViewController,
     NSLayoutConstraint.activate([
       scrollView.leftAnchor.constraint(equalTo: view.leftAnchor)
       , scrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
-      , scrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor)
-      , scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor)
+      , scrollView.topAnchor.constraint(equalTo: view.topAnchor)
+      , scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
       ])
     scrollView.isScrollEnabled = false
     scrollView.isPagingEnabled = true
@@ -66,9 +66,7 @@ class ScrollPageViewController: UIViewController,
   }
   var currentPage : Int = 1 {
     didSet {
-      if let currentVC = currentViewController as? ScrollableItem {
-        currentVC.updateData()
-      }
+      (currentViewController as? ScrollableItem)?.updateData()
     }
   }
   var currentViewController : UIViewController! {

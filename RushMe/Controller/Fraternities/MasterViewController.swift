@@ -100,13 +100,13 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
       // If we're searching, use the contents of the search bar to determine 
       // which fraternities to display
       if isSearching {
-        return Array(viewingFavorites ? Campus.shared.favoritedFrats : Campus.shared.fraternityNames).filter({ (fratName) -> Bool in
+        return Array(viewingFavorites ? User.session.favoriteFrats : Campus.shared.fraternityNames).filter({ (fratName) -> Bool in
           return fratName.lowercased().contains(searchController.searchBar.text!.lowercased())
         }) 
       }
       // Display favorites only
       else if viewingFavorites {
-       return Array(Campus.shared.favoritedFrats)
+       return Array(User.session.favoriteFrats)
       }
       // Display all fraternities, sorted by name
       else if !User.preferences.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
@@ -346,12 +346,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
 
   func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
     if (action.title == Frontend.text.favorite) {
-      let _ = Campus.shared.getEvents(forFratWithName: fratName, async: true)
-      _ = Campus.shared.addFavorite(named: fratName)
+      _ = Campus.shared.favorite(fratNamed: fratName)
       action.backgroundColor = Frontend.colors.AppColor
       if let cell = tableView.cellForRow(at: cellIndex) as? FraternityTableViewCell {
         cell.isAccentuated = true
-        //SQLHandler.shared.informAction(action: "Fraternity Favorited", options: fratName)
       }
       action.backgroundColor = Frontend.colors.AppColor
       tableView.reloadRows(at: [cellIndex], with: .automatic)
@@ -362,7 +360,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
         cell.isAccentuated = false
         //SQLHandler.shared.informAction(action: "Fraternity Unfavorited", options: fratName)
       }
-      _ = Campus.shared.removeFavorite(named: fratName)
+      _ = Campus.shared.unfavorite(fratNamed: fratName)
       if (viewingFavorites) {
         tableView.deleteRows(at: [cellIndex], with: UITableView.RowAnimation.left)
       }
@@ -418,7 +416,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     return dataKeys.count
   }
   func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
-    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , 
+    let button = UIBarButtonItem(image: frat.isFavorite ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , 
                                  style: .plain, 
                                  target: self, 
                                  action: #selector(MasterViewController.toggleFavorite(sender:)))

@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 import MapKit
-class Fraternity {
+class Fraternity : Hashable {
+  static func == (lhs: Fraternity, rhs: Fraternity) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+  }
+  
   // The name of the fraternity
   // e.g. "Lambda Lambda Chi"
   let name : String
@@ -20,92 +24,58 @@ class Fraternity {
   let chapter : String
   // The previewImage is the image seen when the user scrolls through a list of fraternities
   // e.g. a picture of the house, possibly the profile image
-  let profileImagePath : RMURL
+  let profileImagePath : RMURL!
   // The path to a possible calendar image
-  let calendarImagePath : RMURL?
+  let calendarImagePath : RMURL!
   // All other images
-  let coverImagePaths : [RMURL]?
+  let coverImagePaths : [RMURL]
   // The physical address of the fraternity
   let address : String?
-  var coordinates : CLLocation? {
-   return Locations.byName[name] 
-  }
-  // All the Fraternity's associated rush events are stored in events
-  var events : Set<Fraternity.Event> = Set<Fraternity.Event>()
-  // The number of active members
-  var memberCount : Int?
-  // All data in the Fraternity object is stored again in properties
-  private var dictionaryRepresentation : Dictionary<String, Any>
-  init?(withDictionary dictionary : [String : Any]) {
-    if let name = dictionary[Database.keys.frat.name] as? String,
-      let statement = dictionary[Database.keys.frat.description] as? String,
-      let chapter = dictionary[Database.keys.frat.chapter] as? String,
-      let profileImagePathRaw = dictionary[Database.keys.frat.profileImage] as? String,
-      let profileImagePath = RMURL(fromString: profileImagePathRaw) {
-      self.name = name
-      self.description = statement
-      self.chapter = chapter
-      self.profileImagePath = profileImagePath
-      if let memberCountRaw = dictionary[Database.keys.frat.memberCount] as? String,
-        let memberCount = Int(memberCountRaw){
-        self.memberCount = abs(memberCount)
-      }
-      if let calendarImagePathRaw = dictionary[Database.keys.frat.calendarImage] as? String {
-          self.calendarImagePath = RMURL(fromString: calendarImagePathRaw)
-      }
-      else {
-            self.calendarImagePath = nil
-      }
-      self.address = dictionary[Database.keys.frat.address] as? String
-       
-      self.dictionaryRepresentation = dictionary
-      // TODO: Allow for multiple images
-      self.coverImagePaths = nil
-    }
-    else {
-     return nil 
-    }
+  let coordinates : CLLocationCoordinate2D? 
+  let memberCount : Int!
+  init(name : String, description : String, 
+       chapter : String, 
+       memberCount : Int?, 
+       profileImagePath : RMURL?, 
+       calendarImagePath : RMURL?, 
+       coverImagePaths : [RMURL] = [], 
+       address : String?, 
+       coordinates : CLLocationCoordinate2D?) {
+    self.name = name
+    self.description = description
+    self.chapter = chapter
+    self.profileImagePath = profileImagePath
+    self.coverImagePaths = coverImagePaths
+    self.calendarImagePath = calendarImagePath
+    self.address = address
+    self.coordinates = coordinates
+    self.memberCount = memberCount
   }
   
-  func getUnmarkedProperty(named : String) -> Any? {
-    if (named == "name"){ return self.name }
-    if (named == "chapter"){ return self.chapter }
-    return dictionaryRepresentation[named]
-  }
-  func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
-    //house, event_name, start_time, end_time, event_date, location
-    // start_time, end_time, location possibly nil
-    let houseName = dict["house"] as! String
-    if (self.name != houseName){
-      return nil
+  
+  var hashValue : Int {
+    get {
+      return name.djb2hash ^ chapter.djb2hash
     }
-    let eventName = dict["event_name"] as! String
-    let eventDate = dict["event_date"] as! String
-    let location = dict["location"] as? String
-    let startTime = dict["start_time"] as? String
-    let endTime = dict["end_time"] as? String
-    if let event = Fraternity.Event(withName: eventName,
-                             onDate: eventDate,
-                             ownedByFraternity: self,
-                             startingAt: startTime,
-                             endingAt: endTime,
-                             atLocation: location) {
-    
-      return events.insert(event).memberAfterInsert
-    }
-    return nil
   }
+  // The number of active members
+  
+  // All data in the Fraternity object is stored again in properties
+  
+  
+  
+  
   class Event : Hashable {
     static func == (lhs: Fraternity.Event, rhs: Fraternity.Event) -> Bool {
-      return lhs.startDate == rhs.startDate && lhs.name == rhs.name
+      return lhs.frat == rhs.frat && lhs.startDate == rhs.startDate && lhs.name == rhs.name
     }
     
-    private(set) var calendar = Calendar.current
-    private(set) var startDate : Date
-    private(set) var endDate : Date
-    private(set) var name : String
-    private(set) var location : String?
-    private(set) var frat : Fraternity
+    let calendar = Calendar.current
+    let startDate : Date
+    let endDate : Date
+    let name : String
+    let location : String?
+    let frat : Fraternity
     
     // TODO: Fix RushMe.dateTimeFormatter to work for 24hr time
     init?(withName : String,
@@ -125,7 +95,7 @@ class Fraternity {
     }
     var hashValue : Int {
       get {
-       return startDate.hashValue + frat.name.hashValue 
+       return startDate.hashValue ^ endDate.hashValue ^ frat.hashValue ^ name.djb2hash
       }
     }
     var dayKey : String {
@@ -190,3 +160,25 @@ extension Date {
   
 }
 
+
+extension Fraternity {
+  var isFavorite : Bool {
+    return User.session.favoriteFrats.contains(name)
+  }
+  
+}
+extension String {
+  var djb2hash: Int {
+    let unicodeScalars = self.unicodeScalars.map { $0.value }
+    return unicodeScalars.reduce(5381) {
+      ($0 << 5) &+ $0 &+ Int($1)
+    }
+  }
+  
+  var sdbmhash: Int {
+    let unicodeScalars = self.unicodeScalars.map { $0.value }
+    return unicodeScalars.reduce(0) {
+      Int($1) &+ ($0 << 6) &+ ($0 << 16) - $0
+    }
+  }
+}

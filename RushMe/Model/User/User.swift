@@ -13,6 +13,14 @@ import DeviceKit
 struct User {
   struct session {
     static var selectedEvents = Set<Fraternity.Event>()
+    static var favoriteFrats : Set<String> {
+      get {
+       return Set<String>(userPreferencesCache.array(forKey: "favoriteFraternities") as? [String] ?? []) 
+      }
+      set {
+        userPreferencesCache.set(Array<String>(newValue), forKey: "favoriteFraternities")
+      }
+    }
    
   }
   

@@ -44,9 +44,6 @@ ScrollableItem {
   var earliestDate : Date? {
     get {
       return RushCalendar.shared.firstEvent?.startDate
-      //      return viewingFavorites ?
-      //        Campus.shared.firstFavoritedEvent :
-      //        Campus.shared.firstEvent
     }
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
@@ -60,7 +57,9 @@ ScrollableItem {
   
   func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
     guard let today = dateKey(from: indexPath), 
-      let todaysEvents = RushCalendar.shared.eventsOn(today) else {
+      let todaysEvents = RushCalendar.shared.eventsOn(today)?.filter({ (event) -> Bool in
+        return !viewingFavorites || event.frat.isFavorite
+      }) else {
         return []
     }
     return todaysEvents.sorted(by: <)

@@ -31,25 +31,21 @@ enum Quality : Int {
  */
 
 
-class Campus: NSObject {
+class Campus {
   // MARK: Member Variables
   // The user's favorite fraternities
-  private(set) var favoritedFrats = Set<String>() {
-    willSet {
-      self.saveFavorites()
-    }
-  }
+  
   // Returns whether favorite was added, false if it was already a favorite
-  func addFavorite(named newFavorite : String) -> Bool {
-    if favoritedFrats.insert(newFavorite).inserted {
+  func favorite(fratNamed newFavorite : String) -> Bool {
+    if User.session.favoriteFrats.insert(newFavorite).inserted {
       Backend.log(action: .FraternityFavorited, options: newFavorite)
       return true
     }
     return false
   }
   // Returns whether favorite was removed
-  func removeFavorite(named oldFavorite : String) -> Bool{
-    if let _ = favoritedFrats.remove(oldFavorite) {
+  func unfavorite(fratNamed oldFavorite : String) -> Bool{
+    if let _ = User.session.favoriteFrats.remove(oldFavorite) {
       Backend.log(action: .FraternityUnfavorited, options: oldFavorite)
       return true
     }
@@ -57,7 +53,7 @@ class Campus: NSObject {
   }
   
   var hasFavorites : Bool {
-    return !favoritedFrats.isEmpty
+    return !User.session.favoriteFrats.isEmpty
   }
   // The name of every fraternity on this Campus
   @objc var fraternityNames : Set<String> {
@@ -157,7 +153,7 @@ class Campus: NSObject {
   // The default quality at which an image should be downloaded
   static var downloadedImageQuality : Quality = .Medium
   // MARK: Shared Instance (singleton)
-  @objc static let shared : Campus = Campus(loadFromFile: true)
+  static let shared : Campus = Campus()
   
   var isLoading : Bool {
     get {
@@ -188,16 +184,14 @@ class Campus: NSObject {
         }
         
         for fraternityDict in dictArray {
-          _ = Fraternity(withDictionary: fraternityDict)?.register(withCampus: self)
-          // Removed due to performance issues, lack of necessity for small quantity of data being pulled
-//          self.percentageCompletionObservable.value = 0.2 + 0.8*Float(numberFraternitiesCompleted) / Float(dictArray.count)
+          if let frat = Fraternity(withDictionary: fraternityDict) {
+           try? Campus.shared.add(fraternity: frat) 
+          }
+          
         }
         // TODO: Input events into rushcalendar
         for eventDict in eventArray {
-          if let fratName = eventDict["house"] as? String, 
-             let event = self.fraternitiesByName[fratName]?.add(eventDescribedBy: eventDict){
-            _ = RushCalendar.shared.add(event: event)
-          }
+          _ = RushCalendar.shared.add(eventDescribedBy: eventDict)
         }
         self.percentageCompletion = 1
         DispatchQueue.main.async {
@@ -215,22 +209,6 @@ class Campus: NSObject {
     
   }
   
-  // Allows fraternity favorites to be loaded from a file
-  fileprivate convenience init(loadFromFile : Bool) {
-    self.init()
-    if loadFromFile {
-      // TODO: Refactor storing of user preferences
-      DispatchQueue.global(qos: .default).async {
-        if let favorites = Campus.loadFavorites() {
-          self.favoritedFrats = favorites
-        }
-        else {
-          self.saveFavorites()
-        }
-      }
-      
-    }
-  }
   enum CampusError : Error {
     case registrationError(fraternity: Fraternity)
     case duplicateRegistration(fraternity : Fraternity)
@@ -244,35 +222,13 @@ class Campus: NSObject {
     }
     
   }
-  func getEvents(forFratWithName fratName : String, async : Bool = false) -> Set<Fraternity.Event> {
-    if let events = Campus.shared.fraternitiesByName[fratName]?.events {
-      // If is fraternity's list of events is already saturated, return
-      return events 
-    }
-    else {
-      return Set<Fraternity.Event>() 
-    }
-  }
-  // MARK: Save To and Load From File
-  func saveFavorites() {
-    DispatchQueue.global(qos: .background).async {
-      UserDefaults.standard.set(Array(self.favoritedFrats), forKey: "Favorites")
-    }
-  }
-  static private func loadFavorites() -> Set<String>? {
-    if let favoritedFrats = UserDefaults.standard.stringArray(forKey: "Favorites") {
-      return Set<String>(favoritedFrats)
-    }
-    else {
-      print("Error loading favorite frats from: \(User.files.favoritedFratURL.path)")
-      return nil
-    }
-  }
+  
+  
 }
 extension Campus {
   // Returns whether the Fraternity is now a favorite
   func toggleFavorite(named fratName : String) -> Bool {
-    return removeFavorite(named: fratName) ? false : addFavorite(named: fratName)
+    return unfavorite(fratNamed: fratName) ? false : favorite(fratNamed: fratName)
   }
 }
 

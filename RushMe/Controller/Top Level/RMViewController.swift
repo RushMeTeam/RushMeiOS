@@ -54,8 +54,8 @@ class RMViewController: ScrollPageViewController,
     DispatchQueue.main.async {
       self.drawerButton.isEnabled = newValue == 1 || newValue == 0
     }
-    if (self.pageViewControllers.count > 1) {
-      (self.pageViewControllers[2] as? CalendarViewController)?.updateData()
+    for updatable in pageViewControllers where updatable is ScrollableItem {
+     (updatable as! ScrollableItem).updateData()
     }
   }
   
@@ -68,8 +68,6 @@ class RMViewController: ScrollPageViewController,
   func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
     scrollView?.isUserInteractionEnabled = !(position == .right || position == .rightMost)
     scrollView?.isScrollEnabled = position == .right
-    
-    // Escape from Detail'
     (currentViewController as? ScrollableItem)?.updateData()
   }
   // MARK: UIPageViewControllerDelegate

@@ -10,11 +10,12 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, 
-                         MKMapViewDelegate, 
-                         ScrollableItem {
+  MKMapViewDelegate, 
+ScrollableItem {
   
   
   func updateData() {
+    DispatchQueue.main.async {
       self.loadViewIfNeeded()
       self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
       self.favoritesControl.isEnabled = Campus.shared.hasFavorites
@@ -22,6 +23,7 @@ class MapViewController: UIViewController,
         self.favoritesControl.selectedSegmentIndex = 0
       }
       self.viewWillAppear(false)
+    }
   }
   lazy var indicator : UIActivityIndicatorView = UIActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: 128, height: 128))
   lazy var overView : UIVisualEffectView = {
@@ -32,7 +34,7 @@ class MapViewController: UIViewController,
     indicator.startAnimating()
     return newView
   }()
-
+  
   @IBOutlet weak var mapView: MKMapView!
   //  @IBOutlet var stepper: UIStepper!
   @IBOutlet weak var informationButton: UIButton!
@@ -43,7 +45,7 @@ class MapViewController: UIViewController,
   
   var viewingFavorites : Bool {
     get {
-     return favoritesControl.selectedSegmentIndex == 1 
+      return favoritesControl.selectedSegmentIndex == 1 
     }
   }
   private(set) var fratAnnotations = [MKAnnotation]()
@@ -53,7 +55,7 @@ class MapViewController: UIViewController,
     fratNameButton.setTitle(nil, for: .normal)
     if viewingFavorites {
       let notFavorited = mapView.annotations.filter { (annotation) -> Bool in
-        return annotation.title == nil || !Campus.shared.favoritedFrats.contains(annotation.title!!)
+        return annotation.title == nil || !User.session.favoriteFrats.contains(annotation.title!!)
       }
       mapView.removeAnnotations(notFavorited)
     } else {
@@ -61,14 +63,14 @@ class MapViewController: UIViewController,
     }
     mapView.showAnnotations(mapView.annotations, animated: true)
     
-//    if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
-//        mapView.selectAnnotation(onlyAnnotation, animated: true)
-//    }
-//    else {
-//     fratNameLabel.text = "" 
-//    }
+    //    if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
+    //        mapView.selectAnnotation(onlyAnnotation, animated: true)
+    //    }
+    //    else {
+    //     fratNameLabel.text = "" 
+    //    }
   }
-
+  
   let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(42.729109), longitude: CLLocationDegrees(-73.677621))
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -112,7 +114,7 @@ class MapViewController: UIViewController,
   // TODO : Fix favorites annotations BUG
   func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
     self.indicator.startAnimating()
-   
+    
     self.mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites || favoritesControl.selectedSegmentIndex == 1
@@ -124,7 +126,7 @@ class MapViewController: UIViewController,
     }
     else {
       informationButton.isHidden = true
-     fratNameButton.setTitle(nil, for: .normal)
+      fratNameButton.setTitle(nil, for: .normal)
     }
   }
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -149,7 +151,7 @@ class MapViewController: UIViewController,
     }
   }
   func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
-    let button = UIBarButtonItem(image: Campus.shared.favoritedFrats.contains(frat.name) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
+    let button = UIBarButtonItem(image: frat.isFavorite ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
     button.title = frat.name
     return button
   }
@@ -160,23 +162,23 @@ class MapViewController: UIViewController,
   }
   
   
-//  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//    let identifier = "Fraternity"
-//    //    if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
-//    //      annotationView.annotation = annotation
-//    //      return annotationView 
-//    //    }
-//    //    else {
-//    //      let annotationView = MKAnnotationView.init(annotation: annotation, reuseIdentifier: identifier) 
-//    //      annotationView.isEnabled = true
-//    //      annotationView.canShowCallout = true
-//    //      
-//    //      let button = UIButton(type: .detailDisclosure)
-//    //      annotationView.rightCalloutAccessoryView = button
-//    //      return annotationView
-//    //    }
-//    return nil
-//  }
+  //  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+  //    let identifier = "Fraternity"
+  //    //    if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+  //    //      annotationView.annotation = annotation
+  //    //      return annotationView 
+  //    //    }
+  //    //    else {
+  //    //      let annotationView = MKAnnotationView.init(annotation: annotation, reuseIdentifier: identifier) 
+  //    //      annotationView.isEnabled = true
+  //    //      annotationView.canShowCallout = true
+  //    //      
+  //    //      let button = UIButton(type: .detailDisclosure)
+  //    //      annotationView.rightCalloutAccessoryView = button
+  //    //      return annotationView
+  //    //    }
+  //    return nil
+  //  }
   
   
   //  @available(iOS 11.0, *)
@@ -210,25 +212,25 @@ class MapViewController: UIViewController,
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated) 
   }
   
-//  func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-//    self.favoritesControl.isEnabled = false
-//  }
-//  func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-//    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
-//    
-//  }
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    super.prepare(for: segue, sender: sender)
-//    if let selectedFrat = mapView.selectedAnnotations.first ,
-//      let fratName = selectedFrat.title as? String,segue.identifier == "showDetail" {
-//      SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
-//      if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
-//        let controller = (segue.destination as! UINavigationController).topViewController
-//          as! DetailViewController
-//        controller.selectedFraternity = selectedFraternity
-//      }
-//    }
-//  }
+  //  func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+  //    self.favoritesControl.isEnabled = false
+  //  }
+  //  func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+  //    self.favoritesControl.isEnabled = Campus.shared.hasFavorites
+  //    
+  //  }
+  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  //    super.prepare(for: segue, sender: sender)
+  //    if let selectedFrat = mapView.selectedAnnotations.first ,
+  //      let fratName = selectedFrat.title as? String,segue.identifier == "showDetail" {
+  //      SQLHandler.shared.informAction(action: "Fraternity Selected", options: fratName)
+  //      if let selectedFraternity = Campus.shared.fraternitiesDict[fratName] {
+  //        let controller = (segue.destination as! UINavigationController).topViewController
+  //          as! DetailViewController
+  //        controller.selectedFraternity = selectedFraternity
+  //      }
+  //    }
+  //  }
   
   /*
    // MARK: - Navigation

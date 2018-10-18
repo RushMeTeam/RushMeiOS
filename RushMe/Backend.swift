@@ -63,7 +63,7 @@ class Backend {
       throw BackendError.nullServerResponse
     }; guard let jsonObject = 
       try? JSONSerialization.jsonObject(with: response, options: .allowFragments)
-    else {
+      else {
         throw BackendError.jsonParseError(from: response)
     }
     return jsonObject as? [Dictionary<String, Any>] ?? [] 
@@ -97,7 +97,7 @@ class Backend {
       let request = URLRequest(fromAction: action)
       URLSession.shared.dataTask(with: request) {  
         (data, response, error) in try? handleResponse(data, response, error) 
-      }.resume()
+        }.resume()
     }
   }
   
@@ -117,7 +117,7 @@ class Backend {
     DispatchQueue.global(qos: .utility).async {
       let actionReport = report(fromAction: action)
       if action == .AppEnteredForeground || 
-         action == .AppWillEnterBackground {
+        action == .AppWillEnterBackground {
         pushAll() 
       } else {
         push(action: actionReport)
@@ -157,6 +157,7 @@ struct Database {
     }
     struct frat {
       static let name = "name"
+      static let coordinates = "coordinates"
       static let chapter = "chapter"
       static let memberCount = "members"
       static let description = "description"
@@ -211,6 +212,76 @@ extension Date {
   var weekday : Int {
     get {
       return UIKit.Calendar.current.component(.weekday, from: self)
+    }
+  }
+}
+
+
+extension RushCalendar {
+  func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
+    //house, event_name, start_time, end_time, event_date, location
+    // start_time, end_time, location possibly nil
+    let houseName = dict["house"] as! String
+    let eventName = dict["event_name"] as! String
+    let eventDate = dict["event_date"] as! String
+    let location = dict["location"] as? String
+    let startTime = dict["start_time"] as? String
+    let endTime = dict["end_time"] as? String
+    if let frat = Campus.shared.fraternitiesByName[houseName],
+      let event = Fraternity.Event(withName: eventName,
+                                   onDate: eventDate,
+                                   ownedByFraternity: frat,
+                                   startingAt: startTime,
+                                   endingAt: endTime,
+                                   atLocation: location) {
+      return add(event: event) ? event : nil
+    }
+    return nil
+  }
+  
+}
+
+extension Fraternity {
+  convenience init?(withDictionary dict : Dictionary<String, Any>) {
+    if let name = dict[Database.keys.frat.name] as? String,
+      let description = dict[Database.keys.frat.description] as? String,
+      let chapter = dict[Database.keys.frat.chapter] as? String,
+      let memberCountRaw = dict[Database.keys.frat.memberCount] as? String,
+      let memberCount = Int(memberCountRaw) {
+      
+      
+      
+      var cImagePath : RMURL?
+      if let calendarImagePathRaw = dict[Database.keys.frat.calendarImage] as? String {
+        cImagePath = RMURL(fromString: calendarImagePathRaw)
+      }
+      var coImagePaths = [RMURL]()
+      if let coverImagePathRaw = dict[Database.keys.frat.coverImage] as? String,
+        let path = RMURL(fromString: coverImagePathRaw) {
+        coImagePaths.append(path)
+      }
+      var pImagePath : RMURL? 
+      if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
+        pImagePath = RMURL(fromString: profileImagePathRaw)
+      }
+      
+      let address = dict[Database.keys.frat.address] as? String
+      var coords : CLLocationCoordinate2D?
+      if let coordinates = dict[Database.keys.frat.coordinates] as? (Double, Double) {
+        coords = CLLocationCoordinate2D(latitude: coordinates.0, longitude: coordinates.1)
+      }
+      self.init(name: name, 
+                description: description, 
+                chapter: chapter, 
+                memberCount : memberCount,
+                profileImagePath: pImagePath, 
+                calendarImagePath: cImagePath, 
+                coverImagePaths: coImagePaths, 
+                address: address, 
+                coordinates: coords)
+    }
+    else {
+      return nil 
     }
   }
 }
