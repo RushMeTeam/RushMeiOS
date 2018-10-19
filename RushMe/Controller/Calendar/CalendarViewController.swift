@@ -20,7 +20,7 @@ ScrollableItem {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
       self.favoritesSegmentControl.isEnabled = User.preferences.displayFavoritesOnly
-      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...1))
       self.scrollView.scrollToTop(animated: true)
       if !Campus.shared.hasFavorites {
         self.favoritesSegmentControl.selectedSegmentIndex = 0
@@ -43,7 +43,7 @@ ScrollableItem {
   // MARK: Data Source Calculated Fields
   var earliestDate : Date? {
     get {
-      return RushCalendar.shared.firstEvent?.startDate
+      return RushCalendar.shared.firstEvent?.starting
     }
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
@@ -234,7 +234,8 @@ ScrollableItem {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let basicCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
-    guard let today = dateKey(from: indexPath) else {
+    guard let _ = earliestDate, 
+      let today = dateKey(from: indexPath) else {
       let dumbCell = basicCell as! CalendarCollectionViewCell
       let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday
       dumbCell.dayLabel.text = indexPath.section == 0 ? 
@@ -271,10 +272,10 @@ ScrollableItem {
     eventViewController!.selectedEvents = todaysEvents
     if let todaysEvent = todaysEvents.first {
       self.dateLabel.text =
-        DateFormatter.localizedString(from: todaysEvent.startDate,
+        DateFormatter.localizedString(from: todaysEvent.starting,
                                       dateStyle: .long,
                                       timeStyle: .none)
-      self.dateLabel.text! += Calendar.current.isDate(todaysEvent.startDate,
+      self.dateLabel.text! += Calendar.current.isDate(todaysEvent.starting,
                                                       inSameDayAs: .today) ? " (Today)" : ""
       UISelectionFeedbackGenerator().selectionChanged()
     }

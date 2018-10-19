@@ -34,8 +34,8 @@ class Backend {
   fileprivate static let databaseName = "fratinfo"
   fileprivate static let userActionsTableName = "sqlrequests"
   
-  static let db = "https://s3.us-east-2.amazonaws.com/rushmepublic/fraternites.rushme"
-  static let S3 = URL(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
+  static let db = "http://ec2-18-188-8-243.us-east-2.compute.amazonaws.com/request.php"
+  static let S3 = "https://s3.us-east-2.amazonaws.com/rushmepublic/"
   
   static var pastActionsFromFile : Array<Dictionary<String, Any>> {
     set {
@@ -49,7 +49,7 @@ class Backend {
     get {
       if let actions = 
         NSKeyedUnarchiver.unarchiveObject(withFile: User.files.userActionsURL.path) 
-                                                      as? [Dictionary<String, Any>] {
+          as? [Dictionary<String, Any>] {
         return actions 
       }
       self.pastActionsFromFile = [Dictionary<String, Any>]()
@@ -59,14 +59,17 @@ class Backend {
   
   // Select everything from a SQL table using its name
   static func selectAll(fromTable tableName : String ) throws -> [Dictionary<String, Any>]  {
-    let tableString = "/\(tableName)" //"?table=\(tableName)"
-    guard let url = URL(string: Backend.db + tableString) else {
+    let tableString = "\(tableName)" //"?table=\(tableName)"
+    guard let url = URL(string: Backend.S3 + tableString) else {
+      print("Bad Request!")
       throw BackendError.badRequest
     }; guard let response = try? Data(contentsOf: url) else {
+      print("No Response!")
       throw BackendError.nullServerResponse
     }; guard let jsonObject = 
       try? JSONSerialization.jsonObject(with: response, options: .allowFragments)
       else {
+        print("Bad JSON!")
         throw BackendError.jsonParseError(from: response)
     }
     return jsonObject as? [Dictionary<String, Any>] ?? [] 
@@ -155,21 +158,33 @@ fileprivate extension URLRequest {
 struct Database {
   struct keys {
     struct database {
-      static let fraternities = "house_info"
-      static let events = "events"
+      static let fraternities = "fraternites.rushme"
+      static let events = "events.rushme"
     }
     struct frat {
       static let name = "name"
+      static let key = "namekey"
       static let coordinates = "coordinates"
       static let chapter = "chapter"
-      static let memberCount = "members"
+      static let memberCount = "member_count"
       static let description = "description"
       static let gpa = "gpa"
       static let address = "address"
       static let previewImage = "preview_image"
       static let profileImage = "profile_image"
       static let coverImage = "cover_image"
-      static let calendarImage = "calendar_image"
+      static let calendarImage = Database.keys.frat.key
+      
+    }
+    struct event {
+      static let name = "event_name"
+      static let fratKey = "frat_name_key"
+      static let description = "description"
+      static let startTime = "start_time"
+      static let inviteOnly = "invite_only"
+      static let duration = "duration"
+      static let location = "location"
+      static let coordinates = "coordinates"
     }
   }
 }
@@ -224,68 +239,93 @@ extension RushCalendar {
   func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
     //house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
-    let houseName = dict["house"] as! String
-    let eventName = dict["event_name"] as! String
-    let eventDate = dict["event_date"] as! String
-    let location = dict["location"] as? String
-    let startTime = dict["start_time"] as? String
-    let endTime = dict["end_time"] as? String
-    if let frat = Campus.shared.fraternitiesByName[houseName],
-      let event = Fraternity.Event(withName: eventName,
-                                   onDate: eventDate,
-                                   ownedByFraternity: frat,
-                                   startingAt: startTime,
-                                   endingAt: endTime,
-                                   atLocation: location) {
-      return add(event: event) ? event : nil
+    guard let houseName = dict[Database.keys.event.fratKey] as? String,
+      let eventName = dict[Database.keys.event.name] as? String,
+      let eventDateRaw = dict[Database.keys.event.startTime] as? String,
+      let eventDate = User.device.iso8601.date(from: eventDateRaw + ":00+00:00"),
+      let frat = Campus.shared.fraternitiesByKey[houseName]
+      else {
+        print("Event error!")
+        return nil   
+      
     }
+    var interval = 0.0
+    if let durationRaw = (dict[Database.keys.event.duration] as? String)?.split(separator: ":"),
+      let hours = Int(durationRaw[0]),
+      let mins = Int(durationRaw[1]){
+      interval = Double(((hours * 60) + mins) * 60)
+    }
+    let location = dict[Database.keys.event.location] as? String
+    if let event = Fraternity.Event(withName: eventName,
+                                    on: eventDate, 
+                                    heldBy: frat,
+                                    duration: interval,
+                                    at: location) {
+      return add(event: event) ? event : nil
+    } 
     return nil
   }
   
 }
 
+func getString(_ key : String, _ dict : Dictionary<String, Any>) -> String? {
+  guard let result = dict[key] as? String else {
+   print("No dice...")
+    return nil
+  }
+  return result
+}
+func getInt(_ key : String, _ dict : Dictionary<String, Any>) -> Int? {
+  guard let result = dict[key] as? Int else {
+    print("No dice...")
+    return nil
+  }
+  return result
+}
 extension Fraternity {
   convenience init?(withDictionary dict : Dictionary<String, Any>) {
-    if let name = dict[Database.keys.frat.name] as? String,
+    guard 
+      let key = dict[Database.keys.frat.key] as? String,
+      key.count == 3,
+      let name = dict[Database.keys.frat.name] as? String,
       let description = dict[Database.keys.frat.description] as? String,
       let chapter = dict[Database.keys.frat.chapter] as? String,
       let memberCountRaw = dict[Database.keys.frat.memberCount] as? String,
-      let memberCount = Int(memberCountRaw) {
-      
-      
-      
-      var cImagePath : RMURL?
-      if let calendarImagePathRaw = dict[Database.keys.frat.calendarImage] as? String {
-        cImagePath = RMURL(fromString: calendarImagePathRaw)
-      }
-      var coImagePaths = [RMURL]()
-      if let coverImagePathRaw = dict[Database.keys.frat.coverImage] as? String,
-        let path = RMURL(fromString: coverImagePathRaw) {
-        coImagePaths.append(path)
-      }
-      var pImagePath : RMURL? 
-      if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
-        pImagePath = RMURL(fromString: profileImagePathRaw)
-        
-      }
-      
-      let address = dict[Database.keys.frat.address] as? String
-      var coords : CLLocationCoordinate2D?
-      if let coordinates = dict[Database.keys.frat.coordinates] as? (Double, Double) {
-        coords = CLLocationCoordinate2D(latitude: coordinates.0, longitude: coordinates.1)
-      }
-      self.init(name: name, 
-                description: description, 
-                chapter: chapter, 
-                memberCount : memberCount,
-                profileImagePath: pImagePath, 
-                calendarImagePath: cImagePath, 
-                coverImagePaths: coImagePaths, 
-                address: address, 
-                coordinates: coords)
+      let memberCount = Int(memberCountRaw)
+      else {
+        print("Failed to create fraternity!")
+        return nil 
     }
-    else {
-      return nil 
+    
+    var cImagePath : RMURL?
+    if let calendarImagePathRaw = dict[Database.keys.frat.calendarImage] as? String {
+      cImagePath = RMURL(fromString: calendarImagePathRaw)
     }
+    var coImagePaths = [RMURL]()
+    if let coverImagePathRaw = dict[Database.keys.frat.coverImage] as? String,
+      let path = RMURL(fromString: coverImagePathRaw) {
+      coImagePaths.append(path)
+    }
+    var pImagePath : RMURL? 
+    if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
+      pImagePath = RMURL(fromString: profileImagePathRaw + "profile")
+    }
+    
+    let address = dict[Database.keys.frat.address] as? String
+    var coords : CLLocationCoordinate2D?
+    if let coordinates = dict[Database.keys.frat.coordinates] as? [Double] {
+      coords = CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
+    }
+    self.init(key: key,
+              name: name, 
+              description: description, 
+              chapter: chapter, 
+              memberCount : memberCount,
+              profileImagePath: pImagePath, 
+              calendarImagePath: cImagePath, 
+              coverImagePaths: coImagePaths, 
+              address: address, 
+              coordinates: coords)
+    
   }
 }

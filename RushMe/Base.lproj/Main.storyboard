@@ -433,6 +433,9 @@
                                                     <state key="normal" image="add">
                                                         <color key="titleColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="add:" destination="bdU-c0-HJV" eventType="touchUpInside" id="Hzx-yN-O4K"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -446,6 +449,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
+                                    <outlet property="addButton" destination="cIN-q8-fJz" id="qhz-0b-Tav"/>
                                     <outlet property="dateLabel" destination="Itf-lj-fwR" id="y96-nb-Kob"/>
                                     <outlet property="eventNameLabel" destination="bAV-Qd-Vwg" id="sZF-bY-miK"/>
                                     <outlet property="fraternityNameLabel" destination="Kta-gU-Lob" id="jui-ef-4a1"/>
@@ -543,7 +547,7 @@
                                             <outletCollection property="gestureRecognizers" destination="lKk-7w-w5Y" appends="YES" id="r8t-cA-uil"/>
                                         </connections>
                                     </imageView>
-                                    <view verifyAmbiguity="ignoreSizes" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-ZE-WZP">
+                                    <view verifyAmbiguity="ignoreSizes" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="hV5-ZE-WZP">
                                         <rect key="frame" x="0.0" y="136" width="375" height="951.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RvC-RR-PNg" userLabel="Page Stack View">
@@ -552,7 +556,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ymu-d6-za3" userLabel="Description Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="52"/>
                                                         <subviews>
-                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-xj-aCO" userLabel="Stats Button">
+                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-xj-aCO" userLabel="Stats Button">
                                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="52"/>
                                                                 <inset key="contentEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
                                                                 <state key="normal" image="FraternitiesIcon"/>
@@ -602,7 +606,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                     </textView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="otf-vF-Hvh" userLabel="CoverImageView">
+                                                    <containerView opaque="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="otf-vF-Hvh" userLabel="CoverImageView">
                                                         <rect key="frame" x="0.0" y="404" width="359" height="179.5"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <constraints>
@@ -622,7 +626,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Fa5-Xv-Zg4" userLabel="Event Stack View">
                                                         <rect key="frame" x="0.0" y="591.5" width="359" height="64"/>
                                                         <subviews>
-                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31l-aC-HGG" userLabel="Events Button">
+                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31l-aC-HGG" userLabel="Events Button">
                                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="64"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="24" id="SmY-28-7PW"/>
@@ -646,7 +650,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qDs-oz-gPV" userLabel="Map Stack View">
                                                         <rect key="frame" x="0.0" y="663.5" width="359" height="128"/>
                                                         <subviews>
-                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v75-Se-VPB" userLabel="Maps Button">
+                                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v75-Se-VPB" userLabel="Maps Button">
                                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="128"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="32" id="Rod-oe-pYE"/>

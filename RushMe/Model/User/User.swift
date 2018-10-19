@@ -83,6 +83,11 @@ struct User {
                 "appv" : User.device.appVersion]
       }
     }
+    static let iso8601: ISO8601DateFormatter = {
+      let formatter = ISO8601DateFormatter()
+      formatter.formatOptions = [.withInternetDateTime]
+      return formatter
+    }()
     fileprivate static let appVersion =
       ((Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "") +
         "-" +

@@ -36,19 +36,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       return UIStoryboard.main.instantiateViewController(withIdentifier: "imageVC") as? ImageViewController 
     }
   }
-  //  private var _coverImagePageViewController  : ImagePageViewController? 
-  //  var coverImagePageViewController  : ImagePageViewController! {
-  //    get {
-  //      if let _ = _coverImagePageViewController  {
-  //        return _coverImagePageViewController  
-  //      }
-  //      for viewController in childViewControllers where (viewController as? ImagePageViewController == nil) ? false : true {
-  //        _coverImagePageViewController  = viewController as! ImagePageViewController
-  //        return viewController as! ImagePageViewController
-  //      }
-  //      return nil
-  //    }
-  //  }
   
   private var coverImagePageViewController : ImagePageViewController!
   
@@ -289,7 +276,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       imageVC.imageNames.append(contentsOf: frat.coverImagePaths)
       
     }
-    profileImageView.setImageByURL(fromSource: frat.profileImagePath)
+    if let _ = frat.profileImagePath {
+      profileImageView.setImageByURL(fromSource: frat.profileImagePath)
+    }
+    
     titleLabel.text = frat.name
     underProfileLabel.text = frat.chapter + " Chapter"
     if let memberCount = frat.memberCount {
@@ -325,7 +315,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
       if let event = frat.events?.filter({ (value) -> Bool in
-        return User.preferences.considerPastEvents || value.startDate.compare(.today) != .orderedAscending
+        return User.preferences.considerPastEvents || value.starting.compare(.today) != .orderedAscending
       }).last {
         DispatchQueue.main.async {
           self.eventViewController!.selectedEvents = [event]

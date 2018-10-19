@@ -53,20 +53,7 @@ class FraternityTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     _ = setupCell
-    // Initialization code
-    //contentView.layer.masksToBounds = true
-    //iView.layer.cornerRadius = RushMe.images.CornerRadius
-//    for layer in previewImageView.layer.sublayers ?? [] {
-//      layer.removeFromSuperlayer()
-//    }
     previewImageView.image = nil
-    //previewImageView.layer.sublayers = nil
-//    gradientLayer?.removeFromSuperlayer()
-//    gradientLayer = CAGradientLayer()
-//    gradientLayer!.drawsAsynchronously = true
-//    gradientLayer!.locations = [0.8, 1.0]
-//    gradientLayer!.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
-//    previewImageView!.layer.insertSublayer(gradientLayer!, at: 0)   
     titleLabel.layer.shadowRadius = 10
     titleLabel.layer.shadowColor = UIColor.black.cgColor
     titleLabel.layer.shadowOffset = CGSize.init(width: 1, height: 1)
@@ -76,8 +63,6 @@ class FraternityTableViewCell: UITableViewCell {
   override func layoutSubviews() {
     
     super.layoutSubviews()
-    //gradientLayer?.frame = previewImageView.bounds
-    //gradientLayer?.layoutIfNeeded()
   }
   @IBAction func favoriteButtonHit(_ sender: UIButton? = nil) {
     isAccentuated = !isAccentuated

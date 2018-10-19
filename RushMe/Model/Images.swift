@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 struct ImagePathSuffix {
-  static let lowQuality = ""
-  static let mediumQuality = "_Half.png.png"
-  static let highQuality = "_Quarter.png.png"
+  static let lowQuality = "small.jpg"
+  static let mediumQuality = "semi.jpg"
+  static let highQuality = ".jpg"
 }
 
 class RMCachedImage {
@@ -20,6 +20,7 @@ class RMCachedImage {
 }
 extension UIImageView {
   func setImageByURL(fromSource rmURL : RMURL, animated: Bool = true) {
+    self.contentMode = .scaleAspectFill
     func setAsync(image newImage : UIImage) {
       _ = RMCachedImage.images[rmURL.underlyingURL.absoluteString] == nil ? {
         RMCachedImage.images[rmURL.underlyingURL.absoluteString] = newImage
@@ -93,7 +94,7 @@ extension UIImage {
 struct RMURL : Hashable {
   let underlyingURL : URL
   init?(fromString : String) {
-    if let newURL = URL.init(string: fromString) {
+    if let newURL = URL(string: fromString) {
       self.underlyingURL = newURL 
     }
     else {
@@ -115,10 +116,10 @@ struct RMURL : Hashable {
       fileName = urlSuffix + ImagePathSuffix.lowQuality
     case.Medium:
       // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
-      fileName = urlSuffix.dropLast(4) + ImagePathSuffix.mediumQuality
+      fileName = urlSuffix + ImagePathSuffix.mediumQuality
     case.Low:
       // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
-      fileName = urlSuffix.dropLast(4) + ImagePathSuffix.lowQuality
+      fileName = urlSuffix + ImagePathSuffix.lowQuality
     }
     // Sigma_Delta_Cover_Image.png
     
@@ -140,7 +141,7 @@ struct RMURL : Hashable {
   }
   var networkPath : URL {
     
-    return URL(string: Backend.S3.absoluteString + fixedPath)!
+    return URL(string: Backend.S3 + fixedPath)!
   }
   var hashValue : Int {
     return underlyingURL.hashValue

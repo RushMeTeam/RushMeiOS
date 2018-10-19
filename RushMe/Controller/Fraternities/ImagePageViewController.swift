@@ -41,7 +41,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
       return (currentPage?.subviews.first as? UIImageView)?.image
     }
   }
-  var contentMode : UIView.ContentMode = .scaleAspectFill {
+  private(set) var contentMode : UIView.ContentMode = .scaleAspectFill {
     willSet {
       for page in pages {
         if let imageView = page?.subviews.first as? UIImageView {

@@ -26,6 +26,8 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.bounces = false
     view.addGestureRecognizer(scrollView.panGestureRecognizer)
+    scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scrollButtons(sender:))))
+
   }()
   private(set) var scrollView : UIScrollView!
   var buttonNames : [String] {
@@ -43,8 +45,7 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
  
   var calculatedCurrentPage : Int {
     get {
-      let pageWidth = scrollView.bounds.height
-      return Int(floor(((scrollView.contentOffset.y)/(pageWidth))))
+      return Int(floor(((scrollView.contentOffset.y)/(scrollView.bounds.height))))
     }
   }
   private(set) var currentPage : Int = 1
@@ -54,19 +55,22 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
       scrollView.setContentOffset(CGPoint.init(x: 0, y: CGFloat(newCurrentPage)*scrollView.frame.height), animated: true)
     }
   }
-  @objc func scrollButtons(sender : UIGestureRecognizer) {
-    let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
-    for buttonView in canvasViews {
-      if let view = buttonView, view.bounds.contains(sender.location(in: view)) {
-        scrollView.scrollRectToVisible(view.frame, animated: true)
+  @objc func scrollButtons(sender : UITapGestureRecognizer) {
+    for buttonView in canvasViews where buttonView != nil { 
+      if buttonView!.frame.contains(sender.location(in: scrollView)) {
+        scrollView.scrollRectToVisible(buttonView!.frame, animated: true)
         return
       }
     }
+    guard view.bounds.contains(sender.location(in: view)) else {
+      return
+    }
+    let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
+    
     set(newCurrentPage: calculatedCurrentPage + increment)
   }
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.view.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(scrollButtons(sender:))))
   }
   
   func layoutScrollView() {

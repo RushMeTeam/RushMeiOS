@@ -24,11 +24,11 @@ protocol FraternityCellDelegate {
 }
 
 class MasterViewController : UITableViewController,
-UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
-UIPageViewControllerDataSource, UIViewControllerTransitioningDelegate,
+  UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, FraternityCellDelegate,
+  UIPageViewControllerDataSource, UIViewControllerTransitioningDelegate,
 UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
-
-
+  
+  
   @objc func toggleFavorite(sender : UIBarButtonItem) {
     if let fratName = sender.title {
       sender.image = Campus.shared.toggleFavorite(named: fratName) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
@@ -53,13 +53,13 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   // Is the search bar empty?
   var searchBarIsEmpty : Bool {
     get {
-     return searchController.searchBar.text?.isEmpty ?? true 
+      return searchController.searchBar.text?.isEmpty ?? true 
     }
   }
   // Does the search bar have content, and is it being used to search right now?
   var isSearching : Bool {
     get {
-     return searchController.isActive && !searchBarIsEmpty 
+      return searchController.isActive && !searchBarIsEmpty 
     }
   }
   // MARK: Member Variables
@@ -88,14 +88,14 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   var dataKeys : [String] {
     get {
       // For Screenshots 
-//      if !viewingFavorites {
-//       return ["Theta Chi", "Chi Phi", "Phi Iota Alpha", "Rensselaer Society of Engineers", 
+      //      if !viewingFavorites {
+      //       return ["Theta Chi", "Chi Phi", "Phi Iota Alpha", "Rensselaer Society of Engineers", 
       //         "Psi Upsilon", "Delta Tau Delta",  "Zeta Psi", "Delta Phi", "Pi Lambda Phi","Theta Xi",  
       //         "Phi Kappa Theta", "Sigma Alpha Epsilon", "Phi Sigma Kappa", "Sigma Phi Epsilon", "Delta Kappa Epsilon", 
       //         "Pi Kappa Alpha", "Lambda Chi Alpha", "Alpha Phi Alpha", "Pi Kappa Phi", "Acacia", "Phi Mu Delta", 
       //         "Tau Kappa Epsilon", "Alpha Epsilon Pi", "Phi Gamma Delta", "Alpha Sigma Phi", "Tau Epsilon Phi", 
       //         "Alpha Chi Rho", "Sigma Chi", "Pi Delta Psi"]
-//      }
+      //      }
       
       // If we're searching, use the contents of the search bar to determine 
       // which fraternities to display
@@ -104,19 +104,19 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
           return fratName.lowercased().contains(searchController.searchBar.text!.lowercased())
         }) 
       }
-      // Display favorites only
+        // Display favorites only
       else if viewingFavorites {
-       return Array(User.session.favoriteFrats)
+        return Array(User.session.favoriteFrats)
       }
-      // Display all fraternities, sorted by name
+        // Display all fraternities, sorted by name
       else if !User.preferences.shuffleEnabled || Campus.shared.percentageCompletion < 1 {
         return Array(Campus.shared.fraternityNames).sorted()
       }
-      // Display all fraternities, shuffled
+        // Display all fraternities, shuffled
       else if let _ = shuffledFrats {
         return shuffledFrats!
       }
-      // Shuffle, then display all fraternities
+        // Shuffle, then display all fraternities
       else {
         // TODO: Allow no-shuffling option
         shuffledFrats = Campus.shared.fraternityNames.shuffled()
@@ -141,12 +141,12 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     _ = setupTableHeaderView
     _ = setupSearchBar
   }
- 
+  
   // MARK: - ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
     
-
+    
     navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
     navigationController!.navigationBar.shadowImage = UIImage()
     
@@ -160,11 +160,11 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     
     refreshControl!.backgroundColor = Frontend.colors.AppColor
     refreshControl!.tintColor = .white
-  
+    
   }
-
-  lazy var setupSearchBar : Void = {
   
+  lazy var setupSearchBar : Void = {
+    
     searchController.searchResultsUpdater = self
     searchController.delegate = self
     // Setup the Search Bar (visual)
@@ -179,7 +179,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     // set Search Bar placeholder text, for when a search has not been entered
     searchController.searchBar.placeholder = "Search Fraternities"
     
-       searchController.searchBar.backgroundImage = UIImage()
+    searchController.searchBar.backgroundImage = UIImage()
     tableView.tableHeaderView = searchController.searchBar
   }()
   var tableHeaderView : UIView!
@@ -203,7 +203,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
                                  favoritesSegmentControl.heightAnchor.constraint(lessThanOrEqualToConstant: 28),
                                  tableHeaderView.bottomAnchor.constraint(equalTo: favoritesSegmentControl.bottomAnchor, constant: 6)])
   }()
-    
+  
   // MARK: - Data Handling
   func dataUpdate() {
     shuffledFrats?.shuffle()
@@ -255,7 +255,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard segue.identifier == "showDetail" || segue.identifier == "peekDetail", 
       let cell = sender as? FraternityTableViewCell,
-      let frat = cell.fraternity else { return }
+      let frat = cell.fraternity else { 
+        print("Cannot obtain cell fraternity...")
+        return 
+    }
     
     // Checks if segue is going into detail      
     Backend.log(action: .FraternitySelected, options: frat.name)
@@ -267,13 +270,13 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     controller.view.backgroundColor = .white
     let dVC = UIStoryboard.main.detailVC
     dVC.selectedFraternity = frat
-    controller.setViewControllers([dVC], direction: .forward, animated: false)      
+    controller.setViewControllers([dVC], direction: .forward, animated: false)    
   }
   // Should not perform any segues while refreshing 
   //        or before refresh control is initialized
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-      return !(self.refreshControl?.isRefreshing ?? true)
-    }
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    return !(self.refreshControl?.isRefreshing ?? true)
+  }
   
   @objc func segmentControlChanged(sender : UISegmentedControl) {
     viewingFavorites = (sender.selectedSegmentIndex == 1)
@@ -281,16 +284,16 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   // MARK: FraternityCellDelegate
   func cell(withFratName fratName: String, favoriteStatusToValue isFavorited : Bool) {
     guard Campus.shared.fraternityNames.contains(fratName) else {
-     return 
+      return 
     }
     let needsRefresh = !Campus.shared.hasFavorites
     _ = Campus.shared.toggleFavorite(named: fratName)
     if (!Campus.shared.hasFavorites || needsRefresh) {
-     reloadTableView() 
+      reloadTableView() 
     }
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites || viewingFavorites
   }
-
+  
   
   // MARK: - Table View
   
@@ -315,15 +318,15 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
       cell.textLabel!.textColor = Frontend.colors.AppColor
       cell.textLabel!.numberOfLines = 2
       if (Campus.shared.isLoading) {
-       return cell 
+        return cell 
       } else if (!searchBarIsEmpty) {
         cell.textLabel!.text = "No matches"
       } else if (viewingFavorites) {
-       cell.textLabel!.text = "No favorites"
+        cell.textLabel!.text = "No favorites"
       } else {
-       cell.textLabel!.text = "Something went wrong...\nTry again"  
+        cell.textLabel!.text = "Something went wrong...\nTry again"  
       }
-
+      
       return cell
     }
     let cell = tableView.dequeueReusableCell(withIdentifier: attractiveFratCellIdentifier) as! FraternityTableViewCell
@@ -333,7 +336,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
       return cell
     }
     cell.fraternity = Campus.shared.fraternitiesByName[dataKeys[indexPath.row]]
-      cell.loadImage()
+    cell.loadImage()
     
     return cell
   }
@@ -343,7 +346,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return false
   }
-
+  
   func setFavorite(withAction action : UITableViewRowAction, forCell cellIndex : IndexPath, forFrat fratName : String) {
     if (action.title == Frontend.text.favorite) {
       _ = Campus.shared.favorite(fratNamed: fratName)

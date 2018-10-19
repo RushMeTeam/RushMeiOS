@@ -33,14 +33,17 @@ class Fraternity : Hashable {
   let address : String?
   let coordinates : CLLocationCoordinate2D? 
   let memberCount : Int!
-  init(name : String, description : String, 
+  let key : String
+  init(key : String,
+       name : String, 
+       description : String, 
        chapter : String, 
        memberCount : Int?, 
        profileImagePath : RMURL?, 
        calendarImagePath : RMURL?, 
        coverImagePaths : [RMURL] = [], 
        address : String?, 
-       coordinates : CLLocationCoordinate2D?) {
+       coordinates : CLLocationCoordinate2D? = nil) {
     self.name = name
     self.description = description
     self.chapter = chapter
@@ -50,6 +53,7 @@ class Fraternity : Hashable {
     self.address = address
     self.coordinates = coordinates
     self.memberCount = memberCount
+    self.key = key
   }
   
   
@@ -61,42 +65,42 @@ class Fraternity : Hashable {
   
   class Event : Hashable {
     static func == (lhs: Fraternity.Event, rhs: Fraternity.Event) -> Bool {
-      return lhs.frat == rhs.frat && lhs.startDate == rhs.startDate && lhs.name == rhs.name
+      return lhs.frat == rhs.frat && lhs.starting == rhs.starting && lhs.name == rhs.name
     }
     
     let calendar = Calendar.current
-    let startDate : Date
-    let endDate : Date
+    let starting : Date
+    let ending : Date
     let name : String
     let location : String?
     let frat : Fraternity
-    
+    let coordinates : CLLocationCoordinate2D?
     // TODO: Fix RushMe.dateTimeFormatter to work for 24hr time
-    init?(withName : String,
-          onDate : String,
-          ownedByFraternity : Fraternity,
-          startingAt : String? = nil,
-          endingAt : String? = nil,
-          atLocation : String? = nil) {
+    init?(withName name : String,
+          on date : Date,
+          heldBy : Fraternity,
+          duration : TimeInterval = 0,
+          at location : String? = nil,
+          coordinates : CLLocationCoordinate2D? = nil
+          ) {
       
-      self.name = withName
-      self.frat = ownedByFraternity
-      self.location = atLocation
-      
-      
-      self.startDate = ((startingAt == nil) ? Format.dates.dateFormatter.date(from: onDate) : Format.dates.dateTimeFormatter.date(from: onDate + " " + startingAt!))!
-      self.endDate = ((endingAt == nil) ? startDate : Format.dates.dateTimeFormatter.date(from: onDate + " " + endingAt!))!
+      self.name = name
+      self.frat = heldBy
+      self.location = location
+      self.coordinates = coordinates
+      self.starting = date
+      self.ending = starting.addingTimeInterval(duration)
     }
     var hashValue : Int {
       get {
-       return startDate.hashValue ^ endDate.hashValue ^ frat.hashValue ^ name.djb2hash
+       return starting.hashValue ^ ending.hashValue ^ frat.hashValue ^ name.djb2hash
       }
     }
     var dayKey : String {
-      return DateFormatter.localizedString(from: self.startDate, dateStyle: .medium, timeStyle: .none)
+      return DateFormatter.localizedString(from: starting, dateStyle: .medium, timeStyle: .none)
     }
     static func <(lhs : Fraternity.Event, rhs : Fraternity.Event) -> Bool {
-      return lhs.startDate < rhs.startDate 
+      return lhs.starting < rhs.starting 
     }
     
   }

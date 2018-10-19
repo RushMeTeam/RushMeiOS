@@ -38,7 +38,7 @@ class RushCalendar {
       eventsByFraternity[event.frat] = Set<Fraternity.Event>()
     }
     
-    let key = event.startDate.daysSinceReferenceDate
+    let key = event.starting.daysSinceReferenceDate
     if eventsByDay[key] == nil {
      eventsByDay[key] = Set<Fraternity.Event>() 
     } 
@@ -54,17 +54,17 @@ class RushCalendar {
     } else {
      eventsByFraternity.removeValue(forKey: event.frat) 
     }
-    guard let daysEvents = eventsByDay[event.startDate.daysSinceReferenceDate] else {
+    guard let daysEvents = eventsByDay[event.starting.daysSinceReferenceDate] else {
      return false 
     }; guard daysEvents.count > 1 else {
-     return eventsByDay.removeValue(forKey: event.startDate.daysSinceReferenceDate) != nil
+     return eventsByDay.removeValue(forKey: event.starting.daysSinceReferenceDate) != nil
     }
-    return eventsByDay[event.startDate.daysSinceReferenceDate]!.remove(event) != nil
+    return eventsByDay[event.starting.daysSinceReferenceDate]!.remove(event) != nil
   }
   
   var firstDate : Date? {
     get {
-     return firstEvent?.startDate 
+     return firstEvent?.starting 
     }
   }
   
@@ -103,8 +103,8 @@ extension Collection where Element : Fraternity.Event {
       
       for event in self {
         var iCalEvent = Event()
-        iCalEvent.dtstart = event.startDate
-        iCalEvent.dtend = event.endDate
+        iCalEvent.dtstart = event.starting
+        iCalEvent.dtend = event.ending
         iCalEvent.location = event.location
         iCalEvent.summary = event.name
         iCalEvents.append(iCalEvent)

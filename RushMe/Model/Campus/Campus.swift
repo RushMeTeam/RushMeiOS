@@ -65,6 +65,7 @@ class Campus {
   
   // Refer to each fraternity by its name, in no order
   private(set) var fraternitiesByName = [String : Fraternity]()
+  private(set) var fraternitiesByKey = [String : Fraternity]()
   
   // The default quality at which an image should be downloaded
   static var downloadedImageQuality : Quality = .Medium
@@ -111,9 +112,6 @@ class Campus {
           _ = RushCalendar.shared.add(eventDescribedBy: eventDict)
         }
         self.percentageCompletion = 1
-        DispatchQueue.main.async {
-          Locations.geocode(selectedFraternities: Array(Campus.shared.fraternityNames))
-        }
       } 
     }
     else {
@@ -130,6 +128,7 @@ class Campus {
       throw CampusError.duplicateRegistration(fraternity: frat)
     }
     else {
+      self.fraternitiesByKey[frat.key] = frat
       self.fraternitiesByName[frat.name] = frat
     }
   }

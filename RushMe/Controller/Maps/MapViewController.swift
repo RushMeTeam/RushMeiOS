@@ -12,8 +12,6 @@ import MapKit
 class MapViewController: UIViewController, 
   MKMapViewDelegate, 
 ScrollableItem {
-  
-  
   func updateData() {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
@@ -62,13 +60,6 @@ ScrollableItem {
       mapView.addAnnotations(fratAnnotations)
     }
     mapView.showAnnotations(mapView.annotations, animated: true)
-    
-    //    if let onlyAnnotation = mapView.annotations.first, mapView.annotations.count == 1 {
-    //        mapView.selectAnnotation(onlyAnnotation, animated: true)
-    //    }
-    //    else {
-    //     fratNameLabel.text = "" 
-    //    }
   }
   
   let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(42.729109), longitude: CLLocationDegrees(-73.677621))
@@ -85,22 +76,22 @@ ScrollableItem {
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    Locations.observableLocations.addObserver(forOwner: self, handler: handleGeocoding(oldValue:newValue:))
+    self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
   }
   func handleGeocoding(oldValue : [String:CLLocation]?, newValue: [String: CLLocation]) {
-    let safeOldValue = oldValue ?? [String:CLLocation].init()
-    let changedFrats = Set(newValue.keys).symmetricDifference(Set<String>(safeOldValue.keys))
-    for fratName in changedFrats {
-      let frat = Campus.shared.fraternitiesByName[fratName]!
-      let annotation = MKPointAnnotation()
-      annotation.coordinate = newValue[fratName]!.coordinate
-      annotation.title = frat.name
-      annotation.subtitle = frat.address
-      mapView.addAnnotation(annotation)
-      mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
-      
-    }
-    fratAnnotations = mapView.annotations
+//    let safeOldValue = oldValue ?? [String:CLLocation].init()
+//    let changedFrats = Set(newValue.keys).symmetricDifference(Set<String>(safeOldValue.keys))
+//    for fratName in changedFrats {
+//      let frat = Campus.shared.fraternitiesByName[fratName]!
+//      let annotation = MKPointAnnotation()
+//      annotation.coordinate = newValue[fratName]!.coordinate
+//      annotation.title = frat.name
+//      annotation.subtitle = frat.address
+//      mapView.addAnnotation(annotation)
+//      mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
+//      
+//    }
+//    fratAnnotations = mapView.annotations
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -116,8 +107,21 @@ ScrollableItem {
     self.indicator.startAnimating()
     
     self.mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
-    self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
+
     self.favoritesControl.isEnabled = Campus.shared.hasFavorites || favoritesControl.selectedSegmentIndex == 1
+    
+    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates != nil {
+      let annotation = MKPointAnnotation()
+      annotation.coordinate = frat.coordinates!
+      annotation.title = frat.name
+      annotation.subtitle = frat.address
+      mapView.addAnnotation(annotation)
+      mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
+    }
+    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates == nil {
+     print(frat.name) 
+    }
+    self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     if let fratName = view.annotation?.title {

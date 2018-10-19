@@ -22,8 +22,8 @@ class ScrollPageViewController: UIViewController,
     NSLayoutConstraint.activate([
       scrollView.leftAnchor.constraint(equalTo: view.leftAnchor)
       , scrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
-      , scrollView.topAnchor.constraint(equalTo: view.topAnchor)
-      , scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+      , scrollView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor)
+      , scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor)
       ])
     scrollView.isScrollEnabled = false
     scrollView.isPagingEnabled = true
@@ -229,6 +229,7 @@ class ScrollPageViewController: UIViewController,
   
   // Originally fileprivate
   func goToPage(page: Int, animated: Bool) {
+    
     guard page >= 0 && page < numberOfPages else {
       //print("Attemped to goTo illegal page number", page)
       return 
@@ -236,7 +237,7 @@ class ScrollPageViewController: UIViewController,
     loadPages(aroundPage: page)
     var bounds = scrollView.bounds
     bounds.origin.x = 0
-    bounds.origin.y = pageHeight * CGFloat(page) - topLayoutGuide.length - bottomLayoutGuide.length
+    bounds.origin.y = pageHeight * CGFloat(page)
     transitioning = true
     scrollView.scrollRectToVisible(bounds, animated: animated)
     transitioning = false
@@ -253,7 +254,7 @@ class ScrollPageViewController: UIViewController,
      return 
     }
     self.scrollView.contentOffset = scrollView.contentOffset.applying(
-      CGAffineTransform(scaleX: 1, y: self.scrollView.bounds.height/scrollView.bounds.height)
+      CGAffineTransform(scaleX: 1, y: pageHeight/scrollView.bounds.height)
                                                             )
     let newCalculatedPage = Int(floor((scrollView.contentOffset.y)/pageHeight))
     if newCalculatedPage != currentCalculatedPage {

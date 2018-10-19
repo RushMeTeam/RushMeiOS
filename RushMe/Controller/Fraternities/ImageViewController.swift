@@ -49,6 +49,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     self.imageView?.layer.cornerRadius = Frontend.cornerRadius
     
     
+    
   }
   
   override func didReceiveMemoryWarning() {
