@@ -202,7 +202,7 @@ ScrollableItem {
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
     let indexPaths = collectionView.indexPathsForSelectedItems!
     UIView.transition(with: collectionView, duration: 0.1, options: .transitionCrossDissolve, animations: { 
-      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...0))
+      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...1))
     }) { (_) in
       
     }
@@ -240,7 +240,7 @@ ScrollableItem {
       let dumbCell = basicCell as! CalendarCollectionViewCell
       let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday
       dumbCell.dayLabel.text = indexPath.section == 0 ? 
-        ["M","T","W","T","F","S","S"][weekday%6] : "\(indexPath.row)"
+        ["S","S","M","T","W","T","F"][weekday%7] : "\(indexPath.row)"
       dumbCell.isSelected = false
       dumbCell.set(isGrayedOut: true)
       return dumbCell
