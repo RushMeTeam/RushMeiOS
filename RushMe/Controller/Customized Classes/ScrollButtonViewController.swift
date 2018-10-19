@@ -65,9 +65,9 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
     guard view.bounds.contains(sender.location(in: view)) else {
       return
     }
-    let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
+    //let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
     
-    set(newCurrentPage: calculatedCurrentPage + increment)
+    //set(newCurrentPage: calculatedCurrentPage + increment)
   }
   override func awakeFromNib() {
     super.awakeFromNib()

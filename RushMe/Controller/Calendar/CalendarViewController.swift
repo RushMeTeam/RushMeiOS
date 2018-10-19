@@ -58,7 +58,8 @@ ScrollableItem {
   func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
     guard let today = dateKey(from: indexPath), 
       let todaysEvents = RushCalendar.shared.eventsOn(today)?.filter({ (event) -> Bool in
-        return !viewingFavorites || event.frat.isFavorite
+        return (!viewingFavorites || event.frat.isFavorite) &&
+                (User.preferences.considerPastEvents || event.starting >= .today)
       }) else {
         return []
     }

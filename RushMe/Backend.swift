@@ -208,7 +208,7 @@ extension Date {
   // TODO: Replace "Today" with the current day!
   static var today : Date {
     get {
-      return Date(timeIntervalSince1970: 1505036460) 
+      return Date()//Date(timeIntervalSince1970: 1505036460) 
     }
   }
   
