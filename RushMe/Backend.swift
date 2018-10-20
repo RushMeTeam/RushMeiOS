@@ -171,7 +171,7 @@ struct Database {
       static let gpa = "gpa"
       static let address = "address"
       static let previewImage = "preview_image"
-      static let profileImage = "profile_image"
+      static let profileImage = Database.keys.frat.key
       static let coverImage = "cover_image"
       static let calendarImage = Database.keys.frat.key
       
@@ -306,26 +306,18 @@ extension Fraternity {
       let path = RMURL(fromString: coverImagePathRaw) {
       coImagePaths.append(path)
     }
-    var pImagePath : RMURL? 
-    if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
-      pImagePath = RMURL(fromString: profileImagePathRaw + "profile")
-    }
+    let pImagePath = RMURL(fromString: key + "prof")    
     
     let address = dict[Database.keys.frat.address] as? String
     var coords : CLLocationCoordinate2D?
-    if let coordinates = dict[Database.keys.frat.coordinates] as? [Double] {
+    if let _ = address, address!.lowercased() != "no house", 
+       let coordinates = dict[Database.keys.frat.coordinates] as? [Double] {
       coords = CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
     }
-    self.init(key: key,
-              name: name, 
-              description: description, 
-              chapter: chapter, 
-              memberCount : memberCount,
-              profileImagePath: pImagePath, 
-              calendarImagePath: cImagePath, 
-              coverImagePaths: coImagePaths, 
-              address: address, 
-              coordinates: coords)
-    
+    self.init(key: key,                         name: name, 
+              description: description,         chapter: chapter, 
+              memberCount : memberCount,        profileImagePath: pImagePath, 
+              calendarImagePath: cImagePath,    coverImagePaths: coImagePaths, 
+              address: address,                 coordinates: coords)
   }
 }

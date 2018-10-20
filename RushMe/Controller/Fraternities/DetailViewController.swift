@@ -138,6 +138,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, MKMapViewDel
       }
     }
   }
+  
   @IBAction func coverImagePinched(_ sender: UIPinchGestureRecognizer) {
     if sender.state == .began || sender.state == .changed {
       guard let senderView = sender.view as? UIImageView, 

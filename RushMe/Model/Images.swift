@@ -108,8 +108,8 @@ struct RMURL : Hashable {
     //    - medium (i.e. half-size)
     //    - low (i.e. quarter-size)
     // The quality of the image retreived is based on the
-    // file URL. For example, a file named "image.png" would
-    // have a half-sized image named "image_Half.png"
+    // file URL. For example, a file named "image.jpg" would
+    // have a half-sized image named "imagesemi.jpg"
     switch quality {
     case .High:
       // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
@@ -133,7 +133,8 @@ struct RMURL : Hashable {
     self.underlyingURL = fromURL
   }
   private var fixedPath : String {
-    return RMURL.urlSuffix(forFileWithName: underlyingURL.absoluteString,quality : Campus.downloadedImageQuality)
+    return RMURL.urlSuffix(forFileWithName: underlyingURL.absoluteString,
+                           quality : Campus.downloadedImageQuality)
   }
   var localPath : URL {
     let urlEnding = String(fixedPath.split(separator: "/").last!)
@@ -148,7 +149,8 @@ struct RMURL : Hashable {
   }
 }
 
-// TODO: Implement a useful Image class. Difficult because App is Event-driven
+// TODO: Implement a useful Image class. Difficult because app is event-driven 
+//          and displaying images sourced from the network
 //class Image {
 //  var lowQuality : UIImage? {
 //    get {

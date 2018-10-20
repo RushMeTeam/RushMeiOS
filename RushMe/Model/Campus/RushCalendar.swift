@@ -37,7 +37,6 @@ class RushCalendar {
     if eventsByFraternity[event.frat] == nil{
       eventsByFraternity[event.frat] = Set<Fraternity.Event>()
     }
-    
     let key = event.starting.daysSinceReferenceDate
     if eventsByDay[key] == nil {
      eventsByDay[key] = Set<Fraternity.Event>() 

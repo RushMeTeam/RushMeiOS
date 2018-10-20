@@ -19,23 +19,20 @@ ScrollableItem {
   func updateData() {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
-      self.favoritesSegmentControl.isEnabled = User.preferences.displayFavoritesOnly
-      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...1))
+      self.favoritesSegmentControl.isEnabled = User.preferences.displayFavoritesOnly || Campus.shared.hasFavorites
+      self.collectionView.reloadSections(IndexSet(integersIn: 0...1))
       self.scrollView.scrollToTop(animated: true)
-      if !Campus.shared.hasFavorites {
-        self.favoritesSegmentControl.selectedSegmentIndex = 0
-      }
+      self.favoritesSegmentControl.selectedSegmentIndex = Campus.shared.hasFavorites ? self.favoritesSegmentControl.selectedSegmentIndex : 0
     }
   }
   
   // MARK: Constants
-  var eventViewController : EventTableViewController? = nil
+  private(set) var eventViewController : EventTableViewController? = nil
   // MARK: View IBOutlets
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var containerView: UIView!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var bottomView: UIView!
-  
   @IBOutlet weak var favoritesSegmentControl: UISegmentedControl!
   // MARK: Recognizer IBOutlets
   @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
@@ -48,14 +45,15 @@ ScrollableItem {
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
     guard indexPath.section == 1, let minDate = earliestDate, 
-      let today = Calendar.current.date(byAdding: .day, value: indexPath.row, to: minDate) else {
+      let today = Calendar.current.date(byAdding: .day, 
+                                        value: indexPath.row, 
+                                        to: minDate) else {
         return nil
     }
     return today
   }
   
-  
-  func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
+  internal func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
     guard let today = dateKey(from: indexPath), 
       let todaysEvents = RushCalendar.shared.eventsOn(today)?.filter({ (event) -> Bool in
         return (!viewingFavorites || event.frat.isFavorite) &&
@@ -65,36 +63,34 @@ ScrollableItem {
     }
     return todaysEvents.sorted(by: <)
   }
-  var isEmpty : Bool {
+  
+  var noEvents : Bool {
     return !RushCalendar.shared.hasEvents
   }
   
-  // MARK: Visual Calculated Fields
   var inEventView : Bool {
     get {
       return scrollView.contentOffset.y > collectionView.frame.midX
     }
-    set {
-      if inEventView {
-        // TODO: Figure out why taps are very off and are cancelling
-        // touches in other views...
-        scrollView.scrollToTop(animated: true)
-      }
-      else {
-        self.scrollView.scrollRectToVisible(bottomView.frame, animated: true) 
-      }
+  }
+  
+  internal func set(inEventView : Bool) {
+    if inEventView {
+      scrollView.scrollRectToVisible(bottomView.frame, animated: true) 
+    } else {
+      scrollView.scrollToTop(animated: true)
     }
   }
   
   var viewingFavorites : Bool {
     get {
-      return Campus.shared.hasFavorites && favoritesSegmentControl.selectedSegmentIndex == 1
+      return Campus.shared.hasFavorites && 
+             favoritesSegmentControl.selectedSegmentIndex == 1
     }
     set {
       favoritesSegmentControl.selectedSegmentIndex = 0
-      self.favoriteSegmentControlValueChanged(favoritesSegmentControl)
+      favoriteSegmentControlValueChanged(favoritesSegmentControl)
       collectionView.reloadData()
-      
     }
   }
   
@@ -103,7 +99,7 @@ ScrollableItem {
       return collectionView.indexPathsForSelectedItems?.first
     }
   }
-  lazy var zeroIndexPath = IndexPath.init(item: 0, section: 1)
+  lazy var zeroIndexPath = IndexPath(item: 0, section: 1)
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -111,52 +107,34 @@ ScrollableItem {
   // MARK: ViewDidLoad and ViewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
-    //    navigationController?.navigationBar.backgroundColor = RMColor.AppColor
     // Uncomment the following line to preserve selection between presentations
+    
     view.sendSubviewToBack(collectionView)
     collectionView.layer.masksToBounds = true
     collectionView.layer.cornerRadius = 8
     
+    scrollView.refreshControl = UIRefreshControl()
+    scrollView.refreshControl!.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     
-    // Do any additional setup after loading the view.
-    if let tbView = children.first as? EventTableViewController {
-      eventViewController = tbView
-    }
+    eventViewController = children.first as? EventTableViewController
     
-    // TODO: Implement Day Selection
+    // TODO: Implement multiple day Selection
     collectionView.allowsMultipleSelection = false
-    //Campus.shared.fratNamesObservable.addObserver(forOwner: self, handler: handleNewFrat(oldValue:newValue:))
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    fileURL = nil
-    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
-    shareButton.isEnabled = !RushCalendar.shared.hasEvents
-  }
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
-      collectionView.selectItem(at: zeroIndexPath, animated: false, scrollPosition: .top)
-    }
-    favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     scrollView.canCancelContentTouches = true
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 5
-    scrollView.refreshControl = UIRefreshControl()
-    scrollView.refreshControl!.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    shareButton.isEnabled = !RushCalendar.shared.hasEvents
   }
+  
   @objc func handleRefresh() {
     collectionView.reloadPreservingSelection(animated: true)
     favoritesSegmentControl.isEnabled = Campus.shared.hasFavorites
     scrollView.refreshControl?.endRefreshing()
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
+ 
   var fileURL : URL? = nil
   // MARK: Sharing
   // Shown when share button is selected
@@ -201,46 +179,41 @@ ScrollableItem {
   // MARK: Button Actions
   @IBAction func favoriteSegmentControlValueChanged(_ sender: UISegmentedControl) {
     let indexPaths = collectionView.indexPathsForSelectedItems!
+    for indexPath in indexPaths {
+      self.collectionView.deselectItem(at: indexPath, animated: false)
+    }
     UIView.transition(with: collectionView, duration: 0.1, options: .transitionCrossDissolve, animations: { 
-      self.collectionView.reloadSections(IndexSet.init(integersIn: 0...1))
-    }) { (_) in
-      
+      self.collectionView.reloadSections(IndexSet(integersIn: 0...1))
+    }) { (_) in }
+    for indexPath in indexPaths {
+      eventViewController?.selectedEvents = events(forIndexPath: indexPath)
+      collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .top)
     }
-    
-    if collectionView.indexPathsForSelectedItems == nil || collectionView.indexPathsForSelectedItems!.count == 0 {
-      if let lastSelectedPath = indexPaths.last {
-        eventViewController?.selectedEvents = events(forIndexPath: lastSelectedPath)
-        collectionView.selectItem(at: lastSelectedPath, animated: false, scrollPosition: .top)
-      }
-      
-    }
-    
-    
-    
   }
   // MARK : Gesture Recognizers
   @IBAction func seperatorTap(_ sender: UITapGestureRecognizer) {
-    if sender.location(in: view).y < collectionView.frame.maxY {
-      inEventView = false
-    }
+    set(inEventView: sender.location(in: view).y < collectionView.frame.maxY)
   }
   
   // MARK: UICollectionViewDataSource
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 2
   }
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  func collectionView(_ collectionView: UICollectionView, 
+                        numberOfItemsInSection section: Int) -> Int {
     return section == 0 ? 7 : 31
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  func collectionView(_ collectionView: UICollectionView, 
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let basicCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
     guard let _ = earliestDate, 
-      let today = dateKey(from: indexPath) else {
+          let today = dateKey(from: indexPath) else {
       let dumbCell = basicCell as! CalendarCollectionViewCell
-      let weekday = isEmpty ? indexPath.row : indexPath.row + earliestDate!.weekday
-      dumbCell.dayLabel.text = indexPath.section == 0 ? 
-        ["S","S","M","T","W","T","F"][weekday%7] : "\(indexPath.row)"
+      let weekday = (indexPath.row + (noEvents ? 0 : earliestDate!.weekday))%7
+      
+      dumbCell.dayLabel.text = indexPath.section == 0 ? ["S","S","M","T","W","T","F"][weekday] 
+                                                      : "\(indexPath.row + 1)"
       dumbCell.isSelected = false
       dumbCell.set(isGrayedOut: true)
       return dumbCell
@@ -248,13 +221,10 @@ ScrollableItem {
     guard let cell = basicCell as? CalendarCollectionViewCell else {
       return basicCell 
     }
-    let eventsToday = events(forIndexPath: indexPath)
     cell.set(isGrayedOut: today.month != Date.today.month)
-    cell.set(day: today.day, eventCount: eventsToday.count)
-    
+    cell.set(day: today.day, eventCount: events(forIndexPath: indexPath).count)
     return cell
   }
-  
   
   // MARK: - UICollectionViewDelegate
   func collectionView(_ collectionView: UICollectionView, 
@@ -264,7 +234,7 @@ ScrollableItem {
   
   func collectionView(_ collectionView: UICollectionView, 
                       shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    return indexPath.section != 0 && !isEmpty
+    return indexPath.section != 0 && !noEvents
   }
   
   func collectionView(_ collectionView: UICollectionView, 
@@ -272,7 +242,7 @@ ScrollableItem {
     let todaysEvents = events(forIndexPath: indexPath)
     eventViewController!.selectedEvents = todaysEvents
     if let todaysEvent = todaysEvents.first {
-      self.dateLabel.text =
+      dateLabel.text =
         DateFormatter.localizedString(from: todaysEvent.starting,
                                       dateStyle: .long,
                                       timeStyle: .none)
@@ -298,10 +268,10 @@ ScrollableItem {
 
 extension UICollectionView {
   func reloadPreservingSelection(animated : Bool) {
-    let selectedIP = self.indexPathsForSelectedItems
-    self.reloadSections(IndexSet.init(integersIn: 1...1)) 
+    let selectedIP = indexPathsForSelectedItems
+    reloadSections(IndexSet(integersIn: 1...1)) 
     if let reselectIndexPath = selectedIP?.first {
-      self.selectItem(at: reselectIndexPath, animated: animated, scrollPosition: .top)
+      selectItem(at: reselectIndexPath, animated: animated, scrollPosition: .top)
     } 
   }
 }

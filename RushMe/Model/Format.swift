@@ -30,14 +30,6 @@ struct Format {
       return dTF
     }()
     // How to format a Date/DateTime for the Database
-//    static let defaultSQLDateFormatter : DateFormatter = {
-//      let dF = DateFormatter()
-//      dF.isLenient = true
-//      dF.dateFormat = "yyyy-MM-dd"
-//      dF.formatterBehavior = .default
-//      dF.locale = Locale.current
-//      return dF
-//    }()
     private static var SQLDateFormat = "yyyy-MM-dd HH:mm:ss.SSSZ"
     static var SQLDateFormatter : DateFormatter {
       get {

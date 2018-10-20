@@ -100,17 +100,15 @@ class Campus {
           eventArray = eventArr
           self.lastDictArray = dictArray
         }
-        
-        for fraternityDict in dictArray {
-          if let frat = Fraternity(withDictionary: fraternityDict) {
-           try? Campus.shared.add(fraternity: frat) 
+        dictArray.forEach({ (dict) in
+          if let frat = Fraternity(withDictionary: dict) {
+            try? Campus.shared.add(fraternity: frat) 
           }
-          
-        }
+        })
         // TODO: Input events into rushcalendar
-        for eventDict in eventArray {
-          _ = RushCalendar.shared.add(eventDescribedBy: eventDict)
-        }
+        eventArray.forEach({ (dict) in
+          _ = RushCalendar.shared.add(eventDescribedBy: dict)
+        })
         self.percentageCompletion = 1
       } 
     }
@@ -123,6 +121,7 @@ class Campus {
     case registrationError(fraternity: Fraternity)
     case duplicateRegistration(fraternity : Fraternity)
   }
+  
   fileprivate func add(fraternity frat : Fraternity) throws {
     if let _ = fraternitiesByName[frat.name] {
       throw CampusError.duplicateRegistration(fraternity: frat)

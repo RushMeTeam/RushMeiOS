@@ -70,29 +70,13 @@ ScrollableItem {
       [NSAttributedString.Key.foregroundColor: Frontend.colors.NavigationItemsColor]
     // Do any additional setup after loading the view.
     self.fratNameButton.title
-    self.mapView.layer.cornerRadius = 5
-    self.mapView.layer.masksToBounds = true
     self.mapView.delegate = self
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
+    self.loadAnnotationsIfNecessary(fromAllFrats: !viewingFavorites, animated: false) 
   }
-  func handleGeocoding(oldValue : [String:CLLocation]?, newValue: [String: CLLocation]) {
-//    let safeOldValue = oldValue ?? [String:CLLocation].init()
-//    let changedFrats = Set(newValue.keys).symmetricDifference(Set<String>(safeOldValue.keys))
-//    for fratName in changedFrats {
-//      let frat = Campus.shared.fraternitiesByName[fratName]!
-//      let annotation = MKPointAnnotation()
-//      annotation.coordinate = newValue[fratName]!.coordinate
-//      annotation.title = frat.name
-//      annotation.subtitle = frat.address
-//      mapView.addAnnotation(annotation)
-//      mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
-//      
-//    }
-//    fratAnnotations = mapView.annotations
-  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

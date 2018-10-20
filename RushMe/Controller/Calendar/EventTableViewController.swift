@@ -19,13 +19,15 @@ class EventTableViewController: UITableViewController {
   var selectedEvents : [Fraternity.Event] = [] {
     didSet {
       tableView.isScrollEnabled = selectedEvents.count > 1
-      UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: { 
-        self.tableView.reloadData()
-      }) { (_) in
-        if self.selectedEvents.count > 0 {
-          self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
-        }
+      self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+      if self.selectedEvents.count > 0 {
+        self.tableView.scrollToTop(animated: true)
       }
+//      UIView.transition(with: tableView, duration: 0.2, options: .transitionCrossDissolve, animations: { 
+//        
+//      }) { (_) in
+//        
+//      }
     }
   }
   
