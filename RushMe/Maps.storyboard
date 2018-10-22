@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map-->
+        <scene sceneID="AdF-Wu-7KL">
+            <objects>
+                <viewController storyboardIdentifier="mapVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pqG-g4-aqb" customClass="MapViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a4G-PY-kn0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybridFlyover" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFy-K2-1IP">
+                                <rect key="frame" x="8" y="66" width="359" height="539"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJj-zP-gCR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MNA-e0-vZA">
+                                <rect key="frame" x="8" y="26" width="359" height="29"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="favoritesControlSelected:" destination="pqG-g4-aqb" eventType="valueChanged" id="0KK-6i-19s"/>
+                                </connections>
+                            </segmentedControl>
+                            <button hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="at7-2J-3La">
+                                <rect key="frame" x="335" y="612" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="fLX-bg-LVF"/>
+                                    <constraint firstAttribute="width" constant="32" id="nqi-Vt-4Lm"/>
+                                </constraints>
+                                <state key="normal" image="RightArrowIcon"/>
+                                <connections>
+                                    <action selector="goToFraternity:" destination="pqG-g4-aqb" eventType="touchUpInside" id="smv-Ay-hMo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACS-2d-tnz">
+                                <rect key="frame" x="44" y="613" width="287" height="30"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goToFraternity:" destination="pqG-g4-aqb" eventType="touchUpInside" id="ehP-g1-Qtm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="MNA-e0-vZA" firstAttribute="leading" secondItem="Csq-w7-sxe" secondAttribute="leading" constant="8" id="19X-eb-P1R"/>
+                            <constraint firstItem="MNA-e0-vZA" firstAttribute="top" secondItem="Csq-w7-sxe" secondAttribute="top" constant="6" id="3OP-Ee-zcd"/>
+                            <constraint firstItem="Csq-w7-sxe" firstAttribute="trailing" secondItem="at7-2J-3La" secondAttribute="trailing" constant="8" id="9p3-Uy-e1M"/>
+                            <constraint firstItem="ACS-2d-tnz" firstAttribute="centerY" secondItem="at7-2J-3La" secondAttribute="centerY" id="GMk-Es-3iW"/>
+                            <constraint firstItem="ACS-2d-tnz" firstAttribute="bottom" secondItem="Csq-w7-sxe" secondAttribute="bottom" constant="-24" id="M04-nx-cDp"/>
+                            <constraint firstItem="BJj-zP-gCR" firstAttribute="top" secondItem="a4G-PY-kn0" secondAttribute="top" id="Thu-eG-fOW"/>
+                            <constraint firstItem="ACS-2d-tnz" firstAttribute="top" secondItem="QFy-K2-1IP" secondAttribute="bottom" constant="8" id="YhS-By-0v4"/>
+                            <constraint firstItem="Csq-w7-sxe" firstAttribute="trailing" secondItem="BJj-zP-gCR" secondAttribute="trailing" id="ad2-XK-WMp"/>
+                            <constraint firstItem="QFy-K2-1IP" firstAttribute="top" secondItem="BJj-zP-gCR" secondAttribute="bottom" constant="6" id="bK3-kW-WQM"/>
+                            <constraint firstItem="Csq-w7-sxe" firstAttribute="trailing" secondItem="MNA-e0-vZA" secondAttribute="trailing" constant="8" id="cVO-zJ-SEH"/>
+                            <constraint firstItem="at7-2J-3La" firstAttribute="leading" secondItem="ACS-2d-tnz" secondAttribute="trailing" constant="4" id="eQW-Pi-Ild"/>
+                            <constraint firstItem="QFy-K2-1IP" firstAttribute="top" secondItem="MNA-e0-vZA" secondAttribute="bottom" constant="12" id="fCG-4D-WZy"/>
+                            <constraint firstItem="QFy-K2-1IP" firstAttribute="leading" secondItem="Csq-w7-sxe" secondAttribute="leading" constant="8" id="kRi-OT-2xh"/>
+                            <constraint firstItem="ACS-2d-tnz" firstAttribute="centerX" secondItem="Csq-w7-sxe" secondAttribute="centerX" id="kW5-Wt-9mW"/>
+                            <constraint firstItem="Csq-w7-sxe" firstAttribute="trailing" secondItem="QFy-K2-1IP" secondAttribute="trailing" constant="8" id="l4m-Rb-tqq"/>
+                            <constraint firstItem="ACS-2d-tnz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Csq-w7-sxe" secondAttribute="leading" constant="4" id="oov-SQ-g0G"/>
+                            <constraint firstItem="BJj-zP-gCR" firstAttribute="leading" secondItem="Csq-w7-sxe" secondAttribute="leading" id="uU2-RK-ipH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Csq-w7-sxe"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" title="Map" id="Moe-Lb-fFS">
+                        <barButtonItem key="leftBarButtonItem" image="CenterMapIcon" id="M8Z-5N-Xd9">
+                            <connections>
+                                <action selector="centerMap:" destination="pqG-g4-aqb" id="jCn-KY-uj0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="favoritesControl" destination="MNA-e0-vZA" id="szU-fB-pVw"/>
+                        <outlet property="fratNameButton" destination="ACS-2d-tnz" id="ANO-s2-ERa"/>
+                        <outlet property="informationButton" destination="at7-2J-3La" id="4Pn-zQ-Qsa"/>
+                        <outlet property="mapView" destination="QFy-K2-1IP" id="Uef-cG-STa"/>
+                        <segue destination="lYB-io-KRt" kind="showDetail" identifier="showDetail" id="0vb-WY-KIY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vzx-jf-LI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ijG-0q-BSU">
+                    <connections>
+                        <action selector="goToFraternity:" destination="pqG-g4-aqb" id="feg-xH-c5z"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-5056.8000000000002" y="4710.4947526236883"/>
+        </scene>
+        <!--detailPageVC-->
+        <scene sceneID="AgG-Kg-U14">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="detailPageVC" storyboardName="Main" referencedIdentifier="detailPageVC" id="lYB-io-KRt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2PR-BL-P64" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4183" y="3051"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CenterMapIcon" width="48" height="48"/>
+        <image name="RightArrowIcon" width="48" height="48"/>
+    </resources>
+    <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

@@ -19,6 +19,9 @@
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* ScrollButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */; };
 		DB2338A91FD4F53300FB7118 /* RushCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendar.swift */; };
+		DB269731217E07B3004361F7 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
+		DB269732217E07C8004361F7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
+		DB2EBDED217E488600394A79 /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2EBDEC217E488600394A79 /* Maps.storyboard */; };
 		DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
 		DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
 		DB47437E2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */; };
@@ -72,7 +75,6 @@
 		DB81CC21217A9F080075B688 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
 		DB81CC22217AA3DC0075B688 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
 		DB81CC23217AA3DC0075B688 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
-		DB81CC24217AA3DC0075B688 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76C1F894A910090DEC3 /* Info.plist */; };
 		DB81CC25217AA3DC0075B688 /* RushMeUITests-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFD20C07E4D006A850D /* RushMeUITests-Bridging-Header.h */; };
 		DB81CC26217AA4560075B688 /* RushMeTests.xctest in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75B1F894A910090DEC3 /* RushMeTests.xctest */; };
 		DB81CC27217AA4560075B688 /* RushMeUITests.xctest in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7661F894A910090DEC3 /* RushMeUITests.xctest */; };
@@ -115,13 +117,6 @@
 		DB81CC52217AA5200075B688 /* LaunchScreen.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */; };
 		DB81CC53217AA5200075B688 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
 		DB81CC55217AA5200075B688 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
-		DB81CC5E217AA5200075B688 /* RushMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75F1F894A910090DEC3 /* RushMeTests.swift */; };
-		DB81CC60217AA5200075B688 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
-		DB81CC61217AA5200075B688 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
-		DB81CC63217AA5200075B688 /* RushMeUITests-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFD20C07E4D006A850D /* RushMeUITests-Bridging-Header.h */; };
-		DB81CC64217AA5200075B688 /* RushMe.app in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7451F894A910090DEC3 /* RushMe.app */; };
-		DB81CC65217AA5200075B688 /* RushMeTests.xctest in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75B1F894A910090DEC3 /* RushMeTests.xctest */; };
-		DB81CC67217AA5200075B688 /* Screenshots.xctest in Sources */ = {isa = PBXBuildFile; fileRef = DB9E60ED20C07D5700B2C765 /* Screenshots.xctest */; };
 		DB81CC6C217AA54F0075B688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
 		DB81CC6D217AA54F0075B688 /* Frontend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FE921501C16006BC05A /* Frontend.swift */; };
 		DB81CC6E217AA54F0075B688 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* Backend.swift */; };
@@ -164,7 +159,6 @@
 		DB81CC9B217AA54F0075B688 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7611F894A910090DEC3 /* Info.plist */; };
 		DB81CC9C217AA54F0075B688 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
 		DB81CC9D217AA54F0075B688 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
-		DB81CC9E217AA54F0075B688 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76C1F894A910090DEC3 /* Info.plist */; };
 		DB81CC9F217AA54F0075B688 /* RushMeUITests-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFD20C07E4D006A850D /* RushMeUITests-Bridging-Header.h */; };
 		DB81CCA0217AA54F0075B688 /* RushMe.app in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7451F894A910090DEC3 /* RushMe.app */; };
 		DB81CCA1217AA54F0075B688 /* RushMeTests.xctest in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75B1F894A910090DEC3 /* RushMeTests.xctest */; };
@@ -256,6 +250,7 @@
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollButtonViewController.swift; sourceTree = "<group>"; };
 		DB2338A81FD4F53300FB7118 /* RushCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RushCalendar.swift; sourceTree = "<group>"; };
+		DB2EBDEC217E488600394A79 /* Maps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -376,6 +371,7 @@
 				DB346C311FB10630003E59AE /* View */,
 				DB346C2B1FB103CA003E59AE /* Controller */,
 				DB05F74E1F894A910090DEC3 /* Main.storyboard */,
+				DB2EBDEC217E488600394A79 /* Maps.storyboard */,
 				DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */,
 				DB05F7511F894A910090DEC3 /* Assets.xcassets */,
 				DB05F7561F894A910090DEC3 /* Info.plist */,
@@ -712,6 +708,7 @@
 			files = (
 				DBB1BA7D20B9BD2E0077872F /* FirstEntry.storyboard in Resources */,
 				DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */,
+				DB2EBDED217E488600394A79 /* Maps.storyboard in Resources */,
 				DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */,
 				DB05F7501F894A910090DEC3 /* Main.storyboard in Resources */,
 			);
@@ -922,7 +919,6 @@
 				DB81CC9B217AA54F0075B688 /* Info.plist in Sources */,
 				DB81CC9C217AA54F0075B688 /* SnapshotHelper.swift in Sources */,
 				DB81CC9D217AA54F0075B688 /* RushMeUITests.swift in Sources */,
-				DB81CC9E217AA54F0075B688 /* Info.plist in Sources */,
 				DB81CC9F217AA54F0075B688 /* RushMeUITests-Bridging-Header.h in Sources */,
 				DB81CCA0217AA54F0075B688 /* RushMe.app in Sources */,
 				DB81CCA1217AA54F0075B688 /* RushMeTests.xctest in Sources */,
@@ -940,6 +936,7 @@
 				DB81CC32217AA5200075B688 /* Backend.swift in Sources */,
 				DB81CC33217AA5200075B688 /* User.swift in Sources */,
 				DB81CC34217AA5200075B688 /* Privacy.swift in Sources */,
+				DB269732217E07C8004361F7 /* SnapshotHelper.swift in Sources */,
 				DB81CC35217AA5200075B688 /* PrivacyViewController.swift in Sources */,
 				DB81CC36217AA5200075B688 /* FirstEntry.storyboard in Sources */,
 				DB81CC37217AA5200075B688 /* Campus.swift in Sources */,
@@ -964,6 +961,7 @@
 				DB81CC4A217AA5200075B688 /* MapViewController.swift in Sources */,
 				DB81CC4B217AA5200075B688 /* SettingsViewController.swift in Sources */,
 				DB81CC4C217AA5200075B688 /* SWRevealViewController.h in Sources */,
+				DB269731217E07B3004361F7 /* RushMeUITests.swift in Sources */,
 				DB81CC4D217AA5200075B688 /* SWRevealViewController.m in Sources */,
 				DB81CC4E217AA5200075B688 /* ScrollPageViewController.swift in Sources */,
 				DB81CC4F217AA5200075B688 /* ScrollButtonViewController.swift in Sources */,
@@ -972,13 +970,6 @@
 				DB81CC52217AA5200075B688 /* LaunchScreen.storyboard in Sources */,
 				DB81CC53217AA5200075B688 /* Assets.xcassets in Sources */,
 				DB81CC55217AA5200075B688 /* RushMe-Bridging-Header.h in Sources */,
-				DB81CC5E217AA5200075B688 /* RushMeTests.swift in Sources */,
-				DB81CC60217AA5200075B688 /* SnapshotHelper.swift in Sources */,
-				DB81CC61217AA5200075B688 /* RushMeUITests.swift in Sources */,
-				DB81CC63217AA5200075B688 /* RushMeUITests-Bridging-Header.h in Sources */,
-				DB81CC64217AA5200075B688 /* RushMe.app in Sources */,
-				DB81CC65217AA5200075B688 /* RushMeTests.xctest in Sources */,
-				DB81CC67217AA5200075B688 /* Screenshots.xctest in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,7 +983,6 @@
 				DB81CC28217AA4560075B688 /* Screenshots.xctest in Sources */,
 				DB81CC22217AA3DC0075B688 /* SnapshotHelper.swift in Sources */,
 				DB81CC23217AA3DC0075B688 /* RushMeUITests.swift in Sources */,
-				DB81CC24217AA3DC0075B688 /* Info.plist in Sources */,
 				DB81CC25217AA3DC0075B688 /* RushMeUITests-Bridging-Header.h in Sources */,
 				DB81CBFC217A9F080075B688 /* AppDelegate.swift in Sources */,
 				DB81CBFD217A9F080075B688 /* Frontend.swift in Sources */,
@@ -1200,7 +1190,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1223,7 +1213,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

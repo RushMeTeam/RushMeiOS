@@ -72,7 +72,11 @@ class Backend {
         print("Bad JSON!")
         throw BackendError.jsonParseError(from: response)
     }
-    return jsonObject as? [Dictionary<String, Any>] ?? [] 
+    guard let output = jsonObject as? [Dictionary<String, Any>] else {
+     print("Bad JSON container!")
+      return []
+    }
+    return output
   }
   
   // Used to determine whether the App is currently in the process of 

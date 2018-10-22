@@ -56,17 +56,24 @@ struct Privacy {
     return privacyRow?["mandatory"] as? Bool ?? getPrivacyStatement()?.isMandatory
   }
   private static func getPrivacyStatement() -> (policy : String, effective: Date, isMandatory: Bool)? {
-    if let selectAttempt = try? Backend.selectAll(fromTable: "privacy").first,
-      let dictionary = selectAttempt,
-      let policy = dictionary["policy"] as? String,
+    guard let selectAttempt = try? Backend.selectAll(fromTable: "privacy.rushme").first,
+      let dictionary = selectAttempt
+    else {
+      print("Failed to get the policy")
+      return nil
+    }
+    
+    guard let policy = dictionary["policy"] as? String,
       let dateString = dictionary["publishdate"] as? String,
       let isMandatoryRaw = dictionary["mandatory"] as? String, 
-      let date = Format.dates.SQLDateFormatter.date(from: dateString) {
-      privacyRow = dictionary
-      privacyRow!["publishdate"] = date
-      return (policy, date, isMandatoryRaw == "1")
+      let date = User.device.iso8601.date(from: dateString) else {
+        print("Failed to initialize policy, publishdate, or mandatory")
+        return nil
     }
-    return nil
+    privacyRow = dictionary
+    privacyRow!["publishdate"] = date
+    return (policy, date, isMandatoryRaw == "true")
+    
   }
 }
 
