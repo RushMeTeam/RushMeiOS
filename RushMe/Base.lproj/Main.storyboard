@@ -1083,7 +1083,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jgt-Jh-E04">
-                                <rect key="frame" x="8" y="28" width="359" height="165"/>
+                                <rect key="frame" x="8" y="28" width="359" height="112"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gT3-AM-dXe">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="31"/>
@@ -1139,6 +1139,7 @@
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Wkm-Sw-vuc">
                                         <rect key="frame" x="0.0" y="120" width="359" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's (Simulated) Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9N-DN-Ygb">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
@@ -1177,6 +1178,7 @@
                                 </subviews>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="Wkm-Sw-vuc"/>
                                         <exclude reference="IyS-dL-QDs"/>
                                     </mask>
                                 </variation>

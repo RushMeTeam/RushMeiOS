@@ -21,7 +21,6 @@
 		DB2338A91FD4F53300FB7118 /* RushCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendar.swift */; };
 		DB269731217E07B3004361F7 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
 		DB269732217E07C8004361F7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
-		DB2EBDED217E488600394A79 /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2EBDEC217E488600394A79 /* Maps.storyboard */; };
 		DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
 		DB394E981FD10AFE004BF952 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
 		DB47437E2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */; };
@@ -250,7 +249,6 @@
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollButtonViewController.swift; sourceTree = "<group>"; };
 		DB2338A81FD4F53300FB7118 /* RushCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RushCalendar.swift; sourceTree = "<group>"; };
-		DB2EBDEC217E488600394A79 /* Maps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenuViewController.swift; sourceTree = "<group>"; };
 		DB394E971FD10AFE004BF952 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 				DB346C311FB10630003E59AE /* View */,
 				DB346C2B1FB103CA003E59AE /* Controller */,
 				DB05F74E1F894A910090DEC3 /* Main.storyboard */,
-				DB2EBDEC217E488600394A79 /* Maps.storyboard */,
 				DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */,
 				DB05F7511F894A910090DEC3 /* Assets.xcassets */,
 				DB05F7561F894A910090DEC3 /* Info.plist */,
@@ -708,7 +705,6 @@
 			files = (
 				DBB1BA7D20B9BD2E0077872F /* FirstEntry.storyboard in Resources */,
 				DB05F7551F894A910090DEC3 /* LaunchScreen.storyboard in Resources */,
-				DB2EBDED217E488600394A79 /* Maps.storyboard in Resources */,
 				DB05F7521F894A910090DEC3 /* Assets.xcassets in Resources */,
 				DB05F7501F894A910090DEC3 /* Main.storyboard in Resources */,
 			);
