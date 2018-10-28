@@ -17,7 +17,7 @@ enum ActionType : String {
   case UserNavigated = "User Navigated"
   case AppEnteredForeground = "App Entered Foreground"
   case AppWillEnterBackground = "App Entering Background"
-  case SQLError = "SQL Error Encountered"
+  case SQLError = "iOS: SQL Error Encountered"
 }
 
 // Centralize requests made to an SQL server
@@ -71,9 +71,11 @@ class Backend {
       else {
         print("Bad JSON!")
         throw BackendError.jsonParseError(from: response)
-    }
-    guard let output = jsonObject as? [Dictionary<String, Any>] else {
-     print("Bad JSON container!")
+    }; guard let output = jsonObject as? [Dictionary<String, Any>] else {
+      if let output = jsonObject as? Dictionary<String, Any> {
+       return [output] 
+      }
+      print("Bad JSON container!")
       return []
     }
     return output
@@ -88,24 +90,32 @@ class Backend {
       print("Push Error:", error!) 
       return
     }
-    let httpStatus = response as? HTTPURLResponse
-    switch httpStatus?.statusCode {
+    guard let httpStatus = response as? HTTPURLResponse else {
+      print("No response!")
+      return
+    }
+    switch httpStatus.statusCode {
     case nil:
+      print("No response!")
       throw BackendError.nullServerResponse
     case 200: 
+//      print("Success!\n\tResponse: \(String(data: data, encoding: .utf8) ?? "None")")
       break
     default:
-      //print("Push Error:\n\tHTTPStatus:\t\(httpStatus!.statusCode)\n\tHTTPResponse:\t\(String(data: data, encoding: .utf8) ?? "None")")
-      throw BackendError.invalidServerResponse(withCode: httpStatus!.statusCode, 
+      print("Push Error:\n\tHTTPStatus:\t\(httpStatus.statusCode)")
+      print("\tHTTPResponse:\t\(String(data: data, encoding: .utf8) ?? "None")")
+      throw BackendError.invalidServerResponse(withCode: httpStatus.statusCode, 
                                                response: String(data: data, encoding: .utf8))
     }
   }
   
   private static func push(action : [String : Any]) {
-    guard Privacy.policyAccepted else { return }
+    guard Privacy.policyAccepted else { 
+      return 
+    }
     DispatchQueue.global(qos: .background).async {
       let request = URLRequest(fromAction: action)
-      URLSession.shared.dataTask(with: request) {  
+      URLSession.shared.dataTask(with: request) { 
         (data, response, error) in try? handleResponse(data, response, error) 
         }.resume()
     }
@@ -126,8 +136,7 @@ class Backend {
   static func log(action : ActionType, options : String? = nil) {
     DispatchQueue.global(qos: .utility).async {
       let actionReport = report(fromAction: action)
-      if action == .AppEnteredForeground || 
-        action == .AppWillEnterBackground {
+      if action == .AppEnteredForeground || action == .AppWillEnterBackground {
         pushAll() 
       } else {
         push(action: actionReport)
@@ -137,9 +146,7 @@ class Backend {
   private static func report(fromAction action : ActionType, options : String? = nil) -> [String : Any] {
     var report = User.device.properties
     report["pact"] = action.rawValue
-    if let subseqOptions = (options?.split(separator: ";").first) {
-      report["popt"] = String(subseqOptions)
-    }
+    report["popt"] = String((options?.split(separator: ";").first) ?? "") 
     return report
   }
   
@@ -150,10 +157,11 @@ fileprivate extension URLRequest {
     self.init(url: URL(string: Backend.db)!)
     self.httpMethod = "POST"
     var actionAsString = "&"
-    for category in action {
-      actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+    action.forEach { (parameters) in
+      actionAsString += "\(parameters.key)=\((parameters.value as? String)  ?? "NULL")&"
     }
     self.timeoutInterval = 10
+    print(actionAsString)
     self.httpBody = actionAsString.data(using: .utf8)
   }
 }
@@ -163,32 +171,22 @@ struct Database {
   struct keys {
     struct database {
       static let fraternities = "fraternites.rushme"
-      static let events = "events.rushme"
+                                            static let events = "events.rushme"
     }
     struct frat {
-      static let name = "name"
-      static let key = "namekey"
-      static let coordinates = "coordinates"
-      static let chapter = "chapter"
-      static let memberCount = "member_count"
-      static let description = "description"
-      static let gpa = "gpa"
-      static let address = "address"
-      static let previewImage = "preview_image"
+      static let name = "name"       ; static let coverImage = "cover_image"
+      static let chapter = "chapter" ; static let coordinates = "coordinates"
+      static let gpa = "gpa"         ; static let memberCount = "member_count"
+      static let address = "address" ; static let description = "description" 
+      static let key = "namekey"     ; static let previewImage = "preview_image"
       static let profileImage = Database.keys.frat.key
-      static let coverImage = "cover_image"
-      static let calendarImage = Database.keys.frat.key
-      
+                              static let calendarImage = Database.keys.frat.key
     }
     struct event {
-      static let name = "event_name"
-      static let fratKey = "frat_name_key"
-      static let description = "description"
-      static let startTime = "start_time"
-      static let inviteOnly = "invite_only"
-      static let duration = "duration"
-      static let location = "location"
-      static let coordinates = "coordinates"
+      static let name = "event_name"      ; static let fratKey = "frat_name_key"
+      static let duration = "duration"    ; static let inviteOnly = "invite_only" 
+      static let startTime = "start_time" ; static let description = "description"
+      static let location = "location"    ; static let coordinates = "coordinates"
     }
   }
 }
@@ -272,20 +270,6 @@ extension RushCalendar {
   
 }
 
-func getString(_ key : String, _ dict : Dictionary<String, Any>) -> String? {
-  guard let result = dict[key] as? String else {
-   print("No dice...")
-    return nil
-  }
-  return result
-}
-func getInt(_ key : String, _ dict : Dictionary<String, Any>) -> Int? {
-  guard let result = dict[key] as? Int else {
-    print("No dice...")
-    return nil
-  }
-  return result
-}
 extension Fraternity {
   convenience init?(withDictionary dict : Dictionary<String, Any>) {
     guard 

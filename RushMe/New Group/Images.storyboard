@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image View Controller-->
+        <scene sceneID="sMQ-T3-gMM">
+            <objects>
+                <viewController storyboardIdentifier="imageVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="jwT-d9-9Te" customClass="ImageViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tu1-rM-bI1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-GG-4PB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="s0g-1f-9zV">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="s0g-1f-9zV" firstAttribute="top" secondItem="Ocd-GG-4PB" secondAttribute="top" id="4ks-kd-AkT"/>
+                                    <constraint firstAttribute="bottom" secondItem="s0g-1f-9zV" secondAttribute="bottom" id="6Cs-Ht-BG2"/>
+                                    <constraint firstItem="s0g-1f-9zV" firstAttribute="leading" secondItem="Ocd-GG-4PB" secondAttribute="leading" id="I3p-s9-Ajb"/>
+                                    <constraint firstItem="s0g-1f-9zV" firstAttribute="centerX" secondItem="Ocd-GG-4PB" secondAttribute="centerX" id="MlK-xK-MjP"/>
+                                    <constraint firstItem="s0g-1f-9zV" firstAttribute="centerY" secondItem="Ocd-GG-4PB" secondAttribute="centerY" id="kHJ-HV-G65"/>
+                                    <constraint firstAttribute="trailing" secondItem="s0g-1f-9zV" secondAttribute="trailing" id="ni2-BP-R35"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="jwT-d9-9Te" id="nkS-eM-8Fa"/>
+                                    <outletCollection property="gestureRecognizers" destination="dDz-m4-ZxY" appends="YES" id="75h-Rq-B03"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DdM-F0-c4T" firstAttribute="trailing" secondItem="Ocd-GG-4PB" secondAttribute="trailing" id="50A-EA-bUI"/>
+                            <constraint firstItem="DdM-F0-c4T" firstAttribute="bottom" secondItem="Ocd-GG-4PB" secondAttribute="bottom" id="5of-s0-5pH"/>
+                            <constraint firstItem="Ocd-GG-4PB" firstAttribute="centerX" secondItem="DdM-F0-c4T" secondAttribute="centerX" id="bYd-8J-ps7"/>
+                            <constraint firstItem="Ocd-GG-4PB" firstAttribute="top" secondItem="Tu1-rM-bI1" secondAttribute="top" id="eZR-NU-Uk3"/>
+                            <constraint firstItem="Ocd-GG-4PB" firstAttribute="leading" secondItem="DdM-F0-c4T" secondAttribute="leading" id="llS-p4-IPT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DdM-F0-c4T"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="s0g-1f-9zV" id="t6C-Np-2aI"/>
+                        <outlet property="scrollView" destination="Ocd-GG-4PB" id="Ok8-Yd-XfG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71B-CA-SLJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dDz-m4-ZxY">
+                    <connections>
+                        <action selector="screenTapped:" destination="jwT-d9-9Te" id="NTL-HC-Qhg"/>
+                        <outlet property="delegate" destination="jwT-d9-9Te" id="9M0-b9-876"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-3055" y="4467"/>
+        </scene>
+        <!--Image Page View Controller-->
+        <scene sceneID="n62-68-1wl">
+            <objects>
+                <viewController storyboardIdentifier="imagePageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ciM-yD-hja" customClass="ImagePageViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FU7-av-PkS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9S-40-A7T">
+                                <rect key="frame" x="59" y="70" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="RYl-rn-IDT">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qxv-4d-4b7">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="X7m-fH-Cn1">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9p-eV-JAE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ciM-yD-hja" id="gFr-TV-s59"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nwA-dd-Q6q">
+                                <rect key="frame" x="16" y="642" width="343" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="f6b-7t-XKN"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="goToPage:" destination="ciM-yD-hja" eventType="valueChanged" id="2jA-NF-nLS"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bU8-BV-wQz" firstAttribute="bottom" secondItem="nwA-dd-Q6q" secondAttribute="bottom" id="A5L-fU-aP7"/>
+                            <constraint firstItem="bU8-BV-wQz" firstAttribute="trailing" secondItem="d9p-eV-JAE" secondAttribute="trailing" id="Cnh-6W-qjU"/>
+                            <constraint firstItem="d9p-eV-JAE" firstAttribute="leading" secondItem="bU8-BV-wQz" secondAttribute="leading" id="DB1-Hh-fTi"/>
+                            <constraint firstItem="nwA-dd-Q6q" firstAttribute="leading" secondItem="FU7-av-PkS" secondAttribute="leadingMargin" id="Wdd-sd-5No"/>
+                            <constraint firstItem="bU8-BV-wQz" firstAttribute="bottom" secondItem="d9p-eV-JAE" secondAttribute="bottom" id="iYg-VR-etO"/>
+                            <constraint firstItem="d9p-eV-JAE" firstAttribute="top" secondItem="bU8-BV-wQz" secondAttribute="top" id="vmV-x1-pna"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nwA-dd-Q6q" secondAttribute="trailing" id="zmp-8a-78s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bU8-BV-wQz"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="nwA-dd-Q6q" id="JoM-7Z-26q"/>
+                        <outlet property="scrollView" destination="d9p-eV-JAE" id="5zU-Jg-Bjv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yeg-9b-U2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3850" y="4467"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="defaultImage" width="602.15997314453125" height="400.07998657226562"/>
+    </resources>
+    <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

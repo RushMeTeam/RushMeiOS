@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Master View Controller-->
+        <scene sceneID="smW-Zh-WAh">
+            <objects>
+                <tableViewController storyboardIdentifier="masterVC" definesPresentationContext="YES" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="RushMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="prettyFratCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="8" reuseIdentifier="prettyFratCell" id="UWP-Hj-5Oy" customClass="FraternityTableViewCell" customModule="RushMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="96"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UWP-Hj-5Oy" id="iMq-dk-2Sa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oim-ep-0rs">
+                                            <rect key="frame" x="7" y="6" width="361" height="88"/>
+                                            <color key="backgroundColor" red="0.17407224320761683" green="0.75502997980260145" blue="1" alpha="0.68000000000000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-E2-Pu3">
+                                            <rect key="frame" x="328" y="18" width="32" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="vCW-E2-Pu3" secondAttribute="height" multiplier="1:2" id="eoq-6A-ZQ2"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" image="FavoritesUnfilled"/>
+                                            <connections>
+                                                <action selector="favoriteButtonHit:" destination="UWP-Hj-5Oy" eventType="touchUpInside" id="Ae5-h0-EM8"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The XYZ Fraternity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5b-8n-ovp">
+                                            <rect key="frame" x="15" y="57" width="309" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vCW-E2-Pu3" firstAttribute="centerY" secondItem="Oim-ep-0rs" secondAttribute="centerY" id="DLi-u0-AbJ"/>
+                                        <constraint firstItem="vCW-E2-Pu3" firstAttribute="leading" secondItem="S5b-8n-ovp" secondAttribute="trailing" constant="4" id="Etc-XR-5JR"/>
+                                        <constraint firstAttribute="trailing" secondItem="Oim-ep-0rs" secondAttribute="trailing" constant="7" id="Jyt-j6-ajW"/>
+                                        <constraint firstItem="Oim-ep-0rs" firstAttribute="top" secondItem="iMq-dk-2Sa" secondAttribute="top" constant="6" id="O6y-el-XDu"/>
+                                        <constraint firstItem="S5b-8n-ovp" firstAttribute="bottom" secondItem="Oim-ep-0rs" secondAttribute="bottom" constant="-8" id="PE1-HV-WVE"/>
+                                        <constraint firstAttribute="bottom" secondItem="Oim-ep-0rs" secondAttribute="bottom" constant="2" id="SFx-az-T1v"/>
+                                        <constraint firstItem="S5b-8n-ovp" firstAttribute="leading" secondItem="Oim-ep-0rs" secondAttribute="leading" constant="8" id="Uqw-yk-7Sk"/>
+                                        <constraint firstItem="Oim-ep-0rs" firstAttribute="leading" secondItem="iMq-dk-2Sa" secondAttribute="leading" constant="7" id="WuH-vh-mR8"/>
+                                        <constraint firstItem="S5b-8n-ovp" firstAttribute="bottom" secondItem="vCW-E2-Pu3" secondAttribute="bottom" constant="4" id="WuM-pA-ds8"/>
+                                        <constraint firstItem="Oim-ep-0rs" firstAttribute="trailing" secondItem="vCW-E2-Pu3" secondAttribute="trailing" constant="8" id="wlp-7U-kbP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favoriteButton" destination="vCW-E2-Pu3" id="T9X-a0-nMR"/>
+                                    <outlet property="previewImageView" destination="Oim-ep-0rs" id="qLD-p0-jFm"/>
+                                    <outlet property="titleLabel" destination="S5b-8n-ovp" id="Kpg-aJ-waH"/>
+                                    <segue destination="NP9-Qz-Sfh" kind="push" identifier="peekDetail" id="oG8-ph-6YO"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="MasterTable"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="dataSource" destination="7bK-jq-Zjz" id="Gho-Na-rnu"/>
+                            <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="Zdf-7t-Un8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5056.8000000000002" y="5517.3913043478269"/>
+        </scene>
+        <!--detailPageVC-->
+        <scene sceneID="0sa-gD-d4o">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="detailPageVC" storyboardName="Main" referencedIdentifier="detailPageVC" id="NP9-Qz-Sfh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mi-Am-x6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4231" y="5517"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FavoritesUnfilled" width="48" height="48"/>
+    </resources>
+    <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>

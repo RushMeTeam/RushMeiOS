@@ -63,7 +63,7 @@ extension UIStoryboard {
   }
   static var privacy : UIStoryboard {
     get {
-      return UIStoryboard(name: "FirstEntry", bundle: nil) 
+      return UIStoryboard(name: "Privacy", bundle: nil) 
     }
   }
 }

@@ -9,28 +9,28 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DB05F7651F894A910090DEC3"
-               BuildableName = "RushMeUITests.xctest"
-               BlueprintName = "RushMeUITests"
+               BlueprintIdentifier = "DB05F7441F894A910090DEC3"
+               BuildableName = "RushMe.app"
+               BlueprintName = "RushMe"
                ReferencedContainer = "container:RushMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
+            buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DB05F7441F894A910090DEC3"
-               BuildableName = "RushMe.app"
-               BlueprintName = "RushMe"
+               BlueprintIdentifier = "DB05F7651F894A910090DEC3"
+               BuildableName = "RushMeUITests.xctest"
+               BlueprintName = "RushMeUITests"
                ReferencedContainer = "container:RushMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -94,6 +94,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DB05F7651F894A910090DEC3"
+            BuildableName = "RushMeUITests.xctest"
+            BlueprintName = "RushMeUITests"
+            ReferencedContainer = "container:RushMe.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
