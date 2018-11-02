@@ -103,7 +103,6 @@ class Campus {
             try? Campus.shared.add(fraternity: frat) 
           }
         })
-        // TODO: Input events into rushcalendar
         eventArray.forEach({ (dict) in
           _ = RushCalendar.shared.add(eventDescribedBy: dict)
         })

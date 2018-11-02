@@ -52,7 +52,7 @@ extension UIImageView {
               setAsync(image: newImage)
             }
             else {
-              Backend.log(action: .SQLError, options: error?.localizedDescription) 
+              Backend.log(action: .Error(type: .Download)) 
             }
           }
           }.resume()

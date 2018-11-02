@@ -19,11 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    /* Default favorites for testing
-        if ProcessInfo.processInfo.arguments.contains("TESTING") {
-          setupTestingEnvironment()
-        }
-    */
     
     // Set up the window and UI hierarchy
     window = UIWindow(frame: UIScreen.main.bounds)
@@ -51,26 +46,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Begin loading content
     Campus.shared.pullFromBackend()
+    Backend.log(action: .AppEnteredForeground)
     
     return true
   }
   
   
-  func applicationWillResignActive(_ application: UIApplication) {
-    /* let task = application.beginBackgroundTask(withName: "Upload User Info") { 
-          print("Doing background task")
-        } 
-        SQLHandler.inform(action: .AppWillEnterBackground)
-        application.endBackgroundTask(task)
-     */
-  }
+  
   
   func applicationDidEnterBackground(_ application: UIApplication) {
+
     Backend.log(action: .AppWillEnterBackground)
-  }
-  func applicationWillEnterForeground(_ application: UIApplication) {
-    //SQLHandler.shared.informAction(action: .AppEnteredForeground)
-    Backend.log(action: .AppEnteredForeground)
   }
   func applicationDidBecomeActive(_ application: UIApplication) {}
   func applicationWillTerminate(_ application: UIApplication) {}

@@ -75,7 +75,6 @@ class Fraternity : Hashable {
     let location : String?
     let frat : Fraternity
     let coordinates : CLLocationCoordinate2D?
-    // TODO: Fix RushMe.dateTimeFormatter to work for 24hr time
     init?(withName name : String,
           on date : Date,
           heldBy : Fraternity,

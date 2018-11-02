@@ -34,7 +34,7 @@ struct Privacy {
       guard let lastDate = lastPolicyInteractionDate else {
         return true
       }
-      return lastDate < (policyDate ?? Date())
+      return lastDate < (policyDate ?? Date(timeIntervalSinceReferenceDate: 0))
     }
   }
   // The most recent privacy policy pull:
@@ -54,7 +54,7 @@ struct Privacy {
   private static func getPrivacyStatement() -> (policy : String, effective: Date, isMandatory: Bool)? {
     guard let selectAttempt = try? Backend.selectAll(fromTable: "privacy.rushme").first,
           let dictionary = selectAttempt else {
-      print("Failed to get the policy")
+      print("Failed to get the privacy policy")
       return nil
     }
     guard let policy = dictionary["policy"] as? String,

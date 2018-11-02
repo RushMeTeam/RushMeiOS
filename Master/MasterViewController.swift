@@ -116,9 +116,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
       else if let _ = shuffledFrats {
         return shuffledFrats!
       }
-        // Shuffle, then display all fraternities
+      // Shuffle, then display all fraternities
       else {
-        // TODO: Allow no-shuffling option
         shuffledFrats = Campus.shared.fraternityNames.shuffled()
         return shuffledFrats!
       }
@@ -261,7 +260,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     }
     
     // Checks if segue is going into detail      
-    Backend.log(action: .FraternitySelected, options: frat.name)
+    Backend.log(action: .Selected(fraternity: frat))
     let controller = segue.destination as! UIPageViewController
     controller.navigationItem.setRightBarButton(barButtonItem(for: frat), animated: false)
     controller.title = frat.name.greekLetters

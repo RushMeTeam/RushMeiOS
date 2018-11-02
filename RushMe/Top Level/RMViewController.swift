@@ -73,21 +73,11 @@ class RMViewController: ScrollPageViewController,
   // MARK: UIPageViewControllerDelegate
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, 
                           previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    if completed, let fratName = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity?.name {
-      Backend.log(action: .FraternitySelected, options: fratName) 
-      pageViewController.title = fratName.greekLetters
+    if completed, let frat = (pageViewController.viewControllers?.first as? DetailViewController)?.selectedFraternity {
+      Backend.log(action: .Selected(fraternity: frat)) 
+      pageViewController.title = frat.name.greekLetters
     }
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
 }
 

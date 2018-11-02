@@ -19,8 +19,9 @@ struct User {
       }
       set {
         let alteredFrats = favoriteFrats.symmetricDifference(newValue)
-        for frat in alteredFrats {
-          Backend.log(action: newValue.contains(frat) ? ActionType.FraternityFavorited : ActionType.FraternityUnfavorited, options: frat)
+        for fratName in alteredFrats where Campus.shared.fraternityNames.contains(fratName) {
+          let frat = Campus.shared.fraternitiesByName[fratName]!
+          Backend.log(action: favoriteFrats.contains(fratName) ? Action.Unfavorited(fraternity: frat) : Action.Favorited(fraternity: frat))
         }
         userPreferencesCache.set(Array<String>(newValue), forKey: "favoriteFraternities")
       }

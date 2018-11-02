@@ -77,3 +77,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
   }
   
 }
+
+extension UIStoryboard {
+  var imageVC : ImageViewController {
+    return instantiateViewController(withIdentifier: "imageVC") as! ImageViewController 
+  }
+}

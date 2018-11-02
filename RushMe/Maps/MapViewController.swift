@@ -127,7 +127,7 @@ ScrollableItem {
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
-      Backend.log(action: .FraternitySelected, options: fratName)
+      Backend.log(action: .Selected(fraternity: selectedFraternity))
       let controller = segue.destination as! UIPageViewController
       controller.title = fratName.greekLetters
       controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)

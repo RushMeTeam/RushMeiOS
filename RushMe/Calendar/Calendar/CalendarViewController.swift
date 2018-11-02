@@ -118,7 +118,7 @@ ScrollableItem {
     
     eventViewController = children.first as? EventTableViewController
     
-    // TODO: Implement multiple day Selection
+    // TODO: Implement multiple day Selection?
     collectionView.allowsMultipleSelection = false
   }
   override func viewWillAppear(_ animated: Bool) {
