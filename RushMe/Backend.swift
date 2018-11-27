@@ -10,282 +10,299 @@ import CoreLocation.CLLocation
 
 
 enum ActionType : String {
-  typealias RawValue = String
-  case FraternitySelected = "Fraternity Selected"
-  case FraternityFavorited = "Fraternity Favorited"
-  case FraternityUnfavorited = "Fraternity Unfavorited"
-  case UserNavigated = "User Navigated"
-  case AppEnteredForeground = "App Entered Foreground"
-  case AppWillEnterBackground = "App Entering Background"
-  case SQLError = "SQL Error Encountered"
+    typealias RawValue = String
+    case FraternitySelected = "Fraternity Selected"
+    case FraternityFavorited = "Fraternity Favorited"
+    case FraternityUnfavorited = "Fraternity Unfavorited"
+    case UserNavigated = "User Navigated"
+    case AppEnteredForeground = "App Entered Foreground"
+    case AppWillEnterBackground = "App Entering Background"
+    case SQLError = "SQL Error Encountered"
 }
 
 // Centralize requests made to an SQL server
 class Backend {
-  
-  enum BackendError : Error {
-    case nullServerResponse
-    case invalidServerResponse(withCode : Int)
-    case invalidServerResponse(withCode : Int, response : String?)
-    case jsonParseError(from : Data)
-    case badRequest
-  }
-  
-  fileprivate static let databaseName = "fratinfo"
-  fileprivate static let userActionsTableName = "sqlrequests"
-  
-  static let db = "https://s3.us-east-2.amazonaws.com/rushmepublic/fraternites.rushme"
-  static let S3 = URL(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
-  
-  static var pastActionsFromFile : Array<Dictionary<String, Any>> {
-    set {
-      DispatchQueue.global(qos: .background).async {
-        guard NSKeyedArchiver.archiveRootObject(newValue, toFile: User.files.userActionsURL.path) else {
-          print("Error Saving Actions!")
-          return
+    
+    enum BackendError : Error {
+        case nullServerResponse
+        case invalidServerResponse(withCode : Int)
+        case invalidServerResponse(withCode : Int, response : String?)
+        case jsonParseError(from : Data)
+        case badRequest
+    }
+    
+    fileprivate static let databaseName = "fratinfo"
+    fileprivate static let userActionsTableName = "sqlrequests"
+    
+    static let db = "https://s3.us-east-2.amazonaws.com/rushmepublic/fraternites.rushme"
+    static let S3 = URL(string: "https://s3.us-east-2.amazonaws.com/rushmepublic/")!
+    
+    static var pastActionsFromFile : Array<Dictionary<String, Any>> {
+        set {
+            DispatchQueue.global(qos: .background).async {
+                guard NSKeyedArchiver.archiveRootObject(newValue, toFile: User.files.userActionsURL.path) else {
+                    print("Error Saving Actions!")
+                    return
+                }
+            }
         }
-      }
+        get {
+            if let actions =
+                NSKeyedUnarchiver.unarchiveObject(withFile: User.files.userActionsURL.path)
+                    as? [Dictionary<String, Any>] {
+                return actions
+            }
+            self.pastActionsFromFile = [Dictionary<String, Any>]()
+            return []
+        }
     }
-    get {
-      if let actions = 
-        NSKeyedUnarchiver.unarchiveObject(withFile: User.files.userActionsURL.path) 
-                                                      as? [Dictionary<String, Any>] {
-        return actions 
-      }
-      self.pastActionsFromFile = [Dictionary<String, Any>]()
-      return []
+    
+    // Select everything from a SQL table using its name
+    static func selectAll(fromTable tableName : String ) throws -> [Dictionary<String, Any>]  {
+        let tableString = "/\(tableName)" //"?table=\(tableName)"
+        guard let url = URL(string: Backend.db + tableString) else {
+            throw BackendError.badRequest
+        }; guard let response = try? Data(contentsOf: url) else {
+            throw BackendError.nullServerResponse
+        }; guard let jsonObject =
+            try? JSONSerialization.jsonObject(with: response, options: .allowFragments)
+            else {
+                throw BackendError.jsonParseError(from: response)
+        }
+        return jsonObject as? [Dictionary<String, Any>] ?? []
     }
-  }
-  
-  // Select everything from a SQL table using its name
-  static func selectAll(fromTable tableName : String ) throws -> [Dictionary<String, Any>]  {
-    let tableString = "/\(tableName)" //"?table=\(tableName)"
-    guard let url = URL(string: Backend.db + tableString) else {
-      throw BackendError.badRequest
-    }; guard let response = try? Data(contentsOf: url) else {
-      throw BackendError.nullServerResponse
-    }; guard let jsonObject = 
-      try? JSONSerialization.jsonObject(with: response, options: .allowFragments)
-      else {
-        throw BackendError.jsonParseError(from: response)
+    
+    // Used to determine whether the App is currently in the process of
+    // uploading (pushing) user actions to the database
+    static private(set) var isPushing = false
+    
+    private static func handleResponse(_ data : Data?,_ response : URLResponse?,_ error : Error?) throws {
+        guard let data = data, error == nil else {
+            print("Push Error:", error!)
+            return
+        }
+        let httpStatus = response as? HTTPURLResponse
+        switch httpStatus?.statusCode {
+        case nil:
+            throw BackendError.nullServerResponse
+        case 200:
+            break
+        default:
+            //print("Push Error:\n\tHTTPStatus:\t\(httpStatus!.statusCode)\n\tHTTPResponse:\t\(String(data: data, encoding: .utf8) ?? "None")")
+            throw BackendError.invalidServerResponse(withCode: httpStatus!.statusCode,
+                                                     response: String(data: data, encoding: .utf8))
+        }
     }
-    return jsonObject as? [Dictionary<String, Any>] ?? [] 
-  }
-  
-  // Used to determine whether the App is currently in the process of 
-  // uploading (pushing) user actions to the database
-  static private(set) var isPushing = false
-  
-  private static func handleResponse(_ data : Data?,_ response : URLResponse?,_ error : Error?) throws {
-    guard let data = data, error == nil else {
-      print("Push Error:", error!) 
-      return
+    
+    private static func push(action : [String : Any]) {
+        guard Privacy.policyAccepted else { return }
+        DispatchQueue.global(qos: .background).async {
+            let request = URLRequest(fromAction: action)
+            URLSession.shared.dataTask(with: request) {
+                (data, response, error) in try? handleResponse(data, response, error)
+                }.resume()
+        }
     }
-    let httpStatus = response as? HTTPURLResponse
-    switch httpStatus?.statusCode {
-    case nil:
-      throw BackendError.nullServerResponse
-    case 200: 
-      break
-    default:
-      //print("Push Error:\n\tHTTPStatus:\t\(httpStatus!.statusCode)\n\tHTTPResponse:\t\(String(data: data, encoding: .utf8) ?? "None")")
-      throw BackendError.invalidServerResponse(withCode: httpStatus!.statusCode, 
-                                               response: String(data: data, encoding: .utf8))
+    
+    static func errorMessge(code : String) -> String {
+        // Retrieve information from S3
+        let error_path = Backend.S3.absoluteString + "err.rushme"
+        
+        var error_msg = "None"
+        do {
+            // Parse the data into JSON
+            let dataFromURL = try Data(contentsOf: URL(string: error_path)!)
+            let jsonObject = try? JSONSerialization.jsonObject(with: dataFromURL, options: .allowFragments)
+            error_msg = (jsonObject as! [String: Any])[code] as! String
+        } catch {
+            error_msg = "Could not connect to file server"
+        }
+        
+        return error_msg
     }
-  }
-  
-  private static func push(action : [String : Any]) {
-    guard Privacy.policyAccepted else { return }
-    DispatchQueue.global(qos: .background).async {
-      let request = URLRequest(fromAction: action)
-      URLSession.shared.dataTask(with: request) {  
-        (data, response, error) in try? handleResponse(data, response, error) 
-        }.resume()
+    
+    // Push multiple stored/cached actions
+    private static func pushAll() {
+        guard !isPushing else { return }
+        isPushing = true
+        while let action = pastActionsFromFile.popLast() {
+            Backend.push(action: action)
+        }
+        self.pastActionsFromFile = []
+        self.isPushing = false
     }
-  }
-  
-  // Push multiple stored/cached actions
-  private static func pushAll() {
-    guard !isPushing else { return }
-    isPushing = true
-    while let action = pastActionsFromFile.popLast() {
-      Backend.push(action: action)
+    
+    
+    static func log(action : ActionType, options : String? = nil) {
+        DispatchQueue.global(qos: .utility).async {
+            let actionReport = report(fromAction: action)
+            if action == .AppEnteredForeground ||
+                action == .AppWillEnterBackground {
+                pushAll()
+            } else {
+                push(action: actionReport)
+            }
+        }
     }
-    self.pastActionsFromFile = []
-    self.isPushing = false
-  }
-  
-  
-  static func log(action : ActionType, options : String? = nil) {
-    DispatchQueue.global(qos: .utility).async {
-      let actionReport = report(fromAction: action)
-      if action == .AppEnteredForeground || 
-        action == .AppWillEnterBackground {
-        pushAll() 
-      } else {
-        push(action: actionReport)
-      }
+    private static func report(fromAction action : ActionType, options : String? = nil) -> [String : Any] {
+        var report = User.device.properties
+        report["pact"] = action.rawValue
+        if let subseqOptions = (options?.split(separator: ";").first) {
+            report["popt"] = String(subseqOptions)
+        }
+        return report
     }
-  }
-  private static func report(fromAction action : ActionType, options : String? = nil) -> [String : Any] {
-    var report = User.device.properties
-    report["pact"] = action.rawValue
-    if let subseqOptions = (options?.split(separator: ";").first) {
-      report["popt"] = String(subseqOptions)
-    }
-    return report
-  }
-  
+    
 }
 
 fileprivate extension URLRequest {
-  init(fromAction action : [String : Any]) {
-    self.init(url: URL(string: Backend.db)!)
-    self.httpMethod = "POST"
-    var actionAsString = "&"
-    for category in action {
-      actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+    init(fromAction action : [String : Any]) {
+        self.init(url: URL(string: Backend.db)!)
+        self.httpMethod = "POST"
+        var actionAsString = "&"
+        for category in action {
+            actionAsString += "\(category.key)=\((category.value as? String)  ?? "NULL")&"
+        }
+        self.timeoutInterval = 10
+        self.httpBody = actionAsString.data(using: .utf8)
     }
-    self.timeoutInterval = 10
-    self.httpBody = actionAsString.data(using: .utf8)
-  }
 }
 
 // TODO: Move this into the Backend Struct
 struct Database {
-  struct keys {
-    struct database {
-      static let fraternities = "house_info"
-      static let events = "events"
+    struct keys {
+        struct database {
+            static let fraternities = "house_info"
+            static let events = "events"
+        }
+        struct frat {
+            static let name = "name"
+            static let coordinates = "coordinates"
+            static let chapter = "chapter"
+            static let memberCount = "members"
+            static let description = "description"
+            static let gpa = "gpa"
+            static let address = "address"
+            static let previewImage = "preview_image"
+            static let profileImage = "profile_image"
+            static let coverImage = "cover_image"
+            static let calendarImage = "calendar_image"
+        }
     }
-    struct frat {
-      static let name = "name"
-      static let coordinates = "coordinates"
-      static let chapter = "chapter"
-      static let memberCount = "members"
-      static let description = "description"
-      static let gpa = "gpa"
-      static let address = "address"
-      static let previewImage = "preview_image"
-      static let profileImage = "profile_image"
-      static let coverImage = "cover_image"
-      static let calendarImage = "calendar_image"
-    }
-  }
 }
 
 // TODO: Empty this file
 // Variables used to tune animations
 struct RMAnimation {
-  static let ColoringTime = 0.5
+    static let ColoringTime = 0.5
 }
 // TODO: Make user preferences save (should include display events before today!)
 struct RushMe {
-  struct campus {
-    static let coordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: -73.677647)
-  }
+    struct campus {
+        static let coordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: -73.677647)
+    }
 }
 struct RMPropertyKeys {
-  static let FavoriteFraternities = "FavoriteFrats"
-  static let ConsiderEventsBeforeTodayKey = "ConsiderEventsBeforeToday"
+    static let FavoriteFraternities = "FavoriteFrats"
+    static let ConsiderEventsBeforeTodayKey = "ConsiderEventsBeforeToday"
 }
 extension Date {
-  // TODO: Replace "Today" with the current day!
-  static var today : Date {
-    get {
-      return Date(timeIntervalSince1970: 1505036460) 
+    // TODO: Replace "Today" with the current day!
+    static var today : Date {
+        get {
+            return Date(timeIntervalSince1970: 1505036460)
+        }
     }
-  }
-  
-  var month : Int {
-    get {
-      return UIKit.Calendar.current.component(.month, from: self)
+    
+    var month : Int {
+        get {
+            return UIKit.Calendar.current.component(.month, from: self)
+        }
     }
-  }
-  var day : Int {
-    get {
-      return UIKit.Calendar.current.component(.day, from: self)
+    var day : Int {
+        get {
+            return UIKit.Calendar.current.component(.day, from: self)
+        }
     }
-  }
-  var year : Int {
-    get {
-      return UIKit.Calendar.current.component(.year, from: self)
+    var year : Int {
+        get {
+            return UIKit.Calendar.current.component(.year, from: self)
+        }
     }
-  }
-  var weekday : Int {
-    get {
-      return UIKit.Calendar.current.component(.weekday, from: self)
+    var weekday : Int {
+        get {
+            return UIKit.Calendar.current.component(.weekday, from: self)
+        }
     }
-  }
 }
 
 
 extension RushCalendar {
-  func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
-    //house, event_name, start_time, end_time, event_date, location
-    // start_time, end_time, location possibly nil
-    let houseName = dict["house"] as! String
-    let eventName = dict["event_name"] as! String
-    let eventDate = dict["event_date"] as! String
-    let location = dict["location"] as? String
-    let startTime = dict["start_time"] as? String
-    let endTime = dict["end_time"] as? String
-    if let frat = Campus.shared.fraternitiesByName[houseName],
-      let event = Fraternity.Event(withName: eventName,
-                                   onDate: eventDate,
-                                   ownedByFraternity: frat,
-                                   startingAt: startTime,
-                                   endingAt: endTime,
-                                   atLocation: location) {
-      return add(event: event) ? event : nil
+    func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
+        //house, event_name, start_time, end_time, event_date, location
+        // start_time, end_time, location possibly nil
+        let houseName = dict["house"] as! String
+        let eventName = dict["event_name"] as! String
+        let eventDate = dict["event_date"] as! String
+        let location = dict["location"] as? String
+        let startTime = dict["start_time"] as? String
+        let endTime = dict["end_time"] as? String
+        if let frat = Campus.shared.fraternitiesByName[houseName],
+            let event = Fraternity.Event(withName: eventName,
+                                         onDate: eventDate,
+                                         ownedByFraternity: frat,
+                                         startingAt: startTime,
+                                         endingAt: endTime,
+                                         atLocation: location) {
+            return add(event: event) ? event : nil
+        }
+        return nil
     }
-    return nil
-  }
-  
+    
 }
 
 extension Fraternity {
-  convenience init?(withDictionary dict : Dictionary<String, Any>) {
-    if let name = dict[Database.keys.frat.name] as? String,
-      let description = dict[Database.keys.frat.description] as? String,
-      let chapter = dict[Database.keys.frat.chapter] as? String,
-      let memberCountRaw = dict[Database.keys.frat.memberCount] as? String,
-      let memberCount = Int(memberCountRaw) {
-      
-      
-      
-      var cImagePath : RMURL?
-      if let calendarImagePathRaw = dict[Database.keys.frat.calendarImage] as? String {
-        cImagePath = RMURL(fromString: calendarImagePathRaw)
-      }
-      var coImagePaths = [RMURL]()
-      if let coverImagePathRaw = dict[Database.keys.frat.coverImage] as? String,
-        let path = RMURL(fromString: coverImagePathRaw) {
-        coImagePaths.append(path)
-      }
-      var pImagePath : RMURL? 
-      if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
-        pImagePath = RMURL(fromString: profileImagePathRaw)
-        
-      }
-      
-      let address = dict[Database.keys.frat.address] as? String
-      var coords : CLLocationCoordinate2D?
-      if let coordinates = dict[Database.keys.frat.coordinates] as? (Double, Double) {
-        coords = CLLocationCoordinate2D(latitude: coordinates.0, longitude: coordinates.1)
-      }
-      self.init(name: name, 
-                description: description, 
-                chapter: chapter, 
-                memberCount : memberCount,
-                profileImagePath: pImagePath, 
-                calendarImagePath: cImagePath, 
-                coverImagePaths: coImagePaths, 
-                address: address, 
-                coordinates: coords)
+    convenience init?(withDictionary dict : Dictionary<String, Any>) {
+        if let name = dict[Database.keys.frat.name] as? String,
+            let description = dict[Database.keys.frat.description] as? String,
+            let chapter = dict[Database.keys.frat.chapter] as? String,
+            let memberCountRaw = dict[Database.keys.frat.memberCount] as? String,
+            let memberCount = Int(memberCountRaw) {
+            
+            
+            
+            var cImagePath : RMURL?
+            if let calendarImagePathRaw = dict[Database.keys.frat.calendarImage] as? String {
+                cImagePath = RMURL(fromString: calendarImagePathRaw)
+            }
+            var coImagePaths = [RMURL]()
+            if let coverImagePathRaw = dict[Database.keys.frat.coverImage] as? String,
+                let path = RMURL(fromString: coverImagePathRaw) {
+                coImagePaths.append(path)
+            }
+            var pImagePath : RMURL?
+            if let profileImagePathRaw = dict[Database.keys.frat.profileImage] as? String {
+                pImagePath = RMURL(fromString: profileImagePathRaw)
+                
+            }
+            
+            let address = dict[Database.keys.frat.address] as? String
+            var coords : CLLocationCoordinate2D?
+            if let coordinates = dict[Database.keys.frat.coordinates] as? (Double, Double) {
+                coords = CLLocationCoordinate2D(latitude: coordinates.0, longitude: coordinates.1)
+            }
+            self.init(name: name,
+                      description: description,
+                      chapter: chapter,
+                      memberCount : memberCount,
+                      profileImagePath: pImagePath,
+                      calendarImagePath: cImagePath,
+                      coverImagePaths: coImagePaths,
+                      address: address,
+                      coordinates: coords)
+        }
+        else {
+            return nil
+        }
     }
-    else {
-      return nil 
-    }
-  }
 }

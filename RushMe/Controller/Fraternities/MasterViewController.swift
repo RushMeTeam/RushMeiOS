@@ -325,20 +325,10 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
             } else if (viewingFavorites) {
                 errDictIndex = "noFavorites"
             } else {
-                errDictIndex = "general"
+                errDictIndex = "blockingError"
             }
             
-            var error_msg = ""
-            let error_path = Backend.S3.absoluteString + "err.rushme"
-            do {
-                let dataFromURL = try Data(contentsOf: URL(string: error_path)!)
-                let jsonObject = try? JSONSerialization.jsonObject(with: dataFromURL, options: .allowFragments)
-                error_msg = (jsonObject as! [String: Any])[errDictIndex] as! String
-            } catch {
-                error_msg = "Could not connect to file server"
-            }
-            
-            cell.textLabel!.text = error_msg
+            cell.textLabel!.text = Backend.errorMessge(code: errDictIndex)
             
             return cell
         }
