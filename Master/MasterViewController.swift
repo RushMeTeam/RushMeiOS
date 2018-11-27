@@ -312,15 +312,6 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
       cell.textLabel!.textAlignment = NSTextAlignment.center
       cell.textLabel!.textColor = Frontend.colors.AppColor
       cell.textLabel!.numberOfLines = 2
-      if (Campus.shared.isLoading) {
-        return cell 
-      } else if (!searchBarIsEmpty) {
-        cell.textLabel!.text = "No matches"
-      } else if (viewingFavorites) {
-        cell.textLabel!.text = "No favorites"
-      } else {
-        cell.textLabel!.text = "Something went wrong...\nTry again"  
-      }
       
       return cell
     }
