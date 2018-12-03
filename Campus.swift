@@ -91,6 +91,11 @@ class Campus {
         var dictArray = [Dictionary<String, Any>]()
         var eventArray = [Dictionary<String, Any>]()
         
+        if (Backend.serverStatus() != "operational") {
+            dictArray.removeAll()
+            return
+        }
+        
         if let fratArray = try? Backend.selectAll(fromTable: Database.keys.database.fraternities),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
           let eventArr = try? Backend.selectAll(fromTable: Database.keys.database.events) {
