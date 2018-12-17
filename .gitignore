@@ -7,3 +7,4 @@
 RushMe/Constants.swift
 *.zip
 *.ipa
+*.xcuserstate
