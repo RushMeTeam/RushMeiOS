@@ -12,18 +12,45 @@ import DeviceKit
 // User preferences
 struct User {
   struct session {
-    static var selectedEvents = Set<Fraternity.Event>()
-    static var favoriteFrats : Set<String> {
+    private static var subscribedEventsKey = "subscribedEvents"
+    private static var favoriteFraternityKey = "favoriteFraternities"
+    
+    static var selectedEvents : Set<Fraternity.Event> {
       get {
-       return Set<String>(userPreferencesCache.array(forKey: "favoriteFraternities") as? [String] ?? []) 
+        let eventHashes = Set<Int>(userPreferencesCache.array(forKey: subscribedEventsKey) as? [Int] ?? [])
+        return RushCalendar.shared.events.filter({ (event) -> Bool in
+          return eventHashes.contains(event.hashValue)
+        })
+      }
+      set {
+        let alteredEvents = selectedEvents.symmetricDifference(newValue)
+        for event in alteredEvents {
+          Backend.log(action: event.isSubscribed ? Action.Subscribed(event: event) : Action.Unsubscribed(event: event))
+        }
+        userPreferencesCache.set(Array<Int>(newValue.map({ (event) -> Int in
+          return event.hashValue
+        })), forKey: subscribedEventsKey)
+        Notifications.update()
+      }
+    }
+    
+    static var favoriteFrats : Set<Fraternity> {
+      get {
+        let fratHashes = Set<Int>(userPreferencesCache.array(forKey: favoriteFraternityKey) as? [Int] ?? [])
+        return Set<Fraternity>(Campus.shared.fraternitiesByKey.values.filter({ (frat) -> Bool in
+            return fratHashes.contains(frat.hashValue)
+        }))
       }
       set {
         let alteredFrats = favoriteFrats.symmetricDifference(newValue)
-        for fratName in alteredFrats where Campus.shared.fraternityNames.contains(fratName) {
-          let frat = Campus.shared.fraternitiesByName[fratName]!
-          Backend.log(action: favoriteFrats.contains(fratName) ? Action.Unfavorited(fraternity: frat) : Action.Favorited(fraternity: frat))
+        for frat in alteredFrats where Campus.shared.fraternityNames.contains(frat.name) {
+          Backend.log(action: favoriteFrats.contains(frat) ? Action.Unfavorited(fraternity: frat) : Action.Favorited(fraternity: frat))
         }
-        userPreferencesCache.set(Array<String>(newValue), forKey: "favoriteFraternities")
+        userPreferencesCache.set(Array<Int>(newValue.map({ (frat) -> Int in
+          return frat.hashValue
+        })), forKey: favoriteFraternityKey)
+        Notifications.update()
+
       }
     }
    

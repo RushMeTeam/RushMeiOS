@@ -87,12 +87,12 @@ UIViewControllerPreviewingDelegate {
   @objc func favoritesButtonHit(_ sender: UIBarButtonItem) {
     guard let frat = selectedFraternity else { return }
     if frat.isFavorite {
-      _ = Campus.shared.unfavorite(fratNamed: frat.name)
+      _ = Campus.shared.unfavorite(frat: frat)
       sender.image = Frontend.images.unfilledHeart
       self.profileImageView.layer.borderColor = 
         UIColor.white.withAlphaComponent(0.7).cgColor
     } else {
-      _ = Campus.shared.favorite(fratNamed: frat.name)
+      _ = Campus.shared.favorite(frat: frat)
       sender.image = Frontend.images.filledHeart
       self.profileImageView.layer.borderColor = 
         Frontend.colors.AppColor.withAlphaComponent(0.7).cgColor

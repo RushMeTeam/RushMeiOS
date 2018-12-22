@@ -53,7 +53,7 @@ ScrollableItem {
     fratNameButton.setTitle(nil, for: .normal)
     if viewingFavorites {
       let notFavorited = mapView.annotations.filter { (annotation) -> Bool in
-        return annotation.title == nil || !User.session.favoriteFrats.contains(annotation.title!!)
+        return annotation.title == nil || Campus.shared.fraternitiesByName[annotation.title!!]?.isFavorite ?? false
       }
       mapView.removeAnnotations(notFavorited)
     } else {
@@ -144,8 +144,8 @@ ScrollableItem {
     return button
   }
   @objc func toggleFavorite(sender : UIBarButtonItem) {
-    if let fratName = sender.title {
-      sender.image = Campus.shared.toggleFavorite(named: fratName) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
+    if let fratName = sender.title, let frat = Campus.shared.fraternitiesByName[fratName] {
+      sender.image = Campus.shared.toggleFavorite(frat: frat) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
     }
   }
   

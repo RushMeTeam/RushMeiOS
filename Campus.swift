@@ -30,14 +30,14 @@ class Campus {
   // The user's favorite fraternities
   
   // Returns whether favorite was added, false if it was already a favorite
-  func favorite(fratNamed newFavorite : String) -> Bool {
+  func favorite(frat newFavorite : Fraternity) -> Bool {
     if User.session.favoriteFrats.insert(newFavorite).inserted {
       return true
     }
     return false
   }
   // Returns whether favorite was removed
-  func unfavorite(fratNamed oldFavorite : String) -> Bool{
+  func unfavorite(frat oldFavorite : Fraternity) -> Bool{
     if let _ = User.session.favoriteFrats.remove(oldFavorite) {
       return true
     }
@@ -130,8 +130,8 @@ class Campus {
 }
 extension Campus {
   // Returns whether the Fraternity is now a favorite
-  func toggleFavorite(named fratName : String) -> Bool {
-    return unfavorite(fratNamed: fratName) ? false : favorite(fratNamed: fratName)
+  func toggleFavorite(frat : Fraternity) -> Bool {
+    return unfavorite(frat: frat) ? false : favorite(frat: frat)
   }
 }
 

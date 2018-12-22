@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Begin loading content
     Campus.shared.pullFromBackend()
     Backend.log(action: .AppEnteredForeground)
-    
+    Notifications.update()
     return true
   }
 

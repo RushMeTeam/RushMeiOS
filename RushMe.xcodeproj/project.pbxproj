@@ -25,6 +25,9 @@
 		DB10481D2185313500EDDFB2 /* Images.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB10481C2185313500EDDFB2 /* Images.storyboard */; };
 		DB1956E11F8AF2A500E2803F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		DB1956E31F8AFB4400E2803F /* ScrollButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */; };
+		DB1D200421CECC76001A3D6E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D200321CECC76001A3D6E /* Notifications.swift */; };
+		DB1D200521CECC76001A3D6E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D200321CECC76001A3D6E /* Notifications.swift */; };
+		DB1D200621CECC76001A3D6E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D200321CECC76001A3D6E /* Notifications.swift */; };
 		DB2338A91FD4F53300FB7118 /* RushCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendar.swift */; };
 		DB269731217E07B3004361F7 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
 		DB269732217E07C8004361F7 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
@@ -200,6 +203,7 @@
 		DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollButtonViewController.swift; sourceTree = "<group>"; };
+		DB1D200321CECC76001A3D6E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		DB2338A81FD4F53300FB7118 /* RushCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RushCalendar.swift; sourceTree = "<group>"; };
 		DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrawerMenuViewController.swift; path = ../DrawerMenuViewController.swift; sourceTree = "<group>"; };
 		DB38BC5D217F960400452B15 /* EventList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventList.storyboard; sourceTree = "<group>"; };
@@ -319,6 +323,7 @@
 			children = (
 				DB514FE921501C16006BC05A /* Frontend.swift */,
 				DB7E1DDE1F93C239002C6B80 /* Backend.swift */,
+				DB1D200321CECC76001A3D6E /* Notifications.swift */,
 				DB514FF8215026C2006BC05A /* Format.swift */,
 				DB79BB1420730F9F00411AB1 /* Observable.swift */,
 				DB51500221502E84006BC05A /* User */,
@@ -823,6 +828,7 @@
 				DBAF96D420BC6B5600165F5E /* PrivacyViewController.swift in Sources */,
 				DB0A15EC2166A19300433D51 /* Campus.swift in Sources */,
 				DB8997EF1FAC005E006A5246 /* CalendarCollectionViewCell.swift in Sources */,
+				DB1D200421CECC76001A3D6E /* Notifications.swift in Sources */,
 				DB7E1DDF1F93C239002C6B80 /* Backend.swift in Sources */,
 				DB514FE021501868006BC05A /* User.swift in Sources */,
 				DB2338A91FD4F53300FB7118 /* RushCalendar.swift in Sources */,
@@ -882,6 +888,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1D200521CECC76001A3D6E /* Notifications.swift in Sources */,
 				DB269732217E07C8004361F7 /* SnapshotHelper.swift in Sources */,
 				DB269731217E07B3004361F7 /* RushMeUITests.swift in Sources */,
 			);
@@ -911,6 +918,7 @@
 				DB81CC0A217A9F080075B688 /* StaticCalendarCollectionViewCell.swift in Sources */,
 				DB81CC0C217A9F080075B688 /* EventTableViewCell.swift in Sources */,
 				DB81CC0D217A9F080075B688 /* SWViewController.swift in Sources */,
+				DB1D200621CECC76001A3D6E /* Notifications.swift in Sources */,
 				DB81CC0E217A9F080075B688 /* DrawerMenuViewController.swift in Sources */,
 				DB81CC0F217A9F080075B688 /* RMViewController.swift in Sources */,
 				DB81CC11217A9F080075B688 /* DetailViewController.swift in Sources */,

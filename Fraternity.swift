@@ -67,7 +67,6 @@ class Fraternity : Hashable {
     static func ==(lhs: Fraternity.Event, rhs: Fraternity.Event) -> Bool {
       return lhs.frat == rhs.frat && lhs.starting == rhs.starting && lhs.name == rhs.name
     }
-    
     let calendar = Calendar.current
     let starting : Date
     let ending : Date
@@ -158,7 +157,12 @@ extension Date {
 
 extension Fraternity {
   var isFavorite : Bool {
-    return User.session.favoriteFrats.contains(name)
+    return User.session.favoriteFrats.contains(self)
+  }
+}
+extension Fraternity.Event {
+  var isSubscribed : Bool {
+   return User.session.selectedEvents.contains(self) 
   }
 }
 extension String {

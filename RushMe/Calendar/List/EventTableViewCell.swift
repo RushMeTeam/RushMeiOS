@@ -15,15 +15,13 @@ class EventTableViewCell: UITableViewCell {
   @IBOutlet weak var addButton: UIButton!
   
   @IBAction func add(_ sender: UIButton) {
-    guard let _ = event else {
-      return }
+    guard let _ = event else { return }
     if User.session.selectedEvents.contains(event!) {
       User.session.selectedEvents.remove(event!)
       
     } else {
       User.session.selectedEvents.insert(event!)
-      
-    } 
+    }
     updateButtonState()
     
   }

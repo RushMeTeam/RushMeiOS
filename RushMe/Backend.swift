@@ -14,6 +14,8 @@ enum ActionType : String {
   case FraternitySelected = "Fraternity Selected"
   case FraternityFavorited = "Fraternity Favorited"
   case FraternityUnfavorited = "Fraternity Unfavorited"
+  case EventSubscribed = "Event Subscribed"
+  case EventUnsubscribed = "Event Unsubscribed"
   case UserNavigated = "User Navigated"
   case AppEnteredForeground = "App Entered Foreground"
   case AppWillEnterBackground = "App Entering Background"
@@ -25,6 +27,8 @@ enum Action {
   case Selected(fraternity : Fraternity)
   case Favorited(fraternity : Fraternity)
   case Unfavorited(fraternity : Fraternity)
+  case Subscribed(event : Fraternity.Event)
+  case Unsubscribed(event : Fraternity.Event)
   case Navigated(to : String)
   case AppEnteredForeground
   case AppWillEnterBackground
@@ -214,6 +218,14 @@ class Backend {
       report["pact"] = ActionType.SQLError
       report["popt"] = description
       break
+    case .Subscribed(let event):
+      report["pact"] = ActionType.EventSubscribed
+      report["popt"] = "\(event.frat.name)-\(event.name)"
+      break
+    case .Unsubscribed(let event):
+      report["pact"] = ActionType.EventUnsubscribed
+      report["popt"] = "\(event.name) by \(event.frat.name)"
+      break
     }
     report["pact"] = (report["pact"] as! ActionType).rawValue
     return report
@@ -267,7 +279,13 @@ let defaultCoordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: 
 
 extension Date {
   static var today : Date {
-    get { return Date() }
+    get { return Date().dayDate }
+  }
+  var minute : Int {
+    get { return UIKit.Calendar.current.component(.minute, from: self) }
+  }
+  var hour : Int {
+    get { return UIKit.Calendar.current.component(.hour, from: self) }
   }
   var month : Int {
     get { return UIKit.Calendar.current.component(.month, from: self) }
