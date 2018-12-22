@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "487A349E4C94F6E0757902DB72F2BA3E"
-               BlueprintName = "Pods-RushMe"
+               BlueprintIdentifier = "2C9F348F4C4873B9ADD58D739B192B3B"
+               BlueprintName = "UIImageColors"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-RushMe.framework">
+               BuildableName = "UIImageColors.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

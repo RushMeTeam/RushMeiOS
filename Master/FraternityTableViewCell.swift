@@ -35,8 +35,8 @@ class FraternityTableViewCell: UITableViewCell {
     }
   }
   func loadImage() {
-    if let profileImageURL = fraternity?.profileImagePath{
-      previewImageView.setImageByURL(fromSource: profileImageURL)
+    if let profileImageURL = fraternity?.profileImagePath {
+      previewImageView.setImage(with: profileImageURL)
     }
   }
  
@@ -90,6 +90,5 @@ class FraternityTableViewCell: UITableViewCell {
     }
   }
 }
-
 
 

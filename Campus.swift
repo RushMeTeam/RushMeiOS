@@ -12,12 +12,6 @@ import UIKit
 // the App itself
 
 
-// Describe three quality metrics
-enum Quality : Int {
-  case High = 3
-  case Medium = 2
-  case Low = 1
-}
 /*
  A centralized data repository to be used by all components of the
  app, in order to decrease improper and computation-heavy passing
@@ -66,7 +60,7 @@ class Campus {
   private(set) var fraternitiesByKey = [String : Fraternity]()
   
   // The default quality at which an image should be downloaded
-  static var downloadedImageQuality : Quality = .Medium
+  static var downloadedImageQuality : ImageQuality = .Medium
   // MARK: Shared Instance (singleton)
   static let shared : Campus = Campus()
   

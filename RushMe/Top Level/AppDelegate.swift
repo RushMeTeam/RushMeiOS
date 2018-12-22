@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let swRevealVC = 
       UIStoryboard.main.instantiateViewController(withIdentifier: "swRevealVC") as! SWViewController
     
-    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().tintColor = Frontend.colors.NavigationBarTintColor
     UINavigationBar.appearance().titleTextAttributes = 
       [NSAttributedString.Key.foregroundColor : UINavigationBar.appearance().tintColor]
     
@@ -50,12 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     return true
   }
-  
-  
-  
-  
-  func applicationDidEnterBackground(_ application: UIApplication) {
 
+  func applicationDidEnterBackground(_ application: UIApplication) {
     Backend.log(action: .AppWillEnterBackground)
   }
   func applicationDidBecomeActive(_ application: UIApplication) {}

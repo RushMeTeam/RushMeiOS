@@ -145,7 +145,7 @@ ScrollableItem {
       overlayView.alpha = 0
       overlayView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
       overlayView.center.y -= 64
-      UIView.animate(withDuration: RMAnimation.ColoringTime) {
+      UIView.animate(withDuration: Frontend.animations.defaultDuration) {
         overlayView.alpha = 1
       }
       self.view.addSubview(overlayView)
@@ -162,7 +162,7 @@ ScrollableItem {
         activityVC.popoverPresentationController?.sourceView = sender.customView
         self.present(activityVC, animated: true, completion: {
           sender.isEnabled = true
-          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: {
+          UIView.animate(withDuration: Frontend.animations.defaultDuration, animations: {
             overlayView.alpha = 0
           }, completion: { (completed) in
             overlayView.removeFromSuperview()
@@ -210,7 +210,7 @@ ScrollableItem {
     guard let _ = earliestDate, 
           let today = dateKey(from: indexPath) else {
       let dumbCell = basicCell as! CalendarCollectionViewCell
-      let weekday = (indexPath.row + (noEvents ? 0 : earliestDate!.weekday))%7
+      let weekday = (indexPath.row + (noEvents ? 0 : earliestDate?.weekday ?? 0))%7
       
       dumbCell.dayLabel.text = indexPath.section == 0 ? ["S","S","M","T","W","T","F"][weekday] 
                                                       : "\(indexPath.row + 1)"

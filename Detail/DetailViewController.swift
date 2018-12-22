@@ -9,6 +9,7 @@
 
 import UIKit
 import MapKit
+import UIImageColors
 
 class DetailViewController: UIViewController, 
 UIScrollViewDelegate, 
@@ -125,7 +126,7 @@ UIViewControllerPreviewingDelegate {
   // Would like to add 3D touch support
   @IBAction func coverImageTapped(_ sender: UITapGestureRecognizer) {
     sender.view?.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-    UIView.animate(withDuration: RMAnimation.ColoringTime*2,
+    UIView.animate(withDuration: Frontend.animations.defaultDuration*2,
                    delay: 0,
                    usingSpringWithDamping: 0.4,
                    initialSpringVelocity: 30,
@@ -137,6 +138,8 @@ UIViewControllerPreviewingDelegate {
     if profileImageView.frame.contains(sender.location(in: view)),
       let image = profileImageView.image {
       imageVC.image = image
+      
+      
     } else if let image = coverImagePageViewController.currentPageImage {
       imageVC.image = image
     }
@@ -186,12 +189,14 @@ UIViewControllerPreviewingDelegate {
     scrollView.canCancelContentTouches = true
     mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
     view.backgroundColor = .clear
-    parent?.view.backgroundColor = Frontend.colors.AppColor
+    parent?.view.backgroundColor = Frontend.colors.NavigationBarColor
   }()
   // MARK: ViewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
+    // Enable 3D touch on the profile image
     registerForPreviewing(with: self, sourceView: profileImageView)
+     
   }
   
   lazy var configureView : Void = {
@@ -211,8 +216,9 @@ UIViewControllerPreviewingDelegate {
     }
     
     if let _ = frat.profileImagePath {
-      profileImageView.setImageByURL(fromSource: frat.profileImagePath)
+      profileImageView.setImage(with: frat.profileImagePath)
     }
+    
     
     titleLabel.text = frat.name
     underProfileLabel.text = frat.chapter + " Chapter"
@@ -223,9 +229,17 @@ UIViewControllerPreviewingDelegate {
                                            Frontend.images.unfilledHeart
     favoritesButton.image = favoritesImage
     profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
+    
+    
+    
+    
+    
     favoritesButton.title = frat.name
     blockTextView.text = frat.description
     blockTextView.sizeToFit()
+    
+    
+    
     scrollView.isScrollEnabled = true
     
     if let location = frat.coordinates {

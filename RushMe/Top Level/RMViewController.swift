@@ -15,6 +15,8 @@ class RMViewController: ScrollPageViewController,
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+//    self.navigationItem.titleView?.tintColor = Frontend.colors.NavigationBarTintColor
+    self.titleImageView.tintColor = Frontend.colors.NavigationBarTintColor
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
@@ -23,7 +25,7 @@ class RMViewController: ScrollPageViewController,
   
   override var titleImage : UIImage {
     get {
-     return #imageLiteral(resourceName: "RushMeLogo") 
+     return Frontend.images.logo 
     }
   }
   

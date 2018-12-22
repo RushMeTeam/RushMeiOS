@@ -9,69 +9,65 @@
 import Foundation
 import UIKit
 
-struct ImagePathSuffix {
-  static let lowQuality = "small.jpg"
-  static let mediumQuality = "semi.jpg"
-  static let highQuality = ".jpg"
+// Describe three quality metrics
+enum ImageQuality : String {
+  case High = "small.jpg"
+  case Medium = "semi.jpg"
+  case Low = ".jpg"
 }
 
-class RMCachedImage {
-  static var images = Dictionary<String, UIImage>()
-}
 extension UIImageView {
-  func setImageByURL(fromSource rmURL : RMURL, animated: Bool = true) {
-    self.contentMode = .scaleAspectFill
-    func setAsync(image newImage : UIImage) {
-      _ = RMCachedImage.images[rmURL.underlyingURL.absoluteString] == nil ? {
-        RMCachedImage.images[rmURL.underlyingURL.absoluteString] = newImage
-        } : nil
-      DispatchQueue.main.async {
-        if self.image == nil {
-          self.image = newImage
-        }
+  func setImage(with rmURL: RMImageFilePath, onNewThread : Bool = true) {
+    if (onNewThread) {
+      DispatchQueue.global(qos: .background).async {
+        self.setImage(with: rmURL,onNewThread: false)
+      }
+      return
+    }
+    func setOnlyIfNull(newImage : UIImage) {
+      DispatchQueue.main.async { if self.image == nil { self.image = newImage } }
+    }
+    func handleDownloadedImage(imageData : Data?) {
+      if let _ = imageData, let newImage = UIImage(data: imageData!) {
+        setOnlyIfNull(newImage: newImage) 
+        newImage.writeToDisk(at: rmURL.localPath)
+        UIImage.cache[rmURL] = newImage
       }
     }
-    DispatchQueue.main.async {
-      self.image = nil
+    
+    // Read from cache
+    if let image = UIImage.cache[rmURL] {
+      setOnlyIfNull(newImage : image)
     }
-    DispatchQueue.global(qos: .userInteractive).async {
-      if let newImage = RMCachedImage.images[rmURL.underlyingURL.absoluteString] {
-        DispatchQueue.main.async {
-          self.image = newImage
+      // Read from disk, cache 
+    else if let image = UIImage(contentsOf: rmURL) {
+      setOnlyIfNull(newImage : image) 
+    }
+    // Download, write to disk, cache
+    else {
+      URLSession.shared.dataTask(with: rmURL.networkPath) {
+        (data, _, error) in
+        handleDownloadedImage(imageData: data)
+        if let _ = error {
+         Backend.log(action: .Error(type: .Download)) 
         }
-      }
-      else if let image = readImageFromDisk(at: rmURL) {
-        setAsync(image: image)
-      }
-      else {
-        URLSession.shared.dataTask(with: rmURL.networkPath) {
-          (data, _, error) in
-          DispatchQueue.main.async {
-            if data != nil, let newImage = UIImage(data: data!) {
-              newImage.storeOnDisk(at: rmURL.localPath)
-              setAsync(image: newImage)
-            }
-            else {
-              Backend.log(action: .Error(type: .Download)) 
-            }
-          }
-          }.resume()
-      }
+      }.resume()
     }
   }
-}
-
-
-func readImageFromDisk(at sourceURL : RMURL, with : Quality = Campus.downloadedImageQuality) -> UIImage? {
-  if let imageData = try? Data.init(contentsOf: sourceURL.localPath),
-    let image = UIImage.init(data: imageData){
-    return image
-  }
-  return nil
 }
 
 extension UIImage {
-  func storeOnDisk(at url : URL) {
+  internal static var cache = Dictionary<RMImageFilePath, UIImage>()
+  
+  convenience init?(contentsOf path : RMImageFilePath) {
+    if let imageData = try? Data.init(contentsOf: path.localPath) {
+      self.init(data: imageData)
+    }
+    else {
+     return nil 
+    }
+  }
+  func writeToDisk(at url : URL) {
     if !FileManager.default.fileExists(atPath: User.files.fratImageURL.path) {
       do {
         try FileManager.default.createDirectory(at: User.files.fratImageURL, withIntermediateDirectories: false, attributes: nil)
@@ -91,62 +87,65 @@ extension UIImage {
   }
 }
 
-struct RMURL : Hashable {
-  let underlyingURL : URL
-  init?(fromString : String) {
-    if let newURL = URL(string: fromString) {
-      self.underlyingURL = newURL 
-    }
-    else {
-      return nil 
-    }
-  }
-  static func urlSuffix(forFileWithName urlSuffix : String, quality : Quality = Campus.downloadedImageQuality) -> String {
-    var fileName = ""
-    // Images are scaled to three different sizes:
-    //    - high (i.e. full)
-    //    - medium (i.e. half-size)
-    //    - low (i.e. quarter-size)
-    // The quality of the image retreived is based on the
-    // file URL. For example, a file named "image.jpg" would
-    // have a half-sized image named "imagesemi.jpg"
-    switch quality {
-    case .High:
-      // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
-      fileName = urlSuffix + ImagePathSuffix.lowQuality
-    case.Medium:
-      // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
-      fileName = urlSuffix + ImagePathSuffix.mediumQuality
-    case.Low:
-      // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
-      fileName = urlSuffix + ImagePathSuffix.lowQuality
-    }
-    // Sigma_Delta_Cover_Image.png
-    
-    // .../local/on/device/path/Sigma_Delta_Cover_Image.png
-    return fileName
-  }
-  static func urlSuffixes(forFilesWithName filename : String) -> [String] {
-    return [urlSuffix(forFileWithName: filename, quality: .Low), urlSuffix(forFileWithName: filename, quality: .Medium), urlSuffix(forFileWithName: filename, quality: .High)]
-  }
-  init(_ fromURL : URL) {
-    self.underlyingURL = fromURL
-  }
-  private var fixedPath : String {
-    return RMURL.urlSuffix(forFileWithName: underlyingURL.absoluteString,
-                           quality : Campus.downloadedImageQuality)
+class RMFilePath : Hashable {
+  var filename : String
+  init(filename : String) {
+    self.filename = filename 
   }
   var localPath : URL {
-    let urlEnding = String(fixedPath.split(separator: "/").last!)
-    return User.files.fratImageURL.appendingPathComponent(urlEnding)
+    return User.files.Path.appendingPathComponent(filename)
   }
   var networkPath : URL {
-    
-    return URL(string: Backend.S3 + fixedPath)!
+    return URL(string: Backend.S3 + filename)!
   }
   var hashValue : Int {
-    return underlyingURL.hashValue
+    return filename.hashValue
   }
+  static func == (lhs: RMFilePath, rhs: RMFilePath) -> Bool {
+    return lhs.filename == rhs.filename
+  }
+  
+}
+
+
+class RMImageFilePath : RMFilePath {
+  init(filename : String, quality : ImageQuality = Campus.downloadedImageQuality) {
+    super.init(filename: filename + quality.rawValue)
+  }
+  
+  override var localPath : URL {
+    return User.files.fratImageURL.appendingPathComponent(filename)
+  }
+//  static func urlSuffix(filename : String, quality : ImageQuality = Campus.downloadedImageQuality) -> String {
+//    // Images are scaled to three different sizes:
+//    //    - high (i.e. full)
+//    //    - medium (i.e. half-size)
+//    //    - low (i.e. quarter-size)
+//    // The quality of the image retreived is based on the
+//    // file URL. For example, a file named "image.jpg" would
+//    // have a half-sized image named "imagesemi.jpg"
+//    switch quality {
+//    case .High:
+//      // Frat_Info_Pics/Sigma_Delta_Cover_Image.png
+//      return filename + ImagePathSuffix.lowQuality
+//    case.Medium:
+//      // Frat_Info_Pics/Sigma_Delta_Cover_Image_half.png
+//      return filename + ImagePathSuffix.mediumQuality
+//    case.Low:
+//      // Frat_Info_Pics/Sigma_Delta_Cover_Image_quarter.png
+//      return filename + ImagePathSuffix.lowQuality
+//    }
+//    // Sigma_Delta_Cover_Image.png
+//    
+//    // .../local/on/device/path/Sigma_Delta_Cover_Image.png
+//    //return filename
+//  }
+//  
+//  static func urlSuffixes(forImageFilename filename : String) -> (String, String, String) {
+//    return (low : urlSuffix(filename: filename, quality: .Low), 
+//            medium: urlSuffix(filename: filename, quality: .Medium), 
+//            high: urlSuffix(filename: filename, quality: .High))
+//  }
 }
 
 // TODO: Implement a useful Image class. Difficult because app is event-driven 

@@ -50,7 +50,7 @@ class ScrollPageViewController: UIViewController,
       }
       DispatchQueue.main.async {
         if newValue == 1 {
-          UIView.animate(withDuration: RMAnimation.ColoringTime, animations: { 
+          UIView.animate(withDuration: Frontend.animations.defaultDuration, animations: { 
             self.progressBar.alpha = 0
             self.progressBar.progress = 1
           }, completion: { (_) in
@@ -123,7 +123,7 @@ class ScrollPageViewController: UIViewController,
     navigationController!.navigationBar.isTranslucent = false
     navigationController!.navigationBar.layer.backgroundColor = UIColor.white.cgColor
     navigationController!.navigationBar.layer.shadowColor = UIColor.white.cgColor
-    navigationController!.navigationBar.barTintColor = Frontend.colors.AppColor
+    navigationController!.navigationBar.barTintColor = Frontend.colors.NavigationBarColor
     // Set up Title View
     navigationItem.titleView = titleImageView
   }()
@@ -132,10 +132,9 @@ class ScrollPageViewController: UIViewController,
       return UIImage()
     }
   }
-  private lazy var titleImageView : UIView = {
+  internal lazy var titleImageView : UIView = {
     let imageView = UIImageView.init(image: titleImage)
     imageView.contentMode = .scaleAspectFit
-    imageView.tintColor = UIColor.white
     imageView.backgroundColor = .clear
     let titleView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 44, height: 32))
     imageView.frame = titleView.bounds
@@ -174,8 +173,8 @@ class ScrollPageViewController: UIViewController,
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    self.navigationController?.navigationBar.barTintColor = Frontend.colors.AppColor
-    self.navigationController?.navigationBar.tintColor = .white
+    self.navigationController?.navigationBar.barTintColor = Frontend.colors.NavigationBarColor
+    self.navigationController?.navigationBar.tintColor = Frontend.colors.NavigationBarTintColor
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedString.Key.foregroundColor: navigationController!.navigationBar.tintColor]
 

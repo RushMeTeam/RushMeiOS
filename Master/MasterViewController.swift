@@ -129,7 +129,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     // Reload the tableView, with animations
     func reloadTableView() {
         DispatchQueue.main.async {
-            UIView.transition(with: self.tableView, duration: RMAnimation.ColoringTime/2, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: self.tableView, duration: Frontend.animations.defaultDuration/2, options: .transitionCrossDissolve, animations: {
                 self.tableView.reloadData()
             }) { (_) in
             }
@@ -156,8 +156,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
         refreshControl!.addTarget(self, action: #selector(self.handleRefresh(refreshControl:)), for: UIControl.Event.valueChanged)
         tableView.backgroundView = refreshControl
         
-        refreshControl!.backgroundColor = Frontend.colors.AppColor
-        refreshControl!.tintColor = .white
+        refreshControl!.backgroundColor = Frontend.colors.RefreshControlBackgroundColor
+        refreshControl!.tintColor = Frontend.colors.RefreshControlTintColor
     }
     
     lazy var setupSearchBar : Void = {
@@ -167,8 +167,8 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
         // Setup the Search Bar (visual)
         searchController.searchBar.isTranslucent = false
         searchController.searchBar.tintColor = .white
-        searchController.searchBar.backgroundColor = Frontend.colors.AppColor
-        searchController.searchBar.barTintColor = Frontend.colors.AppColor
+        searchController.searchBar.backgroundColor = Frontend.colors.SearchBarBackgroundColor
+        searchController.searchBar.barTintColor = Frontend.colors.SearchBarBackgroundColor
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false

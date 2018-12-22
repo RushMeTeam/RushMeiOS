@@ -24,11 +24,11 @@ class Fraternity : Hashable {
   let chapter : String
   // The previewImage is the image seen when the user scrolls through a list of fraternities
   // e.g. a picture of the house, possibly the profile image
-  let profileImagePath : RMURL!
+  let profileImagePath : RMImageFilePath!
   // The path to a possible calendar image
-  let calendarImagePath : RMURL!
+  let calendarImagePath : RMImageFilePath!
   // All other images
-  let coverImagePaths : [RMURL]
+  let coverImagePaths : [RMImageFilePath]
   // The physical address of the fraternity
   let address : String?
   let coordinates : CLLocationCoordinate2D? 
@@ -39,9 +39,9 @@ class Fraternity : Hashable {
        description : String, 
        chapter : String, 
        memberCount : Int?, 
-       profileImagePath : RMURL?, 
-       calendarImagePath : RMURL?, 
-       coverImagePaths : [RMURL] = [], 
+       profileImagePath : RMImageFilePath?, 
+       calendarImagePath : RMImageFilePath?, 
+       coverImagePaths : [RMImageFilePath] = [], 
        address : String?, 
        coordinates : CLLocationCoordinate2D? = nil) {
     self.name = name

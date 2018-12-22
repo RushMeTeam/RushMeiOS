@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21806C91EB698259569A9A76 /* Pods_RushMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D408C95B0DA6F3379595E5E /* Pods_RushMeTests.framework */; };
 		36181108CE80F95E76097558 /* Pods_RushMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0A842620C084B5006048A8 /* Pods_RushMe.framework */; };
+		87610677F47BA24F847C3B23 /* Pods_RushMe_RushMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6922CC6B24716BD257B2F12 /* Pods_RushMe_RushMeUITests.framework */; };
 		DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
 		DB05F74B1F894A910090DEC3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
 		DB05F74D1F894A910090DEC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
@@ -244,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21806C91EB698259569A9A76 /* Pods_RushMeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87610677F47BA24F847C3B23 /* Pods_RushMe_RushMeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,11 +702,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RushMe/Pods-RushMe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
 				"${BUILT_PRODUCTS_DIR}/iCalKit/iCalKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCalKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,11 +724,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RushMe-RushMeUITests/Pods-RushMe-RushMeUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageColors/UIImageColors.framework",
 				"${BUILT_PRODUCTS_DIR}/iCalKit/iCalKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCalKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

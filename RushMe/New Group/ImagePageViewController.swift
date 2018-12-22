@@ -76,7 +76,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
       transitioning = false
     }
   }
-  var imageNames: [RMURL] = [] {
+  var imageNames: [RMImageFilePath] = [] {
     didSet {
       self.pages = [UIView?](repeatElement(nil, count: self.numberOfPages))
       self.pageControl.numberOfPages = numberOfPages
@@ -151,7 +151,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
                                    newView.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor)
         ])
       pages[page] = canvasView
-      newView.setImageByURL(fromSource: imageNames[page])
+      newView.setImage(with: imageNames[page])
       registerForPreviewing(with: self, sourceView: canvasView)
     }
   }
