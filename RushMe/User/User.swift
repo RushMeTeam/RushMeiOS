@@ -38,7 +38,7 @@ struct User {
       get {
         let fratHashes = Set<Int>(userPreferencesCache.array(forKey: favoriteFraternityKey) as? [Int] ?? [])
         return Set<Fraternity>(Campus.shared.fraternitiesByKey.values.filter({ (frat) -> Bool in
-            return fratHashes.contains(frat.hashValue)
+          return fratHashes.contains(frat.hashValue)
         }))
       }
       set {
@@ -50,10 +50,10 @@ struct User {
           return frat.hashValue
         })), forKey: favoriteFraternityKey)
         Notifications.update()
-
+        
       }
     }
-   
+    
   }
   
   struct preferences {
@@ -134,6 +134,87 @@ struct User {
     static let fratImageURL = Path.appendingPathComponent("images")
     static let locationsURL = Path.appendingPathComponent("locations")
   }
+  
+  class debug {
+    
+    static var isEnabled : Bool {
+      get {
+        return userPreferencesCache.bool(forKey: "debugEnabled")
+      }
+    }
+    @objc private static func isEnabledToggle(recognizer : UIGestureRecognizer) {
+      guard recognizer.state == .began else {
+        return 
+      }
+      if (!isEnabled) {
+        promptUser() 
+      } else {
+        toggleEnabledState()
+      }
+    }
+    private static var confirmationVC : UIAlertController { 
+      get {
+        let vc = UIAlertController.init(title: "Debug RushMe?", message: nil, preferredStyle: .actionSheet)
+        vc.addAction(UIAlertAction.init(title: "Sure", style: .destructive, handler: { (action) in
+          toggleEnabledState()
+        }))
+        vc.addAction(UIAlertAction.init(title: "What? No!", style: .cancel, handler: nil))
+        return vc
+      }
+    }
+    private static var okayVC : UIAlertController { 
+      get {
+        let vc = UIAlertController(title: "Debugging \(isEnabled ? "en" : "dis")abled!", message: "Please restart RushMe.", preferredStyle: .alert)
+        vc.addAction(UIAlertAction.init(title: "Thanks dude!", style: .default, handler: nil))
+        return vc
+      }
+    }
+    
+    private static func confirmToUser() {
+      UIApplication.shared.keyWindow?.rootViewController?.present(okayVC, animated: true, completion: nil)
+    }
+    private static func promptUser() {
+      UIApplication.shared.keyWindow?.rootViewController?.present(confirmationVC, animated: true, completion: nil) 
+    }
+    static func toggleEnabledState() {
+      print("Debugging \(isEnabled ? "dis" : "en")abled!")
+      userPreferencesCache.set(!isEnabled, forKey: "debugEnabled")
+      confirmToUser()
+    }
+    
+    static var debugDate : Date? {
+      get {
+        guard isEnabled, let dateString = userPreferencesCache.string(forKey: "debugDateToday"),
+          let date = Format.dates.SQLDateFormatter.date(from: dateString) else {
+            return nil 
+        }
+        return date
+      } 
+      set {
+        guard isEnabled else {
+          return
+        }
+        if let date = newValue  {
+          let dateString = Format.dates.SQLDateFormatter.string(from: date)
+          userPreferencesCache.set(dateString, forKey: "debugDateToday")
+        } else {
+          userPreferencesCache.set("", forKey: "debugDateToday")  
+        }
+      }
+    }
+    
+    static var enableDebugGestureRecognizer : UIGestureRecognizer {
+      get {
+        let recognizer = UILongPressGestureRecognizer()
+        recognizer.minimumPressDuration = 3
+        recognizer.numberOfTapsRequired = 1
+        recognizer.addTarget(self, action: #selector(isEnabledToggle))
+        return recognizer
+      }
+      
+    }
+  }
+  
 }
 
 // Cache user preferences

@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController, 
   MKMapViewDelegate, 
 ScrollableItem {
+  @IBOutlet weak var navigationBarExtensionView: UIView!
+  
   func updateData() {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
@@ -66,10 +68,14 @@ ScrollableItem {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedString.Key.foregroundColor: Frontend.colors.NavigationItemsColor]
-    // Do any additional setup after loading the view.
-    self.fratNameButton.title
+    self.favoritesControl.tintColor = Frontend.colors.NavigationBarTintColor
+    self.fratNameButton.tintColor = Frontend.colors.NavigationItemsColor
+    self.informationButton.tintColor = Frontend.colors.NavigationItemsColor
+    self.navigationBarExtensionView.backgroundColor = Frontend.colors.NavigationBarColor
+    
     self.mapView.delegate = self
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
@@ -102,9 +108,9 @@ ScrollableItem {
       mapView.addAnnotation(annotation)
       mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     }
-    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates == nil {
-     print(frat.name) 
-    }
+//    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates == nil {
+//     print(frat.name) 
+//    }
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

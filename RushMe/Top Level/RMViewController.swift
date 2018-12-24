@@ -17,6 +17,7 @@ class RMViewController: ScrollPageViewController,
     super.init(coder: aDecoder)
 //    self.navigationItem.titleView?.tintColor = Frontend.colors.NavigationBarTintColor
     self.titleImageView.tintColor = Frontend.colors.NavigationBarTintColor
+    self.titleImageView.addGestureRecognizer(User.debug.enableDebugGestureRecognizer)
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),

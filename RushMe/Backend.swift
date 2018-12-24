@@ -279,7 +279,7 @@ let defaultCoordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: 
 
 extension Date {
   static var today : Date {
-    get { return Date().dayDate }
+    get { return (User.debug.debugDate ?? Date()).dayDate }
   }
   var minute : Int {
     get { return UIKit.Calendar.current.component(.minute, from: self) }

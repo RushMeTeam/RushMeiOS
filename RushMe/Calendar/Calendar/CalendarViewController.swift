@@ -38,19 +38,35 @@ ScrollableItem {
   @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
   
   // MARK: Data Source Calculated Fields
-  var earliestDate : Date? {
+  var todayDate : Date {
     get {
-      return RushCalendar.shared.firstEvent?.starting
+      return .today
     }
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
-    guard indexPath.section == 1, let minDate = earliestDate, 
-      let today = Calendar.current.date(byAdding: .day, 
-                                        value: indexPath.row, 
-                                        to: minDate) else {
+//    guard let dayAdjustedForRow = Calendar.current.date(byAdding: .day, 
+//                                        value: indexPath.section%7 - todayDate.weekday, 
+//                                        to: todayDate),
+//      let dayAdjustedForWeekDayAndWeek = Calendar.current.date(byAdding: .weekOfYear, 
+//                                                            value: indexPath.row, 
+//                                                            to: dayAdjustedForRow),
+//      let fullyAdjustedDay = Calendar.current.date(byAdding: .month, 
+//                                                             value: indexPath.section/7, 
+//                                                             to: dayAdjustedForWeekDayAndWeek)
+    var daysDifference : Int = indexPath.section%7 + indexPath.row*7 - todayDate.weekday%7 
+    daysDifference += (indexPath.section/7)*28
+    guard let fullyAdjustedDay = Calendar.current.date(byAdding: .day, 
+                                                       value: daysDifference, 
+                                                       to: todayDate)?.dayDate
+      else {
         return nil
     }
-    return today
+//    if (indexPath.section >= 7) {
+//     return Calendar.current.date(byAdding: .day, value: 28, to: fullyAdjustedDay)!
+//    }
+    
+//    print("\(fullyAdjustedDay) in month \(month)")
+    return fullyAdjustedDay
   }
   
   internal func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
@@ -61,6 +77,7 @@ ScrollableItem {
       }) else {
         return []
     }
+    
     return todaysEvents.sorted(by: <)
   }
   
@@ -99,7 +116,7 @@ ScrollableItem {
       return collectionView.indexPathsForSelectedItems?.first
     }
   }
-  lazy var zeroIndexPath = IndexPath(item: 0, section: 1)
+  lazy var zeroIndexPath = IndexPath(item: 0, section: 0)
   
   @IBOutlet weak var drawerButton: UIBarButtonItem!
   @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -115,6 +132,7 @@ ScrollableItem {
     
     scrollView.refreshControl = UIRefreshControl()
     scrollView.refreshControl!.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    
     
     eventViewController = children.first as? EventTableViewController
     
@@ -183,7 +201,7 @@ ScrollableItem {
       self.collectionView.deselectItem(at: indexPath, animated: false)
     }
     UIView.transition(with: collectionView, duration: 0.1, options: .transitionCrossDissolve, animations: { 
-      self.collectionView.reloadSections(IndexSet(integersIn: 0...1))
+      self.collectionView.reloadData()
     }) { (_) in }
     for indexPath in indexPaths {
       eventViewController?.selectedEvents = events(forIndexPath: indexPath)
@@ -197,31 +215,24 @@ ScrollableItem {
   
   // MARK: UICollectionViewDataSource
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 2
+    return 14
   }
   func collectionView(_ collectionView: UICollectionView, 
                         numberOfItemsInSection section: Int) -> Int {
-    return section == 0 ? 7 : 31
+    return 4
   }
   
   func collectionView(_ collectionView: UICollectionView, 
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let basicCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) 
-    guard let _ = earliestDate, 
-          let today = dateKey(from: indexPath) else {
-      let dumbCell = basicCell as! CalendarCollectionViewCell
-      let weekday = (indexPath.row + (noEvents ? 0 : earliestDate?.weekday ?? 0))%7
-      
-      dumbCell.dayLabel.text = indexPath.section == 0 ? ["S","S","M","T","W","T","F"][weekday] 
-                                                      : "\(indexPath.row + 1)"
-      dumbCell.isSelected = false
-      dumbCell.set(isGrayedOut: true)
-      return dumbCell
+    guard let today = dateKey(from: indexPath) else {
+      return basicCell
     }
     guard let cell = basicCell as? CalendarCollectionViewCell else {
       return basicCell 
     }
-    cell.set(isGrayedOut: today.month != Date.today.month)
+    cell.set(isGrayedOut: today.month != todayDate.month)
+    cell.set(isToday: today.month == todayDate.month && today.day == todayDate.day)
     cell.set(day: today.day, eventCount: events(forIndexPath: indexPath).count)
     return cell
   }
@@ -234,7 +245,7 @@ ScrollableItem {
   
   func collectionView(_ collectionView: UICollectionView, 
                       shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    return indexPath.section != 0 && !noEvents
+    return !noEvents
   }
   
   func collectionView(_ collectionView: UICollectionView, 
@@ -254,23 +265,39 @@ ScrollableItem {
       dateLabel?.text = " "
     }
   }
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    
+    switch kind {
+      
+    case UICollectionView.elementKindSectionHeader:
+      
+      let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath)
+      return headerView
+      
+    //case UICollectionView.elementKindSectionFooter:
+    default:
+      let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "footerView", for: indexPath)      
+      return footerView
+    }
+  }
   
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let cellWidth = collectionView.frame.width/8.5
-    var cellHeight = collectionView.frame.height/6.0
-    if (indexPath.section == 0) {
-      cellHeight = collectionView.frame.height/8.0
-    }
+    let cellHeight = collectionView.frame.height/6.0
     return CGSize(width: cellWidth, height: cellHeight)
   }
 }
 
 extension UICollectionView {
   func reloadPreservingSelection(animated : Bool) {
-    let selectedIP = indexPathsForSelectedItems
-    reloadSections(IndexSet(integersIn: 1...1)) 
-    if let reselectIndexPath = selectedIP?.first {
+    guard let selectedIP = indexPathsForSelectedItems
+      else {
+     return   
+    }
+    reloadData() 
+    
+    if let reselectIndexPath = selectedIP.first {
       selectItem(at: reselectIndexPath, animated: animated, scrollPosition: .top)
     } 
   }

@@ -61,10 +61,11 @@ class RushCalendar {
     }
     return eventsByDay[event.starting.dayDate]!.remove(event) != nil
   }
+ 
   
   var firstDate : Date? {
     get {
-     return firstEvent?.starting 
+     return firstEvent?.starting.dayDate 
     }
   }
   
@@ -93,7 +94,7 @@ extension Date {
     return Int(timeIntervalSinceReferenceDate/86400) 
   }
   var dayDate : Date {
-   return Date(timeIntervalSinceReferenceDate: TimeInterval(daysSinceReferenceDate)) 
+   return Date(timeIntervalSinceReferenceDate: TimeInterval(daysSinceReferenceDate*86400)).addingTimeInterval(-60) 
   }
 }
 

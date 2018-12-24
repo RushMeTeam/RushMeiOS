@@ -22,18 +22,25 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     eventsLabel.setNeedsLayout()
   }
   
+  func set(isToday : Bool) {
+    outlineCircleLayer.isHidden = !isToday
+  }
+  
   func set(isGrayedOut : Bool) {
     dayTextColor = isGrayedOut ? .lightGray : .black
+    
   }
   
   var highlightColor : UIColor = Frontend.colors.AppColor.withAlphaComponent(0.8)
   
   var dayTextColor : UIColor = UIColor.black {
     didSet {
-     dayLabel.textColor = dayTextColor
+      dayLabel.textColor = dayTextColor
+      outlineCircleLayer.strokeColor = CalendarCollectionViewCell.inactiveColor.cgColor
     }
   }
   private var circleLayer : CAShapeLayer = CAShapeLayer()
+  private var outlineCircleLayer : CAShapeLayer = CAShapeLayer()
   
   var path : UIBezierPath {
     get {
@@ -41,12 +48,21 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     }
   }
   
+  
   lazy var setupCell : Void = {
     eventsLabel.isHidden = true
     eventsLabel.textColor = Frontend.colors.AppColor
     circleLayer.fillColor = Frontend.colors.AppColor.cgColor
+    outlineCircleLayer.fillColor = UIColor.clear.cgColor
+    outlineCircleLayer.strokeColor = circleLayer.fillColor
+    outlineCircleLayer.lineWidth = 0.5
+    circleLayer.path = path.cgPath
+    outlineCircleLayer.path = path.cgPath
+    
+    layer.addSublayer(outlineCircleLayer)
     layer.addSublayer(circleLayer)
     circleLayer.zPosition = -0.01
+    outlineCircleLayer.zPosition = -0.01
     eventsLabel.layer.zPosition = 0
     eventsLabel.layer.masksToBounds = false
     layer.masksToBounds = false
@@ -66,9 +82,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
       circleLayer.fillColor = (isSelected ? highlightColor : .clear).cgColor
       dayLabel.textColor = isSelected ? UIColor.white : dayTextColor
       circleLayer.path = path.cgPath
+      outlineCircleLayer.path = path.cgPath
     }
   }
   
-
+  
   
 }
