@@ -98,12 +98,30 @@ class Campus {
           self.lastDictArray = dictArray
         }
         dictArray.forEach({ (dict) in
-          if let frat = Fraternity(withDictionary: dict) {
-            try? Campus.shared.add(fraternity: frat) 
+          let prefix = "Backend/Pull/Fraternities/Error:"
+          guard let frat = Fraternity(withDictionary: dict) else {
+            print("\(prefix) cannot initialize fraternity")
+            return
           }
+          frat.register(withCampus: Campus.shared)
         })
         eventArray.forEach({ (dict) in
-          _ = RushCalendar.shared.add(eventDescribedBy: dict)
+          let prefix = "Backend/Pull/Events/Error:"
+          do {
+            try _ = RushCalendar.shared.add(eventDescribedBy: dict)
+          } catch RushCalendar.AddError.noFraternityName {
+            print("\(prefix) no fraternity name")
+          } catch RushCalendar.AddError.unknownFraternity(let unknownFratName) {
+            print("\(prefix) unknown fraternity \(unknownFratName)")
+          } catch RushCalendar.AddError.noEventName(let fraternity) {
+            print("\(prefix) no event name found for \(fraternity)'s event")
+          } catch RushCalendar.AddError.noValueFor(let key) {
+            print("\(prefix) no value for key \(key)")
+          } catch RushCalendar.AddError.cannotCast(let string, let toType) {
+            print("\(prefix) cannot cast \'\(string)\' to \(toType)")
+          } catch {
+            print("\(prefix) unknown")
+          }
         })
         self.percentageCompletion = 1
       } 
@@ -114,13 +132,13 @@ class Campus {
   }
   
   enum CampusError : Error {
-    case registrationError(fraternity: Fraternity)
-    case duplicateRegistration(fraternity : Fraternity)
+    case registrationError
+    case duplicateRegistration
   }
   
   fileprivate func add(fraternity frat : Fraternity) throws {
     if let _ = fraternitiesByName[frat.name] {
-      throw CampusError.duplicateRegistration(fraternity: frat)
+      throw CampusError.duplicateRegistration
     }
     else {
       self.fraternitiesByKey[frat.key] = frat

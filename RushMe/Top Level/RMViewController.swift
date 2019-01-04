@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class RMViewController: ScrollPageViewController, 
                         SWRevealViewControllerDelegate, 
@@ -15,7 +16,6 @@ class RMViewController: ScrollPageViewController,
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-//    self.navigationItem.titleView?.tintColor = Frontend.colors.NavigationBarTintColor
     self.titleImageView.tintColor = Frontend.colors.NavigationBarTintColor
     self.titleImageView.addGestureRecognizer(User.debug.enableDebugGestureRecognizer)
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
@@ -56,6 +56,11 @@ class RMViewController: ScrollPageViewController,
     progress = newValue
     DispatchQueue.main.async {
       self.drawerButton.isEnabled = newValue == 1 || newValue == 0
+      if newValue == 1 {
+        Notifications.refresh(requestAuthorization: false)
+      } else {
+
+      }
     }
     for updatable in pageViewControllers where updatable is ScrollableItem {
      (updatable as! ScrollableItem).updateData()
@@ -81,6 +86,8 @@ class RMViewController: ScrollPageViewController,
       pageViewController.title = frat.name.greekLetters
     }
   }
+  
+ 
   
 }
 

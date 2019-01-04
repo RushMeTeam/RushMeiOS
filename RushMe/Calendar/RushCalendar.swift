@@ -85,16 +85,25 @@ class RushCalendar {
   }
   
   func eventsOn(_ date : Date) -> Set<Fraternity.Event>? {
-    return eventsByDay[date.dayDate]
+    return eventsByDay[date.dayDate]?.filter({ (event) -> Bool in
+      return User.preferences.considerPastEvents
+        || event.ending > (User.debug.debugDate ?? Date())
+    })
   }
 }
 
 extension Date {
   var daysSinceReferenceDate : Int {
-    return Int(timeIntervalSinceReferenceDate/86400) 
+    let referenceDate = Date(timeIntervalSinceReferenceDate: 0)
+    let components  = Calendar.current.dateComponents([.day], from: referenceDate, to: self)
+    return components.day ?? Int(timeIntervalSinceReferenceDate/86400)
   }
   var dayDate : Date {
-   return Date(timeIntervalSinceReferenceDate: TimeInterval(daysSinceReferenceDate*86400)).addingTimeInterval(-60) 
+    var components = Calendar.current.dateComponents([.day, .month, .year], from: self)
+    components.hour = 0
+    components.minute = 0
+    components.second = 0
+    return Calendar.current.date(from: components)!
   }
 }
 

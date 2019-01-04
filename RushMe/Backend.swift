@@ -238,11 +238,11 @@ fileprivate extension URLRequest {
     self.init(url: URL(string: Backend.db)!)
     self.httpMethod = "POST"
     var actionAsString = "&"
-    action.forEach { (parameters) in
-      actionAsString += "\(parameters.key)=\((parameters.value as? String)  ?? "NULL")&"
+    action.forEach { (key, value) in
+      actionAsString += "\(key)=\((value as? String)  ?? "NULL")&"
     }
+//    print(actionAsString)
     self.timeoutInterval = 10
-    print(actionAsString)
     self.httpBody = actionAsString.data(using: .utf8)
   }
 }
@@ -278,6 +278,10 @@ let defaultCoordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: 
 
 
 extension Date {
+  func sameDay(of date : Date) -> Bool {
+    return Calendar.current.isDate(self, inSameDayAs: date)
+  }
+  
   static var today : Date {
     get { return (User.debug.debugDate ?? Date()).dayDate }
   }
@@ -302,28 +306,30 @@ extension Date {
 }
 
 extension RushCalendar {
-  func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
+  enum AddError : Error {
+    case noFraternityName
+    case noEventName(owningFraternity : Fraternity)
+    case unknownFraternity(_ : String)
+    case noValueFor(key : String)
+    case cannotCast(string : String, toType : String)
+  }
+  func add(eventDescribedBy dict : Dictionary<String, Any>) throws -> Fraternity.Event?  {
     //house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
     guard let houseName = dict[Database.keys.event.fratKey] as? String else {
-      print("Could not initialize event component: house name")
-      return nil
+      throw AddError.noFraternityName
     }
     guard let frat = Campus.shared.fraternitiesByKey[houseName] else {
-      print("Could not retrieve \(houseName)'s Fraternity object")
-      return nil
+      throw AddError.unknownFraternity(houseName)
     }
     guard  let eventName = dict[Database.keys.event.name] as? String else {
-      print("Could not initialize \(houseName)'s event's name")
-      return nil
+      throw AddError.noValueFor(key: "event name")
     }
     guard  let eventDateRaw = dict[Database.keys.event.startTime] as? String else {
-      print("Could not initialize \(houseName)'s event's startTime (as String)")
-      return nil
+      throw AddError.noValueFor(key: "startTime")
     }
     guard let eventDate = User.device.iso8601.date(from: eventDateRaw + ":00+00:00") else {
-      print("Could not initialize \(houseName)'s event's endDate \(eventDateRaw) (as Date)")
-      return nil
+      throw AddError.cannotCast(string : eventDateRaw, toType: "Date")
     }
     
     var interval = 0.0

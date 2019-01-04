@@ -11,118 +11,176 @@ import UserNotifications
 
 
 
-class Notifications {
-  enum Trigger : String {
+class Notifications : NSObject {
+  enum Trigger : String, CaseIterable {
     case Push = "pushRequest"
     case Scheduled  = "dailyAggregateRequest"
     case Reminder = "reminderRequest"
     case Location = "locationRequest"
   }
   
-  static func update(selected types : [Trigger] = [.Scheduled, .Reminder]) {
-    
+  static func refresh(selected types : [Trigger] = [.Scheduled, .Reminder], requestAuthorization : Bool = true) {
     UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-      switch settings.authorizationStatus {
-        
-      case .notDetermined:
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge], completionHandler: { (blocked, error) in
-          if let _ = error {
-            print("Notifications/Authorization/Error: \(error)") 
-          }
-        })
-        return
-      case .denied:
-        print("Notifications/Error/UserDeniedNotifications")
-        return
-      case .authorized:
-        forceUpdate(selected: types)
-        return
-      case .provisional:
-        forceUpdate(selected: types)
-        return
+      guard settings.authorizationStatus == .authorized ||
+        (settings.authorizationStatus == .notDetermined && requestAuthorization) else {
+          return
       }
-    } 
+      removePendingNotifications()
+      update(selected: types)
+    }
+  }
+  
+  private static func update(selected types : [Trigger]) {
+    UNUserNotificationCenter.current().requestAuthorization(
+      options: [.alert, .badge],
+      completionHandler: { (authorized, error) in
+        guard error == nil, authorized else  {
+          print("Notifications/Authorization/Error: \(error?.localizedDescription ?? "None"))")
+          print("\tAuthorization: \(authorized ? "yes"  : "blocked")")
+          return
+        }
+        forceUpdate(selected: types)
+    })
+  }
+  private static var now = User.debug.debugDate ?? Date()
+  
+  private static func isValidDailyEvent(event : Fraternity.Event) -> Bool {
+    return event.frat.isFavorite && event.ending > now
+  }
+  private static func isValidReminderEvent(event : Fraternity.Event) -> Bool {
+    return event.ending > now
   }
   
   private static func forceUpdate(selected types : [Trigger]) {
-    
-    let typeStrings = Set<String>(types.map({ (trigger) -> String in
-      return trigger.rawValue
-    }))
-    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: Array<String>(typeStrings))
-    let now = Date()
-    
-    if types.contains(.Scheduled) {
-      addDailyNotifications(for: eventsByDay(withFilter: { (event) -> Bool in
-        return event.frat.isFavorite && event.ending > now
-      }))
-    }
-    if types.contains(.Reminder) {
-      addReminderNotifications(for: eventsByDay(withFilter: { (event) -> Bool in
-        return event.isSubscribed && event.ending > now && RushCalendar.shared.eventsOn(now)?.contains(event) ?? false
-      }))
+    for type in Set<Trigger>(types) {
+      switch type {
+      case .Scheduled:
+        addDailyNotifications(for: eventsByDay(withFilter: isValidDailyEvent))
+      case .Reminder:
+        addReminderNotifications(for: eventsByDay(withFilter: isValidReminderEvent))
+      default:
+        print("Notifications/Update: Unimplemented type requested...")
+//      case .Push:
+//      case .Location:
+      }
     }
   }
   
-  
-  private static func addReminderNotifications(for daysEvents : Dictionary<Date, Set<Fraternity.Event>>) {
-    for events in daysEvents.values {
+  private static func removePendingNotifications() {
+    UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
+      //print("Notifications/PrintPending: \(requests.count) pending notification request\(requests.count == 1 ? "" : "s")")
+      var outStr = ""
+      for type in Trigger.allCases {
+        let count = requests.filter({ (request) -> Bool in
+          return request.identifier.contains(type.rawValue)
+        }).count
+        outStr += " \(count) \(type)\(type == Trigger.allCases.last! ? "" : ",")"
+      }
+      //print(outStr)
+      UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+  }
+  private static func addReminderNotifications(for eventsByDay : Dictionary<Date, Set<Fraternity.Event>>) {
+    var notificationsByDay = Dictionary<DateComponents, UNNotificationRequest>()
+    for (_, events) in eventsByDay {
       for event in events  {
         let content = UNMutableNotificationContent()
-        content.title = "Hello! A rush event is coming up soon!"
-        content.subtitle = "\(event.name) at \(event.frat.name) starts in \(15) minutes!"
-        content.badge = 1
+        content.title = "\(event.frat.name) is having an event!"
+        content.body = "\(event.name) starts at \(event.starting.hour)."
+        content.body += " Head over to \(event.location ?? event.frat.name) to learn more."
         
-        let mins = -20.0
-        let interval = TimeInterval(mins*60)
-        let date = event.ending.addingTimeInterval(interval)
+        var triggerDate = event.starting
+        // add the difference between event date and debug date to current date
+        // triggerDate = (debugDate - eventDate) + currentDate
         
-        let triggerDateComponents = DateComponents(year: date.year, month: date.month, 
-                                                   day: date.day, hour: date.hour, minute: date.minute)  
+        if let debugDate = User.debug.debugDate {
+          let diff = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: debugDate, to: triggerDate)
+          triggerDate = Calendar.current.date(byAdding: diff, to: Date(), wrappingComponents: false)!
+        }
+        
+        let triggerDateComponents = DateComponents(year: triggerDate.year, month: triggerDate.month,
+                                                   day:  triggerDate.day,  hour: triggerDate.hour,
+                                                   minute: max(triggerDate.minute - 15, 0))
+        
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: Trigger.Reminder.rawValue, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request) { (error) in
-          print("Notifications/Adding/Error: \(error?.localizedDescription ?? "None")")
-        
+        let request = UNNotificationRequest(identifier: Trigger.Reminder.rawValue + "-" + event.name, content: content, trigger: trigger)
+        if let _ = notificationsByDay[triggerDateComponents] {
+          
+        } else {
+         notificationsByDay[triggerDateComponents] = request
         }
       }
-    } 
+    }
+    notificationsByDay.values.forEach { (request) in
+      UNUserNotificationCenter.current().add(request) { (error) in
+        if let description = error?.localizedDescription {
+          print("Notifications/AddReminder/Error: \(description)")
+//          print("\t\t\tTrigger DateComponents: \(String(describing: triggerDateComponents))")
+        }
+      }
+    }
+    
   }
   
   
-  private static func addDailyNotifications(for daysEvents : Dictionary<Date, Set<Fraternity.Event>>) {
+  private static func addDailyNotifications(for eventsByDay : Dictionary<Date, Set<Fraternity.Event>>) {
     // Add single notification with day's descriptions
-    for (day, events) in daysEvents where !events.isEmpty {
-      
+    
+    for (day, events) in eventsByDay where !events.isEmpty {
       // Happy Rush! 20 events are happening accross campus.
       // Bowling with Alpha Phi Alpha is up next, as well as
       // 5 more followed events
+      
       let firstEvent = events.sorted(by: <).first!
-      guard firstEvent.starting > Date() else {
-       continue 
-      }
       let content = UNMutableNotificationContent()
       content.title = "Happy Rush! \(events.count) event\(events.count == 1 ? " is" : "s are") today, all accross campus!"
       content.body = "\(firstEvent.name) with \(firstEvent.frat.name) is up next"
       content.body += events.count == 1 ? "." : ", in addition to \(events.count-1) more followed events."
-      content.badge = 1
       
-      let triggerDateComponents = DateComponents(year: day.year, month: day.month, day: day.day, hour: 10)  
-      let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
-      
-      let request = UNNotificationRequest(identifier: Trigger.Scheduled.rawValue, content: content, trigger: trigger)
-      UNUserNotificationCenter.current().add(request) { (error) in
-        print("Notifications/Adding/Error: \(error?.localizedDescription ?? "None")")
+      var triggerDate = day
+      if let debugDate = User.debug.debugDate {
+        // triggerDate = (debugDate - eventDate) + currentDate
+        let diff = Calendar.current.dateComponents([.day, .month, .year], from: debugDate, to: triggerDate)
+        triggerDate = Calendar.current.date(byAdding: diff, to: Date(), wrappingComponents: false)!
       }
-    } 
+      
+      let triggerDateComponents = DateComponents(year: triggerDate.year, month: triggerDate.month,
+                                                 day: triggerDate.day,   hour: 10)
+      
+      let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
+      let request = UNNotificationRequest(identifier: Trigger.Scheduled.rawValue + " " + String(describing: day), content: content, trigger: trigger)
+      UNUserNotificationCenter.current().add(request) { (error) in
+        if let description = error?.localizedDescription {
+          print("Notifications/AddDaily/Error: \(description)")
+          print("\t\t\tTrigger DateComponents: \(String(describing: triggerDateComponents))")
+        }
+      }
+    }
   }
   private static func eventsByDay(withFilter eventFilter : (Fraternity.Event) -> Bool) -> Dictionary<Date, Set<Fraternity.Event>> {
     var daysEvents = Dictionary<Date, Set<Fraternity.Event>>()
-    for (day, events) in RushCalendar.shared.eventsByDay {
-      daysEvents[day] = events.filter(eventFilter)
+    User.session.selectedEvents.filter(eventFilter).forEach { (event) in
+      if (!daysEvents.keys.contains(event.starting.dayDate)) {
+        daysEvents[event.starting.dayDate] = Set<Fraternity.Event>()
+      }
+      daysEvents[event.starting.dayDate]!.insert(event)
     }
     return daysEvents
   }
-
+  
 }
+
+extension Notifications : UNUserNotificationCenterDelegate {
+  // MARK: UNUserNotificationCenterDelegate
+  func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+    print(response.notification.request.content.body)
+    completionHandler()
+  }
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    print(notification.request.content.body)
+    completionHandler([.alert])
+  }
+  //  func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {}
+}
+
+

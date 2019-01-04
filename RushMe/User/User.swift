@@ -25,12 +25,12 @@ struct User {
       set {
         let alteredEvents = selectedEvents.symmetricDifference(newValue)
         for event in alteredEvents {
-          Backend.log(action: event.isSubscribed ? Action.Subscribed(event: event) : Action.Unsubscribed(event: event))
+          Backend.log(action: !event.isSubscribed ? Action.Subscribed(event: event) : Action.Unsubscribed(event: event))
         }
         userPreferencesCache.set(Array<Int>(newValue.map({ (event) -> Int in
           return event.hashValue
         })), forKey: subscribedEventsKey)
-        Notifications.update()
+        Notifications.refresh()
       }
     }
     
@@ -49,7 +49,7 @@ struct User {
         userPreferencesCache.set(Array<Int>(newValue.map({ (frat) -> Int in
           return frat.hashValue
         })), forKey: favoriteFraternityKey)
-        Notifications.update()
+        Notifications.refresh()
         
       }
     }
@@ -69,10 +69,10 @@ struct User {
     // Default: true
     static var considerPastEvents : Bool {
       get {
-        return !userPreferencesCache.bool(forKey: "considerPastEvents")
+        return userPreferencesCache.bool(forKey: "considerPastEvents")
       }
       set {
-        userPreferencesCache.set(!newValue, forKey: "considerPastEvents")
+        userPreferencesCache.set(newValue, forKey: "considerPastEvents")
       }
     }
     // Fraternities are listed in random order? 

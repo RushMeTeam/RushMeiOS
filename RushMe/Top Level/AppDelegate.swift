@@ -6,6 +6,7 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,12 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var scrollPageVC : RMViewController!
   var window: UIWindow?
   
+  let notificationDelegate = Notifications()
+  
   func setupTestingEnvironment() {    
     UserDefaults.standard.set(["Chi Phi", "Delta Tau Delta", 
                                "Alpha Epsilon Phi"], forKey: "Favorites") 
   }
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Set up Notification handling
+    let center = UNUserNotificationCenter.current()
+    center.delegate = notificationDelegate
     
     // Set up the window and UI hierarchy
     window = UIWindow(frame: UIScreen.main.bounds)
@@ -47,7 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Begin loading content
     Campus.shared.pullFromBackend()
     Backend.log(action: .AppEnteredForeground)
-    Notifications.update()
     return true
   }
 

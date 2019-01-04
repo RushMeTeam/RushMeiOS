@@ -1,1 +1,0 @@
-/Users/adamthk/Documents/GitHub/RushMeiOS/DerivedData/RushMe/Build/Intermediates.noindex/ArchiveIntermediates/RushMe/InstallationBuildProductsLocation/Applications/RushMe.app
