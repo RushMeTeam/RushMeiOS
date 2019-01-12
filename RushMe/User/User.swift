@@ -170,7 +170,7 @@ struct User {
       }
     }
     
-    private static func confirmToUser() {
+    private static func confirmWithUser() {
       UIApplication.shared.keyWindow?.rootViewController?.present(okayVC, animated: true, completion: nil)
     }
     private static func promptUser() {
@@ -179,14 +179,22 @@ struct User {
     static func toggleEnabledState() {
       print("Debugging \(isEnabled ? "dis" : "en")abled!")
       userPreferencesCache.set(!isEnabled, forKey: "debugEnabled")
-      confirmToUser()
+      confirmWithUser()
     }
-    
+    static let defaultDate : Date = DateComponents(calendar: .autoupdatingCurrent,
+                                                   year: 2018, 
+                                                   month: 10, 
+                                                   day: 19, 
+                                                   hour: 9, 
+                                                   minute: 30).date! 
     static var debugDate : Date? {
       get {
-        guard isEnabled, let dateString = userPreferencesCache.string(forKey: "debugDateToday"),
+        guard isEnabled else {
+         return nil 
+        }
+        guard let dateString = userPreferencesCache.string(forKey: "debugDateToday"),
           let date = Format.dates.SQLDateFormatter.date(from: dateString) else {
-            return nil 
+            return DateComponents(calendar: .autoupdatingCurrent,year: 2018, month: 10, day: 19, hour: 9, minute: 30).date! 
         }
         return date
       } 

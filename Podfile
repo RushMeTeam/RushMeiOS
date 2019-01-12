@@ -8,7 +8,9 @@ target 'RushMe' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 #   pod 'NVActivityIndicatorView'
   pod 'DeviceKit', '~> 1.3'
-  pod 'UIImageColors'
+  #pod 'UIImageColors'
+  pod 'FSCalendar'
+
 
   # Pods for RushMe
   target 'RushMeTests' do

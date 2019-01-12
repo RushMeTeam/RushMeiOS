@@ -90,9 +90,9 @@ class Campus {
             return
         }
         
-        if let fratArray = try? Backend.selectAll(fromTable: Database.keys.database.fraternities),
+        if let fratArray = try? Backend.selectAll(fromTable: RMDatabase.fraternitiesPath),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
-          let eventArr = try? Backend.selectAll(fromTable: Database.keys.database.events) {
+          let eventArr = try? Backend.selectAll(fromTable: RMDatabase.eventsPath) {
           dictArray = fratArray
           eventArray = eventArr
           self.lastDictArray = dictArray

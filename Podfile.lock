@@ -1,17 +1,17 @@
 PODS:
   - DeviceKit (1.8.1)
+  - FSCalendar (2.7.9)
   - iCalKit (0.1.0)
-  - UIImageColors (2.0.1)
 
 DEPENDENCIES:
   - DeviceKit (~> 1.3)
+  - FSCalendar
   - iCalKit (from `https://github.com/kiliankoe/iCalKit.git`)
-  - UIImageColors
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DeviceKit
-    - UIImageColors
+    - FSCalendar
 
 EXTERNAL SOURCES:
   iCalKit:
@@ -24,9 +24,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   DeviceKit: eb29be542f5473b46b1c719011cf7de3ec5264ca
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   iCalKit: 6fc24b368fe28588ec9137b28d6c79636368ca4d
-  UIImageColors: c83669aff7ceb55a3b3f2c398f3b5c14632a267b
 
-PODFILE CHECKSUM: 4e5d99a074d8c9c6b24309a10246ae830a7b69a8
+PODFILE CHECKSUM: 85c7d1b7f7524a95b583e12b2858c1f42d865b5c
 
 COCOAPODS: 1.5.2

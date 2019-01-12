@@ -25,7 +25,7 @@ class Notifications : NSObject {
         (settings.authorizationStatus == .notDetermined && requestAuthorization) else {
           return
       }
-      removePendingNotifications()
+      removeAllNotifications()
       update(selected: types)
     }
   }
@@ -55,9 +55,11 @@ class Notifications : NSObject {
     for type in Set<Trigger>(types) {
       switch type {
       case .Scheduled:
-        addDailyNotifications(for: eventsByDay(withFilter: isValidDailyEvent))
+        add(notificationsFor: User.session.selectedEvents.filter(isValidDailyEvent), grouping: [.day, .month, .year])
+//        addDailyNotifications(for: eventsByDay(withFilter: isValidDailyEvent))
       case .Reminder:
-        addReminderNotifications(for: eventsByDay(withFilter: isValidReminderEvent))
+        add(notificationsFor: User.session.selectedEvents.filter(isValidReminderEvent), grouping: [.day, .month, .year, .hour])
+//        addReminderNotifications(for: eventsByDay(withFilter: isValidReminderEvent))
       default:
         print("Notifications/Update: Unimplemented type requested...")
 //      case .Push:
@@ -66,7 +68,7 @@ class Notifications : NSObject {
     }
   }
   
-  private static func removePendingNotifications() {
+  private static func removeAllNotifications() {
     UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
       //print("Notifications/PrintPending: \(requests.count) pending notification request\(requests.count == 1 ? "" : "s")")
       var outStr = ""
@@ -77,7 +79,12 @@ class Notifications : NSObject {
         outStr += " \(count) \(type)\(type == Trigger.allCases.last! ? "" : ",")"
       }
       //print(outStr)
+      DispatchQueue.main.async {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+      }
+      
       UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+      UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
   }
   private static func addReminderNotifications(for eventsByDay : Dictionary<Date, Set<Fraternity.Event>>) {
@@ -86,22 +93,21 @@ class Notifications : NSObject {
       for event in events  {
         let content = UNMutableNotificationContent()
         content.title = "\(event.frat.name) is having an event!"
-        content.body = "\(event.name) starts at \(event.starting.hour)."
-        content.body += " Head over to \(event.location ?? event.frat.name) to learn more."
+        if let hour = event.starting.components.hour {
+          content.body = "\(event.name) starts at \(hour). "
+        }
+        content.body += "Head over to \(event.location ?? event.frat.name) to learn more."
         
-        var triggerDate = event.starting
-        // add the difference between event date and debug date to current date
-        // triggerDate = (debugDate - eventDate) + currentDate
-        
+        var eventDate = event.starting
+
         if let debugDate = User.debug.debugDate {
-          let diff = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: debugDate, to: triggerDate)
-          triggerDate = Calendar.current.date(byAdding: diff, to: Date(), wrappingComponents: false)!
+          // add the difference between event date and debug date to current date
+          // triggerDate = (debugDate - eventDate) + currentDate
+          let diff = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: debugDate, to: eventDate)
+          eventDate = Calendar.current.date(byAdding: diff, to: Date(), wrappingComponents: false)!
         }
         
-        let triggerDateComponents = DateComponents(year: triggerDate.year, month: triggerDate.month,
-                                                   day:  triggerDate.day,  hour: triggerDate.hour,
-                                                   minute: max(triggerDate.minute - 15, 0))
-        
+        let triggerDateComponents = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day, .hour, .minute], from: eventDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
         let request = UNNotificationRequest(identifier: Trigger.Reminder.rawValue + "-" + event.name, content: content, trigger: trigger)
         if let _ = notificationsByDay[triggerDateComponents] {
@@ -115,14 +121,107 @@ class Notifications : NSObject {
       UNUserNotificationCenter.current().add(request) { (error) in
         if let description = error?.localizedDescription {
           print("Notifications/AddReminder/Error: \(description)")
-//          print("\t\t\tTrigger DateComponents: \(String(describing: triggerDateComponents))")
         }
       }
     }
-    
   }
   
-  
+  private static func add(notificationsFor events : Set<Fraternity.Event>, grouping : Set<Calendar.Component>) {
+    var triggers = Set<UNCalendarNotificationTrigger>()
+    events.forEach { (event) in
+      let components = Calendar.autoupdatingCurrent.dateComponents(grouping, from: event.starting)
+      triggers.insert(UNCalendarNotificationTrigger(dateMatching: components, repeats: false))
+    }
+    
+    var remainingEvents = events
+    var requests = [UNNotificationRequest]()
+    
+    for trigger in triggers {
+      let triggeredEvents = remainingEvents.filter { (event) -> Bool in
+        let components = Calendar.autoupdatingCurrent.dateComponents(grouping, from: event.starting)
+        return trigger.dateComponents == components
+      }.sorted(by: <)
+      let fraternities = triggeredEvents.map { (event) -> Fraternity in
+        return event.frat
+      }
+      guard let firstEvent = triggeredEvents.first else {
+        print("No first event!")
+       continue 
+      }
+      let content = UNMutableNotificationContent()
+
+      switch fraternities.count {
+      case 0 :
+        print("Error! No Events Today!")
+        break
+      case 1:
+        // Chi Phi has an event soon!
+        // Alpha Chi Rho has events today!
+        content.title = "\(fraternities[0].name) has \(triggeredEvents.count > 1 ? "events" : "an event") \(grouping.contains(.hour) ? "soon" : "today")!"
+      case 2:
+        // Chi Phi and Alpha Chi Rho have events soon!
+        // Chi Phi and Alpha Chi Rho have events today!
+        content.title = "\(fraternities[0].name) and \(fraternities[1].name) have events \(grouping.contains(.hour) ? "soon" : "today")!"
+      case 3:
+        // Chi Phi, Alpha Chi Rho, and Pi Kappa Alpha have events soon!
+        // Chi Phi, Alpha Chi Rho, and Pi Kappa Alpha have events today!
+        content.title = "\(fraternities[0].name), \(fraternities[1].name), and \(fraternities[2].name) have events \(grouping.contains(.hour) ? "soon" : "today")!"
+      default:
+        // Chi Phi, Alpha Chi Rho, and 5 others have events soon!
+        // Chi Phi, Alpha Chi Rho, and 5 others have events today!
+        content.title = "\(fraternities[0].name), \(fraternities[1].name), and \(fraternities.count - 2) others have events \(grouping.contains(.hour) ? "soon" : "today")!"
+      }
+
+      // Chi Phi's event, Casino Night, starts at 10 AM. Head to Freshman Circle to learn more.
+      if let hour = triggeredEvents.first?.starting.components.hour {
+        let hourString = "\(hour > 12 ? hour - 12 : hour) \(hour >= 12 ? "PM" : "AM")"
+        content.body = "\(firstEvent.frat.name)'s event, \(firstEvent.name), starts at \(hourString). "
+        if let location = firstEvent.location {
+          content.body += "Head to \(location) to learn more!"
+        } else if let location = firstEvent.frat.address {
+          content.body += "Head to the \(firstEvent.frat.name.greekLetters) house, \(location), to learn more!"
+        }
+      } else {
+       content.body = "Tap to learn more!" 
+      }
+      
+      var requestTrigger = trigger
+      if let debugDate = User.debug.debugDate {
+        // add the difference between event date and debug date to current date
+        // triggerDate = (debugDate - eventDate) + currentDate
+        let eventDate = Calendar.current.date(from: trigger.dateComponents)!
+        let diff = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: debugDate, to: eventDate)
+        let triggerDate = Calendar.current.date(byAdding: diff, to: Date(), wrappingComponents: false)!
+        let triggerDateComponents = Calendar.autoupdatingCurrent.dateComponents(grouping, from: triggerDate)
+        requestTrigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
+      } 
+      
+      let request = UNNotificationRequest(identifier: Trigger.Scheduled.rawValue + " " + String(describing: trigger.dateComponents), 
+                                          content: content, 
+                                          trigger: requestTrigger)
+      requests.append(request)
+      remainingEvents.subtract(triggeredEvents)
+    }
+    
+    UNUserNotificationCenter.current().requestAuthorization(
+      options: [.alert, .badge],
+      completionHandler: { (authorized, error) in
+        guard error == nil, authorized else  {
+          print("Notifications/Authorization/Error: \(error?.localizedDescription ?? "None"))")
+          print("\tAuthorization: \(authorized ? "yes"  : "blocked")")
+          return
+        }
+        for request in requests {
+          UNUserNotificationCenter.current().add(request) { (error) in
+            if let description = error?.localizedDescription {
+              print("Notifications/Add/Error: \(description)")
+              print("\t\t\tTrigger DateComponents: \(request.trigger.debugDescription)")
+            }
+          }
+        }
+    })
+  }
+    
   private static func addDailyNotifications(for eventsByDay : Dictionary<Date, Set<Fraternity.Event>>) {
     // Add single notification with day's descriptions
     
@@ -144,15 +243,16 @@ class Notifications : NSObject {
         triggerDate = Calendar.current.date(byAdding: diff, to: Date(), wrappingComponents: false)!
       }
       
-      let triggerDateComponents = DateComponents(year: triggerDate.year, month: triggerDate.month,
-                                                 day: triggerDate.day,   hour: 10)
+      var triggerDateComponents = Calendar.autoupdatingCurrent.dateComponents([.year, .month, .day], from: triggerDate)
+      triggerDateComponents.hour = 10
+
       
       let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
-      let request = UNNotificationRequest(identifier: Trigger.Scheduled.rawValue + " " + String(describing: day), content: content, trigger: trigger)
+      let request = UNNotificationRequest(identifier: Trigger.Scheduled.rawValue + " " + String(describing: trigger.dateComponents), content: content, trigger: trigger)
       UNUserNotificationCenter.current().add(request) { (error) in
         if let description = error?.localizedDescription {
           print("Notifications/AddDaily/Error: \(description)")
-          print("\t\t\tTrigger DateComponents: \(String(describing: triggerDateComponents))")
+          print("\t\t\tTrigger DateComponents: \(String(describing: trigger.dateComponents))")
         }
       }
     }

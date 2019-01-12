@@ -53,7 +53,7 @@ ScrollableItem {
 //      let fullyAdjustedDay = Calendar.current.date(byAdding: .month, 
 //                                                             value: indexPath.section/7, 
 //                                                             to: dayAdjustedForWeekDayAndWeek)
-    var daysDifference : Int = indexPath.section%7 + indexPath.row*7 - todayDate.weekday%7 
+    var daysDifference : Int = indexPath.section%7 + indexPath.row*7 - todayDate.components.weekday!%7 
     daysDifference += (indexPath.section/7)*28
     guard let fullyAdjustedDay = Calendar.current.date(byAdding: .day, 
                                                        value: daysDifference, 
@@ -231,9 +231,9 @@ ScrollableItem {
     guard let cell = basicCell as? CalendarCollectionViewCell else {
       return basicCell 
     }
-    cell.set(isGrayedOut: today.month != todayDate.month)
-    cell.set(isToday: today.month == todayDate.month && today.day == todayDate.day)
-    cell.set(day: today.day, eventCount: events(forIndexPath: indexPath).count)
+    cell.set(isGrayedOut: today.components.month != todayDate.components.month)
+    cell.set(isToday: today.components.month == todayDate.components.month && today.components.day == todayDate.components.day)
+    cell.set(day: today.components.day!, eventCount: events(forIndexPath: indexPath).count)
     return cell
   }
   

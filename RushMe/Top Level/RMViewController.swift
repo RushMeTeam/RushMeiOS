@@ -20,7 +20,8 @@ class RMViewController: ScrollPageViewController,
     self.titleImageView.addGestureRecognizer(User.debug.enableDebugGestureRecognizer)
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
+                                //UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
+                                UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
   }
   
@@ -77,6 +78,7 @@ class RMViewController: ScrollPageViewController,
     scrollView?.isUserInteractionEnabled = !(position == .right || position == .rightMost)
     scrollView?.isScrollEnabled = position == .right
     (currentViewController as? ScrollableItem)?.updateData()
+    UIApplication.shared.resignFirstResponder()
   }
   // MARK: UIPageViewControllerDelegate
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, 

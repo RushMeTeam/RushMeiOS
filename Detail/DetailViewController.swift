@@ -9,7 +9,6 @@
 
 import UIKit
 import MapKit
-import UIImageColors
 
 class DetailViewController: UIViewController, 
 UIScrollViewDelegate, 
