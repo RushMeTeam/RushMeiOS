@@ -1,6 +1,6 @@
 PODS:
-  - DeviceKit (1.8.1)
-  - FSCalendar (2.7.9)
+  - DeviceKit (1.11.0)
+  - FSCalendar (2.8.0)
   - iCalKit (0.1.0)
 
 DEPENDENCIES:
@@ -23,8 +23,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/kiliankoe/iCalKit.git
 
 SPEC CHECKSUMS:
-  DeviceKit: eb29be542f5473b46b1c719011cf7de3ec5264ca
-  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  DeviceKit: a3a86f8dddbe1317a9a243cdf9646858bf135dce
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   iCalKit: 6fc24b368fe28588ec9137b28d6c79636368ca4d
 
 PODFILE CHECKSUM: 85c7d1b7f7524a95b583e12b2858c1f42d865b5c

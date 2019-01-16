@@ -423,8 +423,8 @@
 			isa = PBXGroup;
 			children = (
 				DB38BC5D217F960400452B15 /* EventList.storyboard */,
-				DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */,
 				DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */,
+				DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -461,7 +461,6 @@
 		DB51500D215030F8006BC05A /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				DBAFB1A721EA9CA30089CECA /* DIYCalendarCell.swift */,
 				DB2338A81FD4F53300FB7118 /* RushCalendar.swift */,
 				DBAFB1A421EA60E60089CECA /* RMCalendar */,
 				DB1048252185345A00EDDFB2 /* Calendar */,
@@ -504,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAFB1A521EA611F0089CECA /* RMCalendarViewController.swift */,
+				DBAFB1A721EA9CA30089CECA /* DIYCalendarCell.swift */,
 			);
 			path = RMCalendar;
 			sourceTree = "<group>";

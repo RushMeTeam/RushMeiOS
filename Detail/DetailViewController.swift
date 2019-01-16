@@ -76,8 +76,9 @@ UIViewControllerPreviewingDelegate {
   
   var selectedFraternity: Fraternity? = nil {
     didSet {
-      eventViewController?.selectedEvents = 
-        Array(selectedFraternity?.events ?? [])
+      if let events = selectedFraternity?.events {
+        eventViewController?.selectedEvents = events
+      }
       title = selectedFraternity?.name.greekLetters
     }
   }

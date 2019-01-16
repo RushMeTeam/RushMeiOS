@@ -24,7 +24,7 @@ class SWViewController: SWRevealViewController {
     setFront(splitVC, animated: false)
     setRear(drawerMenuVC, animated: false)
     
-    frontViewShadowOpacity = Frontend.colors.SlideOutMenuShadowIsEnabled ? 0.5 : 0
+    frontViewShadowOpacity = Frontend.colors.SlideOutMenuShadowIsEnabled ? 0.7 : 0
     frontViewShadowRadius = Frontend.colors.SlideOutMenuShadowIsEnabled ? 8 : 0
     
     rearViewRevealOverdraw = 0

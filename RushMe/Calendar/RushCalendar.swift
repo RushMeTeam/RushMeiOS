@@ -63,13 +63,7 @@ class RushCalendar {
   }
  
   
-  var firstDate : Date? {
-    get {
-     return firstEvent?.starting.dayDate 
-    }
-  }
-  
-  var firstEvent : Fraternity.Event? {
+  var earliestEvent : Fraternity.Event? {
     get {
       guard let key = eventsByDay.keys.min() else {
         return nil 
@@ -84,11 +78,11 @@ class RushCalendar {
     }
   }
   
-  func eventsOn(_ date : Date) -> Set<Fraternity.Event>? {
+  func eventsOn(_ date : Date) -> Set<Fraternity.Event> {
     return eventsByDay[date.dayDate]?.filter({ (event) -> Bool in
       return User.preferences.considerPastEvents
         || event.ending > (User.debug.debugDate ?? Date())
-    })
+    }) ?? Set<Fraternity.Event>()
   }
 }
 

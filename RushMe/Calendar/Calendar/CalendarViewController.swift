@@ -69,16 +69,15 @@ ScrollableItem {
     return fullyAdjustedDay
   }
   
-  internal func events(forIndexPath indexPath : IndexPath) -> [Fraternity.Event] {
-    guard let today = dateKey(from: indexPath), 
-      let todaysEvents = RushCalendar.shared.eventsOn(today)?.filter({ (event) -> Bool in
-        return (!viewingFavorites || event.frat.isFavorite) &&
-                (User.preferences.considerPastEvents || event.starting >= .today)
-      }) else {
+  internal func events(forIndexPath indexPath : IndexPath) -> Set<Fraternity.Event> {
+    guard let today = dateKey(from: indexPath) else {
         return []
     }
     
-    return todaysEvents.sorted(by: <)
+    return RushCalendar.shared.eventsOn(today).filter({ (event) -> Bool in
+      return (!viewingFavorites || event.frat.isFavorite) &&
+        (User.preferences.considerPastEvents || event.starting >= .today)
+    })
   }
   
   var noEvents : Bool {
@@ -253,16 +252,17 @@ ScrollableItem {
     let todaysEvents = events(forIndexPath: indexPath)
     eventViewController!.selectedEvents = todaysEvents
     if let todaysEvent = todaysEvents.first {
-      dateLabel.text =
-        DateFormatter.localizedString(from: todaysEvent.starting,
-                                      dateStyle: .long,
-                                      timeStyle: .none)
-      self.dateLabel.text! += Calendar.current.isDate(todaysEvent.starting,
-                                                      inSameDayAs: .today) ? " (Today)" : ""
+      dateLabel?.text = "\(todaysEvents.count) Event\(todaysEvents.count == 1 ? "" : "s")"
+//      dateLabel.text =
+//        DateFormatter.localizedString(from: todaysEvent.starting,
+//                                      dateStyle: .long,
+//                                      timeStyle: .none)
+//      self.dateLabel.text! += Calendar.current.isDate(todaysEvent.starting,
+//                                                      inSameDayAs: .today) ? " (Today)" : ""
       UISelectionFeedbackGenerator().selectionChanged()
     }
     else {
-      dateLabel?.text = " "
+      dateLabel?.text = "No events"
     }
   }
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

@@ -35,6 +35,7 @@ struct Frontend {
   struct colors {
     // RGB 41 171 226
     static let AppColor : UIColor = User.debug.isEnabled ? .black : UIColor(red: 41.0/255.0, green: 171.0/255.0, blue: 226.0/255.0, alpha: 1)
+    static let SelectionColor : UIColor = UIColor.init(red: 235.0/255.0, green: 46.0/255.0, blue: 39.0/255.0, alpha: 1)
     static let NavigationItemsColor : UIColor = .white
     static let NavigationBarColor : UIColor = .white
     static let NavigationBarTintColor : UIColor = AppColor

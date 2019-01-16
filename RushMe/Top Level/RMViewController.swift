@@ -8,11 +8,12 @@
 
 import UIKit
 import UserNotifications
+import FSCalendar
 
 class RMViewController: ScrollPageViewController, 
-                        SWRevealViewControllerDelegate, 
-                        UIPageViewControllerDelegate, 
-                        UISplitViewControllerDelegate {
+  SWRevealViewControllerDelegate, 
+  UIPageViewControllerDelegate, 
+UISplitViewControllerDelegate {
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -21,13 +22,13 @@ class RMViewController: ScrollPageViewController,
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
                                 //UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
-                                UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
+      UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
+      UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
   }
   
   override var titleImage : UIImage {
     get {
-     return Frontend.images.logo 
+      return Frontend.images.logo 
     }
   }
   
@@ -51,7 +52,7 @@ class RMViewController: ScrollPageViewController,
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     revealViewController().panGestureRecognizer().isEnabled = false
-
+    
   }
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     progress = newValue
@@ -60,12 +61,20 @@ class RMViewController: ScrollPageViewController,
       if newValue == 1 {
         Notifications.refresh(requestAuthorization: false)
       } else {
-
+        
+      }
+      
+      if newValue == 1 {
+        for controller in self.pageViewControllers {
+          (controller as? UITableViewController)?.tableView?.reloadData()
+          (controller as? UICollectionViewController)?.collectionView?.reloadData()
+          (controller as? FSCalendarViewController)?.calendar.reloadData()
+        }
       }
     }
-    for updatable in pageViewControllers where updatable is ScrollableItem {
-     (updatable as! ScrollableItem).updateData()
-    }
+    //    for updatable in pageViewControllers where updatable is ScrollableItem {
+    //     (updatable as! ScrollableItem).updateData()
+    //    }
   }
   
   override func goToPage(page: Int, animated: Bool) {
@@ -89,7 +98,7 @@ class RMViewController: ScrollPageViewController,
     }
   }
   
- 
+  
   
 }
 
