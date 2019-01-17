@@ -10,78 +10,53 @@ import UIKit
 
 class EventTableViewCell: UITableViewCell {
   @IBOutlet var dateLabel: UILabel!
+  @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var fratButton: UIButton!
   @IBOutlet weak var eventNameLabel: UILabel!
-  @IBOutlet weak var fraternityNameLabel: UILabel!
   @IBOutlet weak var addButton: UIButton!
   
-  @IBAction func add(_ sender: UIButton) {
-    guard let _ = event else {
-      return }
-    if User.session.selectedEvents.contains(event!) {
-      User.session.selectedEvents.remove(event!)
-      
-    } else {
-      User.session.selectedEvents.insert(event!)
-      
-    } 
-    updateButtonState()
-    
-  }
-  
-  private func updateButtonState() {
-    if !User.session.selectedEvents.contains(event!) {
-      addButton.setImage(UIImage.init(imageLiteralResourceName: "add"), for: .normal)
-    } else { 
-      addButton.setImage(UIImage.init(imageLiteralResourceName: "XOutIcon"), for: .normal)
+  static var addImage : UIImage? {
+    get {
+     return UIImage(imageLiteralResourceName: "bellUnfilled")
     }
   }
+  static var removeImage : UIImage? {
+    get {
+      return UIImage(imageLiteralResourceName: "bell")
+    }
+  }
+  
+  func set(isFavorited : Bool) {
+    let newImage = isFavorited ? EventTableViewCell.removeImage : EventTableViewCell.addImage
+    addButton.setImage(newImage, for: .normal)
+  }
+  
   var event : Fraternity.Event? = nil {
     didSet {
       if let event = self.event {
-        updateButtonState()
-        self.fraternityNameLabel.isHidden = false
         self.eventNameLabel.isHidden = false
         self.textLabel?.isHidden = true
         let end = event.ending.formatToHour()
         let start = event.starting.formatToHour()
-        self.dateLabel?.text = DateFormatter.localizedString(from: event.starting,
-                                                             dateStyle: .short,
-                                                             timeStyle: .none)
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "MM.dd.yy"
+        self.dateLabel?.text = formatter.string(from: event.starting)
+        let fratNameLocation = event.frat.name.uppercased() + (event.location != nil ? " | " + event.location! : "") 
+        self.fratButton.setTitle(fratNameLocation, for: .normal)
         if start != end {
-          let time = " " + start + "-" + end
-          self.dateLabel?.text?.append(time)
+          self.timeLabel?.text = start + " - " + end
         }
         self.eventNameLabel?.text = event.name
-        let greekLetters = event.frat.name.greekLetters
-        if greekLetters.count > 3 {
-          let letterArray = event.frat.name.replacingOccurrences(of: " of", with: " ").split(separator: " ").map { (subString) -> Character in
-            return subString.first ?? Character.init("")
-          }
-          var letters = ""
-          for i in 0...min(letterArray.count, 3)-1 {
-           letters.append(letterArray[i])
-          }
-          if letters.count < 2 {
-           self.fraternityNameLabel.text = greekLetters.substring(to: 3)
-          } else {
-            self.fraternityNameLabel.text = letters
-          }
-         // self.fraternityNameLabel?.text =
-        } else {
-         self.fraternityNameLabel.text = event.frat.name.greekLetters
-        }
       }
     }
   }
-  var provideDate : Bool = false 
   
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    super.awakeFromNib()
+    // Initialization code
+    self.layer.masksToBounds = false
     
-
+  }
 }
 
 extension String {

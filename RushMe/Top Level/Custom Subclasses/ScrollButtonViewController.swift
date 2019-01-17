@@ -10,7 +10,7 @@ import UIKit
 class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
   
   lazy var setupScrollView: Void = {
-    self.scrollView = UIScrollView.init(frame: CGRect.init(x: 0, y: view.bounds.height/2-view.bounds.width/2, width: view.bounds.width, height: view.bounds.width))
+    self.scrollView = UIScrollView(frame: CGRect.init(x: 0, y: view.bounds.height/2-view.bounds.width/2, width: view.bounds.width, height: view.bounds.width))
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(scrollView)
     NSLayoutConstraint.activate([
@@ -25,8 +25,11 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.bounces = false
+   
+    
+    let tapPage = UITapGestureRecognizer(target: self, action: #selector(scrollButtons(sender:)))
+    view.addGestureRecognizer(tapPage)
     view.addGestureRecognizer(scrollView.panGestureRecognizer)
-    scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scrollButtons(sender:))))
 
   }()
   private(set) var scrollView : UIScrollView!
@@ -41,6 +44,7 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
     }
   }
   lazy var buttons = [UIButton?](repeating: nil, count: buttonIcons.count)
+
   lazy var canvasViews : [UIView?] = [UIView?](repeating: nil, count: buttonIcons.count)
  
   var calculatedCurrentPage : Int {
@@ -49,26 +53,24 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
     }
   }
   private(set) var currentPage : Int = 1
+  
   func set(newCurrentPage : Int) {
     if newCurrentPage >= 0, newCurrentPage < buttons.count {
       currentPage = newCurrentPage
       scrollView.setContentOffset(CGPoint.init(x: 0, y: CGFloat(newCurrentPage)*scrollView.frame.height), animated: true)
     }
   }
+  
+  
+  
   @objc func scrollButtons(sender : UITapGestureRecognizer) {
-    for buttonView in canvasViews where buttonView != nil { 
-      if buttonView!.frame.contains(sender.location(in: scrollView)) {
-        scrollView.scrollRectToVisible(buttonView!.frame, animated: true)
-        return
-      }
-    }
     guard view.bounds.contains(sender.location(in: view)) else {
       return
     }
-    //let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
-    
-    //set(newCurrentPage: calculatedCurrentPage + increment)
+    let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
+    set(newCurrentPage: calculatedCurrentPage + increment)
   }
+
   override func awakeFromNib() {
     super.awakeFromNib()
   }
@@ -100,9 +102,21 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
         self.canvasViews[bNum]?.layoutSubviews()
       }
     }
+//    let tapButton = UITapGestureRecognizer(target: self, action: #selector(buttonHit(sender:)))
+//    //    scrollView.addGestureRecognizer(tapButton)
+//    //    view.addGestureRecognizer(tapButton)
+//    //    view.addGestureRecognizer(tapPage)
+//    for button in buttons  {
+//      button?.addGestureRecognizer(tapButton)
+//    }
+    
+    
+    
     scrollView.contentSize = CGSize.init(width: scrollView.bounds.width/2, height: CGFloat(buttonIcons.count)*scrollView.bounds.height)
     scrollView.contentOffset = CGPoint.init(x: 0, y: scrollView.bounds.height * CGFloat(currentPage))
   }
+  
+  
   
   override func viewDidLayoutSubviews() {
     _ = setupScrollView

@@ -30,7 +30,7 @@ UIScrollViewDelegate, UIViewControllerPreviewingDelegate {
   }
   var currentPage : UIView? {
     guard currentPageIndex >= 0 && currentPageIndex < pages.count else {
-      print("Current page index (\(currentPageIndex)) out of bounds for page list of size \(pages.count)")
+      print("ImagePageVC/Error: Current page index (\(currentPageIndex)) out of bounds for page list of size \(pages.count)")
       return nil 
     }
     return pages[currentPageIndex]

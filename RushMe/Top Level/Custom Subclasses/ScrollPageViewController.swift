@@ -64,7 +64,7 @@ class ScrollPageViewController: UIViewController,
       }
     }
   }
-  var currentPage : Int = 1 {
+  var currentPage : Int = 2 {
     didSet {
       (currentViewController as? ScrollableItem)?.updateData()
     }
@@ -75,7 +75,7 @@ class ScrollPageViewController: UIViewController,
     }
   }
   
-  static var startingPageIndex : Int = 1
+  static var startingPageIndex : Int = 2
   
   
   var transitioning = false
@@ -102,7 +102,7 @@ class ScrollPageViewController: UIViewController,
   private(set) var progressBar : UIProgressView!
   private lazy var setupProgressBar : Void = {
     progressBar = UIProgressView()
-    progressBar.tintColor = .white
+    progressBar.tintColor = Frontend.colors.AppColor
     progressBar.trackTintColor = .clear
     progressBar.progress = 0
     progressBar.translatesAutoresizingMaskIntoConstraints = false

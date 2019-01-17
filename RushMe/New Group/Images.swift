@@ -19,13 +19,16 @@ enum ImageQuality : String {
 extension UIImageView {
   func setImage(with rmURL: RMImageFilePath, onNewThread : Bool = true) {
     if (onNewThread) {
-      DispatchQueue.global(qos: .background).async {
+      self.image = nil
+      DispatchQueue.global(qos: .userInitiated).async {
         self.setImage(with: rmURL,onNewThread: false)
       }
       return
     }
     func setOnlyIfNull(newImage : UIImage) {
-      DispatchQueue.main.async { if self.image == nil { self.image = newImage } }
+      DispatchQueue.main.async { 
+        if self.image == nil { self.image = newImage } 
+      }
     }
     func handleDownloadedImage(imageData : Data?) {
       if let _ = imageData, let newImage = UIImage(data: imageData!) {
@@ -73,7 +76,7 @@ extension UIImage {
         try FileManager.default.createDirectory(at: User.files.fratImageURL, withIntermediateDirectories: false, attributes: nil)
       }
       catch let e {
-        print(e.localizedDescription)
+        print("UIImage/WriteToDisk/Error: \(e.localizedDescription)")
       }
     }
     if let imageData = self.pngData() {

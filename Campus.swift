@@ -30,14 +30,14 @@ class Campus {
   // The user's favorite fraternities
   
   // Returns whether favorite was added, false if it was already a favorite
-  func favorite(fratNamed newFavorite : String) -> Bool {
+  func favorite(frat newFavorite : Fraternity) -> Bool {
     if User.session.favoriteFrats.insert(newFavorite).inserted {
       return true
     }
     return false
   }
   // Returns whether favorite was removed
-  func unfavorite(fratNamed oldFavorite : String) -> Bool{
+  func unfavorite(frat oldFavorite : Fraternity) -> Bool{
     if let _ = User.session.favoriteFrats.remove(oldFavorite) {
       return true
     }
@@ -90,20 +90,38 @@ class Campus {
             return
         }
         
-        if let fratArray = try? Backend.selectAll(fromTable: Database.keys.database.fraternities),
+        if let fratArray = try? Backend.selectAll(fromTable: RMDatabase.fraternitiesPath),
           self.lastDictArray == nil || fratArray.count > self.lastDictArray!.count, 
-          let eventArr = try? Backend.selectAll(fromTable: Database.keys.database.events) {
+          let eventArr = try? Backend.selectAll(fromTable: RMDatabase.eventsPath) {
           dictArray = fratArray
           eventArray = eventArr
           self.lastDictArray = dictArray
         }
         dictArray.forEach({ (dict) in
-          if let frat = Fraternity(withDictionary: dict) {
-            try? Campus.shared.add(fraternity: frat) 
+          let prefix = "Backend/Pull/Fraternities/Error:"
+          guard let frat = Fraternity(withDictionary: dict) else {
+            print("\(prefix) cannot initialize fraternity")
+            return
           }
+          frat.register(withCampus: Campus.shared)
         })
         eventArray.forEach({ (dict) in
-          _ = RushCalendar.shared.add(eventDescribedBy: dict)
+          let prefix = "Backend/Pull/Events/Error:"
+          do {
+            try _ = RushCalendar.shared.add(eventDescribedBy: dict)
+          } catch RushCalendar.AddError.noFraternityName {
+            print("\(prefix) no fraternity name")
+          } catch RushCalendar.AddError.unknownFraternity(let unknownFratName) {
+            print("\(prefix) unknown fraternity \(unknownFratName)")
+          } catch RushCalendar.AddError.noEventName(let fraternity) {
+            print("\(prefix) no event name found for \(fraternity)'s event")
+          } catch RushCalendar.AddError.noValueFor(let key) {
+            print("\(prefix) no value for key \(key)")
+          } catch RushCalendar.AddError.cannotCast(let string, let toType) {
+            print("\(prefix) cannot cast \'\(string)\' to \(toType)")
+          } catch {
+            print("\(prefix) unknown")
+          }
         })
         self.percentageCompletion = 1
       } 
@@ -114,13 +132,13 @@ class Campus {
   }
   
   enum CampusError : Error {
-    case registrationError(fraternity: Fraternity)
-    case duplicateRegistration(fraternity : Fraternity)
+    case registrationError
+    case duplicateRegistration
   }
   
   fileprivate func add(fraternity frat : Fraternity) throws {
     if let _ = fraternitiesByName[frat.name] {
-      throw CampusError.duplicateRegistration(fraternity: frat)
+      throw CampusError.duplicateRegistration
     }
     else {
       self.fraternitiesByKey[frat.key] = frat
@@ -130,8 +148,8 @@ class Campus {
 }
 extension Campus {
   // Returns whether the Fraternity is now a favorite
-  func toggleFavorite(named fratName : String) -> Bool {
-    return unfavorite(fratNamed: fratName) ? false : favorite(fratNamed: fratName)
+  func toggleFavorite(frat : Fraternity) -> Bool {
+    return unfavorite(frat: frat) ? false : favorite(frat: frat)
   }
 }
 

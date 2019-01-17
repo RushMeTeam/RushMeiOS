@@ -6,6 +6,7 @@
 //  Copyright © 2017 4 1/2 Frat Boys. All rights reserved.
 //
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,12 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var scrollPageVC : RMViewController!
   var window: UIWindow?
   
-  func setupTestingEnvironment() {    
-    UserDefaults.standard.set(["Chi Phi", "Delta Tau Delta", 
-                               "Alpha Epsilon Phi"], forKey: "Favorites") 
-  }
+  let notificationDelegate = Notifications()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Set up Notification handling
+    let center = UNUserNotificationCenter.current()
+    center.delegate = notificationDelegate
     
     // Set up the window and UI hierarchy
     window = UIWindow(frame: UIScreen.main.bounds)
@@ -47,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Begin loading content
     Campus.shared.pullFromBackend()
     Backend.log(action: .AppEnteredForeground)
-    
     return true
   }
 
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //    completionHandler(shouldPerformActionFor(shortcutItem: shortcutItem))
     let shortcutType = shortcutItem.type
     guard let shortcutIdentifier = ShortCutIdentifier(identifier: shortcutType) else {
-      print("Could not initialize shortcutIdentifier!")
+      print("AppDelegate/Error: Could not initialize shortcutIdentifier!")
       completionHandler(false)
       return
     }
@@ -70,14 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if let _ = scrollPageVC, scrollPageVC.isViewLoaded {
       switch shortcutIdentifier {
-      case .Fraternities: scrollPageVC?.goToPage(page: 1, animated: false)
       case .Maps:         scrollPageVC?.goToPage(page: 0, animated: false)
+      case .Fraternities: scrollPageVC?.goToPage(page: 1, animated: false)
       case .Calendar:     scrollPageVC?.goToPage(page: 2, animated: false)
       }
     } else {
       switch shortcutIdentifier {
-      case .Fraternities: ScrollPageViewController.startingPageIndex = 1
       case .Maps:         ScrollPageViewController.startingPageIndex = 0
+      case .Fraternities: ScrollPageViewController.startingPageIndex = 1
       case .Calendar:     ScrollPageViewController.startingPageIndex = 2
       }
     }

@@ -1,6 +1,0 @@
-framework module Pods_RushMe {
-  umbrella header "Pods-RushMe-umbrella.h"
-
-  export *
-  module * { export * }
-}

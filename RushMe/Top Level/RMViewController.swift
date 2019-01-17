@@ -7,25 +7,28 @@
 //
 
 import UIKit
+import UserNotifications
+import FSCalendar
 
 class RMViewController: ScrollPageViewController, 
-                        SWRevealViewControllerDelegate, 
-                        UIPageViewControllerDelegate, 
-                        UISplitViewControllerDelegate {
+  SWRevealViewControllerDelegate, 
+  UIPageViewControllerDelegate, 
+UISplitViewControllerDelegate {
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-//    self.navigationItem.titleView?.tintColor = Frontend.colors.NavigationBarTintColor
     self.titleImageView.tintColor = Frontend.colors.NavigationBarTintColor
+    self.titleImageView.addGestureRecognizer(User.debug.enableDebugGestureRecognizer)
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
+                                //UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
+      UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
+      UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
   }
   
   override var titleImage : UIImage {
     get {
-     return Frontend.images.logo 
+      return Frontend.images.logo 
     }
   }
   
@@ -49,16 +52,32 @@ class RMViewController: ScrollPageViewController,
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     revealViewController().panGestureRecognizer().isEnabled = false
-
+    
   }
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     progress = newValue
     DispatchQueue.main.async {
       self.drawerButton.isEnabled = newValue == 1 || newValue == 0
+      if newValue == 1 {
+        Notifications.refresh(requestAuthorization: false)
+      } else {
+        
+      }
+      
+      if newValue == 1 {
+        for controller in self.pageViewControllers {
+          (controller as? UITableViewController)?.tableView?.reloadData()
+          (controller as? UICollectionViewController)?.collectionView?.reloadData()
+          if let calendar = (controller as? FSCalendarViewController)?.calendar {
+           calendar.reloadData()
+            calendar.select(User.debug.debugDate)
+          }
+        }
+      }
     }
-    for updatable in pageViewControllers where updatable is ScrollableItem {
-     (updatable as! ScrollableItem).updateData()
-    }
+    //    for updatable in pageViewControllers where updatable is ScrollableItem {
+    //     (updatable as! ScrollableItem).updateData()
+    //    }
   }
   
   override func goToPage(page: Int, animated: Bool) {
@@ -71,6 +90,7 @@ class RMViewController: ScrollPageViewController,
     scrollView?.isUserInteractionEnabled = !(position == .right || position == .rightMost)
     scrollView?.isScrollEnabled = position == .right
     (currentViewController as? ScrollableItem)?.updateData()
+    UIApplication.shared.resignFirstResponder()
   }
   // MARK: UIPageViewControllerDelegate
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, 
@@ -80,6 +100,8 @@ class RMViewController: ScrollPageViewController,
       pageViewController.title = frat.name.greekLetters
     }
   }
+  
+  
   
 }
 

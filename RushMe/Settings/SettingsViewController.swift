@@ -16,16 +16,22 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var qualityPicker: UISegmentedControl!
   // Allow user to choose whether to display/consider past events
   @IBOutlet weak var displayPastEventsSwitch: UISwitch!
-  @IBOutlet weak var dateLabel: UILabel!
 
-
+  @IBOutlet weak var shuffleFraternitiesSwitch: UISwitch!
+  
   @IBOutlet weak var appVersionLabel: UILabel!
   
+  @IBOutlet weak var debugStackView: UIStackView!
+  
+  
+  @IBOutlet weak var simulateDateButton: UIButton!
+  @IBOutlet weak var simulatedDatePicker: UIDatePicker!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     let buildVersion = (User.device.properties["appv"] as! String).split(separator: "-")
     appVersionLabel.text = "RushMe Version \(buildVersion[0]) Build \(buildVersion[1])"
+    appVersionLabel.textColor = Frontend.colors.AppColor
     //if (self.revealViewController() != nil) {
       // Allow drawer button to toggle the lefthand drawer menu
       // Allow drag to open drawer, tap out to close
@@ -34,11 +40,14 @@ class SettingsViewController: UIViewController {
     //}
   
     // Visual details
+    self.shuffleFraternitiesSwitch.tintColor = Frontend.colors.AppColor
+    self.shuffleFraternitiesSwitch.onTintColor = Frontend.colors.AppColor
     self.qualityPicker.tintColor = Frontend.colors.AppColor
+    
     self.displayPastEventsSwitch.tintColor = Frontend.colors.AppColor
     self.displayPastEventsSwitch.onTintColor = Frontend.colors.AppColor
     // Update UI to match current settings
-    dateLabel.text = DateFormatter.localizedString(from: .today, dateStyle: .medium, timeStyle: .short)
+    
     displayPastEventsSwitch.isOn = User.preferences.considerPastEvents
     if Campus.downloadedImageQuality == .High {
      qualityPicker.selectedSegmentIndex = 2
@@ -49,8 +58,14 @@ class SettingsViewController: UIViewController {
     if Campus.downloadedImageQuality == .Low {
       qualityPicker.selectedSegmentIndex = 0
     }
-    fraternitiesAlphabeticalSwitch.isOn = User.preferences.shuffleEnabled
+    
+    simulatedDatePicker.date = User.debug.debugDate ?? Date()
+    simulateDateButton.isEnabled = User.debug.debugDate != nil
+    
+    shuffleFraternitiesSwitch.isOn = User.preferences.shuffleEnabled
     clearCacheButton.isEnabled = FileManager.default.fileExists(atPath: User.files.fratImageURL.path)
+    
+    debugStackView.isHidden = !User.debug.isEnabled
   }
   
   
@@ -68,7 +83,7 @@ class SettingsViewController: UIViewController {
     }
     User.preferences.considerPastEvents = displayPastEventsSwitch!.isOn
     
-    User.preferences.shuffleEnabled = fraternitiesAlphabeticalSwitch.isOn
+    User.preferences.shuffleEnabled = shuffleFraternitiesSwitch.isOn
   }
 
   @IBAction func shuffleFraternitiesSwitch(_ sender: UISwitch) {
@@ -83,7 +98,17 @@ class SettingsViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  @IBOutlet weak var fraternitiesAlphabeticalSwitch: UISwitch!
+  @IBAction func simuatedDatePicked(_ sender: UIDatePicker) {
+    User.debug.debugDate = simulatedDatePicker.date
+    simulateDateButton.isEnabled = true
+  }
+  
+  @IBAction func disableDateSimulation(_ sender: UIButton) {
+    User.debug.debugDate = nil
+    simulatedDatePicker.date = Date()
+  }
+  
+  
   
   @IBOutlet weak var clearCacheButton: UIButton!
   @IBAction func clearCache(_ sender: UIButton) {

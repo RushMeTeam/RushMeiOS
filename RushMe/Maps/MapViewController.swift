@@ -12,6 +12,8 @@ import MapKit
 class MapViewController: UIViewController, 
   MKMapViewDelegate, 
 ScrollableItem {
+  @IBOutlet weak var navigationBarExtensionView: UIView!
+  
   func updateData() {
     DispatchQueue.main.async {
       self.loadViewIfNeeded()
@@ -53,7 +55,7 @@ ScrollableItem {
     fratNameButton.setTitle(nil, for: .normal)
     if viewingFavorites {
       let notFavorited = mapView.annotations.filter { (annotation) -> Bool in
-        return annotation.title == nil || !User.session.favoriteFrats.contains(annotation.title!!)
+        return annotation.title == nil || Campus.shared.fraternitiesByName[annotation.title!!]?.isFavorite ?? false
       }
       mapView.removeAnnotations(notFavorited)
     } else {
@@ -66,10 +68,14 @@ ScrollableItem {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedString.Key.foregroundColor: Frontend.colors.NavigationItemsColor]
-    // Do any additional setup after loading the view.
-    self.fratNameButton.title
+    self.favoritesControl.tintColor = Frontend.colors.NavigationBarTintColor
+    self.fratNameButton.tintColor = Frontend.colors.NavigationItemsColor
+    self.informationButton.tintColor = Frontend.colors.NavigationItemsColor
+    self.navigationBarExtensionView.backgroundColor = Frontend.colors.NavigationBarColor
+    
     self.mapView.delegate = self
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
@@ -102,9 +108,9 @@ ScrollableItem {
       mapView.addAnnotation(annotation)
       mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     }
-    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates == nil {
-     print(frat.name) 
-    }
+//    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates == nil {
+//     print(frat.name) 
+//    }
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -123,7 +129,7 @@ ScrollableItem {
   }
   
   @IBAction func goToFraternity(_ sender: Any) {
-    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
+//    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
@@ -144,8 +150,8 @@ ScrollableItem {
     return button
   }
   @objc func toggleFavorite(sender : UIBarButtonItem) {
-    if let fratName = sender.title {
-      sender.image = Campus.shared.toggleFavorite(named: fratName) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
+    if let fratName = sender.title, let frat = Campus.shared.fraternitiesByName[fratName] {
+      sender.image = Campus.shared.toggleFavorite(frat: frat) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
     }
   }
   

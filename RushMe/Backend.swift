@@ -14,6 +14,8 @@ enum ActionType : String {
   case FraternitySelected = "Fraternity Selected"
   case FraternityFavorited = "Fraternity Favorited"
   case FraternityUnfavorited = "Fraternity Unfavorited"
+  case EventSubscribed = "Event Subscribed"
+  case EventUnsubscribed = "Event Unsubscribed"
   case UserNavigated = "User Navigated"
   case AppEnteredForeground = "App Entered Foreground"
   case AppWillEnterBackground = "App Entering Background"
@@ -25,6 +27,8 @@ enum Action {
   case Selected(fraternity : Fraternity)
   case Favorited(fraternity : Fraternity)
   case Unfavorited(fraternity : Fraternity)
+  case Subscribed(event : Fraternity.Event)
+  case Unsubscribed(event : Fraternity.Event)
   case Navigated(to : String)
   case AppEnteredForeground
   case AppWillEnterBackground
@@ -214,6 +218,14 @@ class Backend {
       report["pact"] = ActionType.SQLError
       report["popt"] = description
       break
+    case .Subscribed(let event):
+      report["pact"] = ActionType.EventSubscribed
+      report["popt"] = "\(event.frat.name)-\(event.name)"
+      break
+    case .Unsubscribed(let event):
+      report["pact"] = ActionType.EventUnsubscribed
+      report["popt"] = "\(event.name) by \(event.frat.name)"
+      break
     }
     report["pact"] = (report["pact"] as! ActionType).rawValue
     return report
@@ -226,30 +238,28 @@ fileprivate extension URLRequest {
     self.init(url: URL(string: Backend.db)!)
     self.httpMethod = "POST"
     var actionAsString = "&"
-    action.forEach { (parameters) in
-      actionAsString += "\(parameters.key)=\((parameters.value as? String)  ?? "NULL")&"
+    action.forEach { (key, value) in
+      actionAsString += "\(key)=\((value as? String)  ?? "NULL")&"
     }
+//    print(actionAsString)
     self.timeoutInterval = 10
-    print(actionAsString)
     self.httpBody = actionAsString.data(using: .utf8)
   }
 }
 
 // TODO: Move this into the Backend Struct
-struct Database {
+struct RMDatabase {
+  static let fraternitiesPath = "fraternites.rushme"
+  static let eventsPath = "events.rushme"
   struct keys {
-    struct database {
-      static let fraternities = "fraternites.rushme"
-      static let events = "events.rushme"
-    }
     struct frat {
-      static let name = "name"       ; static let coverImage = "cover_image"
-      static let chapter = "chapter" ; static let coordinates = "coordinates"
-      static let gpa = "gpa"         ; static let memberCount = "member_count"
-      static let address = "address" ; static let description = "description"
-      static let key = "namekey"     ; static let previewImage = "preview_image"
-      static let profileImage = Database.keys.frat.key
-      static let calendarImage = Database.keys.frat.key
+      static let name    = "name"    ; static let coverImage   = "cover_image"
+      static let chapter = "chapter" ; static let coordinates  = "coordinates"
+      static let gpa     = "gpa"     ; static let memberCount  = "member_count"
+      static let address = "address" ; static let description  = "description"
+      static let key     = "namekey" ; static let previewImage = "preview_image"
+      static let profileImage = RMDatabase.keys.frat.key
+      static let calendarImage = RMDatabase.keys.frat.key
     }
     struct event {
       static let name = "event_name"      ; static let fratKey = "frat_name_key"
@@ -266,57 +276,54 @@ let defaultCoordinates = CLLocationCoordinate2D(latitude: 42.729305, longitude: 
 
 
 extension Date {
+  func sameDay(of date : Date) -> Bool {
+    return Calendar.current.isDate(self, inSameDayAs: date)
+  }
   static var today : Date {
-    get { return Date() }
+    get { return (User.debug.debugDate ?? Date()).dayDate }
   }
-  var month : Int {
-    get { return UIKit.Calendar.current.component(.month, from: self) }
-  }
-  var day : Int {
-    get { return UIKit.Calendar.current.component(.day, from: self) }
-  }
-  var year : Int {
-    get { return UIKit.Calendar.current.component(.year, from: self) }
-  }
-  var weekday : Int {
-    get { return UIKit.Calendar.current.component(.weekday, from: self) }
+  
+  var components : DateComponents {
+    get { return UIKit.Calendar.autoupdatingCurrent.dateComponents(in: .autoupdatingCurrent, from: self) } 
   }
 }
 
 extension RushCalendar {
-  func add(eventDescribedBy dict : Dictionary<String, Any>) -> Fraternity.Event? {
+  enum AddError : Error {
+    case noFraternityName
+    case noEventName(owningFraternity : Fraternity)
+    case unknownFraternity(_ : String)
+    case noValueFor(key : String)
+    case cannotCast(string : String, toType : String)
+  }
+  func add(eventDescribedBy dict : Dictionary<String, Any>) throws -> Fraternity.Event?  {
     //house, event_name, start_time, end_time, event_date, location
     // start_time, end_time, location possibly nil
-    guard let houseName = dict[Database.keys.event.fratKey] as? String else {
-      print("Could not initialize event component: house name")
-      return nil
+    guard let houseName = dict[RMDatabase.keys.event.fratKey] as? String else {
+      throw AddError.noFraternityName
     }
     guard let frat = Campus.shared.fraternitiesByKey[houseName] else {
-      print("Could not retrieve \(houseName)'s Fraternity object")
-      return nil
+      throw AddError.unknownFraternity(houseName)
     }
-    guard  let eventName = dict[Database.keys.event.name] as? String else {
-      print("Could not initialize \(houseName)'s event's name")
-      return nil
+    guard  let eventName = dict[RMDatabase.keys.event.name] as? String else {
+      throw AddError.noValueFor(key: "event name")
     }
-    guard  let eventDateRaw = dict[Database.keys.event.startTime] as? String else {
-      print("Could not initialize \(houseName)'s event's startTime (as String)")
-      return nil
+    guard  let eventDateRaw = dict[RMDatabase.keys.event.startTime] as? String else {
+      throw AddError.noValueFor(key: "startTime")
     }
     guard let eventDate = User.device.iso8601.date(from: eventDateRaw + ":00+00:00") else {
-      print("Could not initialize \(houseName)'s event's endDate \(eventDateRaw) (as Date)")
-      return nil
+      throw AddError.cannotCast(string : eventDateRaw, toType: "Date")
     }
     
     var interval = 0.0
-    if let durationRaw = (dict[Database.keys.event.duration] as? String)?.split(separator: ":"),
+    if let durationRaw = (dict[RMDatabase.keys.event.duration] as? String)?.split(separator: ":"),
       let hours = Int(durationRaw[0]),
       let mins = Int(durationRaw[1]){
       interval = Double(((hours * 60) + mins) * 60)
-    } else if let duration = dict[Database.keys.event.duration] as? String {
+    } else if let duration = dict[RMDatabase.keys.event.duration] as? String {
       print("Could not unpackage or initialize event duration \(duration)")
     }
-    let location = dict[Database.keys.event.location] as? String
+    let location = dict[RMDatabase.keys.event.location] as? String
     guard let event = Fraternity.Event(withName: eventName,  on: eventDate,
                                        heldBy: frat,         duration: interval,
                                        at: location)  else { return nil }
@@ -327,7 +334,7 @@ extension RushCalendar {
 
 extension Fraternity {
   convenience init?(withDictionary dict : Dictionary<String, Any>) {
-    guard let key = dict[Database.keys.frat.key] as? String else {
+    guard let key = dict[RMDatabase.keys.frat.key] as? String else {
       print("Could not initialize fraternity component: house key (no entry)")
       return nil
     }
@@ -335,19 +342,19 @@ extension Fraternity {
       print("Could not initialize fraternity component: house key (invalid entry = \(key))")
       return nil
     }
-    guard let name = dict[Database.keys.frat.name] as? String else {
+    guard let name = dict[RMDatabase.keys.frat.name] as? String else {
       print("Could not initialize fraternity component: house name (key = \(key))")
       return nil
     }
-    guard let description = dict[Database.keys.frat.description] as? String else {
+    guard let description = dict[RMDatabase.keys.frat.description] as? String else {
       print("Could not initialize \(name)'s description")
       return nil
     }
-    guard let chapter = dict[Database.keys.frat.chapter] as? String else {
+    guard let chapter = dict[RMDatabase.keys.frat.chapter] as? String else {
       print("Could not initialize \(name)'s chapter")
       return nil
     }
-    guard let memberCountRaw = dict[Database.keys.frat.memberCount] as? String else {
+    guard let memberCountRaw = dict[RMDatabase.keys.frat.memberCount] as? String else {
       print("Could not initialize \(name)'s member count (raw)")
       return nil
     }
@@ -358,23 +365,23 @@ extension Fraternity {
     
     
     var cImagePath : RMImageFilePath?
-    if let calendarImagePathRaw = dict[Database.keys.frat.calendarImage] as? String {
+    if let calendarImagePathRaw = dict[RMDatabase.keys.frat.calendarImage] as? String {
       cImagePath = RMImageFilePath(filename: calendarImagePathRaw)
     }
     
     var coImagePaths = [RMImageFilePath]()
-    if let coverImagePathRaw = dict[Database.keys.frat.coverImage] as? String {
+    if let coverImagePathRaw = dict[RMDatabase.keys.frat.coverImage] as? String {
       let path = RMImageFilePath(filename: coverImagePathRaw)
       coImagePaths.append(path)
     }
     
     let pImagePath = RMImageFilePath(filename: key + "prof")
     
-    let address = dict[Database.keys.frat.address] as? String
+    let address = dict[RMDatabase.keys.frat.address] as? String
     var coords : CLLocationCoordinate2D?
     
     if let _ = address, address!.lowercased() != "no house",
-      let coordinates = dict[Database.keys.frat.coordinates] as? [Double] {
+      let coordinates = dict[RMDatabase.keys.frat.coordinates] as? [Double] {
       coords = CLLocationCoordinate2D(latitude: coordinates[1], longitude: coordinates[0])
     }
     self.init(key: key,                         name: name,

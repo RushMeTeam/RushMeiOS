@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,6 +103,7 @@
                         <outlet property="fratNameButton" destination="ACS-2d-tnz" id="ANO-s2-ERa"/>
                         <outlet property="informationButton" destination="at7-2J-3La" id="4Pn-zQ-Qsa"/>
                         <outlet property="mapView" destination="QFy-K2-1IP" id="Uef-cG-STa"/>
+                        <outlet property="navigationBarExtensionView" destination="BJj-zP-gCR" id="wXq-9F-eB3"/>
                         <segue destination="WcR-8r-VHm" kind="showDetail" identifier="showDetail" id="0vb-WY-KIY"/>
                     </connections>
                 </viewController>
