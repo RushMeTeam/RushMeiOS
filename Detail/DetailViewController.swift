@@ -173,10 +173,7 @@ UIViewControllerPreviewingDelegate {
     profileImageView.layer.zPosition = -1
   }()
   lazy var setupCoverImageView : Void = {
-    coverImageView.layer.masksToBounds = true
     coverImageView.contentMode = UIView.ContentMode.scaleAspectFill
-    coverImageView.layer.masksToBounds = true
-    coverImageView.layer.cornerRadius = Frontend.cornerRadius
     coverImageView.clipsToBounds = true
     coverImageView.layer.zPosition = 9
   }()
@@ -204,8 +201,9 @@ UIViewControllerPreviewingDelegate {
       print("No Frat to configure view with!")
       return
     }
-    
-    if let imageVC = children.first as? ImagePageViewController {
+    if let imageVC = children.first(where: { (vc) -> Bool in
+      return (vc as? ImagePageViewController) != nil
+    }) as? ImagePageViewController {
       imageVC.imageNames = []
       // Update the user interface for the detail item.
       if let calendarImageURL = frat.calendarImagePath {
@@ -229,10 +227,6 @@ UIViewControllerPreviewingDelegate {
                                            Frontend.images.unfilledHeart
     favoritesButton.image = favoritesImage
     profileImageView.layer.borderColor = UIColor.groupTableViewBackground.cgColor
-    
-    
-    
-    
     
     favoritesButton.title = frat.name
     blockTextView.text = frat.description
@@ -263,7 +257,6 @@ UIViewControllerPreviewingDelegate {
       }
       DispatchQueue.main.async {
         self.eventViewController!.selectedEvents = [event]
-        self.eventViewController!.provideDate = true
       }
     }
   }()

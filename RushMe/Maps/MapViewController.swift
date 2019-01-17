@@ -129,7 +129,7 @@ ScrollableItem {
   }
   
   @IBAction func goToFraternity(_ sender: Any) {
-    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
+//    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {

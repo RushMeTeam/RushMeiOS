@@ -56,10 +56,8 @@ class Notifications : NSObject {
       switch type {
       case .Scheduled:
         add(notificationsFor: User.session.selectedEvents.filter(isValidDailyEvent), grouping: [.day, .month, .year])
-//        addDailyNotifications(for: eventsByDay(withFilter: isValidDailyEvent))
       case .Reminder:
         add(notificationsFor: User.session.selectedEvents.filter(isValidReminderEvent), grouping: [.day, .month, .year, .hour])
-//        addReminderNotifications(for: eventsByDay(withFilter: isValidReminderEvent))
       default:
         print("Notifications/Update: Unimplemented type requested...")
 //      case .Push:

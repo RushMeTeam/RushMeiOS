@@ -365,6 +365,7 @@
                         <outlet property="calendarHeightConstraint" destination="vpG-Gy-Mc0" id="P5I-ye-GnC"/>
                         <outlet property="containerView" destination="dDF-d7-Ksf" id="tjb-Pt-oh2"/>
                         <outlet property="dateLabel" destination="Pf1-CD-o4T" id="CrY-zk-Fc4"/>
+                        <segue destination="XeA-Kx-Ex7" kind="showDetail" identifier="showDetail" id="qee-8C-Tx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSk-zb-Wsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,6 +380,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDd-0t-oHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3175" y="4003"/>
+        </scene>
+        <!--detailPageVC-->
+        <scene sceneID="tcE-Af-d7q">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="detailPageVC" storyboardName="Main" referencedIdentifier="detailPageVC" id="XeA-Kx-Ex7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLd-8Y-pOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4668" y="4555"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

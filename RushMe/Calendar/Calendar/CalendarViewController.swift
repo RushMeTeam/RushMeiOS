@@ -27,7 +27,7 @@ ScrollableItem {
   }
   
   // MARK: Constants
-  private(set) var eventViewController : EventTableViewController? = nil
+  private(set) var eventViewController : EventTableViewController! = nil
   // MARK: View IBOutlets
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var containerView: UIView!
@@ -44,15 +44,6 @@ ScrollableItem {
     }
   }
   func dateKey(from indexPath : IndexPath) -> Date? {
-//    guard let dayAdjustedForRow = Calendar.current.date(byAdding: .day, 
-//                                        value: indexPath.section%7 - todayDate.weekday, 
-//                                        to: todayDate),
-//      let dayAdjustedForWeekDayAndWeek = Calendar.current.date(byAdding: .weekOfYear, 
-//                                                            value: indexPath.row, 
-//                                                            to: dayAdjustedForRow),
-//      let fullyAdjustedDay = Calendar.current.date(byAdding: .month, 
-//                                                             value: indexPath.section/7, 
-//                                                             to: dayAdjustedForWeekDayAndWeek)
     var daysDifference : Int = indexPath.section%7 + indexPath.row*7 - todayDate.components.weekday!%7 
     daysDifference += (indexPath.section/7)*28
     guard let fullyAdjustedDay = Calendar.current.date(byAdding: .day, 
@@ -61,11 +52,7 @@ ScrollableItem {
       else {
         return nil
     }
-//    if (indexPath.section >= 7) {
-//     return Calendar.current.date(byAdding: .day, value: 28, to: fullyAdjustedDay)!
-//    }
-    
-//    print("\(fullyAdjustedDay) in month \(month)")
+
     return fullyAdjustedDay
   }
   
@@ -250,15 +237,9 @@ ScrollableItem {
   func collectionView(_ collectionView: UICollectionView, 
                       didSelectItemAt indexPath: IndexPath) {
     let todaysEvents = events(forIndexPath: indexPath)
-    eventViewController!.selectedEvents = todaysEvents
-    if let todaysEvent = todaysEvents.first {
+    eventViewController.selectedEvents = todaysEvents
+    if let _ = todaysEvents.first {
       dateLabel?.text = "\(todaysEvents.count) Event\(todaysEvents.count == 1 ? "" : "s")"
-//      dateLabel.text =
-//        DateFormatter.localizedString(from: todaysEvent.starting,
-//                                      dateStyle: .long,
-//                                      timeStyle: .none)
-//      self.dateLabel.text! += Calendar.current.isDate(todaysEvent.starting,
-//                                                      inSameDayAs: .today) ? " (Today)" : ""
       UISelectionFeedbackGenerator().selectionChanged()
     }
     else {

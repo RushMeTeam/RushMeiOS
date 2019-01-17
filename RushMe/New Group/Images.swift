@@ -76,7 +76,7 @@ extension UIImage {
         try FileManager.default.createDirectory(at: User.files.fratImageURL, withIntermediateDirectories: false, attributes: nil)
       }
       catch let e {
-        print(e.localizedDescription)
+        print("UIImage/WriteToDisk/Error: \(e.localizedDescription)")
       }
     }
     if let imageData = self.pngData() {

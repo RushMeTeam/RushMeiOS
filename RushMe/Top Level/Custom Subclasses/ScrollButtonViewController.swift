@@ -70,14 +70,7 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
     let increment = (sender.location(in: view).y > scrollView.frame.midY) ? 1 : -1
     set(newCurrentPage: calculatedCurrentPage + increment)
   }
-  
-  @objc func buttonHit(sender : UITapGestureRecognizer) {
-    print("ah")
-//    guard view.bounds.contains(sender.location(in: view)) else {
-//      return
-//    }
-//    scrollView.scrollRectToVisible(sender.view!.frame, animated: true)
-  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
   }
@@ -104,7 +97,6 @@ class ScrollButtonViewController : UIViewController, UIScrollViewDelegate {
                                      newButton.bottomAnchor.constraint(equalTo: canvasView.bottomAnchor),
                                      newButton.topAnchor.constraint(equalTo: canvasView.topAnchor)])
         canvasViews[bNum] = canvasView
-        newButton.addTarget(self, action: #selector(buttonHit(sender:)), for: .touchUpInside)
       }
       else {
         self.canvasViews[bNum]?.layoutSubviews()

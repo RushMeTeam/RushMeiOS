@@ -16,11 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   let notificationDelegate = Notifications()
   
-  func setupTestingEnvironment() {    
-    UserDefaults.standard.set(["Chi Phi", "Delta Tau Delta", 
-                               "Alpha Epsilon Phi"], forKey: "Favorites") 
-  }
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Set up Notification handling
     let center = UNUserNotificationCenter.current()
@@ -66,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //    completionHandler(shouldPerformActionFor(shortcutItem: shortcutItem))
     let shortcutType = shortcutItem.type
     guard let shortcutIdentifier = ShortCutIdentifier(identifier: shortcutType) else {
-      print("Could not initialize shortcutIdentifier!")
+      print("AppDelegate/Error: Could not initialize shortcutIdentifier!")
       completionHandler(false)
       return
     }
@@ -75,14 +70,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if let _ = scrollPageVC, scrollPageVC.isViewLoaded {
       switch shortcutIdentifier {
-      case .Fraternities: scrollPageVC?.goToPage(page: 1, animated: false)
       case .Maps:         scrollPageVC?.goToPage(page: 0, animated: false)
+      case .Fraternities: scrollPageVC?.goToPage(page: 1, animated: false)
       case .Calendar:     scrollPageVC?.goToPage(page: 2, animated: false)
       }
     } else {
       switch shortcutIdentifier {
-      case .Fraternities: ScrollPageViewController.startingPageIndex = 1
       case .Maps:         ScrollPageViewController.startingPageIndex = 0
+      case .Fraternities: ScrollPageViewController.startingPageIndex = 1
       case .Calendar:     ScrollPageViewController.startingPageIndex = 2
       }
     }

@@ -117,7 +117,6 @@
 		DB81CC90217AA54F0075B688 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7561F894A910090DEC3 /* Info.plist */; };
 		DB81CC91217AA54F0075B688 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
 		DB81CC9A217AA54F0075B688 /* RushMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F75F1F894A910090DEC3 /* RushMeTests.swift */; };
-		DB81CC9B217AA54F0075B688 /* Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7611F894A910090DEC3 /* Info.plist */; };
 		DB81CC9C217AA54F0075B688 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFE20C07E4E006A850D /* SnapshotHelper.swift */; };
 		DB81CC9D217AA54F0075B688 /* RushMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F76A1F894A910090DEC3 /* RushMeUITests.swift */; };
 		DB81CC9F217AA54F0075B688 /* RushMeUITests-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DB0D5CFD20C07E4D006A850D /* RushMeUITests-Bridging-Header.h */; };
@@ -327,9 +326,9 @@
 			children = (
 				DB514FE921501C16006BC05A /* Frontend.swift */,
 				DB7E1DDE1F93C239002C6B80 /* Backend.swift */,
-				DB1D200321CECC76001A3D6E /* Notifications.swift */,
 				DB514FF8215026C2006BC05A /* Format.swift */,
 				DB79BB1420730F9F00411AB1 /* Observable.swift */,
+				DB1D200321CECC76001A3D6E /* Notifications.swift */,
 				DB51500221502E84006BC05A /* User */,
 				DBAF96D220BC6B2800165F5E /* Privacy */,
 				DB104820218532C400EDDFB2 /* Images */,
@@ -613,7 +612,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "4 1/2 Frat Boys";
 				TargetAttributes = {
 					DB05F7441F894A910090DEC3 = {
@@ -893,7 +892,6 @@
 				DB81CC90217AA54F0075B688 /* Info.plist in Sources */,
 				DB81CC91217AA54F0075B688 /* RushMe-Bridging-Header.h in Sources */,
 				DB81CC9A217AA54F0075B688 /* RushMeTests.swift in Sources */,
-				DB81CC9B217AA54F0075B688 /* Info.plist in Sources */,
 				DB81CC9C217AA54F0075B688 /* SnapshotHelper.swift in Sources */,
 				DB81CC9D217AA54F0075B688 /* RushMeUITests.swift in Sources */,
 				DB81CC9F217AA54F0075B688 /* RushMeUITests-Bridging-Header.h in Sources */,
@@ -1115,7 +1113,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1138,7 +1136,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 45;
 				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

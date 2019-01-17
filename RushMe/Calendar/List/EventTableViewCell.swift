@@ -11,7 +11,7 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
   @IBOutlet var dateLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
-  @IBOutlet weak var fratLabel: UILabel!
+  @IBOutlet weak var fratButton: UIButton!
   @IBOutlet weak var eventNameLabel: UILabel!
   @IBOutlet weak var addButton: UIButton!
   
@@ -41,16 +41,15 @@ class EventTableViewCell: UITableViewCell {
         let formatter = DateFormatter.init()
         formatter.dateFormat = "MM.dd.yy"
         self.dateLabel?.text = formatter.string(from: event.starting)
-        self.fratLabel?.text = event.frat.name.uppercased()
-        
+        let fratNameLocation = event.frat.name.uppercased() + (event.location != nil ? " | " + event.location! : "") 
+        self.fratButton.setTitle(fratNameLocation, for: .normal)
         if start != end {
-          self.timeLabel?.text = start
+          self.timeLabel?.text = start + " - " + end
         }
         self.eventNameLabel?.text = event.name
       }
     }
   }
-  var provideDate : Bool = false 
   
   override func awakeFromNib() {
     super.awakeFromNib()

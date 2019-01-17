@@ -22,7 +22,7 @@ UISplitViewControllerDelegate {
     self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
                                 UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
                                 //UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
-      UIStoryboard.init(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
+      UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
       UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
   }
   
@@ -68,7 +68,10 @@ UISplitViewControllerDelegate {
         for controller in self.pageViewControllers {
           (controller as? UITableViewController)?.tableView?.reloadData()
           (controller as? UICollectionViewController)?.collectionView?.reloadData()
-          (controller as? FSCalendarViewController)?.calendar.reloadData()
+          if let calendar = (controller as? FSCalendarViewController)?.calendar {
+           calendar.reloadData()
+            calendar.select(User.debug.debugDate)
+          }
         }
       }
     }

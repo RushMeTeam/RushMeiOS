@@ -39,9 +39,6 @@ class DIYCalendarCell: FSCalendarCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    //self.titleLabel.font.pointSize = 15
-
-    
     let circleImageView = UIView()
     self.contentView.insertSubview(circleImageView, at: 0)
     self.circleView = circleImageView
@@ -52,7 +49,7 @@ class DIYCalendarCell: FSCalendarCell {
     self.contentView.layer.insertSublayer(selectionLayer, below: self.titleLabel!.layer)
     self.selectionLayer = selectionLayer
     
-    self.shapeLayer.isHidden = true
+    self.shapeLayer.isHidden = false
     let view = UIView(frame: self.bounds)
     self.backgroundView = view
     
@@ -60,20 +57,10 @@ class DIYCalendarCell: FSCalendarCell {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    self.circleView.frame = self.contentView.bounds
-    self.backgroundView?.frame = self.bounds.insetBy(dx: 1, dy: 1)
-    self.selectionLayer.frame = self.contentView.bounds
-    
-    //self.shapeLayer.path = UIBezierPath.init(ovalIn: CGRect(x: self.contentView.frame.width / 2 - diameter / 2, y: self.contentView.frame.height / 2, width: diameter/3, height: diameter/3)).cgPath
-    
-    
-    
-    if selectionType == .single {
-      let diameter: CGFloat = min(self.titleLabel.frame.height, self.titleLabel.frame.width)
-      let rect = CGRect(x: self.contentView.frame.width/2 - diameter/2, y: self.titleLabel.frame.origin.y, width: diameter, height: diameter).insetBy(dx: 3, dy: 3)
-      
-      self.selectionLayer.path = UIBezierPath(ovalIn: rect).cgPath
-    }
+    self.circleView.frame = self.contentView.bounds.insetBy(dx: 2, dy: 2)
+    self.backgroundView?.frame = self.bounds
+    self.selectionLayer.frame = self.contentView.bounds.insetBy(dx: 2, dy: 2)
+  
   }
   
   override func configureAppearance() {

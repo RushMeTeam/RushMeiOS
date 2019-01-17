@@ -14,20 +14,18 @@ fileprivate let basicCellIdentifier = "basicCell"
 class EventTableViewController: UITableViewController {
   // Allow cells to provide the date
   // Useful if date is not implied/indicated anywhere else
-  var provideDate = false
   // MARK: Member Variables
   private(set) var subscribedEvents : [Fraternity.Event] = []
   private(set) var unsubscribedEvents : [Fraternity.Event] = []
   var selectedEvents : Set<Fraternity.Event> {
     set {
       DispatchQueue.global(qos: .userInteractive).async {
-//        let eventsChronologically = self.selectedEvents.sorted(by: <)
         self.subscribedEvents = newValue.filter({ (event) -> Bool in
-          return event.isSubscribed
-        })
+          return event.isSubscribed 
+        }).sorted(by: <)
         self.unsubscribedEvents = newValue.filter({ (event) -> Bool in
           return !event.isSubscribed
-        })
+        }).sorted(by: <)
         DispatchQueue.main.async {
           self.tableView.isScrollEnabled = newValue.count > 1
           self.tableView.reloadData()
@@ -38,7 +36,7 @@ class EventTableViewController: UITableViewController {
       }
     }
     get {
-     return Set<Fraternity.Event>(subscribedEvents + unsubscribedEvents) 
+      return Set<Fraternity.Event>(subscribedEvents + unsubscribedEvents) 
     }
   }
   
@@ -58,6 +56,7 @@ class EventTableViewController: UITableViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  
   // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,7 +67,13 @@ class EventTableViewController: UITableViewController {
                           canEditRowAt indexPath: IndexPath) -> Bool {
     return false
   }
-
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return section == 0 ? 0 : 8
+  }
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    return section == 0 ? nil : UIView()
+  }
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,15 +81,47 @@ class EventTableViewController: UITableViewController {
     let isSubscribed = indexPath.section == 0 && subscribedEvents.count > 0
     let event =  isSubscribed ? subscribedEvents[indexPath.row] : unsubscribedEvents[indexPath.row]
     cell.event = event
-    cell.provideDate = provideDate
     if isSubscribed {
       cell.addButton.tag = -(indexPath.row + 1) 
     } else {
       cell.addButton.tag = indexPath.row + 1
     }
+    cell.fratButton.tag = cell.addButton.tag
+    cell.addButton.isEnabled = (User.debug.debugDate ?? Date()) < event.starting
+  
+    cell.fratButton.isEnabled = parent?.canPerformSegue(withIdentifier: "showDetail") ?? false 
+    if cell.fratButton.isEnabled {
+      cell.fratButton.addTarget(self, action: #selector(fratNavigation(sender:)), for: .touchUpInside)
+    } 
     cell.addButton.addTarget(self, action: #selector(toggleAdd), for: .touchUpInside)
     cell.set(isFavorited: isSubscribed)
     return cell
+  }
+  
+  @objc func fratNavigation(sender : UIButton) {
+    let row = abs(sender.tag) - 1
+    let isSubscribed = sender.tag < 0
+    let event = (isSubscribed ? subscribedEvents[row] : unsubscribedEvents[row])
+    let fratName = event.frat.name
+    let actionVC = UIAlertController(title: event.frat.name + " - " + event.name, message: nil, preferredStyle: .actionSheet)
+    actionVC.addAction(UIAlertAction(title: "Copy event details", style: .default, handler: { (action) in
+      let end = event.ending.formatToHour()
+      let start = event.starting.formatToHour()
+      let formatter = DateFormatter.init()
+      formatter.dateFormat = "MM.dd.yy"
+      let startDate = formatter.string(from: event.starting)
+      UIPasteboard.general.strings = [event.name, startDate + " " + start + " - " + end, event.frat.name, event.location ?? event.frat.address ?? event.frat.name.greekLetters + " house"]
+    }))
+    if let canNavigateToFrat = self.parent?.canPerformSegue(withIdentifier: "showDetail"), canNavigateToFrat {
+      actionVC.addAction(UIAlertAction.init(title: event.frat.name.greekLetters + " profile", style: .default, handler: { (action) in
+        self.parent?.performSegueIfPossible(withIdentifier: "showDetail", sender: fratName)
+      }))
+    }
+    
+    actionVC.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+    self.parent?.present(actionVC, animated: true, completion: nil)
+    
+
   }
   
   @objc func toggleAdd(sender : UIButton) {
@@ -112,4 +149,18 @@ class EventTableViewController: UITableViewController {
   }
 }
 
-
+extension UIViewController {
+  func canPerformSegue(withIdentifier id: String) -> Bool {
+    guard let segues = self.value(forKey: "storyboardSegueTemplates") as? [NSObject] else { return false }
+    return segues.first { $0.value(forKey: "identifier") as? String == id } != nil
+  }
+  
+  /// Performs segue with passed identifier, if self can perform it.
+  func performSegueIfPossible(withIdentifier identifier: String?, sender: Any? = nil) {
+    guard let _ = identifier, canPerformSegue(withIdentifier: identifier!) else { 
+      print("Can't perform segue: \(identifier)")
+      return 
+    }
+    self.performSegue(withIdentifier: identifier!, sender: sender)
+  }
+}
