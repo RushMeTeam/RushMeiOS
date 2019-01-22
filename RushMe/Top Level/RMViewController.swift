@@ -19,9 +19,9 @@ UISplitViewControllerDelegate {
     super.init(coder: aDecoder)
     self.titleImageView.tintColor = Frontend.colors.NavigationBarTintColor
     self.titleImageView.addGestureRecognizer(User.debug.enableDebugGestureRecognizer)
-    self.pageViewControllers = [UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
-                                UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
-                                //UIStoryboard.main.instantiateViewController(withIdentifier: "calendarVC"),
+    self.pageViewControllers = [
+      UIStoryboard.main.instantiateViewController(withIdentifier: "mapVC"),
+      UIStoryboard.main.instantiateViewController(withIdentifier: "masterVC"),
       UIStoryboard(name: "Calendar", bundle: nil).instantiateViewController(withIdentifier: "rmCalendarVC"),
       UIStoryboard.main.instantiateViewController(withIdentifier: "settingsViewController")] 
   }
@@ -63,13 +63,10 @@ UISplitViewControllerDelegate {
       } else {
         
       }
-      
       if newValue == 1 {
         for controller in self.pageViewControllers {
-          (controller as? UITableViewController)?.tableView?.reloadData()
-          (controller as? UICollectionViewController)?.collectionView?.reloadData()
+          controller.viewWillAppear(false)
           if let calendar = (controller as? FSCalendarViewController)?.calendar {
-           calendar.reloadData()
             calendar.select(User.debug.debugDate)
           }
         }
@@ -89,8 +86,7 @@ UISplitViewControllerDelegate {
   func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
     scrollView?.isUserInteractionEnabled = !(position == .right || position == .rightMost)
     scrollView?.isScrollEnabled = position == .right
-    (currentViewController as? ScrollableItem)?.updateData()
-    UIApplication.shared.resignFirstResponder()
+
   }
   // MARK: UIPageViewControllerDelegate
   func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, 

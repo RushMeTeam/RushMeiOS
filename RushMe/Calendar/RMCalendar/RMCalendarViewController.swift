@@ -35,7 +35,7 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
   
   override func viewWillAppear(_ animated: Bool) {
     calendar.register(DIYCalendarCell.self, forCellReuseIdentifier: "cell") 
-
+    calendar.reloadData()
   }
   
   private func configureVisibleCells() {
@@ -62,7 +62,6 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     self.calendar.weekdayHeight = 10
     self.calendar.appearance.headerMinimumDissolvedAlpha = 0.2
     self.calendar.placeholderType = .none
-    self.calendar.select(Date())
     
     self.eventViewController = children.first as? EventTableViewController
     

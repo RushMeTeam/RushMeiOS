@@ -10,21 +10,9 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, 
-  MKMapViewDelegate, 
-ScrollableItem {
+  MKMapViewDelegate {
   @IBOutlet weak var navigationBarExtensionView: UIView!
   
-  func updateData() {
-    DispatchQueue.main.async {
-      self.loadViewIfNeeded()
-      self.loadAnnotationsIfNecessary(fromAllFrats: self.favoritesControl.selectedSegmentIndex == 0, animated: false) 
-      self.favoritesControl.isEnabled = Campus.shared.hasFavorites
-      if !Campus.shared.hasFavorites {
-        self.favoritesControl.selectedSegmentIndex = 0
-      }
-      self.viewWillAppear(false)
-    }
-  }
   lazy var indicator : UIActivityIndicatorView = UIActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: 128, height: 128))
   lazy var overView : UIVisualEffectView = {
     let newView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .light))
@@ -91,6 +79,11 @@ ScrollableItem {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     favoritesControl.isEnabled = Campus.shared.hasFavorites
+    if !Campus.shared.hasFavorites {
+      favoritesControl.selectedSegmentIndex = 0
+    }
+    loadAnnotationsIfNecessary(fromAllFrats: favoritesControl.selectedSegmentIndex == 0, animated: false) 
+    favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
   func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
@@ -128,8 +121,18 @@ ScrollableItem {
     informationButton.isHidden = true
   }
   
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    if let selected = mapView?.selectedAnnotations.first,
+      let name = selected.title,
+      let fratName = name,
+      Campus.shared.fraternityNames.contains(fratName) {
+      return true
+    }
+    return false
+  }
+  
   @IBAction func goToFraternity(_ sender: Any) {
-//    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
+    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
   }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {

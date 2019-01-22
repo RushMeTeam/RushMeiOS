@@ -35,10 +35,13 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8a-Xt-yTb">
-                                <rect key="frame" x="16" y="18" width="48" height="48"/>
+                                <rect key="frame" x="16" y="26" width="32" height="32"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="h8a-Xt-yTb" secondAttribute="height" multiplier="1:1" id="wl3-Bg-afd"/>
+                                </constraints>
                                 <color key="tintColor" red="0.16078431369999999" green="0.6705882353" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="BurgerIcon"/>
                             </button>
@@ -55,16 +58,22 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="Llm-lL-Icb" firstAttribute="bottom" secondItem="wD8-8u-w46" secondAttribute="bottom" constant="-44" id="1qK-WY-MSR"/>
+                            <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3cB-1j-4Uu"/>
                             <constraint firstAttribute="trailing" secondItem="wD8-8u-w46" secondAttribute="trailing" id="5uO-Bm-BOe"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Uqt-an-Wxo" secondAttribute="bottom" constant="8" id="7ya-UK-hwO"/>
-                            <constraint firstItem="Uqt-an-Wxo" firstAttribute="centerX" secondItem="kLT-7Q-iQm" secondAttribute="centerX" id="8UC-25-LN6"/>
                             <constraint firstItem="wD8-8u-w46" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OGo-k9-dh3"/>
                             <constraint firstItem="h8a-Xt-yTb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="16" id="U0S-cv-SuL"/>
+                            <constraint firstItem="h8a-Xt-yTb" firstAttribute="height" secondItem="kLT-7Q-iQm" secondAttribute="height" id="fYv-FQ-P5K"/>
                             <constraint firstItem="wD8-8u-w46" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="gfJ-G4-MKA"/>
                             <constraint firstItem="Uqt-an-Wxo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="iW8-Pb-ITc"/>
                             <constraint firstItem="kLT-7Q-iQm" firstAttribute="centerY" secondItem="h8a-Xt-yTb" secondAttribute="centerY" id="tBe-aS-iyC"/>
                             <constraint firstItem="kLT-7Q-iQm" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="6" id="wgs-d4-jfo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Uqt-an-Wxo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
