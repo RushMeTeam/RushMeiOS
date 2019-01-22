@@ -131,6 +131,7 @@ ScrollableItem {
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 5
     shareButton.isEnabled = !RushCalendar.shared.hasEvents
+    
   }
   
   @objc func handleRefresh() {

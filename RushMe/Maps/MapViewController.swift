@@ -39,7 +39,7 @@ class MapViewController: UIViewController,
   private(set) var fratAnnotations = [MKAnnotation]()
   
   @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
-    self.loadAnnotationsIfNecessary(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true, forced: true)
+    self.updateAnnotations(fromAllFrats: sender.selectedSegmentIndex == 0, animated: true, forced: true)
     fratNameButton.setTitle(nil, for: .normal)
     if viewingFavorites {
       let notFavorited = mapView.annotations.filter { (annotation) -> Bool in
@@ -68,7 +68,7 @@ class MapViewController: UIViewController,
     self.mapView.showAnnotations(self.mapView.annotations, animated: false)
     self.mapView.setCenter(self.center, animated: false)
     self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    self.loadAnnotationsIfNecessary(fromAllFrats: !viewingFavorites, animated: false) 
+    self.updateAnnotations(fromAllFrats: !viewingFavorites, animated: false) 
   }
   
   override func didReceiveMemoryWarning() {
@@ -82,17 +82,15 @@ class MapViewController: UIViewController,
     if !Campus.shared.hasFavorites {
       favoritesControl.selectedSegmentIndex = 0
     }
-    loadAnnotationsIfNecessary(fromAllFrats: favoritesControl.selectedSegmentIndex == 0, animated: false) 
+    updateAnnotations(fromAllFrats: favoritesControl.selectedSegmentIndex == 0, animated: false) 
     favoritesControl.isEnabled = Campus.shared.hasFavorites
   }
   // TODO : Fix favorites annotations BUG
-  func loadAnnotationsIfNecessary(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
-    self.indicator.startAnimating()
-    
-    self.mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
-
-    self.favoritesControl.isEnabled = Campus.shared.hasFavorites || favoritesControl.selectedSegmentIndex == 1
-    
+  func updateAnnotations(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
+    indicator.startAnimating()
+    mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
+    favoritesControl.isEnabled = Campus.shared.hasFavorites || favoritesControl.selectedSegmentIndex == 1
+    mapView.removeAnnotations(mapView.annotations)
     for frat in Campus.shared.fraternitiesByName.values where frat.coordinates != nil {
       let annotation = MKPointAnnotation()
       annotation.coordinate = frat.coordinates!
@@ -101,9 +99,6 @@ class MapViewController: UIViewController,
       mapView.addAnnotation(annotation)
       mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     }
-//    for frat in Campus.shared.fraternitiesByName.values where frat.coordinates == nil {
-//     print(frat.name) 
-//    }
     self.mapView.showAnnotations(self.mapView.annotations, animated: animated)
   }
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

@@ -22,7 +22,7 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     formatter.dateFormat = "yyyy/MM/dd"
     return formatter
   }()
-  private(set) var eventViewController : EventTableViewController?
+  private(set) var eventViewController : EventTableViewController!
   
   fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
     [unowned self] in
@@ -36,7 +36,14 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
   override func viewWillAppear(_ animated: Bool) {
     calendar.register(DIYCalendarCell.self, forCellReuseIdentifier: "cell") 
     calendar.reloadData()
+    if let (_, end) = RushCalendar.shared.dateRange,
+      end < .today {
+      eventViewController = children.first as? EventTableViewController
+      calendar.select(end)
+      self.calendar(calendar, didSelect: end, at: .current)
+    }
   }
+  
   
   private func configureVisibleCells() {
     calendar.visibleCells().forEach { (cell) in
@@ -47,7 +54,7 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
   }
   
   func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
-    self.configureVisibleCells()
+    configureVisibleCells()
   }
   
   override func viewDidLoad() {
@@ -62,8 +69,6 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     self.calendar.weekdayHeight = 10
     self.calendar.appearance.headerMinimumDissolvedAlpha = 0.2
     self.calendar.placeholderType = .none
-    
-    self.eventViewController = children.first as? EventTableViewController
     
     self.view.addGestureRecognizer(self.scopeGesture)
     self.eventViewController?.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
@@ -151,7 +156,6 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
       Backend.log(action: .Selected(fraternity: selectedFraternity))
       let controller = segue.destination as! UIPageViewController
       controller.title = fratName.greekLetters
-//      controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
       controller.title = fratName.greekLetters
       controller.view.backgroundColor = .white
       let dVC = UIStoryboard.main.detailVC
@@ -189,26 +193,22 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     configure(cell: cell, for: date, at: position)
   }
   
-  
   func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-    configureVisibleCells()
-    if let eventListVC = eventViewController {
-      let events = RushCalendar.shared.eventsOn(date)
-      let eventCount = events.count
-      eventListVC.selectedEvents = events
-      
-      dateLabel.text = "\(eventCount == 0 ? "No" : String(eventCount)) Event\(eventCount == 1 ? "" : "s")"
-      
-      UISelectionFeedbackGenerator().selectionChanged()
-    }
     if monthPosition == .next || monthPosition == .previous {
       calendar.setCurrentPage(date, animated: true)
     }
+    guard let eventListVC = eventViewController else {
+      print("No eventListVC!")
+      return
+    }
+    let events = RushCalendar.shared.eventsOn(date)
+    let eventCount = events.count
+    eventListVC.selectedEvents = events
+    dateLabel.text = "\(eventCount == 0 ? "No" : String(eventCount)) Event\(eventCount == 1 ? "" : "s")"
+    UISelectionFeedbackGenerator().selectionChanged()
   }
   
-//  func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-//    print("\(self.dateFormatter.string(from: calendar.currentPage))")
-//  }
+//  func calendarCurrentPageDidChange(_ calendar: FSCalendar) {}
   
   private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
     let diyCell = (cell as! DIYCalendarCell)

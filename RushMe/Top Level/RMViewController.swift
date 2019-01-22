@@ -66,9 +66,6 @@ UISplitViewControllerDelegate {
       if newValue == 1 {
         for controller in self.pageViewControllers {
           controller.viewWillAppear(false)
-          if let calendar = (controller as? FSCalendarViewController)?.calendar {
-            calendar.select(User.debug.debugDate)
-          }
         }
       }
     }

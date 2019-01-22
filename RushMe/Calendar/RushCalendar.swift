@@ -71,6 +71,15 @@ class RushCalendar {
       return eventsByDay[key]?.min(by: <)
     }
   }
+  var dateRange : (starts: Date, ends: Date)? {
+    get {
+      guard let starts = eventsByDay.keys.min(),
+        let ends = eventsByDay.keys.max() else {
+          return nil
+      }
+     return (starts, ends) 
+    }
+  }
   
   var hasEvents : Bool {
     get {
