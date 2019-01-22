@@ -1,4 +1,4 @@
-# RushMe
+# RushMeiOS
 [RushMe](https://github.com/RushMeTeam) is a platform to make Greek Life more accessible. As traditional fraternity rush campaigns leverage technology, physical calendars are succeeded by digital counterparts. By remaining open source, free, and school independent, RushMe has been developed with a strong Greek and student life in mind.
 
 Users of the iOS and Android Apps can see fraternity profiles, get directions to houses, and access organized event calendars. Moreover, the platform allows user to subscribe to events to receive notifications and favorite fraternities to receive unobtrustive daily digests during rush. An aggregate of all calendars, profile photos for each fraternity, and a location-based view of fraternities provides the student body with relevant information, fostering a campus' knowledge, interest, and participation in their Greek Life.
