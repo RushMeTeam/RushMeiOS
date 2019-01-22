@@ -4,9 +4,9 @@ RushMe is a web and mobile application created to help people interested in frat
 
 # Screenshots
 
-<img src= "https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-MenuOpen.png" alt="RushMe Menu" width="300" /><img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-FraternityDetail.png" alt="Fraternity Detail View" width="300" />
+<img src= "https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-MenuOpen.png" alt="RushMe Menu" width="300" hspace = "20" /><img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-FraternityDetail.png" alt="Fraternity Detail View" width="300" />
 
-<img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-FraternityMaster.png" alt="Fraternity Master View" width="300" /> <img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-Searched.png" alt="Fraternity Searching" width="300" /> 
+<img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-FraternityMaster.png" alt="Fraternity Master View" width="300" hspace = "20"/> <img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-Searched.png" alt="Fraternity Searching" width="300" />
 
 
 # Supported Devices
