@@ -5,17 +5,17 @@ Users of the iOS and Android Apps can see fraternity profiles, get directions to
 
 RushMe has been implemented successfully at Rensselaer Polytechnic Institute. The platform can easily be implemented elsewhere, requiring only fraternity participation, at no cost--now, or in the future. Feel free to contact us if your school is interested.
 
-# Screenshots
+#### Screenshots
 <img src= "https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-MenuOpen.png" alt="RushMe Menu" width="300" hspace = "20" /><img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-FraternityDetail.png" alt="Fraternity Detail View" width="300" />
 
 <img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-FraternityMaster.png" alt="Fraternity Master View" width="300" hspace = "20"/> <img src="https://raw.githubusercontent.com/RushMeTeam/RushMeiOS/master/fastlane/screenshots/en-US/iPhone%20X-Searched.png" alt="Fraternity Searching" width="300" />
 
-# Supported Platforms
+#### Supported Platforms
 The RushMe iOS App supports iPhones running iOS 10.3 and later.
-
-# Contribute to RushMe
-The team welcomes contributions to RushMe. To contribute fork the repository, make (and document!) some changes and submit a pull request for us to look over. Approved changes will be included in the next release.
 
 # Contact Us
 Regarding development or privacy concerns, [Adam Kuniholm](kuniha@rpi.edu).
 To learn more about RPI's Interfraternity Council, [the Vice President of RPI IFC](ifc.rpi.recruitment@gmail.com)
+
+#### Contribute to RushMe
+The team welcomes contributions to RushMe. To contribute fork the repository, make (and document!) some changes and submit a pull request for us to look over. Approved changes will be included in the next release.
