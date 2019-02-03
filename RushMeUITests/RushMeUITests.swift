@@ -25,7 +25,7 @@ class RushMeUITests: XCTestCase {
     //let tableView = app.tables["MasterTable"]
     
     app.launch()    
-    let searchFraternitiesLabel = app.staticTexts["Search 26 Fraternities"]
+    let searchFraternitiesLabel = app.staticTexts["22 Events"]
     _ = searchFraternitiesLabel.waitForExistence(timeout: 10)
     if app.buttons["Sure, let's go!"].exists {
       app.buttons["Sure, let's go!"].tap()
@@ -39,9 +39,37 @@ class RushMeUITests: XCTestCase {
     
   }
   
-  func testFraternities() {
+//  func testFraternities() {
+////    let elementsQuery = app.scrollViews.otherElements
+////    app.searchFields.firstMatch.tap()    
+////    snapshot("FraternityMaster")
+////    app.keys["C"].tap()
+////    app.keys["h"].tap()
+////    app.keys["i"].tap()
+////    app/*@START_MENU_TOKEN@*/.keys["space"]/*[[".keyboards.keys[\"space\"]",".keys[\"space\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+////    app/*@START_MENU_TOKEN@*/.buttons["shift"]/*[[".keyboards.buttons[\"shift\"]",".buttons[\"shift\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+////    app.keys["P"].tap()
+////    snapshot("Searched")
+////    elementsQuery.tables["MasterTable"].cells.firstMatch.tap()
+////    snapshot("FraternityDetail")
+////    app.buttons["Back"].tap()
+////    app.scrollViews.otherElements.buttons["Cancel"].tap()
+//  }
+//  
+//  func testMenu() {
+////    menuButton.tap()
+////    snapshot("MenuOpen")
+////    menuButton.tap()
+//  }
+  
+  func testNew() {
+    
+    menuButton.tap()
+    app.scrollViews["drawerMenuScrollView"].swipeDown()
+    snapshot("MenuOpen")
+    menuButton.tap()
     let elementsQuery = app.scrollViews.otherElements
-    app.searchFields.firstMatch.tap()    
+    app.searchFields.firstMatch.tap()   
     snapshot("FraternityMaster")
     app.keys["C"].tap()
     app.keys["h"].tap()
@@ -54,12 +82,10 @@ class RushMeUITests: XCTestCase {
     snapshot("FraternityDetail")
     app.buttons["Back"].tap()
     app.scrollViews.otherElements.buttons["Cancel"].tap()
-  }
-  
-  func testMenu() {
-    menuButton.tap()
-    snapshot("MenuOpen")
-    menuButton.tap()
+    
+   
+    
+    
   }
   /*
   func testGoingDown() {

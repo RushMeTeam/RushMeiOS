@@ -15,6 +15,11 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
       self.imageView.image = newValue 
     }
   }
+  func setImage(with path : RMImageFilePath) {
+    self.loadViewIfNeeded()
+   self.imageView.setImage(with: path) 
+  }
+  
   @IBOutlet var imageView: UIImageView!
   @IBOutlet weak var scrollView: UIScrollView!
   var visualEffectView : UIVisualEffectView?

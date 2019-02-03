@@ -23,9 +23,10 @@ struct User {
         })
       }
       set {
-        let alteredEvents = selectedEvents.symmetricDifference(newValue)
+        let oldEvents = selectedEvents
+        let alteredEvents = oldEvents.symmetricDifference(newValue)
         for event in alteredEvents {
-          Backend.log(action: !event.isSubscribed ? Action.Subscribed(event: event) : Action.Unsubscribed(event: event))
+          Backend.log(action: !oldEvents.contains(event) ? Action.Subscribed(event: event) : Action.Unsubscribed(event: event))
         }
         userPreferencesCache.set(Array<Int>(newValue.map({ (event) -> Int in
           return event.hashValue

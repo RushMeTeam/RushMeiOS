@@ -45,6 +45,9 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-ni-TO5">
                                 <rect key="frame" x="21.5" y="351.5" width="21" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Bn8-ni-TO5" secondAttribute="height" multiplier="1:1" id="ZON-5b-fXF"/>
                                     <constraint firstAttribute="height" constant="21" id="avi-9D-dgt"/>
@@ -57,6 +60,9 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up" translatesAutoresizingMaskIntoConstraints="NO" id="ryI-5c-Oic">
                                 <rect key="frame" x="21.5" y="294.5" width="21" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="JVf-yX-qOU"/>
                                 </constraints>
@@ -118,7 +124,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="i1X-xW-3mG">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Item" image="BurgerIcon" id="Bbi-fE-2gq">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="BurgerIcon" id="Bbi-fE-2gq">
                             <connections>
                                 <action selector="presentDrawer:" destination="xjg-2V-2c4" id="DM6-tm-eNN"/>
                             </connections>

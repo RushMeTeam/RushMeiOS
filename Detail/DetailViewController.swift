@@ -76,7 +76,7 @@ UIViewControllerPreviewingDelegate {
   
   var selectedFraternity: Fraternity? = nil {
     didSet {
-      if let events = selectedFraternity?.events {
+      if let events = selectedFraternity?.futureEvents {
         eventViewController?.selectedEvents = events
       }
       title = selectedFraternity?.name.greekLetters
@@ -249,9 +249,7 @@ UIViewControllerPreviewingDelegate {
     }
     // Do any additional setup after loading the view, typically from a nib.
     DispatchQueue.global(qos: .utility).async {
-      guard let event = frat.events?.filter({ (value) -> Bool in
-        return User.preferences.considerPastEvents || value.starting.compare(.today) != .orderedAscending
-      }).last else {
+      guard let event = frat.futureEvents?.sorted(by: <).first else {
         DispatchQueue.main.async { self.eventViewController!.selectedEvents = [] }
         return
       }

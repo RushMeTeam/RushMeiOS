@@ -15,6 +15,10 @@ class EventTableViewCell: UITableViewCell {
   @IBOutlet weak var eventNameLabel: UILabel!
   @IBOutlet weak var addButton: UIButton!
   
+  @IBOutlet weak var calendarButton: UIButton!
+  @IBOutlet weak var clipboardButton: UIButton!
+  
+  @IBOutlet weak var expandedView: UIStackView!
   static var addImage : UIImage? {
     get {
      return UIImage(imageLiteralResourceName: "bellUnfilled")
@@ -31,24 +35,29 @@ class EventTableViewCell: UITableViewCell {
     addButton.setImage(newImage, for: .normal)
   }
   
-  var event : Fraternity.Event? = nil {
-    didSet {
-      if let event = self.event {
-        self.eventNameLabel.isHidden = false
-        self.textLabel?.isHidden = true
-        let end = event.ending.formatToHour()
-        let start = event.starting.formatToHour()
-        let formatter = DateFormatter.init()
-        formatter.dateFormat = "MM.dd.yy"
-        self.dateLabel?.text = formatter.string(from: event.starting)
-        let fratNameLocation = event.frat.name.uppercased() + (event.location != nil ? " | " + event.location! : "") 
-        self.fratButton.setTitle(fratNameLocation, for: .normal)
-        if start != end {
-          self.timeLabel?.text = start + " - " + end
-        }
-        self.eventNameLabel?.text = event.name
-      }
+  override func layoutSubviews() {
+    super.layoutSubviews()
+//    expandedView.isHidden = !isSelected
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    expandedView.isHidden = !selected
+  }
+  
+  func set(event : Fraternity.Event) {
+    self.eventNameLabel.isHidden = false
+    self.textLabel?.isHidden = true
+    let end = event.ending.formatToHour()
+    let start = event.starting.formatToHour()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM.dd.yy"
+    self.dateLabel?.text = formatter.string(from: event.starting)
+    let fratNameLocation = event.frat.name.uppercased() + (event.location != nil ? " | " + event.location! : "") 
+    self.fratButton.setTitle(fratNameLocation, for: .normal)
+    if start != end {
+      self.timeLabel?.text = start + " - " + end
     }
+    self.eventNameLabel?.text = event.name
   }
   
   override func awakeFromNib() {
@@ -56,25 +65,5 @@ class EventTableViewCell: UITableViewCell {
     // Initialization code
     self.layer.masksToBounds = false
     
-  }
-}
-
-extension String {
-  func index(from: Int) -> Index {
-    return self.index(startIndex, offsetBy: from)
-  }
-  
-  func substring(from: Int) -> String {
-    return String(self[index(from: from)...])
-  }
-  
-  func substring(to: Int) -> String {
-    return String(self[...index(from: to)])
-  }
-  
-  func substring(with r: Range<Int>) -> String {
-    let startIndex = index(from: r.lowerBound)
-    let endIndex = index(from: r.upperBound)
-    return String(self[startIndex..<endIndex])
   }
 }

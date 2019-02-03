@@ -11,22 +11,26 @@ import FSCalendar
 
 class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FSCalendarDataSource, UIGestureRecognizerDelegate {
 
-  //@IBOutlet weak var tableView: UITableView!
-  
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
-  
   @IBOutlet weak var containerView: UIView!
-  fileprivate lazy var dateFormatter: DateFormatter = {
+  
+  fileprivate lazy var dateFormatter: DateFormatter = 
+  {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy/MM/dd"
     return formatter
   }()
-  private(set) var eventViewController : EventTableViewController!
+  
+  private var eventViewController : EventTableViewController! {
+    get {
+      return children.first as? EventTableViewController
+    }
+  }
   
   fileprivate lazy var scopeGesture: UIPanGestureRecognizer = {
     [unowned self] in
-    let panGesture = UIPanGestureRecognizer(target: self.calendar, action: #selector(self.calendar.handleScopeGesture(_:)))
+    let panGesture = UIPanGestureRecognizer(target: calendar, action: #selector(calendar.handleScopeGesture(_:)))
     panGesture.delegate = self
     panGesture.minimumNumberOfTouches = 1
     panGesture.maximumNumberOfTouches = 2
@@ -34,31 +38,20 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     }()
   
   override func viewWillAppear(_ animated: Bool) {
-    calendar.register(DIYCalendarCell.self, forCellReuseIdentifier: "cell") 
     calendar.reloadData()
     if let (_, end) = RushCalendar.shared.dateRange,
       end < .today {
-      eventViewController = children.first as? EventTableViewController
       calendar.select(end)
-      self.calendar(calendar, didSelect: end, at: .current)
+    } else {
+      calendar.select(.today)
+      calendar(calendar, didSelect: .today, at: .current)
     }
-  }
-  
-  
-  private func configureVisibleCells() {
-    calendar.visibleCells().forEach { (cell) in
-      let date = calendar.date(for: cell)
-      let position = calendar.monthPosition(for: cell)
-      self.configure(cell: cell, for: date!, at: position)
-    }
-  }
-  
-  func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
-    configureVisibleCells()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    calendar.register(RMCalendarCell.self, forCellReuseIdentifier: "cell") 
+
     self.calendar.appearance.weekdayTextColor = .darkGray
     self.calendar.appearance.headerTitleColor = Frontend.colors.AppColor
     self.calendar.appearance.eventDefaultColor = Frontend.colors.AppColor
@@ -69,16 +62,19 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     self.calendar.weekdayHeight = 10
     self.calendar.appearance.headerMinimumDissolvedAlpha = 0.2
     self.calendar.placeholderType = .none
+    self.calendar.appearance.headerDateFormat = "MMMM YYYY"
     
     self.view.addGestureRecognizer(self.scopeGesture)
     self.eventViewController?.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
     self.calendar.scope = .month
     
     // For UITest
-    self.calendar.accessibilityIdentifier = "calendar"
-    
+    self.calendar.accessibilityIdentifier = "FSCalendar"
+    calendar.select(.today)
   }
+  
   var fileURL : URL? = nil
+  
   @IBAction func exportEvents(_ sender: UIBarButtonItem) {
     DispatchQueue.main.async {
       let overlayView = UIView(frame: self.view.frame)
@@ -92,27 +88,27 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
       self.view.addSubview(overlayView)
       if let _ = self.fileURL {
         // Do nothing-- already loaded
+        return
       }
       else {
         // TODO: Fix this so it exports the correct events (favorites or otherwise)
         self.fileURL = self.exportEventsAsICS()
       }
-      if let url = self.fileURL {
-        let activityVC = UIActivityViewController(activityItems: [Frontend.text.shareMessage, url],
-                                                  applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = sender.customView
-        self.present(activityVC, animated: true, completion: {
-          sender.isEnabled = true
-          UIView.animate(withDuration: Frontend.animations.defaultDuration, animations: {
-            overlayView.alpha = 0
-          }, completion: { (completed) in
-            overlayView.removeFromSuperview()
-          })
-        })
-      }
-      else {
+      guard let url = self.fileURL else {
         print("Error in calendar share button!")
+        return
       }
+      let activityVC = UIActivityViewController(activityItems: [Frontend.text.shareMessage, url],
+                                                applicationActivities: nil)
+      activityVC.popoverPresentationController?.sourceView = sender.customView
+      self.present(activityVC, animated: true, completion: {
+        sender.isEnabled = true
+        UIView.animate(withDuration: Frontend.animations.defaultDuration, animations: {
+          overlayView.alpha = 0
+        }, completion: { (completed) in
+          overlayView.removeFromSuperview()
+        })
+      })
     }
   }
   /*
@@ -152,40 +148,64 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
   } 
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
-      Backend.log(action: .Selected(fraternity: selectedFraternity))
-      let controller = segue.destination as! UIPageViewController
-      controller.title = fratName.greekLetters
-      controller.title = fratName.greekLetters
-      controller.view.backgroundColor = .white
-      let dVC = UIStoryboard.main.detailVC
-      dVC.selectedFraternity = selectedFraternity
-      controller.setViewControllers([dVC], direction: .forward, animated: false)
+    guard segue.identifier == "showDetail", 
+          let fratName = sender as? String, 
+          let selectedFraternity = Campus.shared.fraternitiesByName[fratName] 
+      else {
+      return
+    }
+    Backend.log(action: .Selected(fraternity: selectedFraternity))
+    let controller = segue.destination as! UIPageViewController
+    controller.title = fratName.greekLetters
+    controller.view.backgroundColor = .white
+    let dVC = UIStoryboard.main.detailVC
+    dVC.selectedFraternity = selectedFraternity
+    controller.setViewControllers([dVC], direction: .forward, animated: false)
+  }
+  
+  // MARK:- UIGestureRecognizerDelegate
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    let velocity = scopeGesture.velocity(in: view)
+    switch calendar.scope {
+    case .month:
+      return velocity.y < 0
+    case .week:
+      return velocity.y > 0
     }
   }
-  // MARK:- UIGestureRecognizerDelegate
   
-  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-      let velocity = self.scopeGesture.velocity(in: self.view)
-      switch calendar.scope {
-      case .month:
-        return velocity.y < 0
-      case .week:
-        return velocity.y > 0
-      }
+  private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+    let diyCell = (cell as! RMCalendarCell)
+    // Custom today circle
+    //diyCell.tintColor = 
+    (diyCell.circleView as? UIImageView)?.tintColor = date >= .today ? Frontend.colors.SelectionColor : .gray
+    diyCell.circleView.isHidden = !Calendar.autoupdatingCurrent.isDateInToday(date)
+  }
+  
+  private func configureVisibleCells() {
+    calendar.visibleCells().forEach { (cell) in
+      let date = calendar.date(for: cell)
+      let position = calendar.monthPosition(for: cell)
+      configure(cell: cell, for: date!, at: position)
+    }
+  }
+  
+  func calendar(_ calendar: FSCalendar, didDeselect date: Date) {
+    configureVisibleCells()
   }
   
   func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-    return RushCalendar.shared.eventsOn(date).count
+    let count = RushCalendar.shared.eventsOn(date).count
+    return count
   }
   
   func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-    self.calendarHeightConstraint.constant = bounds.height.isNaN ? 300 : bounds.height
-    self.view.layoutIfNeeded()
+    calendarHeightConstraint.constant = bounds.height.isNaN ? 300 : bounds.height
+    view.layoutIfNeeded()
   }
   
   func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-    let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position) as! DIYCalendarCell
+    let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position) as! RMCalendarCell
     return cell
   }
   
@@ -208,39 +228,6 @@ class RMCalendarViewController: FSCalendarViewController, FSCalendarDelegate, FS
     UISelectionFeedbackGenerator().selectionChanged()
   }
   
-//  func calendarCurrentPageDidChange(_ calendar: FSCalendar) {}
-  
-  private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
-    let diyCell = (cell as! DIYCalendarCell)
-    // Custom today circle
-    diyCell.circleView.isHidden = !Calendar.autoupdatingCurrent.isDateInToday(date)
-    // Configure selection layer
-    if position == .current {
-      
-      var selectionType = SelectionType.none
-      
-      if calendar.selectedDates.contains(date) {
-//        let previousDate = Calendar.autoupdatingCurrent.date(byAdding: .day, value: -1, to: date)!
-//        let nextDate = Calendar.autoupdatingCurrent.date(byAdding: .day, value: 1, to: date)!
-        if calendar.selectedDates.contains(date) {
-          selectionType = .single
-        }
-      }
-      else {
-        selectionType = .none
-      }
-      if selectionType == .none {
-        diyCell.selectionLayer.isHidden = true
-        return
-      }
-      diyCell.selectionLayer.isHidden = false
-      diyCell.selectionType = selectionType
-      
-    } else {
-      diyCell.circleView.isHidden = true
-      diyCell.selectionLayer.isHidden = true
-    }
-  }
 }
 
 class FSCalendarViewController : UIViewController {

@@ -30,6 +30,7 @@ import iCalKit
 
 
 class RushCalendar {
+  
   static let shared : RushCalendar = RushCalendar()
   private(set) var events : Set<Fraternity.Event> = Set<Fraternity.Event>()
   private(set) var eventsByDay : [Date : Set<Fraternity.Event>] = [Date : Set<Fraternity.Event>]()
@@ -71,6 +72,7 @@ class RushCalendar {
       return eventsByDay[key]?.min(by: <)
     }
   }
+  
   var dateRange : (starts: Date, ends: Date)? {
     get {
       guard let starts = eventsByDay.keys.min(),
@@ -88,10 +90,7 @@ class RushCalendar {
   }
   
   func eventsOn(_ date : Date) -> Set<Fraternity.Event> {
-    return eventsByDay[date.dayDate]?.filter({ (event) -> Bool in
-      return User.preferences.considerPastEvents
-        || event.ending > (User.debug.debugDate ?? Date())
-    }) ?? Set<Fraternity.Event>()
+    return eventsByDay[date.dayDate] ?? Set<Fraternity.Event>()
   }
 }
 
@@ -134,7 +133,12 @@ extension Collection where Element : Fraternity.Event {
   }
 }
 extension Fraternity {
-  var events : Set<Fraternity.Event>? {
+  var futureEvents : Set<Fraternity.Event>? {
+    return allEvents?.filter({ (event) -> Bool in
+      return User.preferences.considerPastEvents || event.starting > Date()
+    })
+  }
+  var allEvents : Set<Fraternity.Event>? {
     return RushCalendar.shared.eventsByFraternity[self]
   }
 }

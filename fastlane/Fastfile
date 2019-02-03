@@ -11,7 +11,7 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
 
 default_platform(:ios)
 
@@ -32,7 +32,7 @@ platform :ios do
   lane :beta do
 #    sync_code_signing(type: "appstore")   
  # see code signing guide for more information
-#    increment_build_number 
+   increment_build_number 
 # automatically increment by one
     build_app(scheme: "RushMe")
     upload_to_testflight

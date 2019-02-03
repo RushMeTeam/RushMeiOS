@@ -127,7 +127,55 @@
 		DBA5755A1FADFFFA009F26A8 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
 		DBAF96D420BC6B5600165F5E /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF96D320BC6B5600165F5E /* PrivacyViewController.swift */; };
 		DBAFB1A621EA611F0089CECA /* RMCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB1A521EA611F0089CECA /* RMCalendarViewController.swift */; };
-		DBAFB1A821EA9CA30089CECA /* DIYCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB1A721EA9CA30089CECA /* DIYCalendarCell.swift */; };
+		DBAFB1A821EA9CA30089CECA /* RMCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB1A721EA9CA30089CECA /* RMCalendarCell.swift */; };
+		DBC9724421F8D26E00CB3C07 /* Frontend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FE921501C16006BC05A /* Frontend.swift */; };
+		DBC9724521F8D26E00CB3C07 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7E1DDE1F93C239002C6B80 /* Backend.swift */; };
+		DBC9724621F8D26E00CB3C07 /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF8215026C2006BC05A /* Format.swift */; };
+		DBC9724721F8D26E00CB3C07 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79BB1420730F9F00411AB1 /* Observable.swift */; };
+		DBC9724821F8D26E00CB3C07 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FDF21501868006BC05A /* User.swift */; };
+		DBC9724921F8D26E00CB3C07 /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB514FF321501DCD006BC05A /* Privacy.swift */; };
+		DBC9724A21F8D26E00CB3C07 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF96D320BC6B5600165F5E /* PrivacyViewController.swift */; };
+		DBC9724B21F8D26E00CB3C07 /* Privacy.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DBB1BA7C20B9BD2E0077872F /* Privacy.storyboard */; };
+		DBC9724C21F8D26E00CB3C07 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150082150308E006BC05A /* Images.swift */; };
+		DBC9724D21F8D26E00CB3C07 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB394E971FD10AFE004BF952 /* ImageViewController.swift */; };
+		DBC9724E21F8D26E00CB3C07 /* ImagePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9AC9FF2064428600BD4DCF /* ImagePageViewController.swift */; };
+		DBC9724F21F8D26E00CB3C07 /* Images.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB10481C2185313500EDDFB2 /* Images.storyboard */; };
+		DBC9725021F8D26E00CB3C07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7481F894A910090DEC3 /* AppDelegate.swift */; };
+		DBC9725121F8D26E00CB3C07 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE4A4A2105406B00D362C4 /* SWViewController.swift */; };
+		DBC9725221F8D26E00CB3C07 /* RMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCDA2662104FBAE00C11CB2 /* RMViewController.swift */; };
+		DBC9725321F8D26E00CB3C07 /* DrawerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32F38F20C45FCA00257D8C /* DrawerMenuViewController.swift */; };
+		DBC9725421F8D26E00CB3C07 /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = DB1956DF1F8AF2A500E2803F /* SWRevealViewController.h */; };
+		DBC9725521F8D26E00CB3C07 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E01F8AF2A500E2803F /* SWRevealViewController.m */; };
+		DBC9725621F8D26E00CB3C07 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F5A6E205EE87900F03B3B /* ScrollPageViewController.swift */; };
+		DBC9725721F8D26E00CB3C07 /* ScrollButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1956E21F8AFB4400E2803F /* ScrollButtonViewController.swift */; };
+		DBC9725821F8D26E00CB3C07 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6D7DD6206322CB004A70A1 /* SplitViewController.swift */; };
+		DBC9725921F8D26E00CB3C07 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57897E1FDAE5FD0083CB6C /* MapViewController.swift */; };
+		DBC9725A21F8D26E00CB3C07 /* Maps.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB1048162185309B00EDDFB2 /* Maps.storyboard */; };
+		DBC9725B21F8D26E00CB3C07 /* Fraternity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7781F894AFB0090DEC3 /* Fraternity.swift */; };
+		DBC9725C21F8D26E00CB3C07 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5150032150307E006BC05A /* Campus.swift */; };
+		DBC9725D21F8D26E00CB3C07 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74A1F894A910090DEC3 /* MasterViewController.swift */; };
+		DBC9725E21F8D26E00CB3C07 /* FraternitiesMaster.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB104818218530E100EDDFB2 /* FraternitiesMaster.storyboard */; };
+		DBC9725F21F8D26E00CB3C07 /* FraternityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2ED061FEC67AB00407858 /* FraternityTableViewCell.swift */; };
+		DBC9726021F8D26E00CB3C07 /* FraternityDetail.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB10481421852FFF00EDDFB2 /* FraternityDetail.storyboard */; };
+		DBC9726121F8D26E00CB3C07 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74C1F894A910090DEC3 /* DetailViewController.swift */; };
+		DBC9726221F8D26E00CB3C07 /* RushCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2338A81FD4F53300FB7118 /* RushCalendar.swift */; };
+		DBC9726321F8D26E00CB3C07 /* RMCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB1A521EA611F0089CECA /* RMCalendarViewController.swift */; };
+		DBC9726421F8D26E00CB3C07 /* RMCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAFB1A721EA9CA30089CECA /* RMCalendarCell.swift */; };
+		DBC9726521F8D26E00CB3C07 /* Calendar.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB10481A2185310E00EDDFB2 /* Calendar.storyboard */; };
+		DBC9726621F8D26E00CB3C07 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997F21FAC0320006A5246 /* CalendarViewController.swift */; };
+		DBC9726721F8D26E00CB3C07 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */; };
+		DBC9726821F8D26E00CB3C07 /* StaticCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */; };
+		DBC9726921F8D26E00CB3C07 /* EventList.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB38BC5D217F960400452B15 /* EventList.storyboard */; };
+		DBC9726A21F8D26E00CB3C07 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */; };
+		DBC9726B21F8D26E00CB3C07 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB627BF31FAE12DD00BA362B /* EventTableViewCell.swift */; };
+		DBC9726C21F8D26E00CB3C07 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
+		DBC9726D21F8D26E00CB3C07 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB05F74E1F894A910090DEC3 /* Main.storyboard */; };
+		DBC9726E21F8D26E00CB3C07 /* LaunchScreen.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7531F894A910090DEC3 /* LaunchScreen.storyboard */; };
+		DBC9726F21F8D26E00CB3C07 /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = DB05F7511F894A910090DEC3 /* Assets.xcassets */; };
+		DBC9727121F8D26E00CB3C07 /* RushMe-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = DBD1404F1F92860200945D9B /* RushMe-Bridging-Header.h */; };
+		DBC9727421F8D64200CB3C07 /* DeviceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC9727321F8D64200CB3C07 /* DeviceKit.framework */; };
+		DBC9727621F8D64200CB3C07 /* FSCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC9727521F8D64200CB3C07 /* FSCalendar.framework */; };
+		DBC9727821F8D64200CB3C07 /* iCalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC9727721F8D64200CB3C07 /* iCalKit.framework */; };
 		DBCDA2672104FBAE00C11CB2 /* RMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCDA2662104FBAE00C11CB2 /* RMViewController.swift */; };
 		DBCE4A4B2105406B00D362C4 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE4A4A2105406B00D362C4 /* SWViewController.swift */; };
 		DBD1403F1F90FC8200945D9B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */; };
@@ -229,8 +277,11 @@
 		DBA575591FADFFFA009F26A8 /* EventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		DBAF96D320BC6B5600165F5E /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		DBAFB1A521EA611F0089CECA /* RMCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCalendarViewController.swift; sourceTree = "<group>"; };
-		DBAFB1A721EA9CA30089CECA /* DIYCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIYCalendarCell.swift; sourceTree = "<group>"; };
+		DBAFB1A721EA9CA30089CECA /* RMCalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMCalendarCell.swift; sourceTree = "<group>"; };
 		DBB1BA7C20B9BD2E0077872F /* Privacy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Privacy.storyboard; sourceTree = "<group>"; };
+		DBC9727321F8D64200CB3C07 /* DeviceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeviceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC9727521F8D64200CB3C07 /* FSCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FSCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBC9727721F8D64200CB3C07 /* iCalKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iCalKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCDA2662104FBAE00C11CB2 /* RMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMViewController.swift; sourceTree = "<group>"; };
 		DBCE4A4A2105406B00D362C4 /* SWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
 		DBD1403E1F90FC8200945D9B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +312,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC9727421F8D64200CB3C07 /* DeviceKit.framework in Frameworks */,
+				DBC9727621F8D64200CB3C07 /* FSCalendar.framework in Frameworks */,
+				DBC9727821F8D64200CB3C07 /* iCalKit.framework in Frameworks */,
 				87610677F47BA24F847C3B23 /* Pods_RushMe_RushMeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +345,9 @@
 		B809A85A7E38A107FA1BA0C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBC9727321F8D64200CB3C07 /* DeviceKit.framework */,
+				DBC9727521F8D64200CB3C07 /* FSCalendar.framework */,
+				DBC9727721F8D64200CB3C07 /* iCalKit.framework */,
 				DB0A842620C084B5006048A8 /* Pods_RushMe.framework */,
 				A6922CC6B24716BD257B2F12 /* Pods_RushMe_RushMeUITests.framework */,
 				0D408C95B0DA6F3379595E5E /* Pods_RushMeTests.framework */,
@@ -428,15 +485,14 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		DB1048252185345A00EDDFB2 /* Calendar */ = {
+		DB1048252185345A00EDDFB2 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
-				DB10481A2185310E00EDDFB2 /* Calendar.storyboard */,
 				DB8997F21FAC0320006A5246 /* CalendarViewController.swift */,
 				DB8997EE1FAC005E006A5246 /* CalendarCollectionViewCell.swift */,
 				DB47437D2010002D00B17D1C /* StaticCalendarCollectionViewCell.swift */,
 			);
-			path = Calendar;
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		DB514FDC2150118E006BC05A /* Custom Subclasses */ = {
@@ -462,7 +518,7 @@
 			children = (
 				DB2338A81FD4F53300FB7118 /* RushCalendar.swift */,
 				DBAFB1A421EA60E60089CECA /* RMCalendar */,
-				DB1048252185345A00EDDFB2 /* Calendar */,
+				DB1048252185345A00EDDFB2 /* Deprecated */,
 				DB1048242185345200EDDFB2 /* List */,
 			);
 			path = Calendar;
@@ -502,7 +558,8 @@
 			isa = PBXGroup;
 			children = (
 				DBAFB1A521EA611F0089CECA /* RMCalendarViewController.swift */,
-				DBAFB1A721EA9CA30089CECA /* DIYCalendarCell.swift */,
+				DBAFB1A721EA9CA30089CECA /* RMCalendarCell.swift */,
+				DB10481A2185310E00EDDFB2 /* Calendar.storyboard */,
 			);
 			path = RMCalendar;
 			sourceTree = "<group>";
@@ -836,7 +893,7 @@
 				DBCDA2672104FBAE00C11CB2 /* RMViewController.swift in Sources */,
 				DB6D7DD7206322CB004A70A1 /* SplitViewController.swift in Sources */,
 				DBD2ED071FEC67AB00407858 /* FraternityTableViewCell.swift in Sources */,
-				DBAFB1A821EA9CA30089CECA /* DIYCalendarCell.swift in Sources */,
+				DBAFB1A821EA9CA30089CECA /* RMCalendarCell.swift in Sources */,
 				DB05F7491F894A910090DEC3 /* AppDelegate.swift in Sources */,
 				DB05F7791F894AFB0090DEC3 /* Fraternity.swift in Sources */,
 				DB32F39120C45FCA00257D8C /* DrawerMenuViewController.swift in Sources */,
@@ -902,6 +959,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC9724421F8D26E00CB3C07 /* Frontend.swift in Sources */,
+				DBC9724521F8D26E00CB3C07 /* Backend.swift in Sources */,
+				DBC9724621F8D26E00CB3C07 /* Format.swift in Sources */,
+				DBC9724721F8D26E00CB3C07 /* Observable.swift in Sources */,
+				DBC9724821F8D26E00CB3C07 /* User.swift in Sources */,
+				DBC9724921F8D26E00CB3C07 /* Privacy.swift in Sources */,
+				DBC9724A21F8D26E00CB3C07 /* PrivacyViewController.swift in Sources */,
+				DBC9724B21F8D26E00CB3C07 /* Privacy.storyboard in Sources */,
+				DBC9724C21F8D26E00CB3C07 /* Images.swift in Sources */,
+				DBC9724D21F8D26E00CB3C07 /* ImageViewController.swift in Sources */,
+				DBC9724E21F8D26E00CB3C07 /* ImagePageViewController.swift in Sources */,
+				DBC9724F21F8D26E00CB3C07 /* Images.storyboard in Sources */,
+				DBC9725021F8D26E00CB3C07 /* AppDelegate.swift in Sources */,
+				DBC9725121F8D26E00CB3C07 /* SWViewController.swift in Sources */,
+				DBC9725221F8D26E00CB3C07 /* RMViewController.swift in Sources */,
+				DBC9725321F8D26E00CB3C07 /* DrawerMenuViewController.swift in Sources */,
+				DBC9725421F8D26E00CB3C07 /* SWRevealViewController.h in Sources */,
+				DBC9725521F8D26E00CB3C07 /* SWRevealViewController.m in Sources */,
+				DBC9725621F8D26E00CB3C07 /* ScrollPageViewController.swift in Sources */,
+				DBC9725721F8D26E00CB3C07 /* ScrollButtonViewController.swift in Sources */,
+				DBC9725821F8D26E00CB3C07 /* SplitViewController.swift in Sources */,
+				DBC9725921F8D26E00CB3C07 /* MapViewController.swift in Sources */,
+				DBC9725A21F8D26E00CB3C07 /* Maps.storyboard in Sources */,
+				DBC9725B21F8D26E00CB3C07 /* Fraternity.swift in Sources */,
+				DBC9725C21F8D26E00CB3C07 /* Campus.swift in Sources */,
+				DBC9725D21F8D26E00CB3C07 /* MasterViewController.swift in Sources */,
+				DBC9725E21F8D26E00CB3C07 /* FraternitiesMaster.storyboard in Sources */,
+				DBC9725F21F8D26E00CB3C07 /* FraternityTableViewCell.swift in Sources */,
+				DBC9726021F8D26E00CB3C07 /* FraternityDetail.storyboard in Sources */,
+				DBC9726121F8D26E00CB3C07 /* DetailViewController.swift in Sources */,
+				DBC9726221F8D26E00CB3C07 /* RushCalendar.swift in Sources */,
+				DBC9726321F8D26E00CB3C07 /* RMCalendarViewController.swift in Sources */,
+				DBC9726421F8D26E00CB3C07 /* RMCalendarCell.swift in Sources */,
+				DBC9726521F8D26E00CB3C07 /* Calendar.storyboard in Sources */,
+				DBC9726621F8D26E00CB3C07 /* CalendarViewController.swift in Sources */,
+				DBC9726721F8D26E00CB3C07 /* CalendarCollectionViewCell.swift in Sources */,
+				DBC9726821F8D26E00CB3C07 /* StaticCalendarCollectionViewCell.swift in Sources */,
+				DBC9726921F8D26E00CB3C07 /* EventList.storyboard in Sources */,
+				DBC9726A21F8D26E00CB3C07 /* EventTableViewController.swift in Sources */,
+				DBC9726B21F8D26E00CB3C07 /* EventTableViewCell.swift in Sources */,
+				DBC9726C21F8D26E00CB3C07 /* SettingsViewController.swift in Sources */,
+				DBC9726D21F8D26E00CB3C07 /* Main.storyboard in Sources */,
+				DBC9726E21F8D26E00CB3C07 /* LaunchScreen.storyboard in Sources */,
+				DBC9726F21F8D26E00CB3C07 /* Assets.xcassets in Sources */,
+				DBC9727121F8D26E00CB3C07 /* RushMe-Bridging-Header.h in Sources */,
 				DB1D200521CECC76001A3D6E /* Notifications.swift in Sources */,
 				DB269732217E07C8004361F7 /* SnapshotHelper.swift in Sources */,
 				DB269731217E07B3004361F7 /* RushMeUITests.swift in Sources */,
@@ -1113,9 +1215,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1136,9 +1239,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = 7KE765B32L;
 				INFOPLIST_FILE = RushMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FratBoys.RushMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";

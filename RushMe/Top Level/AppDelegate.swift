@@ -54,8 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationDidEnterBackground(_ application: UIApplication) {
     Backend.log(action: .AppWillEnterBackground)
   }
-  func applicationDidBecomeActive(_ application: UIApplication) {}
-  func applicationWillTerminate(_ application: UIApplication) {}
   
   func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
     //    completionHandler(shouldPerformActionFor(shortcutItem: shortcutItem))

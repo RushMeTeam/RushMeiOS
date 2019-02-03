@@ -57,21 +57,13 @@ UISplitViewControllerDelegate {
   func handlePercentageCompletion(oldValue : Float?, newValue : Float) {
     progress = newValue
     DispatchQueue.main.async {
-      self.drawerButton.isEnabled = newValue == 1 || newValue == 0
       if newValue == 1 {
         Notifications.refresh(requestAuthorization: false)
-      } else {
-        
-      }
-      if newValue == 1 {
         for controller in self.pageViewControllers {
           controller.viewWillAppear(false)
         }
       }
     }
-    //    for updatable in pageViewControllers where updatable is ScrollableItem {
-    //     (updatable as! ScrollableItem).updateData()
-    //    }
   }
   
   override func goToPage(page: Int, animated: Bool) {

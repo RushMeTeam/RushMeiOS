@@ -11,24 +11,11 @@ import MapKit
 
 class MapViewController: UIViewController, 
   MKMapViewDelegate {
+  
   @IBOutlet weak var navigationBarExtensionView: UIView!
-  
-  lazy var indicator : UIActivityIndicatorView = UIActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: 128, height: 128))
-  lazy var overView : UIVisualEffectView = {
-    let newView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .light))
-    newView.frame = view.bounds
-    indicator.center = newView.center
-    newView.contentView.addSubview(indicator)
-    indicator.startAnimating()
-    return newView
-  }()
-  
   @IBOutlet weak var mapView: MKMapView!
-  //  @IBOutlet var stepper: UIStepper!
   @IBOutlet weak var informationButton: UIButton!
-  
   @IBOutlet weak var fratNameButton: UIButton!
-  
   @IBOutlet weak var favoritesControl: UISegmentedControl!
   
   var viewingFavorites : Bool {
@@ -36,6 +23,7 @@ class MapViewController: UIViewController,
       return favoritesControl.selectedSegmentIndex == 1 
     }
   }
+  
   private(set) var fratAnnotations = [MKAnnotation]()
   
   @IBAction func favoritesControlSelected(_ sender: UISegmentedControl) {
@@ -59,16 +47,17 @@ class MapViewController: UIViewController,
     
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSAttributedString.Key.foregroundColor: Frontend.colors.NavigationItemsColor]
-    self.favoritesControl.tintColor = Frontend.colors.NavigationBarTintColor
-    self.fratNameButton.tintColor = Frontend.colors.NavigationItemsColor
-    self.informationButton.tintColor = Frontend.colors.NavigationItemsColor
-    self.navigationBarExtensionView.backgroundColor = Frontend.colors.NavigationBarColor
+    favoritesControl.tintColor = Frontend.colors.NavigationBarTintColor
+    fratNameButton.tintColor = Frontend.colors.NavigationItemsColor
+    informationButton.tintColor = Frontend.colors.NavigationItemsColor
+    navigationBarExtensionView.backgroundColor = Frontend.colors.NavigationBarColor
     
-    self.mapView.delegate = self
-    self.mapView.showAnnotations(self.mapView.annotations, animated: false)
-    self.mapView.setCenter(self.center, animated: false)
-    self.mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
-    self.updateAnnotations(fromAllFrats: !viewingFavorites, animated: false) 
+    mapView.delegate = self
+    mapView.showAnnotations(self.mapView.annotations, animated: false)
+    mapView.setCenter(self.center, animated: false)
+    mapView.region.span = MKCoordinateSpan.init(latitudeDelta: 0.03, longitudeDelta: 0.03)
+    
+    updateAnnotations(fromAllFrats: !viewingFavorites, animated: false) 
   }
   
   override func didReceiveMemoryWarning() {
@@ -87,7 +76,6 @@ class MapViewController: UIViewController,
   }
   // TODO : Fix favorites annotations BUG
   func updateAnnotations(fromAllFrats: Bool = true, animated : Bool = true, forced : Bool = false) {
-    indicator.startAnimating()
     mapView.isScrollEnabled = !self.mapView.annotations.isEmpty
     favoritesControl.isEnabled = Campus.shared.hasFavorites || favoritesControl.selectedSegmentIndex == 1
     mapView.removeAnnotations(mapView.annotations)
@@ -117,33 +105,41 @@ class MapViewController: UIViewController,
   }
   
   override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-    if let selected = mapView?.selectedAnnotations.first,
+    guard let selected = mapView?.selectedAnnotations.first,
       let name = selected.title,
       let fratName = name,
-      Campus.shared.fraternityNames.contains(fratName) {
-      return true
+      Campus.shared.fraternityNames.contains(fratName) else {
+      return false
     }
-    return false
+    return true
   }
   
   @IBAction func goToFraternity(_ sender: Any) {
-    self.performSegue(withIdentifier: "showDetail", sender: mapView.selectedAnnotations.first?.title as Any)
+    self.performSegue(withIdentifier: "showDetail", 
+                      sender: mapView.selectedAnnotations.first?.title as Any)
   }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "showDetail", let fratName = sender as? String, let selectedFraternity = Campus.shared.fraternitiesByName[fratName] {
-      Backend.log(action: .Selected(fraternity: selectedFraternity))
-      let controller = segue.destination as! UIPageViewController
-      controller.title = fratName.greekLetters
-      controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
-      controller.title = fratName.greekLetters
-      controller.view.backgroundColor = .white
-      let dVC = UIStoryboard.main.detailVC
-      dVC.selectedFraternity = selectedFraternity
-      controller.setViewControllers([dVC], direction: .forward, animated: false)
+    guard segue.identifier == "showDetail", 
+      let fratName = sender as? String, 
+      let selectedFraternity = Campus.shared.fraternitiesByName[fratName],
+      let controller = segue.destination as? UIPageViewController else {
+        return
     }
+    Backend.log(action: .Selected(fraternity: selectedFraternity))
+    controller.title = fratName.greekLetters
+    controller.navigationItem.setRightBarButton(barButtonItem(for: selectedFraternity), animated: false)
+    controller.view.backgroundColor = .white
+    let dVC = UIStoryboard.main.detailVC
+    dVC.selectedFraternity = selectedFraternity
+    controller.setViewControllers([dVC], direction: .forward, animated: false)
   }
+  
   func barButtonItem(for frat : Fraternity) -> UIBarButtonItem {
-    let button = UIBarButtonItem(image: frat.isFavorite ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , style: .plain, target: self, action: #selector(MasterViewController.toggleFavorite(sender:)))
+    let button = UIBarButtonItem(image: frat.isFavorite ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")  , 
+                                 style: .plain, 
+                                 target: self, 
+                                 action: #selector(MasterViewController.toggleFavorite(sender:)))
     button.title = frat.name
     return button
   }
