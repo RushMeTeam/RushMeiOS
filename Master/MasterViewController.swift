@@ -32,7 +32,7 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
   @objc func toggleFavorite(sender : UIBarButtonItem) {
     if let fratName = sender.title, let frat = Campus.shared.fraternitiesByName[fratName] {
       sender.image = Campus.shared.toggleFavorite(frat: frat) ? #imageLiteral(resourceName: "FavoritesIcon") : #imageLiteral(resourceName: "FavoritesUnfilled")
-      tableView.reloadRows(at: [IndexPath.init(row: dataKeys.index(of: fratName)!, section: 0)], with: .automatic)
+      tableView.reloadRows(at: [IndexPath.init(row: dataKeys.firstIndex(of: fratName)!, section: 0)], with: .automatic)
     }
   }
   // MARK: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating
@@ -385,11 +385,11 @@ UIGestureRecognizerDelegate, UIPageViewControllerDelegate {
     dataUpdate()
   }
   func getFrat(after : String) -> String? {
-    let index = dataKeys.index(of: after)
+    let index = dataKeys.firstIndex(of: after)
     return (index != nil && index! < dataKeys.count-1) ? dataKeys[index!+1] : nil
   }
   func getFrat(before : String) -> String? {
-    let index = dataKeys.index(of: before)
+    let index = dataKeys.firstIndex(of: before)
     return (index != nil && index! > 0) ? dataKeys[index!-1] : nil
   }
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

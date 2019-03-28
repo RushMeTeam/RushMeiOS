@@ -52,7 +52,7 @@ struct Privacy {
     return privacyRow?["mandatory"] as? Bool ?? getPrivacyStatement()?.isMandatory
   }
   private static func getPrivacyStatement() -> (policy : String, effective: Date, isMandatory: Bool)? {
-    guard let selectAttempt = try? Backend.selectAll(fromTable: "privacy.rushme").first,
+    guard let selectAttempt = ((try? Backend.selectAll(fromTable: "privacy.rushme").first) as Dictionary<String, Any>??),
           let dictionary = selectAttempt else {
       print("Failed to get the privacy policy")
       return nil

@@ -115,7 +115,7 @@ class SettingsViewController: UIViewController {
     var fileSize = 0.0
     var fileNumber = 0
     let _ = FileManager.default.subpaths(atPath: User.files.fratImageURL.path)?.forEach({ (fileName) in
-      fileSize += ((try? FileManager.default.attributesOfItem(atPath: User.files.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) ?? nil) ?? 0
+      fileSize += ((((try? FileManager.default.attributesOfItem(atPath: User.files.fratImageURL.appendingPathComponent(fileName).path)[FileAttributeKey.size] as? Double ?? nil) as Double??)) ?? nil) ?? 0
       fileNumber += 1
     })
     let deleteAlert = UIAlertController.init(title: String(format: "Free %.1f mb", fileSize/1000000.0), message: nil, preferredStyle: .actionSheet)
