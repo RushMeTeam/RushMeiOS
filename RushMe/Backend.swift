@@ -260,7 +260,7 @@ fileprivate extension URLRequest {
 // TODO: Move this into the Backend Struct
 struct Keys {
   static let fraternitiesPath = "fraternites.rushme"
-  static let eventsPath = "events_s2018.rushme"
+  static let eventsPath = "events.rushme"
   struct keys {
     struct frat {
       static let name    = "name"    ; static let coverImage   = "cover_image"
@@ -333,8 +333,7 @@ extension RushCalendar {
     guard let eventDateRaw = dict[Keys.keys.event.startTime] as? String else {
       throw AddError.noValueFor(key: "startTime")
     }
-    guard let eventDate = DateFormatter.iso8601.date(from: eventDateRaw) ??
-                    User.device.iso8601.date(from: eventDateRaw + ":00+00:00") else {
+    guard let eventDate = ISO8601DateFormatter([.withInternetDateTime]).date(from: eventDateRaw) else {
       throw AddError.cannotCast(string : eventDateRaw, toType: "Date")
     }
     
@@ -416,13 +415,13 @@ extension Fraternity {
 }
 
 extension ISO8601DateFormatter {
-  convenience init(_ formatOptions: Options, timeZone: TimeZone? = nil) {
+  convenience init(_ formatOptions: Options, timeZone: TimeZone = Calendar.autoupdatingCurrent.timeZone) {
     self.init()
     self.formatOptions = formatOptions
-    self.timeZone = timeZone ?? TimeZone(secondsFromGMT: 0)
+    self.timeZone = timeZone
   }
 }
 extension DateFormatter {
   @available(iOS 11.0, *)
-  static let iso8601 = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
+  static let iso8601 = ISO8601DateFormatter([.withInternetDateTime])
 }
